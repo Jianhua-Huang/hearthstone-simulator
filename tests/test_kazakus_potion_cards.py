@@ -94,11 +94,11 @@ class KazakusPotionTests(unittest.TestCase):
     def choose(self,g,key='ok'):
         q=g.state.pending_choice;g.apply(SelectChoice(q.player_id,q.id,(key,)))
 
-    def test_full_actual_source_and_choice_only_parts_do_not_register_aya_or_wild_kazakus(self):
+    def test_full_actual_source_and_choice_only_parts_keep_original_dependency_scope(self):
         d=load_batch();r=fixture()
         self.assertEqual(len(d['official_observations']),26)
         self.assertTrue(all(r.card(c).choice_only for c in PARTS))
-        self.assertNotIn('JAIL_504',r.cards);self.assertNotIn('CFM_621',r.cards)
+        self.assertFalse(d['root_implemented']);self.assertNotIn('CFM_621',r.cards)
         self.assertEqual((r.card(DEMON).attack,r.card(DEMON).health),(2,2))
 
     def test_36_real_distinct_recipes_have_canonical_identity_and_only_fire_needs_target(self):

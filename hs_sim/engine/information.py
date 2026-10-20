@@ -197,10 +197,11 @@ class Information:
         if event.kind.startswith('player_effect_') and data.get('effect_key') is not None:
             from .issued_spell_sets import is_program_spec
             from .named_minion_boons import is_program as is_named_boon_program
+            from .coin_replacements import is_program as is_coin_replacement_program
             if is_program_spec(game.registry.player_effect(data['effect_key'])):return
         for viewer, knowledge in self.players.items():
             if (event.kind.startswith('player_effect_') and data.get('effect_key') is not None and
-                    is_named_boon_program(game.registry,data['effect_key']) and viewer!=event.player_id):
+                    (is_named_boon_program(game.registry,data['effect_key']) or is_coin_replacement_program(game.registry,data['effect_key'])) and viewer!=event.player_id):
                 continue
             if event.kind == 'card_revealed' and viewer not in data['viewers']:
                 continue
@@ -476,6 +477,7 @@ class Information:
         from .player_effects import public_effect
         from .issued_spell_sets import is_program_spec
         from .named_minion_boons import is_program as is_named_boon_program
+        from .coin_replacements import is_program as is_coin_replacement_program
         from .battlecry_modifiers import public_modifier
         from .combo_modifiers import public_modifier as public_combo_modifier
         from .spell_modifiers import public_modifier as public_spell_modifier
@@ -490,7 +492,8 @@ class Information:
                 'quests': [entity_view(i) for i in player.quests],
                 'secrets': [entity_view(i) for i in player.secrets],
                 'player_effects': [public_effect(game.registry, e) for e in player.player_effects
-                    if not is_program_spec(game.registry.player_effect(e.spec_id)) and (player.id==viewer or not is_named_boon_program(game.registry,e.spec_id))],
+                    if not is_program_spec(game.registry.player_effect(e.spec_id)) and (player.id==viewer or not (
+                        is_named_boon_program(game.registry,e.spec_id) or is_coin_replacement_program(game.registry,e.spec_id)))],
                 'battlecry_modifiers': [public_modifier(m) for m in player.battlecry_modifiers],
                 'combo_modifiers': [public_combo_modifier(m) for m in player.combo_modifiers],
                 'spell_modifiers': [public_spell_modifier(m) for m in player.spell_modifiers],

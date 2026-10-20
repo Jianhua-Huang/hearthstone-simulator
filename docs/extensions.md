@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原套牌后手用register_second_player_card；真实三选升级币用CoinReplacementProfile及原AddPlayerEffect。完整币族、普通替换与新生溢出边界见[艾雅契约](m3-aya-counterfeit-coins.md)。
+
 真实一费卡扎库斯药水使用ComposedSpellProfile/Recipe及CreateRandomComposedSpell；有序成分委托原执行器，生命奖励使用原驻留引用。不要给原展示选项增加on_play或隐式放宽生成池，见[药水契约](m3-kazakus-potion-forms.md)。
 
 接邻精华使用AdjoiningSpellProfile与CastAdjoiningSpells，冻结原物理手牌组后委托CastStoredSpell；不要从后续手牌重新扩大组，见[契约](m3-adjoining-spells.md)。

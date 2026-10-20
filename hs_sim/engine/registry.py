@@ -153,6 +153,9 @@ class Registry:
         self._crafted_minion_blueprints = {}
         self._crafted_minion_parts = set()
         self._composed_spell_profiles = {}
+        self._second_player_cards = set()
+        self._coin_replacement_profiles = {}
+        self._coin_replacement_programs = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
         self._passive_hero_power_profiles = {}
@@ -276,6 +279,28 @@ class Registry:
         validate_profile(self,profile)
         if profile.template_card_id in self._composed_spell_profiles:raise ValueError('Duplicate Potion template profile')
         self._composed_spell_profiles[profile.template_card_id]=profile
+
+    @property
+    def second_player_cards(self):return frozenset(self._second_player_cards)
+
+    def register_second_player_card(self,card_id):
+        self._require_mutable()
+        if self.card(card_id).kind!=CardType.MINION or card_id in self._second_player_cards:
+            raise ValueError('Original-deck second-player rule requires a distinct actual minion')
+        self._second_player_cards.add(card_id)
+
+    @property
+    def coin_replacement_programs(self):return MappingProxyType(self._coin_replacement_programs)
+
+    def register_coin_replacement_profile(self,profile):
+        self._require_mutable()
+        from .coin_replacements import validate_profile
+        validate_profile(self,profile)
+        if profile.battlecry_card_id in self._coin_replacement_profiles or any(
+                c.program_id in self._coin_replacement_programs for c in profile.choices):
+            raise ValueError('Duplicate Coin replacement source or selected program')
+        self._coin_replacement_profiles[profile.battlecry_card_id]=profile
+        for c in profile.choices:self._coin_replacement_programs[c.program_id]=(profile,c)
 
     def register_crafted_minion_part(self,card_id):
         self._require_mutable();_name(card_id,'reviewed crafted ingredient')
@@ -1871,6 +1896,10 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .coin_replacements import validate_profile as validate_coin_replacement
+        for profile in self._coin_replacement_profiles.values():validate_coin_replacement(self,profile)
+        if any(self.card(cid).kind!=CardType.MINION for cid in self._second_player_cards):
+            raise ValueError('Second-player declaration lost its original minion')
         from .composed_spells import validate_profile as validate_potion_profile
         for profile in self._composed_spell_profiles.values():validate_potion_profile(self,profile)
         from .adjoining_spells import validate_profile as validate_adjoining_profile
@@ -2322,6 +2351,9 @@ class Registry:
         if self._crafted_minion_parts:payload['crafted_minion_parts']=sorted(self._crafted_minion_parts)
         if self._composed_spell_profiles:
             payload['composed_spell_profiles']=[asdict(self._composed_spell_profiles[k])for k in sorted(self._composed_spell_profiles)]
+        if self._second_player_cards:payload['second_player_cards']=sorted(self._second_player_cards)
+        if self._coin_replacement_profiles:
+            payload['coin_replacement_profiles']=[asdict(self._coin_replacement_profiles[k])for k in sorted(self._coin_replacement_profiles)]
         if self._invoke_profile is not None:
             payload['invoke_profile'] = asdict(self._invoke_profile)
         if self._mana_rank_families:

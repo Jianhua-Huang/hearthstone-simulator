@@ -251,7 +251,8 @@ class Game:
         # constructed turn. Opening can suspend or end before StartFirstTurn.
         game._state.owner_turn_history.clear()
         game._match_setup = setup
-        first = setup.first_player if setup.first_player is not None else game._rng.choice((1, 2))
+        from .opening_turn_order import choose as choose_turn_order,publish as publish_turn_order
+        first,turn_order_proof = choose_turn_order(game)
         game._state.active_player = first
         game._state.opening = OpeningState(first, original_entities=tuple(tuple(p.deck) for p in game._state.players.values()))
         for player_id, deck in enumerate(setup.decks, 1):
@@ -261,7 +262,9 @@ class Game:
             player.sideboards = tuple(SideboardState(b.source_card_id, b.cards) for b in deck.sideboards)
         game._resolving = True
         try:
-            Resolution(game).run([BeginGame()])
+            resolution=Resolution(game)
+            publish_turn_order(resolution,turn_order_proof)
+            resolution.run([BeginGame()])
             game._information.sync(game)
             game._assert_stable()
         except Exception as exc:
@@ -473,6 +476,8 @@ class Game:
         validate_adjoining_spells(self)
         from .composed_spells import validate_game as validate_composed_spells
         validate_composed_spells(self)
+        from .coin_replacements import validate_boundary as validate_coin_replacements
+        validate_coin_replacements(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

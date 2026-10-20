@@ -1,0 +1,1585 @@
+{
+  "schema": 1,
+  "batch": "K309-aya-counterfeit-coins",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "JAIL_504",
+        "dbf_id": 125989,
+        "name": "艾雅，玉莲帮主",
+        "name_en": "Aya, Lotus Kingpin",
+        "text": "你始终为后手。<b>战吼：</b>在本局对战中，将你的幸运币替换为所选的升级后的伪造幸运币，并获取3张。",
+        "text_en": "[x]You always go second.\n<b>Battlecry:</b> Pick an upgraded\ncounterfeit to replace your\n__Coins this game. Get 3.",
+        "cost": 6,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "4818": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4818",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4818"
+          }
+        ]
+      },
+      "record_sha256": "03cd15291425f97e0d2061c7df5c8d3c615885f4550ae4feb473b79eece9d3c9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_504",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAIL_504t",
+        "dbf_id": 127152,
+        "name": "玉莲幸运币",
+        "name_en": "Jade Coin",
+        "text": "在本回合中，获得一个法力水晶。召唤一个{0}的<b>青玉魔像</b>。@在本回合中，获得一个法力水晶。召唤一个<b>青玉魔像</b>。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Summon a{1} {0} <b>Jade Golem</b>.@Gain 1 Mana Crystal this turn only. Summon a <b>Jade Golem</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cc68b154cb60375019f76676875ed9f66a95b66e67c44919cfd6730d8b6c3af9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504t3",
+        "dbf_id": 127154,
+        "name": "暗金幸运币",
+        "name_en": "Kabal Coin",
+        "text": "在本回合中，获得一个法力水晶。随机获取一张法力值消耗为（1）的卡扎库斯药水。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Get a random 1-Cost Kazakus Potion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "5dcc7ae28c8df5487e1be7b887a01dd0e8064b7628cf7ca31b3a0021bc72126c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504tt01",
+        "dbf_id": 127163,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c95c93745a273cd39d0f8bac25012243db5b0991b6dea095f1e8596c29cb20e2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504tt01",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504tt04",
+        "dbf_id": 129987,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b91dc01b834baa5244a8a9e87f728d197b6ab7f11025b494d932b904cc2249da",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504tt04",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504tt07",
+        "dbf_id": 129988,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "696669066693e67a3800c81011f329523e4ceac1dcf63b3f63ee5888efff9b4b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504tt07",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504tt20",
+        "dbf_id": 129989,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 10,
+        "attack": 20,
+        "health": 20,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 20,
+          "ATK": 20,
+          "COST": 10,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "89cbd43ca7d66839da570300f16f29870ab762034c9d2623d742b0a3c4f67888",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504tt20",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "choice_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "JAIL_504t2",
+        "dbf_id": 127153,
+        "name": "污手幸运币",
+        "name_en": "Grimy Coin",
+        "text": "在本回合中，获得一个法力水晶。随机对一个敌方随从造成$2点伤害。",
+        "text_en": "Gain 1 Mana Crystal this turn only. Deal $2 damage to a random enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "53a3ef5191b55b05386e78edebae246758c56bb7a6c5c1611f9e0cc5687b8634",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_504t3p",
+        "dbf_id": 131327,
+        "name": "卡扎库斯药水",
+        "name_en": "Kazakus Potion",
+        "text": "{0}{1}",
+        "text_en": "{0}\n{1}",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "b954e2acff4de9a2441e68365fee14cba892b094de8ac7f43fd6b7712759df21",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_504t3p",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "existing_dependency_definition_pins": {
+    "JAIL_504t2": {
+      "definition": {
+        "id": "JAIL_504t2",
+        "name": "污手幸运币",
+        "kind": "spell",
+        "cost": 0,
+        "attack": 0,
+        "health": 0,
+        "keywords": [],
+        "on_play": "cards.simple_followup_p62.JAIL_504t2",
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "rogue"
+          ],
+          "rarity": "none",
+          "deck_identity": "JAIL_504t2",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": true,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "13b44dd8a92499f0414da092825049ee076e6a8659ec2aec32d22cd9d616cc1f"
+    },
+    "JAIL_504t3p": {
+      "definition": {
+        "id": "JAIL_504t3p",
+        "name": "卡扎库斯药水",
+        "kind": "spell",
+        "cost": 1,
+        "attack": 0,
+        "health": 0,
+        "keywords": [],
+        "on_play": "cards.kazakus_potion.uninitialized",
+        "battlecry": null,
+        "combo": null,
+        "deathrattle": null,
+        "triggers": [],
+        "auras": [],
+        "requires_target": false,
+        "target_rule": "any_entity",
+        "spell_damage": 0,
+        "targeting": null,
+        "durability": 0,
+        "on_use": null,
+        "uses_per_turn": 1,
+        "use_rule": "always",
+        "requires_board_space": false,
+        "cost_auras": [],
+        "keyword_auras": [],
+        "battlecry_repeats": [],
+        "deathrattle_repeats": [],
+        "combo_repeats": [],
+        "spell_repeats": [],
+        "health_loss_replacements": [],
+        "health_loss_floors": [],
+        "summon_quantities": [],
+        "weapon_wear_policies": [],
+        "deck_sacrifice": null,
+        "corpse_value": null,
+        "spell_school": null,
+        "health_rules": [],
+        "metadata": {
+          "collectible": false,
+          "classes": [
+            "neutral"
+          ],
+          "rarity": "none",
+          "deck_identity": "JAIL_504t3p",
+          "max_copies": null,
+          "runes": {
+            "blood": 0,
+            "frost": 0,
+            "unholy": 0
+          },
+          "tribes": [],
+          "factions": [],
+          "subtypes": []
+        },
+        "opening_hooks": [],
+        "initial_hero_power": null,
+        "hand_actions": [],
+        "starship_for": [],
+        "on_launch": null,
+        "choice_only": false,
+        "hero_card": false,
+        "hero_armor": 0,
+        "keep_hero_class": false,
+        "additional_power_policy": "preserve",
+        "dormant_turns": 0,
+        "dormant_board_full": false,
+        "native_deathrattle": null,
+        "on_awaken": null,
+        "dormant_triggers": [],
+        "activated_abilities": [],
+        "quest": null,
+        "ongoing_effect_id": null,
+        "secret": null,
+        "target_condition": null,
+        "manathirst": null,
+        "magnetic_tribes": [],
+        "colossal": [],
+        "herald_scaling": false,
+        "herald_soldier_for": null,
+        "limited_triggers": [],
+        "hand_progress": null,
+        "defining_hand_source": null,
+        "shatter": null,
+        "hand_repeat": null,
+        "hand_derivatives": [],
+        "cast_when_drawn": null,
+        "rewind": null,
+        "retain_rewind_outcomes": false,
+        "passive_hero_power": false,
+        "choose_one": null,
+        "choose_both": false,
+        "timed_keywords": [],
+        "hero_power_repeats": [],
+        "end_turn_repeats": [],
+        "intrinsic_costs": [],
+        "attack_policies": [],
+        "stat_relations": [],
+        "disguised": false,
+        "interactable": null,
+        "board_minion_cost": null,
+        "hand_count_cost": null,
+        "hero_missing_health_cost": null,
+        "player_spell_count_cost": null,
+        "player_hero_power_count_cost": null,
+        "player_spell_mana_cost": null,
+        "minion_death_cost": null,
+        "player_overload_cost": null,
+        "player_played_class_cost": null,
+        "hero_health_change_cost": null,
+        "player_draw_count_cost": null,
+        "player_weapon_attack_cost": null,
+        "player_armor_cost": null,
+        "player_summon_count_cost": null,
+        "player_elemental_streak_cost": null,
+        "player_corpse_spend_cost": null,
+        "hero_damage_taken_cost": null,
+        "player_spell_damage_cost": null,
+        "player_character_attack_cost": null,
+        "spell_damage_schools": [],
+        "cleave": false,
+        "on_discard": null,
+        "cost_payment": "mana",
+        "pay_health_if_hero_healed": false,
+        "permanent_dormancy": false,
+        "manual_playable": false,
+        "requires_weapon": false,
+        "hero_power_use_aura": null,
+        "on_destroyed": null,
+        "stored_deathrattle": false,
+        "reborn_policy": null,
+        "hand_mirror": null,
+        "native_condition": null
+      },
+      "sha256": "5c37908c817d9bf0226bb55201d47b263bcaf56c1f09de8ba799a2338daa772f"
+    }
+  },
+  "coin_family_source": "data/cards/native-coin-hand-cost-v1.json",
+  "coin_family_source_sha256": "b2fd3552ac04abaeca65aeb1579375119b8ad544f40fc57f4a6453b5f3ea3fcc",
+  "potion_dependency": "data/cards/kazakus-potion-forms-v1.json",
+  "potion_dependency_sha256": "87cd83d3b352f588802290d71df64d0ef4401c43eb370851d71deedfcf8ae5f2",
+  "official_observations": [
+    {
+      "card_id": "JAIL_504",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\125989-zh_CN.json",
+      "response_sha256": "81d39ea4b0bdec5cd7f3e31e086c418c2842b1fa11386445b465cee0f42ad278",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=125989&locale=zh_CN",
+      "face": {
+        "id": 125989,
+        "collectible": 1,
+        "slug": "125989-aya-lotus-kingpin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "艾雅，玉莲帮主",
+        "text": "你始终为后手。<b>战吼：</b>在本局对战中，将你的幸运币替换为所选的升级后的伪造幸运币，并获取3张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdd07a6c6b341b58d22c94159cd7a3a6177851253cfa9ba6fd0a6e7696c21294.png",
+        "imageGold": "",
+        "flavorText": "玉莲帮主在加基森学到了一条真理：不存在什么“盗亦有道”。然而在这里，她又和这群渣滓搅在了一起——他们也没比卡扎库斯强到哪去。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df258ac155681c1bc38017086d561d5d964ac593b0e94ed412d457852980b588.png",
+        "childIds": [
+          127152,
+          127153,
+          127154,
+          127163,
+          129987,
+          129988,
+          129989,
+          131327
+        ],
+        "keywordIds": [
+          8
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=125989&locale=zh_CN",
+        "sha256": "81d39ea4b0bdec5cd7f3e31e086c418c2842b1fa11386445b465cee0f42ad278",
+        "bytes": 1086,
+        "observed_at": "2026-10-20T05:03:33.618631+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\125989-en_US.json",
+      "response_sha256": "30f6633068086c0ceeaa180f68bb231680c03eba032e7377adf133272610b5fe",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=125989&locale=en_US",
+      "face": {
+        "id": 125989,
+        "collectible": 1,
+        "slug": "125989-aya-lotus-kingpin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Aya, Lotus Kingpin",
+        "text": "You always go second. <b>Battlecry:</b> Pick an upgraded counterfeit to replace your Coins this game. Get 3.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8115a18584dc76da3043843b8739573e25a9d9e134f8b2f5bde09ea70ff94f6d.png",
+        "imageGold": "",
+        "flavorText": "If there's one thing the leader of the Jade Lotus learned back in Gadgetzan, it’s that there is no honor among thieves. And yet here she finds herself again - working with backstabbers no better than Kazakus.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df258ac155681c1bc38017086d561d5d964ac593b0e94ed412d457852980b588.png",
+        "childIds": [
+          127152,
+          127153,
+          127154,
+          127163,
+          129987,
+          129988,
+          129989,
+          131327
+        ],
+        "keywordIds": [
+          8
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=125989&locale=en_US",
+        "sha256": "30f6633068086c0ceeaa180f68bb231680c03eba032e7377adf133272610b5fe",
+        "bytes": 1075,
+        "observed_at": "2026-10-20T05:03:33.635998+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127152-zh_CN.json",
+      "response_sha256": "4210cf5a38ebe9b1f88eec8b9965b5529c4dd22065d4cc679287e068c6d424d6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127152&locale=zh_CN",
+      "face": {
+        "id": 127152,
+        "collectible": 0,
+        "slug": "127152-jade-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Felideus Bubastis",
+        "manaCost": 0,
+        "name": "玉莲幸运币",
+        "text": "在本回合中，获得一个法力水晶。召唤一个 的<b>青玉魔像</b>。 在本回合中，获得一个法力水晶。召唤一个<b>青玉魔像</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3a9aa03f307710ce752b0835c64ebf4e30d339d051e04779a22bee4d312ebcef.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127152&locale=zh_CN",
+        "sha256": "4210cf5a38ebe9b1f88eec8b9965b5529c4dd22065d4cc679287e068c6d424d6",
+        "bytes": 706,
+        "observed_at": "2026-10-20T05:19:40.527415+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127152-en_US.json",
+      "response_sha256": "a391d1b2fd249feaccfe96b573e5b71cf1c5901379643e63320241eefd4b4a7c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127152&locale=en_US",
+      "face": {
+        "id": 127152,
+        "collectible": 0,
+        "slug": "127152-jade-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Felideus Bubastis",
+        "manaCost": 0,
+        "name": "Jade Coin",
+        "text": "Gain 1 Mana Crystal this turn only. Summon a <b>Jade Golem</b>. Gain 1 Mana Crystal this turn only. Summon a <b>Jade Golem</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffccec5a592f3ea0ea607bb6c8a356eeec91cd4d3edfdd9cf9014b7ac7ae550b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127152&locale=en_US",
+        "sha256": "a391d1b2fd249feaccfe96b573e5b71cf1c5901379643e63320241eefd4b4a7c",
+        "bytes": 664,
+        "observed_at": "2026-10-20T05:19:42.114314+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127154-zh_CN.json",
+      "response_sha256": "e1338f44e953b950249d77d63a51021c8d0b7dfe2d2dc57c2e0a2f19161e93ee",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127154&locale=zh_CN",
+      "face": {
+        "id": 127154,
+        "collectible": 0,
+        "slug": "127154-kabal-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "manaCost": 0,
+        "name": "暗金幸运币",
+        "text": "在本回合中，获得一个法力水晶。随机获取一张法力值消耗为（1）的卡扎库斯药水。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62557e1e7d30cf9994e8e57e98e84b03804b89596a39c94aa345b9e516917c9e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127154&locale=zh_CN",
+        "sha256": "e1338f44e953b950249d77d63a51021c8d0b7dfe2d2dc57c2e0a2f19161e93ee",
+        "bytes": 632,
+        "observed_at": "2026-10-20T05:04:25.644045+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127154-en_US.json",
+      "response_sha256": "f6708f624509017b2d5c9baa3077fb57837c14b960bb85ed2fd8b3808ae15548",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127154&locale=en_US",
+      "face": {
+        "id": 127154,
+        "collectible": 0,
+        "slug": "127154-kabal-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "manaCost": 0,
+        "name": "Kabal Coin",
+        "text": "Gain 1 Mana Crystal this turn only. Get a random 1-Cost Kazakus Potion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2b45afee4e6168d3fb50d4799ebb2697bd432794558c164d48e319b14909d7d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127154&locale=en_US",
+        "sha256": "f6708f624509017b2d5c9baa3077fb57837c14b960bb85ed2fd8b3808ae15548",
+        "bytes": 586,
+        "observed_at": "2026-10-20T05:04:27.317040+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt01",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127163-zh_CN.json",
+      "response_sha256": "5ceaeeb8583c27db01e95a12f133ed33c509adcbb1a4a095b47dcc336801e3fb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127163&locale=zh_CN",
+      "face": {
+        "id": 127163,
+        "collectible": 0,
+        "slug": "127163-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/47d5a4da89af3c4ec0ba9ca3d5b941607854a6989f5e2b845b9e22e7c16374f7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127163&locale=zh_CN",
+        "sha256": "5ceaeeb8583c27db01e95a12f133ed33c509adcbb1a4a095b47dcc336801e3fb",
+        "bytes": 555,
+        "observed_at": "2026-10-20T05:22:43.519982+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt01",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127163-en_US.json",
+      "response_sha256": "85f35758385fcda646d7a2f1cdc7e9e00a7e2090ff6eab8091bec2169d6eb3b6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=127163&locale=en_US",
+      "face": {
+        "id": 127163,
+        "collectible": 0,
+        "slug": "127163-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12b9a7307151cc685a308e82a79c84538e4b49005256a537d2d25035e032ed1c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=127163&locale=en_US",
+        "sha256": "85f35758385fcda646d7a2f1cdc7e9e00a7e2090ff6eab8091bec2169d6eb3b6",
+        "bytes": 553,
+        "observed_at": "2026-10-20T05:22:43.499984+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt04",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129987-zh_CN.json",
+      "response_sha256": "b4581f544c868211bbcbe4737e816d8e38f41ca153b00c67a46ca76f62eb6f9c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129987&locale=zh_CN",
+      "face": {
+        "id": 129987,
+        "collectible": 0,
+        "slug": "129987-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91fb2774353b0f96aa6c2c811a9266d203bdef6dc45c42e0b7378cc9995c135e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129987&locale=zh_CN",
+        "sha256": "b4581f544c868211bbcbe4737e816d8e38f41ca153b00c67a46ca76f62eb6f9c",
+        "bytes": 555,
+        "observed_at": "2026-10-20T05:22:43.746894+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt04",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129987-en_US.json",
+      "response_sha256": "f409f23b7804bfc0418f1b8860b88226c93096e9173387e8e5e03d7cc565158f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129987&locale=en_US",
+      "face": {
+        "id": 129987,
+        "collectible": 0,
+        "slug": "129987-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f96edb80869bf9103a46fe917f207f213b8eef96b822a4a0262d5cc4d5e41759.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129987&locale=en_US",
+        "sha256": "f409f23b7804bfc0418f1b8860b88226c93096e9173387e8e5e03d7cc565158f",
+        "bytes": 553,
+        "observed_at": "2026-10-20T05:22:43.309136+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt07",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129988-zh_CN.json",
+      "response_sha256": "921e63fbca6213c041c72ceb23260e373a89187e41e2ef23d6335d814512d238",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129988&locale=zh_CN",
+      "face": {
+        "id": 129988,
+        "collectible": 0,
+        "slug": "129988-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c50e3bbf99b43e7c70a4eb15e2f20cb2c8ca06ce43a6f5c50a8961ff77ef0feb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129988&locale=zh_CN",
+        "sha256": "921e63fbca6213c041c72ceb23260e373a89187e41e2ef23d6335d814512d238",
+        "bytes": 555,
+        "observed_at": "2026-10-20T05:22:45.078151+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt07",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129988-en_US.json",
+      "response_sha256": "76ff1f3bb09dd3fa8f914f4f13f903ead1964acbe8e94f89f5cbc2a18f9b339e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129988&locale=en_US",
+      "face": {
+        "id": 129988,
+        "collectible": 0,
+        "slug": "129988-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09ebbd0c7b6c11505f378b73e39d9cccba6a7a6932e0736f3f8cbf8077c7a06d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129988&locale=en_US",
+        "sha256": "76ff1f3bb09dd3fa8f914f4f13f903ead1964acbe8e94f89f5cbc2a18f9b339e",
+        "bytes": 553,
+        "observed_at": "2026-10-20T05:22:45.606675+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt20",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129989-zh_CN.json",
+      "response_sha256": "b7b52f1e82156b95aaa50523b84d42219f2fbc5e56cc1aca1113c397a3364c4e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129989&locale=zh_CN",
+      "face": {
+        "id": 129989,
+        "collectible": 0,
+        "slug": "129989-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6be6a4a3e24993b452bc345e805902906e0ec83804740a42b8c613680ce16b65.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129989&locale=zh_CN",
+        "sha256": "b7b52f1e82156b95aaa50523b84d42219f2fbc5e56cc1aca1113c397a3364c4e",
+        "bytes": 558,
+        "observed_at": "2026-10-20T05:22:45.075315+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504tt20",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129989-en_US.json",
+      "response_sha256": "b7aaf7f9e4d5cac6499b5c62cd62c5d0837f7544da6c3625a89c9cb95bb32e2b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129989&locale=en_US",
+      "face": {
+        "id": 129989,
+        "collectible": 0,
+        "slug": "129989-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/369cafc8959fcbd3a36fcccf0b7a0cfa2536735546a4730d47e66d619010aaaf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129989&locale=en_US",
+        "sha256": "b7aaf7f9e4d5cac6499b5c62cd62c5d0837f7544da6c3625a89c9cb95bb32e2b",
+        "bytes": 556,
+        "observed_at": "2026-10-20T05:22:45.851139+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127153-zh_CN.json",
+      "response_sha256": "d3308e8be7bcc6f59998a7b7bb117d78488dd264d643d1d1e8666ae8fdecbe67",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=zh_CN",
+      "face": {
+        "id": 127153,
+        "collectible": 0,
+        "slug": "127153-grimy-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Gabriel Lopes",
+        "manaCost": 0,
+        "name": "污手幸运币",
+        "text": "在本回合中，获得一个法力水晶。随机对一个敌方随从造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce82b2a1e4fb654c93b8793fd51e1124fc057e114dbdddd167d71a5ca891e5ef.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=zh_CN",
+        "sha256": "d3308e8be7bcc6f59998a7b7bb117d78488dd264d643d1d1e8666ae8fdecbe67",
+        "bytes": 614,
+        "observed_at": "2026-10-17T17:39:38.084179+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\127153-en_US.json",
+      "response_sha256": "58d6f74a6969cd3cddc696541cf5a8e3ea97c2dd650a30ddb0ff08d903afff1a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=en_US",
+      "face": {
+        "id": 127153,
+        "collectible": 0,
+        "slug": "127153-grimy-coin",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Gabriel Lopes",
+        "manaCost": 0,
+        "name": "Grimy Coin",
+        "text": "Gain 1 Mana Crystal this turn only. Deal 2 damage to a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a43cf0c09fd60f8d51b649e442372a91915a8ccee4d97b2ea98c580096e5f71d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=127153&locale=en_US",
+        "sha256": "58d6f74a6969cd3cddc696541cf5a8e3ea97c2dd650a30ddb0ff08d903afff1a",
+        "bytes": 592,
+        "observed_at": "2026-10-17T17:39:38.105250+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t3p",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\131327-zh_CN.json",
+      "response_sha256": "0f0dd3dfd9374022ddb79eb099359be90c3006c741f5b67e85d09e713f1c94a7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131327&locale=zh_CN",
+      "face": {
+        "id": 131327,
+        "collectible": 0,
+        "slug": "131327-kazakus-potion",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 1,
+        "name": "卡扎库斯药水",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f792e7d623658399ffebfa45e5154c78ef0af5cd51b563e8485112aad973a0f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131327&locale=zh_CN",
+        "sha256": "0f0dd3dfd9374022ddb79eb099359be90c3006c741f5b67e85d09e713f1c94a7",
+        "bytes": 535,
+        "observed_at": "2026-10-20T05:03:33.606774+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_504t3p",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\131327-en_US.json",
+      "response_sha256": "53ba6d80c446a4a21ff5d556366a3404112429658f7e6a12ab2ff9e838a289d3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131327&locale=en_US",
+      "face": {
+        "id": 131327,
+        "collectible": 0,
+        "slug": "131327-kazakus-potion",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1988,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 1,
+        "name": "Kazakus Potion",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19ab7c57342b556ac75309b921d979238c246ce0878ac6deb0ecb601bb35ecb6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 125989,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131327&locale=en_US",
+        "sha256": "53ba6d80c446a4a21ff5d556366a3404112429658f7e6a12ab2ff9e838a289d3",
+        "bytes": 531,
+        "observed_at": "2026-10-20T05:03:33.815500+00:00"
+      }
+    }
+  ],
+  "source_review": "outputs/card-integration-20261014/k309-aya-counterfeit-coins/prepared-01/source-review.json",
+  "source_review_sha256": "ee58c734ff71d5757635bb372585c72f60551b4b8e385f606b5c4a79284d904a",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "coin_family_source_canonical_sha256": "9021dcd480822e2d35792d11a82e7bb20fb34c709bdaa2208f3f023918e4e2a4",
+  "potion_dependency_canonical_sha256": "b311a2ded5c91031c6080575dfe503dafd6cd7717e43136d437afdb971c48e6d"
+}

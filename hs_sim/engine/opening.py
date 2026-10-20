@@ -286,6 +286,8 @@ def original_deck_entities(setup):
 
 
 def validate_opening_boundary(game):
+    from .opening_turn_order import validate_boundary as validate_turn_order,fixed_first
+    validate_turn_order(game)
     setup, opening = game._match_setup, game._state.opening
     if setup is None:
         if opening is not None:
@@ -297,7 +299,8 @@ def validate_opening_boundary(game):
     validate_deck_copies(game)
     from .starting_hands import validate_boundary as validate_starting_hands
     validate_starting_hands(game)
-    if setup.first_player is not None and setup.first_player != opening.first_player:
+    expected_first=fixed_first(setup,game.registry)
+    if expected_first is not None and expected_first != opening.first_player:
         raise ValueError('First player differs from the fixed setup')
     if opening.original_entities != original_deck_entities(setup):
         raise ValueError('Starting deck physical allocation differs from the match setup')

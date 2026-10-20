@@ -256,6 +256,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     install_minion_base_program(r,player.id,instance)
     from .named_minion_boons import install as install_named_boon
     install_named_boon(r,player.id,instance)
+    from .coin_replacements import install as install_coin_replacement
+    install_coin_replacement(r,player.id,instance)
     if modifier_id is not None:
         from .costs import modify_cost
         modify_cost(r, AddCostModifier(player.id if spec.kind=='next_spell_bonus' else 3-player.id,
@@ -420,6 +422,8 @@ def remove(r, effect, *, atomic=False):
         raise ResolutionError('Only the stat-free next-healing program has atomic batch removal')
     retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)
+    from .coin_replacements import note_remove as note_coin_removal
+    note_coin_removal(r,effect.player_id,instance)
     if r.registry.player_effect(instance.spec_id).kind=='next_spell_bonus':
         from .next_spell_bonuses import note_removal
         note_removal(r,effect.player_id,instance)
