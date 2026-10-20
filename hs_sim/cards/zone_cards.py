@@ -5,14 +5,15 @@ from dataclasses import replace
 import json
 from pathlib import Path
 
-from hs_sim.engine.effects import (Buff,CopyMinion,Damage,Draw,GrantKeyword,InvokeBehavior,
-    SpendResource,Summon)
+from hs_sim.engine.effects import (Buff,CopyMinion,Damage,Draw,GrantKeyword,InvokeBehavior,Summon)
+from hs_sim.engine.guarded_corpse_spends import SpendCorpsesForMinion
 from hs_sim.engine.hand_upgrades import BuffStoredCard
 from hs_sim.engine.model import (CardDefinition,CardType,DamageKind,EndTurnSpec,Keyword,
-    Resource,SpellSchool,TargetMode,TargetSpec,TriggerSpec,Zone)
+    SpellSchool,TargetMode,TargetSpec,TriggerSpec,Zone)
 from hs_sim.engine.nondeath_removal import RemoveFromGame
 from hs_sim.engine.owner_turns import query_for_definition,query_previous_owner_turn
 from hs_sim.engine.pools import PoolCard,PoolQuery
+from hs_sim.engine.sacrifice import MinionReference
 from hs_sim.engine.zones import (CardReference,CopyCard,CopyMatching,DestroyDeckCard,
     DiscardCard,MoveCard)
 from hs_sim.targets import TargetValidationError,canonical_digest
@@ -95,6 +96,14 @@ def enemy_top(c,destroy=False,count=1):
         () if not refs else (RemoveFromGame(refs,c.source_id),))
 
 
+def corpse_end_copy(c,r):
+    source=c.source
+    if (source.kind!=CardType.MINION or source.zone!=Zone.BOARD or not source.active or
+            source.health<=0 or source.doomed or source.controller!=c.player_id):return()
+    return(SpendCorpsesForMinion(MinionReference.capture(source),4,
+        (CopyMinion(source.id,c.player_id),),mode='free_space'),)
+
+
 SCRIPTS={
  'enemy_deck_copy':lambda c,r:(CopyMatching(c.player_id,3-c.player_id,Zone.DECK,source_id=c.source_id),),
  'lowest_enemy_hand_copy':lambda c,r:(CopyMatching(c.player_id,3-c.player_id,Zone.HAND,
@@ -107,8 +116,7 @@ SCRIPTS={
  'selected_hand_buff':lambda c,r:selected_hand(c,'buff'),
  'leftmost_hand_shuffle':leftmost_hand_shuffle,
  'draw_two':lambda c,r:(Draw(c.player_id,2,c.source_id),),
- 'corpse_end_copy':lambda c,r:(SpendResource(c.player_id,Resource.CORPSES,4,
-     on_success=(CopyMinion(c.source_id,c.player_id),)),),
+ 'corpse_end_copy':corpse_end_copy,
  'pupil':lambda c,r:(Damage(c.target_id,4,c.source_id,DamageKind.SPELL,on_result=PREFIX+'killed_copy'),),
  'coil':lambda c,r:(Damage(c.target_id,1,c.source_id,DamageKind.SPELL,on_result=PREFIX+'killed_draw'),),
  'slam':lambda c,r:(Damage(c.target_id,2,c.source_id,DamageKind.SPELL,on_result=PREFIX+'survived_draw'),),

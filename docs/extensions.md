@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实原随从消耗残骸召唤自身复制时，先以`SpendCorpsesForMinion(..., mode='free_space')`连接当前复制请求；不要直接扣款后才检查满场。来源和后续支付/复制窗口见[恶毒恐魔契约](m3-horror-corpse-copy.md)。
+
 真实原卡消失/返回使用有限`VanishedCardProfile`、`DisappearOriginalCard`和`ReappearOriginalCard`；返回绑定实际亡语并委托原`MoveCard(SetAsideCardReference, HAND)`。不要用AddToHand替代原实体、开放SETASIDE查询/复制或猜测多原卡选择，见[契约](m3-broxigar-original-return.md)。
 
 拉法姆主卡复用原`FabledSpec/DeckSizeRule`及已接入伴生，巨人通过既有完整出牌价格事实的有限原生profile筛选；不要按名字判断族、将绵羊加入构筑包或另设累计计数器。见[拉法姆契约](m3-timethief-rafaam.md)。
