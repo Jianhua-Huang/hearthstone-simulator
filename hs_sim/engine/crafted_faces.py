@@ -88,6 +88,15 @@ def validate_part_shape(registry,card):
     registry._validate_card(card)
 
 
+def native_domains(parts):
+    """Check only actual native donor compatibility; do not enumerate recipes."""
+    schools=[p.spell_damage_schools for p in parts if p.spell_damage]
+    if schools and any(s!=schools[0]for s in schools):raise ValueError('Crafted spell damage has unreviewed differing school domains')
+    targets=[(p.requires_target,p.target_rule,p.targeting)for p in parts if p.requires_target or p.targeting is not None]
+    if targets and any(t!=targets[0]for t in targets):raise ValueError('Crafted minion has unreviewed differing native target domains')
+    return targets[0]if targets else(False,'any_entity',None)
+
+
 def resolve_face(registry,card_id):
     from .registry import UnsupportedDefinitionError
     try:
@@ -101,11 +110,7 @@ def resolve_face(registry,card_id):
             validate_part_shape(registry,part)
             if not any(t in part.metadata.tribes for t in(tribe,'all')):
                 raise ValueError('Crafted ingredient lost its original printed minion type')
-        schools=[p.spell_damage_schools for p in parts if p.spell_damage]
-        if schools and any(s!=schools[0]for s in schools):raise ValueError('Crafted spell damage has unreviewed differing school domains')
-        targets=[(p.requires_target,p.target_rule,p.targeting)for p in parts if p.requires_target or p.targeting is not None]
-        if targets and any(t!=targets[0]for t in targets):raise ValueError('Crafted minion has unreviewed differing native target domains')
-        require,rule,target=targets[0]if targets else(False,'any_entity',None)
+        require,rule,target=native_domains(parts)
         tribes=('all',)if any('all'in p.metadata.tribes for p in parts)else template.metadata.tribes
         face=replace(template,id=card_id,cost=sum(p.cost for p in parts),attack=sum(p.attack for p in parts),
             health=sum(p.health for p in parts),keywords=tuple(sorted({k for p in parts for k in p.keywords})),

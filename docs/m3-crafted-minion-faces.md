@@ -1,6 +1,6 @@
 # 自定义亡灵龙的不可变卡面基础
 
-维克多·奈法里奥斯`CATA_470`制造自定义亡灵龙，原造物模板为`CATA_470t1`。本层提供真实造物所需的完整印刷卡面和部件来源，尚未接入维克多本体的两次候选选择、持龙减费和专属完整池；本体保持明确未实现。数据存在、部件可执行和正式池资格是不同事实。
+维克多·奈法里奥斯`CATA_470`制造自定义亡灵龙，原造物模板为`CATA_470t1`。本层只提供完整印刷卡面和部件来源；本体两次选择与持龙减费由[来源契约](m3-crafted-minion-offers.md)处理，专属完整正式池继续独立核定。数据存在、部件可执行和正式池资格是不同事实。
 
 [开发者原答复](https://www.reddit.com/r/hearthstone/comments/1rs1yau/comment/oas2h2h/)确认它使用专门筛选的子集，不包含所有龙和亡灵，且设计团队可以调整此池。不能根据种族、英文行数、已有执行定义或本层四个代表部件反推完整候选。首段龙再选亡灵、合并费用/攻击/生命及文本的[玩家记录](https://www.reddit.com/r/hearthstone/comments/1rvy9rh/victor_nefarius_work_like_zombeast/)和[永恒雏龙加食尸鬼实测](https://www.reddit.com/r/hearthstone/comments/1rs1yau/does_anyone_know_what_the_victor_nefarious_custom/)用于校验实际需求，不能认证当前国服37.0的全部资格、抽样及窗口。
 
@@ -18,4 +18,4 @@
 
 私有快照保存原字符串卡ID和既有材料，不新增模型字段、对局账户、效果或显式帧payload。玩家仅在本人手牌和公开卡面看到`crafted`的模板/部件，不能把造物当成星舰，不能暴露对手暗牌的配方。
 
-协议为core578/schema472、观察104、内容preview-v403，命令12/replay1保持。卡面合成能力不自动解决专属候选、最多总费用、首次选择影响第二次域、持龙减费接受窗、空/小池、生成/溢出、身份去重及完整国服规则；这些须在真实来源接入中逐项闭合。实际执行、证据和下一项只维护在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)。
+本卡面基础引入时为core578/schema472、观察104、内容preview-v403；后续两段来源选择、费用预算及持龙减费由[来源契约](m3-crafted-minion-offers.md)处理，当前协议以原台账为准。卡面合成不授权专属生成资格，完整正式候选、抽样/身份政策和国服规则仍须独立核定。实际执行、证据和下一项只维护在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)。

@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+需要两阶段原部件制造时使用CraftMinion及独立完整宿主池；不可从受审捐赠适配集合反推生成资格。原费用预算、首次持龙减费、选择/恢复及玩家边界见[来源契约](m3-crafted-minion-offers.md)，最终交付仍用普通AddToHand。
+
 真实造物用CraftedMinionBlueprint/Recipe及显式部件捐赠审核解析完整新卡面；不要用普通已实现列表冒充专属池，或把合计身材写成沉默会移除的增益。完整来源与接口边界见[契约](m3-crafted-minion-faces.md)。
 
 真实有限巨型使用ColossalReserveProfile和完整印刷附肢序列，余量属于原物理附件，不能用满场失败清空或在卡牌层另造补位循环。原入口及待校准边界见[契约](m3-colossal-reserves.md)。

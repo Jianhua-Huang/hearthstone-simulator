@@ -82,10 +82,11 @@ class CraftedFacesTests(unittest.TestCase):
         self.assertEqual(Game.from_snapshot(json.loads(json.dumps(s)),fixture(mode)).snapshot(),s)
         self.assertEqual(replay(build_replay(g),fixture(mode)).snapshot(),s)
 
-    def test_complete_source_template_and_parts_preserve_root_as_unimplemented(self):
+    def test_complete_source_template_and_parts_do_not_define_curated_generation_pool(self):
         d=load_batch();self.assertEqual(len(d['official_observations']),12);self.assertEqual(len(d['existing_dependencies']),5)
-        r=fixture();self.assertNotIn(CARD,r.cards)
-        with self.assertRaises(ValueError):r.card(CARD)
+        r=fixture();self.assertIsNotNone(r.card(CARD).battlecry)
+        from hs_sim.cards.nefarian_crafting_card import DRAGONS,UNDEAD
+        self.assertFalse(any(key[0]in(DRAGONS,UNDEAD)for key in r.pools))
         for row in d['cards']+d['existing_dependencies']:
             self.assertEqual(canonical_hash(row['record']),row['record_sha256'])
         self.assertEqual(r.card(TEMPLATE).attack,1);self.assertEqual(r.card(TEMPLATE).health,1)

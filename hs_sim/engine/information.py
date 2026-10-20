@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v104'
+VIEW_VERSION = 'player-view-v105'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -778,7 +778,7 @@ def _validate_event(event, sequence, knowledge, registry, viewer):
         player_id(choice['player_id'])
         _choice_ref(choice['ref'], knowledge)
         _identity(choice['source'], knowledge, registry)
-        if type(choice['prompt']) is not str or choice['purpose'] not in ('effect', 'mulligan', 'rewind', 'dredge', 'pool_discovery', 'card_discovery', 'assemble'):
+        if type(choice['prompt']) is not str or choice['purpose'] not in ('effect', 'mulligan', 'rewind', 'dredge', 'pool_discovery', 'card_discovery', 'assemble', 'craft'):
             raise ValueError('Invalid observed choice description')
         _integer(choice['min_count'])
         _integer(choice['max_count'])

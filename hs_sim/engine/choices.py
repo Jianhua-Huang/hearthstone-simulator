@@ -85,13 +85,14 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     from .discovery_destinations import DeliverDiscoveredSpell
     from .hand_choice_followups import ResolveHandFollowupChoice
     from .assemble_offers import ResolveAssemble
+    from .crafted_offers import ResolveCraft
     from .model import ChoicePurpose
     from .stored_gift_discovery import SelectGiftedDeckCard
     from .zones import SelectDeckTake
     from .summon_sources import ResurrectMinion
     from .discovery_delivery import MaterializeDiscoveredCard, MaterializeDiscoveredResurrection, recipe_types
     def selected_effect(effect):
-        if type(effect) is ResolveAssemble:
+        if type(effect) in (ResolveAssemble,ResolveCraft):
             return replace(effect,result=result)
         if type(effect) is ResolveHandFollowupChoice:
             return replace(effect, result=result)

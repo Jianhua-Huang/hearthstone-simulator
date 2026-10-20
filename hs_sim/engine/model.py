@@ -10040,6 +10040,7 @@ class ChoicePurpose(StrEnum):
     POOL_DISCOVERY = 'pool_discovery'
     CARD_DISCOVERY = 'card_discovery'
     ASSEMBLE = 'assemble'
+    CRAFT = 'craft'
 
 
 @dataclass(frozen=True)

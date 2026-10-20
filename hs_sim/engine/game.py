@@ -601,6 +601,8 @@ class Game:
         validate_playable_spell_events(self)
         from .assemble_offers import validate_boundary as validate_assembly_boundary
         validate_assembly_boundary(self)
+        from .crafted_offers import validate_boundary as validate_craft_boundary
+        validate_craft_boundary(self)
         from .pool_offers import validate_boundary as validate_offer_boundary
         validate_offer_boundary(self)
         from .spell_mana_budget import validate_boundary as validate_spell_budget_boundary
