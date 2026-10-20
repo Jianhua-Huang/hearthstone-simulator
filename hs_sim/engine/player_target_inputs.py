@@ -38,6 +38,7 @@ ENTITY |= {'base_damage'}
 ENTITY |= {'divine_shield'}
 ENTITY |= {'battlecry_form'}
 ENTITY |= {'boon_summon_cost'}
+ENTITY |= {'spell_recipe'}
 
 
 def _interactable_view(row, controller, zone):
@@ -136,6 +137,10 @@ def decode(proof, *, require_active_player=True):
     for controller, zone, row in _cards(value):
         if type(row) is not dict or not {'ref', 'card_id'} <= set(row) or set(row) - ENTITY:
             raise ValueError('Player target entity view contains nonpublic or missing fields')
+        if 'spell_recipe'in row:
+            from .composed_spells import public_recipe
+            if row.get('kind')!=CardType.SPELL.value or row['spell_recipe']!=public_recipe(row['card_id']):
+                raise ValueError('Public Potion recipe differs from the visible original spell identity')
         if 'divine_shield' in row:
             if zone not in (Zone.HERO,Zone.BOARD) or row.get('kind')not in(CardType.HERO.value,CardType.MINION.value):
                 raise ValueError('Visible Divine Shield durability requires an in-play character')

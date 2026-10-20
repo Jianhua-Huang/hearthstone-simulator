@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实一费卡扎库斯药水使用ComposedSpellProfile/Recipe及CreateRandomComposedSpell；有序成分委托原执行器，生命奖励使用原驻留引用。不要给原展示选项增加on_play或隐式放宽生成池，见[药水契约](m3-kazakus-potion-forms.md)。
+
 接邻精华使用AdjoiningSpellProfile与CastAdjoiningSpells，冻结原物理手牌组后委托CastStoredSpell；不要从后续手牌重新扩大组，见[契约](m3-adjoining-spells.md)。
 
 控制指定卡牌的零费条件使用IntrinsicCostSpec(controlled_card, card_ids)，整批沉默使用SilenceBatch后接普通DestroyBatch；原接受证明、武器及地标边界见[契约](m3-medivh-fabled.md)。

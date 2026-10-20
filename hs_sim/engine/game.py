@@ -471,6 +471,8 @@ class Game:
         validate_controlled_prices(self)
         from .adjoining_spells import validate_game as validate_adjoining_spells
         validate_adjoining_spells(self)
+        from .composed_spells import validate_game as validate_composed_spells
+        validate_composed_spells(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

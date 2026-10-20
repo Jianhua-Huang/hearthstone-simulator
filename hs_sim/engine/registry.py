@@ -152,6 +152,7 @@ class Registry:
         self._assemble_templates = {}
         self._crafted_minion_blueprints = {}
         self._crafted_minion_parts = set()
+        self._composed_spell_profiles = {}
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
         self._passive_hero_power_profiles = {}
@@ -254,7 +255,7 @@ class Registry:
 
     @property
     def cards(self) -> Mapping[str, CardDefinition]:
-        if self._assemble_templates or self._crafted_minion_blueprints:
+        if self._assemble_templates or self._crafted_minion_blueprints or self._composed_spell_profiles:
             from .assemble_faces import AssembleCardCatalog
             return AssembleCardCatalog(self)
         return MappingProxyType(self._cards)
@@ -268,6 +269,13 @@ class Registry:
 
     @property
     def crafted_minion_parts(self):return frozenset(self._crafted_minion_parts)
+
+    def register_composed_spell_profile(self,profile):
+        self._require_mutable()
+        from .composed_spells import validate_profile
+        validate_profile(self,profile)
+        if profile.template_card_id in self._composed_spell_profiles:raise ValueError('Duplicate Potion template profile')
+        self._composed_spell_profiles[profile.template_card_id]=profile
 
     def register_crafted_minion_part(self,card_id):
         self._require_mutable();_name(card_id,'reviewed crafted ingredient')
@@ -1157,6 +1165,9 @@ class Registry:
         from .crafted_faces import PREFIX as crafted_prefix
         if isinstance(definition,CardDefinition)and definition.id.startswith(crafted_prefix):
             raise ValueError('Crafted identities require immutable original ingredient resolution')
+        from .composed_spells import PREFIX as potion_prefix
+        if isinstance(definition,CardDefinition)and definition.id.startswith(potion_prefix):
+            raise ValueError('Potion identities require immutable reviewed ingredient resolution')
         from .modular_decks import PREFIX, option_ids
         if isinstance(definition, CardDefinition) and (
                 definition.id.startswith(PREFIX) or definition.id in option_ids(self)):
@@ -1307,6 +1318,8 @@ class Registry:
             return resolve_face(self,id)
         from .crafted_faces import PREFIX as crafted_prefix,resolve_face as resolve_crafted_face
         if id.startswith(crafted_prefix):return resolve_crafted_face(self,id)
+        from .composed_spells import PREFIX as potion_prefix,resolve_face as resolve_potion
+        if id.startswith(potion_prefix):return resolve_potion(self,id)
         try:
             return self._cards[id]
         except KeyError:
@@ -1858,6 +1871,8 @@ class Registry:
             raise ValueError('This card type cannot carry event triggers')
 
     def validate(self) -> None:
+        from .composed_spells import validate_profile as validate_potion_profile
+        for profile in self._composed_spell_profiles.values():validate_potion_profile(self,profile)
         from .adjoining_spells import validate_profile as validate_adjoining_profile
         for profile in self._adjoining_spell_profiles.values():validate_adjoining_profile(self,profile)
         for card in self._cards.values():
@@ -2305,6 +2320,8 @@ class Registry:
         if self._crafted_minion_blueprints:
             payload['crafted_minion_blueprints']=[asdict(self._crafted_minion_blueprints[k])for k in sorted(self._crafted_minion_blueprints)]
         if self._crafted_minion_parts:payload['crafted_minion_parts']=sorted(self._crafted_minion_parts)
+        if self._composed_spell_profiles:
+            payload['composed_spell_profiles']=[asdict(self._composed_spell_profiles[k])for k in sorted(self._composed_spell_profiles)]
         if self._invoke_profile is not None:
             payload['invoke_profile'] = asdict(self._invoke_profile)
         if self._mana_rank_families:

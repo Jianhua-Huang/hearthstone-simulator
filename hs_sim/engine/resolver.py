@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v588'
+CORE_EFFECTS_VERSION = 'core-effects-v589'
 
 
 class Mechanics:
@@ -2677,6 +2677,9 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_spell_casts(mechanics)
     from .adjoining_spells import CastAdjoiningSpells,progress as progress_adjoining_spells
     mechanics.register(CastAdjoiningSpells,progress_adjoining_spells)
+    from .composed_spells import CreateRandomComposedSpell,ResolveComposedSpell,create as create_potion,resolve as resolve_potion
+    mechanics.register(CreateRandomComposedSpell,create_potion)
+    mechanics.register(ResolveComposedSpell,resolve_potion)
     from .hero_powers import AddHeroPower, add_hero_power, RemoveHeroPower, remove_hero_power
     mechanics.register(AddHeroPower, add_hero_power)
     mechanics.register(RemoveHeroPower, remove_hero_power)

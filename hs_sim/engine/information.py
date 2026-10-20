@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v109'
+VIEW_VERSION = 'player-view-v110'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -381,6 +381,9 @@ class Information:
                 from .named_minion_boons import public_cost as public_boon_cost
                 boon_cost=public_boon_cost(state,game.registry,entity)
                 if boon_cost is not None:result['boon_summon_cost']=boon_cost
+                from .composed_spells import public_recipe as public_potion_recipe
+                potion=public_potion_recipe(entity.card_id)
+                if potion is not None:result['spell_recipe']=potion
                 from .colossal_reserves import public_remaining
                 remaining=public_remaining(entity)
                 if remaining is not None:result['colossal_remaining']=remaining
