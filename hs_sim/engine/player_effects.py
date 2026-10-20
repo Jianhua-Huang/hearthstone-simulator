@@ -254,6 +254,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
         note_program(r,instance,'installed')
     from .minion_base_programs import install as install_minion_base_program
     install_minion_base_program(r,player.id,instance)
+    from .named_minion_boons import install as install_named_boon
+    install_named_boon(r,player.id,instance)
     if modifier_id is not None:
         from .costs import modify_cost
         modify_cost(r, AddCostModifier(player.id if spec.kind=='next_spell_bonus' else 3-player.id,

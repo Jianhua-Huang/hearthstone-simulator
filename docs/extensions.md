@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实具名永久恩泽用NamedMinionBoonsProfile关联原玩家程序和三个实际关键词；亡语通过原SummonFromPool.entry_keywords在入场前继承。原实体、来源和玩家边界见[契约](m3-named-minion-boons.md)。
+
 原生手牌战吼随机选择使用HeldBattlecryFormsProfile和现有战吼实例；不要将此类来源整体变形成主体卡或复制战吼结算器。原目标、复制与私有收据见[契约](m3-held-battlecry-forms.md)。
 
 原到手随从的绝对设值使用SetStoredMinionStats；当前BOARD复制的纯数值入场增长使用有来源的CopyMinion.minion_grant，不能在首次入场反应后补增益。原引用、组成及国服边界见[契约](m3-osk-draw-copy.md)。

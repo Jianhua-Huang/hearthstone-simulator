@@ -126,7 +126,7 @@ class NativePoolLifestealTests(unittest.TestCase):
         c = shared((PLAIN,), None).card(FORM)
         self.assertEqual((c.cost, c.attack, c.health, c.metadata, c.keywords),
             (6, 6, 6, metadata_from_record(rows[FORM]), ()))
-        self.assertNotIn('TLC_452', shared((PLAIN,), None).cards)
+        self.assertIn(FORM, shared((PLAIN,), None).held_battlecry_forms_profiles['TLC_452'].forms)
 
     def test_real_paid_battlecry_summons_without_triggering_selected_battlecry(self):
         g = self.game()
@@ -240,8 +240,8 @@ class NativePoolLifestealTests(unittest.TestCase):
             cause=self.root(g).request.cause, entry_keywords=KEYWORDS)
         codec = FrameCodec(g.mechanics, g.registry)
         self.assertEqual(codec.decode(codec.encode(effect)), effect)
-        for kw in ((Keyword.LIFESTEAL,), (Keyword.LIFESTEAL, Keyword.TAUNT), (Keyword.TAUNT, Keyword.TAUNT),
-                (Keyword.TAUNT, Keyword.RUSH), ['taunt', 'lifesteal'], ('taunt', 'lifesteal')):
+        for kw in ((Keyword.LIFESTEAL, Keyword.TAUNT), (Keyword.TAUNT, Keyword.TAUNT),
+                (Keyword.TAUNT, Keyword.CHARGE), ['taunt', 'lifesteal'], ('taunt', 'lifesteal')):
             with self.subTest(kw=kw), self.assertRaises(ValueError):
                 replace(effect, entry_keywords=kw)
         for changes in ({'source_id': None}, {'cause': None}, {'entry_dormant_turns': 2}):

@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v585'
+CORE_EFFECTS_VERSION = 'core-effects-v586'
 
 
 class Mechanics:
@@ -615,6 +615,8 @@ class Resolution:
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
         from .minion_base_programs import synchronize as synchronize_minion_bases
         synchronize_minion_bases(self.state,self.registry)
+        from .named_minion_boons import synchronize as synchronize_named_boons
+        synchronize_named_boons(self.state,self.registry)
         from .remaining_mana_numbers import synchronize as synchronize_remaining_numbers
         synchronize_remaining_numbers(self.state,self.registry,exclude_source=getattr(self,'_remaining_mana_payment_source',None))
         from .stat_auras import matches_card_identity, player_aura_targets

@@ -465,6 +465,8 @@ class Game:
         validate_hand_mirrors(self)
         from .held_battlecry_forms import validate_game as validate_held_battlecry_forms
         validate_held_battlecry_forms(self)
+        from .named_minion_boons import validate_game as validate_named_boons
+        validate_named_boons(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

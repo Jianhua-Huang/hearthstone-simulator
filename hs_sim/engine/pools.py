@@ -1036,9 +1036,10 @@ def summon_from_candidates(r, effect):
 
 
 def validate_pool_entry_keywords(value):
-    recipes = ((), (Keyword.TAUNT,), (Keyword.TAUNT, Keyword.LIFESTEAL))
-    if (type(value) is not tuple or any(type(k) is not Keyword for k in value) or value not in recipes):
-        raise ValueError('Pool entry keywords require a reviewed plain, Taunt or Taunt/Lifesteal recipe')
+    order=(Keyword.TAUNT,Keyword.LIFESTEAL,Keyword.RUSH)
+    if (type(value)is not tuple or any(type(k)is not Keyword or k not in order for k in value)or
+            value!=tuple(k for k in order if k in value)):
+        raise ValueError('Pool entry keywords require an ordered Taunt/Lifesteal/Rush boon recipe')
 
 
 @dataclass(frozen=True)

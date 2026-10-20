@@ -1,0 +1,1217 @@
+{
+  "schema": 1,
+  "batch": "K305-talanji-bwonsamdi",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_619",
+        "dbf_id": 120183,
+        "name": "墓地尊主塔兰吉",
+        "name_en": "Talanji of the Graves",
+        "text": "<b>奇闻</b>\n<b>战吼：</b>抽取邦桑迪<i>（如果他已经死亡则将其复活）</i>，选择并使其获得一项恩泽。",
+        "text_en": "[x]<b>Fabled.</b> <b>Battlecry:</b> Draw\nBwonsamdi <i>(or resurrect\nhim if he has died)</i>. Choose\na Boon to give him.",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "cfde918ffd24f8c6b1dc12fa8af101a04ee7a9c92c34c538e601d902681fe8df",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_619",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619t",
+        "dbf_id": 120187,
+        "name": "邦桑迪",
+        "name_en": "Bwonsamdi",
+        "text": "<b>亡语：</b>随机召唤一个法力值消耗为（@）的随从。<i>（邦桑迪获得的所有恩泽都会继承下去。）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\nrandom @-Cost minion.\n<i>(Any Boons given to\n___Bwonsamdi carry over.)</i>",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 4,
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "7a58b2d41b631b1ea003685f06175d7ceca6df473139b7e6d76f4990f863d96b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619t2",
+        "dbf_id": 120188,
+        "name": "赞达拉的惨象",
+        "name_en": "What Befell Zandalar",
+        "text": "对所有敌人造成$2点伤害。选择并使邦桑迪获得一项恩泽。",
+        "text_en": "[x]Deal $2 damage to all\nenemies. Choose a Boon\nto give to Bwonsamdi.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "3854b5ab263f08215e4c177f4bb5b26904ae6358fc92c5a1d1ef90d3eeb6d4bb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "choice_only": [
+    {
+      "record": {
+        "id": "TIME_619t3",
+        "dbf_id": 120184,
+        "name": "威力恩泽",
+        "name_en": "Boon of Power",
+        "text": "使邦桑迪<i>永久</i>获得<b>嘲讽</b>。其<b>亡语</b>召唤的随从的法力值消耗增加（2）点。",
+        "text_en": "Give Bwonsamdi <b>Taunt</b> <i>permanently</i>. Minions summoned by his <b>Deathrattle</b> cost (2) more.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c06fbf78690b5983dd3751cdc3ad187b25aa21b2158837e1154c25a46ac6a7b0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619t4",
+        "dbf_id": 120185,
+        "name": "长命恩泽",
+        "name_en": "Boon of Longevity",
+        "text": "使邦桑迪<i>永久</i>获得<b>吸血</b>。其<b>亡语</b>召唤的随从的法力值消耗增加（2）点。",
+        "text_en": "Give Bwonsamdi <b>Lifesteal</b> <i>permanently</i>. Minions summoned by his <b>Deathrattle</b> cost (2) more.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3a3c43ab508b4f73a41fe18c44c8292e6cde04e77db087cce54e1c7efb10c4db",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619t5",
+        "dbf_id": 120186,
+        "name": "速度恩泽",
+        "name_en": "Boon of Speed",
+        "text": "使邦桑迪<i>永久</i>获得<b>突袭</b>。其<b>亡语</b>召唤的随从的法力值消耗增加（2）点。",
+        "text_en": "Give Bwonsamdi <b>Rush</b> <i>permanently</i>. Minions summoned by his <b>Deathrattle</b> cost (2) more.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "89b17a032fd94b0b782cdcdc320eaae7fc4f55852170d34faa7af4544b67d6aa",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TIME_619e",
+        "dbf_id": 120189,
+        "name": "威力恩泽玩家附加效果",
+        "name_en": "Boon of Power Player Ench",
+        "text": "使邦桑迪<i>永久</i>获得<b>嘲讽</b>。",
+        "text_en": "Give Bwonsamdi <b>Taunt</b> <i>permanently</i>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2300344abf9c717014117ec7454ba45a7b9ee0198af64ac23a01c918e3f02fb7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619e2",
+        "dbf_id": 120190,
+        "name": "长命恩泽玩家附加效果",
+        "name_en": "Boon of Longevity Player Ench",
+        "text": "使邦桑迪<i>永久</i>获得<b>吸血</b>。",
+        "text_en": "Give Bwonsamdi <b>Lifesteal</b> <i>permanently</i>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7e05c48902389bed39aafb935eb44f7370e3b0e76eae00ff4788ae4b854fe0a2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619e3",
+        "dbf_id": 120191,
+        "name": "速度恩泽玩家附加效果",
+        "name_en": "Boon of Speed Player Ench",
+        "text": "使邦桑迪<i>永久</i>获得<b>突袭</b>。",
+        "text_en": "Give Bwonsamdi <b>Rush</b> <i>permanently</i>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c91ea2e0bcb9044abc0e596a3eb72940ab3bc3930b125cdd25f2f9c3ee42872f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619e3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619e4",
+        "dbf_id": 120192,
+        "name": "威力契约",
+        "name_en": "Pact for Power",
+        "text": "<b>嘲讽</b>。",
+        "text_en": "<b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c870110803ede3f6af38e72ba15b3df386d87c3e767ec17c7ed9cc51cb5935b0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619e4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619e5",
+        "dbf_id": 120193,
+        "name": "长命契约",
+        "name_en": "Pact for Longevity",
+        "text": "<b>吸血</b>。",
+        "text_en": "<b>Lifesteal</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5bc7e4884b4e3815c4d61152c0fd67a00cdb257c62ff7ea01e041e015bd145be",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619e5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_619e6",
+        "dbf_id": 120194,
+        "name": "速度契约",
+        "name_en": "Pact for Speed",
+        "text": "<b>突袭</b>。",
+        "text_en": "<b>Rush</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1957,
+          "CLASS": 1,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "27b42626ed4be1e8900853672ea2340ce736f6c2daf97ef34112af465cda7358",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_619e6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_619",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120183-zh_CN.json",
+      "response_sha256": "925be61e6316b28ab259226cbac91337e39d0aaaab1d515206e6ce1322c7597a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120183&locale=zh_CN",
+      "face": {
+        "id": 120183,
+        "collectible": 1,
+        "slug": "120183-talanji-of-the-graves",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "墓地尊主塔兰吉",
+        "text": "<b>奇闻</b> <b>战吼：</b>抽取邦桑迪<i>（如果他已经死亡则将其复活）</i>，选择并使其获得一项恩泽。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5cc04725f519bef1d1e1e9c67513446a54d5548cbd30196b0ae5cffaa38b3967.png",
+        "imageGold": "",
+        "flavorText": "在某条黑暗的时间线中，塔兰吉不幸被害，又被复活为死亡骑士。可即便是死亡，也不能阻止她保护赞达拉的人民。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d470b51ab2be167ea0deae26bc99e1eba56f5faf85e08060f81137def4ccf446.png",
+        "childIds": [
+          120187,
+          120188,
+          120184,
+          120185,
+          120186
+        ],
+        "keywordIds": [
+          8,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          120188,
+          120187
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120183&locale=zh_CN",
+        "sha256": "925be61e6316b28ab259226cbac91337e39d0aaaab1d515206e6ce1322c7597a",
+        "bytes": 1084,
+        "observed_at": "2026-10-20T04:04:15.442390+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120183-en_US.json",
+      "response_sha256": "97dac797173c3ecd097d452bf2e679793e4588b0292708dfda71372cd21e793c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120183&locale=en_US",
+      "face": {
+        "id": 120183,
+        "collectible": 1,
+        "slug": "120183-talanji-of-the-graves",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Talanji of the Graves",
+        "text": "<b>Fabled.</b> <b>Battlecry:</b> Draw Bwonsamdi <i>(or resurrect him if he has died)</i>. Choose a Boon to give him.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f5863143febfdc2fa1e1f083b5d5cce3d462296dbf0dd80637229850398f4f2.png",
+        "imageGold": "",
+        "flavorText": "In one dark timeline, Talanji was struck down and raised again as a death knight. But even death can't stop her from protecting the Zandalari.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d470b51ab2be167ea0deae26bc99e1eba56f5faf85e08060f81137def4ccf446.png",
+        "childIds": [
+          120187,
+          120188,
+          120184,
+          120185,
+          120186
+        ],
+        "keywordIds": [
+          8,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          120188,
+          120187
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120183&locale=en_US",
+        "sha256": "97dac797173c3ecd097d452bf2e679793e4588b0292708dfda71372cd21e793c",
+        "bytes": 1056,
+        "observed_at": "2026-10-20T04:04:15.311993+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120187-zh_CN.json",
+      "response_sha256": "16b029856e74d4d4a6012d802b07991b3e676b89a171e536e048e9d4f3643535",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120187&locale=zh_CN",
+      "face": {
+        "id": 120187,
+        "collectible": 0,
+        "slug": "120187-bwonsamdi",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "邦桑迪",
+        "text": "<b>亡语：</b>随机召唤一个法力值消耗为（ ）的随从。<i>（邦桑迪获得的所有恩泽都会继承下去。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcd4557d2f798880a2d479fbda8308306b4f74e1863f2af0c9cfbf0e53f0d407.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120187&locale=zh_CN",
+        "sha256": "16b029856e74d4d4a6012d802b07991b3e676b89a171e536e048e9d4f3643535",
+        "bytes": 706,
+        "observed_at": "2026-10-20T04:04:15.301706+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120187-en_US.json",
+      "response_sha256": "d71d56b24412a9715cf63efd7375d00b8a332b9207adaf3b55914a5bf652e2ff",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120187&locale=en_US",
+      "face": {
+        "id": 120187,
+        "collectible": 0,
+        "slug": "120187-bwonsamdi",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Bwonsamdi",
+        "text": "<b>Deathrattle:</b> Summon a random -Cost minion. <i>(Any Boons given to Bwonsamdi carry over.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0b0507211ad5858bf2b531b64ab5d7718525f715710e37640dc37c92fcafc0b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120187&locale=en_US",
+        "sha256": "d71d56b24412a9715cf63efd7375d00b8a332b9207adaf3b55914a5bf652e2ff",
+        "bytes": 670,
+        "observed_at": "2026-10-20T04:04:15.508682+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120188-zh_CN.json",
+      "response_sha256": "f58fcdee55ac2d3f56422afa3b30bc9aba5629265e612d626ba5d9371b5caed3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120188&locale=zh_CN",
+      "face": {
+        "id": 120188,
+        "collectible": 0,
+        "slug": "120188-what-befell-zandalar",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 3,
+        "name": "赞达拉的惨象",
+        "text": "对所有敌人造成 2点伤害。选择并使邦桑迪获得一项恩泽。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61c66d28803f91902df0a79ee7a4dfe288b997431d41cdbe249bb164d743e299.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120188&locale=zh_CN",
+        "sha256": "f58fcdee55ac2d3f56422afa3b30bc9aba5629265e612d626ba5d9371b5caed3",
+        "bytes": 619,
+        "observed_at": "2026-10-20T04:04:17.054195+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120188-en_US.json",
+      "response_sha256": "0920c1f2ff7cbadd41a1e96c39602d6a35bd2186eb69c3e5aba3c9df6d14f34f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120188&locale=en_US",
+      "face": {
+        "id": 120188,
+        "collectible": 0,
+        "slug": "120188-what-befell-zandalar",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 3,
+        "name": "What Befell Zandalar",
+        "text": "Deal 2 damage to all enemies. Choose a Boon to give to Bwonsamdi.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf72861c99b69b3e7cc1478a2ca98d4cc3c701c210b46d7a742848d71f1b09a3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120188&locale=en_US",
+        "sha256": "0920c1f2ff7cbadd41a1e96c39602d6a35bd2186eb69c3e5aba3c9df6d14f34f",
+        "bytes": 609,
+        "observed_at": "2026-10-20T04:04:17.148163+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120184-zh_CN.json",
+      "response_sha256": "15e882b7d096b91ad4646b22951d3338210fd50311c45562eb64aef386223341",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120184&locale=zh_CN",
+      "face": {
+        "id": 120184,
+        "collectible": 0,
+        "slug": "120184-boon-of-power",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "威力恩泽",
+        "text": "使邦桑迪<i>永久</i>获得<b>嘲讽</b>。其<b>亡语</b>召唤的随从的法力值消耗增加（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b58ca82abef9095b7fcca60eb3768d8f28695e58325a1e7f171ceaf54ab7a31c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120184&locale=zh_CN",
+        "sha256": "15e882b7d096b91ad4646b22951d3338210fd50311c45562eb64aef386223341",
+        "bytes": 657,
+        "observed_at": "2026-10-20T04:04:17.116002+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120184-en_US.json",
+      "response_sha256": "3082e4285896f4cb995200efd542facfd9a7f695387aabba3a5c0b2ef5d58264",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120184&locale=en_US",
+      "face": {
+        "id": 120184,
+        "collectible": 0,
+        "slug": "120184-boon-of-power",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "Boon of Power",
+        "text": "Give Bwonsamdi <b>Taunt</b> <i>permanently</i>. Minions summoned by his <b>Deathrattle</b> cost (2) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4659117a5e2945bc15035876df788521ee60e92b32f3e93054c155f21760c4a0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120184&locale=en_US",
+        "sha256": "3082e4285896f4cb995200efd542facfd9a7f695387aabba3a5c0b2ef5d58264",
+        "bytes": 648,
+        "observed_at": "2026-10-20T04:04:50.598627+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120185-zh_CN.json",
+      "response_sha256": "76de0a11247bd45cae0b3d96dbd5c419b82036b878aadcc3d7173bbc8dd4f8be",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120185&locale=zh_CN",
+      "face": {
+        "id": 120185,
+        "collectible": 0,
+        "slug": "120185-boon-of-longevity",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "长命恩泽",
+        "text": "使邦桑迪<i>永久</i>获得<b>吸血</b>。其<b>亡语</b>召唤的随从的法力值消耗增加（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe6c6a80979be08eb40c284794c00f7d881d4f742fa5781b17c00f443b8e7ecd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          12,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120185&locale=zh_CN",
+        "sha256": "76de0a11247bd45cae0b3d96dbd5c419b82036b878aadcc3d7173bbc8dd4f8be",
+        "bytes": 662,
+        "observed_at": "2026-10-20T04:04:50.157548+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120185-en_US.json",
+      "response_sha256": "34421d739dd38b28d9f354288029a590655048aca5f53e18591610e0a7dbdb29",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120185&locale=en_US",
+      "face": {
+        "id": 120185,
+        "collectible": 0,
+        "slug": "120185-boon-of-longevity",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "Boon of Longevity",
+        "text": "Give Bwonsamdi <b>Lifesteal</b> <i>permanently</i>. Minions summoned by his <b>Deathrattle</b> cost (2) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/619aa640ef4b0d5cfa6c2f5c22585d3bbd5c92eb604b69f40fb5ee85e50b73b7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          12,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120185&locale=en_US",
+        "sha256": "34421d739dd38b28d9f354288029a590655048aca5f53e18591610e0a7dbdb29",
+        "bytes": 661,
+        "observed_at": "2026-10-20T04:04:50.157548+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120186-zh_CN.json",
+      "response_sha256": "07cdc4789ffb76e7f75684c8bbe614510023ff732131cbf358df3000f5a4dd52",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120186&locale=zh_CN",
+      "face": {
+        "id": 120186,
+        "collectible": 0,
+        "slug": "120186-boon-of-speed",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "速度恩泽",
+        "text": "使邦桑迪<i>永久</i>获得<b>突袭</b>。其<b>亡语</b>召唤的随从的法力值消耗增加（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb085f61179abf240d812e10e571b033e80222d4f489ebba06f1fd0f3cbbf1d8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120186&locale=zh_CN",
+        "sha256": "07cdc4789ffb76e7f75684c8bbe614510023ff732131cbf358df3000f5a4dd52",
+        "bytes": 658,
+        "observed_at": "2026-10-20T04:04:50.596138+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_619t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120186-en_US.json",
+      "response_sha256": "b27b7860e1b3122d5035e858f8ab6fc0196481e215d4704bc2f6565dbc1af86d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120186&locale=en_US",
+      "face": {
+        "id": 120186,
+        "collectible": 0,
+        "slug": "120186-boon-of-speed",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "Boon of Speed",
+        "text": "Give Bwonsamdi <b>Rush</b> <i>permanently</i>. Minions summoned by his <b>Deathrattle</b> cost (2) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a77b0b387d16c3d5a15387341e8976ff0dda2b23f08e54ed4daee2b8dccdfd5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120183,
+        "keywordIds": [
+          12,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120186&locale=en_US",
+        "sha256": "b27b7860e1b3122d5035e858f8ab6fc0196481e215d4704bc2f6565dbc1af86d",
+        "bytes": 648,
+        "observed_at": "2026-10-20T04:04:51.929871+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

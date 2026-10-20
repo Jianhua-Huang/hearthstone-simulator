@@ -171,6 +171,8 @@ class Registry:
         self._remaining_mana_numbers_profiles = {}
         self._rotating_discovery_class_profiles = {}
         self._held_battlecry_forms_profiles = {}
+        self._named_minion_boon_profiles = {}
+        self._named_minion_boon_programs = {}
         self._colossal_reserve_profiles = {}
         self._hero_health_target_profiles = {}
         self._kindred_target_profiles = {}
@@ -409,6 +411,12 @@ class Registry:
     def held_battlecry_forms_profiles(self):return MappingProxyType(self._held_battlecry_forms_profiles)
 
     @property
+    def named_minion_boon_profiles(self):return MappingProxyType(self._named_minion_boon_profiles)
+
+    @property
+    def named_minion_boon_programs(self):return MappingProxyType(self._named_minion_boon_programs)
+
+    @property
     def colossal_reserve_profiles(self):return MappingProxyType(self._colossal_reserve_profiles)
 
     def register_colossal_reserve_profile(self,profile):
@@ -554,6 +562,15 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._held_battlecry_forms_profiles:raise ValueError('Duplicate held Battlecry declaration')
         self._held_battlecry_forms_profiles[profile.card_id]=profile
+
+    def register_named_minion_boon_profile(self,profile):
+        self._require_mutable()
+        from .named_minion_boons import validate_profile
+        validate_profile(self,profile)
+        if profile.recipient_card_id in self._named_minion_boon_profiles or any(b.program_id in self._named_minion_boon_programs for b in profile.boons):
+            raise ValueError('Duplicate named-minion boon declaration')
+        self._named_minion_boon_profiles[profile.recipient_card_id]=profile
+        for boon in profile.boons:self._named_minion_boon_programs[boon.program_id]=(profile,boon)
 
     def register_remaining_mana_numbers_profile(self,profile):
         self._require_mutable()
@@ -1860,6 +1877,8 @@ class Registry:
         for profile in self._rotating_discovery_class_profiles.values():validate_rotating_discovery_class_profile(self,profile)
         from .held_battlecry_forms import validate_profile as validate_held_battlecry_profile
         for profile in self._held_battlecry_forms_profiles.values():validate_held_battlecry_profile(self,profile)
+        from .named_minion_boons import validate_profile as validate_named_boon_profile
+        for profile in self._named_minion_boon_profiles.values():validate_named_boon_profile(self,profile)
         from .colossal_reserves import validate_profile as validate_colossal_reserve_profile
         for profile in self._colossal_reserve_profiles.values():validate_colossal_reserve_profile(self,profile)
         from .hero_health_targets import validate_profile as validate_hero_health_target_profile
@@ -2236,6 +2255,8 @@ class Registry:
             payload['rotating_discovery_class_profiles']=[asdict(self._rotating_discovery_class_profiles[k])for k in sorted(self._rotating_discovery_class_profiles)]
         if self._held_battlecry_forms_profiles:
             payload['held_battlecry_forms_profiles']=[asdict(self._held_battlecry_forms_profiles[k])for k in sorted(self._held_battlecry_forms_profiles)]
+        if self._named_minion_boon_profiles:
+            payload['named_minion_boon_profiles']=[asdict(self._named_minion_boon_profiles[k])for k in sorted(self._named_minion_boon_profiles)]
         if self._colossal_reserve_profiles:
             payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
         if self._remaining_mana_numbers_profiles:

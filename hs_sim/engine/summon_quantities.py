@@ -191,9 +191,11 @@ def validate_material(registry,material,*,allow_colossal=False,allow_pool_entry=
     # colossal.enter_minion; keep its ordinary plain recipe instead of pruning
     # the candidate or routing through a different stored/copy summon profile.
     if card.colossal and (material.stats is not None or material.deathrattles or
-            material.keywords not in ((),(Keyword.TAUNT,),(Keyword.TAUNT,Keyword.LIFESTEAL)) or
             material.dormant_turns is not None or material.on_summon is not None):
         raise ValueError('Attributed Colossal entry requires plain material or its supported pool keywords')
+    if card.colossal:
+        from .pools import validate_pool_entry_keywords
+        validate_pool_entry_keywords(material.keywords)
     if material.dormant_turns is not None and card.permanent_dormancy:
         raise ValueError('Forced timed entry for a permanent dormant carrier is unsupported')
     for s in material.deathrattles: registry.behavior(s)

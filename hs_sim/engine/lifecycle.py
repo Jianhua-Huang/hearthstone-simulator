@@ -222,6 +222,8 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
     initialize_jade(entity, registry)
     from .minion_base_programs import apply_to_entity as apply_minion_base_program
     apply_minion_base_program(state,registry,entity)
+    from .named_minion_boons import apply_to_entity as apply_named_boons
+    apply_named_boons(state,registry,entity)
     refresh_entity(entity)
 
 

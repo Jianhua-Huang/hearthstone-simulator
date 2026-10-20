@@ -37,6 +37,7 @@ ENTITY |= {'invoke_progress', 'preparation', 'disguised', 'play_side', 'interact
 ENTITY |= {'base_damage'}
 ENTITY |= {'divine_shield'}
 ENTITY |= {'battlecry_form'}
+ENTITY |= {'boon_summon_cost'}
 
 
 def _interactable_view(row, controller, zone):
@@ -148,6 +149,9 @@ def decode(proof, *, require_active_player=True):
             _interactable_view(row, controller, zone)
         if 'base_damage' in row and (row.get('kind')!=CardType.SPELL.value or type(row['base_damage'])is not int or row['base_damage']<0):
             raise ValueError('Visible native spell base damage requires its exact nonnegative value')
+        if 'boon_summon_cost'in row and (row.get('kind')!=CardType.MINION.value or
+                type(row['boon_summon_cost'])is not int or row['boon_summon_cost']<0):
+            raise ValueError('Visible native summon cost requires a physical minion and exact nonnegative value')
         if 'invoke_progress' in row and (
                 zone != Zone.HERO and not (zone == Zone.HAND and controller == value['viewer']) or
                 type(row['invoke_progress']) is not int or not 0 <= row['invoke_progress'] <= 4):
