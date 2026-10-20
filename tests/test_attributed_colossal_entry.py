@@ -335,5 +335,5 @@ class AttributedColossalEntryTests(unittest.TestCase):
         for material in (replace(plain, stats=SummonStats(1, 1)),
                 replace(plain, dormant_turns=2), replace(plain, keywords=(Keyword.CHARGE,)),
                 replace(plain, deathrattles=(TEST + 'bc',)), replace(plain, on_summon=TEST + 'bc')):
-            with self.subTest(material=material), self.assertRaisesRegex(ValueError, 'supported pool keywords'):
+            with self.subTest(material=material), self.assertRaisesRegex(ValueError, '(supported pool keywords|ordered Taunt/Lifesteal/Rush)'):
                 validate_material(r, material, allow_colossal=True)

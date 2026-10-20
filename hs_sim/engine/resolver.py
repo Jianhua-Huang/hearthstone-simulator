@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v610'
+CORE_EFFECTS_VERSION = 'core-effects-v611'
 
 
 class Mechanics:
@@ -258,6 +258,9 @@ class Resolution:
         return result
 
     def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, **data):
+        if kind == 'minion_summoned' and self.registry.summon_entry_stats_profiles:
+            from .summon_entry_stats import apply_entry as apply_entry_stat_programs
+            apply_entry_stat_programs(self, self.state.entities[target_id], 'summon')
         if target_id in self.state.entities:
             from .stat_auras import refresh_stored_player_card_aura
             refresh_stored_player_card_aura(self.state, self.registry, self.state.entities[target_id])

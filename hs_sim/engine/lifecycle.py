@@ -358,12 +358,12 @@ def renew_hand_progress(state, entity, *, previous_zone=None, hand_transfer=Fals
     entity.abilities=[a for a in entity.abilities if a.kind not in ('hand_mirror','spell_mirror')or entity.zone==Zone.HAND]
 
 
-def apply_summon_stats(state, entity, spec):
+def apply_summon_stats(state, entity, spec, *, source_id=None, label='summon_stats'):
     from .model import validate_summon_stats
     validate_summon_stats(spec)
     if spec is None: return
-    entity.enchantments.append(Enchantment(attachment_id(state), source_id=entity.id,
-        set_attack=spec.attack, set_health=spec.health, label='summon_stats'))
+    entity.enchantments.append(Enchantment(attachment_id(state), source_id=entity.id if source_id is None else source_id,
+        set_attack=spec.attack, set_health=spec.health, label=label))
     if spec.health is not None: entity.damage = 0
     refresh_entity(entity)
 

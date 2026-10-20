@@ -91,6 +91,8 @@ def announce(r, entity, reason, origin_id=None, copy_mode=None, death_id=None):
 
 def enter_minion(r, entity, reason, *, origin_id=None, copy_mode=None, death_id=None, play_id=None):
     """Called after the source path finishes installing the body's current state."""
+    from .summon_entry_stats import apply_entry as apply_entry_stat_programs
+    apply_entry_stat_programs(r, entity, reason)
     definition=r.registry.card(entity.card_id)
     has_keyword=any(a.kind=='keyword' and a.keyword==Keyword.COLOSSAL and not a.consumed for a in entity.abilities)
     if not definition.colossal or not has_keyword:

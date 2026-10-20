@@ -259,6 +259,8 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     install_minion_base_program(r,player.id,instance)
     from .named_minion_boons import install as install_named_boon
     install_named_boon(r,player.id,instance)
+    from .summon_entry_stats import install as install_summon_entry_stats
+    install_summon_entry_stats(r,player.id,instance)
     from .coin_replacements import install as install_coin_replacement
     install_coin_replacement(r,player.id,instance)
     if modifier_id is not None:
