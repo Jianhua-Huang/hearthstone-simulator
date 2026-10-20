@@ -73,7 +73,7 @@ class NativeTargetPartition:
     def __post_init__(self):
         if type(self.source) is not SourceAllocationFact: raise ValueError('Native target partition requires its actual source')
         self.source.__post_init__(); _player(self.player_id); _source(self.submitted_target_id)
-        if self.origin not in ('manual_card','battlecry','combo','hero_power','minion_ability','location','hand_action','attack'):
+        if self.origin not in ('manual_card','battlecry','combo','hero_power','minion_ability','location','hand_action','attack','on_play'):
             raise ValueError('Unknown native target activation origin')
         if type(self.definition_digest) is not str or not self.definition_digest: raise ValueError('Effective target contract digest required')
         if self.mode is not None and type(self.mode) is not TargetMode: raise ValueError('Typed target mode required')
@@ -119,7 +119,11 @@ elusive/stealthed/immune enemy. The caller owns the actual acceptance window.
     spec = effective_target_spec(r.state,r.registry,actor,definition)
     carriers = current_sources(r.state,r.registry)
     applied = bool(carriers and submitted_target_id is not None and spec is not None)
-    context = effect_target_context(r,actor)
+    if r.registry.target_visibility(definition.target_rule)=='player':
+        from .player_target_inputs import live_factory
+        context=live_factory(r,actor)
+    else:
+        context=effect_target_context(r,actor)
     ids = tuple(i for i in sorted(r.state.entities) if applied and accepts_target(r.state,r.registry,
         actor,definition,i,context_factory=context,automatic=False))
     return NativeTargetPartition(SourceAllocationFact.capture(r.state,source),player_id,origin,

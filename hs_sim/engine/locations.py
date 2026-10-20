@@ -124,17 +124,22 @@ def random_destroy_location(r, effect):
 def activate_location(r, effect):
     a = effect.action
     source = r.state.entities[a.entity_id]
+    from .native_active_targets import accept, FinishNativeActiveTarget
+    bodies=tuple(a.behavior_id for a in active_abilities(source,'on_use'))
+    native=accept(r,'location',a,bodies)
+    target_id=a.target_id if native is None else native.selection.target_id
     source.durability -= 1
     from .death_causes import dying, mark
     if dying(source): mark(r, source, 'durability', 'location_use', source.id)
     source.location_cooldown = 2
     source.uses_this_turn += 1
     # Capture before a last-use destruction moves the source out of play.
-    work = [r.call(ability.behavior_id, source.id, a.player_id, a.target_id)
-            for ability in active_abilities(source, 'on_use')]
-    r.emit('location_activated', source_id=source.id, target_id=a.target_id, player_id=a.player_id,
+    work = [r.call(behavior, source.id, a.player_id, target_id) for behavior in bodies
+            if native is None or native.selection.failure is None]
+    r.emit('location_activated', source_id=source.id, target_id=target_id, player_id=a.player_id,
            durability=source.durability, cooldown=source.location_cooldown)
-    return [*work, FinishLocation(source.id, a.player_id, a.target_id)]
+    return [*work, FinishLocation(source.id, a.player_id, target_id),
+            *(()if native is None else(FinishNativeActiveTarget(native),))]
 
 
 def finish_location(r, effect):

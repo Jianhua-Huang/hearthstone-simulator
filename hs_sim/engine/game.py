@@ -484,6 +484,8 @@ class Game:
         validate_native_target_acceptance(self)
         from .native_attack_targets import validate_boundary as validate_native_attack_targets
         validate_native_attack_targets(self)
+        from .native_active_targets import validate_boundary as validate_native_active_targets
+        validate_native_active_targets(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

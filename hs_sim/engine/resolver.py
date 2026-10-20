@@ -148,7 +148,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v594'
+CORE_EFFECTS_VERSION = 'core-effects-v595'
 
 
 class Mechanics:
@@ -2636,6 +2636,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_native_target_acceptance(mechanics)
     from .native_attack_targets import register as register_native_attack_targets
     register_native_attack_targets(mechanics)
+    from .native_active_targets import register as register_native_active_targets
+    register_native_active_targets(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
     from .random_minion_keywords import register as register_random_minion_keywords

@@ -171,7 +171,13 @@ def ordinary_payload(r, source_id, player_id, target_id, behavior_ids, *, play=N
         return schedule(r,power,outcome_id=outcome_id,iteration=iteration)
     from .combo_repeats import BeginComboBatch
     from .battlecry_repeats import BeginBattlecryBatch
-    return [*[r.call(b, source_id, player_id, target_id, play=play, power=power) for b in behavior_ids],
+    from .native_active_targets import accept, FinishNativeActiveTarget
+    native=accept(r,'on_play',play,behavior_ids) if play is not None else None
+    body_target=target_id if native is None else native.selection.target_id
+    # Native on_play wrappers still accept their real conditions and one-use
+    # programs when no target survives. Their bodies already handle None.
+    return [*[r.call(b, source_id, player_id, body_target, play=play, power=power) for b in behavior_ids],
+            *(()if native is None else(FinishNativeActiveTarget(native),)),
             *([BeginBattlecryBatch(play.id, player_id, battlecries, battlecry_plan, outcome_id, iteration)] if battlecries else []),
             *([BeginComboBatch(play.id,player_id,combos,combo_plan,outcome_id,iteration)] if combo_plan is not None else [])]
 
