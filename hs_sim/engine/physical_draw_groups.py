@@ -11,7 +11,7 @@ from .copy_materials import CapturedCardCopyMaterial, validate_captured_card_cop
 from .draw_casts import draw_one, draw_record
 from .effects import ChoiceOption, Effect, RequestChoice, _integer, _player
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .hand_upgrades import BuffStoredCard
+from .hand_upgrades import BuffStoredCard, SetStoredMinionStats
 from .model import BoardPresenceReference, CardType, CostSpec, Keyword, Zone
 from .play_history import starting_deck_identity
 from .pools import PoolQuery
@@ -59,14 +59,14 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions'):
+        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions'):
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'source_charge_if_both_minions':
             if type(self.source) is not BoardPresenceReference: raise ValueError('Draw-conditioned Charge requires its original board residence')
             self.source.__post_init__()
         elif self.source is not None: raise ValueError('Only the native draw-conditioned source reward captures board residence')
         _integer(self.amount, 'draw reward amount', 0)
-        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
+        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'set_stats_cost_all', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
             raise ValueError('Draw reward amount differs from its operation')
 
 
@@ -117,7 +117,7 @@ class DrawPhysicalGroup(Effect):
         if type(self.kindred_pair) is not bool: raise ValueError('Kindred draw pair requires an exact boolean')
         if self.kindred_pair and self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.MINION,CardType.SPELL))),)*2:
             raise ValueError('Native Kindred draw pair requires exactly two broad physical card slots')
-        if self.reward.kind == 'buff_all' and any(s.query is None or s.query.kinds != (CardType.MINION,) for s in self.slots):
+        if self.reward.kind in ('buff_all', 'set_stats_cost_all') and any(s.query is None or s.query.kinds != (CardType.MINION,) for s in self.slots):
             raise ValueError('Minion draw buffs require explicit minion slots')
         if self.reward.kind == 'source_charge_if_both_minions' and (self.slots != (DrawGroupSlot(), DrawGroupSlot()) or self.reward.source.entity_id != self.source_id):
             raise ValueError('Draw-conditioned Charge requires exactly two ordinary draws and the original source')
@@ -372,6 +372,8 @@ def finish(r, request):
             effect = ModifyStoredCost(ref, CostSpec(delta=-reward.amount), request.source_id)
         elif reward.kind=='set_cost_all':
             effect=ModifyStoredCost(ref,CostSpec(set_to=reward.amount),request.source_id)
+        elif reward.kind=='set_stats_cost_all':
+            effect=SetStoredMinionStats(ref,reward.amount,reward.amount,request.source_id,CostSpec(set_to=reward.amount))
         elif reward.kind == 'buff_all':
             effect = BuffStoredCard(ref, reward.amount, reward.amount, request.source_id)
         elif reward.kind == 'lock_all':

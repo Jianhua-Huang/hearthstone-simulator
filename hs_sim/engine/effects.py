@@ -1136,7 +1136,14 @@ class CopyMinion(Effect):
     stats: SummonStats | None = None
     allow_dormant: bool = False
     on_summon: str | None = None
+    minion_grant: CreatedMinionGrant | None = None
     def __post_init__(self):
+        validate_minion_grant(self.minion_grant)
+        if self.minion_grant is not None:
+            grant = self.minion_grant
+            if (self.mode != 'current' or self.cause is None or grant.attack < 0 or grant.health < 0 or
+                    grant.keywords or grant.reborn_policy is not None or grant.identity is not None or grant.special is not None):
+                raise ValueError('Board copy entry grant requires plain current-copy stat growth and its original cause')
         if self.on_summon is not None:
             _behavior(self.on_summon)
             if self.cause is None: raise ValueError('Copy followup requires original card attribution')

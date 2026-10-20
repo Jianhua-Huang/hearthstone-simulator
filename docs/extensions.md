@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+原到手随从的绝对设值使用SetStoredMinionStats；当前BOARD复制的纯数值入场增长使用有来源的CopyMinion.minion_grant，不能在首次入场反应后补增益。原引用、组成及国服边界见[契约](m3-osk-draw-copy.md)。
+
 真实“下个法术减费并获得法伤”使用独立原程序；手牌接受先保留整份材料，自动施法另有实际接受窗，见[欧斯克分支契约](m3-next-spell-bonuses.md)。
 
 真实支线任务可复用两阶段自定义随从奖励，单部件印刷上限与最终当前费用减免分别接受，见[围攻城门契约](m3-zombeast-sidequest.md)。

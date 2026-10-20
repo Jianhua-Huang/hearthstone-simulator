@@ -42,6 +42,27 @@ class BuffStoredCard(Effect):
 
 
 @dataclass(frozen=True)
+class SetStoredMinionStats(Effect):
+    """Set the original hand minion's local stats and optional cost together."""
+    card: CardReference
+    attack: int
+    health: int
+    source_id: int | None = None
+    cost: CostSpec | None = None
+
+    def __post_init__(self):
+        reference_value(self.card)
+        if self.card.zone != Zone.HAND:
+            raise ValueError('Stored minion stat replacement requires its original hand residence')
+        _int(self.attack, 'stored set Attack', 0)
+        _int(self.health, 'stored set Health', 1)
+        _optional_id(self.source_id, 'stored stat replacement source')
+        if self.cost is not None:
+            if type(self.cost) is not CostSpec: raise ValueError('Stored replacement cost requires CostSpec')
+            self.cost.__post_init__()
+
+
+@dataclass(frozen=True)
 class UpgradeHandCard(Effect):
     card: CardReference
     card_id: str
@@ -96,6 +117,29 @@ def buff_stored_card(r, effect, *, pending_events=None):
             r.emit('cost_modified', **data)
         else:
             pending_events.append(('cost_modified', data))
+
+
+def set_stored_minion_stats(r, effect):
+    from .costs import attach_cost, validate_cost_targets
+    from types import SimpleNamespace
+    effect.__post_init__()
+    source_exists(r, effect.source_id)
+    definition = r.registry.card(effect.card.card_id)
+    if definition.kind != CardType.MINION:
+        raise ResolutionError('Stored stat replacement requires a minion')
+    entity = reference_entity(r, effect.card)
+    if entity is None: return
+    validate_cost_targets(r.state, SimpleNamespace(cost=effect.cost, expires_turn=None), ((definition, entity),))
+    entity.enchantments.append(Enchantment(attachment_id(r.state), source_id=effect.source_id,
+        set_attack=effect.attack, set_health=effect.health, label='stored_stats_set'))
+    entity.damage = 0
+    cost = attach_cost(r.state, entity, effect.cost, effect.source_id) if effect.cost is not None else None
+    refresh_entity(entity)
+    # The first observer sees all three local replacements on the same arrival.
+    r.emit('stored_card_stats_set', target_id=entity.id, source_id=effect.source_id,
+        player_id=entity.controller, attack=effect.attack, health=effect.health)
+    if cost is not None:
+        r.emit('cost_modified', target_id=entity.id, source_id=effect.source_id, attachment_id=cost.id)
 
 
 def upgrade_face(r, source, card_id, *, health_to_durability=False, cost_policy='preserve', spell_to_minion=False):
@@ -182,4 +226,5 @@ def upgrade_hand_card(r, effect):
 
 def register_hand_upgrades(mechanics):
     mechanics.register(BuffStoredCard, buff_stored_card)
+    mechanics.register(SetStoredMinionStats, set_stored_minion_stats)
     mechanics.register(UpgradeHandCard, upgrade_hand_card)
