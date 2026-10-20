@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "batch": "K293-destructive-phoenix",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CATA_EVENT_001",
+        "dbf_id": 126700,
+        "name": "毁焚火凤",
+        "name_en": "Destructive Phoenix",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌并点燃。在3回合后，弃掉选中的牌并召唤一个本随从的复制。",
+        "text_en": "[x]<b>Battlecry:</b> Choose a card in\nyour hand to set on fire.\nIn 3 turns, discard it and\n summon a copy of this.",
+        "cost": 4,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1941,
+          "CLASS": 9,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1,
+          "2542": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "3b4342f151eda2c29df13e45034b44b51e839436418a5e3998b8e911ecd8c197",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CATA_EVENT_001",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "CATA_EVENT_001e",
+        "dbf_id": 130827,
+        "name": "毁焚火凤重生",
+        "name_en": "Destructive Phoenix Rising",
+        "text": "这张牌着火了！",
+        "text_en": "This card is on fire!",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "CARD_SET": 1941,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1a8524d2553adf9299bd3f073aaf4fa7f43b4b1b3f4ead7f62559b7bd47c11fd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "CATA_EVENT_001e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "CATA_EVENT_001",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126700-zh_CN.json",
+      "response_sha256": "2c14b385d31e414e20d524fdc6831aae53cbac6698a4dc857dfb2f17a7954827",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126700&locale=zh_CN",
+      "face": {
+        "id": 126700,
+        "collectible": 1,
+        "slug": "126700-destructive-phoenix",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "毁焚火凤",
+        "text": "<b>战吼：</b>选择你手牌中的一张牌并点燃。在3回合后，弃掉选中的牌并召唤一个本随从的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9af7b32a790daadad51c514954c8cc15e9c0eb88fb55b061ec5678e745df1224.png",
+        "imageGold": "",
+        "flavorText": "浴火重生了足足9000次。毁灭吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/394a2117ae72295b2bcacb1558256beb739cce4670dadf18918d3dbc113a63fd.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126700&locale=zh_CN",
+        "sha256": "2c14b385d31e414e20d524fdc6831aae53cbac6698a4dc857dfb2f17a7954827",
+        "bytes": 876,
+        "observed_at": "2026-10-20T00:02:33.755812+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_EVENT_001",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache\\126700-en_US.json",
+      "response_sha256": "8131b17484b18cd499c7c221f763d42773701601100d4cbd1d8f76bf0ffd20c7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126700&locale=en_US",
+      "face": {
+        "id": 126700,
+        "collectible": 1,
+        "slug": "126700-destructive-phoenix",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 4,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Destructive Phoenix",
+        "text": "<b>Battlecry:</b> Choose a card in your hand to set on fire. In 3 turns, discard it and summon a copy of this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f7d6a40b32a7d58ebc8a6f5ed40394f271854f06e95f76c70c8d0a0677fbde3.png",
+        "imageGold": "",
+        "flavorText": "How would you feel if you rose from the ashes 9000 times?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/394a2117ae72295b2bcacb1558256beb739cce4670dadf18918d3dbc113a63fd.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126700&locale=en_US",
+        "sha256": "8131b17484b18cd499c7c221f763d42773701601100d4cbd1d8f76bf0ffd20c7",
+        "bytes": 879,
+        "observed_at": "2026-10-20T00:02:34.183558+00:00"
+      }
+    }
+  ],
+  "skipped": []
+}

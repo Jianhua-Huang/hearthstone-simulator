@@ -5,11 +5,11 @@ acceptance receipts are not player events; only remaining end counts are shown.
 """
 from dataclasses import dataclass, fields, is_dataclass, replace
 
-from .effects import Effect, _integer, _player, _source
+from .effects import Effect, Summon, _integer, _player, _source
 from .errors import ResolutionError
 from .model import GameState, Zone
 from .nondeath_removal import RemoveFromGame, remove_from_game
-from .zones import CardReference, HAND_TYPES, DestroyStoredCard, destruction_result
+from .zones import CardReference, HAND_TYPES, DestroyStoredCard, DiscardCard, destruction_result
 
 
 @dataclass(frozen=True)
@@ -24,8 +24,10 @@ class ScheduleHandRemoval(Effect):
         _player(self.player_id)
         _integer(self.owner_ends, 'hand deadline owner ends', 1)
         _source(self.source_id)
-        if self.retirement not in ('remove', 'destroy'):
+        if self.retirement not in ('remove', 'destroy', 'discard_copy'):
             raise ValueError('Unknown hand deadline retirement')
+        if self.retirement == 'discard_copy' and (self.source_id is None or self.cards is None or len(self.cards) != 1):
+            raise ValueError('Discard-copy deadline requires one explicit hand card and its minion source')
         if self.cards is not None:
             if type(self.cards) is not tuple or any(type(card) is not CardReference for card in self.cards):
                 raise ValueError('Bound hand deadline needs immutable physical references')
@@ -142,6 +144,63 @@ class CompleteHandDeadlineDestruction(Effect):
         _integer(self.step_event, 'hand destruction step event', self.owner_end_event + 1)
 
 
+@dataclass(frozen=True)
+class SummonHandDeadlineCopy(CompleteHandDeadlineDestruction):
+    """Private successful-discard continuation; the ordinary summon owns entry."""
+
+
+def copy_receipt(root, work, discard_event, entity_id, board_full):
+    return dict(deadline_id=root.id, owner_end_event=work.owner_end_event, index=work.index,
+        step_event=work.step_event, discard_event=discard_event, card_id=root.source_card_id,
+        entity_id=entity_id, board_full=board_full)
+
+
+def copy_work(r, work):
+    root = expiry_root(r.state, work)
+    if not r.ending_turn or root.request.retirement != 'discard_copy' or root.destruction_cursor != work.index:
+        raise ResolutionError('Hand deadline copy requires its original successful discard step')
+    step = next((e for e in r.game._events if e.sequence == work.step_event), None)
+    if step is None or dict(step.data) != destruction_step_data(root,work.index,True):
+        raise ResolutionError('Hand deadline copy lost its original step')
+    discarded = matching_destructions(r.game._events,root,work.index,work.step_event,state=r.state)
+    if len(discarded) != 1 or any(e.kind == 'hand_deadline_copy_accepted' and
+            dict(e.data).get('deadline_id') == root.id for e in r.game._events):
+        raise ResolutionError('Hand deadline copy lost or repeated its successful discard')
+    r.emit('hand_deadline_copy_accepted',source_id=root.request.source_id,player_id=root.request.player_id,
+        **copy_receipt(root,work,discarded[0].sequence,r.state.next_entity_id,
+            len(r.player(root.request.player_id).board) >= r.rules.max_board))
+    return (Summon(root.request.player_id,root.source_card_id),)
+
+
+def copy_outcome(state, events, root, work, discard_event, *, before=None, require=False):
+    accepts = [e for e in events if e.kind == 'hand_deadline_copy_accepted' and
+        dict(e.data).get('deadline_id') == root.id and (before is None or e.sequence < before)]
+    if root.request.retirement != 'discard_copy' or discard_event is None:
+        if accepts:raise ValueError('Hand deadline copy has no actual original discard')
+        return None,False
+    if len(accepts) > 1 or require and not accepts:
+        raise ValueError('Hand deadline lost or repeated its copy acceptance')
+    if not accepts:return None,False
+    event=accepts[0];d=dict(event.data)
+    _integer(d.get('entity_id'),'hand deadline copy allocation',1)
+    if type(d.get('board_full')) is not bool or d['entity_id'] > state.next_entity_id:
+        raise ValueError('Hand deadline copy has an impossible allocation')
+    if ((event.source_id,event.player_id)!=(root.request.source_id,root.request.player_id) or
+        event.sequence <= discard_event or d != copy_receipt(root,work,discard_event,d['entity_id'],d['board_full'])):
+        raise ValueError('Hand deadline copy changed its original recipe or discard')
+    later=[e for e in events if e.sequence > event.sequence and (before is None or e.sequence < before)]
+    if d['board_full']:
+        results=[e for e in later if e.kind=='summon_failed' and e.player_id==root.request.player_id and
+            dict(e.data)==dict(card_id=root.source_card_id,reason='board_full')]
+    else:
+        known={x.event_sequence for x in state.successful_summon_history if
+            x.entity_id==d['entity_id'] and x.minion.card_id==root.source_card_id and x.player_id==root.request.player_id}
+        results=[e for e in later if e.sequence in known]
+    if not d['board_full'] and len(results)>1 or require and not results:
+        raise ValueError('Hand deadline copy lost its actual ordinary summon result')
+    return event,bool(results)
+
+
 def ended_count(state, player_id, *, before_event=None):
     return sum(row.player_id == player_id and row.end_event is not None and
         (before_event is None or row.end_event < before_event) for row in state.owner_turn_history)
@@ -163,7 +222,7 @@ def begin_data(root):
 def finish_data(root):
     data = dict(deadline_id=root.id, owner_end_event=root.owner_end_event,
         removal_event=root.removal_event, removed=root.removed)
-    if root.request.retirement == 'destroy':
+    if root.request.retirement != 'remove':
         data.update(destruction_started_event=root.destruction_started_event, destruction_events=root.destruction_events)
     return data
 
@@ -182,7 +241,15 @@ def destruction_step_data(root, index, available):
         original_card=reference_data(root.targets[index]), available=available)
 
 
-def matching_destructions(events, root, index, after, before=None):
+def matching_destructions(events, root, index, after, before=None, *, state=None):
+    if root.request.retirement == 'discard_copy':
+        target = root.targets[index]
+        sequences = {row.event_sequence for row in state.discard_history
+            if row.source_id == root.request.source_id and
+            (row.card.entity_id,row.player_id,row.card.card_id,row.card.zone_epoch) ==
+            (target.entity_id,target.player_id,target.card_id,target.zone_epoch)}
+        return tuple(e for e in events if e.sequence in sequences and e.sequence > after and
+            (before is None or e.sequence < before))
     return tuple(e for e in events if e.sequence > after and (before is None or e.sequence < before)
         and e.kind == 'card_destroyed_in_hand' and e.source_id == root.request.source_id
         and destruction_result(e).card == root.targets[index])
@@ -207,6 +274,12 @@ def schedule(r, request):
     source = None if request.source_id is None else r.state.entities.get(request.source_id)
     if request.source_id is not None and source is None:
         raise ResolutionError('Hand deadline source does not exist')
+    if request.retirement == 'discard_copy':
+        if source.kind.name != 'MINION':
+            raise ResolutionError('Discard-copy deadline requires its actual minion source')
+        if any(row.request.retirement == 'discard_copy' and row.expired_event is None and
+               any(t == request.cards[0] for t in row.targets) for row in r.state.hand_deadlines):
+            raise ResolutionError('A physical hand residence cannot be ignited twice')
     targets = tuple(CardReference.capture(r.state.entities[i]) for i in r.player(request.player_id).hand) if request.cards is None else request.cards
     RemoveFromGame(targets, request.source_id).__post_init__()
     for target in targets:
@@ -250,7 +323,7 @@ def expire(r, work):
         raise ResolutionError('Hand deadline expiry is private natural-end work')
     if any(type(item) is ExpireHandDeadline and item.deadline_id == root.id for item in r._work_queue):
         raise ResolutionError('Hand deadline expiry cannot be injected ahead of its original work')
-    if root.request.retirement == 'destroy':
+    if root.request.retirement != 'remove':
         if root.destruction_started_event is None:
             root = replace(root, owner_end_event=work.owner_end_event, destruction_started_event=len(r.game._events)+1)
             r.state.hand_deadlines[root.id-1] = root
@@ -266,7 +339,12 @@ def expire(r, work):
         event = r.emit('hand_deadline_destruction_step', source_id=root.request.source_id,
             player_id=root.request.player_id, **destruction_step_data(root, index, available))
         complete = CompleteHandDeadlineDestruction(root.id, work.owner_end_event, index, event.sequence)
-        return (DestroyStoredCard(target, root.request.source_id, reveal=False), complete) if available else (complete,)
+        if not available:
+            return (complete,)
+        if root.request.retirement == 'discard_copy':
+            followup = SummonHandDeadlineCopy(root.id, work.owner_end_event, index, event.sequence)
+            return (DiscardCard(target, root.request.source_id, on_success=(followup,)), complete)
+        return (DestroyStoredCard(target, root.request.source_id, reveal=False), complete)
     removed = tuple(t.entity_id for t in root.targets if same_hand(r.state, t))
     first_event = len(r.game._events)
     remove_from_game(r, RemoveFromGame(root.targets, root.request.source_id))
@@ -282,15 +360,16 @@ def expire(r, work):
 
 def complete_destruction(r, work):
     root = expiry_root(r.state, work)
-    if not r.ending_turn or root.request.retirement != 'destroy' or root.destruction_started_event is None or root.destruction_cursor != work.index:
+    if not r.ending_turn or root.request.retirement == 'remove' or root.destruction_started_event is None or root.destruction_cursor != work.index:
         raise ResolutionError('Hand destruction continuation lost its original step')
     step = next((e for e in r.game._events if e.sequence == work.step_event), None)
     if step is None or step.kind != 'hand_deadline_destruction_step' or (step.source_id, step.player_id) != (root.request.source_id, root.request.player_id) or dict(step.data) != destruction_step_data(root, work.index, dict(step.data).get('available')) or type(dict(step.data).get('available')) is not bool:
         raise ResolutionError('Hand destruction continuation changed its original step receipt')
-    matches = matching_destructions(r.game._events, root, work.index, work.step_event)
+    matches = matching_destructions(r.game._events, root, work.index, work.step_event, state=r.state)
     if len(matches) > 1 or not matches and same_hand(r.state, root.targets[work.index]):
         raise ResolutionError('Hand destruction skipped an owed physical target')
     result = matches[0].sequence if matches else None
+    copy_outcome(r.state,r.game._events,root,work,result,require=True)
     root = replace(root, destruction_cursor=work.index+1,
         destruction_events=root.destruction_events + (() if result is None else (result,)),
         removed=root.removed + (() if result is None else (root.targets[work.index].entity_id,)))
@@ -351,6 +430,8 @@ def validate_shape(state, registry):
             if root.request.source_id not in state.entities:
                 raise ValueError('Hand deadline has an unknown original source')
             registry.card(root.source_card_id)
+        if root.request.retirement == 'discard_copy' and registry.card(root.source_card_id).kind.name != 'MINION':
+            raise ValueError('Discard-copy deadline lost its original minion recipe')
         for target in root.targets:
             entity = state.entities.get(target.entity_id)
             card = registry.card(target.card_id)
@@ -363,7 +444,7 @@ def validate_shape(state, registry):
         last_turn, last_action, last_event = root.turn, root.action, root.created_event
 
 
-def validate_destruction_receipts(root, events, by_sequence):
+def validate_destruction_receipts(root, events, by_sequence, state):
     kinds = ('hand_deadline_destruction_started', 'hand_deadline_destruction_step', 'hand_deadline_destruction_step_finished')
     own = [e for e in events if e.kind in kinds and dict(e.data).get('deadline_id') == root.id]
     if root.request.retirement == 'remove' or root.destruction_started_event is None:
@@ -399,9 +480,10 @@ def validate_destruction_receipts(root, events, by_sequence):
             _integer(outcome, 'hand destruction actual event', step.sequence+1)
         expected_finish = dict(deadline_id=root.id, owner_end_event=root.owner_end_event, index=index,
             step_event=step.sequence, destruction_event=outcome)
-        matches = matching_destructions(events,root,index,step.sequence,finish.sequence)
+        matches = matching_destructions(events,root,index,step.sequence,finish.sequence,state=state)
         if dict(finish.data) != expected_finish or finish.sequence <= step.sequence or len(matches) != (outcome is not None) or matches and (matches[0].sequence != outcome or not available):
             raise ValueError('Hand destruction completion lost its actual stored outcome')
+        copy_outcome(state,events,root,CompleteHandDeadlineDestruction(root.id,root.owner_end_event,index,step.sequence),outcome,before=finish.sequence,require=True)
         if outcome is not None:
             results.append((root.targets[index].entity_id,outcome))
         last = finish.sequence
@@ -415,7 +497,7 @@ def validate_destruction_receipts(root, events, by_sequence):
 def validate_boundary(game):
     state = game._state
     validate_shape(state, game.registry)
-    if not state.hand_deadlines and not any(e.kind in ('hand_deadline_armed', 'hand_deadline_expired') for e in game._events):
+    if not state.hand_deadlines and not any(e.kind in ('hand_deadline_armed', 'hand_deadline_expired', 'hand_deadline_copy_accepted') for e in game._events):
         return
     from .hero_health_history import effective_events
     events = tuple(effective_events(game._events))
@@ -424,18 +506,22 @@ def validate_boundary(game):
     finishes = [e for e in events if e.kind == 'hand_deadline_expired']
     destruction_pending = {}
     for event in events:
-        if event.kind in ('hand_deadline_destruction_started','hand_deadline_destruction_step','hand_deadline_destruction_step_finished'):
+        if event.kind in ('hand_deadline_destruction_started','hand_deadline_destruction_step','hand_deadline_destruction_step_finished','hand_deadline_copy_accepted'):
             identity = dict(event.data).get('deadline_id')
             _integer(identity, 'hand destruction receipt identity', 1)
             if identity > len(state.hand_deadlines):
                 raise ValueError('Unknown hand destruction receipt')
+            if event.kind == 'hand_deadline_copy_accepted':
+                original = state.hand_deadlines[identity-1]
+                if original.request.retirement != 'discard_copy' or original.destruction_started_event is None:
+                    raise ValueError('Hand deadline copy receipt has no original discard-copy step')
     if len(starts) != len(state.hand_deadlines) or len(finishes) != sum(r.expired_event is not None for r in state.hand_deadlines):
         raise ValueError('Hand deadlines lost their complete original receipts')
     for root, event in zip(state.hand_deadlines, starts):
         if (event.sequence, event.source_id, event.player_id, event.action, dict(event.data)) != (
             root.created_event, root.request.source_id, root.request.player_id, root.action, begin_data(root)):
             raise ValueError('Hand deadline changed its original acceptance')
-        destruction_pending[root.id] = validate_destruction_receipts(root,events,by_sequence)
+        destruction_pending[root.id] = validate_destruction_receipts(root,events,by_sequence,state)
         if root.expired_event is None:
             continue
         closed = by_sequence.get(root.expired_event)
@@ -455,14 +541,18 @@ def validate_boundary(game):
         ended_count(state, root.request.player_id) >= root.owner_ends_at_accept + root.request.owner_ends]
     if state.status != 'playing':
         return
-    works, destroys, seen = [], [], set()
+    works, destroys, copies, summons, seen = [], [], [], [], set()
     def visit(value):
         if type(value) is ScheduleHandRemoval:
             validate_card_scope(state,game.registry,value)
         if type(value) in (ExpireHandDeadline,CompleteHandDeadlineDestruction):
             works.append(value)
-        if type(value) is DestroyStoredCard:
+        if type(value) in (DestroyStoredCard,DiscardCard):
             destroys.append(value)
+        if type(value) is SummonHandDeadlineCopy:
+            copies.append(value)
+        if type(value) is Summon:
+            summons.append(value)
         if value is None or type(value) is GameState or id(value) in seen:
             return
         if is_dataclass(value):
@@ -476,12 +566,14 @@ def validate_boundary(game):
     if game._frame is not None:
         visit(game._frame.prefix)
         visit(game._frame.continuation)
-        accepted = len(works)
+        accepted = (len(works),len(copies))
         visit(game._frame.options)
-        if len(works) != accepted:
+        if (len(works),len(copies)) != accepted:
             raise ValueError('Hand deadline expiry cannot be a choice option')
     if [w.deadline_id for w in works] != [r.id for r in pending]:
         raise ValueError('Hand deadline continuation lost or repeated accepted expiries')
+    if any(c.deadline_id not in {r.id for r in pending if r.request.retirement=='discard_copy'} for c in copies):
+        raise ValueError('Hand deadline copy has no currently owed original step')
     for work in works:
         root = expiry_root(state, work); step = destruction_pending[root.id]
         if step is None:
@@ -491,7 +583,18 @@ def validate_boundary(game):
             if type(work) is not CompleteHandDeadlineDestruction or (work.index,work.step_event) != (root.destruction_cursor,step.sequence):
                 raise ValueError('Hand deadline lost its complete original target continuation')
             matching = [d for d in destroys if d.card == root.targets[work.index] and d.source_id == root.request.source_id]
-            outcomes = matching_destructions(events,root,work.index,work.step_event)
+            outcomes = matching_destructions(events,root,work.index,work.step_event,state=state)
+            if root.request.retirement == 'discard_copy':
+                followup=SummonHandDeadlineCopy(root.id,work.owner_end_event,work.index,work.step_event)
+                accepting,done=copy_outcome(state,events,root,work,outcomes[0].sequence if outcomes else None)
+                queued=[c for c in copies if c.deadline_id==root.id]
+                if (accepting is None and dict(step.data)['available'] and len(queued)!=1 or accepting is not None and queued or
+                    accepting is not None and not done and summons.count(Summon(root.request.player_id,root.source_card_id))!=1):
+                    raise ValueError('Hand deadline lost or repeated its owed successful-discard copy')
+                if queued and queued != [followup]:raise ValueError('Hand deadline copy borrowed another step')
+                for d in matching:
+                    if type(d) is not DiscardCard or d.on_success != (followup,) or not d.reveal:
+                        raise ValueError('Hand deadline changed its actual discard and copy continuation')
             available = dict(step.data)['available']
             if len(matching) > 1 or not available and matching or outcomes and matching or available and not outcomes and same_hand(state,root.targets[work.index]) and len(matching) != 1:
                 raise ValueError('Hand destruction lost or duplicated its owed physical movement')
@@ -503,3 +606,4 @@ def register(mechanics):
     mechanics.register(ScheduleHandRemoval, schedule)
     mechanics.register(ExpireHandDeadline, expire)
     mechanics.register(CompleteHandDeadlineDestruction, complete_destruction)
+    mechanics.register(SummonHandDeadlineCopy, copy_work)
