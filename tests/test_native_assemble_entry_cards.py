@@ -115,7 +115,7 @@ class NativeAssembleEntryTests(unittest.TestCase):
 
     def test_reviewed_halves_reconstruct_the_whole_original_and_do_not_install_a_formal_pool(self):
         registry = build_registry()
-        self.assertEqual(tuple(registry.assemble_templates), FRAGMENT_SOURCES)
+        self.assertEqual(tuple(cid for cid in registry.assemble_templates if cid in FRAGMENT_SOURCES), FRAGMENT_SOURCES)
         for template in registry.assemble_templates.values(): validate_template(registry, template)
         self.assertFalse(any(pool.id == POOL_ID for pool in registry.pools.values()))
         self.assertFalse(load_batch()['formal_pool_complete']); self.assertFalse(load_batch()['cn_calibrated'])

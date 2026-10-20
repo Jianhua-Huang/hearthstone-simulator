@@ -9,8 +9,9 @@ from random import Random
 
 from .assemble_faces import AssembleRecipe,validate_template
 from .effects import Effect,AddToHand,ChoiceOption,RequestChoice,_player,_source
+from .card_creation import CreatedMinionGrant,validate_minion_grant
 from .errors import ResolutionError
-from .model import CardClass,CardType,ChoicePurpose,ChoiceResult,GameState,Keyword,_name,validate_end_turn_rng,validate_invariants
+from .model import CardClass,CardType,ChoicePurpose,ChoiceResult,CostSpec,GameState,Keyword,_name,validate_end_turn_rng,validate_invariants
 from .pool_offers import preview
 from .pools import PoolQuery,resolve_candidates,sample_candidates
 
@@ -25,6 +26,8 @@ class Assemble(Effect):
     small_policy: str='error'
     keep_policy: str='forbid'
     prompt: str='选择要替换的半段文本'
+    cost: CostSpec|None=None
+    minion_grant: CreatedMinionGrant|None=None
 
     def __post_init__(self):
         _player(self.player_id);_source(self.source_id);_name(self.pool_id,'assembly pool');_name(self.prompt,'assembly prompt')
@@ -35,6 +38,20 @@ class Assemble(Effect):
         if self.primary_trait not in('any','battlecry','deathrattle','end_turn','taunt'):raise ValueError('Unsupported assembly primary trait')
         if self.empty_policy not in('error','skip')or self.small_policy not in('error','available')or self.keep_policy not in('forbid','offer'):
             raise ValueError('Unsupported explicit assembly offer policy')
+        if self.cost is not None:
+            if type(self.cost)is not CostSpec:raise ValueError('Assembly cost requires a typed ordinary reduction')
+            self.cost.__post_init__()
+            if self.cost.delta>=0 or self.cost!=CostSpec(delta=self.cost.delta):
+                raise ValueError('Assembly only supports a plain creation-time cost reduction')
+        validate_minion_grant(self.minion_grant)
+        if self.minion_grant is not None:
+            grant=self.minion_grant
+            if (grant.attack<0 or grant.health<0 or grant.keywords or grant.reborn_policy is not None or
+                    grant.identity is not None or grant.special is not None):
+                raise ValueError('Assembly only supports a plain positive creation-time stat bonus')
+        if self.cost is not None or self.minion_grant is not None:
+            if self.source_id is None or self.cost is not None and self.minion_grant is not None:
+                raise ValueError('Assembly delivery requires one independent original source-bound grant')
 
 @dataclass(frozen=True)
 class AssembleOffer:
@@ -176,7 +193,7 @@ def resolve(r,effect):
         raise ValueError('Assembly result changed the complete offered half sequence')
     cid=next((cid for oid,_,cid in option_rows(r.registry,effect.offer)if oid==effect.option_id),None)
     if cid is None:raise ValueError('Unknown assembly half selection')
-    return(AddToHand(spec.player_id,cid,spec.source_id),)
+    return(AddToHand(spec.player_id,cid,spec.source_id,cost=spec.cost,minion_grant=spec.minion_grant),)
 
 def validate_boundary(game):
     frame=game._frame
