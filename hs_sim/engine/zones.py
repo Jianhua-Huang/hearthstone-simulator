@@ -169,8 +169,24 @@ def reference_value(reference):
 
 
 @dataclass(frozen=True)
+class SetAsideCardReference:
+    """Explicit original custody; not a normal hidden-zone query/copy target."""
+    entity_id: int
+    player_id: int
+    card_id: str
+    zone_epoch: int
+    zone: Zone = Zone.SETASIDE
+
+    def __post_init__(self):
+        integer(self.entity_id,'stored custody entity');_player(self.player_id)
+        name(self.card_id,'stored custody card');integer(self.zone_epoch,'stored custody epoch',0)
+        if type(self.zone) is not Zone or self.zone != Zone.SETASIDE:
+            raise ValueError('Custody reference requires its actual set-aside zone')
+
+
+@dataclass(frozen=True)
 class MoveCard(Effect):
-    card: CardReference
+    card: CardReference | SetAsideCardReference
     player_id: int
     destination: Zone
     position: str | int = 'bottom'
@@ -179,7 +195,12 @@ class MoveCard(Effect):
     source_id: int | None = None
 
     def __post_init__(self):
-        reference_value(self.card); _player(self.player_id); card_zone(self.destination)
+        if type(self.card) is SetAsideCardReference:
+            self.card.__post_init__()
+            if self.destination != Zone.HAND or self.draw or self.reset:
+                raise ValueError('Original custody supports only physical non-draw hand return')
+        else: reference_value(self.card)
+        _player(self.player_id); card_zone(self.destination)
         position_value(self.position); _source(self.source_id)
         if type(self.draw) is not bool or type(self.reset) is not bool:
             raise ValueError('Move flags must be boolean')
@@ -874,7 +895,7 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     if destination==Zone.GRAVEYARD:
         if deck_overflow:
             failure(r,player.id,entity.card_id,effect.source_id,original=original)
-        emit_burn(r,entity,profile='deck_overflow' if deck_overflow else 'stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
+        emit_burn(r,entity,profile='deck_overflow' if deck_overflow else 'setaside_overflow' if previous_zone==Zone.SETASIDE else 'stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
     else:
         r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id, **data)
     return entity
@@ -1320,6 +1341,7 @@ def modify_stored_cost(r,effect):
 
 
 def register_zones(mechanics):
+    mechanics.register_payload_type(SetAsideCardReference)
     mechanics.register_payload_type(DeckTakeOffer)
     mechanics.register(SelectDeckTake, select_deck_take)
     mechanics.register_payload_type(CapturedCardCopyMaterial)

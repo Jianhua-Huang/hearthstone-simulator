@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实原卡消失/返回使用有限`VanishedCardProfile`、`DisappearOriginalCard`和`ReappearOriginalCard`；返回绑定实际亡语并委托原`MoveCard(SetAsideCardReference, HAND)`。不要用AddToHand替代原实体、开放SETASIDE查询/复制或猜测多原卡选择，见[契约](m3-broxigar-original-return.md)。
+
 拉法姆主卡复用原`FabledSpec/DeckSizeRule`及已接入伴生，巨人通过既有完整出牌价格事实的有限原生profile筛选；不要按名字判断族、将绵羊加入构筑包或另设累计计数器。见[拉法姆契约](m3-timethief-rafaam.md)。
 
 真实15秒开局来源声明`TurnClockProfile`并返回`ActivateOriginalDeckClock`；可信宿主使用`current(game)`及`AdvanceTurnTime`，不能将时间作为玩家命令、让卡牌读取墙钟或直接切换回合。原选择恢复与正常结束共享既有执行器，见[回合计时契约](m3-original-deck-turn-clock.md)。

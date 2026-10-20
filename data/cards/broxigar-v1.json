@@ -1,0 +1,1504 @@
+{
+  "schema": 1,
+  "batch_id": "K318-broxigar",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TIME_020",
+        "dbf_id": 120074,
+        "name": "布洛克斯加",
+        "name_en": "Broxigar",
+        "text": "<b>奇闻\n冲锋。</b><b>对战开始时：</b>消失。\n消灭全部4个来自阿古斯的恶魔以重新出现在[x]手牌中。",
+        "text_en": "[x]<b>Fabled, Charge</b>\n<b>Start of Game:</b> Disappear.\nKill all 4 Demons from Argus\nto reappear in hand.",
+        "cost": 2,
+        "attack": 12,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 12,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CHARGE": 1,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "START_OF_GAME_KEYWORD": 1,
+          "1673": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1,
+          "4759": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1673",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1673"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4759",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4759"
+          }
+        ]
+      },
+      "record_sha256": "8c4a0091280bcd0407389e74d06ba941598bb2e31aa975452d6014f77d54401f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_020",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "numeric_normalizations": {}
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TIME_020t2",
+        "dbf_id": 120083,
+        "name": "第一道阿古斯传送门",
+        "name_en": "First Portal to Argus",
+        "text": "为你的对手召唤一个1/1的恶魔。当它死亡时，抽一张牌，并将下一道传送门洗入你的牌库。",
+        "text_en": "[x]Summon a 1/1 Demon for\nyour opponent. When it dies,\ndraw a card and shuffle the\nnext Portal into your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 7,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "0c25986318054ca37fb70592291d0c79b360fdc8985478034e276ad59f447be0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fel",
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_020t1",
+        "dbf_id": 120082,
+        "name": "塞纳留斯之斧",
+        "name_en": "Axe of Cenarius",
+        "text": "<b>吸血</b>。在你的英雄攻击并消灭一个随从后，抽一张阿古斯传送门。",
+        "text_en": "[x]<b>Lifesteal</b>\nAfter your hero attacks\nand kills a minion, draw\na Portal to Argus.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "LIFESTEAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "IS_FABLED_BUNDLE_CARD": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Drew Hill"
+          }
+        ]
+      },
+      "record_sha256": "704fd3842d145eef692aea906edec7be7a17fa0209d2aa44247f9003c8b91c0d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "numeric_normalizations": {}
+    },
+    {
+      "record": {
+        "id": "TIME_020t2t",
+        "dbf_id": 120142,
+        "name": "奔逃的乌祖尔",
+        "name_en": "Fleeing Ur'zul",
+        "text": "<b>亡语：</b>你的对手抽一张牌，将第二道阿古斯传送门洗入其牌库。",
+        "text_en": "[x]<b>Deathrattle:</b> Your opponent\ndraws a card. Shuffle the\nSecond Portal to Argus\ninto their deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "038ebc681f8e3038787f1dc6860f995bd681a24938afd41a9cba0838c5756d3c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t2t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "numeric_normalizations": {}
+    },
+    {
+      "record": {
+        "id": "TIME_020t3",
+        "dbf_id": 120164,
+        "name": "第二道阿古斯传送门",
+        "name_en": "Second Portal to Argus",
+        "text": "为你的对手召唤一个2/1的恶魔。当它死亡时，抽一张牌，并将下一道传送门洗入你的牌库。",
+        "text_en": "[x]Summon a 2/1 Demon for\nyour opponent. When it dies,\ndraw a card and shuffle the\nnext Portal into your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "ada3fa1f61bd3fef8b3ca1fa294cad4855c8ddbd3ebf11ba3d477ac5f929824b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fel",
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_020t3t",
+        "dbf_id": 120165,
+        "name": "奔逃的夜魔",
+        "name_en": "Fleeing Incubus",
+        "text": "<b>亡语：</b>你的对手抽一张牌，将第三道阿古斯传送门洗入其牌库。",
+        "text_en": "[x]<b>Deathrattle:</b> Your opponent\ndraws a card. Shuffle the\nThird Portal to Argus\ninto their deck.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "94c18940610f72ec79f32d8576109f512792ab744f033c9d7b1f32714ff3f705",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t3t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "numeric_normalizations": {}
+    },
+    {
+      "record": {
+        "id": "TIME_020t4",
+        "dbf_id": 120166,
+        "name": "第三道阿古斯传送门",
+        "name_en": "Third Portal to Argus",
+        "text": "为你的对手召唤一个3/1的恶魔。当它死亡时，抽一张牌，并将下一道传送门洗入你的牌库。",
+        "text_en": "[x]Summon a 3/1 Demon for\nyour opponent. When it dies,\ndraw a card and shuffle the\nnext Portal into your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "1e719096c5c01d6a9518c5daf768b680b6e650485c287ea55e6b26c5ed8456d3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fel",
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_020t4t",
+        "dbf_id": 120167,
+        "name": "奔逃的愤怒卫士",
+        "name_en": "Fleeing Wrathguard",
+        "text": "<b>亡语：</b>你的对手\n抽一张牌，将最后一道阿古斯传送门洗入其牌库。",
+        "text_en": "[x]<b>Deathrattle:</b> Your opponent\ndraws a card. Shuffle the\nFinal Portal to Argus\ninto their deck.",
+        "cost": 3,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "a8fea1c7cb44f725c0c7d2a791363bf8f306f5298f041c002122b03a420aeaef",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t4t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "numeric_normalizations": {}
+    },
+    {
+      "record": {
+        "id": "TIME_020t5",
+        "dbf_id": 120168,
+        "name": "最后一道阿古斯传送门",
+        "name_en": "Final Portal to Argus",
+        "text": "为你的对手召唤一个4/1的恶魔。当它死亡时，布洛克斯加会重新出现在你的手牌中。",
+        "text_en": "Summon a 4/1\nDemon for your opponent. When it dies, Broxigar reappears in your hand.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 7,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "20c25f81c0e65eeda04fc55abdb8dfd14e3a757427793bc1981b6811e4e47096",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fel",
+      "numeric_normalizations": {
+        "cost": 0
+      }
+    },
+    {
+      "record": {
+        "id": "TIME_020t5t",
+        "dbf_id": 120169,
+        "name": "奔逃的恐惧卫士",
+        "name_en": "Fleeing Terrorguard",
+        "text": "<b>亡语：</b>布洛克斯加重新出现在你对手的手牌中。",
+        "text_en": "<b>Deathrattle:</b> Broxigar reappears in your opponent's hand.",
+        "cost": 4,
+        "attack": 4,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Bima Kusuma"
+          }
+        ]
+      },
+      "record_sha256": "1e3e2fae8c00e9b4be2e0445adbccd558951d8642dbacd56edda5de44e23802f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_020t5t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "numeric_normalizations": {}
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "TIME_020",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120074-en_US.json",
+      "response_sha256": "8e22463386fc8c0c71622451406c43d941726d7727a2ca3dfaef816b583f75a9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120074&locale=en_US",
+      "face": {
+        "id": 120074,
+        "collectible": 1,
+        "slug": "120074-broxigar",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Luca Zontini",
+        "health": 12,
+        "attack": 12,
+        "manaCost": 2,
+        "name": "Broxigar",
+        "text": "<b>Fabled, Charge</b> <b>Start of Game:</b> Disappear. Kill all 4 Demons from Argus to reappear in hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85aec8678b2e598869b8f99e5697cce2d02f0cca893a90ca0850b6e5603ba239.png",
+        "imageGold": "",
+        "flavorText": "The wound Broxigar dealt to Sargeras during his last stand is a glory no other orcish hero has ever achieved.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a6ab0e3f1c9d0466bad9b458e7eae5d342e8a4fe68563d2cfec443c5d850160.png",
+        "childIds": [
+          120083,
+          120082,
+          120142,
+          120164,
+          120165,
+          120166,
+          120167,
+          120168,
+          120169
+        ],
+        "keywordIds": [
+          4,
+          64,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          120083,
+          120082
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120074&locale=en_US",
+        "sha256": "8e22463386fc8c0c71622451406c43d941726d7727a2ca3dfaef816b583f75a9",
+        "bytes": 1002,
+        "observed_at": "2026-10-20T12:38:53.271293+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120074-zh_CN.json",
+      "response_sha256": "ca200107e32df89ecba67e0d68af89f67d17e2e857e552f98b766106c283fbb6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120074&locale=zh_CN",
+      "face": {
+        "id": 120074,
+        "collectible": 1,
+        "slug": "120074-broxigar",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Luca Zontini",
+        "health": 12,
+        "attack": 12,
+        "manaCost": 2,
+        "name": "布洛克斯加",
+        "text": "<b>奇闻 冲锋。</b><b>对战开始时：</b>消失。 消灭全部4个来自阿古斯的恶魔以重新出现在 手牌中。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecd5a8dab48ecf4ede49c0e508b44ff2ba98d68fd39f2fb628b54a152a2bb6bd.png",
+        "imageGold": "",
+        "flavorText": "布洛克斯的临终一击伤到了萨格拉斯。这项光辉战绩在兽人英雄当中无人可及。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a6ab0e3f1c9d0466bad9b458e7eae5d342e8a4fe68563d2cfec443c5d850160.png",
+        "childIds": [
+          120083,
+          120082,
+          120142,
+          120164,
+          120165,
+          120166,
+          120167,
+          120168,
+          120169
+        ],
+        "keywordIds": [
+          4,
+          64,
+          356
+        ],
+        "bannedFromSideboard": 1,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "bundledCardIds": [
+          120083,
+          120082
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120074&locale=zh_CN",
+        "sha256": "ca200107e32df89ecba67e0d68af89f67d17e2e857e552f98b766106c283fbb6",
+        "bytes": 1030,
+        "observed_at": "2026-10-20T12:38:51.526717+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120082-en_US.json",
+      "response_sha256": "a70da7400668afc610148902d7c2e2cc143f27f440fff683f8f4235f0961535b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120082&locale=en_US",
+      "face": {
+        "id": 120082,
+        "collectible": 0,
+        "slug": "120082-axe-of-cenarius",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Drew Hill",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Axe of Cenarius",
+        "text": "<b>Lifesteal</b> After your hero attacks and kills a minion, draw a Portal to Argus.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a281abffcff118a8e872553db13522948c7589a8d9bad978a5ccb3fed52178b3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120082&locale=en_US",
+        "sha256": "a70da7400668afc610148902d7c2e2cc143f27f440fff683f8f4235f0961535b",
+        "bytes": 648,
+        "observed_at": "2026-10-20T12:40:01.708215+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120082-zh_CN.json",
+      "response_sha256": "570446537e21bc3811660eb85609df46517e09fe504266d52feb4e84701cf503",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120082&locale=zh_CN",
+      "face": {
+        "id": 120082,
+        "collectible": 0,
+        "slug": "120082-axe-of-cenarius",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Drew Hill",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "塞纳留斯之斧",
+        "text": "<b>吸血</b>。在你的英雄攻击并消灭一个随从后，抽一张阿古斯传送门。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0cf7d406bbafd6b8e88733eff239b0bbac917f94765c3d2a5b62db3c3ac79727.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120082&locale=zh_CN",
+        "sha256": "570446537e21bc3811660eb85609df46517e09fe504266d52feb4e84701cf503",
+        "bytes": 661,
+        "observed_at": "2026-10-20T12:40:00.142915+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120083-en_US.json",
+      "response_sha256": "02fbc1cda0e352eba93cfb333d1a99069351cabda265405d2e153b5b73c9f496",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120083&locale=en_US",
+      "face": {
+        "id": 120083,
+        "collectible": 0,
+        "slug": "120083-first-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "First Portal to Argus",
+        "text": "Summon a 1/1 Demon for your opponent. When it dies, draw a card and shuffle the next Portal into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13592fa6fd141fb384ef30681fee485312c4a6c1e4bc35534f1ca409073bd7e4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120083&locale=en_US",
+        "sha256": "02fbc1cda0e352eba93cfb333d1a99069351cabda265405d2e153b5b73c9f496",
+        "bytes": 663,
+        "observed_at": "2026-10-20T12:40:00.018030+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120083-zh_CN.json",
+      "response_sha256": "dc83af9c4d824917ceaf15d208b12956d83c8ff3e6198efc4a3cb11665e781ed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120083&locale=zh_CN",
+      "face": {
+        "id": 120083,
+        "collectible": 0,
+        "slug": "120083-first-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "第一道阿古斯传送门",
+        "text": "为你的对手召唤一个1/1的恶魔。当它死亡时，抽一张牌，并将下一道传送门洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/142d961477d5f29934ca09b3c5180d99123e97e7256da756470bf30fed032ae2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120083&locale=zh_CN",
+        "sha256": "dc83af9c4d824917ceaf15d208b12956d83c8ff3e6198efc4a3cb11665e781ed",
+        "bytes": 682,
+        "observed_at": "2026-10-20T12:40:00.109448+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t2t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120142-en_US.json",
+      "response_sha256": "270d170e7c9bed48f875037b2ea2da4d61a564d9a1ddb0602dd13bc8ff1d87be",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120142&locale=en_US",
+      "face": {
+        "id": 120142,
+        "collectible": 0,
+        "slug": "120142-fleeing-urzul",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Fleeing Ur'zul",
+        "text": "<b>Deathrattle:</b> Your opponent draws a card. Shuffle the Second Portal to Argus into their deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/733b82b60d22fb23be1a02280e43a82a8983fa425c2f354294c3698f087e425a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120142&locale=en_US",
+        "sha256": "270d170e7c9bed48f875037b2ea2da4d61a564d9a1ddb0602dd13bc8ff1d87be",
+        "bytes": 680,
+        "observed_at": "2026-10-20T12:40:01.702664+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t2t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120142-zh_CN.json",
+      "response_sha256": "33cdc742a96dedae2c591dc4a39f47832ea1679d520ad69def1d1705083c4132",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120142&locale=zh_CN",
+      "face": {
+        "id": 120142,
+        "collectible": 0,
+        "slug": "120142-fleeing-urzul",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "奔逃的乌祖尔",
+        "text": "<b>亡语：</b>你的对手抽一张牌，将第二道阿古斯传送门洗入其牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b910714eec3d27c479e543e4387ba8a8b3af673a151682f60a475f5db225dccf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120142&locale=zh_CN",
+        "sha256": "33cdc742a96dedae2c591dc4a39f47832ea1679d520ad69def1d1705083c4132",
+        "bytes": 676,
+        "observed_at": "2026-10-20T12:40:01.793437+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120164-en_US.json",
+      "response_sha256": "bcacd3ca1eb7f6739126c6f9a777168284c75b63679b373817110ca03aca559c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120164&locale=en_US",
+      "face": {
+        "id": 120164,
+        "collectible": 0,
+        "slug": "120164-second-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "Second Portal to Argus",
+        "text": "Summon a 2/1 Demon for your opponent. When it dies, draw a card and shuffle the next Portal into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72418b6451b6fd073ae99da38664319dbeba0e46cd7f1146883f11a4ff7536ea.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120164&locale=en_US",
+        "sha256": "bcacd3ca1eb7f6739126c6f9a777168284c75b63679b373817110ca03aca559c",
+        "bytes": 665,
+        "observed_at": "2026-10-20T12:40:03.776923+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120164-zh_CN.json",
+      "response_sha256": "8056582386d7e297227ab0215266e02761f6a864c2a90512f350c77ac085e11a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120164&locale=zh_CN",
+      "face": {
+        "id": 120164,
+        "collectible": 0,
+        "slug": "120164-second-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "第二道阿古斯传送门",
+        "text": "为你的对手召唤一个2/1的恶魔。当它死亡时，抽一张牌，并将下一道传送门洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e98a9f5872bda51e5b81914f9a415ff9da785e09a656c9b30eed199dff9db5a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120164&locale=zh_CN",
+        "sha256": "8056582386d7e297227ab0215266e02761f6a864c2a90512f350c77ac085e11a",
+        "bytes": 683,
+        "observed_at": "2026-10-20T12:40:03.447752+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t3t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120165-en_US.json",
+      "response_sha256": "123cb25d21fae0a5bcf61c0ba8fb07f4c708528071093bfc078795bbc4a2b10a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120165&locale=en_US",
+      "face": {
+        "id": 120165,
+        "collectible": 0,
+        "slug": "120165-fleeing-incubus",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Fleeing Incubus",
+        "text": "<b>Deathrattle:</b> Your opponent draws a card. Shuffle the Third Portal to Argus into their deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6733066008f561be37b2b5c607c85d0c0be6a859f8caa2db1c1c6fda916b6212.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120165&locale=en_US",
+        "sha256": "123cb25d21fae0a5bcf61c0ba8fb07f4c708528071093bfc078795bbc4a2b10a",
+        "bytes": 682,
+        "observed_at": "2026-10-20T12:40:05.205323+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t3t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120165-zh_CN.json",
+      "response_sha256": "0fafedfc677f24fd9bf7ead72877c9d6a8e7c44f68b1f4d6a8b8d208442f8352",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120165&locale=zh_CN",
+      "face": {
+        "id": 120165,
+        "collectible": 0,
+        "slug": "120165-fleeing-incubus",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "奔逃的夜魔",
+        "text": "<b>亡语：</b>你的对手抽一张牌，将第三道阿古斯传送门洗入其牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f504d40221c49ca242907fb49ab61f971438101ed344eea8dcf551eeb1519558.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120165&locale=zh_CN",
+        "sha256": "0fafedfc677f24fd9bf7ead72877c9d6a8e7c44f68b1f4d6a8b8d208442f8352",
+        "bytes": 675,
+        "observed_at": "2026-10-20T12:40:03.485137+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120166-en_US.json",
+      "response_sha256": "41e7be86aa8522045e4fb28c42ca1f6d9c29997d485b35b069bbe8a9de020892",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120166&locale=en_US",
+      "face": {
+        "id": 120166,
+        "collectible": 0,
+        "slug": "120166-third-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "Third Portal to Argus",
+        "text": "Summon a 3/1 Demon for your opponent. When it dies, draw a card and shuffle the next Portal into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49759013bd757d598b2415e9b1087cefe08f17311f40dbe0c1d68843b3c9fd78.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120166&locale=en_US",
+        "sha256": "41e7be86aa8522045e4fb28c42ca1f6d9c29997d485b35b069bbe8a9de020892",
+        "bytes": 663,
+        "observed_at": "2026-10-20T12:40:05.574791+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120166-zh_CN.json",
+      "response_sha256": "8751c247d8f9d0816afe12d657719eccfdbcd4d8bb86abdeefadc398ec07da59",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120166&locale=zh_CN",
+      "face": {
+        "id": 120166,
+        "collectible": 0,
+        "slug": "120166-third-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "第三道阿古斯传送门",
+        "text": "为你的对手召唤一个3/1的恶魔。当它死亡时，抽一张牌，并将下一道传送门洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31a9f9bb48bb04fd64b8fc6d672f54994fec933bd1059aae8605cb46540682dd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120166&locale=zh_CN",
+        "sha256": "8751c247d8f9d0816afe12d657719eccfdbcd4d8bb86abdeefadc398ec07da59",
+        "bytes": 682,
+        "observed_at": "2026-10-20T12:40:05.020357+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t4t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120167-en_US.json",
+      "response_sha256": "a926b4524baeb5825498c7779348f4893c7bae11878f1f01ff93c50930104637",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120167&locale=en_US",
+      "face": {
+        "id": 120167,
+        "collectible": 0,
+        "slug": "120167-fleeing-wrathguard",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Fleeing Wrathguard",
+        "text": "<b>Deathrattle:</b> Your opponent draws a card. Shuffle the Final Portal to Argus into their deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/706c13b9b021b8fd0c1f9e25a5e11866e6e35c3c05ba641e39d7730c8ce33541.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120167&locale=en_US",
+        "sha256": "a926b4524baeb5825498c7779348f4893c7bae11878f1f01ff93c50930104637",
+        "bytes": 688,
+        "observed_at": "2026-10-20T12:40:06.861337+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t4t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120167-zh_CN.json",
+      "response_sha256": "1d94a4590be0cd1bb18dc797e17edd716aa4b7f8d1dc00e0b6c8b37dd7555f8b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120167&locale=zh_CN",
+      "face": {
+        "id": 120167,
+        "collectible": 0,
+        "slug": "120167-fleeing-wrathguard",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "奔逃的愤怒卫士",
+        "text": "<b>亡语：</b>你的对手 抽一张牌，将最后一道阿古斯传送门洗入其牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffefce7e4edfdb9c230ccd3805d3fdc3f8b5bdb8e2b6e5a947b20727d7bb4f33.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120167&locale=zh_CN",
+        "sha256": "1d94a4590be0cd1bb18dc797e17edd716aa4b7f8d1dc00e0b6c8b37dd7555f8b",
+        "bytes": 688,
+        "observed_at": "2026-10-20T12:40:06.543624+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120168-en_US.json",
+      "response_sha256": "14d45579408d8093a789439ef2f227cd96573b5e6c51061441f6bb785b2935ac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120168&locale=en_US",
+      "face": {
+        "id": 120168,
+        "collectible": 0,
+        "slug": "120168-final-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "Final Portal to Argus",
+        "text": "Summon a 4/1 Demon for your opponent. When it dies, Broxigar reappears in your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0f2e9e0c45af36369138876d12bf2daba75f606a7922d0764f151c54a7c32ec.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120168&locale=en_US",
+        "sha256": "14d45579408d8093a789439ef2f227cd96573b5e6c51061441f6bb785b2935ac",
+        "bytes": 640,
+        "observed_at": "2026-10-20T12:40:08.271057+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120168-zh_CN.json",
+      "response_sha256": "ecf5d0ce15e73fa8aff517f7a9303425941e5c2a7a578821c8a5c574ed236694",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120168&locale=zh_CN",
+      "face": {
+        "id": 120168,
+        "collectible": 0,
+        "slug": "120168-final-portal-to-argus",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "manaCost": 0,
+        "name": "最后一道阿古斯传送门",
+        "text": "为你的对手召唤一个4/1的恶魔。当它死亡时，布洛克斯加会重新出现在你的手牌中。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d44eaba28e2aa508cfad835be110369c4bb676c00eb8786d6830025359704d8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120168&locale=zh_CN",
+        "sha256": "ecf5d0ce15e73fa8aff517f7a9303425941e5c2a7a578821c8a5c574ed236694",
+        "bytes": 676,
+        "observed_at": "2026-10-20T12:40:07.090328+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t5t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120169-en_US.json",
+      "response_sha256": "790a13140d196737925b84f2a0fc535ee85e5d71a54d4387d604281d2065b284",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120169&locale=en_US",
+      "face": {
+        "id": 120169,
+        "collectible": 0,
+        "slug": "120169-fleeing-terrorguard",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Fleeing Terrorguard",
+        "text": "<b>Deathrattle:</b> Broxigar reappears in your opponent's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22cf092ec5caea9d06b780b51332946de8c3f4dcfa83759aec292d084c9bbab8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120169&locale=en_US",
+        "sha256": "790a13140d196737925b84f2a0fc535ee85e5d71a54d4387d604281d2065b284",
+        "bytes": 655,
+        "observed_at": "2026-10-20T12:40:08.776186+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_020t5t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120169-zh_CN.json",
+      "response_sha256": "814e98dfdc79cd4546a77e6802c4160073114a25de66fa3c32e2e6c3eaa4ff53",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120169&locale=zh_CN",
+      "face": {
+        "id": 120169,
+        "collectible": 0,
+        "slug": "120169-fleeing-terrorguard",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Bima Kusuma",
+        "health": 1,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "奔逃的恐惧卫士",
+        "text": "<b>亡语：</b>布洛克斯加重新出现在你对手的手牌中。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c687785f1751e038d084560577b692aae3447bbf337fecd2e9b73f38d5b97a5a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120074,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120169&locale=zh_CN",
+        "sha256": "814e98dfdc79cd4546a77e6802c4160073114a25de66fa3c32e2e6c3eaa4ff53",
+        "bytes": 664,
+        "observed_at": "2026-10-20T12:40:08.541619+00:00"
+      }
+    }
+  ],
+  "official_bundle_ids": [
+    120083,
+    120082
+  ],
+  "official_child_ids": [
+    120083,
+    120082,
+    120142,
+    120164,
+    120165,
+    120166,
+    120167,
+    120168,
+    120169
+  ],
+  "fabled_companion_ids": [
+    "TIME_020t2",
+    "TIME_020t1"
+  ],
+  "official_rule_observations": [
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/3403-hotfix-patch/154571",
+      "scope": "Historical staff hotfix: final portal copying/theft can consume original Broxigar, Glide/Ice Trap no longer break return; exact CN and mirror selection pending"
+    }
+  ],
+  "local_policy": "broxigar-single-original-v1; return the single actual unclaimed original through final-Demon Deathrattle; multiple original identities explicitly unsupported pending verified mirror source selection",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reachability_complete": false
+}

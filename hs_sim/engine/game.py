@@ -347,6 +347,9 @@ class Game:
                 'information': self._information.to_dict()}
         clock = clock_snapshot(self)
         if clock is not None: payload['turn_clock'] = clock
+        from .vanished_cards import snapshot_value as vanished_snapshot
+        vanished = vanished_snapshot(self)
+        if vanished is not None: payload['vanished_cards'] = vanished
         return payload
 
     def state_hash(self):
@@ -363,7 +366,8 @@ class Game:
         try:
             expected = {'schema_version', 'ruleset', 'registry_fingerprint', 'mechanics_version',
                         'state', 'rng_state', 'resolution_frame', 'rewind_session', 'match_setup', 'generation_context', 'information', 'events', 'events_hash', 'state_hash'}
-            if isinstance(snapshot, dict) and 'turn_clock' in snapshot: expected.add('turn_clock')
+            if isinstance(snapshot, dict):
+                expected.update(key for key in ('turn_clock','vanished_cards') if key in snapshot)
             if not isinstance(snapshot, dict) or set(snapshot) != expected:
                 raise ValueError('Snapshot fields do not match schema')
             if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != SNAPSHOT_SCHEMA_VERSION:
@@ -431,6 +435,10 @@ class Game:
             clock = clock_snapshot(game)
             if (clock is None and 'turn_clock' in snapshot or clock is not None and snapshot.get('turn_clock') != clock):
                 raise ValueError('Saved turn-clock commitment differs from complete original time receipts')
+            from .vanished_cards import snapshot_value as vanished_snapshot
+            vanished = vanished_snapshot(game)
+            if vanished is None and 'vanished_cards' in snapshot or vanished is not None and snapshot.get('vanished_cards') != vanished:
+                raise ValueError('Saved original-card custody differs from complete disappearance receipts')
             if game.state_hash() != snapshot['state_hash']:
                 raise ValueError('State digest mismatch')
             from .weapon_wear import validate_committed_events as validate_closed_wear
@@ -690,6 +698,8 @@ class Game:
         validate_opening_boundary(self)
         from .turn_clocks import validate_boundary as validate_turn_clock
         validate_turn_clock(self)
+        from .vanished_cards import validate_boundary as validate_vanished_cards
+        validate_vanished_cards(self)
         self._information.validate(self)
         from .battlecry_weapon_outputs import validate_events as validate_weapon_output_events
         validate_weapon_output_events(self)

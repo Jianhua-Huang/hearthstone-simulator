@@ -158,6 +158,7 @@ class Registry:
         self._sham_trial_profiles = {}
         self._standard_pack_profiles = {}
         self._turn_clock_profiles = {}
+        self._vanished_card_profiles = {}
         self._second_player_cards = set()
         self._coin_replacement_profiles = {}
         self._prison_profiles = {}
@@ -310,6 +311,14 @@ class Registry:
         if profile.source_card_id in self._sham_trial_profiles:
             raise ValueError('Duplicate original sham trial source')
         self._sham_trial_profiles[profile.source_card_id] = profile
+
+    def register_vanished_card_profile(self, profile):
+        self._require_mutable()
+        from .vanished_cards import validate_profile
+        validate_profile(self, profile)
+        if profile.source_card_id in self._vanished_card_profiles:
+            raise ValueError('Duplicate native disappeared-card profile')
+        self._vanished_card_profiles[profile.source_card_id] = profile
 
     def register_turn_clock_profile(self, profile):
         self._require_mutable()
@@ -1995,6 +2004,8 @@ class Registry:
         for profile in self._suspicious_discovery_profiles.values(): validate_suspicious_profile(self, profile)
         from .sham_trials import validate_profile as validate_trial_profile
         for profile in self._sham_trial_profiles.values(): validate_trial_profile(self, profile)
+        from .vanished_cards import validate_profile as validate_vanished_profile
+        for profile in self._vanished_card_profiles.values(): validate_vanished_profile(self, profile)
         from .turn_clocks import validate_profile as validate_clock_profile
         for profile in self._turn_clock_profiles.values(): validate_clock_profile(self, profile)
         from .card_packs import validate_profile as validate_pack_profile
@@ -2456,6 +2467,8 @@ class Registry:
             payload['suspicious_discovery_profiles'] = [asdict(self._suspicious_discovery_profiles[k]) for k in sorted(self._suspicious_discovery_profiles)]
         if self._sham_trial_profiles:
             payload['sham_trial_profiles'] = [asdict(self._sham_trial_profiles[k]) for k in sorted(self._sham_trial_profiles)]
+        if self._vanished_card_profiles:
+            payload['vanished_card_profiles'] = [asdict(self._vanished_card_profiles[k]) for k in sorted(self._vanished_card_profiles)]
         if self._turn_clock_profiles:
             payload['turn_clock_profiles'] = [asdict(self._turn_clock_profiles[k]) for k in sorted(self._turn_clock_profiles)]
         if self._standard_pack_profiles:
