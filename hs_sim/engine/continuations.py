@@ -105,6 +105,14 @@ class FrameCodec:
         if type(value) is model.AbilityInstance and value.carved_spell_id is not None:
             validate_carved_ability(self.registry,value)
         from .bonus_effects import StealBonusEffects
+        from .deathrattle_copies import GainAdjacentDeathrattles, CopiedDeathrattleSource, validate_material as validate_copied_deathrattle_material
+        if type(value) is GainAdjacentDeathrattles and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
+        if type(value) is CopiedDeathrattleSource and self.origin_state is not None:
+            validate_copied_deathrattle_material(self.origin_state, self.registry, value)
+        if type(value) is model.AbilityInstance and value.deathrattle_copied_from is not None and self.origin_state is not None:
+            from .deathrattle_copies import validate_ability as validate_copied_deathrattle_ability
+            validate_copied_deathrattle_ability(self.origin_state, self.registry, value)
         if type(value) is StealBonusEffects and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
         from .natural_turn_end import RequestNaturalTurnEnd,FinishNaturalTurnEnd

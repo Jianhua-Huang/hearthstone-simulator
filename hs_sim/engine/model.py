@@ -2987,6 +2987,7 @@ class AbilityInstance:
     carved_spell_id: str | None = None
     dark_gift_id: str | None = None
     deathrattle_inherited_from: tuple[int, int] | None = None
+    deathrattle_copied_from: object | None = None
     corpse_gain_card_id: str | None = None
     turn_draw_card_id: str | None = None
     native_producer_quantity_card_id: str | None = None
@@ -3154,6 +3155,16 @@ class AbilityInstance:
                     self.deathrattle_grant_card_id is None or self.expires_turn is not None or
                     self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Inherited Deathrattle requires a removable physical death declaration')
+        if self.deathrattle_copied_from is not None:
+            from .deathrattle_copies import CopiedDeathrattleSource
+            material = self.deathrattle_copied_from
+            if (type(material) is not CopiedDeathrattleSource or type(material.original) is not AbilityInstance or
+                    material.original.id >= self.id or material.next_attachment_id > self.id or
+                    self.kind != 'deathrattle' or self.origin != 'granted' or self.source_id is None or
+                    self.deathrattle_grant_card_id is None or self.deathrattle_inherited_from is not None or
+                    self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
+                raise ValueError('Copied Deathrattle requires older complete removable physical material')
+            material.__post_init__()
         if self.deathrattle_memory is not None:
             if type(self.deathrattle_memory) is not DeathrattleMemory:
                 raise ValueError('Expected typed native Deathrattle memory')
@@ -3161,7 +3172,7 @@ class AbilityInstance:
             granted_copy = (self.origin == 'granted' and self.deathrattle_memory.spec.kind == 'copy_summon'
                 and self.deathrattle_memory.summon_copy is not None and self.deathrattle_grant_card_id is not None
                 and self.deathrattle_card_id is None)
-            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None and not granted_copy or self.source_id is None or
+            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None and self.deathrattle_copied_from is None and not granted_copy or self.source_id is None or
                     self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Native Deathrattle memory requires printed or inherited physical provenance')
         if self.kind == 'board_full_awaken':

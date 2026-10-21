@@ -68,13 +68,18 @@ def validate_carrier(state,registry,card_id,kind,abilities,components=()):
         memory=getattr(ability,'deathrattle_memory',None)
         if memory is None:continue
         inherited=ability.deathrattle_inherited_from is not None
+        copied=ability.deathrattle_copied_from is not None
         granted_copy = (ability.origin == 'granted' and memory.spec.kind == 'copy_summon'
             and ability.deathrattle_card_id is None and ability.deathrattle_grant_card_id is not None)
-        if kind!=CardType.MINION or components or not inherited and not granted_copy and registry.card(card_id).native_deathrattle!=memory.spec:
+        if (kind!=CardType.MINION or components and not copied or
+                not inherited and not copied and not granted_copy and registry.card(card_id).native_deathrattle!=memory.spec):
             raise ValueError('Native Deathrattle memory borrowed an unsupported carrier')
         if inherited:
             from .deathrattle_inheritance import validate_ability as validate_inherited
             validate_inherited(state,registry,ability)
+        if copied:
+            from .deathrattle_copies import validate_ability as validate_copied
+            validate_copied(state,registry,ability)
         validate_ability(state,registry,ability)
 
 

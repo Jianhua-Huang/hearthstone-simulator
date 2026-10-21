@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实“获得相邻亡语”使用`deathrattle_copies.GainAdjacentDeathrattles`及原驻留引用；完整原附件、记忆和来源由公共层保存。普通`GrantDeathrattle`不替代这项材料复制，也不能给活体套死者ID。见[契约](m3-live-deathrattle-copies.md)。
+
 真实生命转护甲使用`health_loss.ConvertHeroHealthToArmor`，以原损失实际差值衔接普通增甲；不要写成伤害或固定请求量加甲。原完成武器攻击、下限/替换和待校准边界见[契约](m2-health-armor-conversion.md)。
 
 非牌费完整护甲门槛用`SpendArmor`，不能拿`LoseArmor`或牌价付款代替。真实原地标召唤后奖励使用`SpendArmorForSummonedGroup`，以完整原交付锁定受益者；源入口、当前友方连续在场与通知政策见[契约](m3-armor-summon-reward.md)。

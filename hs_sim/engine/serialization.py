@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 506
+SNAPSHOT_SCHEMA_VERSION = 507
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -314,6 +314,9 @@ def _hand_progress_spec(value):
 
 def _ability_from_dict(value):
     row = _row(value, AbilityInstance)
+    if row['deathrattle_copied_from'] is not None:
+        from .deathrattle_copies import source_from_dict
+        row['deathrattle_copied_from'] = source_from_dict(row['deathrattle_copied_from'])
     if row['prison_playback'] is not None:
         from .model import PrisonPlaybackState
         binding = _row(row['prison_playback'], PrisonPlaybackState)

@@ -13,7 +13,7 @@ def inherited(original, *, identity, source_id, grant_card_id, death_id):
     return replace(original, id=identity, origin='granted', source_id=source_id,
         deathrattle_grant_card_id=grant_card_id, expires_turn=None,
         remove_on_silence=True, consumed=False, magnetic_id=None,
-        deathrattle_inherited_from=(death_id, original.id))
+        deathrattle_inherited_from=(death_id, original.id), deathrattle_copied_from=None)
 
 
 def validate_ability(state, registry, ability):
