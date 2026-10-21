@@ -94,6 +94,8 @@ def create(r, effect):
     else:
         r.emit('card_added_to_hand',source_id=play.source_id,target_id=entity.id,player_id=player.id,
             reason=spec.keyword.value,play_id=play.id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, entity.hand_entry_id)
 
 
 def register(mechanics):

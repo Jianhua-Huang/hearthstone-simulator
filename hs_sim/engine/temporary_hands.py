@@ -130,13 +130,17 @@ def start(r,request):
         hide(r,entity);saved.append(SavedHandCard(entity.id,entity.card_id,entity.zone_epoch,entity.hand_entry_id))
     introduced=[]
     for ref in copied:
-        body=copy_physical_card(r,CopyCard(ref,request.player_id,mode='current',source_id=request.source_id))
+        body=copy_physical_card(r,CopyCard(ref,request.player_id,mode='current',source_id=request.source_id),notify_hand_entry=False)
         if body is None:raise ResolutionError('Captured temporary hand source disappeared during materialization')
         introduced.append(body.id)
     root=TemporaryHandReplacement(len(r.state.temporary_hands)+1,request,r.state.entities[request.source_id].card_id,
         r.state.turn,r.state.action_number,tuple(saved),copied,tuple(introduced))
     r.state.temporary_hands.append(root)
     r.emit('temporary_hand_replaced',source_id=request.source_id,player_id=request.player_id,**begin_data(root))
+    from .hand_history import publish as publish_hand_entry
+    for eid in introduced:
+        if r.state.entities[eid].zone == Zone.HAND:
+            publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
 
 
 def due(state,turn):
@@ -171,7 +175,10 @@ def return_hand(r,work):
     # Commit the complete group before capturing reactions to any returned card.
     r.emit(event_prefix(root)+'restored',source_id=request.source_id,player_id=request.player_id,
         hand_id=root.id,removed=root.removed,returned=root.returned)
-    for entity in originals:r.emit('card_moved_to_hand',source_id=request.source_id,target_id=entity.id,player_id=request.player_id)
+    for entity in originals:
+        r.emit('card_moved_to_hand',source_id=request.source_id,target_id=entity.id,player_id=request.player_id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, entity.hand_entry_id)
 
 
 def ended(r):

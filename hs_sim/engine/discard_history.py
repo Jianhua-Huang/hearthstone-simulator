@@ -292,6 +292,8 @@ def return_material(r, effect):
     r.move(entity, Zone.HAND, hand_entry_reason='return', hand_entry_source_id=effect.source_id)
     r.refresh_auras()
     r.emit('card_returned', target_id=entity.id, player_id=player.id)
+    from .hand_history import publish as publish_hand_entry
+    publish_hand_entry(r, entity.hand_entry_id)
 
 
 def validate_frame_materials(state, registry, frame):

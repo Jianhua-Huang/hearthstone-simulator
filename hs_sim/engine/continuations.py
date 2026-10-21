@@ -596,6 +596,8 @@ class FrameCodec:
             validate_loss_floor_frame(value.state, self.registry, value.work)
         if type(value) is RuleContext:
             from .composed_locations import STEP as location_step, component_context as validate_location_context
+            from .hand_history import validate_context as validate_hand_context
+            validate_hand_context(value, self.origin_state, self.origin_events)
             if value.event is not None and value.event.kind == location_step:
                 validate_location_context(value, self.registry)
                 if self.origin_events is not None and (value.event.sequence > len(self.origin_events) or

@@ -180,6 +180,8 @@ def start(r, request):
     r.emit('temporary_deck_hand_replaced', source_id=request.source_id, player_id=request.player_id, **begin_data(root))
     for ref in borrowed:
         r.emit('card_moved_to_hand', source_id=request.source_id, target_id=ref.entity_id, player_id=request.player_id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, r.state.entities[ref.entity_id].hand_entry_id)
 
 
 def start_window(state):
@@ -273,6 +275,8 @@ def return_hand(r, root):
             source_id=root.request.source_id,player_id=player.id,reason='temporary_deck_return_full')
     for eid in returned:
         r.emit('card_moved_to_hand', source_id=root.request.source_id, target_id=eid, player_id=player.id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
     for eid in burned:
         from .zones import emit_burn
         emit_burn(r,r.state.entities[eid],profile='setaside_overflow',original=burn_originals[eid],

@@ -441,6 +441,8 @@ def create_derivative(r, effect):
         emit_burn(r,entity,profile='created_overflow',source_id=record.source_id,reason='twinspell')
     else:
         r.emit('card_added_to_hand',source_id=record.source_id,target_id=entity.id,player_id=player.id,reason='twinspell')
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, entity.hand_entry_id)
 
 
 def automatic_choice(r, choice, options, on_select):

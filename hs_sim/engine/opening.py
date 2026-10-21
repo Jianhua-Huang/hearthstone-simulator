@@ -103,6 +103,9 @@ def deal_opening_hands(r, effect):
     r.state.opening = replace(opening, stage='mulligan', offered=tuple(offered))
     for player_id in opening_order(r.state):
         r.emit('opening_hand_dealt', player_id=player_id, entity_ids=offered[player_id - 1])
+        from .hand_history import publish as publish_hand_entry
+        for eid in offered[player_id - 1]:
+            publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
     first, second = opening_order(r.state)
     return [OfferMulligan(first), FinishMulligan(first), OfferMulligan(second), FinishMulligan(second), CompleteOpening()]
 
@@ -164,6 +167,9 @@ def complete_opening(r, effect):
             player.hand[:] = [slots.get(i, i) for i in hand]
             r.game._rng.shuffle(player.deck)
             r.emit('mulligan_replaced', player_id=player_id, rejected=selected, replacements=replacements)
+            from .hand_history import publish as publish_hand_entry
+            for eid in replacements:
+                publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
     r.state.opening = replace(opening, stage='starting')
     r.emit('mulligan_completed')
     return [AddToHand(3 - opening.first_player, r.game._match_setup.coin_card_id, revealed_to=(1, 2)),
@@ -221,9 +227,10 @@ def validate_hand_card(r, effect, *, origin_entity_id=None):
     return definition
 
 
-def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False):
+def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False, defer_hand_notification=False):
     """Shared generated materialization; public AddToHand still returns no work."""
     definition = validate_hand_card(r,effect,origin_entity_id=origin_entity_id)
+    if type(defer_hand_notification) is not bool:raise ValueError('Hand notification deferral must be boolean')
     player = r.player(effect.player_id)
     from .card_creation import install
     from .carved_spells import install as install_carved
@@ -244,11 +251,12 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
     if live_hand_source is not None:
         from .live_hand_spells import bind_created
         bind_created(r, entity, live_hand_source)
-    if not defer_publication:announce_hand_card(r,effect,entity)
+    if not defer_publication:announce_hand_card(r,effect,entity,notify_hand_entry=not defer_hand_notification)
     return entity
 
 
-def announce_hand_card(r,effect,entity):
+def announce_hand_card(r,effect,entity,*,notify_hand_entry=True):
+    if type(notify_hand_entry) is not bool:raise ValueError('Hand notification deferral must be boolean')
     player=r.player(effect.player_id);zone=entity.zone
     for viewer in effect.revealed_to:
         r.game._information.players[viewer].remember(entity)
@@ -258,6 +266,9 @@ def announce_hand_card(r,effect,entity):
         emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id,reason='generated')
     else:
         r.emit('card_added_to_hand',source_id=effect.source_id,target_id=entity.id,player_id=player.id,reason='generated')
+        if notify_hand_entry:
+            from .hand_history import publish as publish_hand_entry
+            publish_hand_entry(r, entity.hand_entry_id)
 
 
 def register_opening(mechanics):

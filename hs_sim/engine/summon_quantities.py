@@ -583,6 +583,8 @@ def deliver(r,effect):
             from .colossal import enter_minion
             if effect.index==0 and material.swap_minion is not None:
                 r.emit('card_returned',target_id=material.swap_minion.entity_id,player_id=material.reference.player_id)
+                from .hand_history import publish as publish_hand_entry
+                publish_hand_entry(r, r.state.entities[material.swap_minion.entity_id].hand_entry_id)
             continuation=tuple(enter_minion(r,entity,'stored'))
             if material.on_summon is not None:
                 from .recruit_summons import ContinueRecruitedMinion

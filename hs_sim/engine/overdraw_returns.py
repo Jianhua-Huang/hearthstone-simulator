@@ -148,6 +148,8 @@ def refill(r,work):
     r.emit(RETURNED,source_id=row.source_id,target_id=entity.id,player_id=player_id,row=_json(row),_capture=False)
     r.emit('cost_modified',source_id=row.source_id,target_id=entity.id,attachment_id=attachment.id)
     r.emit('card_moved_to_hand',source_id=row.source_id,target_id=entity.id,player_id=player_id)
+    from .hand_history import publish as publish_hand_entry
+    publish_hand_entry(r, entity.hand_entry_id)
     return ()
 
 

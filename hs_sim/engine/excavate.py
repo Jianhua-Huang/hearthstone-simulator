@@ -154,6 +154,8 @@ def excavate(r, effect):
         emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id)
     else:
         r.emit('card_added_to_hand',source_id=effect.source_id,target_id=entity.id,player_id=player.id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, entity.hand_entry_id)
     return (replace(effect, count=effect.count-1),) if effect.count > 1 else ()
 
 

@@ -1,6 +1,6 @@
 # 机制扩展指南
 
-真实效果需要区分“由哪个实体交付入手”时，在原`enter_hand`或创建/移动包装器传入直接来源，复用原手牌历史；不要按复制原实体、卡名或最近动作猜测。入手通知尚待独立接通，来源入口及保存边界见[入手来源](m3-hand-entry-sources.md)。
+真实效果需要区分“由哪个实体交付入手”时，在原`enter_hand`或创建/移动包装器传入直接来源，复用原手牌历史。新交付者完成原材料/批量接受后调用`hand_history.publish`，消费者用`from_event`读取绑定的原行；不要猜列旧事件或按复制原实体/卡名/最近动作猜来源，见[入手来源](m3-hand-entry-sources.md)及[通知契约](m3-hand-entry-notifications.md)。
 
 真实“获得相邻亡语”使用`deathrattle_copies.GainAdjacentDeathrattles`及原驻留引用；完整原附件、记忆和来源由公共层保存。普通`GrantDeathrattle`不替代这项材料复制，也不能给活体套死者ID。见[契约](m3-live-deathrattle-copies.md)。
 

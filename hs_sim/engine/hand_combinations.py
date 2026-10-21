@@ -64,3 +64,5 @@ def settle_hands(r, *, initial=False):
         inherit(r, left, combined)
         r.emit('cards_recombined', source_id=ordered[0], target_id=combined.id,
             player_id=player.id, fragment_ids=ordered)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, combined.hand_entry_id)

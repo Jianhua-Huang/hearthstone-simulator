@@ -694,6 +694,8 @@ class Game:
         validate_cast_boundary(self)
         from .draw_casts import validate_boundary as validate_draw_boundary
         validate_draw_boundary(self)
+        from .hand_history import validate_publications
+        validate_publications(self)
         from .spell_history import validate_boundary as validate_spell_batch_boundary
         validate_spell_batch_boundary(self)
         from .rewind import validate_boundary as validate_rewind_boundary

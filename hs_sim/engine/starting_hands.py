@@ -73,12 +73,16 @@ def start(r, request):
         hide(r, entity)
         saved.append(SavedHandCard(entity.id, entity.card_id, entity.zone_epoch, entity.hand_entry_id))
     introduced = tuple(create_hand_card(r, AddToHand(request.player_id, card.card_id, source_id=request.source_id),
-        origin_entity_id=card.entity_id).id for card in group)
+        origin_entity_id=card.entity_id,defer_hand_notification=True).id for card in group)
     root = TemporaryHandReplacement(len(r.state.temporary_hands) + 1, request,
         r.state.entities[request.source_id].card_id, r.state.turn, r.state.action_number,
         tuple(saved), references(group, request.player_id), introduced)
     r.state.temporary_hands.append(root)
     r.emit(event_prefix(root) + 'replaced', source_id=request.source_id, player_id=request.player_id, **begin_data(root))
+    from .hand_history import publish as publish_hand_entry
+    for eid in introduced:
+        if r.state.entities[eid].zone == Zone.HAND:
+            publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
 
 
 def validate_boundary(game):

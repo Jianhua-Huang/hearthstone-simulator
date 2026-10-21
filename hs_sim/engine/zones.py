@@ -898,6 +898,9 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
         emit_burn(r,entity,profile='deck_overflow' if deck_overflow else 'setaside_overflow' if previous_zone==Zone.SETASIDE else 'stored_overflow',original=original,source_id=effect.source_id,player_id=player.id,**data)
     else:
         r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id, **data)
+        if destination == Zone.HAND:
+            from .hand_history import publish as publish_hand_entry
+            publish_hand_entry(r, entity.hand_entry_id)
     return entity
 
 
@@ -905,10 +908,11 @@ def copy_card(r, effect):
     copy_physical_card(r, effect)
 
 
-def copy_physical_card(r, effect, *, minion_grant=None, publish=True):
+def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_hand_entry=True):
     """Shared copy materialization; internal callers may bind the new body."""
     effect.__post_init__()
     if type(publish) is not bool:raise ValueError('Copy publication must be boolean')
+    if type(notify_hand_entry) is not bool:raise ValueError('Hand notification deferral must be boolean')
     source_exists(r, effect.source_id)
     material=effect.card if type(effect.card)is CopyEntryMaterial else None
     if type(effect.card)is CapturedCardCopyMaterial:
@@ -987,11 +991,12 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True):
         from types import SimpleNamespace
         from .card_creation import install
         install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=minion_grant,source_id=effect.source_id),resolver=r)
-    if publish:announce_copied_card(r,entity,effect,origin_id)
+    if publish:announce_copied_card(r,entity,effect,origin_id,notify_hand_entry=notify_hand_entry)
     return entity
 
 
-def announce_copied_card(r,entity,effect,origin_id):
+def announce_copied_card(r,entity,effect,origin_id,*,notify_hand_entry=True):
+    if type(notify_hand_entry) is not bool:raise ValueError('Hand notification deferral must be boolean')
     player=r.player(effect.player_id);destination=entity.zone
     r.emit('card_created', source_id=effect.source_id, target_id=entity.id, player_id=player.id, copied_from=origin_id, copy_mode=effect.mode)
     event = 'card_added_to_deck' if destination == Zone.DECK else 'card_burned' if destination == Zone.GRAVEYARD else 'card_added_to_hand'
@@ -1000,6 +1005,9 @@ def announce_copied_card(r,entity,effect,origin_id):
     else:
         extra={'_deck_insertion_mode':effect.position if type(effect.position)is str else 'index'}if destination==Zone.DECK else{}
         r.emit(event, source_id=effect.source_id, target_id=entity.id, player_id=player.id,**extra)
+        if destination == Zone.HAND and notify_hand_entry:
+            from .hand_history import publish as publish_hand_entry
+            publish_hand_entry(r, entity.hand_entry_id)
 
 
 def copy_current_stored_state(state, source, entity):

@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v622'
+CORE_EFFECTS_VERSION = 'core-effects-v623'
 
 
 class Mechanics:
@@ -257,7 +257,11 @@ class Resolution:
             result.append(item)
         return result
 
-    def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, **data):
+    def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, _hand_entry_record=None, **data):
+        from .hand_history import EVENT as HAND_ENTRY_EVENT
+        if ((kind == HAND_ENTRY_EVENT) != (_hand_entry_record is not None) or
+                kind == HAND_ENTRY_EVENT and ('hand_entry_id' in data or 'hand_entry_hash' in data)):
+            raise ResolutionError('Hand notification requires its original delivery publication')
         if kind == 'minion_summoned' and self.registry.summon_entry_stats_profiles:
             from .summon_entry_stats import apply_entry as apply_entry_stat_programs
             apply_entry_stat_programs(self, self.state.entities[target_id], 'summon')
@@ -313,6 +317,9 @@ class Resolution:
             raise ResolutionError('Deck insertion requires its actual original placement publication')
         if _deck_insertion_mode is not None:
             data['deck_insertion']=shuffle_publication(self,kind,target_id,player_id,source_id,_deck_insertion_mode)
+        if _hand_entry_record is not None:
+            from .hand_history import prepare_publication
+            data.update(prepare_publication(self, _hand_entry_record, source_id, target_id, player_id, amount, _capture))
         event = Event(sequence=len(self.game._events) + 1, action=self.state.action_number,
                       kind=kind, source_id=source_id, target_id=target_id,
                       player_id=player_id, amount=amount, data=tuple(sorted(deepcopy(data).items())))
@@ -857,6 +864,8 @@ class Resolution:
                 if generated is not None: queue.extendleft(reversed(self.collect(generated)))
                 continue
             if isinstance(work, BehaviorCall):
+                from .hand_history import validate_context as validate_hand_context
+                validate_hand_context(work.context, self.state, self.game._events)
                 from .discard_history import validate_call as validate_discard_call
                 validate_discard_call(work, self.registry)
                 from .zones import validate_destroyed_call
@@ -2153,6 +2162,8 @@ def return_to_hand(r, effect):
         lock_hand_card(r, LockHandCard(CardReference.capture(entity), 2, effect.source_id))
     r.refresh_auras()
     r.emit('card_returned', target_id=entity.id, player_id=player.id)
+    from .hand_history import publish
+    publish(r, entity.hand_entry_id)
 
 
 def transform(r, effect):

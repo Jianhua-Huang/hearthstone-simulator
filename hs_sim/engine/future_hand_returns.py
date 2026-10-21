@@ -113,6 +113,8 @@ def restore(r,work):
     for eid in returned:
         r.emit('stored_card_buffed',source_id=root.request.source_id,target_id=eid,player_id=player.id,attack_delta=5,health_delta=5)
         r.emit('card_moved_to_hand',source_id=root.request.source_id,target_id=eid,player_id=player.id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
     for eid in burned:
         from .zones import emit_burn
         emit_burn(r,r.state.entities[eid],profile='setaside_overflow',original=burn_material[eid],source_id=root.request.source_id,reason='future_hand_return_full')

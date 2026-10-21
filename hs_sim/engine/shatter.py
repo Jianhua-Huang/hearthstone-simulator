@@ -100,6 +100,10 @@ def settle_hands(r, *, initial=False, opening_ready=False):
                     emit_burn(r,part,profile='created_overflow',source_id=source.id,reason='shatter')
             r.emit('card_shattered', source_id=source.id, target_id=pieces[0], player_id=player.id,
                    fragment_ids=tuple(pieces))
+            from .hand_history import publish as publish_hand_entry
+            for eid in pieces:
+                if r.state.entities[eid].zone == Zone.HAND:
+                    publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
         else:
             first, second = source
             position = player.hand.index(first.id)
@@ -115,6 +119,8 @@ def settle_hands(r, *, initial=False, opening_ready=False):
             consume_keyword(combined, Keyword.SHATTER)
             r.emit('cards_recombined', source_id=first.id, target_id=combined.id, player_id=player.id,
                    fragment_ids=(first.id, second.id))
+            from .hand_history import publish as publish_hand_entry
+            publish_hand_entry(r, combined.hand_entry_id)
 
 
 def validate_boundary(game):

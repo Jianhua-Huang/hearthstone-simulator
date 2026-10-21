@@ -82,6 +82,8 @@ def shuffle_hands(r, effect):
     # synchronization for the whole completed allocation before trigger capture.
     for player_id, eid in transferred:
         r.emit('card_moved_to_hand', source_id=effect.source_id, target_id=eid, player_id=player_id)
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, r.state.entities[eid].hand_entry_id)
     for player in players:
         r.emit('hand_reordered', source_id=effect.source_id, player_id=player.id)
 

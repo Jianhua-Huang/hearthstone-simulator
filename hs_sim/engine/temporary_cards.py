@@ -69,6 +69,8 @@ def materialize_temporary_card(r, effect):
         emit_burn(r,entity,profile='created_overflow',source_id=effect.source_id,reason='temporary')
     else:
         r.emit('card_added_to_hand',source_id=effect.source_id,target_id=entity.id,player_id=player.id,reason='temporary')
+        from .hand_history import publish as publish_hand_entry
+        publish_hand_entry(r, entity.hand_entry_id)
     return entity
 
 
