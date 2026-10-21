@@ -11,7 +11,8 @@ from types import SimpleNamespace
 from .effects import Effect, _integer, _source
 from .errors import ResolutionError
 from .lifecycle import attachment_id
-from .model import AbilityInstance, CardType, GameState, SpellRepeatSpec, SpellSchool, Zone
+from .model import (AbilityInstance, CardClass, CardType, GameState, SpellRepeatModifier,
+    SpellRepeatSpec, SpellSchool, Zone)
 from .allocation_facts import SourceAllocationFact, validate_allocation
 from .arcane_dragon_providers import NativeRepeatPlan
 from .pools import PoolQuery
@@ -167,6 +168,8 @@ class CardCastRepeatPlan:
     grants: tuple[AbilityInstance, ...]
     attachment_limit: int
     native: NativeRepeatPlan | None = None
+    player_modifiers: tuple[SpellRepeatModifier, ...] = ()
+    modifier_hero_class: CardClass | None = None
 
     def __post_init__(self):
         from .effects import _player
@@ -174,8 +177,13 @@ class CardCastRepeatPlan:
         if type(self.source) is not SourceAllocationFact or self.source.kind != CardType.SPELL:
             raise ValueError('Card CAST repetition requires its original physical spell')
         self.source.__post_init__()
-        if type(self.grants) is not tuple or not self.grants:
-            raise ValueError('Card CAST repetition requires its complete nonempty original grant inventory')
+        if (type(self.grants) is not tuple or type(self.player_modifiers) is not tuple or
+                not (self.grants or self.player_modifiers)):
+            raise ValueError('Card CAST repetition requires its complete original contribution inventory')
+        if self.modifier_hero_class is not None and type(self.modifier_hero_class) is not CardClass:
+            raise ValueError('Automatic spell policies require the original hero class')
+        if not self.player_modifiers and self.modifier_hero_class is not None:
+            raise ValueError('Card-only repetition cannot borrow a player policy class')
         previous = 0
         for grant in self.grants:
             if type(grant) is not AbilityInstance or grant.kind != 'card_cast_repeat':
@@ -184,6 +192,14 @@ class CardCastRepeatPlan:
             if not previous < grant.id < self.attachment_limit:
                 raise ValueError('Card repetition requires unique original attachment order')
             previous = grant.id
+        previous = 0
+        for modifier in self.player_modifiers:
+            if type(modifier) is not SpellRepeatModifier or not modifier.automatic:
+                raise ValueError('Automatic repetition cannot borrow a manual-only player policy')
+            modifier.__post_init__()
+            if not previous < modifier.id < self.attachment_limit or any(a.id == modifier.id for a in self.grants):
+                raise ValueError('Automatic player policies require unique original acquisition order')
+            previous = modifier.id
         if self.native is not None:
             if type(self.native) is not NativeRepeatPlan:
                 raise ValueError('Card repetition requires the existing typed native contribution')
@@ -205,18 +221,22 @@ class CardCastRepeatProof:
         self.rules.__post_init__(); self.plan.__post_init__()
 
 
-def _card_plan(state, entity, player_id, native):
+def _card_plan(state, registry, entity, player_id, native):
     from .lifecycle import active_abilities
+    from .spell_modifiers import matches
     grants = tuple(sorted(active_abilities(entity, 'card_cast_repeat'), key=lambda a:a.id))
-    if not grants: return None
+    player = state.players[player_id]
+    modifiers = tuple(m for m in player.spell_modifiers if m.automatic and
+        matches(m.spec, registry.card(entity.card_id), player.hero_class))
+    if not (grants or modifiers): return None
     if any(a.expires_turn is not None and a.expires_turn < state.turn for a in grants):
         raise ValueError('Automatic card repeat cannot accept an already expired property')
     return CardCastRepeatPlan(SourceAllocationFact.capture(state, entity), player_id, grants,
-        state.next_attachment_id, native)
+        state.next_attachment_id, native, modifiers, player.hero_class if modifiers else None)
 
 
 def capture_automatic(r, entity, player_id, native):
-    plan = _card_plan(r.state, entity, player_id, native)
+    plan = _card_plan(r.state, r.registry, entity, player_id, native)
     return None if plan is None else CardCastRepeatProof(deepcopy(r.state), r.rules, plan)
 
 
@@ -238,7 +258,7 @@ def validate_automatic_proof(proof, registry):
     probe = SimpleNamespace(state=state, registry=registry, rules=proof.rules,
         player=lambda pid:state.players[pid], game=SimpleNamespace(ruleset=proof.rules))
     native = capture_native(probe, entity, proof.plan.player_id)
-    if _card_plan(state, entity, proof.plan.player_id, native) != proof.plan:
+    if _card_plan(state, registry, entity, proof.plan.player_id, native) != proof.plan:
         raise ValueError('Card repetition changed its complete original grants or native contributors')
 
 
@@ -253,6 +273,13 @@ def validate_automatic_plan(state, registry, plan, *, closed=False):
             raise ValueError('Card repetition has an unknown original grant source')
         if grant.id in unrelated or grant.id in live and live[grant.id] != (plan.source.entity_id, grant):
             raise ValueError('Card repetition borrowed another physical attachment or changed its material')
+    from .spell_modifiers import matches
+    for modifier in plan.player_modifiers:
+        if (modifier.source_id not in state.entities or modifier.created_turn > state.turn or
+                modifier.id in unrelated or modifier.id in live or
+                not matches(modifier.spec, registry.card(plan.source.card_id), plan.modifier_hero_class)):
+            raise ValueError('Automatic repetition changed its accepted player policy or borrowed a live attachment')
+        registry.card(modifier.source_card_id)
     if plan.native is not None:
         from .arcane_dragon_providers import validate_plan
         validate_plan(state, registry, plan.native, closed=closed)

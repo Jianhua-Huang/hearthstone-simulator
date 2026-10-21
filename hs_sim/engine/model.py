@@ -2123,6 +2123,19 @@ class SpellRepeatSpec:
             self.match.__post_init__()
 
 
+def validate_automatic_spell_budget(spec, source_id, uses, expires_turn, automatic):
+    """The finite all-CAST player policy required by next-spell-per-school cards."""
+    if type(automatic) is not bool:
+        raise ValueError('Automatic spell policy scope requires a boolean')
+    if not automatic: return
+    match = spec.match
+    if (spec.casts != 2 or spec.class_mode != 'any' or source_id is None or uses != 1 or
+            expires_turn is not None or match is None or match.source_eligibility is not None or
+            match.recipient_cost is not None or match.recipient_metadata is None or
+            len(match.recipient_metadata.spell_schools) != 1):
+        raise ValueError('Automatic player spell policy requires one original use for one school and two casts')
+
+
 @dataclass(frozen=True)
 class SpellRepeatModifier:
     id: int
@@ -2132,6 +2145,7 @@ class SpellRepeatModifier:
     created_turn: int
     uses_remaining: int | None = None
     expires_turn: int | None = None
+    automatic: bool = False
 
     def __post_init__(self):
         _int(self.id, 'Spell modifier ID', 1)
@@ -2145,6 +2159,7 @@ class SpellRepeatModifier:
         _int(self.created_turn, 'Spell modifier creation', 1)
         if self.uses_remaining is not None: _int(self.uses_remaining, 'Spell modifier uses', 1)
         if self.expires_turn is not None: _int(self.expires_turn, 'Spell modifier expiry', self.created_turn)
+        validate_automatic_spell_budget(self.spec, self.source_id, self.uses_remaining, self.expires_turn, self.automatic)
 
 
 @dataclass(frozen=True)
@@ -12264,4 +12279,3 @@ class KindredRecord:
         if self.interruption is not None:
             if type(self.interruption)is not tuple or len(self.interruption)!=2 or any(type(x)is not int or x<1 for x in self.interruption):raise ValueError('Kindred interruption requires its actual terminal event/action')
             if self.completed or self.interruption[1]<self.action:raise ValueError('Kindred interruption contradicts its accepted root')
-

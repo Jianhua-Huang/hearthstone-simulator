@@ -42,6 +42,9 @@ def accept_automatic(r,record,behaviors,captured):
     if captured is None:return ()
     proof = captured if type(captured) is CardCastRepeatProof else None
     work=RepeatAutomaticSpell(record.id,behaviors,proof.plan if proof is not None else captured,proof)
+    if proof is not None:
+        from .spell_modifiers import consume_automatic
+        consume_automatic(r, record.id, proof.plan.player_modifiers)
     from .continuations import FrameCodec
     r.emit(ACCEPTED,source_id=record.source_id,player_id=record.player_id,cast_id=record.id,
         plan=json.dumps(FrameCodec(r.game.mechanics,r.registry).encode(replace(work,card_proof=None)),ensure_ascii=False,sort_keys=True,separators=(',',':')),_capture=False)
@@ -124,6 +127,8 @@ def validate_boundary(game):
             started[parent]=child
     children={row.id for row in game._state.cast_history if row.origin=='native_repeat'}
     if children!=set(started.values()):raise ValueError('Native repeat child has no actual accepted plan')
+    from .spell_modifiers import validate_automatic_usage
+    validate_automatic_usage(game, plans)
     frame=game._frame;queued=(*frame.prefix,*frame.continuation)if frame else()
     pending=[w for w in queued if type(w)is RepeatAutomaticSpell]
     for work in pending:

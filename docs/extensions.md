@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实“每个学派的下一个法术双施法”使用七个独立`AddSpellRepeatModifier(..., automatic=True)`；当前只支持有来源、单学派、一次用途、总2次的有限范围。不要给所有手牌贴临时重复属性或复制施法执行器；旧默认仍只匹配手牌出牌。原自动接受/消费、待选恢复及待国服校准边界见[地母契约](m3-therazane-school-budgets.md)。
+
 真实法术数字可用`RemainingManaNumbersProfile`加原`SpellSourceCostProfile`冻结提交/自动接受输入；真实神圣光环以`SpellSourceCostObserverProfile`要求全部神圣CAST的费用事实，完成回调读取原`source_cost`。不要在完成后重报价格或用实际支付量替代费用，见[士兵契约](m3-holy-soldiers.md)。
 
 真实牌库法术复制需要授予抽到时施放时，使用原`CapturedCardCopyMaterial`和`CopyCard.cast_when_drawn=True`，再交语义`shuffled`；不要只塞关键词或写抽牌监听替代执行器。该入口只接受原当前本人牌库法术，冻结的`DrawRecord.cast_grant`及印刷策略边界见[契约](m3-granted-draw-casts.md)。
