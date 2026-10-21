@@ -165,7 +165,8 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=No
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost,
         next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else (),
-        hand_cost_rank=play.hand_cost_rank, source_cost=capture_hand(r.registry, play))
+        hand_cost_rank=play.hand_cost_rank, source_cost=capture_hand(r.registry, play),
+        spell_target_group=play.spell_target_group)
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
@@ -285,6 +286,8 @@ def effective_definition(definition, conditions):
 
 
 def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None, adjoining_parent=None):
+    if entity.card_id in r.registry.spell_target_group_profiles:
+        raise ResolutionError('Automatic multi-target spell acceptance is not implemented')
     from .spell_source_costs import capture_automatic as capture_source_cost, start_receipt
     source_cost = capture_source_cost(r, entity, effect.player_id)
     from .adjoining_spells import capture as capture_adjoining,note_automatic as note_adjoining_automatic

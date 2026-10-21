@@ -7478,8 +7478,12 @@ class PlayRecord:
     held_higher_cost: HeldHigherCostProgress | None = None
     next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
     hand_cost_rank: HandCostRankFact | None = None
+    spell_target_group: object | None = None
 
     def __post_init__(self):
+        if self.spell_target_group is not None:
+            from .spell_target_groups import validate_record_material
+            validate_record_material(self)
         from .next_spell_bonuses import validate_material as validate_spell_bonus_material
         validate_spell_bonus_material(self.next_spell_bonus_effects,self.turn)
         if self.next_spell_bonus_effects and self.kind!=CardType.SPELL:
@@ -8009,8 +8013,12 @@ class SpellCastRecord:
     next_spell_body_effects: tuple[PlayerEffect, ...] = ()
     next_spell_body_cursor: int = 0
     source_cost: CostQuoteFact | None = None
+    spell_target_group: object | None = None
 
     def __post_init__(self):
+        if self.spell_target_group is not None:
+            from .spell_target_groups import validate_record_material
+            validate_record_material(self, cast=True)
         if self.source_cost is not None:
             if type(self.source_cost) is not CostQuoteFact:
                 raise ValueError('Original spell source cost requires a complete CostQuoteFact')

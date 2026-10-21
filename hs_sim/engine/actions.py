@@ -57,8 +57,14 @@ class PlayCard:
     body_target_profile_id: str | None = None
     body_targets: tuple[PlayBodyTarget, ...] = ()
     board_player_id: int | None = None
+    target_ids: tuple[int, ...] = ()
 
     def __post_init__(self) -> None:
+        if type(self.target_ids) is not tuple:
+            raise ValueError('Spell arrows require a typed immutable target vector')
+        for target in self.target_ids: _id(target, 'spell arrow target')
+        if self.target_ids and (len(set(self.target_ids)) != len(self.target_ids) or self.target_id != self.target_ids[0]):
+            raise ValueError('Spell arrows require distinct targets and their exact first target')
         if self.body_target_profile_id is not None and (type(self.body_target_profile_id) is not str or not self.body_target_profile_id.strip()):
             raise ValueError('Body target profile must be an exact nonempty string')
         if type(self.body_targets) is not tuple or any(type(v) is not PlayBodyTarget for v in self.body_targets):
@@ -222,7 +228,7 @@ _REQUIRED_FIELDS = {
     "end_turn": {"player_id"},
     "select_choice": {"player_id", "choice_id", "option_ids"},
 }
-_OPTIONAL_FIELDS = {"concede": set(), "use_interactable": set(), "use_minion_ability": {"target_id"}, "use_location": {"target_id"}, "launch_starship": set(), "use_hand_action": set(), "play_card": {"target_id", "position", "branch_id", "body_target_profile_id", "body_targets", "board_player_id"}, "use_hero_power": {"target_id", "branch_id"}, "attack": set(),
+_OPTIONAL_FIELDS = {"concede": set(), "use_interactable": set(), "use_minion_ability": {"target_id"}, "use_location": {"target_id"}, "launch_starship": set(), "use_hand_action": set(), "play_card": {"target_id", "position", "branch_id", "body_target_profile_id", "body_targets", "board_player_id", "target_ids"}, "use_hero_power": {"target_id", "branch_id"}, "attack": set(),
                     "end_turn": set(), "select_choice": set()}
 
 
@@ -232,6 +238,10 @@ def action_to_dict(action: Action) -> dict[str, object]:
         raise ValueError(f"unsupported action type: {type(action).__name__}")
     result = {"type": kind, **asdict(action)}
     if type(action) is PlayCard:
+        if action.target_ids:
+            result['target_ids'] = list(action.target_ids)
+        else:
+            result.pop('target_ids')
         if action.board_player_id is None:
             result.pop('board_player_id')
         if action.body_target_profile_id is None:
@@ -260,6 +270,10 @@ def action_from_dict(data: Mapping[str, object]) -> Action:
         raise ValueError(f"unknown action fields: {sorted(map(str, unknown))}")
     values = {key: value for key, value in data.items() if key != "type"}
     if kind == 'play_card':
+        if 'target_ids' in values:
+            if type(values['target_ids']) is not list or not values['target_ids']:
+                raise ValueError('Spell arrow targets require a nonempty JSON array')
+            values['target_ids'] = tuple(values['target_ids'])
         if ('body_target_profile_id' in values) != ('body_targets' in values):
             raise ValueError('Body profile and full JSON vector must appear together')
         if 'body_targets' in values:

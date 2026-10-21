@@ -433,7 +433,7 @@ class HeroMissingHealthCostTests(unittest.TestCase):
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
             ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v86', 'player-actions-v12'))
+            ('player-view-v115', 'player-actions-v13'))
         for version in (1, 171, 172, 217, True, '173'):
             bad = deepcopy(saved)
             bad['schema_version'] = version

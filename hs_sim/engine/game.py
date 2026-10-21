@@ -516,6 +516,8 @@ class Game:
         validate_native_active_targets(self)
         from .native_hand_targets import validate_boundary as validate_native_hand_targets
         validate_native_hand_targets(self)
+        from .spell_target_groups import validate_boundary as validate_spell_target_groups
+        validate_spell_target_groups(self)
         from .spell_mirrors import validate_game as validate_spell_mirrors
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers

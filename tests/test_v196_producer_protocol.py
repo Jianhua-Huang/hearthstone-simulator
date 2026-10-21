@@ -60,8 +60,8 @@ class ProducerProtocolTests(unittest.TestCase):
         self.assertEqual((value['state']['next_ordered_group_id'], value['state']['ordered_group_history']), (1, []))
         self.assertEqual(value['state']['pool_summon_history'], [])
         self.assertEqual(Game.from_snapshot(deepcopy(value), fixture.registry()).snapshot(), value)
-        self.assertEqual(g.observe(1)['version'], 'player-view-v86')
-        self.assertEqual(g.for_player(1).observe()['version'], 'player-actions-v12')
+        self.assertEqual(g.observe(1)['version'], 'player-view-v115')
+        self.assertEqual(g.for_player(1).observe()['version'], 'player-actions-v13')
         self.assertEqual(build_replay(g)['schema_version'], 1)
 
     def test_every_former_snapshot_schema_is_rejected_before_state_decoding(self):

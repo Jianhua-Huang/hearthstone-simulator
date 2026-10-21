@@ -421,7 +421,7 @@ class PlayerSpellSchoolCostTests(unittest.TestCase):
         g = self.game()
         saved = g.snapshot()
         self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
-        self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']), ('player-view-v86', 'player-actions-v12'))
+        self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']), ('player-view-v115', 'player-actions-v13'))
         self.assertEqual(build_replay(g)['schema_version'], 1)
         for version in (*range(1, 218), 217, True, 208.0):
             bad = deepcopy(saved)

@@ -19,7 +19,7 @@ from .play_history import play_definition
 from .actions import UseInteractable, Concede
 
 
-API_VERSION = 'player-actions-v12'
+API_VERSION = 'player-actions-v13'
 _HAND_KINDS = {CardType.MINION, CardType.SPELL, CardType.WEAPON, CardType.LOCATION, CardType.HERO}
 
 
@@ -137,6 +137,8 @@ def _encode(game, viewer, action):
 
     if isinstance(action, PlayCard):
         result={'type': 'play_card', 'card': ref(action.entity_id), 'target': ref(action.target_id), 'position': action.position}
+        if action.target_ids:
+            result['targets'] = [ref(i) for i in action.target_ids]
         if action.board_player_id is not None:
             result['side'] = 'friendly' if action.board_player_id == viewer else 'enemy'
         if action.branch_id is not None: result['branch'] = action.branch_id
@@ -185,7 +187,7 @@ _FIELDS = {
     'use_location': ({'type', 'location'}, {'target'}),
     'launch_starship': ({'type', 'starship'}, set()),
     'use_hand_action': ({'type', 'card', 'action_id'}, set()),
-    'play_card': ({'type', 'card'}, {'target', 'position', 'magnetic_target', 'branch', 'body_targets', 'body_route', 'side'}),
+    'play_card': ({'type', 'card'}, {'target', 'targets', 'position', 'magnetic_target', 'branch', 'body_targets', 'body_route', 'side'}),
     'use_hero_power': ({'type', 'power'}, {'target', 'branch'}),
     'attack': ({'type', 'attacker', 'defender'}, set()),
     'end_turn': ({'type'}, set()),
@@ -240,7 +242,16 @@ def _decode(game, viewer, raw, observation):
         elif 'body_targets' in raw:
             from .body_player_commands import decode_entries
             profile,entries=decode_entries(game,viewer,game._state.entities[source],raw['body_targets'],entity)
-        return PlayCard(viewer, source, entity(raw.get('target'), optional=True), raw.get('position'), raw.get('branch'),profile,entries,board_player_id)
+        target_ids = ()
+        target = entity(raw.get('target'), optional=True)
+        if 'targets' in raw:
+            if type(raw['targets']) is not list or not raw['targets']:
+                raise ValueError('Spell targets require a nonempty reference array')
+            target_ids = tuple(entity(ref) for ref in raw['targets'])
+            if 'target' in raw and target != target_ids[0]:
+                raise ValueError('First spell target differs from its complete target vector')
+            target = target_ids[0]
+        return PlayCard(viewer, source, target, raw.get('position'), raw.get('branch'),profile,entries,board_player_id,target_ids)
     if kind == 'use_interactable':
         source, card = entity(raw['object']), entity(raw['card'])
         if source not in player.board or card not in player.hand:

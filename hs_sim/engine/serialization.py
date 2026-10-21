@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 511
+SNAPSHOT_SCHEMA_VERSION = 512
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1161,6 +1161,8 @@ def _draw_from_dict(value):
 
 def _spell_cast_from_dict(value):
     row = _row(value, SpellCastRecord)
+    from .spell_target_groups import selection_from_dict as spell_group_from_dict
+    row['spell_target_group'] = spell_group_from_dict(row['spell_target_group'])
     if row['source_cost'] is not None:row['source_cost'] = _cost_quote_fact_from_dict(row['source_cost'])
     row['hand_cost_rank'] = _hand_cost_rank_from_dict(row['hand_cost_rank'])
     from .spell_mana_budget import link_from_dict
@@ -1347,6 +1349,8 @@ def state_from_dict(value: dict) -> GameState:
     plays=[]
     for item in _list(value['play_history'], 'play history'):
         row=_row(item, PlayRecord)
+        from .spell_target_groups import selection_from_dict as spell_group_from_dict
+        row['spell_target_group'] = spell_group_from_dict(row['spell_target_group'])
         row['next_spell_bonus_effects']=tuple(player_effect_from_dict(e)for e in _list(row['next_spell_bonus_effects'],'reserved paired next-spell effects'))
         row['copy_origin'] = _copy_origin_from_dict(row['copy_origin'])
         if row['body_targets'] is not None:

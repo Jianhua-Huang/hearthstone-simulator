@@ -83,6 +83,11 @@ def validate_hand_play(state, registry, rules, action, *, context=None, play_tar
     reason = target_error(state, registry, entity, target_definition, action.target_id, context_factory=context)
     if reason is not None:
         raise IllegalAction(reason)
+    from .spell_target_groups import hand_selection
+    try:
+        hand_selection(state, registry, entity, action.target_ids)
+    except ValueError as error:
+        raise IllegalAction(str(error)) from error
     return
 
 
@@ -112,10 +117,13 @@ def hand_plays(game, source, *, validator, context=None, first_only=False):
         positions = range(len(board) + 1) if definition.kind in (CardType.MINION, CardType.LOCATION) else [None]
         for position in positions:
             for branch_id in branches(state,definition,player.id,entity=state.entities[entity_id]):
-                choices = target_choices(state,game.registry,state.entities[entity_id],placed_definition(state,game.registry,state.entities[entity_id],position,branch_id=branch_id),context_factory=context)
-                for target in choices:
+                from .spell_target_groups import hand_plan, spell_target_group_selections
+                group = hand_plan(state, game.registry, source)
+                choices = ([(target, ()) for target in target_choices(state,game.registry,state.entities[entity_id],placed_definition(state,game.registry,state.entities[entity_id],position,branch_id=branch_id),context_factory=context)]
+                    if group is None else ((row.target_ids[0], row.target_ids) for row in spell_target_group_selections(group)))
+                for target, target_ids in choices:
                     candidate = PlayCard(player.id, entity_id, target, position, branch_id,
-                        board_player_id=board_player_id)
+                        board_player_id=board_player_id, target_ids=target_ids)
                     try:
                         validator(candidate)
                     except IllegalAction:

@@ -155,6 +155,19 @@ def spell_target_phase(r, effect):
         raise ResolutionError('Invalid spell target phase')
     window = replace(window, target_phase=True)
     r.state.action_windows[-1] = window
+    from .play_history import play_record
+    group = play_record(r.state, window.play_id).spell_target_group
+    if group is not None:
+        if not window.countered:
+            from .native_random_targets import current_sources
+            if current_sources(r.state, r.registry):
+                raise ResolutionError('Native replacement of a paid spell target group is not implemented')
+            if window.target_id != group.target_ids[0]:
+                raise ResolutionError('A paid spell group lost its original first target')
+            for target_id in group.target_ids:
+                r.emit('spell_targeted', source_id=window.source_id, target_id=target_id,
+                    player_id=window.player_id, window_id=window.id)
+        return [ResolveSpell(window.id)]
     from .native_target_acceptance import accept as accept_native_target,FinishNativeTarget
     native=accept_native_target(r,'manual_card',window) if not window.countered else None
     if native is not None:
@@ -245,6 +258,10 @@ def redirect(r, effect, *, native_selection=None):
 def redirect_spell(r, effect):
     from .targeting import effective_target_spec
     window = find_window(r.state, effect.window_id)
+    if window is not None and window.kind == 'spell':
+        from .play_history import play_record
+        if play_record(r.state, window.play_id).spell_target_group is not None:
+            raise ResolutionError('Redirecting a paid spell target group is not implemented')
     target = r.state.entities.get(effect.target_id)
     if window is None or window.kind != 'spell' or window.countered or not window.target_phase or window.target_id is None:
         return
@@ -280,6 +297,10 @@ def summon_target(r, effect):
 def summon_spell_target(r, effect):
     from .resolver import summon_entity
     window = find_window(r.state, effect.window_id)
+    if window is not None and window.kind == 'spell':
+        from .play_history import play_record
+        if play_record(r.state, window.play_id).spell_target_group is not None:
+            raise ResolutionError('Redirecting a paid spell target group is not implemented')
     if window is None or window.kind != 'spell' or window.countered or not window.target_phase or window.target_id is None:
         return
     entity = summon_entity(r, Summon(effect.player_id, effect.card_id))

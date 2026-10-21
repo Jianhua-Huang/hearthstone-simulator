@@ -291,7 +291,7 @@ class BoardMinionCostTests(unittest.TestCase):
         g=self.game(hand=('card.1',));f=self.fact(g,'card.1');self.assertIsNone(f.intrinsic.board_minions)
         self.play(g,'card.1');saved=self.portable(g)
         self.assertEqual((g.ruleset.id,g.mechanics.version,saved['schema_version']),('prototype-v302',CORE_EFFECTS_VERSION,SNAPSHOT_SCHEMA_VERSION))
-        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v86','player-actions-v12'))
+        self.assertEqual((g.observe(1)['version'],g.for_player(1).observe()['version']),('player-view-v115','player-actions-v13'))
         for old in (1,169,170):
             bad=deepcopy(saved);bad['schema_version']=old
             with self.assertRaisesRegex(SnapshotError,f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):Game.from_snapshot(bad,registry())

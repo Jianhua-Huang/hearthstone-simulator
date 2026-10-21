@@ -121,6 +121,9 @@ def _validate_hand_cost_proof(proof, registry, *, submission_state=None, proof_t
     elif origin is not before:
         raise ValueError('Ordinary hand payment cannot borrow another quote state')
     if proof.rewind_session is not None:
+        ids = () if play.spell_target_group is None else play.spell_target_group.target_ids
+        if proof.rewind_session.action.target_ids != ids:
+            raise ValueError('Spell retry changed its complete original target vector')
         session = proof.rewind_session
         saved = session.before.entities.get(play.source_id)
         from .model import Keyword
@@ -158,7 +161,7 @@ def _validate_hand_cost_proof(proof, registry, *, submission_state=None, proof_t
         raise ValueError('Original hand payment changed its position-selected magnetic host')
     expected_play = prepare_play(before, registry, source, play.target_id, quote,
         position=play.position, magnetic_target_id=play.magnetic_target_id, branch_id=play.branch_id,
-        body_targets=body_receipt, board_player_id=play.board_player_id)
+        body_targets=body_receipt, board_player_id=play.board_player_id, spell_target_group=play.spell_target_group)
     if replace(expected_play, submitted_cost=expected_receipt) != play:
         raise ValueError('Spell cost proof changed the complete prepared play or hand acquisition')
     validate_cost_source_history(origin, before, registry)

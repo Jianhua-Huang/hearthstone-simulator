@@ -178,7 +178,9 @@ def play_definition(state, registry, source, record=None, *, branch_id=None):
     return definition
 
 
-def prepare_play(state, registry, source, target_id, quote, *, position=None, magnetic_target_id=None, branch_id=None, body_targets=None, board_player_id=None):
+def prepare_play(state, registry, source, target_id, quote, *, position=None, magnetic_target_id=None, branch_id=None, body_targets=None, board_player_id=None, spell_target_group=None):
+    from .spell_target_groups import validate_prepared
+    validate_prepared(state, registry, source, spell_target_group)
     from .next_spell_bonuses import capture_play as capture_native_spell_bonus
     from .battlecries import capture as capture_battlecries
     from .combos import capture as capture_combos
@@ -218,7 +220,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         battlecries=capture_battlecries(source),combos=capture_combos(source),
         played_face=freeze_played_face(state,registry,source,len(state.play_history)+1),
         copy_origin=source.copy_origin,next_spell_bonus_effects=capture_native_spell_bonus(state,registry,source),
-        hand_cost_rank=capture_hand_rank(state,registry,source))
+        hand_cost_rank=capture_hand_rank(state,registry,source),spell_target_group=spell_target_group)
 
 
 def commit_play(state, record):

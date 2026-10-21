@@ -322,7 +322,7 @@ class DisguisedBasicsTests(unittest.TestCase):
                 self.assertIsNone(hidden['card_id']); self.assertNotIn('disguised', hidden)
                 if viewer == 2: g.apply(EndTurn(1))
                 port = g.for_player(viewer); offer = port.legal_actions()
-                self.assertIsNone(offer['error']); self.assertEqual(offer['version'], 'player-actions-v12')
+                self.assertIsNone(offer['error']); self.assertEqual(offer['version'], 'player-actions-v13')
                 command = next(a for a in offer['actions'] if a['type'] == 'play_card' and a.get('side') == 'enemy')
                 self.assertNotIn('board_player_id', json.dumps(offer)); self.assertNotIn('source_id', json.dumps(offer))
                 result = port.submit({'revision': offer['revision'], 'action': command})

@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v623'
+CORE_EFFECTS_VERSION = 'core-effects-v624'
 
 
 class Mechanics:
@@ -1607,10 +1607,12 @@ def play_from_hand(r, effect):
         from .rewind import capture_hand_spell_session
         body_receipt = capture_paid_body_targets(r.state, r.registry, action, quote,
             rewind_session=capture_hand_spell_session(r, entity.id), game=r.game)
+    from .spell_target_groups import hand_selection, note_submission as note_spell_group_submission
+    group = hand_selection(r.state, r.registry, entity, action.target_ids)
     record=prepare_play(r.state,r.registry,entity,action.target_id,quote,position=action.position,
                         magnetic_target_id=magnetic_host.id if magnetic_host is not None else None,
                         branch_id=action.branch_id,body_targets=body_receipt,
-                        board_player_id=action.board_player_id)
+                        board_player_id=action.board_player_id, spell_target_group=group)
     spell_cost_proof = None
     paid_hand_proof = None
     if record.kind == CardType.SPELL:
@@ -1623,6 +1625,7 @@ def play_from_hand(r, effect):
     paid_hand_submission_base = None if paid_hand_proof is None else deepcopy(r.state)
     from .play_history import commit_play
     commit_play(r.state, record)
+    note_spell_group_submission(r, record)
     paid_hand_tail = None
     if paid_hand_proof is not None:
         from .paid_hand_acceptance import make_tail
@@ -2662,6 +2665,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_native_active_targets(mechanics)
     from .native_hand_targets import register as register_native_hand_targets
     register_native_hand_targets(mechanics)
+    from .spell_target_groups import register as register_spell_target_groups
+    register_spell_target_groups(mechanics)
     from .sacrifice import register as register_sacrifice
     register_sacrifice(mechanics)
     from .random_minion_keywords import register as register_random_minion_keywords

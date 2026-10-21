@@ -198,8 +198,8 @@ class SpellMatchRepresentativeTests(unittest.TestCase):
         game = self.game()
         self.assertEqual((game.ruleset.id, game.mechanics.version, game.snapshot()['schema_version']),
             ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
-        self.assertEqual(game.observe(1)['version'], 'player-view-v86')
-        self.assertEqual(game.for_player(1).observe()['version'], 'player-actions-v12')
+        self.assertEqual(game.observe(1)['version'], 'player-view-v115')
+        self.assertEqual(game.for_player(1).observe()['version'], 'player-actions-v13')
         self.assertEqual(build_replay(game)['schema_version'], 1)
 
     def test_real_paid_source_and_same_class_bolt_repeat_with_frozen_manathirst(self):
@@ -448,7 +448,7 @@ class SpellMatchRepresentativeTests(unittest.TestCase):
         self.assertEqual(game.snapshot(), before)
         port = game.for_player(1)
         available = port.legal_actions()
-        self.assertEqual(available['version'], 'player-actions-v12')
+        self.assertEqual(available['version'], 'player-actions-v13')
         self.assertIsNone(available['error'])
         inspect(available)
         result = port.submit({'revision': available['revision'], 'action': available['actions'][0]})

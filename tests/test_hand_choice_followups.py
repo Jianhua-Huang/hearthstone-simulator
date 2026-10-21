@@ -421,7 +421,7 @@ class HandChoiceFollowupTests(unittest.TestCase):
     def test_new_schema_and_view_are_explicit_and_previous_schema_rejected(self):
         g = self.game(); snap = g.snapshot()
         self.assertEqual((snap['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
-        self.assertEqual(g.observe(1)['version'], 'player-view-v93')
-        self.assertEqual(g.for_player(1).observe()['version'], 'player-actions-v12')
+        self.assertEqual(g.observe(1)['version'], 'player-view-v115')
+        self.assertEqual(g.for_player(1).observe()['version'], 'player-actions-v13')
         self.assertEqual(build_replay(g)['schema_version'], 1)
         snap['schema_version'] = 162; self.reject(snap)
