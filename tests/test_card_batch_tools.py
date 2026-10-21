@@ -563,6 +563,25 @@ class CardBatchToolTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'existing Python'):
             batch.check_preservation(before, altered, [], ['B'])
 
+    def test_reviewed_tooling_scope_keeps_worker_default_and_engine_guard_strict(self):
+        before = dict(definitions={}, pool_cards={}, families={}, pools=[],
+            default_fingerprint='stable', default_snapshot={}, source_guard={
+                'tools/helper.py':'old', 'tests/proof.py':'old', 'hs_sim/engine/game.py':'same'})
+        after = deepcopy(before)
+        after['source_guard'].update({'tools/helper.py':'new', 'tests/proof.py':'new'})
+        with self.assertRaisesRegex(ValueError, 'existing Python'):
+            batch.check_preservation(before, after, [], [])
+        allowed = ('tools/helper.py', 'tests/proof.py')
+        result = batch.check_preservation(before, after, [], [], reviewed_tooling_python=allowed)
+        self.assertEqual(set(result['changed_previous_python']), set(allowed))
+        altered = deepcopy(after); altered['source_guard']['hs_sim/engine/game.py']='changed'
+        with self.assertRaisesRegex(ValueError, 'existing Python'):
+            batch.check_preservation(before, altered, [], [], reviewed_tooling_python=allowed)
+        for invalid in (['tools/helper.py'], ('tools/helper.py','tools/helper.py'),
+                ('tools/absent.py',), ('hs_sim/engine/game.py',)):
+            with self.subTest(invalid=invalid),self.assertRaisesRegex(ValueError, 'tooling scope'):
+                batch.check_preservation(before, after, [], [], reviewed_tooling_python=invalid)
+
     def progress_fixture(self):
         from hs_sim.targets import canonical_digest
         data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-progress-labels-v1.json')

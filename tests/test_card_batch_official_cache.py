@@ -64,7 +64,24 @@ class OfficialCacheTests(unittest.TestCase):
             invalid=json.dumps({'cards':[]}).encode()
             with patch('tools.card_batch.urlopen',return_value=BytesIO(invalid)),self.assertRaises(ValueError):
                 official(row,'en_US',root)
-            self.assertEqual(list(Path(root).iterdir()),[])
+            file=Path(root)/'131316-en_US.json'
+            self.assertEqual(file.read_bytes(),invalid)
+            receipt=read(file.with_suffix('.receipt.json'))
+            self.assertEqual((receipt['sha256'],receipt['bytes']),(sha(file),len(invalid)))
+            with patch('tools.card_batch.urlopen')as network,self.assertRaises(ValueError):
+                official(row,'en_US',root,offline=True)
+            network.assert_not_called()
+    def test_ambiguous_full_response_is_preserved_but_never_accepted_or_retried(self):
+        row,body=self.material();data=json.loads(body)
+        data['cards'].append(data['cards'][0]);body=json.dumps(data).encode()
+        with TemporaryDirectory()as root:
+            with patch('tools.card_batch.urlopen',return_value=BytesIO(body)),self.assertRaises(ValueError):
+                official(row,'en_US',root)
+            file=Path(root)/'131316-en_US.json';self.assertEqual(file.read_bytes(),body)
+            self.assertEqual(read(file.with_suffix('.receipt.json'))['sha256'],sha(file))
+            with patch('tools.card_batch.urlopen')as network,self.assertRaises(ValueError):
+                official(row,'en_US',root)
+            network.assert_not_called();self.assertEqual(file.read_bytes(),body)
 
 
 if __name__=='__main__':unittest.main()

@@ -354,8 +354,9 @@ def official(row, locale, cache, *, offline=False, display_normalizations=None, 
         require(isinstance(data.get('cards'), list), 'Official API did not return full cards')
         # Preserve full observations even when semantic comparison rejects them.
         # A receipt authenticates cached bytes, not correctness or applicability.
-        faces = [f for f in data['cards'] if f.get('id') == row['dbf_id']]
-        require(len(faces) == 1, 'Missing or ambiguous primary face')
+        # Retain a complete JSON response even if it has zero/multiple matching
+        # faces. The common semantic check below still rejects that observation;
+        # a byte receipt is never evidence that the required card was verified.
         with path.open('xb') as stream:
             stream.write(body)
         save_new(receipt, dict(url=url, sha256=sha(path), bytes=len(body),
@@ -525,7 +526,7 @@ def check_commit(root, commit, task):
     return dict(commit=commit, added_files=[row[1] for row in actual])
 
 
-def check_preservation(before, after, allowed_files, added_ids):
+def check_preservation(before, after, allowed_files, added_ids, *, reviewed_tooling_python=()):
     # Serialize enums/tuples exactly as the on-disk baseline does.
     after = json.loads(json.dumps(after, ensure_ascii=False))
     for cid, value in before['definitions'].items():
@@ -536,7 +537,14 @@ def check_preservation(before, after, allowed_files, added_ids):
     require(set(after['pool_cards']) - set(before['pool_cards']) <= set(added_ids), 'Unassigned pool metadata additions')
     for key in ('families', 'pools', 'default_fingerprint', 'default_snapshot'):
         require(before[key] == after[key], 'Existing registry/default identity changed: ' + key)
-    permitted = {'hs_sim/cards/constructed.py'}
+    # Worker/CLI defaults remain the original three-file rule. The mainline may
+    # name independently reviewed tooling changes without masking their hashes
+    # or weakening the engine/default/card-content preservation checks.
+    require(type(reviewed_tooling_python) is tuple and
+            len(reviewed_tooling_python) == len(set(reviewed_tooling_python)) and
+            all(type(p) is str and p.startswith(('tools/', 'tests/')) and p.endswith('.py') and
+                p in before['source_guard'] for p in reviewed_tooling_python), 'Invalid reviewed tooling scope')
+    permitted = {'hs_sim/cards/constructed.py', *reviewed_tooling_python}
     changed = [p for p, pin in before['source_guard'].items() if after['source_guard'].get(p) != pin]
     require(set(changed) <= permitted, 'Unexpected previously existing Python change: ' + ', '.join(changed))
     new = set(after['source_guard']) - set(before['source_guard'])
