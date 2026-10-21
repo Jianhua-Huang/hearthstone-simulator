@@ -40,7 +40,9 @@ def validate_profile(registry, profile):
     from .model import TargetMode
     if (card.kind != CardType.SPELL or card.targeting is None or
             card.targeting.mode != TargetMode.REQUIRED or card.target_condition is not None or
-            card.choose_one is not None or registry.target_visibility(card.target_rule) != 'builtin'):
+            card.choose_one is not None or registry.target_visibility(card.target_rule) != 'builtin' or
+            not set(card.targeting.zones).issubset({Zone.HERO, Zone.BOARD}) or
+            not set(card.targeting.kinds).issubset({CardType.HERO, CardType.MINION})):
         raise ValueError('Paid target groups currently require a fixed ordinary spell target domain')
 
 
@@ -236,18 +238,23 @@ def validate_record_material(record, *, cast=False):
         raise ValueError('Spell group borrowed another original paid activation')
 
 
-def selection_from_dict(value):
-    if value is None:
-        return None
+def plan_from_dict(value):
     from .serialization import _row, _list
     from .allocation_facts import allocation_from_dict
-    row = _row(value, SpellTargetGroupSelection)
-    plan = _row(row['plan'], SpellTargetGroupPlan)
+    plan = _row(value, SpellTargetGroupPlan)
     plan['source'] = allocation_from_dict(plan['source'])
     plan['candidates'] = tuple(allocation_from_dict(x) for x in _list(plan['candidates'], 'spell group candidates'))
     plan['board_presences'] = tuple(BoardPresenceReference(**_row(x, BoardPresenceReference))
         for x in _list(plan['board_presences'], 'original spell target board residences'))
-    row['plan'] = SpellTargetGroupPlan(**plan)
+    return SpellTargetGroupPlan(**plan)
+
+
+def selection_from_dict(value):
+    if value is None:
+        return None
+    from .serialization import _row, _list
+    row = _row(value, SpellTargetGroupSelection)
+    row['plan'] = plan_from_dict(row['plan'])
     row['target_ids'] = tuple(_list(row['target_ids'], 'original spell group target IDs'))
     return SpellTargetGroupSelection(**row)
 
@@ -298,18 +305,22 @@ def validate_boundary(game):
     for cast in state.cast_history:
         group = cast.spell_target_group
         if registry.spell_target_group_profiles.get(cast.card_id) is not None:
-            if cast.play_id is None or group != state.play_history[cast.play_id-1].spell_target_group:
+            if cast.play_id is not None and group != state.play_history[cast.play_id-1].spell_target_group:
                 raise ValueError('Spell CAST lost its complete accepted paid target group')
+            if cast.play_id is None and group is not None:
+                raise ValueError('An automatic CAST cannot invent paid target input')
         elif group is not None:
             raise ValueError('An undeclared CAST invented a spell target group')
     from .spell_group_targets import validate_boundary as validate_actual_groups
     validate_actual_groups(game)
+    from .automatic_spell_groups import validate_boundary as validate_automatic_groups
+    validate_automatic_groups(game)
 
 
 def target_ids(context):
     """Live deliveries of the original paid group; a re-entry is a new residence."""
     cast = context.cast
-    if (cast is None or cast.spell_target_group is None or not cast.payload_started or
+    if (cast is None or not cast.payload_started or
             cast.failure is not None or context.state.cast_history[cast.id-1] != cast):
         raise ValueError('Group target delivery requires its actual accepted physical CAST')
     if cast.spell_target_receipt is None or not cast.spell_target_receipt.closed:
@@ -324,3 +335,5 @@ def register(mechanics):
     mechanics.register_payload_type(SpellTargetGroupSelection)
     from .spell_group_targets import register as register_actual_spell_groups
     register_actual_spell_groups(mechanics)
+    from .automatic_spell_groups import register_payloads
+    register_payloads(mechanics)

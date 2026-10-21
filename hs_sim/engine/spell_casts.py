@@ -14,6 +14,7 @@ from .model import CardType, Keyword, SpellCastRecord, SpellManaBudgetLink, Targ
 from .zones import CardReference, reference_entity, reference_value, source_exists
 from .automatic_targets import (AutomaticTargetPreference, AutomaticTargetProof,
     PreferredMinionTarget, validate_preferred_source)
+from .automatic_spell_groups import AutomaticSpellGroupProof
 
 
 CONDITIONS = ('combo', 'outcast', 'finale', 'quickdraw', 'manathirst')
@@ -182,16 +183,19 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=No
 class FinishSpellCast(Effect):
     cast_id: int
     target_proof: AutomaticTargetProof | None = None
+    group_target_proof: AutomaticSpellGroupProof | None = None
 
     def __post_init__(self):
         _integer(self.cast_id, 'cast completion ID', 1)
         if self.target_proof is not None and type(self.target_proof) is not AutomaticTargetProof:
             raise ValueError('Cast Finish requires its typed original target proof')
+        if self.group_target_proof is not None and type(self.group_target_proof) is not AutomaticSpellGroupProof:
+            raise ValueError('Cast Finish requires its typed complete original group proof')
 
 
 def finish(r, effect):
     record = cast_record(r.state, effect.cast_id)
-    validate_target_finish(effect, record, r.registry)
+    validate_target_finish(effect, record, r.registry, state=r.state)
     if record.completed or record.interrupted or not record.payload_started:
         raise ResolutionError('Spell cast is already settled')
     if record.next_spell_body_cursor != 2*len(record.next_spell_body_effects):
@@ -206,9 +210,13 @@ def finish(r, effect):
            player_id=record.player_id, cast_id=record.id)
 
 
-def policies(targeting, target_id, choices, target_preference=None):
+def policies(targeting, target_id, choices, target_preference=None, *, target_ids=()):
     from .targeting import effect_policies
     effect_policies(targeting,target_id,choices)
+    if type(target_ids) is not tuple or any(type(i) is not int or i < 1 for i in target_ids):
+        raise ValueError('Automatic spell target vectors require immutable positive identities')
+    if target_ids and (targeting != 'explicit' or len(set(target_ids)) != len(target_ids) or target_id != target_ids[0]):
+        raise ValueError('Automatic explicit target vector requires distinct arrows and its exact primary alias')
     if target_preference is not None:
         if type(target_preference) not in (AutomaticTargetPreference, PreferredMinionTarget) or targeting != 'random':
             raise ValueError('Automatic target preference requires a typed random activation policy')
@@ -226,6 +234,7 @@ class CastSpell(Effect):
     branch_id: str | None = None
     target_preference: AutomaticTargetPreference | PreferredMinionTarget | None = None
     mana_budget: SpellManaBudgetLink | None = None
+    target_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         if self.mana_budget is not None:
@@ -234,7 +243,7 @@ class CastSpell(Effect):
             self.mana_budget.__post_init__()
         if self.branch_id is not None: _name(self.branch_id, 'branch')
         _player(self.player_id); _name(self.card_id, 'cast spell'); _source(self.source_id)
-        policies(self.targeting, self.target_id, self.choices, self.target_preference)
+        policies(self.targeting, self.target_id, self.choices, self.target_preference, target_ids=self.target_ids)
         validate_preferred_source(self.target_preference, self.source_id)
 
 
@@ -249,11 +258,12 @@ class CastStoredSpell(Effect):
 
     branch_id: str | None = None
     target_preference: AutomaticTargetPreference | PreferredMinionTarget | None = None
+    target_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         if self.branch_id is not None: _name(self.branch_id, 'branch')
         reference_value(self.card); _player(self.player_id); _source(self.source_id)
-        policies(self.targeting, self.target_id, self.choices, self.target_preference)
+        policies(self.targeting, self.target_id, self.choices, self.target_preference, target_ids=self.target_ids)
         validate_preferred_source(self.target_preference, self.source_id)
 
 
@@ -285,9 +295,12 @@ def effective_definition(definition, conditions):
     return definition
 
 
-def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None, adjoining_parent=None):
-    if entity.card_id in r.registry.spell_target_group_profiles:
-        raise ResolutionError('Automatic multi-target spell acceptance is not implemented')
+def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None, adjoining_parent=None, retain_targets=False):
+    grouped = entity.card_id in r.registry.spell_target_group_profiles
+    if not grouped and effect.target_ids:
+        raise ResolutionError('This automatic spell has no declared target group')
+    if type(retain_targets) is not bool or retain_targets and (not grouped or origin != 'history' or recast_id is None):
+        raise ResolutionError('Retaining a complete group requires its original historical CAST')
     from .spell_source_costs import capture_automatic as capture_source_cost, start_receipt
     source_cost = capture_source_cost(r, entity, effect.player_id)
     from .adjoining_spells import capture as capture_adjoining,note_automatic as note_adjoining_automatic
@@ -323,7 +336,14 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
     from .targeting import select_effect_target
     preference = getattr(effect, 'target_preference', None)
     target_proof = None
-    if preference is None:
+    group_receipt = group_proof = None
+    if grouped:
+        from .automatic_spell_groups import accept
+        group_receipt, group_proof = accept(r, entity, effective, effect,
+            retained_cast_id=recast_id if retain_targets else None)
+        target_id, failure = group_receipt.primary_target_id, group_receipt.failure
+        if target_proofs is not None: target_proofs.append(group_proof)
+    elif preference is None:
         target_id, failure = select_effect_target(r,entity,effective,effect.targeting,effect.target_id)
     else:
         policies(effect.targeting, effect.target_id, effect.choices, preference)
@@ -339,7 +359,8 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         target_selection=target_proof.selection if target_proof is not None else None,
         target_origin=capture_target_origin(r.state,target_id),
         held_higher_cost=capture_higher_cost(r.state, entity), quest_parent_cast_id=quest_parent_cast_id,
-        mana_budget=getattr(effect,'mana_budget',None), hand_cost_rank=hand_rank, source_cost=source_cost)
+        mana_budget=getattr(effect,'mana_budget',None), hand_cost_rank=hand_rank, source_cost=source_cost,
+        spell_target_receipt=group_receipt)
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     note_adjoining_automatic(r,record,adjoining_material,adjoining_parent)
@@ -357,13 +378,19 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
            cast_id=record.id,target_origin=target_origin_receipt(record),
            **({'quest_parent_cast_id':quest_parent_cast_id} if quest_parent_cast_id is not None else {}),
            **budget_data, **start_receipt(record))
+    if group_receipt is not None:
+        from .automatic_spell_groups import note
+        note(r, record)
     if failure:
+        if group_proof is not None:
+            from .automatic_spell_groups import validate_finish
+            validate_finish(group_proof, record, r.registry, r.state)
         r.emit('spell_cast_failed', source_id=entity.id, player_id=record.player_id,
                cast_id=record.id, reason=failure)
         return choose_tail
     behaviors = tuple(a.behavior_id for a in active_abilities(entity, 'on_play'))
     native_tail=accept_automatic(r,record,behaviors,native_repeat)
-    return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof), *native_tail,*choose_tail)
+    return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof, group_proof), *native_tail,*choose_tail)
 
 
 def cast_generated(r, effect, *, quest_parent_cast_id=None):
@@ -613,7 +640,9 @@ def validate_boundary(game):
             for behavior in work.behavior_ids: game.registry.behavior(behavior)
 
 
-def validate_target_finish(effect, record, registry):
+def validate_target_finish(effect, record, registry, *, state=None):
+    from .automatic_spell_groups import validate_finish
+    validate_finish(effect.group_target_proof, record, registry, state)
     if record.target_selection is None:
         if effect.target_proof is not None:
             raise ValueError('Cast without preference cannot borrow another target acceptance')
@@ -630,7 +659,7 @@ def validate_target_queue(state, registry, queue):
             record = cast_record(state, work.cast_id)
             if record.completed or record.interrupted:
                 raise ValueError('Stale automatic target Finish marker')
-            validate_target_finish(work, record, registry)
+            validate_target_finish(work, record, registry, state=state)
     for cast in state.cast_history:
         if cast.target_selection is not None and not cast.completed and not cast.interrupted:
             if sum(type(w) is FinishSpellCast and w.cast_id == cast.id for w in queue) != 1:

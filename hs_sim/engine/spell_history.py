@@ -154,6 +154,7 @@ class RecastSpell(Effect):
     choices: str = 'random'
     target_preference: object | None = None
     branch_policy: str = 'current'
+    target_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         _player(self.player_id); _integer(self.cast_id,'historical cast',1); _source(self.source_id)
@@ -161,9 +162,9 @@ class RecastSpell(Effect):
         if type(self.branch_policy) is not str or self.branch_policy not in ('current', 'inherit'):
             raise ValueError('Unknown historical branch policy')
         if self.targeting == 'original':
-            if self.target_id is not None: raise ValueError('Original targeting cannot prescribe another target')
+            if self.target_id is not None or self.target_ids: raise ValueError('Original targeting cannot prescribe another target')
             policies('explicit',None,self.choices,self.target_preference)
-        else: policies(self.targeting,self.target_id,self.choices,self.target_preference)
+        else: policies(self.targeting,self.target_id,self.choices,self.target_preference,target_ids=self.target_ids)
 
 
 def recast(r, effect):
@@ -186,11 +187,12 @@ def recast(r, effect):
         from .choose_branch_state import validate_selection
         from .model import ChooseBranchSelection
         entity.choose_branch = validate_selection(r.registry, ChooseBranchSelection(card.id, original.branch_id, ('cast_history',)))
+    retained = effect.targeting == 'original' and card.id in r.registry.spell_target_group_profiles
     spec = CastSpell(effect.player_id,card.id,effect.source_id,
-        original.target_id if effect.targeting == 'original' else effect.target_id,
+        None if retained else original.target_id if effect.targeting == 'original' else effect.target_id,
         'explicit' if effect.targeting == 'original' else effect.targeting,effect.choices,
-        target_preference=effect.target_preference)
-    return automatic(r,spec,entity,None,origin='history',recast_id=original.id)
+        target_preference=effect.target_preference,target_ids=effect.target_ids)
+    return automatic(r,spec,entity,None,origin='history',recast_id=original.id,retain_targets=retained)
 
 
 @dataclass(frozen=True)
@@ -207,10 +209,11 @@ class RecastFromHistory(Effect):
     choices: str = 'random'
     branch_policy: str = 'current'
     target_preference: object | None = None
+    target_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         RecastSpell(self.player_id,1,self.source_id,self.target_id,self.targeting,self.choices,
-            target_preference=self.target_preference,branch_policy=self.branch_policy)
+            target_preference=self.target_preference,branch_policy=self.branch_policy,target_ids=self.target_ids)
         if type(self.query) is not SpellHistoryQuery: raise ValueError('Expected SpellHistoryQuery')
         self.query.__post_init__(); distinct_policy(self.distinct)
         if self.count is not None: _integer(self.count,'history cast count',0)
@@ -260,7 +263,7 @@ def continue_history(r, effect):
     remove = {c.id for c in group} if not spec.replacement else set()
     remaining_ids = tuple(i for i in effect.cast_ids if i not in remove)
     return (RecastSpell(spec.player_id,selected.id,spec.source_id,spec.target_id,spec.targeting,spec.choices,
-                target_preference=spec.target_preference,branch_policy=spec.branch_policy),
+                target_preference=spec.target_preference,branch_policy=spec.branch_policy,target_ids=spec.target_ids),
             ContinueHistoryCasts(spec,remaining_ids,effect.remaining-1,effect.before_id))
 
 
@@ -278,12 +281,13 @@ class CastFromPool(Effect):
     choices: str = 'random'
     while_source_in_play: bool = False
     policy: GenerationPolicy = GenerationPolicy()
+    target_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         _player(self.player_id); _source(self.source_id); _name(self.pool_id,'spell pool')
         _integer(self.count,'pool cast count',0); spell_query(self.query)
         validate_policy(self.policy)
-        policies(self.targeting,self.target_id,self.choices)
+        policies(self.targeting,self.target_id,self.choices,target_ids=self.target_ids)
         if type(self.replacement) is not bool or self.refresh not in ('per_cast','frozen'):
             raise ValueError('Invalid spell pool batch policy')
         if type(self.while_source_in_play) is not bool or self.while_source_in_play and self.source_id is None:
@@ -355,7 +359,7 @@ def continue_pool(r, effect):
     if not selected: return ()
     card_id = selected[0]
     used = effect.used_identities if spec.replacement else (*effect.used_identities,r.registry.pool_card(card_id).generation_identity)
-    return (CastSpell(spec.player_id,card_id,spec.source_id,spec.target_id,spec.targeting,spec.choices),
+    return (CastSpell(spec.player_id,card_id,spec.source_id,spec.target_id,spec.targeting,spec.choices,target_ids=spec.target_ids),
             replace(effect,used_identities=used,remaining=effect.remaining-1))
 
 

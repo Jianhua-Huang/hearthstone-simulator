@@ -277,12 +277,17 @@ class PaidSpellTargetGroupTests(unittest.TestCase):
                 self.assertTrue(g.state.cast_history[0].spell_target_receipt.closed)
                 self.restore(g)
 
-    def test_automatic_and_stored_consumers_fail_explicitly_instead_of_losing_second_target(self):
+    def test_automatic_and_stored_consumers_keep_the_complete_actual_target_group(self):
         for mode in ('auto','stored'):
-            g=self.game();before=g.snapshot()
-            with self.subTest(mode=mode),self.assertRaisesRegex(ResolutionError,'not implemented'):
+            g=self.game()
+            with self.subTest(mode=mode):
                 g.apply(PlayCard(1,self.source(g,P+mode)))
-            self.assertEqual(g.snapshot(),before)
+                cast=g.state.cast_history[-1]
+                self.assertIsNone(cast.spell_target_group)
+                self.assertEqual(len(cast.spell_target_receipt.targets),2)
+                self.assertEqual({x.entity_id for x in cast.spell_target_receipt.targets},
+                    {g.state.players[2].hero_id,*g.state.players[2].board})
+                self.restore(g)
 
     def test_new_schema_requires_group_slots_and_rejects_old_schema(self):
         g=self.game();self.play(g);saved=g.snapshot()

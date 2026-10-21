@@ -445,6 +445,9 @@ def receipt_from_dict(value):
 def validate_material(record, *, cast=False):
     value = record.spell_target_receipt
     if value is None: return
+    from .automatic_spell_groups import AutomaticSpellTargets, validate_material as validate_automatic
+    if cast and type(value) is AutomaticSpellTargets:
+        return validate_automatic(record)
     if type(value) is not SpellGroupTargets: raise ValueError('Actual spell group requires its typed complete receipt')
     value.__post_init__()
     if (value.original != record.spell_target_group or value.play_id != (record.play_id if cast else record.id) or
@@ -572,6 +575,11 @@ def validate_boundary(game):
     for cast in game._state.cast_history:
         value = cast.spell_target_receipt
         play = None if cast.play_id is None else game._state.play_history[cast.play_id-1]
+        if play is None:
+            from .automatic_spell_groups import AutomaticSpellTargets
+            if value is not None and type(value) is not AutomaticSpellTargets:
+                raise ValueError('Automatic CAST borrowed a paid target group')
+            continue
         if value != (None if play is None else play.spell_target_receipt):
             raise ValueError('Physical CAST lost its complete actual target group')
         if value is not None: validate_material(cast, cast=True)

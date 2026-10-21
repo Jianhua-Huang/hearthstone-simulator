@@ -236,8 +236,10 @@ def validate_boundary(game):
             expected.append(AfterDrawnSpell(record.id))
             from .spell_casts import cast_record, FinishSpellCast
             cast = cast_record(game._state,record.cast_id)
-            if not cast.completed and queue.index(FinishSpellCast(cast.id)) > queue.index(AfterDrawnSpell(record.id)):
-                raise ValueError('Draw replacement precedes cast completion')
+            if not cast.completed:
+                closer = next(w for w in queue if type(w) is FinishSpellCast and w.cast_id == cast.id)
+                if queue.index(closer) > queue.index(AfterDrawnSpell(record.id)):
+                    raise ValueError('Draw replacement precedes cast completion')
         elif record.phase == 'pending_replacement':
             expected.extend((ReplacementDraw(record.id),AfterReplacement(record.id)))
         elif record.phase == 'replacing': expected.append(AfterReplacement(record.id))

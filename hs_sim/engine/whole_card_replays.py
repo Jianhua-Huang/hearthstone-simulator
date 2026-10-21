@@ -12,6 +12,7 @@ from .effects import Effect
 from .errors import ResolutionError
 from .model import CardType, GameState, SpellCastRecord
 from .automatic_targets import AutomaticTargetPreference, AutomaticTargetProof, validate_cast_proof
+from .automatic_spell_groups import AutomaticSpellGroupProof
 from .whole_card_history import (HistorySelectionPolicy, WholeCardHistoryQuery,
     capture_history_frontier, integer, select_history_occurrences)
 from .whole_card_replay_ledger import (ReplayAncestorPolicy, ReplayChildStatus,
@@ -122,13 +123,13 @@ class ReplaySpellProof:
     accepted_state: GameState
     cast: SpellCastRecord
     behavior_ids: tuple[str, ...]
-    target_proof: AutomaticTargetProof
+    target_proof: AutomaticTargetProof | AutomaticSpellGroupProof
 
     def __post_init__(self):
         integer(self.child_id, 'actual replay child')
         if (type(self.acceptance) is not ReplayAcceptanceProof or type(self.accepted_state) is not GameState
                 or type(self.cast) is not SpellCastRecord or type(self.behavior_ids) is not tuple
-                or type(self.target_proof) is not AutomaticTargetProof
+                or type(self.target_proof) not in (AutomaticTargetProof, AutomaticSpellGroupProof)
                 or any(type(b) is not str or not b for b in self.behavior_ids)):
             raise ValueError('Whole-card spell proof lost its actual original invocation')
         self.acceptance.__post_init__(); self.cast.__post_init__()
@@ -201,8 +202,14 @@ def current_root(state, registry, proof):
 def validate_spell_proof(proof, registry):
     from .lifecycle import active_abilities
     proof.__post_init__(); validate_acceptance(proof.acceptance, registry)
-    validate_cast_proof(proof.target_proof, proof.cast, registry)
-    if proof.target_proof.selection.partition.preference != proof.acceptance.request.target_preference:
+    if type(proof.target_proof) is AutomaticSpellGroupProof:
+        from .automatic_spell_groups import validate_finish
+        validate_finish(proof.target_proof, proof.cast, registry, proof.accepted_state)
+        preference = proof.target_proof.receipt.selections[0].partition.preference
+    else:
+        validate_cast_proof(proof.target_proof, proof.cast, registry)
+        preference = proof.target_proof.selection.partition.preference
+    if preference != proof.acceptance.request.target_preference:
         raise ValueError('Replay spell changed its original root target preference')
     state, cast = proof.accepted_state, proof.cast
     root = current_root(state, registry, proof.acceptance)
@@ -407,7 +414,10 @@ def validate_queue(state, registry, queue):
             finishes = tuple(w for w in queue if type(w) is FinishSpellCast and w.cast_id == cast.id)
             if payloads != (() if cast.payload_started or cast.completed else (ResolveAutomaticSpell(cast.id, fin.proof.behavior_ids),)):
                 raise ValueError('Replay spell continuation changed its complete accepted body')
-            if finishes != (() if cast.completed else (FinishSpellCast(cast.id, fin.proof.target_proof),)):
+            target_proof = fin.proof.target_proof
+            marker = (FinishSpellCast(cast.id, group_target_proof=target_proof)
+                if type(target_proof) is AutomaticSpellGroupProof else FinishSpellCast(cast.id, target_proof))
+            if finishes != (() if cast.completed else (marker,)):
                 raise ValueError('Replay spell continuation lost its actual cast completion')
             if any(queue.index(w) > queue.index(fin) for w in (*payloads, *finishes)):
                 raise ValueError('Replay child completion precedes its owed full spell body')
