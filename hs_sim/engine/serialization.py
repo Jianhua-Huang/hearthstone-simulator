@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 520
+SNAPSHOT_SCHEMA_VERSION = 521
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1278,6 +1278,8 @@ def state_from_dict(value: dict) -> GameState:
     discard_rows_from_dict(value)
     from .successful_summons import rows_from_dict as successful_summon_rows_from_dict
     successful_summon_rows_from_dict(value)
+    from .rituals import rows_from_dict as ritual_rows_from_dict
+    ritual_rows_from_dict(value)
     _optional_id(value['winner'], 'winner')
     if value['status'] not in ('playing', 'finished', 'draw'):
         raise ValueError('Invalid game status')

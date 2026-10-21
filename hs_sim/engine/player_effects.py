@@ -485,6 +485,9 @@ def tick(r, effect):
         r.refresh_auras()
         data = public_effect(r.registry, instance)
         data['remaining_turns'] = 0
+        if spec.kind == 'ritual':
+            from .rituals import prepare as prepare_ritual_completion
+            data.update(prepare_ritual_completion(r, player.id, instance))
         event = r.emit('player_effect_expired', source_id=instance.source_id, player_id=player.id, **data)
         if spec.on_expire is not None:
             return [r.call(spec.on_expire, instance.source_id, player.id, event=event, player_effect=instance)]

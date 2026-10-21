@@ -593,6 +593,8 @@ class Game:
         validate_armor_consumption_events(self._state, self.registry, self._events)
         from .recruit_stat_groups import validate_boundary as validate_recruit_stat_group_boundary
         validate_recruit_stat_group_boundary(self)
+        from .rituals import validate_boundary as validate_ritual_boundary
+        validate_ritual_boundary(self)
         from .armor_summon_rewards import validate_boundary as validate_armor_summon_reward_boundary
         validate_armor_summon_reward_boundary(self)
         from .health_history import validate_boundary as validate_health_boundary

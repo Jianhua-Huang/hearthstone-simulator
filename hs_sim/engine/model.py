@@ -8775,7 +8775,7 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
+        if self.kind not in ('ritual', 'persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
             raise ValueError('Unsupported player effect kind')
         if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','hand_investigation','next_spell_bonus'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
@@ -8784,6 +8784,9 @@ class PlayerEffectSpec:
             _int(self.duration, 'player effect duration', 1)
             if self.tick_event not in ('turn_started', 'turn_ended'):
                 raise ValueError('Timed player effects require an owner turn boundary')
+        if self.kind == 'ritual' and (self.duration != 2 or self.tick_event != 'turn_started' or
+                self.tick_player != 'controller' or self.on_expire is None or self.next_turn_end):
+            raise ValueError('Ritual requires its explicit two-owner-start completion profile')
         if self.on_expire is not None:
             _name(self.on_expire, 'expiry behavior')
         _int(self.spell_damage, 'player spell damage', 0)
@@ -10995,6 +10998,8 @@ class GameState:
     card_summon_history: list = field(default_factory=list)
     next_successful_summon_id: int = 1
     successful_summon_history: list = field(default_factory=list)
+    next_ritual_completion_id: int = 1
+    ritual_completions: list = field(default_factory=list)
     next_pool_summon_id: int = 1
     pool_summon_history: list = field(default_factory=list)
     next_ordered_group_id: int = 1
@@ -12064,6 +12069,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_live_hand_spells(state,registry)
     from .recruit_summons import validate_history as validate_recruit_summon_history
     validate_recruit_summon_history(state,registry)
+    from .rituals import validate_history as validate_ritual_history
+    validate_ritual_history(state,registry)
     from .resurrection_summons import validate_history as validate_resurrection_summon_history
     validate_resurrection_summon_history(state,registry)
     from .colossal import validate_history as validate_colossal_history

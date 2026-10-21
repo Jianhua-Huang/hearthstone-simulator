@@ -1,0 +1,493 @@
+{
+  "schema": 1,
+  "batch": "K368-rituals",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_005",
+        "dbf_id": 132346,
+        "name": "充盈仪式",
+        "name_en": "Ritual of Excess",
+        "text": "@回合后，抽两张牌并使其法力值消耗减少（2）点。",
+        "text_en": "In @ turns, draw 2 cards. Reduce their Costs by (2).",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4623": 1,
+          "OBJECTIVE_COUNTDOWN": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Adriel"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4623"
+          }
+        ]
+      },
+      "record_sha256": "2810623542d1f2ea90ff65f2b76058535dd103f7c68cb791d587e917d7635f5f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_005",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "BE_085",
+        "dbf_id": 129793,
+        "name": "召唤仪式",
+        "name_en": "Ritual of Summoning",
+        "text": "@回合后，召唤两个3/5并具有<b>嘲讽</b>的克拉西斯。",
+        "text_en": "In @ turns, summon\ntwo 3/5 C'thraxxi\nwith <b>Taunt</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "DISPLAY_CARD_ON_MOUSEOVER": 129795,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4623": 1,
+          "OBJECTIVE_COUNTDOWN": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4623"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "845b06666aa13ee81842feb6e0aec908d667e5bf093358278489875c385ad1af",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_085",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_085t",
+        "dbf_id": 129795,
+        "name": "克拉西斯蛮兵",
+        "name_en": "C'thrax Brute",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "5fe1cb8c5b9ea45ecb793c7c8e5c25ed3ddc9c17ba55875a87ae6003383548a4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_085t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 132346,
+        "collectible": 1,
+        "slug": "132346-ritual-of-excess",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Brian Adriel",
+        "manaCost": 3,
+        "name": "充盈仪式",
+        "text": "回合后，抽两张牌并使其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fff72b531ea85ce91ed683822f740de62fb2b78addd8680b8eb74fbf9675cb30.png",
+        "imageGold": "",
+        "flavorText": "“大家都满足的仪式”太直白了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc97b369ff45752631bc8984c77414736de3ffd884c8d3b762500387f06d04ba.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "BE_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 132346,
+        "collectible": 1,
+        "slug": "132346-ritual-of-excess",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Brian Adriel",
+        "manaCost": 3,
+        "name": "Ritual of Excess",
+        "text": "In turns, draw 2 cards. Reduce their Costs by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e55d2ec6935ba7dd9235a23952b0a832a68a5525add725ff145efe62255bca04.png",
+        "imageGold": "",
+        "flavorText": "\"Ritual of everybody has just enough\" wasn't cool.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc97b369ff45752631bc8984c77414736de3ffd884c8d3b762500387f06d04ba.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_085",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 129793,
+        "collectible": 1,
+        "slug": "129793-ritual-of-summoning",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "manaCost": 2,
+        "name": "召唤仪式",
+        "text": "回合后，召唤两个3/5并具有<b>嘲讽</b>的克拉西斯。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76b6003e01efc3ef6271c5e3803aa1a77236e4d654307e533c3808bae83c48c8.png",
+        "imageGold": "",
+        "flavorText": "给你们两个2回合收拾干净，然后再进来吃饭。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/661b0a5cae902df0ea431a2188c8d243cf5a640faa7ee15280321c4fa657b063.png",
+        "childIds": [
+          129795
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "BE_085",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 129793,
+        "collectible": 1,
+        "slug": "129793-ritual-of-summoning",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "manaCost": 2,
+        "name": "Ritual of Summoning",
+        "text": "In turns, summon two 3/5 C'thraxxi with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a3cd6336af263e4cb7ecdbed002a16b2cca735ba6916c8421e8ef7492be688d.png",
+        "imageGold": "",
+        "flavorText": "You both have 2 turns to dry off and come inside for dinner.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/661b0a5cae902df0ea431a2188c8d243cf5a640faa7ee15280321c4fa657b063.png",
+        "childIds": [
+          129795
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_085t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129795-zh_CN.json",
+      "response_sha256": "633d7b5e97b12dd69a0cb15bec3ef13111fd356450a888639a7a2010de7630e9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129795&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 129795,
+        "collectible": 0,
+        "slug": "129795-cthrax-brute",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "克拉西斯蛮兵",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a1e2d256618dc1f4736326ec1b11fb55594ed010c85e061be244338777fba5e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129793,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129795&locale=zh_CN&collectible=0",
+        "sha256": "633d7b5e97b12dd69a0cb15bec3ef13111fd356450a888639a7a2010de7630e9",
+        "bytes": 577,
+        "observed_at": "2026-10-21T12:40:32.180100+00:00"
+      }
+    },
+    {
+      "card_id": "BE_085t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129795-en_US.json",
+      "response_sha256": "2acb5f6bf13889540be3390e820f921a16974e68d0adeef07d29b6c1fec1f4f9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129795&locale=en_US&collectible=0",
+      "face": {
+        "id": 129795,
+        "collectible": 0,
+        "slug": "129795-cthrax-brute",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "C'thrax Brute",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a076dbaec13dd2cad50342e4fb3bf741348d402d68fa346b69ebf9308d5d554f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129793,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129795&locale=en_US&collectible=0",
+        "sha256": "2acb5f6bf13889540be3390e820f921a16974e68d0adeef07d29b6c1fec1f4f9",
+        "bytes": 571,
+        "observed_at": "2026-10-21T12:40:34.114362+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "@": ""
+  },
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
