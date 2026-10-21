@@ -177,6 +177,7 @@ class Registry:
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
+        self._spell_source_cost_profiles = {}
         self._hand_cost_rank_profiles = {}
         self._summon_entry_stats_profiles = {}
         self._next_spell_body_profiles = {}
@@ -487,6 +488,9 @@ class Registry:
     def spell_value_profiles(self):return MappingProxyType(self._spell_value_profiles)
 
     @property
+    def spell_source_cost_profiles(self):return MappingProxyType(self._spell_source_cost_profiles)
+
+    @property
     def hand_cost_rank_profiles(self):return MappingProxyType(self._hand_cost_rank_profiles)
 
     @property
@@ -682,6 +686,16 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._spell_value_profiles:raise ValueError('Duplicate native spell value profile')
         self._spell_value_profiles[profile.card_id]=profile
+
+    def register_spell_source_cost_profile(self, profile):
+        self._require_mutable()
+        from .spell_source_costs import SpellSourceCostProfile
+        if type(profile) is not SpellSourceCostProfile:
+            raise ValueError('Typed ordinary spell source-cost profile required')
+        profile.__post_init__()
+        if profile.card_id in self._spell_source_cost_profiles:
+            raise ValueError('Duplicate ordinary spell source-cost profile')
+        self._spell_source_cost_profiles[profile.card_id] = profile
 
     def register_carved_spell_profile(self,profile):
         self._require_mutable()
@@ -2073,6 +2087,8 @@ class Registry:
         for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
+        from .spell_source_costs import validate_profile as validate_spell_source_cost
+        for profile in self._spell_source_cost_profiles.values():validate_spell_source_cost(self,profile)
         from .hand_cost_rank import validate_profile as validate_hand_cost_rank
         for profile in self._hand_cost_rank_profiles.values(): validate_hand_cost_rank(self, profile)
         from .summon_entry_stats import validate_profile as validate_summon_entry_stats
@@ -2459,6 +2475,9 @@ class Registry:
             payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
+        if self._spell_source_cost_profiles:
+            payload['spell_source_cost_profiles'] = [asdict(self._spell_source_cost_profiles[k])
+                for k in sorted(self._spell_source_cost_profiles)]
         if self._hand_cost_rank_profiles:
             payload['hand_cost_rank_profiles'] = [asdict(self._hand_cost_rank_profiles[k]) for k in sorted(self._hand_cost_rank_profiles)]
         if self._summon_entry_stats_profiles:

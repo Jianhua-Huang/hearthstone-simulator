@@ -259,7 +259,7 @@ class ComboPlayTurnCostTests(unittest.TestCase):
             with self.subTest(mutation=mutation), self.assertRaises(SnapshotError): Game.from_snapshot(snap, fixture('reader'))
 
     def test_new_schema_is_strict_and_old_saved_effect_signatures_are_rejected(self):
-        g = self.game(); self.assertEqual(SNAPSHOT_SCHEMA_VERSION, 508)
-        for version in (507, True, 508.0, 509):
+        g = self.game(); self.assertEqual(g.snapshot()['schema_version'], SNAPSHOT_SCHEMA_VERSION)
+        for version in (507, SNAPSHOT_SCHEMA_VERSION-1, True, float(SNAPSHOT_SCHEMA_VERSION), SNAPSHOT_SCHEMA_VERSION+1):
             snap = g.snapshot(); snap['schema_version'] = version
             with self.subTest(version=version), self.assertRaises(SnapshotError): Game.from_snapshot(snap, fixture('reader'))

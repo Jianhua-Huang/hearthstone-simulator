@@ -55,15 +55,17 @@ def repeat(r,work):
     from .rewind_outcomes import payload
     parent=validate_plan(r.state,r.registry,work)
     if not parent.completed or parent.interrupted:raise ResolutionError('Native repeat requires its completed original cast')
+    from .spell_source_costs import capture_automatic as capture_source_cost, start_receipt
     child=replace(parent,id=len(r.state.cast_history)+1,origin='native_repeat',iteration=2,recast_id=parent.id,
         turn=r.state.turn,action=r.state.action_number,
         play_id=None,draw_id=None,from_zone=None,completed=False,interrupted=False,payload_started=True,failure=None,
         recorded_event=len(r.game._events),owner_turn_id=cast_owner_turn_id(r.state),target_selection=None,
-        target_origin=capture_target_origin(r.state,parent.target_id),local_spell_damage=(),spell_damage_effects=(),native_spell_value=None,aura_duration_grants=(),quest_parent_cast_id=None)
+        target_origin=capture_target_origin(r.state,parent.target_id),local_spell_damage=(),spell_damage_effects=(),native_spell_value=None,aura_duration_grants=(),quest_parent_cast_id=None,
+        source_cost=capture_source_cost(r,r.state.entities[parent.source_id],parent.player_id))
     r.state.cast_history.append(child)
     r.emit(STARTED,source_id=parent.source_id,player_id=parent.player_id,cast_id=parent.id,child_id=child.id,_capture=False)
     from .spell_casts import target_origin_receipt
-    r.emit('spell_cast_started',source_id=child.source_id,target_id=child.target_id,player_id=child.player_id,cast_id=child.id,target_origin=target_origin_receipt(child))
+    r.emit('spell_cast_started',source_id=child.source_id,target_id=child.target_id,player_id=child.player_id,cast_id=child.id,target_origin=target_origin_receipt(child),**start_receipt(child))
     child=note_payload(r,child)
     return (*payload(r,child.source_id,child.player_id,child.target_id,work.behaviors,cast=child),FinishSpellCast(child.id))
 

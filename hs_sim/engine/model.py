@@ -8003,8 +8003,13 @@ class SpellCastRecord:
     hand_cost_rank: HandCostRankFact | None = None
     next_spell_body_effects: tuple[PlayerEffect, ...] = ()
     next_spell_body_cursor: int = 0
+    source_cost: CostQuoteFact | None = None
 
     def __post_init__(self):
+        if self.source_cost is not None:
+            if type(self.source_cost) is not CostQuoteFact:
+                raise ValueError('Original spell source cost requires a complete CostQuoteFact')
+            self.source_cost.__post_init__()
         from .next_spell_bodies import validate_material as validate_next_spell_bodies
         validate_next_spell_bodies(self.next_spell_body_effects, self.turn)
         _int(self.next_spell_body_cursor, 'next spell body cursor', 0)

@@ -48,6 +48,11 @@ def validate_target_origins(game):
         data=dict(event.data)
         record=cast_record(game._state,data.get('cast_id'))
         expected={'cast_id','target_origin'} | ({'quest_parent_cast_id'} if record.quest_parent_cast_id is not None else set())
+        from .spell_source_costs import start_receipt
+        cost_data = start_receipt(record)
+        expected.update(cost_data)
+        if any(data.get(key) != value for key, value in cost_data.items()):
+            raise ValueError('Spell source cost differs from its original start receipt')
         if record.mana_budget is not None:
             from .spell_mana_budget import receipt
             expected.add('mana_budget')
@@ -150,6 +155,7 @@ def note_payload(r, record):
 def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=None):
     if failure not in(None,'no_target') or countered and failure is not None:
         raise ValueError('Invalid hand CAST target failure')
+    from .spell_source_costs import capture_hand, start_receipt
     record = SpellCastRecord(len(r.state.cast_history)+1, play.source_id, play.player_id,
         play.card_id, r.state.turn, r.state.action_number, 'hand' if iteration == 1 else 'repeat',
         target_id, play_id=play.id, iteration=iteration, from_zone=Zone.HAND,
@@ -159,12 +165,12 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=No
         owner_turn_id=cast_owner_turn_id(r.state), recorded_event=len(r.game._events),
         target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost,
         next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else (),
-        hand_cost_rank=play.hand_cost_rank)
+        hand_cost_rank=play.hand_cost_rank, source_cost=capture_hand(r.registry, play))
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
     r.emit('spell_cast_started',source_id=record.source_id,target_id=record.target_id,
-        player_id=record.player_id,cast_id=record.id,target_origin=target_origin_receipt(record))
+        player_id=record.player_id,cast_id=record.id,target_origin=target_origin_receipt(record), **start_receipt(record))
     record = note_payload(r, record)
     if failure is not None:
         r.emit('spell_cast_failed',source_id=record.source_id,player_id=record.player_id,cast_id=record.id,reason=failure)
@@ -279,6 +285,8 @@ def effective_definition(definition, conditions):
 
 
 def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, recast_id=None, target_proofs=None, quest_parent_cast_id=None, adjoining_parent=None):
+    from .spell_source_costs import capture_automatic as capture_source_cost, start_receipt
+    source_cost = capture_source_cost(r, entity, effect.player_id)
     from .adjoining_spells import capture as capture_adjoining,note_automatic as note_adjoining_automatic
     adjoining_material=None if adjoining_parent is not None else capture_adjoining(r.state,r.registry,entity,from_zone,player_id=effect.player_id)
     from .one_cost_casts import capture_automatic,accept_automatic
@@ -328,7 +336,7 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
         target_selection=target_proof.selection if target_proof is not None else None,
         target_origin=capture_target_origin(r.state,target_id),
         held_higher_cost=capture_higher_cost(r.state, entity), quest_parent_cast_id=quest_parent_cast_id,
-        mana_budget=getattr(effect,'mana_budget',None), hand_cost_rank=hand_rank)
+        mana_budget=getattr(effect,'mana_budget',None), hand_cost_rank=hand_rank, source_cost=source_cost)
     r.state.cast_history.append(record)
     choose_tail = accept_choose(r, choose_proof)
     note_adjoining_automatic(r,record,adjoining_material,adjoining_parent)
@@ -345,7 +353,7 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
     r.emit('spell_cast_started', source_id=entity.id, target_id=target_id, player_id=record.player_id,
            cast_id=record.id,target_origin=target_origin_receipt(record),
            **({'quest_parent_cast_id':quest_parent_cast_id} if quest_parent_cast_id is not None else {}),
-           **budget_data)
+           **budget_data, **start_receipt(record))
     if failure:
         r.emit('spell_cast_failed', source_id=entity.id, player_id=record.player_id,
                cast_id=record.id, reason=failure)
@@ -466,6 +474,8 @@ def validate_history(state, registry):
         validate_higher_cost_cast(state, registry, record)
         from .hand_cost_rank import validate_cast as validate_hand_rank
         validate_hand_rank(state, registry, record)
+        from .spell_source_costs import validate_record as validate_source_cost
+        validate_source_cost(state, registry, record)
         if record.target_origin is not None:
             from .allocation_facts import validate_allocation
             validate_allocation(state,registry,record.target_origin)

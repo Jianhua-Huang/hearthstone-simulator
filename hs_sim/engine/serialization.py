@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 508
+SNAPSHOT_SCHEMA_VERSION = 509
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1161,6 +1161,7 @@ def _draw_from_dict(value):
 
 def _spell_cast_from_dict(value):
     row = _row(value, SpellCastRecord)
+    if row['source_cost'] is not None:row['source_cost'] = _cost_quote_fact_from_dict(row['source_cost'])
     row['hand_cost_rank'] = _hand_cost_rank_from_dict(row['hand_cost_rank'])
     from .spell_mana_budget import link_from_dict
     row['mana_budget']=link_from_dict(row['mana_budget'])
