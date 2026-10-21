@@ -5566,6 +5566,7 @@ class PlayerPlayedClassCostSpec:
             if type(self.card_class) is not CardClass or self.card_class == CardClass.NEUTRAL:
                 raise ValueError('Played-class price requires one original playable class')
         elif self.profile_id in ('cost.player-played-card-count-turn-v1',
+                                'cost.player-played-combo-turn-v1',
                                 'cost.player-played-outside-starting-deck-v1',
                                 'cost.player-last-played-cost-v1', 'cost.player-played-rafaam-v1'):
             if self.card_class is not None:
@@ -5610,6 +5611,7 @@ class PlayerPlayedClassCostFact:
     after: int
     starting_entities: tuple[tuple[int, ...], tuple[int, ...]] | None = None
     starting_cards: tuple[tuple[str, ...], tuple[str, ...]] | None = None
+    combo_inputs: tuple[CostQuoteInput, ...] | None = None
 
     def __post_init__(self):
         if type(self.spec) is not PlayerPlayedClassCostSpec:
@@ -5626,8 +5628,21 @@ class PlayerPlayedClassCostFact:
             raise ValueError('Played-class price lost an original physical play')
         if type(self.selected_ids) is not tuple or any(type(value) is not int for value in self.selected_ids):
             raise ValueError('Played-class price requires its complete exact selection')
-        from .play_history import (matches_played_class, matches_outside_starting_deck,
+        from .play_history import (matches_played_class, matches_outside_starting_deck, matches_played_combo,
                                    validate_starting_deck_identity)
+        combo = self.spec.profile_id == 'cost.player-played-combo-turn-v1'
+        if combo:
+            if type(self.combo_inputs) is not tuple or len(self.combo_inputs) != len(self.rows):
+                raise ValueError('Combo-card price requires every original submitted physical input')
+            for row, original in zip(self.rows, self.combo_inputs):
+                if type(original) is not CostQuoteInput:
+                    raise ValueError('Combo-card price requires typed submitted physical inputs')
+                original.__post_init__()
+                if (original.source_id, original.player_id, original.card_id, original.kind) != (
+                        row.face.source_id, row.face.player_id, row.face.card_id, row.face.kind):
+                    raise ValueError('Combo-card price changed an original submitted physical face')
+        elif self.combo_inputs is not None:
+            raise ValueError('Other played-card prices cannot invent Combo operands')
         outside = self.spec.profile_id == 'cost.player-played-outside-starting-deck-v1'
         if outside:
             validate_starting_deck_identity(self.starting_entities, self.starting_cards, self.next_entity_id)
@@ -5640,7 +5655,8 @@ class PlayerPlayedClassCostFact:
             if (row.face.play_id != index or row.face.source_id >= self.next_entity_id or
                     not last_turn <= row.turn <= self.turn or not last_action < row.action <= self.action):
                 raise ValueError('Played-class price lost its original ordered allocation window')
-            matched = (row.face.card_id in FAMILY if self.spec.profile_id == PROFILE else
+            matched = (row.turn == self.turn and matches_played_combo(self.combo_inputs[index-1]) if combo else
+                       row.face.card_id in FAMILY if self.spec.profile_id == PROFILE else
                        True if self.spec.profile_id == 'cost.player-last-played-cost-v1' else
                        matches_outside_starting_deck(row.face, self.starting_entities) if outside else
                        row.turn == self.turn if self.spec.profile_id == 'cost.player-played-card-count-turn-v1'
@@ -5652,7 +5668,8 @@ class PlayerPlayedClassCostFact:
             quantity = 0 if not selected else self.rows[selected[0]-1].accepted_cost
         else:
             quantity = len(selected)
-        if self.selected_ids != tuple(selected) or self.quantity != quantity or self.after != max(0, self.before-self.quantity):
+        step = 2 if combo else 1
+        if self.selected_ids != tuple(selected) or self.quantity != quantity or self.after != max(0, self.before-step*self.quantity):
             raise ValueError('Played-class price differs from its complete original class quantity')
 
 

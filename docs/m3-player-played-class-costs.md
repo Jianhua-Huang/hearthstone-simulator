@@ -35,3 +35,5 @@
 本项没有任意条件、任意费用表达式、其他出牌来源或跨机制组合。精确接受窗、反制/退款、费用层顺序、特殊来源/复制、正式卡面/池以及国服校准继续开放。
 
 现行共享接口为prototype-v225/core-effects-v219，schema208字段/布局及拒旧1～207保持。同一Spec的card_class类型沿CardClass | None，严格字典及typed帧只对本回合全牌型profile接受显式null，不静默默认为圣骑士；旧整局职业选择、全部字段和原数量时点保持。现有TID_077隔离声明的race18种族标识已对齐生产解析器的小写elemental，原完整raw/pin及全局匹配保持。实际验收与下一项只在两份台账维护，精确CN仍开放。
+
+后续真实BE_721另增加有限cost.player-played-combo-turn-v1及nullable combo_inputs原提交材料，详见[本回合连击牌契约](m3-played-combo-costs.md)。本页早期接口版本为历史；原职业/全部牌型/上次费用/套牌/拉法姆各profile继续保持自己的选择，保存combo_inputs=null，不混入新条件或倍率。原PlayerPlayedClassCostRow布局保持。

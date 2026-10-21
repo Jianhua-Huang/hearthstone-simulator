@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 507
+SNAPSHOT_SCHEMA_VERSION = 508
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1055,6 +1055,9 @@ def _intrinsic_stage_from_dict(value):
             originals.append(PlayerPlayedClassCostRow(**original))
         played['rows'] = tuple(originals)
         played['selected_ids'] = tuple(_list(played['selected_ids'], 'original selected class plays'))
+        if played['combo_inputs'] is not None:
+            played['combo_inputs'] = tuple(_cost_quote_input_from_dict(value)
+                for value in _list(played['combo_inputs'], 'original Combo-card submitted inputs'))
         for key in ('starting_entities', 'starting_cards'):
             if played[key] is not None:
                 played[key] = tuple(tuple(_list(group, 'original starting-deck group'))

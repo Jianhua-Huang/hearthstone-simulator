@@ -2028,3 +2028,5 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 真实“下一张指定派系法术重复此效果”先声明普通无计时PlayerEffectSpec和NextSpellBodyProfile；初始主体末尾AddPlayerEffect，额外主体只返回公共效果，不再安装程序或制造新CAST。原认领、逐项新局面、完成游标及待国服窗口见[契约](m3-next-spell-bodies.md)。
 原生边位光环可显式声明friendly_leftmost_minion的Rush或friendly_rightmost_minion的Immune while attacking，并设include_self=True；不与其他过滤拼接，不使用动态GrantKeywordAura。选择、生命周期和原战斗语义见[契约](m3-positional-keyword-auras.md)，执行与验收仍只在原两份台账。
+
+本回合连击牌减费使用PlayerPlayedClassCostSpec(card_class=None, profile_id="cost.player-played-combo-turn-v1")；完整combo_inputs来自原提交材料，第一张未触发的连击牌同样有资格。不得用激活次数、当前实体或自动施法替代原手牌根，见[契约](m3-played-combo-costs.md)。

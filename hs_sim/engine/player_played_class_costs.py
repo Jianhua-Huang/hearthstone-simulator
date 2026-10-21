@@ -19,6 +19,7 @@ def validate_definition(definition):
         from .rafaams import GIANT
         if definition.id != GIANT: raise ValueError('Native Rafaam price belongs only to its actual Giant')
     if spec.profile_id in ('cost.player-played-outside-starting-deck-v1',
+                           'cost.player-played-combo-turn-v1',
                            'cost.player-last-played-cost-v1', 'cost.player-played-rafaam-v1') and (
             definition.intrinsic_costs or any(value is not None for value in (
                 definition.hero_health_change_cost, definition.player_draw_count_cost,
@@ -64,7 +65,14 @@ def capture(state, registry, player_id, definition, base_cost):
     rows = _rows(state, registry)
     turn = state.turn if spec.profile_id == 'cost.player-played-card-count-turn-v1' else None
     entities = cards = None
-    if spec.profile_id == 'cost.player-played-outside-starting-deck-v1':
+    combo = spec.profile_id == 'cost.player-played-combo-turn-v1'
+    combo_inputs = None
+    if combo:
+        from .play_history import matches_played_combo
+        combo_inputs = tuple(record.submitted_cost.quote.quote_input for record in state.play_history)
+        selected = tuple(row.face.play_id for row, original in zip(rows, combo_inputs)
+            if row.face.player_id == player_id and row.turn == state.turn and matches_played_combo(original))
+    elif spec.profile_id == 'cost.player-played-outside-starting-deck-v1':
         from .play_history import starting_deck_identity, played_outside_starting_deck
         entities, cards = starting_deck_identity(state)
         selected = tuple(record.id for record in played_outside_starting_deck(state, player_id))
@@ -80,8 +88,8 @@ def capture(state, registry, player_id, definition, base_cost):
     else:
         quantity = len(selected)
     fact = PlayerPlayedClassCostFact(spec, player_id, state.turn, state.action_number,
-        state.next_entity_id, len(rows), rows, selected, quantity, base_cost, max(0, base_cost-quantity),
-        entities, cards)
+        state.next_entity_id, len(rows), rows, selected, quantity, base_cost, max(0, base_cost-(2 if combo else 1)*quantity),
+        entities, cards, combo_inputs)
     if cards is not None:
         validate_fact(registry, definition, fact)
     return fact
@@ -113,6 +121,9 @@ def validate_prefix(fact, state, registry):
     if (fact.next_entity_id > state.next_entity_id or fact.turn > state.turn or fact.action > state.action_number or
             len(fact.rows) > len(rows) or fact.rows != rows[:len(fact.rows)]):
         raise ValueError('Played-class price rewrote its complete original physical face prefix')
+    if fact.combo_inputs is not None and fact.combo_inputs != tuple(
+            record.submitted_cost.quote.quote_input for record in state.play_history[:fact.play_history_length]):
+        raise ValueError('Combo-card price rewrote its original submitted physical input prefix')
     if fact.starting_entities is not None:
         from .play_history import starting_deck_identity
         fact.__post_init__()

@@ -5,6 +5,16 @@ from .model import CardClass, CardType, PaymentType, PlayRecord, Zone
 from .hand_history import hand_entry
 
 
+def matches_played_combo(original):
+    """The original submitted card's Combo declarations, even if not activated."""
+    from .model import CostQuoteInput, Keyword
+    if type(original) is not CostQuoteInput:
+        raise ValueError('Combo-card history requires its complete submitted physical input')
+    original.__post_init__()
+    return any(not ability.consumed and (ability.kind == 'combo' or
+        ability.kind == 'keyword' and ability.keyword == Keyword.COMBO) for ability in original.abilities)
+
+
 def played_cards(state, player_id, *, turn=None, before_id=None, kind=None, completed=None,
                  registry=None, tribes_any=(), card_class=None):
     """Host/rule query. Countered plays still count; summons and powers do not."""
