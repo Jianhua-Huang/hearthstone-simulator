@@ -25,22 +25,29 @@ def load_batch():
     return data
 
 
-def played_minion(c):
+def played_minion(c,*,exclude_source=True):
+    if type(exclude_source)is not bool:raise ValueError('Played-minion source exclusion requires bool')
     row=play_record(c.state,dict(c.event.data)['play_id'])
     if not row.completed or(row.source_id,row.player_id)!=(c.event.source_id,c.event.player_id):
         raise ResolutionError('Played-minion listener lost its original completed paid play')
-    if row.player_id!=c.player_id or row.kind!=CardType.MINION or row.source_id==c.source_id or row.countered:return None
+    if row.player_id!=c.player_id or row.kind!=CardType.MINION or (exclude_source and row.source_id==c.source_id) or row.countered:return None
     return row
 
 
-def original_recipient(c,row):
+def original_played_presence(c,row):
     if row.minion_result in ('countered','board_full'):return None
     if row.minion_result!='summoned':raise UnsupportedDefinitionError('Played-minion keyword recipient requires a reviewed original physical summon; magnetic recipient remains unsupported')
     # The first real entry in the same external action is the played body.
     # Transformation can retain that residence; leaving and re-entering cannot.
     entry=next((x for x in c.state.successful_summon_history if x.entity_id==row.source_id and x.action==row.action),None)
     if entry is None:raise ResolutionError('Played-minion listener lost its original successful entry')
-    target=resolve_board_presence(c.state,BoardPresenceReference(row.source_id,entry.minion.entered_order))
+    return BoardPresenceReference(row.source_id,entry.minion.entered_order)
+
+
+def original_recipient(c,row):
+    presence=original_played_presence(c,row)
+    if presence is None:return None
+    target=resolve_board_presence(c.state,presence)
     return target if target is not None and target.active and target.health>0 and not target.doomed else None
 
 
