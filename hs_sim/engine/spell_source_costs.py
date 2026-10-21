@@ -1,7 +1,7 @@
 """Finite source-cost operands for actual ordinary spell payloads."""
 from dataclasses import asdict, dataclass, replace
 
-from .model import CardType, CostQuoteFact, _name
+from .model import CardType, CostQuoteFact, SpellSchool, _name
 
 
 @dataclass(frozen=True)
@@ -15,6 +15,37 @@ class SpellSourceCostProfile:
             raise ValueError('Unsupported ordinary spell source-cost basis')
 
 
+@dataclass(frozen=True)
+class SpellSourceCostObserverProfile:
+    effect_id: str
+    school: SpellSchool = SpellSchool.HOLY
+
+    def __post_init__(self):
+        _name(self.effect_id, 'spell-cost observing program')
+        if type(self.school) is not SpellSchool or self.school != SpellSchool.HOLY:
+            raise ValueError('Only the original Holy-spell cost observer is declared')
+
+
+def validate_observer(registry, profile):
+    if type(profile) is not SpellSourceCostObserverProfile:
+        raise ValueError('Typed original spell-cost observer required')
+    profile.__post_init__()
+    spec=registry.player_effect(profile.effect_id)
+    if (spec.kind!='aura' or len(spec.triggers)!=1 or spec.triggers[0].event!='spell_cast_finished' or
+            registry.card(spec.card_id).spell_school!=SpellSchool.HOLY):
+        raise ValueError('Spell-cost observation requires its real native Holy Aura completion trigger')
+
+
+def requires_quote(registry, card_id):
+    profile=registry.spell_source_cost_profiles.get(card_id)
+    if profile is not None:
+        validate_profile(registry,profile)
+        return True
+    card=registry.card(card_id)
+    return card.kind==CardType.SPELL and any(card.spell_school==p.school
+        for p in registry.spell_source_cost_observers.values())
+
+
 def validate_profile(registry, profile):
     if type(profile) is not SpellSourceCostProfile:
         raise ValueError('Typed ordinary spell source-cost profile required')
@@ -26,22 +57,22 @@ def validate_profile(registry, profile):
 
 
 def capture_hand(registry, play):
-    if play.card_id not in registry.spell_source_cost_profiles:
+    if not requires_quote(registry,play.card_id):
         return None
-    validate_profile(registry, registry.spell_source_cost_profiles[play.card_id])
     if play.submitted_cost is None:
         raise ValueError('Source-cost hand spell lost its original submitted quote')
     return play.submitted_cost.quote
 
 
 def capture_automatic(r, entity, player_id):
-    if entity.card_id not in r.registry.spell_source_cost_profiles:
+    if not requires_quote(r.registry,entity.card_id):
         return None
-    validate_profile(r.registry, r.registry.spell_source_cost_profiles[entity.card_id])
     from .costs import capture_cost_input, capture_quote_fact
     # Capture before moving the actual stored carrier or selecting its target.
     # Cross-player casts quote for the real caster, without changing ownership.
     original = replace(capture_cost_input(entity), player_id=player_id)
+    from .remaining_mana_numbers import automatic_cost_input
+    original = automatic_cost_input(r.state,r.registry,original)
     return capture_quote_fact(r.state, r.registry, original)
 
 
@@ -53,12 +84,10 @@ def start_receipt(record):
 
 
 def validate_record(state, registry, record):
-    profile = registry.spell_source_cost_profiles.get(record.card_id)
-    if profile is None:
+    if not requires_quote(registry,record.card_id):
         if record.source_cost is not None:
             raise ValueError('Undeclared spell invented an original source-cost value')
         return
-    validate_profile(registry, profile)
     quote = record.source_cost
     if type(quote) is not CostQuoteFact:
         raise ValueError('Declared spell lost its complete original source-cost value')

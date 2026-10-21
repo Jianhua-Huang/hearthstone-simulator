@@ -4,7 +4,7 @@ Only synchronous payment normalization excludes its already accepted source.
 The resulting physical stats and ordinary frozen payload survive all waits.
 """
 from contextlib import contextmanager
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from .model import CardType,Zone
 
 
@@ -16,8 +16,11 @@ class RemainingManaNumbersProfile:
 def validate_profile(registry,profile):
     if type(profile) is not RemainingManaNumbersProfile:raise ValueError('Typed native remaining-mana declaration required')
     card=registry.card(profile.card_id)
-    if card.kind!=CardType.MINION or (card.cost,card.attack,card.health)!=(1,1,1) or card.battlecry is None:
-        raise ValueError('Native remaining numbers require the real one-cost 1/1 Battlecry source')
+    minion = card.kind==CardType.MINION and (card.cost,card.attack,card.health)==(1,1,1) and card.battlecry is not None
+    spell = (card.kind==CardType.SPELL and card.cost==1 and card.on_play is not None and
+        card.id in registry.spell_source_cost_profiles)
+    if not (minion or spell):
+        raise ValueError('Native remaining numbers require the original minion or declared one-cost spell')
 
 
 def sources(entity):
@@ -28,8 +31,9 @@ def validate_carrier(registry,card_id,kind,abilities,components=()):
     for row in abilities:
         if row.kind!='remaining_mana_numbers':continue
         row.__post_init__()
-        if kind!=CardType.MINION or row.remaining_mana_card_id not in registry.remaining_mana_numbers_profiles or row.remaining_mana_card_id not in (card_id,*components):
-            raise ValueError('Remaining numbers borrowed an undeclared native minion')
+        if (row.remaining_mana_card_id not in registry.remaining_mana_numbers_profiles or
+                kind!=registry.card(row.remaining_mana_card_id).kind or row.remaining_mana_card_id not in (card_id,*components)):
+            raise ValueError('Remaining numbers borrowed an undeclared native carrier')
 
 
 def synchronize(state,registry,*,exclude_source=None):
@@ -41,8 +45,17 @@ def synchronize(state,registry,*,exclude_source=None):
             if identity==exclude_source:continue
             entity=state.entities[identity]
             if sources(entity):
-                entity.base_cost=entity.base_attack=entity.base_health=amount
+                entity.base_cost=amount
+                if entity.kind==CardType.MINION:entity.base_attack=entity.base_health=amount
                 refresh_entity(entity)
+
+
+def automatic_cost_input(state,registry,value):
+    """Quote the actual caster's number without rewriting a foreign hand card."""
+    if (value.kind==CardType.SPELL and value.card_id in registry.remaining_mana_numbers_profiles and
+            sources_from_input(value)):
+        return replace(value,base_cost=max(1,state.players[value.player_id].mana))
+    return value
 
 
 @contextmanager
@@ -79,7 +92,8 @@ def validate_game(game):
         validate_carrier(registry,entity.card_id,entity.kind,entity.abilities,entity.components)
         if entity.zone==Zone.HAND and sources(entity):
             expected=max(1,state.players[entity.controller].mana)
-            if (entity.base_cost,entity.base_attack,entity.base_health)!=(expected,)*3:
+            if (entity.base_cost!=expected or entity.kind==CardType.MINION and
+                    (entity.base_attack,entity.base_health)!=(expected,expected)):
                 raise ValueError('Native hand numbers differ from actual remaining mana')
     for play in state.play_history:
         for payload in play.battlecries:

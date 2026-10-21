@@ -1,0 +1,489 @@
+{
+  "schema": 1,
+  "batch": "K372-Holy-Soldiers",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_142",
+        "dbf_id": 130326,
+        "name": "投身战争",
+        "name_en": "March to War",
+        "text": "本牌上的所有数字等于你剩余的法力值。召唤一个@/@并具有<b>圣盾</b>的士兵。",
+        "text_en": "All numbers on this card equal your remaining Mana. Summon a @/@ Soldier with <b>Divine Shield</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 1,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5,
+          "4958": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4958",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4958"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "09a6db9ec193a1796eda3188c9326ca4548dfcb4c926eb7d8f7c0ddb6e914bbc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_142",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    },
+    {
+      "record": {
+        "id": "BE_146",
+        "dbf_id": 130673,
+        "name": "誓缚光环",
+        "name_en": "Oathbinder's Aura",
+        "text": "在你施放一个神圣法术后，召唤一个属性值等同于其法力值消耗并具有<b>圣盾</b>的士兵。持续3回合。",
+        "text_en": "[x]After you cast a Holy spell,\nsummon a Soldier with stats\nequal to its Cost and <b>Divine\nShield</b>. Lasts 3 turns.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "SPELL_SCHOOL": 5,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1,
+          "PALADIN_AURA": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b806aec51e8f1ec0eda74d94adabbd9596498b053788788e63ac2c9740e63d1e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_146",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_142t",
+        "dbf_id": 130644,
+        "name": "瓦尼尔士兵",
+        "name_en": "Vanir Soldier",
+        "text": "<b>圣盾</b>",
+        "text_en": "<b>Divine Shield</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1994,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "edc2a19ef6330e1195a511479d4dd8b48953f3abefefc9de5b6d4168f860fbaa",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_142t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_142",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 130326,
+        "collectible": 1,
+        "slug": "130326-march-to-war",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 1,
+        "name": "投身战争",
+        "text": "本牌上的所有数字等于你剩余的法力值。召唤一个 / 并具有<b>圣盾</b>的士兵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c662b8951253feeb8f2290aeb108aaa30ea3d4820c56ac1f6f960f78e0eaee1.png",
+        "imageGold": "",
+        "flavorText": "土灵士兵，千人一队。列队行军，高呼万岁！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a330d56c7e4af9b7aea1769ced8e81a6f1b451b25d36b456fb6d645e6d2682fc.png",
+        "childIds": [
+          130644
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "BE_142",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 130326,
+        "collectible": 1,
+        "slug": "130326-march-to-war",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 1,
+        "name": "March to War",
+        "text": "All numbers on this card equal your remaining Mana. Summon a / Soldier with <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88086ae8b8a82060a564a2ec6e825a2a4ca3fbe7a806005e80eee30b424f954b.png",
+        "imageGold": "",
+        "flavorText": "The Earthern go marching 1000 by 1000. Hurrah! Hurrah!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a330d56c7e4af9b7aea1769ced8e81a6f1b451b25d36b456fb6d645e6d2682fc.png",
+        "childIds": [
+          130644
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_146",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 130673,
+        "collectible": 1,
+        "slug": "130673-oathbinders-aura",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 3,
+        "name": "誓缚光环",
+        "text": "在你施放一个神圣法术后，召唤一个属性值等同于其法力值消耗并具有<b>圣盾</b>的士兵。持续3回合。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae7ad59da8314160dc92d1499235e5e2dd84755dad95fd7f9a425b48e6713aaa.png",
+        "imageGold": "",
+        "flavorText": "配重合理，如同万物一般，完美平衡。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e60f4be8e715dbb0d23e3929fd5f00f7154c08d1d3207667f880fe890874f4c9.png",
+        "childIds": [
+          130644
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_146",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 130673,
+        "collectible": 1,
+        "slug": "130673-oathbinders-aura",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 3,
+        "name": "Oathbinder's Aura",
+        "text": "After you cast a Holy spell, summon a Soldier with stats equal to its Cost and <b>Divine Shield</b>. Lasts 3 turns.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3506ffaf26d39fffc2d8db7250d062f8fbd4bd154d9de7e4b726cda38b055be.png",
+        "imageGold": "",
+        "flavorText": "Perfectly balanced as all things should be.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e60f4be8e715dbb0d23e3929fd5f00f7154c08d1d3207667f880fe890874f4c9.png",
+        "childIds": [
+          130644
+        ],
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_142t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130644-zh_CN.json",
+      "response_sha256": "1cd88d680e7f548f68935aef90a8c2a74a07405e1b916eb1a7073a4091024bec",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130644&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 130644,
+        "collectible": 0,
+        "slug": "130644-vanir-soldier",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "瓦尼尔士兵",
+        "text": "<b>圣盾</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdfb3a059e46a1f41da535dce7eaae4839199d14b14ebe5ca15644679210dd16.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 130326,
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130644&locale=zh_CN&collectible=0",
+        "sha256": "1cd88d680e7f548f68935aef90a8c2a74a07405e1b916eb1a7073a4091024bec",
+        "bytes": 566,
+        "observed_at": "2026-10-21T14:19:49.437210+00:00"
+      }
+    },
+    {
+      "card_id": "BE_142t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130644-en_US.json",
+      "response_sha256": "92ce76d5cd12d3f62efcdd4788a83b9d95ff8738e8b87ff10d0fd62863d600d7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130644&locale=en_US&collectible=0",
+      "face": {
+        "id": 130644,
+        "collectible": 0,
+        "slug": "130644-vanir-soldier",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Vanir Soldier",
+        "text": "<b>Divine Shield</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb130ff25f45da0e6dbcd43093752c72b7b56ff736faf7e3bce8e7ba3a05acde.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 130326,
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130644&locale=en_US&collectible=0",
+        "sha256": "92ce76d5cd12d3f62efcdd4788a83b9d95ff8738e8b87ff10d0fd62863d600d7",
+        "bytes": 571,
+        "observed_at": "2026-10-21T14:19:51.519584+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "BE_142": {
+      "@": ""
+    }
+  },
+  "policy": {
+    "remaining_mana_floor": 1,
+    "floor_evidence_scope": "Picklock primary answer only; March to War zero-Mana boundary remains uncalibrated",
+    "aura_cost_basis": "original_submitted_manual_or_automatic_acceptance_quote",
+    "aura_clock": "three_controller_turn_ends",
+    "aura_self_cast": "included_if_program_present_at_cast_finished"
+  },
+  "source_verified": true,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -1,5 +1,7 @@
 # M3：剩余法力决定原生手牌数字
 
+投身战争所需的有限法术入口见[神圣士兵契约](m3-holy-soldiers.md)。它只同步手牌基础费用，自动CAST使用真实施放者的纯报价输入；旧随从身材与付款政策保持，旧最低值证据不认证新法术零法力边界。
+
 开锁匠JAIL_501使用[完整固定原行及双语官网主面](../data/cards/remaining-mana-numbers-v1.json)。原始数值为1费1/1，实时战吼显示槽保留为@；官网只省略该槽，完整规则文字保持。原始答复[ClayByte](https://www.reddit.com/r/hearthstone/comments/1u1ifvd/comment/oqq89cc/)说明所有数字最低为1；该答复不证明完整国服时序或修饰层顺序。
 
 ## 原生来源与普通数值层
