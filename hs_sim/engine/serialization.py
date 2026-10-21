@@ -46,6 +46,8 @@ def event_from_dict(value: dict) -> Event:
     joust_result(event)
     from .nondeath_removal import removal_result
     removal_result(event)
+    from .armor_consumption import consumption_result as armor_consumption_result
+    armor_consumption_result(event)
     return event
 
 

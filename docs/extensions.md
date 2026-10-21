@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+非牌费完整护甲门槛用`SpendArmor`，不能拿`LoseArmor`或牌价付款代替。真实原地标召唤后奖励使用`SpendArmorForSummonedGroup`，以完整原交付锁定受益者；源入口、当前友方连续在场与通知政策见[契约](m3-armor-summon-reward.md)。
+
 真实“本回合获得过护甲”条件使用`armor_gains.gained_this_turn`，从原提交事实查询；不要按当前余额或宿主日志计数。需要主体执行时的新局面时先交普通`InvokeBehavior`，接受后保留原分支。四个原数值入口与保存边界见[增甲事实契约](m2-armor-gain-history.md)。
 
 真实未来随从入场设值注册`SummonEntryStatsProfile`并使用原`AddPlayerEffect`安装；不要用召唤后的观察者代替战吼前设值，也不要同步修改旧场面或手牌牌库。直接召唤通知和普通入场共用原唯一窗口，详见[契约](m3-summon-entry-stat-programs.md)。

@@ -1,0 +1,302 @@
+{
+  "schema": 1,
+  "batch": "K343-armor-summon-reward",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_561",
+        "dbf_id": 129947,
+        "name": "起源熔炉",
+        "name_en": "Forge of Origination",
+        "text": "召唤一个3/3并具有<b>嘲讽</b>的魔像。消耗3点护甲值，使其获得+3/+3。",
+        "text_en": "[x]Summon a 3/3 Golem\nwith <b>Taunt</b>. Spend 3\nArmor to give it +3/+3.",
+        "cost": 3,
+        "attack": null,
+        "health": 2,
+        "type": "LOCATION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 10,
+          "CARDTYPE": 39,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e1848f0ac323b1a38da06183b075d7568bd3ee19aa1f4831739196b264c93482",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_561",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_561t",
+        "dbf_id": 130689,
+        "name": "钢铁魔像",
+        "name_en": "Steel Golem",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9baa0aa74045185af23900c2211fde11776a5f48df766aca37f11dfbac9174a2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_561t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_561",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 129947,
+        "collectible": 1,
+        "slug": "129947-forge-of-origination",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 2,
+        "manaCost": 3,
+        "name": "起源熔炉",
+        "text": "召唤一个3/3并具有<b>嘲讽</b>的魔像。消耗3点护甲值，使其获得+3/+3。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/162f8fe930a4911ce13d56343777d479a323056f11c5a4ba1e0fec67ed383484.png",
+        "imageGold": "",
+        "flavorText": "这座熔炉由阿扎达斯与米米尔隆联手打造，旨在修复受损的世界之魂。然而这座装置内部也蕴藏着一股足以重置艾泽拉斯所有生命的力量。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc67e3efc12c57fa77ffae0cc2519cd8e1848135272fae3320b1dce9fdcd93ba.png",
+        "childIds": [
+          130689
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "BE_561",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 129947,
+        "collectible": 1,
+        "slug": "129947-forge-of-origination",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 39,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 2,
+        "manaCost": 3,
+        "name": "Forge of Origination",
+        "text": "Summon a 3/3 Golem with <b>Taunt</b>. Spend 3 Armor to give it +3/+3.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5dc40416994d8b639e7a417b342d0ef312293f9e81dec60aa1f1f6fb100f611.png",
+        "imageGold": "",
+        "flavorText": "Constructed by the combined intelect of Archaedas and Mimiron, the Forge was created to mend the damaged Worldsoul. But within this device lies a power capable of reseting all life on Azeroth.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc67e3efc12c57fa77ffae0cc2519cd8e1848135272fae3320b1dce9fdcd93ba.png",
+        "childIds": [
+          130689
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "BE_561t",
+      "locale": "zh_CN",
+      "matched": true,
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k343-armor-summon-reward\\token-primary-01\\130689-zh_CN.json",
+      "response_sha256": "7c185563ba1597d5fd9aec3c987b3960490a64c015fb559d458d0ab8abead8c9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130689&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 130689,
+        "collectible": 0,
+        "slug": "130689-steel-golem",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "钢铁魔像",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d18ffc62bbe7a8f9df8c5a02fe9f20ec5ee61f9581bcf9a2ff4d364be6d25992.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129947,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130689&locale=zh_CN&collectible=0",
+        "sha256": "7c185563ba1597d5fd9aec3c987b3960490a64c015fb559d458d0ab8abead8c9",
+        "bytes": 562,
+        "observed_at": "2026-10-21T00:36:14.609227+00:00"
+      },
+      "seconds": 1.9795067999511957
+    },
+    {
+      "card_id": "BE_561t",
+      "locale": "en_US",
+      "matched": true,
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k343-armor-summon-reward\\token-primary-01\\130689-en_US.json",
+      "response_sha256": "12a9fd954c94ba29d348dd7037a1dc53f00b86c2e6db86e7ac25af40d6730f5c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130689&locale=en_US&collectible=0",
+      "face": {
+        "id": 130689,
+        "collectible": 0,
+        "slug": "130689-steel-golem",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Steel Golem",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e007eaeae27b006a852610c95a2191692f08d55492f4ba178285ad10cc82516a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129947,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130689&locale=en_US&collectible=0",
+        "sha256": "12a9fd954c94ba29d348dd7037a1dc53f00b86c2e6db86e7ac25af40d6730f5c",
+        "bytes": 560,
+        "observed_at": "2026-10-21T00:36:14.310139+00:00"
+      },
+      "seconds": 1.6801517000421882
+    }
+  ],
+  "dependency_primary_verified": true,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -134,5 +134,59 @@ class CatalogSourceTests(unittest.TestCase):
                 observation = batch.official(row, 'en_US', root, offline=True)
             network.assert_not_called(); self.assertEqual(observation['face']['id'], row['dbf_id'])
 
+    def seed_explicit_dependency(self, root):
+        row, faces, sources = self.seed(root)
+        token = deepcopy(row); token['id'] += '_CACHE_TOKEN'; token['dbf_id'] += 1
+        token['collectible'] = False; token['tags']['COLLECTIBLE'] = 0
+        (root/'source.json').write_text(json.dumps([row, token]), encoding='utf-8')
+        manifest = batch.read(root/'manifest.json')
+        manifest.update(source_sha256=batch.sha(root/'source.json'), dependencies=[token['id']],
+            official_ids=[row['id'], token['id']], official_card_caches={token['id']: 'token-cache'})
+        (root/'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+        for locale, face in faces.items():
+            copy = deepcopy(face); copy.update(id=token['dbf_id'], collectible=False)
+            path = root/'token-cache'/f"{token['dbf_id']}-{locale}.json"
+            batch.save_new(path, dict(cards=[copy], fixture_only='Keep complete response'))
+            batch.save_new(path.with_suffix('.receipt.json'), dict(
+                url=f"https://playhearthstone.com/en-us/api/cards?card={token['dbf_id']}&locale={locale}&collectible=0",
+                sha256=batch.sha(path), bytes=path.stat().st_size, observed_at='fixture'))
+        return token, sources
+
+    def test_explicit_noncollectible_dependency_joins_catalog_offline(self):
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp); token, _ = self.seed_explicit_dependency(root)
+            with patch('tools.card_batch.urlopen') as network:
+                result = batch.prepare(root/'manifest.json', root/'prepared', root=root, offline=True)
+            network.assert_not_called()
+            self.assertEqual((result['complete_rows'], result['full_primary_faces']), (2, 4))
+            review = batch.read(root/'prepared/source-review.json')
+            observations = [x for x in review['official_observations'] if x['card_id'] == token['id']]
+            self.assertEqual(len(observations), 2)
+            self.assertTrue(all('collectible=0' in x['url'] for x in observations))
+
+    def test_explicit_dependency_missing_pair_or_wrong_bytes_never_fetches(self):
+        for defect in ('language', 'receipt', 'bytes'):
+            with self.subTest(defect=defect), TemporaryDirectory() as tmp:
+                root = Path(tmp); token, _ = self.seed_explicit_dependency(root)
+                path = root/'token-cache'/f"{token['dbf_id']}-zh_CN.json"
+                if defect == 'language': path.unlink()
+                elif defect == 'receipt': path.with_suffix('.receipt.json').unlink()
+                else:
+                    receipt = path.with_suffix('.receipt.json'); pin = batch.read(receipt); pin['bytes'] += 1
+                    receipt.write_text(json.dumps(pin), encoding='utf-8')
+                with patch('tools.card_batch.urlopen') as network, self.assertRaises(ValueError):
+                    batch.prepare(root/'manifest.json', root/'prepared', root=root, offline=False)
+                network.assert_not_called(); self.assertFalse((root/'prepared/source-review.json').exists())
+
+    def test_same_face_in_catalog_and_explicit_cache_is_rejected(self):
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp); token, sources = self.seed_explicit_dependency(root)
+            token_face = batch.read(root/'token-cache'/f"{token['dbf_id']}-en_US.json")['cards'][0]
+            body = batch.read(root/sources[1]['response_file']); body['cards'].append(token_face)
+            self.rewrite(root, sources[1], body)
+            with patch('tools.card_batch.urlopen') as network, self.assertRaises(ValueError):
+                batch.prepare(root/'manifest.json', root/'prepared', root=root, offline=True)
+            network.assert_not_called()
+
 
 if __name__ == '__main__': unittest.main()

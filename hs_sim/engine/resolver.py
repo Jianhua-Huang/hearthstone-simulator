@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v615'
+CORE_EFFECTS_VERSION = 'core-effects-v616'
 
 
 class Mechanics:
@@ -2919,5 +2919,9 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_next_spell_body_effects(mechanics)
     from .armor_gains import register as register_armor_gain_facts
     register_armor_gain_facts(mechanics)
+    from .armor_consumption import register as register_armor_consumption
+    register_armor_consumption(mechanics)
+    from .armor_summon_rewards import register as register_armor_summon_rewards
+    register_armor_summon_rewards(mechanics)
     return mechanics
 

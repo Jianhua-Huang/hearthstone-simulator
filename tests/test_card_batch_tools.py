@@ -177,6 +177,43 @@ class CardBatchToolTests(unittest.TestCase):
     def check(self, guard=None):
         return batch.verify_run(self.root, self.run, ['test_sample'], self.guard if guard is None else guard, self.ids)
 
+    def seed_reuse_sources(self):
+        files = {'tests/test_sample.py': 'from hs_sim.engine import game\n',
+                 'hs_sim/engine/game.py': 'from . import helper\n',
+                 'hs_sim/engine/helper.py': 'VALUE = 1\n', 'tests/test_other.py': 'VALUE = 2\n'}
+        for name, body in files.items():
+            path = self.root/name; path.parent.mkdir(parents=True, exist_ok=True); path.write_text(body, encoding='utf-8')
+        guard = {name: batch.sha(self.root/name) for name in files}
+        inputs = batch.read(self.group/'inputs.json'); inputs['source_sha256'] = guard
+        self.write(self.group/'inputs.json', inputs)
+        return guard
+
+    def test_complete_group_can_be_reused_after_unrelated_source_change_under_failed_parent(self):
+        original = self.seed_reuse_sources(); current = dict(original)
+        path = self.root/'tests/test_other.py'; path.write_text('VALUE = 3\n', encoding='utf-8'); current['tests/test_other.py'] = batch.sha(path)
+        parent = batch.read(self.run/'result.json'); parent['success'] = False; self.write(self.run/'result.json', parent)
+        receipt = batch.verify_group_reuse(self.root, self.group, 'test_sample', current, self.ids)
+        self.assertEqual(len(receipt['methods']), 2)
+        self.assertIn('hs_sim/engine/helper.py', receipt['local_import_closure'])
+        self.assertNotIn('tests/test_other.py', receipt['local_import_closure'])
+
+    def test_group_reuse_rejects_changed_transitive_source_and_dynamic_imports(self):
+        original = self.seed_reuse_sources(); current = dict(original)
+        path = self.root/'hs_sim/engine/helper.py'; path.write_text('VALUE = 9\n', encoding='utf-8'); current['hs_sim/engine/helper.py'] = batch.sha(path)
+        with self.assertRaisesRegex(ValueError, 'dependencies changed'):
+            batch.verify_group_reuse(self.root, self.group, 'test_sample', current, self.ids)
+        path = self.root/'hs_sim/engine/game.py'; path.write_text('import importlib\nimportlib.import_module(input())\n', encoding='utf-8')
+        current['hs_sim/engine/game.py'] = batch.sha(path)
+        inputs = batch.read(self.group/'inputs.json'); inputs['source_sha256'] = current; self.write(self.group/'inputs.json', inputs)
+        with self.assertRaisesRegex(ValueError, 'dynamic imports'):
+            batch.verify_group_reuse(self.root, self.group, 'test_sample', current, self.ids)
+
+    def test_group_reuse_rejects_incomplete_child_even_if_dependency_proof_would_match(self):
+        guard = self.seed_reuse_sources()
+        (self.group/'test-times.jsonl').write_text(json.dumps(dict(test=self.ids[0], status='passed'))+'\n', encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'per-method'):
+            batch.verify_group_reuse(self.root, self.group, 'test_sample', guard, self.ids)
+
     def test_complete_scoped_run_accepts_exact_current_source(self):
         receipt = self.check()
         self.assertEqual((receipt['methods'], receipt['full_regression_runs']), (2, 0))

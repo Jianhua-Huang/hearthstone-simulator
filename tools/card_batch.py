@@ -6,6 +6,7 @@ It never changes the engine, merges Git commits, or infers effects from text.
 from __future__ import annotations
 
 import argparse
+import ast
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from datetime import datetime, timezone
@@ -87,6 +88,13 @@ def load_manifest(path):
         require(bool(values), 'Printed zero declarations must be explicit nonempty fields')
     if 'official_catalogs' in task:
         validate_catalog_sources(task['official_catalogs'])
+    card_caches = task.get('official_card_caches', {})
+    require(type(card_caches) is dict and set(card_caches) <= set(ids),
+            'Explicit primary caches must name assigned source identities')
+    require(not card_caches or 'official_catalogs' in task,
+            'Explicit primary caches supplement an explicit catalog source')
+    for value in card_caches.values():
+        relative_file(value)
     return task
 
 
@@ -328,10 +336,14 @@ def official(row, locale, cache, *, offline=False, display_normalizations=None, 
     receipt = path.with_suffix('.receipt.json')
     url = f"https://playhearthstone.com/en-us/api/cards?card={row['dbf_id']}&locale={locale}"
     legacy_url = f"https://hearthstone.blizzard.com/en-us/api/cards?card={row['dbf_id']}&locale={locale}"
+    allowed_urls = (url, legacy_url)
+    if row.get('collectible') is False:
+        allowed_urls += (url + '&collectible=0', legacy_url + '&collectible=0')
+        url += '&collectible=0'
     if path.exists() or receipt.exists():
         require(path.exists() and receipt.exists(), 'Incomplete official cache pair; preserve it and use another cache')
         pin = read(receipt)
-        require(pin['url'] in (url, legacy_url) and pin['sha256'] == sha(path), 'Official cache body/receipt mismatch')
+        require(pin['url'] in allowed_urls and pin['sha256'] == sha(path), 'Official cache body/receipt mismatch')
         url = pin['url']
     else:
         require(not offline, 'No pinned official cache: ' + path.name)
@@ -441,10 +453,30 @@ def prepare(manifest, output, *, root=ROOT, cache=None, offline=False):
     cache = Path(cache) if cache else Path(root) / 'outputs/card-source-cache-cn37/official'
     if 'official_catalogs' in task:
         index = catalog_index(task['official_catalogs'], root)
-        observations = [catalog_official(rows[cid], locale, index,
-                            display_normalizations=task.get('display_normalizations', {}).get(cid),
-                            numeric_normalizations=task.get('numeric_normalizations', {}).get(cid))
-                        for cid in faces for locale in ('zh_CN', 'en_US')]
+        explicit = task.get('official_card_caches', {})
+        require(set(explicit) <= set(faces), 'Explicit primary caches must be in the official face scope')
+        require(all((locale, rows[cid]['dbf_id']) not in index
+                    for cid in explicit for locale in ('zh_CN', 'en_US')),
+                'Ambiguous primary face across catalog and explicit card cache')
+        observations = []
+        for cid in faces:
+            for locale in ('zh_CN', 'en_US'):
+                display = task.get('display_normalizations', {}).get(cid)
+                numeric = task.get('numeric_normalizations', {}).get(cid)
+                if cid in explicit:
+                    folder = (Path(root) / relative_file(explicit[cid])).resolve()
+                    require(folder.is_relative_to(Path(root).resolve()), 'Primary cache escaped its root')
+                    body = folder / f"{rows[cid]['dbf_id']}-{locale}.json"
+                    receipt = body.with_suffix('.receipt.json')
+                    require(body.is_file() and receipt.is_file(), 'Incomplete explicit primary cache pair')
+                    pin = read(receipt)
+                    require(type(pin.get('bytes')) is int and pin['bytes'] == body.stat().st_size,
+                            'Explicit primary cache byte identity changed')
+                    observations.append(official(rows[cid], locale, folder, offline=True,
+                        display_normalizations=display, numeric_normalizations=numeric))
+                else:
+                    observations.append(catalog_official(rows[cid], locale, index,
+                        display_normalizations=display, numeric_normalizations=numeric))
     else:
         with ThreadPoolExecutor(max_workers=4) as executor:
             observations = list(executor.map(lambda pair: official(rows[pair[0]], pair[1], cache, offline=offline,
@@ -534,6 +566,79 @@ def flatten(suite):
             yield from flatten(test)
         else:
             yield test.id()
+
+
+def local_import_closure(root, module, current_guard, *, cache=None):
+    """Conservative local static imports; unresolved dynamic imports forbid reuse."""
+    root = Path(root).resolve(); keys = set(current_guard)
+    require(re.fullmatch(r'[A-Za-z_][A-Za-z0-9_.]*', module), 'Invalid test module identity')
+    entry = 'tests/' + module.replace('.', '/') + '.py'
+    require(entry in keys, 'Selected test module is outside the current source guard')
+    memo = {} if cache is None else cache
+    identity = str(root), canonical(current_guard)
+    def resolve(name):
+        parts = name.split('.'); found = set()
+        for prefix in ('', 'tests/'):
+            paths = [prefix+'/'.join(parts)+'.py', prefix+'/'.join(parts)+'/__init__.py']
+            paths += [prefix+'/'.join(parts[:i])+'/__init__.py' for i in range(1, len(parts))]
+            found.update(p for p in paths if p in keys)
+        return found
+    seen = set(); pending = [entry]; dynamic = []
+    while pending:
+        path = pending.pop()
+        if path in seen: continue
+        seen.add(path); key = identity, path
+        if key not in memo:
+            require(sha(root/path) == current_guard[path], 'Current import source changed while proving reuse')
+            package = path[:-3].split('/')[:-1]
+            if package and package[0] == 'tests': package = package[1:]
+            imports = set(); unknown = []
+            for node in ast.walk(ast.parse((root/path).read_text(encoding='utf-8-sig'))):
+                names = []
+                if isinstance(node, ast.Import): names = [x.name for x in node.names]
+                elif isinstance(node, ast.ImportFrom):
+                    prefix = package[:len(package)-node.level+1] if node.level else []
+                    base = '.'.join(prefix+([node.module] if node.module else []))
+                    names = ([base] if base else []) + [(base+'.' if base else '')+x.name for x in node.names if x.name != '*']
+                elif isinstance(node, ast.Call):
+                    name = node.func.attr if isinstance(node.func, ast.Attribute) else node.func.id if isinstance(node.func, ast.Name) else None
+                    if name in ('import_module', '__import__'):
+                        if node.args and isinstance(node.args[0], ast.Constant) and type(node.args[0].value) is str and not node.args[0].value.startswith('.'):
+                            names = [node.args[0].value]
+                        else: unknown.append(dict(path=path, line=node.lineno))
+                    elif name in ('exec', 'eval', 'exec_module', 'module_from_spec'):
+                        unknown.append(dict(path=path, line=node.lineno))
+                for name in names: imports.update(resolve(name))
+            memo[key] = imports, unknown
+        imports, unknown = memo[key]
+        dynamic.extend(unknown); pending.extend(imports-seen)
+    return dict(dependencies=sorted(seen), dynamic_import_sites=dynamic)
+
+
+def verify_group_reuse(root, group, module, current_guard, expected_ids, *, import_cache=None):
+    """Reuse a complete green child group only when its actual local inputs agree."""
+    root, group = Path(root).resolve(), Path(group).resolve()
+    require(group.is_relative_to(root), 'Test group escaped its workspace')
+    result, inputs = read(group/'result.json'), read(group/'inputs.json')
+    require(not inputs.get('full_discovery', False), 'Group reuse must be scoped')
+    ids = inputs['selected']
+    require(ids and len(ids) == len(set(ids)) and set(ids) == set(expected_ids) and
+            all(x.startswith(module+'.') for x in ids), 'Group reuse selected methods are missing or repeated')
+    require(result['success'] and result['source_guard'] and result['exactly_once_coverage'] and
+            result['selected'] == result['executed'] == len(ids) and
+            not any(result[k] for k in ('failures', 'errors', 'skipped')), 'Group is not complete green evidence')
+    times = [json.loads(x) for x in (group/'test-times.jsonl').read_text(encoding='utf-8').splitlines() if x]
+    require(len(times) == len(ids) and {x['test'] for x in times} == set(ids) and
+            all(x['status'] == 'passed' for x in times), 'Group reuse lacks complete per-method evidence')
+    closure = local_import_closure(root, module, current_guard, cache=import_cache)
+    require(not closure['dynamic_import_sites'], 'Unresolved dynamic imports prevent group reuse')
+    original = {Path(k).as_posix(): v for k, v in inputs['source_sha256'].items()}
+    require(all(original.get(k) == current_guard.get(k) for k in closure['dependencies']),
+            'Group dependencies changed; previous green cannot be inherited')
+    return dict(module=module, output=group.relative_to(root).as_posix(), methods=ids,
+        seconds=result['seconds'], local_import_closure=closure['dependencies'], dynamic_import_sites=[],
+        complete_green_group=True, result_sha256=sha(group/'result.json'),
+        inputs_sha256=sha(group/'inputs.json'), test_times_sha256=sha(group/'test-times.jsonl'))
 
 
 def verify_run(root, run, names, current_guard, expected_ids):

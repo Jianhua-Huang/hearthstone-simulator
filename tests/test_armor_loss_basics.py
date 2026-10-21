@@ -342,7 +342,7 @@ class ArmorLossTests(unittest.TestCase):
         before = g.snapshot()
         for viewer in (1, 2):
             view = g.for_player(viewer).observe()['observation']
-            self.assertEqual(view['version'], 'player-view-v114')
+            self.assertEqual(view['version'], 'player-view-v115')
             self.assertEqual(view['players'][1]['hero']['armor'], 6)
             events = g.player_events(viewer)
             loss = [e for e in events if e['kind'] == 'armor_lost']
