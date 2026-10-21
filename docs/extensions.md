@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实“本回合获得过护甲”条件使用`armor_gains.gained_this_turn`，从原提交事实查询；不要按当前余额或宿主日志计数。需要主体执行时的新局面时先交普通`InvokeBehavior`，接受后保留原分支。四个原数值入口与保存边界见[增甲事实契约](m2-armor-gain-history.md)。
+
 真实未来随从入场设值注册`SummonEntryStatsProfile`并使用原`AddPlayerEffect`安装；不要用召唤后的观察者代替战吼前设值，也不要同步修改旧场面或手牌牌库。直接召唤通知和普通入场共用原唯一窗口，详见[契约](m3-summon-entry-stat-programs.md)。
 
 真实最高费条件注册`HandCostRankProfile`并读取原CAST的`hand_cost_rank`，不要在支付后重算手牌或用印刷费用排序。相邻自然亡语读取原`DeathRecord.adjacent_minions`，不要将原死亡位置直接索引已移除的当前场面；有限政策及待校准边界见[契约](m3-hand-cost-rank-death-neighbors.md)。

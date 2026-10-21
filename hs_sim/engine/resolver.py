@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v614'
+CORE_EFFECTS_VERSION = 'core-effects-v615'
 
 
 class Mechanics:
@@ -1459,7 +1459,10 @@ def double_stats(r, effect):
 def armor(r, effect):
     nonnegative(effect.amount)
     hero = r.state.entities[r.player(effect.player_id).hero_id]
+    before = hero.armor
     hero.armor += effect.amount
+    from .armor_gains import commit as commit_armor_gain
+    commit_armor_gain(r, hero, before, effect.amount, 'gain_armor')
     r.emit('armor_gained', target_id=hero.id, player_id=effect.player_id, amount=effect.amount)
 
 
@@ -2914,5 +2917,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_death_neighbor_effects(mechanics)
     from .next_spell_bodies import register as register_next_spell_body_effects
     register_next_spell_body_effects(mechanics)
+    from .armor_gains import register as register_armor_gain_facts
+    register_armor_gain_facts(mechanics)
     return mechanics
 

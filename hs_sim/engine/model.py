@@ -10889,6 +10889,7 @@ class GameState:
     overload_history: list[OverloadRecord] = field(default_factory=list)
     next_hero_health_change_id: int = 1
     hero_health_change_history: list[HeroHealthChangeRecord] = field(default_factory=list)
+    armor_gain_history: list = field(default_factory=list)
     next_healing_id: int = 1
     healing_history: list[HealingRecord] = field(default_factory=list)
     next_damage_id: int = 1
@@ -11076,6 +11077,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_overload_state(state)
     from .hero_health_history import validate_state as validate_hero_health_changes
     validate_hero_health_changes(state, registry)
+    from .armor_gains import validate_state as validate_armor_gains
+    validate_armor_gains(state, registry)
     from .healing_history import validate_state as validate_healing_history
     validate_healing_history(state, registry)
     from .damage_history import validate_state as validate_damage_history

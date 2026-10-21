@@ -355,9 +355,35 @@ class HeroHistoryTests(unittest.TestCase):
 
     def test_real_raynor_example_uses_players_restores_and_replays(self):
         from examples.relaunch_with_raynor import run
-        g,snapshot=run();self.assertEqual((len(g.history),len(g.events)),(7,58))
+        g,snapshot=run();self.assertEqual((len(g.history),len(g.events)),(7,65))
+        self.assertEqual(sum(e.kind != 'armor_gain_recorded' for e in g.events),60)
+        self.assertEqual(sum(e.kind == 'armor_gain_recorded' for e in g.events),5)
         self.assertEqual(sum(e.kind == 'health_resolved' for e in g.events), 2)
         self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
+
+    def test_raynor_armor_witness_control_preserves_actual_gameplay(self):
+        from unittest.mock import patch
+        from examples.relaunch_with_raynor import run
+        # Controlled bookkeeping comparison, not a claim to execute an old
+        # commit. The original mutators still own every balance and checkpoint.
+        with patch('hs_sim.engine.armor_gains.commit', return_value=None), patch(
+                'hs_sim.engine.armor_gains.validate_boundary', return_value=None):
+            control,control_snapshot=run()
+        actual,actual_snapshot=run()
+        self.assertEqual((len(control.events),len(actual.events)),(60,65))
+        self.assertEqual(len(actual.state.armor_gain_history),5)
+        def headers(g):
+            return [(e.action,e.kind,e.source_id,e.target_id,e.player_id,e.amount)
+                for e in g.events if e.kind!='armor_gain_recorded']
+        self.assertEqual(headers(actual),headers(control))
+        self.assertEqual(actual.state.entities,control.state.entities)
+        self.assertEqual(actual.state.players,control.state.players)
+        self.assertEqual(actual_snapshot['rng_state'],control_snapshot['rng_state'])
+        for player in (1,2):
+            self.assertEqual(actual.for_player(player).observe(),control.for_player(player).observe())
+            def projected(g):
+                return [{k:v for k,v in e.items() if k!='sequence'} for e in g.player_events(player)]
+            self.assertEqual(projected(actual),projected(control))
 
 
 if __name__=='__main__':

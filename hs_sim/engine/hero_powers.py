@@ -594,6 +594,8 @@ def play_hero(r, entity, *, origin=Zone.HAND):
     assign_hero_class(player, definition)
     r.refresh_auras()
     replace_hero_additional_powers(r, player, definition.additional_power_policy)
+    from .armor_gains import commit as commit_armor_gain
+    commit_armor_gain(r, entity, old.armor, definition.hero_armor, 'hero_card')
     r.emit('hero_replaced', source_id=old.id, target_id=entity.id, player_id=player.id,
            _hero_health_before=health_before)
     replace_hero_power(r, ReplaceHeroPower(player.id, definition.initial_hero_power))
@@ -624,6 +626,8 @@ def replace_hero(r, effect):
     new.damage = max(0, new.max_health - (old.health if effect.health is None else effect.health))
     r.refresh_auras()
     replace_hero_additional_powers(r, player, effect.additional_power_policy)
+    from .armor_gains import commit as commit_armor_gain
+    commit_armor_gain(r, new, old.armor, effect.armor, 'replacement')
     r.emit('hero_replaced', source_id=old.id, target_id=new.id, player_id=player.id,
            _hero_health_before=health_before)
     if effect.hero_power_card_id is not None:

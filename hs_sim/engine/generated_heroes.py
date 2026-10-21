@@ -113,6 +113,8 @@ def install_generated_hero_card(r, effect, *, offered=None):
     assign_hero_class(player, definition)
     r.refresh_auras()
     replace_hero_additional_powers(r, player, definition.additional_power_policy)
+    from .armor_gains import commit as commit_armor_gain
+    commit_armor_gain(r, new, old.armor, definition.hero_armor, 'generated_hero')
     r.emit('hero_replaced', source_id=old.id, target_id=new.id, player_id=player.id,
            _hero_health_before=health_before)
     replace_hero_power(r, power_effect)
