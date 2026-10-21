@@ -36,6 +36,7 @@ class SummonFromZone(Effect):
     cause: object = None
     on_summon: str | None = None
     attack_basis: str = 'printed'
+    stat_group_id: int | None = None
 
     def __post_init__(self):
         if self.on_summon is not None:
@@ -58,6 +59,10 @@ class SummonFromZone(Effect):
         if self.attack_basis == 'current' and (self.cause is None or self.query.attack_equals is None or
                 self.query.attack_parity is not None):
             raise ValueError('Current recruit Attack requires an attributed exact-Attack query')
+        if self.stat_group_id is not None:
+            _integer(self.stat_group_id, 'original recruit stat group', 1)
+            if self.cause is None or self.count != 1 or self.attack_basis != 'current':
+                raise ValueError('Recruit stat group needs its attributed single current-Attack slot')
 
 
 def summon_from_zone(r, effect):

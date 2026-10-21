@@ -354,6 +354,8 @@ class FrameCodec:
             reject_pool_summon_control(value.options)
             from .ordered_group_batches import reject_choice_control as reject_ordered_group_control
             reject_ordered_group_control(value.options)
+            from .recruit_stat_groups import reject_choice_control as reject_recruit_stat_group_control
+            reject_recruit_stat_group_control(value.options)
             from .discovery_summons import reject_choice_control as reject_discovery_summon_control
             reject_discovery_summon_control(value.options)
             from .random_split_damage import reject_choice_control as reject_split_choice_control

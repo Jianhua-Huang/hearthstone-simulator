@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v631'
+CORE_EFFECTS_VERSION = 'core-effects-v632'
 
 
 class Mechanics:
@@ -852,6 +852,7 @@ class Resolution:
             transparent_power_guard=(type(work) is CheckActiveEndTurn and
                 work.context.end_turn.subject.ability.kind!='limited_trigger')
             from .pool_summons import CONTROL as POOL_SUMMON_CONTROL
+            from .recruit_stat_groups import CONTROL as RECRUIT_STAT_CONTROL
             from .ordered_group_batches import CONTROL as ORDERED_GROUP_CONTROL
             from .discovery_summons import CONTROL as DISCOVERY_SUMMON_CONTROL
             from .hand_choice_followups import CONTROL as HAND_FOLLOWUP_CONTROL
@@ -860,7 +861,7 @@ class Resolution:
             from .whole_card_replays import DIAGNOSTIC_CONTROL as WHOLE_CARD_CONTROL
             from .indirect_body_targets import CONTROL as INDIRECT_BODY_CONTROL
             from .historical_body_targets import CONTROL as HISTORICAL_BODY_CONTROL
-            if type(work) in (*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
+            if type(work) in (*RECRUIT_STAT_CONTROL,*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
                               InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,RequestNaturalTurnEnd,*HERO_CONTROL) or transparent_power_guard:
                 # Diagnostic control work preserves the old callback window.
                 generated = self.game.mechanics.handler(work)(self,work)
@@ -2946,5 +2947,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_deathrattle_copies(mechanics)
     from .minion_attack_damage import register as register_minion_attack_damage
     register_minion_attack_damage(mechanics)
+    from .recruit_stat_groups import register as register_recruit_stat_groups
+    register_recruit_stat_groups(mechanics)
     return mechanics
 

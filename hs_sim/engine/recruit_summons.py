@@ -183,7 +183,8 @@ def validate_basis(state,registry,basis,*,closed=False):
     for row in basis.inventory:validate_allocation(state,registry,row.allocation,closed=closed)
     result=candidates(registry,basis)
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain
-    for ref in result:validate_plain(registry,SummonEntryMaterial(ref.card_id))
+    # Physical first/extra entries already delegate native Colossal expansion.
+    for ref in result:validate_plain(registry,SummonEntryMaterial(ref.card_id),allow_colossal=True)
     return result
 
 
