@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实生命转护甲使用`health_loss.ConvertHeroHealthToArmor`，以原损失实际差值衔接普通增甲；不要写成伤害或固定请求量加甲。原完成武器攻击、下限/替换和待校准边界见[契约](m2-health-armor-conversion.md)。
+
 非牌费完整护甲门槛用`SpendArmor`，不能拿`LoseArmor`或牌价付款代替。真实原地标召唤后奖励使用`SpendArmorForSummonedGroup`，以完整原交付锁定受益者；源入口、当前友方连续在场与通知政策见[契约](m3-armor-summon-reward.md)。
 
 真实“本回合获得过护甲”条件使用`armor_gains.gained_this_turn`，从原提交事实查询；不要按当前余额或宿主日志计数。需要主体执行时的新局面时先交普通`InvokeBehavior`，接受后保留原分支。四个原数值入口与保存边界见[增甲事实契约](m2-armor-gain-history.md)。

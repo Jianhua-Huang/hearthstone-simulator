@@ -44,6 +44,19 @@ class LoseHealth(Effect):
 
 
 @dataclass(frozen=True)
+class ConvertHeroHealthToArmor(Effect):
+    """Explicit loss and its actual remaining-health debit become armor."""
+    player_id: int
+    amount: int
+    source_id: int
+
+    def __post_init__(self):
+        _player(self.player_id)
+        _integer(self.amount, 'health to armor amount', 0)
+        _integer(self.source_id, 'health to armor source', 1)
+
+
+@dataclass(frozen=True)
 class SetHeroHealth(Effect):
     """Assign remaining Hero health without changing maximum or using healing/loss."""
     target_id: int
@@ -332,6 +345,26 @@ def gain_max_health(r, effect):
         r.emit(kind, **data)
 
 
+def convert_hero_health_to_armor(r, effect):
+    from .effects import GainArmor
+    from .resolver import armor, validate_attachment_source
+    effect.__post_init__()
+    validate_attachment_source(r, effect.source_id, None)
+    hero = current_living_hero(r, effect.player_id)
+    if hero is None:
+        return ()
+    before = hero.health
+    # Reuse the original EFFECT loss, including replacement and explicit floors.
+    # Freeze its delta before reactions can heal, replace or otherwise change it.
+    lose_health(r, LoseHealth(hero.id, effect.amount, effect.source_id))
+    actual = max(0, before-hero.health)
+    if actual:
+        # Both numeric commits precede the normal single checkpoint. Armor does
+        # not rescue a lethal loss; the ordinary fatal coordinator still owns it.
+        armor(r, GainArmor(effect.player_id, actual))
+    return ()
+
+
 def grant(r, effect):
     from .resolver import validate_attachment_source
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
@@ -349,6 +382,7 @@ def grant(r, effect):
 def register(mechanics):
     mechanics.register(GrantHealthLossReplacement, grant)
     mechanics.register(LoseHealth, lose_health)
+    mechanics.register(ConvertHeroHealthToArmor, convert_hero_health_to_armor)
     mechanics.register(SetHeroHealth, set_hero_health)
     mechanics.register(GainMaxHealth, gain_max_health)
     mechanics.register(ChangeHeroMaxHealth, change_hero_max_health)
