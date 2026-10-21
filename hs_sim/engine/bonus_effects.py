@@ -7,7 +7,7 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, GrantKeyword, _integer, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import AbilityInstance, CardType, Keyword, Zone
+from .model import AbilityInstance, BoardPresenceReference, CardType, Keyword, Zone
 from .zones import CardReference, reference_entity
 from .sacrifice import MinionReference
 
@@ -32,21 +32,37 @@ class GrantRandomBonusEffects(Effect):
     target_id: int
     count: int = 1
     source_id: int | None = None
+    presence: BoardPresenceReference | None = None
 
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
         _integer(self.count, 'bonus count', 0)
         _source(self.source_id)
+        if self.presence is not None:
+            if type(self.presence) is not BoardPresenceReference or self.presence.entity_id != self.target_id:
+                raise ValueError('Bonus recipient must match its original board residence')
+            self.presence.__post_init__()
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if self.presence is not None:
+            from .sacrifice import validate_reward_presence
+            validate_reward_presence(state, self.presence)
 
 
 def grant_random_bonus_effects(r, effect):
+    effect.validate_in_state(r.state)
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Bonus effect source does not exist')
     if effect.count > r.rules.max_resolution_steps:
         raise ResolutionLimitExceeded('Bonus effects exceed resolution budget')
     if not effect.count:
         return ()
-    entity = r.live_character(effect.target_id)
+    if effect.presence is not None:
+        from .sacrifice import live_reward_minion
+        entity = live_reward_minion(r.state, effect.presence)
+    else:
+        entity = r.live_character(effect.target_id)
     if entity is None:
         r.stale(effect, effect.target_id)
         return ()
@@ -59,7 +75,12 @@ def grant_random_bonus_effects(r, effect):
     keyword = r.game._rng.choice(candidates)
     # Shared attachments handle silence, expiry, copies and consumed keywords.
     # Reactions resolve before the next pick, whose eligibility is read afresh.
-    return (GrantKeyword(entity.id, keyword, effect.source_id), replace(effect, count=effect.count - 1))
+    if effect.presence is not None:
+        from .sacrifice import GrantCapturedKeyword
+        grant = GrantCapturedKeyword(effect.presence, keyword, effect.source_id)
+    else:
+        grant = GrantKeyword(entity.id, keyword, effect.source_id)
+    return (grant, replace(effect, count=effect.count - 1))
 
 
 def register_bonus_effects(mechanics):

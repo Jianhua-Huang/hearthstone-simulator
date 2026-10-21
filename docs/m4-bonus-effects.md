@@ -49,3 +49,13 @@ python -m hs_sim replay outputs/raven-replay.json --card-set representative
 
 
 v76复验说明：上文原批次契约和验收数字保留为历史；当前运行结果为raven_and_lift_off.py：5动作/49事件。完整结果及摘要见[59示例日志](../outputs/v76-examples.txt)；随从承诺/入场阶段变化见[反制契约](m5-minion-counters.md)。
+
+## 明确绑定原连续驻留的普通奖励
+
+`GrantRandomBonusEffects.presence`是显式可空的`BoardPresenceReference`。提供引用时，目标ID必须一致；实体与驻留分配须已经存在。每次实际抽样前检查原连续在场、当前存活/活跃和完整当前Bonus候选，失效时停止且不抽随机数。剩余次数保存同一引用，交付沿`GrantCapturedKeyword`再次检查后调用原普通附件授予。省略参数的旧调用继续按原目标ID和原政策执行，不能据新增参数放宽旧消费者。
+
+`BuffCapturedMinion`与`GrantCapturedKeyword`另外接受这一明确引用，统一沿`resolve_board_presence`查询当前材料并调用原属性/关键词管线。原`MinionReference`仍严格绑定原卡面、控制者、zone_epoch与入场序号；原牺牲、偷取及其他旧消费者不自动切换政策。变形/控制变化不结束连续驻留，离场再入会分配新驻留。待选帧的编码与解码都校验引用类型、实体与分配上界；未知/未来引用不能因次数为零或目标已失效而跳过结构校验。
+
+真实消费者[锋线铁裔](../hs_sim/cards/frontline_ironborn_card.py)从原死亡事件核对完整死亡记录及其原控制者、原本人回合区间。已经接受的两段奖励按同一引用执行：普通+2/+2及其反应先完成，再按当前关键词抽取一项额外效果；不为回手后重入的同ID交付旧奖励，不另设随机或附件执行器。奖励中变形、转控及沉默的具体窗口沿这一显式本地政策，仍需国服校准；完整Bonus池和突袭有用性继续沿上文R-035，不能由未知原始tag推断官方规则。源数据见[完整原行与双语主面](../data/cards/frontline-ironborn-v1.json)，实际验收和下一项仅在两份主台账登记。
+
+该接口扩展对应core628/schema516，旧1～515快照明确拒绝；命令、观察和replay版本不因内部引用变化而扩展，原有序效果及载荷类型保持。

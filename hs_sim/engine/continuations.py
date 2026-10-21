@@ -254,6 +254,10 @@ class FrameCodec:
         if type(value) in (ContinueNextSpellBodies, FinishNextSpellBody) and self.origin_state is not None:
             validate_next_spell_body(self.origin_state, self.registry, value)
         from .bonus_effects import RotatePrintedHandBonuses
+        from .bonus_effects import GrantRandomBonusEffects
+        from .sacrifice import BuffCapturedMinion, GrantCapturedKeyword
+        if type(value) in (GrantRandomBonusEffects, BuffCapturedMinion, GrantCapturedKeyword) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         if type(value) is RotatePrintedHandBonuses and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
         from .destruction_resources import DestroyMinionsForResources, CompleteDestroyedResources, validate_material as validate_destruction_resources

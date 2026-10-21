@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from .effects import Buff, Destroy, Effect, GrantDeathrattle, GrantKeyword, SetStats, Transform, _behavior, _integer, _player, _source
 from .errors import ResolutionError
-from .model import AbilityInstance, CardType, DeckSacrificeSpec, Keyword, LimitedTriggerSpec, StatReference, TimedKeywordSpec, Zone
+from .model import AbilityInstance, BoardPresenceReference, CardType, DeckSacrificeSpec, Keyword, LimitedTriggerSpec, StatReference, TimedKeywordSpec, Zone
 
 
 @dataclass(frozen=True)
@@ -53,8 +53,11 @@ def live_minion(state, reference):
     return entity if entity is not None and entity.active and entity.health > 0 and not entity.doomed else None
 
 
-def reward_values(effect):
-    reference_value(effect.beneficiary)
+def reward_values(effect, *, board_presence=False):
+    if board_presence and type(effect.beneficiary) is BoardPresenceReference:
+        effect.beneficiary.__post_init__()
+    else:
+        reference_value(effect.beneficiary)
     _integer(effect.attack, 'reward attack')
     _integer(effect.health, 'reward health', 0)
     _source(effect.source_id)
@@ -62,13 +65,18 @@ def reward_values(effect):
 
 @dataclass(frozen=True)
 class BuffCapturedMinion(Effect):
-    beneficiary: MinionReference
+    beneficiary: MinionReference | BoardPresenceReference
     attack: int = 0
     health: int = 0
     source_id: int | None = None
 
     def __post_init__(self):
-        reward_values(self)
+        reward_values(self, board_presence=True)
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if type(self.beneficiary) is BoardPresenceReference:
+            validate_reward_presence(state, self.beneficiary)
 
 
 @dataclass(frozen=True)
@@ -211,22 +219,30 @@ def transform_captured_minion(r,effect):
 
 @dataclass(frozen=True)
 class GrantCapturedKeyword(Effect):
-    beneficiary: MinionReference
+    beneficiary: MinionReference | BoardPresenceReference
     keyword: Keyword
     source_id: int | None = None
     expires_turn: int | None = None
     duration: TimedKeywordSpec | None = None
 
     def __post_init__(self):
-        reference_value(self.beneficiary)
+        if type(self.beneficiary) is BoardPresenceReference:
+            self.beneficiary.__post_init__()
+        else:
+            reference_value(self.beneficiary)
         GrantKeyword(self.beneficiary.entity_id, self.keyword, self.source_id, self.expires_turn, duration=self.duration)
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if type(self.beneficiary) is BoardPresenceReference:
+            validate_reward_presence(state, self.beneficiary)
 
 
 def grant_captured_keyword(r, effect):
     from .resolver import grant_ability, validate_attachment_source
     effect.__post_init__(); validate_request(r, effect)
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
-    if live_minion(r.state, effect.beneficiary) is None:
+    if live_reward_minion(r.state, effect.beneficiary) is None:
         r.stale(effect, effect.beneficiary.entity_id)
         return ()
     grant_ability(r, GrantKeyword(effect.beneficiary.entity_id, effect.keyword, effect.source_id, effect.expires_turn,
@@ -373,8 +389,26 @@ def validate_request(r, effect):
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Destruction reward source does not exist')
     for ref in (effect.beneficiary, *((effect.victim,) if hasattr(effect, 'victim') else ())):
+        if type(ref) is BoardPresenceReference:
+            validate_reward_presence(r.state, ref)
+            continue
         if r.registry.card(ref.card_id).kind != CardType.MINION:
             raise ResolutionError('Destruction reward references require minion definitions')
+
+
+def validate_reward_presence(state, reference):
+    reference.__post_init__()
+    if reference.entity_id not in state.entities or reference.presence_id >= state.next_order:
+        raise ValueError('Captured reward borrowed an unknown or future board residence')
+
+
+def live_reward_minion(state, reference):
+    if type(reference) is not BoardPresenceReference:
+        return live_minion(state, reference)
+    from .board_presence import resolve_board_presence
+    validate_reward_presence(state, reference)
+    entity = resolve_board_presence(state, reference)
+    return entity if entity is not None and entity.active and entity.health > 0 and not entity.doomed else None
 
 
 def destroy_for_buff(r, effect):
@@ -434,7 +468,7 @@ def deck_sacrifice_aura(r, beneficiary):
 def buff_captured_minion(r, effect):
     from .resolver import buff
     validate_request(r, effect)
-    if live_minion(r.state, effect.beneficiary) is None:
+    if live_reward_minion(r.state, effect.beneficiary) is None:
         r.stale(effect, effect.beneficiary.entity_id)
         return ()
     buff(r, Buff(effect.beneficiary.entity_id, effect.attack, effect.health, effect.source_id))
