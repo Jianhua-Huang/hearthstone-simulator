@@ -1391,12 +1391,18 @@ class KeywordAuraSpec:
             supported.add(Keyword.ECHO)
         if type(self.keyword) is not Keyword or self.keyword not in supported:
             raise ValueError('Keyword aura requires a supported continuous keyword')
-        if not hand and self.target not in ('friendly_hero', 'friendly_minions', 'enemy_minions', 'self'):
+        if not hand and self.target not in ('friendly_hero', 'friendly_minions', 'enemy_minions', 'self',
+                                          'friendly_leftmost_minion', 'friendly_rightmost_minion'):
             raise ValueError('Unsupported keyword aura target')
         _bool(self.include_self, 'keyword aura include_self')
         _bool(self.adjacent_only, 'keyword aura adjacent_only')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
         _aura_card_ids(self.card_ids)
+        positional = {'friendly_leftmost_minion': Keyword.RUSH,
+                      'friendly_rightmost_minion': Keyword.IMMUNE_WHILE_ATTACKING}
+        if self.target in positional and (self.keyword != positional[self.target] or not self.include_self or
+                self.adjacent_only or self.condition != 'always' or self.tribes_any or self.card_ids):
+            raise ValueError('Positional native keyword aura requires its exact independent board scope')
         if self.target == 'enemy_minions' and (self.keyword != Keyword.TAUNT or self.include_self or
                 self.adjacent_only or self.condition != 'always' or self.tribes_any or self.card_ids):
             raise ValueError('Native enemy keyword aura requires ordinary board Taunt')
@@ -3430,7 +3436,8 @@ class AbilityInstance:
             if type(self.keyword_aura) is not KeywordAuraSpec:
                 raise ValueError('Keyword aura requires KeywordAuraSpec')
             self.keyword_aura.__post_init__()
-            if (self.keyword_aura.condition != 'always' or self.keyword_aura.tribes_any or self.keyword_aura.card_ids) and (self.origin != 'printed' or
+            if (self.keyword_aura.condition != 'always' or self.keyword_aura.tribes_any or self.keyword_aura.card_ids or
+                    self.keyword_aura.target in ('friendly_leftmost_minion', 'friendly_rightmost_minion')) and (self.origin != 'printed' or
                     self.source_id is None or self.expires_turn is not None or self.consumed or
                     not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Conditional self keywords require native removable non-fusion declarations')

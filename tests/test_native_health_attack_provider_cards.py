@@ -1,5 +1,5 @@
 """Five real native providers; current source typing and continuous targeting."""
-from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
 from copy import deepcopy
 from dataclasses import asdict,replace
 import json,unittest
@@ -91,14 +91,30 @@ class NativeHealthAttackProviderTests(unittest.TestCase):
     def portable(self,g):
         saved=g.snapshot();self.assertEqual(Game.from_snapshot(saved,registry()).snapshot(),saved);self.assertEqual(g.clone().snapshot(),saved);self.assertEqual(replay(build_replay(g),registry()).snapshot(),saved)
     def attack(self,g,cid,target=None,p=1):g.apply(Attack(p,self.first(g,cid,p).id,self.hero(g,3-p).id if target is None else target))
-    def test_five_complete_roots_keep_all_unimplemented_chromatus_faces(self):
+    def test_five_complete_roots_keep_original_evidence_and_later_chromatus_adapters(self):
         d=load_batch();self.assertEqual(canonical_digest(d),BATCH_HASH);self.assertEqual((len(d['cards']),len(d['dependencies']),len(d['evidence_only'])),(5,0,7))
         for row in d['cards']+d['evidence_only']:self.assertEqual(canonical_digest(row['record']),row['record_sha256'])
         self.assertEqual((self.r.card(KAYN).attack,self.r.card(KAYN).health,self.r.card(KAYN).metadata.deck_identity),(3,5,'BT_187'))
-        for cid in('CATA_432','CATA_432t1','CATA_432t2','CATA_432t3','CATA_432t4','BT_187'):self.assertNotIn(cid,self.r.cards)
-    def test_old1076_definitions_and_default_fingerprint_are_unchanged(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k82-before/definition-digests.json').read_bytes());self.assertEqual(len(old),1076)
-        self.assertEqual(old,historical_definition_digests(self.r,old));self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
+        # Chromatus was subsequently integrated; retain the original complete
+        # evidence and check those actual adapters instead of historical absence.
+        evidence={row['record']['id']:row['record'] for row in d['evidence_only']}
+        for cid in ('CATA_432','CATA_432t1','CATA_432t2','CATA_432t3','CATA_432t4'):
+            raw=evidence[cid];current=self.r.card(cid)
+            self.assertEqual((current.kind,current.cost,current.attack,current.health),
+                (CardType.MINION,raw['cost'],raw['attack'],raw['health']))
+        self.assertNotIn('BT_187',self.r.cards)
+    def test_old1076_keep_complete_accepted_successors_and_default_fingerprint(self):
+        old=json.loads((ROOT/'outputs/card-integration-20261014/k82-before/definition-digests.json').read_bytes())
+        self.assertEqual(len(old),1076)
+        self.assertEqual(canonical_digest(old),'cc1e50f065dbaf80eb479f969e3fc3a2b5dca54f0ea6579c7b5855134eb9f2d5')
+        # Later accepted corrections predate this increment. Pin the complete
+        # K347 predecessor, without changing old history or accepting today's
+        # arbitrary definitions as a new baseline.
+        accepted=json.loads((ROOT/'outputs/card-integration-20261014/k347-hatching-sigil/after-01.json').read_bytes())
+        expected={cid:canonical_digest(accepted['definitions'][cid]) for cid in old}
+        self.assertEqual(canonical_digest(expected),'7607a1ea58650befe2c0ca3907623b158b99ae7516a48209e26c94ec3bf1ce84')
+        self.assertEqual(expected,{cid:canonical_digest(asdict(self.r.card(cid))) for cid in old})
+        self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_quantum_doubles_effect_spell_and_combat_without_changing_stats(self):
         for mode,amount in(('hurt',4),('bolt',6),('attack',6)):
             with self.subTest(mode=mode):

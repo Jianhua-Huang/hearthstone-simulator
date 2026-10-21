@@ -6,6 +6,14 @@ from .lifecycle import active_abilities, attachment_id, refresh_entity
 from .model import AbilityInstance, CardType, KeywordAuraSpec, Zone
 
 
+POSITIONAL_TARGETS = ('friendly_leftmost_minion', 'friendly_rightmost_minion')
+
+
+def native_scope(spec):
+    return (spec.condition != 'always' or spec.tribes_any or spec.card_ids or
+            spec.target in POSITIONAL_TARGETS)
+
+
 def validate_definition(card):
     if type(card.keyword_auras) is not tuple or any(type(a) is not KeywordAuraSpec for a in card.keyword_auras):
         raise ValueError('keyword_auras requires a tuple of KeywordAuraSpec')
@@ -13,7 +21,7 @@ def validate_definition(card):
         raise ValueError('Keyword aura sources must be minions')
     for spec in card.keyword_auras:
         spec.__post_init__()
-    conditional = tuple(s for s in card.keyword_auras if s.condition != 'always' or s.tribes_any or s.card_ids)
+    conditional = tuple(s for s in card.keyword_auras if native_scope(s))
     if conditional:
         from .stat_relations import validate_ordinary_face
         validate_ordinary_face(card)
@@ -24,11 +32,11 @@ def validate_definition(card):
 def validate_carrier(registry, card_id, kind, abilities, components=()):
     rows = []
     card = registry.card(card_id)
-    tribal_native = any(s.condition != 'always' or s.tribes_any or s.card_ids for s in card.keyword_auras)
+    tribal_native = any(native_scope(s) for s in card.keyword_auras)
     for ability in abilities:
         if ability.kind == 'keyword_aura':
             ability.__post_init__()
-            if (ability.keyword_aura.condition != 'always' or ability.keyword_aura.tribes_any or ability.keyword_aura.card_ids or
+            if (native_scope(ability.keyword_aura) or
                     tribal_native and ability.origin == 'printed'):
                 rows.append(ability)
     if not rows: return
@@ -86,6 +94,8 @@ class GrantKeywordAura(Effect):
             raise ValueError('Conditional keyword grants are not supported')
         if self.spec.tribes_any or self.spec.card_ids:
             raise ValueError('Filtered keyword grants are not supported')
+        if self.spec.target in POSITIONAL_TARGETS:
+            raise ValueError('Positional keyword auras require their native declaration')
         if self.expires_turn is not None:
             _integer(self.expires_turn, 'keyword aura expiry', 1)
 
@@ -118,6 +128,13 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                 targets = (player.hero_id,) if spec.target == 'friendly_hero' else player.board
                 if spec.target == 'enemy_minions':
                     targets = state.players[3-source.controller].board
+                if spec.target in POSITIONAL_TARGETS:
+                    # Select the actual edge minion before active-recipient filtering.
+                    # A dormant minion keeps its place; locations/building objects do not.
+                    minions = tuple(i for i in player.board if state.entities[i].kind == CardType.MINION
+                                    and not state.entities[i].interactable_object
+                                    and not state.entities[i].starship_building)
+                    targets = minions[:1] if spec.target == 'friendly_leftmost_minion' else minions[-1:]
                 if spec.adjacent_only:
                     targets = player.board[max(0, index - 1):index] + player.board[index + 1:index + 2]
                 for target_id in targets:
