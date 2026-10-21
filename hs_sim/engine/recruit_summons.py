@@ -91,9 +91,11 @@ class RecruitCandidateFact:
     allocation:SourceAllocationFact
     current_battlecry:bool
     jade_size:int|None=None
+    current_attack:int|None=None
     def __post_init__(self):
         if type(self.allocation)is not SourceAllocationFact or type(self.current_battlecry)is not bool:raise ValueError('Complete typed original physical zone candidate required')
         self.allocation.__post_init__()
+        if self.current_attack is not None:_integer(self.current_attack,'original physical candidate Attack',0)
         if self.jade_size is not None:
             from .jade import size_value
             size_value(self.jade_size)
@@ -115,6 +117,7 @@ class RecruitBasis:
     action:int
     next_entity_id:int
     next_order:int
+    attack_basis:str='printed'
     def __post_init__(self):
         from .pools import PoolQuery
         _player(self.player_id);_player(self.owner_id)
@@ -126,8 +129,14 @@ class RecruitBasis:
         if (self.query.class_mode in ('current','other'))!=(self.hero_class is not None):raise ValueError('Original recruit class basis differs from query')
         if self.hero_class is not None and(type(self.hero_class)is not CardClass or self.hero_class==CardClass.NEUTRAL):raise ValueError('Original recruit needs a playable class')
         if type(self.inventory)is not tuple or any(type(x)is not RecruitCandidateFact for x in self.inventory):raise ValueError('Complete ordered physical zone inventory required')
+        if type(self.attack_basis)is not str or self.attack_basis not in('printed','current'):
+            raise ValueError('Unknown original recruit Attack basis')
+        if self.attack_basis=='current' and (self.query.attack_equals is None or self.query.attack_parity is not None):
+            raise ValueError('Current physical Attack requires its exact numeric query')
         for row in self.inventory:
             row.__post_init__();a=row.allocation
+            if (row.current_attack is not None)!=(self.attack_basis=='current'):
+                raise ValueError('Physical Attack inventory differs from its original selector basis')
             if (a.controller,a.zone,a.next_entity_id,a.next_order)!=(self.owner_id,self.zone,self.next_entity_id,self.next_order):raise ValueError('Original zone inventory borrowed another location/window')
         if len({x.allocation.entity_id for x in self.inventory})!=len(self.inventory):raise ValueError('Duplicate physical zone inventory identity')
 
@@ -138,6 +147,7 @@ def candidates(registry,basis):
     if basis.query.exclude_source:
         if basis.source is None:raise ValueError('Recruit exclusion requires original query source')
         excluded.add(basis.source.card_id)
+    query=replace(basis.query,attack_equals=None)if basis.attack_basis=='current'else basis.query
     result=[]
     for fact in basis.inventory:
         a=fact.allocation;card=registry.card(a.card_id)
@@ -146,7 +156,8 @@ def candidates(registry,basis):
         if (family is None)!=(fact.jade_size is None) or family is not None and family.card_for(fact.jade_size)!=a.card_id:
             raise ValueError('Original recruit candidate lost its innate Jade size')
         cost=card.cost if fact.jade_size is None else min(10,fact.jade_size)
-        if a.card_id not in excluded and matches_metadata(basis.query,card_id=a.card_id,kind=card.kind,cost=cost,
+        if basis.attack_basis=='current'and fact.current_attack!=basis.query.attack_equals:continue
+        if a.card_id not in excluded and matches_metadata(query,card_id=a.card_id,kind=card.kind,cost=cost,
             meta=card.metadata,spell_school=card.spell_school,keywords=card.keywords,current_class=basis.hero_class,
             printed_battlecry=card.battlecry is not None,current_battlecry=fact.current_battlecry,
             printed_attack=card.attack if fact.jade_size is None else fact.jade_size):result.append(fact.reference())
@@ -156,12 +167,13 @@ def candidates(registry,basis):
 def capture_basis(r,spec):
     from .summon_sources import minion_query
     from .card_conditions import has_battlecry
-    inventory=tuple(RecruitCandidateFact(SourceAllocationFact.capture(r.state,r.state.entities[i]),has_battlecry(r.state.entities[i].abilities),r.state.entities[i].jade_size)
+    inventory=tuple(RecruitCandidateFact(SourceAllocationFact.capture(r.state,r.state.entities[i]),has_battlecry(r.state.entities[i].abilities),r.state.entities[i].jade_size,
+        r.state.entities[i].attack if spec.attack_basis=='current'else None)
         for i in getattr(r.player(spec.owner_id or spec.player_id),spec.zone.value))
     return RecruitBasis(spec.player_id,spec.owner_id or spec.player_id,spec.zone,minion_query(spec.query),
         None if spec.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[spec.source_id]),
         r.player(spec.player_id).hero_class if spec.query.class_mode in('current','other')else None,
-        inventory,r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order)
+        inventory,r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order,spec.attack_basis)
 
 
 def validate_basis(state,registry,basis,*,closed=False):
@@ -416,7 +428,7 @@ def validate_record(state,registry,root,*,closed=False,children=None):
         if row.selection!=root.spec.selection:raise ValueError('Recruit selection mode differs from original request')
         if row.basis is not None:
             b=row.basis
-            if (b.player_id,b.owner_id,b.zone,b.query)!=(root.spec.player_id,root.spec.owner_id or root.spec.player_id,root.spec.zone,minion_query(root.spec.query))or(None if b.source is None else b.source.entity_id)!=root.spec.source_id:raise ValueError('Recruit query basis differs from original request')
+            if (b.player_id,b.owner_id,b.zone,b.query,b.attack_basis)!=(root.spec.player_id,root.spec.owner_id or root.spec.player_id,root.spec.zone,minion_query(root.spec.query),root.spec.attack_basis)or(None if b.source is None else b.source.entity_id)!=root.spec.source_id:raise ValueError('Recruit query basis differs from original request')
             if b.turn<root.turn or b.action<root.action or validate_basis(state,registry,b,closed=closed)!=row.candidates:raise ValueError('Recruit lost its complete original ordered candidate query')
         if row.entry_root_id is not None:
             child=children.get(row.entry_root_id)

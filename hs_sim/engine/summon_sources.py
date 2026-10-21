@@ -35,6 +35,7 @@ class SummonFromZone(Effect):
     stats: SummonStats | None = None
     cause: object = None
     on_summon: str | None = None
+    attack_basis: str = 'printed'
 
     def __post_init__(self):
         if self.on_summon is not None:
@@ -52,6 +53,11 @@ class SummonFromZone(Effect):
         minion_query(self.query); position_value(self.position)
         if self.selection not in ('random', 'first'):
             raise ValueError('Unknown zone summon selection policy')
+        if type(self.attack_basis) is not str or self.attack_basis not in ('printed','current'):
+            raise ValueError('Unknown physical recruit Attack basis')
+        if self.attack_basis == 'current' and (self.cause is None or self.query.attack_equals is None or
+                self.query.attack_parity is not None):
+            raise ValueError('Current recruit Attack requires an attributed exact-Attack query')
 
 
 def summon_from_zone(r, effect):

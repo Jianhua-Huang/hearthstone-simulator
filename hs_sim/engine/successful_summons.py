@@ -11,6 +11,18 @@ from .model import CardType, DeathRecord, Event, Keyword, TribeChangeSpec, Zone,
 from .tribes import TribeState, apply_change, tribe_changes, tribe_state_for
 from .effects import Effect
 
+ENTRY_STATS_KEY = '_entry_stats'
+
+
+def publication_stats(state,entity_id,data):
+    """Freeze actual board-entry attributes at the original publication point."""
+    if ENTRY_STATS_KEY in data:
+        raise ValueError('Entry stats belong to the original summon publisher')
+    entity=state.entities.get(entity_id)
+    if entity is None or entity.kind!=CardType.MINION or entity.zone!=Zone.BOARD:
+        raise ValueError('Entry stats require an actual original board minion')
+    return {ENTRY_STATS_KEY:(entity.attack,entity.health,entity.max_health)}
+
 
 @dataclass(frozen=True)
 class BuffSummonedMinion(Effect):
@@ -120,9 +132,17 @@ class SuccessfulSummonRecord:
     printed_tribes: TribeState | None
     tribe_changes: tuple[TribeChangeSpec, ...]
     tribes: TribeState | None
+    entry_attack: int
+    entry_health: int
+    entry_max_health: int
     reborn_death_id: int | None = None
 
     def __post_init__(self):
+        _int(self.entry_attack,'actual entry Attack',0)
+        _int(self.entry_max_health,'actual entry maximum Health')
+        _int(self.entry_health,'actual entry remaining Health')
+        if self.entry_health>self.entry_max_health:
+            raise ValueError('Entry remaining Health exceeds its original maximum')
         if self.reborn_death_id is not None:
             _int(self.reborn_death_id, 'original successful Reborn death', 1)
         for name in ('id', 'player_id', 'active_player', 'turn', 'event_sequence'):
@@ -265,6 +285,10 @@ def _validate_event(row, event):
             row.entity_id, row.entity_id, row.player_id, 0):
         raise ValueError('Successful summon differs from its original physical publication')
     data = dict(event.data)
+    stats=data.get(ENTRY_STATS_KEY)
+    if (type(stats)not in(tuple,list)or len(stats)!=3 or any(type(v)is not int for v in stats)or
+            tuple(stats)!=(row.entry_attack,row.entry_health,row.entry_max_health)):
+        raise ValueError('Successful summon changed its original published entry stats')
     if 'reborn_from' in data:
         _int(data['reborn_from'], 'original Reborn parent', 1)
         _int(data.get('death_id'), 'original Reborn death', 1)
@@ -278,8 +302,8 @@ def _validate_event(row, event):
 def commit(r, event):
     """One hook after the original successful event, before listener capture.
 
-This records success; it does not create/move a minion, resolve a body, change
-the event payload or introduce a checkpoint. Failed/canceled paths stay owned
+This records success and the entry stats frozen by the original publisher; it
+does not create/move a minion, resolve a body or introduce a checkpoint. Failed/canceled paths stay owned
 by their original executors.
 """
     state = r.state
@@ -295,6 +319,7 @@ by their original executors.
         SourceAllocationFact.capture(state, entity), tribe_state_for(r.registry, entity.card_id, basis='printed'),
         tuple(change.tribe_change for change in tribe_changes(entity)),
         tribe_state_for(r.registry, entity.card_id, tribe_changes(entity)),
+        entity.attack, entity.health, entity.max_health,
         data.get('death_id') if 'reborn_from' in data else None)
     _validate_event(row, event)
     if row.reborn_death_id is not None:

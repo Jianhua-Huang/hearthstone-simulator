@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v630'
+CORE_EFFECTS_VERSION = 'core-effects-v631'
 
 
 class Mechanics:
@@ -320,6 +320,9 @@ class Resolution:
         if _hand_entry_record is not None:
             from .hand_history import prepare_publication
             data.update(prepare_publication(self, _hand_entry_record, source_id, target_id, player_id, amount, _capture))
+        if kind == 'minion_summoned':
+            from .successful_summons import publication_stats
+            data.update(publication_stats(self.state,target_id,data))
         event = Event(sequence=len(self.game._events) + 1, action=self.state.action_number,
                       kind=kind, source_id=source_id, target_id=target_id,
                       player_id=player_id, amount=amount, data=tuple(sorted(deepcopy(data).items())))
