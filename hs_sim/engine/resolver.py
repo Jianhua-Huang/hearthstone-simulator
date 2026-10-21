@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v638'
+CORE_EFFECTS_VERSION = 'core-effects-v639'
 
 
 class Mechanics:
@@ -1220,8 +1220,9 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
         settle(packet, instruction.on_result)
     # Converted lifesteal damage must not create another lifesteal restoration.
     # This explicit guard is separate from the engineering resolution budget.
-    restorations = [(source_packet, Heal(state.players[source_packet.source_controller].hero_id,
-        amount, source_packet.source_id, source_packet.healing_kind)) for source_packet, amount in lifesteals]
+    from .lifesteal_recipients import targets as lifesteal_targets
+    restorations = [(source_packet, Heal(target_id, amount, source_packet.source_id, source_packet.healing_kind))
+        for source_packet, amount in lifesteals for target_id in lifesteal_targets(state, r.registry, source_packet)]
     restored_packets = [prepare_health(state, r.registry, instruction, rules=rules,
         from_lifesteal=True, source_packet=source_packet) for source_packet, instruction in restorations]
     restoration_rules = claim_healing_conversion(r, state, restored_packets, rules, pending_events)

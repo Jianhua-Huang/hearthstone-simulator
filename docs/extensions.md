@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实吸血武器需要恢复两个英雄时注册有限`LifestealRecipientProfile`，交原健康批次生成两项普通恢复；不要在伤害通知后另写治疗触发或复制第一位英雄的实际恢复量。其他来源保持原单英雄规则，生命周期和未校准边界见[唤光长枪契约](m3-lightcaller-lifesteal.md)。
+
 真实“每个学派的下一个法术双施法”使用七个独立`AddSpellRepeatModifier(..., automatic=True)`；当前只支持有来源、单学派、一次用途、总2次的有限范围。不要给所有手牌贴临时重复属性或复制施法执行器；旧默认仍只匹配手牌出牌。原自动接受/消费、待选恢复及待国服校准边界见[地母契约](m3-therazane-school-budgets.md)。
 
 真实法术数字可用`RemainingManaNumbersProfile`加原`SpellSourceCostProfile`冻结提交/自动接受输入；真实神圣光环以`SpellSourceCostObserverProfile`要求全部神圣CAST的费用事实，完成回调读取原`source_cost`。不要在完成后重报价格或用实际支付量替代费用，见[士兵契约](m3-holy-soldiers.md)。
