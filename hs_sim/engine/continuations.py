@@ -402,6 +402,9 @@ class FrameCodec:
         from .automatic_targets import AutomaticTargetProof, validate_proof as validate_automatic_target_proof
         if type(value) is AutomaticTargetProof:
             validate_automatic_target_proof(value, self.registry)
+        from .card_spell_repeats import CardCastRepeatProof, validate_automatic_proof as validate_card_cast_repeat
+        if type(value) is CardCastRepeatProof:
+            validate_card_cast_repeat(value, self.registry)
         from .automatic_spell_groups import AutomaticSpellGroupProof, validate_proof as validate_automatic_group
         if type(value) is AutomaticSpellGroupProof:
             validate_automatic_group(value, self.registry)

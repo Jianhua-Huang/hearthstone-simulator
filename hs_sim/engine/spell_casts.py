@@ -4,7 +4,7 @@ R-088 records provisional targeting, condition and automatic-choice windows.
 """
 from .hand_capacity import hand_capacity
 from copy import deepcopy
-from dataclasses import asdict, dataclass, replace
+from dataclasses import asdict, dataclass, fields, replace
 import json
 
 from .effects import Effect, _integer, _player, _source
@@ -27,6 +27,19 @@ def cast_record(state, cast_id):
     if cast_id > len(state.cast_history):
         raise ValueError('Unknown spell cast')
     return state.cast_history[cast_id - 1]
+
+
+def bind_cast_prefix(before, state):
+    """Later payload progress cannot rewrite an earlier CAST's accepted input."""
+    progress = {'payload_started', 'completed', 'interrupted', 'local_spell_damage',
+        'spell_damage_effects', 'native_spell_value', 'aura_duration_grants', 'spell_aura_id',
+        'next_spell_bonus_effects', 'next_spell_body_effects', 'next_spell_body_cursor'}
+    if len(before.cast_history) > len(state.cast_history):
+        raise ValueError('Acceptance lost its complete original CAST prefix')
+    for old, new in zip(before.cast_history, state.cast_history):
+        fixed = lambda row:tuple(getattr(row, f.name) for f in fields(type(row)) if f.name not in progress)
+        if fixed(old) != fixed(new) or old.completed and not new.completed or old.interrupted and not new.interrupted:
+            raise ValueError('Acceptance changed an immutable earlier CAST target or input')
 
 
 def capture_target_origin(state, target_id):
@@ -96,6 +109,14 @@ def cast_owner_turn_id(state):
     if state.opening is None or state.opening.stage == 'complete':
         raise ResolutionError('A spell cast needs a real current interval or pre-first opening')
     return None
+
+
+def automatic_conditions(state, definition, player_id):
+    """The single condition clock used by actual automatic casts and proofs."""
+    from .play_history import played_cards
+    return dict(combo=bool(played_cards(state, player_id, turn=state.turn)),
+        outcast=False, finale=False, quickdraw=False,
+        manathirst=definition.manathirst is not None and state.players[player_id].max_mana >= definition.manathirst)
 
 
 def accepted_fact_id(event):
@@ -314,10 +335,7 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
     if definition.kind != CardType.SPELL:
         raise ResolutionError('Casting requires a spell')
     # Hand-only positional/payment conditions do not acquire a fabricated play.
-    conditions = dict(combo=bool(played_cards(r.state, effect.player_id, turn=r.state.turn)),
-        outcast=False, finale=False, quickdraw=False,
-        manathirst=definition.manathirst is not None and
-            r.player(effect.player_id).max_mana >= definition.manathirst)
+    conditions = automatic_conditions(r.state, definition, effect.player_id)
     from .hand_cost_rank import capture as capture_hand_rank
     hand_rank = capture_hand_rank(r.state, r.registry, entity, player_id=effect.player_id)
     r.move(entity, Zone.GRAVEYARD)

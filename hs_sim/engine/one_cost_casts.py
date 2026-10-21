@@ -4,6 +4,8 @@ import json
 from .effects import Effect,_integer
 from .errors import ResolutionError
 from .arcane_dragon_providers import NativeRepeatPlan
+from .card_spell_repeats import CardCastRepeatPlan, CardCastRepeatProof
+from .model import Zone
 
 ACCEPTED='native_spell_repeat_accepted'
 STARTED='native_spell_repeat_started'
@@ -17,25 +19,32 @@ def native_spec(spec):
 class RepeatAutomaticSpell(Effect):
     cast_id: int
     behaviors: tuple[str,...]
-    plan: NativeRepeatPlan
+    plan: NativeRepeatPlan | CardCastRepeatPlan
+    card_proof: CardCastRepeatProof | None = None
     def __post_init__(self):
         _integer(self.cast_id,'original native repeated cast',1)
         if type(self.behaviors)is not tuple or any(type(x)is not str or not x for x in self.behaviors):raise ValueError('Native repeat requires frozen original spell bodies')
-        if type(self.plan)is not NativeRepeatPlan:raise ValueError('Native repeat requires its complete original plan')
+        if type(self.plan)not in (NativeRepeatPlan,CardCastRepeatPlan):raise ValueError('Automatic repeat requires its complete original plan')
         self.plan.__post_init__()
+        if self.card_proof is not None and (type(self.card_proof) is not CardCastRepeatProof or
+                type(self.plan) is not CardCastRepeatPlan or self.card_proof.plan != self.plan):
+            raise ValueError('Automatic repeat borrowed another original card grant proof')
 
 
 def capture_automatic(r,entity,player_id):
     from .arcane_dragon_providers import capture
-    return capture(r,entity,player_id)
+    from .card_spell_repeats import capture_automatic as capture_card
+    native = capture(r,entity,player_id)
+    return capture_card(r,entity,player_id,native) or native
 
 
 def accept_automatic(r,record,behaviors,captured):
     if captured is None:return ()
-    work=RepeatAutomaticSpell(record.id,behaviors,captured)
+    proof = captured if type(captured) is CardCastRepeatProof else None
+    work=RepeatAutomaticSpell(record.id,behaviors,proof.plan if proof is not None else captured,proof)
     from .continuations import FrameCodec
     r.emit(ACCEPTED,source_id=record.source_id,player_id=record.player_id,cast_id=record.id,
-        plan=json.dumps(FrameCodec(r.game.mechanics,r.registry).encode(work),ensure_ascii=False,sort_keys=True,separators=(',',':')),_capture=False)
+        plan=json.dumps(FrameCodec(r.game.mechanics,r.registry).encode(replace(work,card_proof=None)),ensure_ascii=False,sort_keys=True,separators=(',',':')),_capture=False)
     return (work,)
 
 
@@ -45,7 +54,29 @@ def validate_plan(state,registry,work,*,closed=False):
     work.__post_init__();row=cast_record(state,work.cast_id);source=work.plan.source
     if row.origin not in ('effect','draw','history')or row.failure is not None or(row.source_id,row.player_id,row.card_id)!=(source.entity_id,work.plan.player_id,source.card_id):
         raise ValueError('Native repeat borrowed another original automatic cast')
-    validate_sources(state,registry,work.plan,closed=closed)
+    if type(work.plan) is CardCastRepeatPlan:
+        from .card_spell_repeats import validate_automatic_plan, validate_automatic_proof
+        validate_automatic_plan(state,registry,work.plan,closed=closed)
+        if not closed:
+            if type(work.card_proof) is not CardCastRepeatProof:
+                raise ValueError('Pending card CAST repetition lost its original complete source proof')
+            validate_automatic_proof(work.card_proof,registry)
+            before=work.card_proof.before_state
+            if (len(before.cast_history)+1!=row.id or (before.turn,before.action_number)!=(row.turn,row.action)):
+                raise ValueError('Card repetition changed its actual original CAST allocation window')
+            expected_zone = row.from_zone if row.origin == 'effect' and row.from_zone is not None else Zone.GRAVEYARD
+            if source.zone != expected_zone:
+                raise ValueError('Card repetition changed its original physical source zone')
+            from .spell_casts import CONDITIONS, automatic_conditions, cast_owner_turn_id
+            conditions=automatic_conditions(before,registry.card(row.card_id),row.player_id)
+            if any(getattr(row,key)!=conditions[key]for key in CONDITIONS) or row.owner_turn_id!=cast_owner_turn_id(before):
+                raise ValueError('Card repetition changed its original automatic condition clocks')
+            from .spell_acceptance import _bind_prefix_and_references
+            from .spell_casts import bind_cast_prefix
+            _bind_prefix_and_references(before,state,registry);bind_cast_prefix(before,state)
+    else:
+        if work.card_proof is not None:raise ValueError('Native-only repeat borrowed a card grant proof')
+        validate_sources(state,registry,work.plan,closed=closed)
     for behavior in work.behaviors:registry.behavior(behavior)
     return row
 
@@ -54,6 +85,8 @@ def repeat(r,work):
     from .spell_casts import capture_target_origin,cast_owner_turn_id,note_payload,FinishSpellCast
     from .rewind_outcomes import payload
     parent=validate_plan(r.state,r.registry,work)
+    if work.card_proof is not None and work.card_proof.rules != r.rules:
+        raise ResolutionError('Card repetition changed its original rules')
     if not parent.completed or parent.interrupted:raise ResolutionError('Native repeat requires its completed original cast')
     from .spell_source_costs import capture_automatic as capture_source_cost, start_receipt
     child=replace(parent,id=len(r.state.cast_history)+1,origin='native_repeat',iteration=2,recast_id=parent.id,
@@ -77,7 +110,7 @@ def validate_boundary(game):
     for event in effective_events(game._events):
         if event.kind==ACCEPTED:
             data=dict(event.data);work=codec.decode(json.loads(data['plan']))
-            if type(work)is not RepeatAutomaticSpell or data['cast_id']!=work.cast_id or work.cast_id in plans:
+            if type(work)is not RepeatAutomaticSpell or work.card_proof is not None or data['cast_id']!=work.cast_id or work.cast_id in plans:
                 raise ValueError('Native repeat acceptance lost its unique original plan')
             row=validate_plan(game._state,game.registry,work,closed=True)
             if(row.source_id,row.player_id)!=(event.source_id,event.player_id):raise ValueError('Native repeat acceptance changed its original actor')
@@ -94,7 +127,9 @@ def validate_boundary(game):
     frame=game._frame;queued=(*frame.prefix,*frame.continuation)if frame else()
     pending=[w for w in queued if type(w)is RepeatAutomaticSpell]
     for work in pending:
-        if plans.get(work.cast_id)!=work or work.cast_id in started:raise ValueError('Queued native repeat changed its original accepted work')
+        if plans.get(work.cast_id)!=replace(work,card_proof=None) or work.cast_id in started:raise ValueError('Queued native repeat changed its original accepted work')
+        if work.card_proof is not None and work.card_proof.rules != game.ruleset:
+            raise ValueError('Pending card repetition changed its original rules')
         validate_plan(game._state,game.registry,work)
     if game._state.status=='playing'and set(plans)-set(started)!={w.cast_id for w in pending}:
         raise ValueError('Native repeat lost its original owed continuation')

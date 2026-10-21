@@ -6,7 +6,7 @@ selected identities. History can instead retain the full original residences;
 native repetition reuses the accepted group without another selection.
 """
 from copy import deepcopy
-from dataclasses import asdict, dataclass, fields
+from dataclasses import asdict, dataclass
 import json
 from random import Random
 from types import SimpleNamespace
@@ -231,12 +231,9 @@ def validate_finish(proof, record, registry, state=None):
         raise ValueError('Automatic target group lost its one original Finish proof')
     validate_proof(proof, registry)
     before = proof.before_state
-    from .spell_casts import CONDITIONS
-    from .play_history import played_cards
+    from .spell_casts import CONDITIONS, automatic_conditions
     definition = registry.card(record.card_id)
-    conditions = dict(combo=bool(played_cards(before, record.player_id, turn=before.turn)),
-        outcast=False, finale=False, quickdraw=False, manathirst=definition.manathirst is not None and
-        before.players[record.player_id].max_mana >= definition.manathirst)
+    conditions = automatic_conditions(before, definition, record.player_id)
     if any(getattr(record, key) != conditions[key] for key in CONDITIONS):
         raise ValueError('Automatic spell group changed its original cast conditions')
     interval = before.owner_turn_history[-1].id if before.owner_turn_history else None
@@ -247,17 +244,8 @@ def validate_finish(proof, record, registry, state=None):
     if state is not None:
         from .spell_acceptance import _bind_prefix_and_references
         _bind_prefix_and_references(before, state, registry)
-        # Older CASTs may complete or claim payload resources, but their inputs,
-        # physical source, original target facts and accepted groups are fixed.
-        progress = {'payload_started', 'completed', 'interrupted', 'local_spell_damage',
-            'spell_damage_effects', 'native_spell_value', 'aura_duration_grants', 'spell_aura_id',
-            'next_spell_bonus_effects', 'next_spell_body_effects', 'next_spell_body_cursor'}
-        if len(before.cast_history) > len(state.cast_history):
-            raise ValueError('Automatic group lost its complete original CAST prefix')
-        for old,new in zip(before.cast_history,state.cast_history):
-            fixed=lambda row:tuple(getattr(row,f.name)for f in fields(type(row))if f.name not in progress)
-            if fixed(old)!=fixed(new) or old.completed and not new.completed or old.interrupted and not new.interrupted:
-                raise ValueError('Automatic group changed an immutable earlier CAST target or input')
+        from .spell_casts import bind_cast_prefix
+        bind_cast_prefix(before, state)
 
 
 def _encoded(codec, value):

@@ -122,7 +122,7 @@ full contributor receipts retain their own complete immutable source values.
             for index, source in enumerate(play.spell_payload.contributors):
                 ability((*base, 'spell_payload', index), 'spell_repeat', source, play.player_id)
         for index, source in enumerate(play.card_spell_repeats):
-            add((*base, 'card_spell', index), 'ability:card_spell_repeat', source.id,
+            add((*base, 'card_spell', index), 'ability:'+source.kind, source.id,
                 carrier=play.source_id, value=source, owner=play.player_id)
     for receipt in state.combo_policy_receipts:
         for index, modifier in enumerate(receipt.modifiers):

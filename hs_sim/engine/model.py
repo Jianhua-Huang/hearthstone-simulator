@@ -3339,7 +3339,7 @@ class AbilityInstance:
         if self.divine_shield_hits and (self.kind!='keyword' or self.keyword!=Keyword.DIVINE_SHIELD or
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
-        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "spell_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
+        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "spell_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "card_cast_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
             if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'native_stat_gain', 'remaining_mana_numbers', 'class_discovery', 'colossal_reserve', 'spell_base_value', 'spell_stat_value', 'spell_resummon_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement', 'random_targets'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'transform_replacement':
@@ -3418,15 +3418,20 @@ class AbilityInstance:
             self.combo_repeat.__post_init__()
         elif self.combo_repeat is not None:
             raise ValueError('Only Combo repeat auras carry ComboRepeatSpec')
-        if self.kind in ('spell_repeat','card_spell_repeat'):
+        if self.kind in ('spell_repeat','card_spell_repeat','card_cast_repeat'):
             if type(self.spell_repeat) is not SpellRepeatSpec:
                 raise ValueError('Spell repeat requires SpellRepeatSpec')
             self.spell_repeat.__post_init__()
         elif self.spell_repeat is not None:
             raise ValueError('Only spell repeat auras or card attachments carry SpellRepeatSpec')
-        if self.kind=='card_spell_repeat' and (self.spell_repeat.class_mode!='any' or self.spell_repeat.match is not None or
+        if self.kind in ('card_spell_repeat','card_cast_repeat') and (self.spell_repeat.class_mode!='any' or self.spell_repeat.match is not None or
                 self.origin!='granted' or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
             raise ValueError('Card spell repeats require active unconditional removable grants')
+        if self.kind == 'card_cast_repeat':
+            allowed = {'id','kind','source_id','expires_turn','spell_repeat'}
+            if (self.spell_repeat.casts != 2 or self.source_id is None or
+                    any(getattr(self, name) != spec.default for name, spec in self.__dataclass_fields__.items() if name not in allowed)):
+                raise ValueError('All-CAST card repeats require only two casts and their complete original source')
         _spell_damage_school_selector(self.spell_damage_schools)
         if self.spell_damage_schools and (self.kind != 'spell_damage' or self.spell_damage <= 0 or
                 self.origin != 'printed' or self.source_id is None or self.consumed or
@@ -7591,7 +7596,7 @@ class PlayRecord:
         if type(self.card_spell_repeats) is not tuple or self.card_spell_repeats and self.kind!=CardType.SPELL:
             raise ValueError('Only spells capture card spell repeat attachments')
         for a in self.card_spell_repeats:
-            if type(a) is not AbilityInstance or a.kind!='card_spell_repeat':
+            if type(a) is not AbilityInstance or a.kind not in ('card_spell_repeat','card_cast_repeat'):
                 raise ValueError('Invalid captured card spell repeat attachment')
             a.__post_init__()
         if any(a.id>=b.id for a,b in zip(self.card_spell_repeats,self.card_spell_repeats[1:])):
@@ -11780,7 +11785,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                         entity.kind != CardType.MINION and not(entity.kind==CardType.HERO_POWER and
                             attachment.kind=='battlecry_repeat'and entity.card_id in registry.passive_hero_power_profiles)):
                     raise ValueError('Invalid spell repeat aura carrier')
-                if isinstance(attachment, AbilityInstance) and attachment.kind=='card_spell_repeat' and entity.kind!=CardType.SPELL:
+                if isinstance(attachment, AbilityInstance) and attachment.kind in ('card_spell_repeat','card_cast_repeat') and entity.kind!=CardType.SPELL:
                     raise ValueError('Invalid card spell repeat carrier')
                 if (isinstance(attachment, AbilityInstance) and attachment.kind == 'rewind_retention' and
                         entity.kind != CardType.MINION):

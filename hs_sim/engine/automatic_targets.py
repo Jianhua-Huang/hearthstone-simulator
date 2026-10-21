@@ -243,14 +243,11 @@ def validate_proof(proof, registry):
 def validate_cast_proof(proof, cast, registry):
     validate_proof(proof, registry)
     validate_preferred_source(proof.selection.partition.preference, cast.caster_id, proof.before_state)
-    from .spell_casts import CONDITIONS, effective_definition
+    from .spell_casts import CONDITIONS, effective_definition, automatic_conditions
     from .choose_one import effective as branch_definition
-    from .play_history import played_cards
     definition = registry.card(cast.card_id)
     state = proof.before_state
-    actual_conditions = dict(combo=bool(played_cards(state, cast.player_id, turn=state.turn)),
-        outcast=False, finale=False, quickdraw=False, manathirst=definition.manathirst is not None
-        and state.players[cast.player_id].max_mana >= definition.manathirst)
+    actual_conditions = automatic_conditions(state, definition, cast.player_id)
     if any(getattr(cast, key) != actual_conditions[key] for key in CONDITIONS):
         raise ValueError('Automatic target proof differs from its original condition clocks')
     interval = state.owner_turn_history[-1].id if state.owner_turn_history else None
