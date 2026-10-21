@@ -9,6 +9,7 @@ from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import CardClass, CardPreview, CardType, ChoicePurpose, ChoiceResult, CostSpec, GameState
 from .card_creation import DiscoveryMinionGift
 from .copy_materials import CapturedCardCopyMaterial
+from .discovery_discounts import DiscoveryDiscountStep
 from .pools import (DiscoverFromPool, GenerationContext, generation_candidates, resolve_candidates,
                     sample_candidates, deliver_generated)
 
@@ -20,12 +21,17 @@ class DiscoveryPick:
     source_card_id: str | None = None
     gift: DiscoveryMinionGift | None = None
     result: ChoiceResult | None = None
+    discount_step: DiscoveryDiscountStep | None = None
 
     def __post_init__(self):
         name(self.card_id, 'discovered card')
         if self.hero_class is not None and type(self.hero_class) is not CardClass:
             raise ValueError('Invalid captured discovery class')
         if self.source_card_id is not None: name(self.source_card_id, 'captured discovery source')
+        if self.discount_step is not None:
+            if type(self.discount_step) is not DiscoveryDiscountStep:
+                raise ValueError('Discovery excess requires its complete original generated quotes')
+            self.discount_step.__post_init__()
         if self.gift is not None:
             if type(self.gift) is not DiscoveryMinionGift:raise ValueError('Expected immutable discovery gift receipt')
             self.gift.__post_init__()
@@ -52,11 +58,13 @@ class ContinuePoolDiscovery(Effect):
         if self.producer_id is not None:
             from .effects import _integer
             _integer(self.producer_id,'discovery producer',1)
-        if type(self.selections) is not tuple or len(self.selections) > self.spec.discoveries:
+        if type(self.selections) is not tuple or not self.spec.excess_discount and len(self.selections) > self.spec.discoveries:
             raise ValueError('Invalid discovery progress')
         for pick in self.selections:
             if type(pick) is not DiscoveryPick: raise ValueError('Expected immutable discovery receipt')
             pick.__post_init__()
+            if (pick.discount_step is not None) != self.spec.excess_discount:
+                raise ValueError('Discovery progress changed its original discount scope')
 
 
 @dataclass(frozen=True)
@@ -75,7 +83,7 @@ class ResolvePoolDiscovery(Effect):
             raise ValueError('Invalid offered discovery count')
         if type(self.selection) is not DiscoveryPick: raise ValueError('Expected discovery receipt')
         self.selection.__post_init__()
-        if self.selection.result is not None:
+        if self.selection.result is not None or self.selection.discount_step is not None:
             raise ValueError('An offered discovery branch cannot preclaim committed progress')
         if type(self.offered_gifts) is not tuple or any(type(g) is not DiscoveryMinionGift for g in self.offered_gifts):
             raise ValueError('Expected complete ordered discovery gift bindings')
@@ -89,7 +97,8 @@ class ResolvePoolDiscovery(Effect):
             if type(self.choice_result)is not ChoiceResult:raise ValueError('Discovery requires its actual typed result')
             self.choice_result.__post_init__()
         if (self.selection.card_id not in self.offered_card_ids or
-                len(self.batch.selections) >= self.batch.spec.discoveries):
+                (self.batch.spec.cost.delta == 0 if self.batch.spec.excess_discount else
+                 len(self.batch.selections) >= self.batch.spec.discoveries)):
             raise ValueError('Discovery selection exceeds its offered batch')
 
 
@@ -363,6 +372,9 @@ def eligible(registry, context, spec, pick):
 
 def validate_batch(registry, context, batch):
     batch.__post_init__(); used=set(); prior_choice=0
+    if batch.spec.excess_discount:
+        from .discovery_discounts import validate_progress
+        validate_progress(registry,batch)
     for pick in batch.selections:
         if pick.result is None:
             raise ValueError('Committed discovery progress lost its original complete result')
@@ -454,6 +466,8 @@ def refresh_discovery(r,effect):
 
 
 def start(r, effect):
+    if effect.excess_discount and effect.cost.delta == 0:
+        raise ResolutionError('An original excess discount discovery requires a positive budget')
     if effect.memory_target is not None:
         from .discovery_memory import validate_target
         validate_target(r.state, r.registry, effect)
@@ -482,7 +496,10 @@ def continue_discovery(r, batch):
         reject_ambiguous(r)
     used=validate_batch(r.registry,r.game._generation_context,batch); spec=batch.spec
     validate_receipt_history(r.state,batch)
-    if len(batch.selections)==spec.discoveries:
+    if spec.excess_discount and spec.cost.delta == 0:
+        from .discovery_discounts import finished
+        finished(r,batch,'spent');return ()
+    if not spec.excess_discount and len(batch.selections)==spec.discoveries:
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)
@@ -499,6 +516,9 @@ def continue_discovery(r, batch):
             candidates=tuple(m for m in candidates if r.registry.pool_card(m.card_id).generation_identity not in used)
         offered=sample_candidates(r.game._rng,candidates,spec.count,replacement=False)
     if not offered:
+        if spec.excess_discount:
+            from .discovery_discounts import finished
+            finished(r,batch,'empty')
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)
@@ -531,7 +551,14 @@ def resolve_discovery(r, effect):
             receipt=json.dumps(FrameCodec(r.game.mechanics,r.registry).encode(effect),ensure_ascii=False,
                 sort_keys=True,separators=(',',':')),_capture=False)
     committed=replace(effect.selection,result=effect.choice_result)
-    continued=ContinuePoolDiscovery(spec,(*batch.selections,committed),batch.producer_id)
+    continuation_spec=spec
+    if spec.excess_discount:
+        from .discovery_discounts import accept
+        committed,continuation_spec=accept(r,spec,committed)
+    continued=ContinuePoolDiscovery(continuation_spec,(*batch.selections,committed),batch.producer_id)
+    if spec.excess_discount:
+        from .discovery_discounts import accepted
+        accepted(r,continued)
     if spec.memory_target is not None:
         from .discovery_memory import apply_selection
         return (*apply_selection(r, effect), continued)
@@ -554,6 +581,8 @@ def resolve_discovery(r, effect):
 
 
 def validate_boundary(game):
+    from .discovery_discounts import validate_boundary as validate_discounts
+    validate_discounts(game)
     from .discovery_memory import validate_boundary as validate_memory_boundary
     validate_memory_boundary(game)
     from .discovery_destinations import validate_boundary as validate_destination_boundary
@@ -642,6 +671,7 @@ def validate_boundary(game):
 
 
 def register(mechanics):
+    mechanics.register_payload_type(DiscoveryDiscountStep)
     from .discovery_memory import register as register_memory
     register_memory(mechanics)
     mechanics.register_payload_type(DiscoveryPick)

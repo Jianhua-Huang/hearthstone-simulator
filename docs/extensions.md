@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实“以溢出减费重复发现”使用有限`DiscoverFromPool(..., cost=CostSpec(delta=-remaining), excess_discount=True)`，让原生成报价和发现续接负责每次预算。不要在牌层新写抽样、猜印刷费用或绕过零费/满手；原字段范围、生成原生数字及恢复边界见[重新装填契约](m3-reload-discounts.md)。
+
 真实吸血武器需要恢复两个英雄时注册有限`LifestealRecipientProfile`，交原健康批次生成两项普通恢复；不要在伤害通知后另写治疗触发或复制第一位英雄的实际恢复量。其他来源保持原单英雄规则，生命周期和未校准边界见[唤光长枪契约](m3-lightcaller-lifesteal.md)。
 
 真实“每个学派的下一个法术双施法”使用七个独立`AddSpellRepeatModifier(..., automatic=True)`；当前只支持有来源、单学派、一次用途、总2次的有限范围。不要给所有手牌贴临时重复属性或复制施法执行器；旧默认仍只匹配手牌出牌。原自动接受/消费、待选恢复及待国服校准边界见[地母契约](m3-therazane-school-budgets.md)。

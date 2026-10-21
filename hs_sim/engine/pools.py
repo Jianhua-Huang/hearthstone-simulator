@@ -550,8 +550,13 @@ class DiscoverFromPool(Effect):
     paired_choose_one: bool = False
     refresh_card_id: str | None = None
     memory_target: object | None = None
+    excess_discount: bool = False
 
     def __post_init__(self):
+        if type(self.excess_discount) is not bool:raise ValueError('Excess discovery discount requires an explicit boolean')
+        if self.excess_discount:
+            from .discovery_discounts import validate_spec
+            validate_spec(self)
         if self.refresh_card_id is not None:
             name(self.refresh_card_id,'discovery refresh control')
             if (self.source_id is None or self.destination!='hand' or self.count!=3 or self.discoveries!=1 or

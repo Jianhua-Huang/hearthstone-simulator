@@ -13,6 +13,7 @@ from .card_discoveries import PURPOSES, require_original_result
 from .offered_card_materials import OfferedCardMaterial
 
 ACCEPTED = 'card_discovery_offer_accepted'
+EXCESS_DISCOUNT = '_excess_discount'
 
 
 @dataclass(frozen=True)
@@ -64,6 +65,12 @@ def decode_offer(game, value):
     return offer
 
 
+def excess_discount(offer):
+    from .discovery import ResolvePoolDiscovery
+    return any(type(work) is ResolvePoolDiscovery and work.batch.spec.excess_discount
+        for option in offer.options for work in option.effects)
+
+
 def capture(r, choice, options, on_select):
     if choice.purpose not in PURPOSES:
         return
@@ -71,8 +78,9 @@ def capture(r, choice, options, on_select):
     from .discovery import ordinary_options
     offer = OriginalDiscoveryOffer(choice, tuple(options), on_select,
         tuple(capture_material(r, option) for option in ordinary_options(options)))
+    extra={EXCESS_DISCOUNT:True} if excess_discount(offer) else {}
     r.emit(ACCEPTED, source_id=choice.source_id, player_id=choice.player_id,
-        choice_id=choice.id, original_offer=encode_offer(r.game, offer), _capture=False)
+        choice_id=choice.id, original_offer=encode_offer(r.game, offer), _capture=False, **extra)
     return offer
 
 
@@ -104,9 +112,12 @@ def validate_boundary(game, events):
     accepted = {}
     for event in publications:
         data = dict(event.data)
-        if set(data) != {'choice_id', 'original_offer'} or data['choice_id'] in accepted:
-            raise ValueError('Original discovery offer was lost or accepted twice')
+        if 'original_offer' not in data:raise ValueError('Original discovery offer was lost')
         offer = decode_offer(game, data['original_offer'])
+        expected={'choice_id','original_offer'}|({EXCESS_DISCOUNT} if excess_discount(offer) else set())
+        if (set(data) != expected or data['choice_id'] in accepted or
+                EXCESS_DISCOUNT in data and data[EXCESS_DISCOUNT] is not True):
+            raise ValueError('Original discovery offer was lost or accepted twice')
         from .offered_card_materials import validate_material
         for material in offer.materials:
             validate_material(game._state, game.registry, material)

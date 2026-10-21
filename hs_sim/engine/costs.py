@@ -190,7 +190,10 @@ def capture_generated_quote_fact(state, registry, player_id, card_id, *, cost=No
     _player(player_id); _integer(minimum_cost,'generated minimum cost',0)
     definition=registry.card(card_id)
     if not definition.hand_playable:raise ValueError('Generated quote requires a physical hand card')
-    intrinsic = capture_intrinsic_stage(state, registry, player_id, card_id, definition.cost)
+    mana_numbers = (state.players[player_id].mana if definition.kind == CardType.SPELL and
+        card_id in registry.remaining_mana_numbers_profiles else None)
+    base_cost = definition.cost if mana_numbers is None else max(1, mana_numbers)
+    intrinsic = capture_intrinsic_stage(state, registry, player_id, card_id, base_cost)
     amount, payment = intrinsic.amount, intrinsic_payment(definition,intrinsic)
     if cost is not None:
         if type(cost) is not CostSpec:raise ValueError('Generated quote requires CostSpec')
@@ -200,7 +203,7 @@ def capture_generated_quote_fact(state, registry, player_id, card_id, *, cost=No
         if cost.payment is not None:payment=cost.payment
     local_amount, local_payment = amount, payment
     amount, payment, external = _external_quote(state, registry, player_id, definition, amount, payment, None,minimum_cost=minimum_cost)
-    value = GeneratedCostQuoteInput(player_id, card_id, definition.kind, definition.cost, cost, minimum_cost)
+    value = GeneratedCostQuoteInput(player_id, card_id, definition.kind, base_cost, cost, minimum_cost, mana_numbers)
     return GeneratedCostQuoteFact(value, intrinsic, local_amount, local_payment,
         max(amount, minimum_cost), payment, external, tuple(c.id for c in external),
         tuple(c.id for c in external if c.kind == 'player_modifier' and c.modifier.uses_remaining is not None))

@@ -6426,6 +6426,7 @@ class GeneratedCostQuoteInput:
     base_cost: int
     initial_cost: CostSpec | None
     minimum_cost: int = 0
+    mana_numbers: int | None = None
 
     def __post_init__(self):
         if type(self.player_id) is not int or self.player_id not in (1, 2) or type(self.kind) is not CardType:
@@ -6433,6 +6434,10 @@ class GeneratedCostQuoteInput:
         _name(self.card_id, 'generated cost card')
         _int(self.base_cost, 'generated cost base', 0)
         _int(self.minimum_cost, 'generated cost minimum', 0)
+        if self.mana_numbers is not None:
+            _int(self.mana_numbers, 'generated original remaining mana', 0)
+            if self.kind != CardType.SPELL or self.base_cost != max(1, self.mana_numbers):
+                raise ValueError('Generated mana numbers require their original spell base')
         if self.initial_cost is not None:
             if type(self.initial_cost) is not CostSpec: raise ValueError('Generated cost requires complete CostSpec')
             self.initial_cost.__post_init__()

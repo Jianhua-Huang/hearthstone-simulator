@@ -397,7 +397,10 @@ def validate_generated_quote_fact(registry, fact):
     validate_intrinsic_stage_fact(registry, fact.intrinsic)
     value = fact.quote_input
     definition = registry.card(value.card_id)
-    if not definition.hand_playable or (definition.kind, definition.cost) != (value.kind, value.base_cost):
+    native_numbers = definition.kind == CardType.SPELL and value.card_id in registry.remaining_mana_numbers_profiles
+    expected_base = max(1, value.mana_numbers) if native_numbers and value.mana_numbers is not None else definition.cost
+    if (not definition.hand_playable or definition.kind != value.kind or value.base_cost != expected_base or
+            native_numbers != (value.mana_numbers is not None)):
         raise ValueError('Generated quote changed its pinned printed base')
     from .costs import intrinsic_payment
     amount, payment = fact.intrinsic.amount, intrinsic_payment(definition,fact.intrinsic)
