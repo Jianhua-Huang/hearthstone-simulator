@@ -140,7 +140,7 @@ def excavate(r, effect):
     if not eligible: raise ResolutionError('Excavation reward pool is empty')
     card_id = sample_candidates(r.game._rng, eligible, 1, replacement=True)[0]
     burned = len(player.hand) >= hand_capacity(player, r.rules)
-    entity = r.create_entity(player.id, card_id, Zone.GRAVEYARD if burned else Zone.HAND)
+    entity = r.create_entity(player.id, card_id, Zone.GRAVEYARD if burned else Zone.HAND, hand_entry_source_id=effect.source_id)
     record = ExcavationRecord(len(r.state.excavation_history)+1, player.id, effect.source_id,
         player.hero_class, profile.id, profile.version, context.target_id, context.mode,
         pool_id, pool.version, len(history), cycle, tier, maximum, card_id, entity.id,

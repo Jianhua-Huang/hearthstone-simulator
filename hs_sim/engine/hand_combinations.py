@@ -57,7 +57,8 @@ def settle_hands(r, *, initial=False):
         r.move(left, Zone.GRAVEYARD)
         r.move(right, Zone.GRAVEYARD)
         combined = r.create_entity(player.id, profile.result_card_id, Zone.HAND, position,
-            hand_entry_reason='scenario' if initial else 'recombine')
+            hand_entry_reason='scenario' if initial else 'recombine',
+            hand_entry_source_id=None if initial else ordered[0])
         # Reuse the existing canonical-left attachment/material policy. Its
         # application to the native minion pair remains explicitly CN-pending.
         inherit(r, left, combined)

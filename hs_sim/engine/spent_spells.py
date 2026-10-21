@@ -50,7 +50,7 @@ def return_spell(r,request):
         r.move(entity,Zone.GRAVEYARD,hand_entry_reason=None);r.refresh_auras()
         emit_burn(r,entity,profile='graveyard_delivery_overflow',original=fact,source_id=entity.id,player_id=player.id,reason='return_hand_full')
         return ()
-    r.move(entity,Zone.HAND,hand_entry_reason='return');r.refresh_auras()
+    r.move(entity,Zone.HAND,hand_entry_reason='return',hand_entry_source_id=entity.id);r.refresh_auras()
     r.emit('card_returned',source_id=entity.id,target_id=entity.id,player_id=player.id)
     return ()
 

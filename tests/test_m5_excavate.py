@@ -66,7 +66,9 @@ class ExcavateTests(unittest.TestCase):
         self.r.register_card(CardDefinition(name,name,CardType.MINION,health=8,triggers=(TriggerSpec(event,name),)))
 
     def test_four_tier_cycle_and_lifetime_count_are_separate(self):
-        self.script(lambda c:[Excavate(1,c.source_id,count=9)]);g=self.game();self.play(g)
+        self.script(lambda c:[Excavate(1,c.source_id,count=9)]);g=self.game();source=self.play(g)
+        self.assertTrue(all(g.state.hand_entries[g.state.entities[x.reward_id].hand_entry_id-1].source_id==source
+            for x in g.state.excavation_history))
         self.assertEqual([x.tier for x in g.state.excavation_history],[1,2,3,4,1,2,3,4,1])
         self.assertEqual([x.cycle for x in g.state.excavation_history],[1]*4+[2]*4+[3])
         self.assertEqual(excavation_count(g.state,1),9);self.check(g)

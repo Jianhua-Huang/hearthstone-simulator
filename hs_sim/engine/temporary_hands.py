@@ -165,7 +165,7 @@ def return_hand(r,work):
     if len(originals)>hand_capacity(r.player(request.player_id), r.rules):raise ResolutionError('Saved original hand exceeds capacity')
     removed=tuple(r.player(request.player_id).hand)
     for eid in removed:hide(r,r.state.entities[eid])
-    for entity in originals:r.move(entity,Zone.HAND)
+    for entity in originals:r.move(entity,Zone.HAND,hand_entry_source_id=request.source_id)
     root=replace(root,phase='completed',removed=removed,returned=tuple(v.id for v in originals))
     r.state.temporary_hands[root.id-1]=root
     # Commit the complete group before capturing reactions to any returned card.

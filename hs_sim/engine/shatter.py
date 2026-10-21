@@ -91,7 +91,8 @@ def settle_hands(r, *, initial=False, opening_ready=False):
             for card_id, position in ((spec.left_card_id, 0), (spec.right_card_id, None)):
                 zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
                 part = r.create_entity(player.id, card_id, zone, position,
-                                       hand_entry_reason='scenario' if initial else 'shatter')
+                                       hand_entry_reason='scenario' if initial else 'shatter',
+                                       hand_entry_source_id=None if initial else source.id)
                 inherit(r, source, part)
                 pieces.append(part.id)
                 if zone == Zone.GRAVEYARD:
@@ -108,7 +109,8 @@ def settle_hands(r, *, initial=False, opening_ready=False):
             r.move(first, Zone.GRAVEYARD)
             r.move(second, Zone.GRAVEYARD)
             combined = r.create_entity(player.id, root.id, Zone.HAND, position,
-                                       hand_entry_reason='scenario' if initial else 'recombine')
+                                       hand_entry_reason='scenario' if initial else 'recombine',
+                                       hand_entry_source_id=None if initial else first.id)
             inherit(r, primary, combined)
             consume_keyword(combined, Keyword.SHATTER)
             r.emit('cards_recombined', source_id=first.id, target_id=combined.id, player_id=player.id,

@@ -172,7 +172,7 @@ def start(r, request):
     borrowed = []
     for ref in selected:
         entity = r.state.entities[ref.entity_id]
-        r.move(entity, Zone.HAND); borrowed.append(_saved(entity))
+        r.move(entity, Zone.HAND, hand_entry_source_id=request.source_id); borrowed.append(_saved(entity))
     root = TemporaryDeckHandReplacement(len(r.state.temporary_hands) + 1, request,
         r.state.entities[request.source_id].card_id, r.state.turn, r.state.action_number, owner.id,
         tuple(saved), basis, selected, tuple(borrowed), before, r.game._rng.getstate())
@@ -250,7 +250,7 @@ def return_hand(r, root):
     returned = []; burned = []; restored = []; burn_originals = {}
     for entity in originals:
         if len(player.hand) < hand_capacity(player, r.rules):
-            r.move(entity, Zone.HAND); returned.append(entity.id); restored.append(_saved(entity))
+            r.move(entity, Zone.HAND, hand_entry_source_id=root.request.source_id); returned.append(entity.id); restored.append(_saved(entity))
         else:
             from .allocation_facts import SourceAllocationFact
             burn_originals[entity.id]=SourceAllocationFact.capture(r.state,entity)

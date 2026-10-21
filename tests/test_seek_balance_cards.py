@@ -262,6 +262,7 @@ class SeekBalanceTests(unittest.TestCase):
         g=self.game((LEFT,P+'discount_left',P+'right'));left=g.state.players[1].hand[0]
         self.play(g,P+'discount_left');self.play(g,P+'right');self.assertEqual(self.names(g),(FULL,))
         eid=g.state.players[1].hand[0];self.assertNotEqual(eid,left)
+        self.assertEqual(g.state.hand_entries[g.state.entities[eid].hand_entry_id-1].source_id,left)
         self.assertEqual(quote_cost(g.state,g.registry,g.state.entities[eid]).amount,3)
         self.assertEqual(g.state.entities[left].zone,Zone.GRAVEYARD);self.portable(g)
 

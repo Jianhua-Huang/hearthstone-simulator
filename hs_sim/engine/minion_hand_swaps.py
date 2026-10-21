@@ -101,7 +101,7 @@ def return_partner(r, material, player_id):
     r.player(player_id).hand.remove(entity.id)
     entity.controller = material.reference.player_id
     r.player(entity.controller).hand.append(entity.id)
-    enter_hand(r.state, entity, Zone.BOARD, 'return')
+    enter_hand(r.state, entity, Zone.BOARD, 'return', source_id=ref.entity_id)
     reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry,
         preserve_jade=True)
     return position

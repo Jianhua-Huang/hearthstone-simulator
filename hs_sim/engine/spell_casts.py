@@ -433,7 +433,7 @@ def create_derivative(r, effect):
         raise ResolutionError('Invalid automatic spell derivative')
     player = r.player(record.player_id)
     zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
-    entity = r.create_entity(player.id, effect.card_id, zone)
+    entity = r.create_entity(player.id, effect.card_id, zone, hand_entry_source_id=record.source_id)
     entity.origin_entity_id = record.source_id
     r.emit('card_created', source_id=record.source_id, target_id=entity.id, player_id=player.id)
     if zone==Zone.GRAVEYARD:

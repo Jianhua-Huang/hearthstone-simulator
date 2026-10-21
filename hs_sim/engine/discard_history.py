@@ -289,7 +289,7 @@ def return_material(r, effect):
         from .zones import emit_burn
         emit_burn(r,entity,profile='graveyard_delivery_overflow',original=original,reason='return_hand_full')
         return
-    r.move(entity, Zone.HAND, hand_entry_reason='return')
+    r.move(entity, Zone.HAND, hand_entry_reason='return', hand_entry_source_id=effect.source_id)
     r.refresh_auras()
     r.emit('card_returned', target_id=entity.id, player_id=player.id)
 

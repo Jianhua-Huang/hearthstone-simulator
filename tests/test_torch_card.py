@@ -146,6 +146,7 @@ class TorchTests(unittest.TestCase):
         result = self.play(g, target=target); self.assertEqual(self.torch(g), source)
         self.assertEqual(public_value(g.state.entities[source]), 4)
         self.assertNotEqual(g.state.entities[source].hand_entry_id, entry); self.assertEqual(g.state.players[1].mana, 9)
+        self.assertEqual(g.state.hand_entries[g.state.entities[source].hand_entry_id-1].source_id, source)
         self.assertEqual([e.amount for e in result.events if e.kind == 'damage_dealt'], [8])
         self.assertEqual(sum(e.card_id == ROOT for e in g.state.entities.values()), 1); self.portable(g)
     def test_b02_equal_damage_and_nonlethal_damage_do_not_return(self):

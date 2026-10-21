@@ -71,7 +71,7 @@ def shuffle_hands(r, effect):
             entity.controller = player.id
             entity.zone_epoch += 1
             renew_hand_progress(r.state, entity, previous_zone=Zone.HAND, hand_transfer=True)
-            enter_hand(r.state, entity, Zone.HAND, 'move')
+            enter_hand(r.state, entity, Zone.HAND, 'move', source_id=effect.source_id)
             transferred.append((player.id, eid))
     # Randomized hidden positions retire tracking for every participating card,
     # including those which happen to stay with their previous controller.

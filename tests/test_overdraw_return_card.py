@@ -110,6 +110,7 @@ class OverdrawReturnTests(unittest.TestCase):
         g=self.game();self.burn(g);self.play(g,P+'free')
         done=[r for r in g.state.overdraw_returns if r.phase=='returned'];self.assertEqual(len(done),1)
         row=done[0];e=g.state.entities[row.original.entity_id]
+        self.assertEqual(g.state.hand_entries[e.hand_entry_id-1].source_id,row.source_id)
         self.assertEqual(e.zone,Zone.HAND);self.assertEqual(quote_cost(g.state,g.registry,e).amount,3)
         self.assertEqual(len(g.state.draw_history),3);self.assertEqual(len(g.state.players[1].hand),10)
         self.play(g,P+'free');self.assertTrue(all(r.phase=='returned'for r in g.state.overdraw_returns))

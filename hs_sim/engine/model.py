@@ -4079,6 +4079,7 @@ class HandEntryRecord:
     zone_epoch: int
     from_zone: Zone | None
     reason: str
+    source_id: int | None = None
 
     def __post_init__(self):
         for name in ('id', 'entity_id', 'player_id'):
@@ -4090,8 +4091,12 @@ class HandEntryRecord:
             raise ValueError('Invalid hand entry owner or zone')
         if self.reason not in ('scenario', 'created', 'move', 'draw', 'return', 'shatter', 'recombine'):
             raise ValueError('Unknown hand entry reason')
+        if self.source_id is not None:
+            _int(self.source_id, 'hand entry source', 1)
         if self.reason == 'scenario' and (self.turn != 0 or self.action != 0 or self.from_zone is not None):
             raise ValueError('Scenario hand predates normal play')
+        if self.reason == 'scenario' and self.source_id is not None:
+            raise ValueError('Scenario hand has no gameplay producer')
 
 
 @dataclass(frozen=True)

@@ -2,10 +2,14 @@
 from .model import HandEntryRecord, Zone
 
 
-def enter_hand(state, entity, from_zone=None, reason='move'):
+def enter_hand(state, entity, from_zone=None, reason='move', *, source_id=None):
     if entity.zone != Zone.HAND:
         raise ValueError('Hand history requires a successful entry')
+    if source_id is not None and (type(source_id) is not int or source_id not in state.entities):
+        raise ValueError('Hand acquisition source must be an existing physical entity')
     turn = 0 if reason == 'scenario' or state.opening is not None and state.opening.stage != 'complete' else state.turn
+    record = HandEntryRecord(len(state.hand_entries)+1, entity.id, entity.controller, entity.card_id,
+                             turn, state.action_number, entity.zone_epoch, from_zone, reason, source_id)
     from .held_spells import reset_entry
     reset_entry(entity)
     from .held_mana import reset_entry as reset_mana_entry
@@ -14,8 +18,6 @@ def enter_hand(state, entity, from_zone=None, reason='move'):
     reset_copy_entry(entity)
     from .held_higher_cost import reset_entry as reset_higher_cost_entry
     reset_higher_cost_entry(entity)
-    record = HandEntryRecord(len(state.hand_entries)+1, entity.id, entity.controller, entity.card_id,
-                             turn, state.action_number, entity.zone_epoch, from_zone, reason)
     state.hand_entries.append(record)
     entity.hand_entry_id = record.id
     return record
@@ -38,7 +40,8 @@ def validate_hand_history(state, registry):
         entity=state.entities.get(record.entity_id)
         if (record.id != index or entity is None or not registry.card(record.card_id).hand_playable or
                 not last_turn <= record.turn <= state.turn or not last_action <= record.action <= state.action_number or
-                record.zone_epoch > entity.zone_epoch):
+                record.zone_epoch > entity.zone_epoch or
+                record.source_id is not None and record.source_id not in state.entities):
             raise ValueError('Invalid hand acquisition chronology or provenance')
         latest[record.entity_id]=record
         last_turn,last_action=record.turn,record.action

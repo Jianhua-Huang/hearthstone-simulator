@@ -11,7 +11,7 @@ def _player(state, player_id):
     return state.players[player_id]
 
 
-def create_entity(state, registry, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
+def create_entity(state, registry, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', hand_entry_source_id=None, additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
     from .game_boards import resolve_card_id
     card_id = resolve_card_id(state, registry, card_id)
     player = _player(state, player_id)
@@ -66,6 +66,6 @@ def create_entity(state, registry, player_id, card_id, zone, position=None, read
         entity.board_presence_id = entity.entered_order
     if zone == Zone.HAND:
         from .hand_history import enter_hand
-        enter_hand(state, entity, reason=hand_entry_reason)
+        enter_hand(state, entity, reason=hand_entry_reason, source_id=hand_entry_source_id)
     return entity
 

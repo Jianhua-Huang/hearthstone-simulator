@@ -139,7 +139,7 @@ def refill(r,work):
     row=r.state.overdraw_returns[candidates[selected]-1];entity=r.state.entities[row.original.entity_id]
     if (entity.zone,entity.controller,entity.zone_epoch,entity.card_id)!=(Zone.SETASIDE,player_id,row.stored_epoch,row.original.card_id):
         raise ValueError('Overdraw lost its original hidden physical lease')
-    r.move(entity,Zone.HAND)
+    r.move(entity,Zone.HAND,hand_entry_source_id=row.source_id)
     from .costs import attach_cost
     attachment=attach_cost(r.state,entity,CostSpec(delta=-1),row.source_id)
     row=_update(r.state,row,phase='returned',delivery=SourceAllocationFact.capture(r.state,entity),discount_id=attachment.id,

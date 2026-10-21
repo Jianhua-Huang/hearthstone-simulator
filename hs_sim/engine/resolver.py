@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v621'
+CORE_EFFECTS_VERSION = 'core-effects-v622'
 
 
 class Mechanics:
@@ -536,20 +536,20 @@ class Resolution:
     def stale(self, effect, target_id):
         self.emit('effect_skipped', target_id=target_id, effect=type(effect).__name__, reason='target_not_in_play')
 
-    def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
+    def create_entity(self, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', hand_entry_source_id=None, additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
         if zone == Zone.DECK and hand_entry_reason != 'scenario':
             from .deck_capacity import require_room
             require_room(self.state, player_id)
         from .entity_materialization import create_entity
         entity=create_entity(self.state, self.registry, player_id, card_id, zone, position, ready,
-            components=components, hand_entry_reason=hand_entry_reason,
+            components=components, hand_entry_reason=hand_entry_reason, hand_entry_source_id=hand_entry_source_id,
             additional_hero_power=additional_hero_power, entry_herald_count=entry_herald_count,
             interactable_object=interactable_object, entry_dormant_turns=entry_dormant_turns)
         from .native_stat_gains import seed
         seed(self,entity)
         return entity
 
-    def move(self, entity, zone, position=None, *, hand_entry_reason='move', controller_id=None, draw_id=None):
+    def move(self, entity, zone, position=None, *, hand_entry_reason='move', hand_entry_source_id=None, controller_id=None, draw_id=None):
         if zone == Zone.DECK:
             from .deck_capacity import require_room
             require_room(self.state, entity.controller, entity)
@@ -623,7 +623,7 @@ class Resolution:
         initialize_instance(self.state, entity, self.registry.card(entity.card_id))
         if zone == Zone.HAND and previous_zone != Zone.HAND and hand_entry_reason is not None:
             from .hand_history import enter_hand
-            enter_hand(self.state, entity, previous_zone, hand_entry_reason)
+            enter_hand(self.state, entity, previous_zone, hand_entry_reason, source_id=hand_entry_source_id)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
         from .minion_base_programs import synchronize as synchronize_minion_bases
@@ -2141,7 +2141,7 @@ def return_to_hand(r, effect):
         return
     move_to_destination(Zone.HAND)
     from .hand_history import enter_hand
-    enter_hand(r.state, entity, Zone.BOARD, 'return')
+    enter_hand(r.state, entity, Zone.BOARD, 'return', source_id=effect.source_id)
     reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry, preserve_jade=True, preserve_cthun=True)
     if effect.cost is not None:
         modify_cost(r, ModifyCost(entity.id, effect.cost))

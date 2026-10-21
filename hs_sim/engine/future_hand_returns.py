@@ -102,7 +102,7 @@ def restore(r,work):
     for entity in originals:
         _buff_to(r,Buff(entity.id,5,5,root.request.source_id),entity,notify=False)
         if len(player.hand)<hand_capacity(player,r.rules):
-            r.move(entity,Zone.HAND);returned.append(entity.id);restored.append(saved(entity))
+            r.move(entity,Zone.HAND,hand_entry_source_id=root.request.source_id);returned.append(entity.id);restored.append(saved(entity))
         else:
             burn_material[entity.id]=SourceAllocationFact.capture(r.state,entity)
             r.move(entity,Zone.GRAVEYARD);burned.append(entity.id)

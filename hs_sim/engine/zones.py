@@ -884,7 +884,7 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
         event = 'card_burned' if destination == Zone.GRAVEYARD else 'card_drawn' if effect.draw else 'card_moved_to_hand'
     if destination == Zone.HAND:
         from .hand_history import enter_hand
-        enter_hand(r.state, entity, previous_zone, 'draw' if effect.draw else 'move')
+        enter_hand(r.state, entity, previous_zone, 'draw' if effect.draw else 'move', source_id=effect.source_id)
         if deathrattle_memory is not None:
             if not effect.draw or draw_id is None:raise ResolutionError('Deathrattle linkage requires an actual physical draw')
             from .deathrattle_memory import remember_draw
@@ -960,7 +960,7 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True):
         destination = Zone.GRAVEYARD
     position = insertion_index(r, effect.position, len(player.deck)) if destination == Zone.DECK else None
     entity = r.create_entity(player.id, material.card_id if material is not None else source.card_id, destination, position,
-                             components=()if material is not None else source.components)
+                             components=()if material is not None else source.components, hand_entry_source_id=effect.source_id)
     origin_id=material.origin.entity_id if material is not None else source.id
     entity.origin_entity_id = origin_id
     from .held_opponent_copies import copy_origin

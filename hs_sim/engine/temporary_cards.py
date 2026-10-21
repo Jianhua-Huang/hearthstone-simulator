@@ -56,7 +56,7 @@ def materialize_temporary_card(r, effect):
         raise ResolutionError('Temporary card cost does not match its definition')
     player=r.player(effect.player_id)
     zone=Zone.HAND if len(player.hand)<hand_capacity(player, r.rules) else Zone.GRAVEYARD
-    entity=r.create_entity(player.id,definition.id,zone)
+    entity=r.create_entity(player.id,definition.id,zone,hand_entry_source_id=effect.source_id)
     entity.origin_entity_id=effect.source_id
     entity.hand_lifetime=HandLifetime(effect.source_id,r.state.turn,effect.expires_turn,effect.minimum_cost)
     if effect.cost is not None:attach_cost(r.state,entity,effect.cost,effect.source_id,effect.cost_expires_turn)

@@ -142,6 +142,7 @@ class AlarmHandSwapTests(unittest.TestCase):
         self.assertEqual(root.deliveries[0].entity.entity_id, partner)
         self.assertEqual(root.request.materials[0].swap_minion.entity_id, source)
         self.assertEqual(hand_entry(g.state, g.state.entities[source].hand_entry_id).reason, 'return')
+        self.assertEqual(hand_entry(g.state, g.state.entities[source].hand_entry_id).source_id, source)
         self.portable(g)
 
     def test_a02_full_boards_and_full_opposing_hand_reserve_both_existing_slots(self):

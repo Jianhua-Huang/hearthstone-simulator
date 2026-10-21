@@ -228,7 +228,7 @@ def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=Non
     from .card_creation import install
     from .carved_spells import install as install_carved
     zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
-    entity = r.create_entity(player.id, definition.id, zone)
+    entity = r.create_entity(player.id, definition.id, zone, hand_entry_source_id=effect.source_id)
     entity.origin_entity_id = origin_entity_id
     if effect.cost is not None:
         from .costs import attach_cost

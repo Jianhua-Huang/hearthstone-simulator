@@ -82,7 +82,7 @@ def create(r, effect):
         raise ResolutionError('Derivative does not match a captured play or its execution phase')
     player = r.player(play.player_id)
     zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
-    entity = r.create_entity(player.id, spec.card_id, zone)
+    entity = r.create_entity(player.id, spec.card_id, zone, hand_entry_source_id=play.source_id)
     entity.origin_entity_id = play.source_id
     # The terminal form's printed identity supplies stats/abilities, independently
     # of later changes to the source. No instance buffs, costs or lifetime carry.
