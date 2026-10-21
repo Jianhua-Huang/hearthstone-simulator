@@ -54,4 +54,4 @@
 
 `FinishSpellCast.group_target_proof`仅在原自动组尚未完成时保存一份完整接受前状态、规则和完整组。恢复和关闭重算原完整域、各次原RNG及当前条件，绑定不可变更早CAST输入／目标组以及共同历史和分配前缀；原生重复只引用原根。唯一私有automatic_spell_target_group_accepted事件绑定原记录与完整组，所有证明和候选不进入玩家DTO。闭合收据仍不认证未签名存档的外部来源。
 
-上述入口的目标保护、偏好、空组及原目标失效政策沿既有自动契约并保留M6；特殊producer若仍只提供一个强制目标，必须先确认其真实整组规则，不能静默补箭头。这里没有注册BE_302，也没有宣称其过载或整卡效果完成。
+上述入口的目标保护、偏好、空组及原目标失效政策沿既有自动契约并保留M6；特殊producer若仍只提供一个强制目标，必须先确认其真实整组规则，不能静默补箭头。BE_302现由`hs_sim.cards.flame_shock_card`接入：从当前实际CAST读取仍有效的整组驻留，合成原`DamageBatch`每箭头2点SPELL伤害，再请求一次普通`Overload(1)`；不在牌层重选目标、另记费用或复制伤害器。注册的手动shortfall=reject是明确本地参数，单敌人的国服用法仍待校准。致死伤害后的终局会按既有管线截断后续过载，此精确顺序亦待M6；不能将本地实测结果或登记视为国服完整认证。完整原数据、双语主面和未知tag保留，卡包的behavior_verified=false、formal_pool_complete=false、cn_calibrated=false不被内部接卡改写。
