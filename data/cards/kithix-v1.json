@@ -1,0 +1,704 @@
+{
+  "schema": 1,
+  "batch": "K369-kithix",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_090",
+        "dbf_id": 129824,
+        "name": "基希克斯",
+        "name_en": "Kith'ix",
+        "text": "<b>战吼：</b>在本局对战中，如果你完成过仪式，即可选择并开启一项罪孽仪式。",
+        "text_en": "[x]<b>Battlecry:</b> If you've\ncompleted a Ritual this\ngame, choose a Sinister\nRitual to begin.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "fa1ec9a41060fd2b335e3c96bb9b4bd6c6e439c97080995309e3a013a087b8ca",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_090",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_090t1",
+        "dbf_id": 130669,
+        "name": "饥荒仪式",
+        "name_en": "Ritual of Famine",
+        "text": "@回合后，从你对手的牌库抽五张牌。",
+        "text_en": "In @ turns, draw 5\ncards from your opponent's deck.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "HIDE_COST": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4623": 1,
+          "OBJECTIVE_COUNTDOWN": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4623"
+          }
+        ]
+      },
+      "record_sha256": "bce7fecf2b770342f35f9f6d13c4459fb33f076d7a9bf396998a9da38c2ba48e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_090t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "BE_090t2",
+        "dbf_id": 130670,
+        "name": "支配仪式",
+        "name_en": "Ritual of Subjugation",
+        "text": "@回合后，随机召唤三个<b>传说随从</b>，并获取其法力值消耗为（1）的复制各一张。",
+        "text_en": "[x]In @ turns, summon\nthree random <b>Legendary</b>\nminions. Get a 1-Cost\ncopy of each.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "HIDE_COST": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4623": 1,
+          "OBJECTIVE_COUNTDOWN": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4623"
+          }
+        ]
+      },
+      "record_sha256": "6a98b6e14036df84a72c4a3139478883034502f6a91c0637875d8918d5163e6b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_090t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    },
+    {
+      "record": {
+        "id": "BE_090t3",
+        "dbf_id": 130671,
+        "name": "征服仪式",
+        "name_en": "Ritual of Conquest",
+        "text": "@回合后，使你的随从获得+6/+6<i>（无论它们在哪）</i>。",
+        "text_en": "In @ turns, give\nyour minions +6/+6 <i>(wherever they are)</i>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "HIDE_COST": 1,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4623": 1,
+          "OBJECTIVE_COUNTDOWN": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4623"
+          }
+        ]
+      },
+      "record_sha256": "da4f7f916595f71e6d9e364aac6c45dbb85ced3f936619e9a11d6ab1abfed11c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_090t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_090e1",
+        "dbf_id": 130683,
+        "name": "征服",
+        "name_en": "Conquest",
+        "text": "+6/+6。",
+        "text_en": "+6/+6.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "42a7f1e2710546f7c1f4abf9de9f13a95f49deb9b6e9e393701d225c89c5672f",
+      "metadata": null
+    },
+    {
+      "record": {
+        "id": "BE_090e2",
+        "dbf_id": 130759,
+        "name": "战争的代价",
+        "name_en": "Cost of War",
+        "text": "法力值消耗为（1）点。",
+        "text_en": "Costs (1).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0b9cfb9f6cf022d9a94ca14b7a61992580cc6f736eeb1d40cfc337b17c35cd47",
+      "metadata": null
+    }
+  ],
+  "choice_only": [
+    "BE_090t1",
+    "BE_090t2",
+    "BE_090t3"
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_090",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 129824,
+        "collectible": 1,
+        "slug": "129824-kithix",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "基希克斯",
+        "text": "<b>战吼：</b>在本局对战中，如果你完成过仪式，即可选择并开启一项罪孽仪式。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/59f8e49c6e79cdea189831c9c86c5d3af708fc11216257c5d98d542333347b12.png",
+        "imageGold": "",
+        "flavorText": "从基希克斯变为克拉西斯，需要许多仪式。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8808ca5a59a73c8dc1745721d488af5392df89d8ed80006afca10fe557eb6bb.png",
+        "childIds": [
+          130669,
+          130670,
+          130671
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 129824,
+        "collectible": 1,
+        "slug": "129824-kithix",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Kith'ix",
+        "text": "<b>Battlecry:</b> If you've completed a Ritual this game, choose a Sinister Ritual to begin.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13da9a06eb72c985aa60ce40d18ce11eb98c7c703ce59a6716101d4fb2b3273c.png",
+        "imageGold": "",
+        "flavorText": "It took many rituals to transform Kith'ix into a C'thrax.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8808ca5a59a73c8dc1745721d488af5392df89d8ed80006afca10fe557eb6bb.png",
+        "childIds": [
+          130669,
+          130670,
+          130671
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130669-zh_CN.json",
+      "response_sha256": "2303e20ef52c63f5fdcf7571cffa193ff5c89ee6dcc9f632d6cb5957f5f15876",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130669&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 130669,
+        "collectible": 0,
+        "slug": "130669-ritual-of-famine",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "饥荒仪式",
+        "text": "回合后，从你对手的牌库抽五张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb3706b0c8d082bc27bb9eaf6c748c1dcd502cd7a13bcc82cd7aa1ba09593e8d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129824,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130669&locale=zh_CN&collectible=0",
+        "sha256": "2303e20ef52c63f5fdcf7571cffa193ff5c89ee6dcc9f632d6cb5957f5f15876",
+        "bytes": 588,
+        "observed_at": "2026-10-21T13:01:43.952421+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130670-zh_CN.json",
+      "response_sha256": "b4976a11ba8b2a6d7c9cfc1027993e6ae6105ba967356d845fb562e55980dc12",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130670&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 130670,
+        "collectible": 0,
+        "slug": "130670-ritual-of-subjugation",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Milica Celikovic ",
+        "manaCost": 3,
+        "name": "支配仪式",
+        "text": "回合后，随机召唤三个<b>传说随从</b>，并获取其法力值消耗为（1）的复制各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb704773f78519409e8201573f44197dcc0a8639fc4c6d281ebca50ce6a56e89.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129824,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130670&locale=zh_CN&collectible=0",
+        "sha256": "b4976a11ba8b2a6d7c9cfc1027993e6ae6105ba967356d845fb562e55980dc12",
+        "bytes": 662,
+        "observed_at": "2026-10-21T13:01:45.606888+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130671-zh_CN.json",
+      "response_sha256": "899ad03f9fed016631e5f6b7f7b82bc797718d17b3e3557490884a8706be0403",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130671&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 130671,
+        "collectible": 0,
+        "slug": "130671-ritual-of-conquest",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Juan Calle",
+        "manaCost": 3,
+        "name": "征服仪式",
+        "text": "回合后，使你的随从获得+6/+6<i>（无论它们在哪）</i>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e32a39a88a7efe51671abd3299b7b5955a6232116fc99dc07311fd724835422.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129824,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130671&locale=zh_CN&collectible=0",
+        "sha256": "899ad03f9fed016631e5f6b7f7b82bc797718d17b3e3557490884a8706be0403",
+        "bytes": 614,
+        "observed_at": "2026-10-21T13:01:47.148941+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130669-en_US.json",
+      "response_sha256": "31682d3ec7a47cb7a299c0f70b42deb3c84c6a2a42a0e23892ffae2416d32d31",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130669&locale=en_US&collectible=0",
+      "face": {
+        "id": 130669,
+        "collectible": 0,
+        "slug": "130669-ritual-of-famine",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "Ritual of Famine",
+        "text": "In turns, draw 5 cards from your opponent's deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cba4498cc6575faf197588bdf2549b256e38d9d900594af64bda1fbcc7d42478.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129824,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130669&locale=en_US&collectible=0",
+        "sha256": "31682d3ec7a47cb7a299c0f70b42deb3c84c6a2a42a0e23892ffae2416d32d31",
+        "bytes": 593,
+        "observed_at": "2026-10-21T13:01:44.243369+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130670-en_US.json",
+      "response_sha256": "fa255ba06d84709ac46a44bf75df386c00681d5cbb4945f80683a759a02e7ddd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130670&locale=en_US&collectible=0",
+      "face": {
+        "id": 130670,
+        "collectible": 0,
+        "slug": "130670-ritual-of-subjugation",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Milica Celikovic ",
+        "manaCost": 3,
+        "name": "Ritual of Subjugation",
+        "text": "In turns, summon three random <b>Legendary</b> minions. Get a 1-Cost copy of each.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6e8b278eec66f85de1d503614972f285015b56dae2fe92813888eac934fd38b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129824,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130670&locale=en_US&collectible=0",
+        "sha256": "fa255ba06d84709ac46a44bf75df386c00681d5cbb4945f80683a759a02e7ddd",
+        "bytes": 643,
+        "observed_at": "2026-10-21T13:01:45.898796+00:00"
+      }
+    },
+    {
+      "card_id": "BE_090t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130671-en_US.json",
+      "response_sha256": "405a4b42a618ab285c0b1760b520dbf0a860cfbe8e8b25fd2ce41b35047a9979",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130671&locale=en_US&collectible=0",
+      "face": {
+        "id": 130671,
+        "collectible": 0,
+        "slug": "130671-ritual-of-conquest",
+        "classId": 9,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Juan Calle",
+        "manaCost": 3,
+        "name": "Ritual of Conquest",
+        "text": "In turns, give your minions +6/+6 <i>(wherever they are)</i>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30e79d9a0e2c9ccab2dcc8d924b87ace42c582b682284f3f017853aa5fa63060.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129824,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130671&locale=en_US&collectible=0",
+        "sha256": "405a4b42a618ab285c0b1760b520dbf0a860cfbe8e8b25fd2ce41b35047a9979",
+        "bytes": 609,
+        "observed_at": "2026-10-21T13:01:47.406921+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "@": ""
+  },
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

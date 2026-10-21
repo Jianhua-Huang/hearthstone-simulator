@@ -67,8 +67,11 @@ def continue_named_minion(r, effect):
         target_id=delivery.entity.entity_id, player_id=root.request.player_id,
         followup=json.dumps(asdict(effect), ensure_ascii=False, sort_keys=True, separators=(',', ':')),
         _capture=False)
+    from .pool_summons import PoolSummonBasis
+    basis = root.request.pool_basis
+    original_delivery = type(basis) is PoolSummonBasis and basis.followup_policy == 'original_delivery'
     entity = resolve_board_presence(r.state, effect.beneficiary)
-    if entity is None or not entity.active or entity.health <= 0 or entity.doomed or entity.controller != root.request.player_id:
+    if not original_delivery and (entity is None or not entity.active or entity.health <= 0 or entity.doomed or entity.controller != root.request.player_id):
         r.stale(effect, effect.beneficiary.entity_id)
         return ()
     return (r.call(effect.behavior_id, root.request.cause.source.entity_id, root.request.player_id,
@@ -88,6 +91,19 @@ def original_named_reference(context):
             (event.source_id, event.player_id, event.target_id) != identity):
         raise ValueError('Named callback changed its accepted caller or receiver')
     return effect.beneficiary
+
+
+def original_pool_delivery(context):
+    """The exact accepted main body, even if its later face/residence departed."""
+    from .summon_quantities import record
+    from .pool_summons import PoolSummonBasis
+    original_named_reference(context)
+    effect = decode(dict(context.event.data)['followup'])
+    root = record(context.state, effect.root_id)
+    basis = root.request.pool_basis
+    if type(basis) is not PoolSummonBasis or basis.followup_policy != 'original_delivery':
+        raise ValueError('Original pool delivery query requires its explicit accepted policy')
+    return for_root(root, effect).entity
 
 
 def validate_call(call):

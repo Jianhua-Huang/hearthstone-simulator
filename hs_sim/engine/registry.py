@@ -2270,8 +2270,9 @@ class Registry:
             spec.__post_init__()
             for repeat in (*spec.deathrattle_repeats, *spec.end_turn_repeats):
                 validate_source_declaration(self, repeat, allow_source=False)
-            if self.card(spec.card_id).choice_only:
-                raise ValueError('Player effects require a physical display card')
+            if self.card(spec.card_id).choice_only and not (spec.kind == 'ritual' and
+                    self.card(spec.card_id).kind == CardType.SPELL):
+                raise ValueError('Player effects require a physical display or an explicit Ritual choice spell')
             if spec.kind == 'adaptations':
                 from .adapt_memory import validate_options
                 if self.card(spec.card_id).kind != CardType.MINION:

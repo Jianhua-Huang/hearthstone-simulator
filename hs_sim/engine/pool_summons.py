@@ -33,8 +33,13 @@ class PoolSummonBasis:
     entry_dormant_turns:int|None=None
     entry_grant:CreatedMinionGrant|None=None
     on_summon:str|None=None
+    followup_policy:str='live_friendly'
 
     def __post_init__(self):
+        if type(self.followup_policy)is not str or self.followup_policy not in('live_friendly','original_delivery'):
+            raise ValueError('Unknown original pool followup policy')
+        if self.followup_policy=='original_delivery'and self.on_summon is None:
+            raise ValueError('Original pool delivery needs its explicit callback')
         if self.on_summon is not None:
             from .effects import _behavior
             _behavior(self.on_summon)
@@ -66,11 +71,11 @@ class PoolSummonBasis:
         if len({x.card_id for x in self.candidates})!=len(self.candidates):raise ValueError('Duplicate canonical pool entry')
 
     @classmethod
-    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None,on_summon=None):
+    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None,on_summon=None,followup_policy='live_friendly'):
         context=r.game._generation_context;pool=r.registry.pool(effect.pool_id,context)
         source=None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id])
         hero_class=r.player(effect.player_id).hero_class if effect.query.class_mode in ('current','other')else None
-        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None),on_summon)
+        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None),on_summon,followup_policy)
 
 
 def entry_material(basis,card_id):

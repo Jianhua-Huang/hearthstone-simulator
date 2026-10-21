@@ -1056,8 +1056,13 @@ class SummonFromPool(Effect):
     position: int | None = None
     entry_dormant_turns: int | None = None
     on_summon: str | None = None
+    followup_policy: str = 'live_friendly'
 
     def __post_init__(self):
+        if type(self.followup_policy) is not str or self.followup_policy not in ('live_friendly','original_delivery'):
+            raise ValueError('Unknown original pool delivery followup policy')
+        if self.followup_policy == 'original_delivery' and self.on_summon is None:
+            raise ValueError('Original delivery policy requires its explicit attributed callback')
         if self.on_summon is not None:
             from .effects import _behavior
             _behavior(self.on_summon)
@@ -1101,7 +1106,8 @@ def summon_from_pool(r,effect,*,producer_link=None):
         from .summon_quantities import SummonByCard,SummonEntryMaterial,accept
         from .pool_summons import PoolSummonBasis, entry_material
         basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,
-            entry_dormant_turns=effect.entry_dormant_turns,on_summon=effect.on_summon)
+            entry_dormant_turns=effect.entry_dormant_turns,on_summon=effect.on_summon,
+            followup_policy=effect.followup_policy)
         return accept(r,SummonByCard(effect.player_id,tuple(entry_material(basis,m.card_id)for m in rows),effect.cause,
             'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis,producer_link=producer_link))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:
