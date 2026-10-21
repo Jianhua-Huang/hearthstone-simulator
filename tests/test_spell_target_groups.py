@@ -129,7 +129,8 @@ class SpellTargetGroupTests(unittest.TestCase):
 
     def test_complete_original_domain_cannot_be_cropped_even_when_selection_still_fits(self):
         g = self.game((PLAIN, PLAIN)); plan = self.plan(g)
-        cropped = replace(plan, candidates=plan.candidates[:2])
+        cropped = replace(plan, candidates=plan.candidates[:2], board_presences=tuple(x for x in plan.board_presences
+            if x.entity_id in plan.target_ids[:2]))
         selected = SpellTargetGroupSelection(cropped, cropped.target_ids)
         with self.assertRaises(ValueError):
             self.check(g, selected)

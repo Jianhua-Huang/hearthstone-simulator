@@ -7479,8 +7479,12 @@ class PlayRecord:
     next_spell_bonus_effects: tuple[PlayerEffect, ...] = ()
     hand_cost_rank: HandCostRankFact | None = None
     spell_target_group: object | None = None
+    spell_target_receipt: object | None = None
 
     def __post_init__(self):
+        if self.spell_target_receipt is not None:
+            from .spell_group_targets import validate_material
+            validate_material(self)
         if self.spell_target_group is not None:
             from .spell_target_groups import validate_record_material
             validate_record_material(self)
@@ -8014,8 +8018,12 @@ class SpellCastRecord:
     next_spell_body_cursor: int = 0
     source_cost: CostQuoteFact | None = None
     spell_target_group: object | None = None
+    spell_target_receipt: object | None = None
 
     def __post_init__(self):
+        if self.spell_target_receipt is not None:
+            from .spell_group_targets import validate_material
+            validate_material(self, cast=True)
         if self.spell_target_group is not None:
             from .spell_target_groups import validate_record_material
             validate_record_material(self, cast=True)
@@ -8487,8 +8495,13 @@ class ActionWindow:
     attack_source_presence: BoardPresenceReference | None = None
     attack_target_presence: BoardPresenceReference | None = None
     excess_to_hero: bool = False
+    spell_target_index: int | None = None
 
     def __post_init__(self):
+        if self.spell_target_index is not None:
+            _int(self.spell_target_index, 'active spell arrow', 0)
+            if self.kind != 'spell' or not self.target_phase:
+                raise ValueError('Active spell arrows require their actual spell target phase')
         validate_combat_relation(self.combat_relation)
         _bool(self.excess_to_hero, 'combat excess policy')
         if self.excess_to_hero and (self.kind != 'attack' or not self.forced or

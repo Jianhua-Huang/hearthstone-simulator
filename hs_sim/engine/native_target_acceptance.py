@@ -147,6 +147,11 @@ def accept(r,origin,proposal):
 
 def spell_failure(game,play_id):
     """A targeted native empty domain fizzles every original physical CAST."""
+    from .play_history import play_record
+    actual = play_record(game._state, play_id).spell_target_receipt
+    if actual is not None:
+        if not actual.closed: raise ValueError('A physical CAST overtook its actual group target phase')
+        return 'no_target' if actual.primary_target_id is None else None
     if not game.registry.random_target_cards:return None
     from .hero_health_history import effective_events
     from .continuations import FrameCodec
@@ -234,6 +239,7 @@ def validate_boundary(game):
                 raise ValueError('Native family record lost its complete acceptance receipt')
     for cast in game._state.cast_history:
         if cast.play_id is None or cast.failure!='no_target':continue
+        if cast.spell_target_receipt is not None:continue
         matches=[selection for key,(_,selection,proposal)in accepted.items()if key[0]=='manual_card'and
             proposal.play_id==cast.play_id and selection.failure=='no_target']
         if len(matches)!=1 or cast.target_id is not None:

@@ -19,7 +19,7 @@ from .spell_cost_proof import HandPlayCostProof
 
 _PROGRESS = frozenset(('countered', 'completed', 'interrupted',
                        'spell_submission', 'spell_payload',
-                       'spell_acceptance_closed', 'paid_hand_close', 'paid_hand_interrupt'))
+                       'spell_acceptance_closed', 'paid_hand_close', 'paid_hand_interrupt', 'spell_target_receipt'))
 
 
 def _identity(play):
@@ -442,6 +442,7 @@ def _bind_live(state, proof, registry):
         _bind_original_board_sources(proof.resolution.state, state)
     play = play_record(state, proof.play_id)
     if (_identity(play) != _identity(proof.submission.play) or
+            proof.resolution is not None and play.spell_target_receipt != proof.resolution.play.spell_target_receipt or
             play.spell_submission != submission or play.spell_payload != payload or
             proof.resolution is not None and play.countered != proof.resolution.play.countered):
         raise ValueError('Spell acceptance proof differs from its durable root')
@@ -590,6 +591,11 @@ def _belongs_to_play(work, play, state):
     from .spell_casts import FinishSpellCast
     from .spell_repeats import StartSpellIteration
     from .rewind_outcomes import StartRewindOutcome
+    from .spell_group_targets import SpellGroupArrow, SettleSpellGroupArrow, FinishSpellGroupTargets
+    if type(work) is FinishSpellGroupTargets:
+        return work.proof.initial.play_id == play.id
+    if type(work) in (SpellGroupArrow, SettleSpellGroupArrow):
+        return any(w.id == work.window_id and w.play_id == play.id for w in state.action_windows)
     if type(work) is BehaviorCall:
         context = work.context
         belongs = False
@@ -635,6 +641,7 @@ def validate_queue(state, registry, queue, max_resolution_steps, *, terminal=Fal
     """Bind the complete pending span, including an actually popped closing tail."""
     from .interrupts import SpellTargetPhase, ResolveSpell
     from .resolver import FinishPlay
+    from .spell_group_targets import SettleSpellGroupArrow
     if type(state) is not GameState or type(terminal) is not bool:
         raise ValueError('Spell queue proof requires a complete typed current state')
     queue = tuple(queue)
@@ -668,7 +675,7 @@ def validate_queue(state, registry, queue, max_resolution_steps, *, terminal=Fal
                     play.completed or play.spell_payload is not None):
                 raise ValueError('Unresolved spell acceptance lost its real window')
             starters = [i for i, w in enumerate(queue) if
-                        type(w) in (SpellTargetPhase, ResolveSpell) and w.window_id == windows[0].id]
+                        type(w) in (SpellTargetPhase, ResolveSpell, SettleSpellGroupArrow) and w.window_id == windows[0].id]
             if len(starters) != 1 or starters[0] >= index:
                 raise ValueError('Spell resolution follows its acceptance closure')
             if any(c.play_id == play.id for c in state.cast_history):

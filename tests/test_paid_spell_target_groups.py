@@ -28,7 +28,7 @@ META = CardMetadata(False, (CardClass.MAGE,), None, tribes=())
 
 
 @lru_cache(maxsize=None)
-def fixture(mode='plain', shortfall='reject'):
+def fixture(mode='plain', shortfall='reject', extension=None):
     r = Registry(P+mode+'.'+shortfall)
     r.register_card(CardDefinition(P+'hero', 'Hero', CardType.HERO, health=30))
     for cid, keywords in ((PLAIN, ()), (ELUSIVE, (Keyword.ELUSIVE,))):
@@ -80,6 +80,8 @@ def fixture(mode='plain', shortfall='reject'):
             triggers=(TriggerSpec('spell_targeted', P+'reaction'),)))
     from hs_sim.cards.noggenfogger_card import register_noggenfogger_card
     register_noggenfogger_card(r)
+    if extension is not None:
+        extension(r)
     r.freeze()
     return r
 
@@ -252,7 +254,8 @@ class PaidSpellTargetGroupTests(unittest.TestCase):
         proof=tail.cost_proof;group=proof.prepared_play.spell_target_group
         # Remove the unselected candidate so the vector still fits its forged plan.
         spare=next(x for x in group.plan.candidates if x.entity_id not in group.target_ids)
-        bad_group=replace(group,plan=replace(group.plan,candidates=tuple(x for x in group.plan.candidates if x!=spare)))
+        bad_group=replace(group,plan=replace(group.plan,candidates=tuple(x for x in group.plan.candidates if x!=spare),
+            board_presences=tuple(x for x in group.plan.board_presences if x.entity_id!=spare.entity_id)))
         bad=replace(proof,prepared_play=replace(proof.prepared_play,spell_target_group=bad_group))
         with self.assertRaises(ValueError):validate_hand_cost_proof(bad,g.registry)
 
@@ -265,11 +268,14 @@ class PaidSpellTargetGroupTests(unittest.TestCase):
         self.assertEqual(g.state.cast_history[0].spell_target_group.target_ids,action.target_ids)
         self.restore(g)
 
-    def test_unimplemented_native_replacement_and_redirect_fail_without_partial_payment(self):
+    def test_native_replacement_and_redirect_keep_original_group_and_one_payment(self):
         for mode, board in (('plain',('CORE_CFM_670',)),('redirect',(WATCH,))):
-            g=self.game(mode,board=board);before=g.snapshot()
-            with self.subTest(mode=mode),self.assertRaisesRegex(ResolutionError,'not implemented'):self.play(g)
-            self.assertEqual(g.snapshot(),before)
+            with self.subTest(mode=mode):
+                g=self.game(mode,board=board);action=self.play(g)
+                self.assertEqual(g.state.players[1].mana,9)
+                self.assertEqual(g.state.cast_history[0].spell_target_group.target_ids,action.target_ids)
+                self.assertTrue(g.state.cast_history[0].spell_target_receipt.closed)
+                self.restore(g)
 
     def test_automatic_and_stored_consumers_fail_explicitly_instead_of_losing_second_target(self):
         for mode in ('auto','stored'):

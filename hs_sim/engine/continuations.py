@@ -826,12 +826,13 @@ def validate_frame(game):
         raise ValueError('Invalid suspended death deferral boundaries')
     from .interrupts import ResolveSpell, ResolveAttack, SpellTargetPhase
     from .minion_plays import ResolveMinionPlay, MinionCounterPhase
-    window_closers = [work for work in (*frame.prefix, *frame.continuation) if isinstance(work, (ResolveSpell, ResolveAttack, SpellTargetPhase, ResolveMinionPlay, MinionCounterPhase))]
+    from .spell_group_targets import SettleSpellGroupArrow
+    window_closers = [work for work in (*frame.prefix, *frame.continuation) if isinstance(work, (ResolveSpell, ResolveAttack, SpellTargetPhase, ResolveMinionPlay, MinionCounterPhase, SettleSpellGroupArrow))]
     windows = list(reversed(game._state.action_windows))
     if (len(window_closers) != len(windows) or any(work.window_id != window.id or
-            (isinstance(work, (ResolveSpell, SpellTargetPhase))) != (window.kind == 'spell') or
+            (isinstance(work, (ResolveSpell, SpellTargetPhase, SettleSpellGroupArrow))) != (window.kind == 'spell') or
             (isinstance(work, (ResolveMinionPlay, MinionCounterPhase))) != (window.kind == 'minion') or
-            (window.kind == 'spell' and isinstance(work, ResolveSpell) != window.target_phase) or
+            (window.kind == 'spell' and isinstance(work, (ResolveSpell, SettleSpellGroupArrow)) != window.target_phase) or
             (window.kind == 'minion' and isinstance(work, ResolveMinionPlay) != window.counter_phase)
             for work, window in zip(window_closers, windows))):
         raise ValueError('Pending action windows and their continuations do not match')

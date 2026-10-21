@@ -166,7 +166,7 @@ def begin_played(r, play, target_id, *, iteration=1, countered=False, failure=No
         target_origin=capture_target_origin(r.state,target_id), held_higher_cost=play.held_higher_cost,
         next_spell_bonus_effects=play.next_spell_bonus_effects if iteration==1 else (),
         hand_cost_rank=play.hand_cost_rank, source_cost=capture_hand(r.registry, play),
-        spell_target_group=play.spell_target_group)
+        spell_target_group=play.spell_target_group, spell_target_receipt=play.spell_target_receipt)
     r.state.cast_history.append(record)
     # Match automatic casts: a real attempted physical cast has a start even
     # when countered; successful payload acceptance remains a separate fact.
@@ -528,7 +528,9 @@ def validate_history(state, registry):
         if record.play_id is not None:
             from .play_history import play_record
             play = play_record(state, record.play_id)
-            if record.failure=='no_target' and (not registry.random_target_cards or record.target_id is not None or
+            actual_empty = (play.spell_target_receipt is not None and play.spell_target_receipt.closed and
+                play.spell_target_receipt.primary_target_id is None)
+            if record.failure=='no_target' and (not registry.random_target_cards and not actual_empty or record.target_id is not None or
                     play.spell_payload is None or play.spell_payload.target_id is not None):
                 raise ValueError('Hand no-target failure requires an actual native empty target acceptance')
             ordinal = iterations.get(play.id, 0) + 1

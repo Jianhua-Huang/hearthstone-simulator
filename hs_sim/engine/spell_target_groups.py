@@ -13,7 +13,7 @@ import re
 from hs_sim.targets import canonical_digest
 from .allocation_facts import SourceAllocationFact
 from .effects import _integer, _player
-from .model import CardDefinition, CardType
+from .model import BoardPresenceReference, CardDefinition, CardType, Zone
 
 
 @dataclass(frozen=True)
@@ -55,6 +55,7 @@ class SpellTargetGroupPlan:
     turn: int
     action: int
     candidates: tuple[SourceAllocationFact, ...]
+    board_presences: tuple[BoardPresenceReference, ...] = ()
 
     def __post_init__(self):
         if type(self.source) is not SourceAllocationFact:
@@ -80,6 +81,14 @@ class SpellTargetGroupPlan:
             ids.append(fact.entity_id)
         if ids != sorted(set(ids)):
             raise ValueError('Spell target inventory must be unique and ordered')
+        if (type(self.board_presences) is not tuple or any(type(x) is not BoardPresenceReference for x in self.board_presences) or
+                tuple(x.entity_id for x in self.board_presences) != tuple(x.entity_id for x in self.candidates
+                    if x.kind == CardType.MINION and x.zone == Zone.BOARD)):
+            raise ValueError('Spell target plan lost its complete original board residences')
+        for ref in self.board_presences:
+            ref.__post_init__()
+            if ref.presence_id >= self.source.next_order:
+                raise ValueError('Spell target residence exceeds its original allocation window')
 
     @property
     def target_ids(self):
@@ -144,7 +153,8 @@ def prepare_spell_target_group(state, registry, source_id, player_id, *, min_cou
             context_factory=context_factory, automatic=automatic))
     return SpellTargetGroupPlan(SourceAllocationFact.capture(state, source), player_id,
         canonical_digest(asdict(definition)), min_count, max_count, automatic,
-        state.turn, state.action_number, candidates)
+        state.turn, state.action_number, candidates, tuple(BoardPresenceReference.capture(state, x.entity_id)
+            for x in candidates if x.kind == CardType.MINION and x.zone == Zone.BOARD))
 
 
 def spell_target_group_selections(plan):
@@ -217,7 +227,8 @@ def validate_record_material(record, *, cast=False):
     group.__post_init__()
     plan = group.plan
     from .model import Zone
-    if ((plan.source.entity_id, plan.source.card_id, plan.player_id, plan.turn, group.target_ids[0]) !=
+    primary = (record.spell_target_receipt.primary_target_id if cast and record.spell_target_receipt is not None else group.target_ids[0])
+    if ((plan.source.entity_id, plan.source.card_id, plan.player_id, plan.turn, primary) !=
             (record.source_id, record.card_id, record.player_id, record.turn, record.target_id) or
             plan.automatic or plan.source.zone != Zone.HAND or
             (plan.action > record.action if cast else plan.action != record.action) or
@@ -234,6 +245,8 @@ def selection_from_dict(value):
     plan = _row(row['plan'], SpellTargetGroupPlan)
     plan['source'] = allocation_from_dict(plan['source'])
     plan['candidates'] = tuple(allocation_from_dict(x) for x in _list(plan['candidates'], 'spell group candidates'))
+    plan['board_presences'] = tuple(BoardPresenceReference(**_row(x, BoardPresenceReference))
+        for x in _list(plan['board_presences'], 'original spell target board residences'))
     row['plan'] = SpellTargetGroupPlan(**plan)
     row['target_ids'] = tuple(_list(row['target_ids'], 'original spell group target IDs'))
     return SpellTargetGroupSelection(**row)
@@ -289,6 +302,8 @@ def validate_boundary(game):
                 raise ValueError('Spell CAST lost its complete accepted paid target group')
         elif group is not None:
             raise ValueError('An undeclared CAST invented a spell target group')
+    from .spell_group_targets import validate_boundary as validate_actual_groups
+    validate_actual_groups(game)
 
 
 def target_ids(context):
@@ -297,11 +312,15 @@ def target_ids(context):
     if (cast is None or cast.spell_target_group is None or not cast.payload_started or
             cast.failure is not None or context.state.cast_history[cast.id-1] != cast):
         raise ValueError('Group target delivery requires its actual accepted physical CAST')
-    return tuple(f.entity_id for f in cast.spell_target_group.targets
-        if (e := context.state.entities.get(f.entity_id)) is not None and
-        (e.kind, e.zone, e.zone_epoch, e.entered_order) == (f.kind, f.zone, f.zone_epoch, f.entered_order))
+    if cast.spell_target_receipt is None or not cast.spell_target_receipt.closed:
+        raise ValueError('Group target delivery lost its actual accepted target phase')
+    from .spell_group_targets import _live_fact
+    return tuple(f.entity_id for f, presence in zip(cast.spell_target_receipt.targets, cast.spell_target_receipt.presences)
+        if f is not None and _live_fact(context.state, f, presence) is not None)
 
 
 def register(mechanics):
     mechanics.register_payload_type(SpellTargetGroupPlan)
     mechanics.register_payload_type(SpellTargetGroupSelection)
+    from .spell_group_targets import register as register_actual_spell_groups
+    register_actual_spell_groups(mechanics)
