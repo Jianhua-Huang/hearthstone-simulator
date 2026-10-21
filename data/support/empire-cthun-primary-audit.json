@@ -1,0 +1,1998 @@
+{
+  "schema": 1,
+  "audit_only": true,
+  "audited_at": "2026-10-21T23:50:41.817584+00:00",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "roots": [
+    "BE_013",
+    "BE_012",
+    "BE_014",
+    "BE_204",
+    "BE_726",
+    "BE_771",
+    "BE_778"
+  ],
+  "dependencies": [
+    "BE_013t1",
+    "BE_013t2",
+    "BE_013t3",
+    "BE_013t4",
+    "BE_013t5"
+  ],
+  "records": {
+    "BE_013": {
+      "record": {
+        "id": "BE_013",
+        "dbf_id": 132339,
+        "name": "克苏恩，帝国之眼",
+        "name_en": "C'Thun, Eye of the Empire",
+        "text": "<b>古神</b>\n如果你在本局对战中触发了克苏恩的全部4个技能，本随从的技能效果变为三倍。",
+        "text_en": "<b>Old God.</b> If you've triggered all 4 C'Thun abilities this game, this minion's abilities are tripled.",
+        "cost": 10,
+        "attack": 12,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 12,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b26b1f0530b59b3048f0c3049ea6d665a2525f732ab0330ed76a009b17efc0bf"
+    },
+    "BE_012": {
+      "record": {
+        "id": "BE_012",
+        "dbf_id": 132348,
+        "name": "黑暗执事",
+        "name_en": "Dark Deacon",
+        "text": "<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。<i>（还剩{0}个！）</i>@<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。<i>（已就绪！）</i>@<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。",
+        "text_en": "[x]<b>Battlecry:</b> If you've cast 2\nShadow spells while holding\nthis, choose a C'Thun ability\nto trigger. <i>({0} left!)</i>@[x]<b>Battlecry:</b> If you've cast 2\nShadow spells while holding\nthis, choose a C'Thun ability\nto trigger. <i>(Ready)</i>@[x]<b>Battlecry:</b> If you've cast 2\nShadow spells while holding\nthis, choose a C'Thun ability\nto trigger.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD_CTHUN_TOOLTIP": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "22c6894c434db42dfb6b147e4a02b37122045d62509835f35a57e69198a88091"
+    },
+    "BE_014": {
+      "record": {
+        "id": "BE_014",
+        "dbf_id": 132347,
+        "name": "克苏恩的子嗣",
+        "name_en": "Spawn of C'Thun",
+        "text": "<b>战吼：</b>如果你的套牌中有克苏恩，选择并触发一项它的技能。",
+        "text_en": "[x]<b>Battlecry:</b> If C'Thun\nstarted in your deck,\nchoose one of its\nabilities to trigger.",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD_CTHUN_TOOLTIP": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8a5d19c7e23904fbb29b717c899ebe7c04b4d6fc3642b69d7d44419d04777230"
+    },
+    "BE_204": {
+      "record": {
+        "id": "BE_204",
+        "dbf_id": 128215,
+        "name": "滑行者巨怪",
+        "name_en": "Gargantuan Slitherer",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&选择并触发一项克苏恩的技能。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b>& Choose a C'Thun\nability to trigger.",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "OLD_GOD_CTHUN_TOOLTIP": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "58ff20ef1578abc9836cef29e8ba621bdc30a6fea89cea762e6f040a77f806a7"
+    },
+    "BE_726": {
+      "record": {
+        "id": "BE_726",
+        "dbf_id": 130281,
+        "name": "克苏恩仪式",
+        "name_en": "Ritual of C'Thun",
+        "text": "@回合后，选择并触发一项克苏恩的技能。",
+        "text_en": "[x]In @ turns, choose a\nC'Thun ability to trigger.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 1,
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "SPELL_SCHOOL": 6,
+          "1724": 1,
+          "OBJECTIVE": 1,
+          "TAG_SCRIPT_DATA_NUM_3": 1,
+          "4623": 1,
+          "OLD_GOD_CTHUN_TOOLTIP": 1,
+          "OBJECTIVE_COUNTDOWN": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4623"
+          }
+        ]
+      },
+      "record_sha256": "97b95d9ad4366d5dece124e06c1afd48866575a1a18f474b1fc60f3243b645af"
+    },
+    "BE_771": {
+      "record": {
+        "id": "BE_771",
+        "dbf_id": 131262,
+        "name": "触须刺鞭",
+        "name_en": "Tentacle Lash",
+        "text": "在你的英雄攻击后，使克苏恩的法力值消耗减少（1）点。选择并触发一项克苏恩的技能。",
+        "text_en": "[x]After your hero attacks,\nreduce the Cost of C'Thun\nby (1). Choose a C'Thun\nability to trigger.",
+        "cost": 5,
+        "attack": 1,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 5,
+          "CARD_SET": 1994,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD_CTHUN_TOOLTIP": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          }
+        ]
+      },
+      "record_sha256": "cc8e6842362045f6d617948120cd1e87f0136b70d065d01cf07757d556d8b9b3"
+    },
+    "BE_778": {
+      "record": {
+        "id": "BE_778",
+        "dbf_id": 131357,
+        "name": "凌空守望",
+        "name_en": "Watch Over",
+        "text": "选择并触发克苏恩的两个不同的技能。",
+        "text_en": "Choose two different C'Thun abilities\nto trigger.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1994,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "OLD_GOD_CTHUN_TOOLTIP": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "3245f9fa1ef8f702220cc177500edd62c25192dbd26d06f1c83a068fe72d8a48"
+    },
+    "BE_013t1": {
+      "record": {
+        "id": "BE_013t1",
+        "dbf_id": 132345,
+        "name": "克苏恩的愤怒",
+        "name_en": "Wrath of C'Thun",
+        "text": "造成7点伤害，随机分配到所有敌人身上。@造成21点伤害，随机分配到所有敌人身上。",
+        "text_en": "Deal 7 damage randomly split among enemies.@Deal 21 damage randomly split among enemies.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "349": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "33ef73ed1c76568661389e6729d42c3e1e324f6fd9ccc636a4a5be5dbdb3606a"
+    },
+    "BE_013t2": {
+      "record": {
+        "id": "BE_013t2",
+        "dbf_id": 132344,
+        "name": "克苏恩的领域",
+        "name_en": "Domain of C'Thun",
+        "text": "随机使两个其他友方随从获得+2/+3。@随机使两个其他友方随从获得+6/+9。",
+        "text_en": "[x]Give two other random\nfriendly minions +2/+3.@[x]Give two other random\nfriendly minions +6/+9.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "bd6fb0586e178709945fa07303c86f66de331a6007aa25cf1ca4d7baf78ee3ed"
+    },
+    "BE_013t3": {
+      "record": {
+        "id": "BE_013t3",
+        "dbf_id": 132343,
+        "name": "克苏恩的凝视",
+        "name_en": "Glare of C'Thun",
+        "text": "<b>吸血</b>。对一个敌方随从造成5点伤害。@<b>吸血</b>。对一个敌方随从造成15点伤害。",
+        "text_en": "<b>Lifesteal</b>\nDeal 5 damage to an enemy minion.@<b>Lifesteal</b>\nDeal 15 damage to an enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "349": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "LIFESTEAL": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "14862146e3c818e7b0cefd996c1cac8bca55de8b27bc8c3ab8ebe9f360c8632d"
+    },
+    "BE_013t4": {
+      "record": {
+        "id": "BE_013t4",
+        "dbf_id": 132342,
+        "name": "克苏恩的仆从",
+        "name_en": "Servants of C'Thun",
+        "text": "召唤两个2/3并具有<b>嘲讽</b>的狂热者。@召唤两个6/9并具有<b>嘲讽</b>的狂热者。",
+        "text_en": "Summon two 2/3 Fanatics with <b>Taunt</b>.@Summon two 6/9 Fanatics with <b>Taunt</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e9ade9e0cd3385799020703505159f619e5206f7e13516afe3168b6c032a7838"
+    },
+    "BE_013t5": {
+      "record": {
+        "id": "BE_013t5",
+        "dbf_id": 132349,
+        "name": "无面狂热者",
+        "name_en": "Faceless Fanatic",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c443ec18a4d0f90cd13d9883e6fc4252b6246a0cf218b3e64be360d9448a39e"
+    }
+  },
+  "complete_primary_observations": [
+    {
+      "card_id": "BE_013",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132339-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132339,
+            "collectible": 1,
+            "slug": "132339-cthun-eye-of-the-empire",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 5,
+            "artistName": "Kevin Sidharta",
+            "health": 12,
+            "attack": 12,
+            "manaCost": 10,
+            "name": "克苏恩，帝国之眼",
+            "text": "<b>古神</b> 在本局对战中，当你使用了克苏恩的全部4个技能后，本随从的效果变为三倍。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5efcbee2f9fd47e71afd5946734e14adbff66b50815026f65886de4e1a301e6.png",
+            "imageGold": "",
+            "flavorText": "“阿米图特，阿米图斯的守护者”/2+（2*“孵化”）/2+（2*“不可知者”/3）",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/865a8ffb4d7f8ad2e07eed51e3146168f922aa05e90176be3642d35e89af546d.png",
+            "childIds": [
+              132345,
+              132344,
+              132343,
+              132342,
+              132349
+            ],
+            "keywordIds": [
+              431
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132339&locale=zh_CN",
+        "sha256": "582c4cc634ae448203ca2fa2d7a42413cfb6b6928b43d557019cc60efc7541f2",
+        "bytes": 949,
+        "observed_at": "2026-10-21T17:17:58.310447+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013"
+      }
+    },
+    {
+      "card_id": "BE_013",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132339-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132339,
+            "collectible": 1,
+            "slug": "132339-cthun-eye-of-the-empire",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 5,
+            "artistName": "Kevin Sidharta",
+            "health": 12,
+            "attack": 12,
+            "manaCost": 10,
+            "name": "C'Thun, Eye of the Empire",
+            "text": "<b>Old God.</b> If you've triggered all 4 C'Thun abilities this game, this minion's abilities are tripled.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f755d6f4f0a2b854df8b02fff6ceda95baeae25592c582fd1acf94a82490f1e2.png",
+            "imageGold": "",
+            "flavorText": "\"Amitut, Keeper of Amitus\"/2 + (2*\"Incubate\")/2 + (2*\"The Unknowable One\"/3)",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/865a8ffb4d7f8ad2e07eed51e3146168f922aa05e90176be3642d35e89af546d.png",
+            "childIds": [
+              132345,
+              132344,
+              132343,
+              132342,
+              132349
+            ],
+            "keywordIds": [
+              431
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132339&locale=en_US",
+        "sha256": "885afa8a9af5313774f6eea7e5da6668601f675a568a80dd9d0647b9f67841fa",
+        "bytes": 922,
+        "observed_at": "2026-10-21T17:17:58.234290+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_012",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132348-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132348,
+            "collectible": 1,
+            "slug": "132348-dark-deacon",
+            "classId": 6,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 4,
+            "artistName": "Ivo Campelo da Silva",
+            "health": 2,
+            "attack": 3,
+            "manaCost": 3,
+            "name": "黑暗执事",
+            "text": "<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。<i>（还剩2个！）</i>",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dbe2385ad55e98e4cd07d0b9647ddb75b73675f7ef35dcfbb445cfb0108913cf.png",
+            "imageGold": "",
+            "flavorText": "古神来了！古神来了！",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a89ba8e7d14d52887b0009a1d32c7a5b1431109c3a404113874cee90bf52d31a.png",
+            "keywordIds": [
+              8,
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132348&locale=zh_CN",
+        "sha256": "628aee0858f5427893dbf02efbf24f9481a5b8c1e50c0e3cd47c83e202be5b89",
+        "bytes": 840,
+        "observed_at": "2026-10-21T17:17:58.225866+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_012"
+      }
+    },
+    {
+      "card_id": "BE_012",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132348-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132348,
+            "collectible": 1,
+            "slug": "132348-dark-deacon",
+            "classId": 6,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 4,
+            "artistName": "Ivo Campelo da Silva",
+            "health": 2,
+            "attack": 3,
+            "manaCost": 3,
+            "name": "Dark Deacon",
+            "text": "<b>Battlecry:</b> If you've cast 2 Shadow spells while holding this, choose a C'Thun ability to trigger. <i>(2 left!)</i>",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1572bb48f37d379d1c3c549906f5066088e62027eca3cfdf17a1693315e0f5ee.png",
+            "imageGold": "",
+            "flavorText": "The Old Gods are coming. The Old Gods are coming!",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a89ba8e7d14d52887b0009a1d32c7a5b1431109c3a404113874cee90bf52d31a.png",
+            "keywordIds": [
+              8,
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132348&locale=en_US",
+        "sha256": "1dc3c6e186cc0ecbb4d07d126db3fb25c3e389bf7f9ef2bece044944cb389743",
+        "bytes": 834,
+        "observed_at": "2026-10-21T17:17:58.057189+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_012"
+      }
+    },
+    {
+      "card_id": "BE_014",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132347-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132347,
+            "collectible": 1,
+            "slug": "132347-spawn-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 3,
+            "artistName": "Alex Horley Orlandelli",
+            "health": 2,
+            "attack": 2,
+            "manaCost": 4,
+            "name": "克苏恩的子嗣",
+            "text": "<b>战吼：</b>如果你的套牌中有克苏恩，选择并触发一项它的技能。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f85918c0451658dbb6fdceef8fe018b0edf22040c35e29a1d6259b6c54d5fa2.png",
+            "imageGold": "",
+            "flavorText": "如果能坚持到最后的翻转，它就能成为克苏恩的嗣子。",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d97340062f8feaa9a49ee96f779313fefbc14e49fd100def42360897d7bf53ac.png",
+            "keywordIds": [
+              8,
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132347&locale=zh_CN",
+        "sha256": "f4212c6f7e68024fb95b61f1a0c5a9b30e9635d7b2b2f2ddb0c8502b48bd2429",
+        "bytes": 837,
+        "observed_at": "2026-10-21T17:17:59.994223+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_014",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132347-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132347,
+            "collectible": 1,
+            "slug": "132347-spawn-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 3,
+            "artistName": "Alex Horley Orlandelli",
+            "health": 2,
+            "attack": 2,
+            "manaCost": 4,
+            "name": "Spawn of C'Thun",
+            "text": "<b>Battlecry:</b> If C'Thun started in your deck, choose one of its abilities to trigger.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8210439f6006c281ffa35ab43f031ec3fbbedc24c09e56df69014277bab3c0ed.png",
+            "imageGold": "",
+            "flavorText": "If it manages to reach the other side of the battlefield it becomes the Squeen of C'Thun.",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d97340062f8feaa9a49ee96f779313fefbc14e49fd100def42360897d7bf53ac.png",
+            "keywordIds": [
+              8,
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132347&locale=en_US",
+        "sha256": "815400569e3c3767deeb277088e423a7c44312a235f09c3d7eacef2ad25af008",
+        "bytes": 852,
+        "observed_at": "2026-10-21T17:17:59.749944+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_204",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/128215-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 128215,
+            "collectible": 1,
+            "slug": "128215-gargantuan-slitherer",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 1,
+            "artistName": "Ian Ameling",
+            "health": 7,
+            "attack": 6,
+            "manaCost": 6,
+            "name": "滑行者巨怪",
+            "text": "<b>嘲讽</b>。<b>战吼：</b> 选择并触发一项克苏恩的技能。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb9e14a743930c0e61d9bfb6ca1faed676a9891efcd80c8a41be25627669a0bb.png",
+            "imageGold": "",
+            "flavorText": "二十名石巨人被派往击杀深渊滑行者索苟斯。克洛恩是其中最强大的一位，也是唯一",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ea6a9f154875b21946c328b51380f6934d8dd3b8f05744ee28c9b69ab6e8261.png",
+            "keywordIds": [
+              1,
+              8,
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=128215&locale=zh_CN",
+        "sha256": "35752f3c403fe6c3027c68ced2be772c3903106640d691432989c37cd2046c39",
+        "bytes": 857,
+        "observed_at": "2026-10-21T17:17:59.749944+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_204",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/128215-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 128215,
+            "collectible": 1,
+            "slug": "128215-gargantuan-slitherer",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": 1,
+            "artistName": "Ian Ameling",
+            "health": 7,
+            "attack": 6,
+            "manaCost": 6,
+            "name": "Gargantuan Slitherer",
+            "text": "<b>Taunt</b> <b>Battlecry:</b> Choose a C'Thun ability to trigger.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c78e36574e7ce475c6c16ce3fdfbca25a5b25d48366f1b68cc21f75abd3fe7b.png",
+            "imageGold": "",
+            "flavorText": "Twenty stone giants were sent to slay Soggoth the Slitherer. Kronn, the greatest among them, was the only one",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ea6a9f154875b21946c328b51380f6934d8dd3b8f05744ee28c9b69ab6e8261.png",
+            "keywordIds": [
+              1,
+              8,
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=128215&locale=en_US",
+        "sha256": "5446f0effa4d1c824c9e4091415a705399089987bfdeb986004f3e9acb5105e0",
+        "bytes": 851,
+        "observed_at": "2026-10-21T17:17:59.846782+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_726",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/130281-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 130281,
+            "collectible": 1,
+            "slug": "130281-ritual-of-cthun",
+            "classId": 9,
+            "multiClassIds": [],
+            "spellSchoolId": 6,
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": 3,
+            "artistName": "Mauricio Herrera",
+            "manaCost": 1,
+            "name": "克苏恩仪式",
+            "text": "回合后，选择并触发一项克苏恩的技能。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/904a1867e87e044b7bc51da234e75151c5c932818715a30f0765322900487f44.png",
+            "imageGold": "",
+            "flavorText": "这就是克苏恩信徒的日常生活。",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/43a635e97081ce4f8d71e48b130d829e6baa17fa821cba3c27a46799ed6b1825.png",
+            "keywordIds": [
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130281&locale=zh_CN",
+        "sha256": "99638a941bb2cf7aa0ffd6b991e89242300c263571dfdff26480f7f2141ac410",
+        "bytes": 758,
+        "observed_at": "2026-10-21T17:18:01.249363+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_726"
+      }
+    },
+    {
+      "card_id": "BE_726",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/130281-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 130281,
+            "collectible": 1,
+            "slug": "130281-ritual-of-cthun",
+            "classId": 9,
+            "multiClassIds": [],
+            "spellSchoolId": 6,
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": 3,
+            "artistName": "Mauricio Herrera",
+            "manaCost": 1,
+            "name": "Ritual of C'Thun",
+            "text": "In turns, choose a C'Thun ability to trigger.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af41a54e893f8462fc9652a4df493fe702cd02bec3ad5818ea547c0f35ce3d3b.png",
+            "imageGold": "",
+            "flavorText": "This is a day in the life of a follower of C'Thun.",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/43a635e97081ce4f8d71e48b130d829e6baa17fa821cba3c27a46799ed6b1825.png",
+            "keywordIds": [
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130281&locale=en_US",
+        "sha256": "80eae2afe633b5b6c70823242ee5ac5ec91ac5139ae4b3155e199382853ebfac",
+        "bytes": 758,
+        "observed_at": "2026-10-21T17:18:01.246779+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_726"
+      }
+    },
+    {
+      "card_id": "BE_771",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/131262-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 131262,
+            "collectible": 1,
+            "slug": "131262-tentacle-lash",
+            "classId": 14,
+            "multiClassIds": [],
+            "cardTypeId": 7,
+            "cardSetId": 1994,
+            "rarityId": 4,
+            "artistName": "Studio Hive ",
+            "health": 2,
+            "attack": 1,
+            "manaCost": 5,
+            "name": "触须刺鞭",
+            "text": "在你的英雄攻击后，使克苏恩的法力值消耗减少（1）点。选择并触发一项克苏恩的技能。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b64668398850d14fc218930e19bb8cef8fef3d0b73576f4092136feab8a8163.png",
+            "imageGold": "",
+            "flavorText": "克苏恩！赐予我力量！",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a703755a952ac21fbf28e1ec75a5c7164eedeefa7ca35759ce212012cd5bfd59.png",
+            "keywordIds": [
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131262&locale=zh_CN",
+        "sha256": "9da77886bdfd8128ad264e006105a819f175f6ed93c80a9c4dfc7f953f00bb34",
+        "bytes": 806,
+        "observed_at": "2026-10-21T17:18:01.831673+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_771",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/131262-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 131262,
+            "collectible": 1,
+            "slug": "131262-tentacle-lash",
+            "classId": 14,
+            "multiClassIds": [],
+            "cardTypeId": 7,
+            "cardSetId": 1994,
+            "rarityId": 4,
+            "artistName": "Studio Hive ",
+            "health": 2,
+            "attack": 1,
+            "manaCost": 5,
+            "name": "Tentacle Lash",
+            "text": "After your hero attacks, reduce the Cost of C'Thun by (1). Choose a C'Thun ability to trigger.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7834017149d15fd9a7115a465487c7aac6eefa9b95c77924e0b2396ba452ea7.png",
+            "imageGold": "",
+            "flavorText": "By the power of C'Thun. I HAVE THE POWER!",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a703755a952ac21fbf28e1ec75a5c7164eedeefa7ca35759ce212012cd5bfd59.png",
+            "keywordIds": [
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131262&locale=en_US",
+        "sha256": "d127d38ce2eb73b61c259f9a728b6b9783ddc3a3ef273f2052a4f629ef708502",
+        "bytes": 794,
+        "observed_at": "2026-10-21T17:18:01.500120+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_778",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/131357-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 131357,
+            "collectible": 1,
+            "slug": "131357-watch-over",
+            "classId": 8,
+            "multiClassIds": [],
+            "spellSchoolId": 6,
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": 1,
+            "artistName": " Mooncolony",
+            "manaCost": 6,
+            "name": "凌空守望",
+            "text": "选择并触发克苏恩的两个不同的技能。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87ca4925e0d117559d97affed19872922f3240f45e65c6204723666467b9c247.png",
+            "imageGold": "",
+            "flavorText": "克苏恩秒选猎空。",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25651eab6fea6f14980e03fedeadc9d100182237f339ded4471d3b43ea589c98.png",
+            "keywordIds": [
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131357&locale=zh_CN",
+        "sha256": "38137d3a5198b25c82b12f43173c1ce87a48ad46161ca8a3fd9ea60a051bfcdc",
+        "bytes": 724,
+        "observed_at": "2026-10-21T17:18:02.801202+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_778",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/131357-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 131357,
+            "collectible": 1,
+            "slug": "131357-watch-over",
+            "classId": 8,
+            "multiClassIds": [],
+            "spellSchoolId": 6,
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": 1,
+            "artistName": " Mooncolony",
+            "manaCost": 6,
+            "name": "Watch Over",
+            "text": "Choose two different C'Thun abilities to trigger.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a431417bd9a189fbb31d2f32b9287be0b222e4b79bff888631c67ab1c8d83f74.png",
+            "imageGold": "",
+            "flavorText": "C'Thun always insta locks Trac'er.",
+            "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25651eab6fea6f14980e03fedeadc9d100182237f339ded4471d3b43ea589c98.png",
+            "keywordIds": [
+              437
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131357&locale=en_US",
+        "sha256": "eac3d058758b6da1b74e7b51a722b27526bd1d37887ccc9d82e57d77d361f90c",
+        "bytes": 730,
+        "observed_at": "2026-10-21T17:18:02.770117+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_013t1",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132345-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132345,
+            "collectible": 0,
+            "slug": "132345-wrath-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Kevin Sidharta",
+            "manaCost": 0,
+            "name": "克苏恩的愤怒",
+            "text": "造成5点伤害，随机分配到所有敌人身上。 造成15点伤害，随机分配到所有敌人身上。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/42b04f52b8177d24815d8161f13b518e0edb3eb34051131a1334a03f918addf0.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132345&locale=zh_CN&collectible=0",
+        "sha256": "c9c4a03b3643b8c5305016a9a081548dac86b0027a20498ffb8dcd7d853ca22a",
+        "bytes": 643,
+        "observed_at": "2026-10-21T17:18:03.145678+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t1"
+      }
+    },
+    {
+      "card_id": "BE_013t1",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132345-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132345,
+            "collectible": 0,
+            "slug": "132345-wrath-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Kevin Sidharta",
+            "manaCost": 0,
+            "name": "Wrath of C'Thun",
+            "text": "Deal 7 damage randomly split among enemies. Deal 21 damage randomly split among enemies.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d901ad73a7f88744de05a5c4b9fc4bf159aaaa7b08ba610c0ef5668b04cb37b7.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132345&locale=en_US&collectible=0",
+        "sha256": "2c35519a1cad4f74972c1fb931f763a354f7b5edb8b920ae49fd761b602178a8",
+        "bytes": 616,
+        "observed_at": "2026-10-21T17:18:03.833213+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t1"
+      }
+    },
+    {
+      "card_id": "BE_013t2",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132344-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132344,
+            "collectible": 0,
+            "slug": "132344-domain-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Kevin Sidharta",
+            "manaCost": 2,
+            "name": "克苏恩的领域",
+            "text": "随机使两个其他友方随从获得+3/+3。 随机使两个其他友方随从获得+9/+9。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c42a18d4e33a50ddb8880b12114d1f977f452419c844aaaeb7419627ae90c577.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132344&locale=zh_CN&collectible=0",
+        "sha256": "286b4c777e962290244aa3832203c119f3769eac47d5b5be5a2b3e7dbdf1a891",
+        "bytes": 627,
+        "observed_at": "2026-10-21T17:18:04.257085+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t2"
+      }
+    },
+    {
+      "card_id": "BE_013t2",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132344-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132344,
+            "collectible": 0,
+            "slug": "132344-domain-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Kevin Sidharta",
+            "manaCost": 2,
+            "name": "Domain of C'Thun",
+            "text": "Give two other random friendly minions +2/+3. Give two other random friendly minions +6/+9.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bccea73e3a67ae4d52bedbb520af2a7f03b684f316298e06be81905b6421ecf6.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132344&locale=en_US&collectible=0",
+        "sha256": "f397e3640cb63ea9b18a02eebdd5769bab31ee547ef1054162b735c7c75c9320",
+        "bytes": 621,
+        "observed_at": "2026-10-21T17:18:04.295141+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t2"
+      }
+    },
+    {
+      "card_id": "BE_013t3",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132343-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132343,
+            "collectible": 0,
+            "slug": "132343-glare-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Luke Mancini",
+            "manaCost": 0,
+            "name": "克苏恩的凝视",
+            "text": "<b>吸血</b>。对一个敌方随从造成4点伤害。 <b>吸血</b>。对一个敌方随从造成12点伤害。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8236e96cd3638777f17c11b1180496942cea88d9f19f25481858221bb625ef41.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "keywordIds": [
+              38
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132343&locale=zh_CN&collectible=0",
+        "sha256": "ef82874f43f95f6ec9b4d057bdf637db8f04363e1f45b805b9d17a5594bffca4",
+        "bytes": 661,
+        "observed_at": "2026-10-21T17:18:05.122429+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t3"
+      }
+    },
+    {
+      "card_id": "BE_013t3",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132343-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132343,
+            "collectible": 0,
+            "slug": "132343-glare-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Luke Mancini",
+            "manaCost": 0,
+            "name": "Glare of C'Thun",
+            "text": "<b>Lifesteal</b> Deal 5 damage to an enemy minion. <b>Lifesteal</b> Deal 15 damage to an enemy minion.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/beeff329b65d80c24a0cbda3346203ae4f93a399f0407abedbe7facaf636c3c1.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "keywordIds": [
+              38
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132343&locale=en_US&collectible=0",
+        "sha256": "28a65d33bd94bd587ed4d0ab1ecd42967a55a92eed929693ec5f9a2d5d211b1a",
+        "bytes": 646,
+        "observed_at": "2026-10-21T17:18:05.539703+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t3"
+      }
+    },
+    {
+      "card_id": "BE_013t4",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132342-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132342,
+            "collectible": 0,
+            "slug": "132342-servants-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Stefan Bogdasarov",
+            "manaCost": 2,
+            "name": "克苏恩的信徒",
+            "text": "召唤两个2/2并具有<b>嘲讽</b>的狂热者。 召唤两个6/6并具有<b>嘲讽</b>的狂热者。",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1f011a44b36a50e8209e8e3aecf5f832a6ce07ee015192a5f5b26473b3f21a4.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "keywordIds": [
+              1
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132342&locale=zh_CN&collectible=0",
+        "sha256": "3a3eed30bc459008d7ac8532e1a2081075e17feb3ad4ae30eba2dc7fc58244d8",
+        "bytes": 659,
+        "observed_at": "2026-10-21T17:18:05.787470+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card name drift"
+      }
+    },
+    {
+      "card_id": "BE_013t4",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132342-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132342,
+            "collectible": 0,
+            "slug": "132342-servants-of-cthun",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 5,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": "Stefan Bogdasarov",
+            "manaCost": 2,
+            "name": "Servants of C'Thun",
+            "text": "Summon two 2/3 Fanatics with <b>Taunt</b>. Summon two 6/9 Fanatics with <b>Taunt</b>.",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4a16007f37fcf9e641986a3e12bdebaf50797aa47a62251e565cd55f41aeb72.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "keywordIds": [
+              1
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132342&locale=en_US&collectible=0",
+        "sha256": "3b6ad9264a3243154c747d0649f626a6fa30766718a2eeff31f64966914ee685",
+        "bytes": 639,
+        "observed_at": "2026-10-21T17:18:06.168906+00:00"
+      },
+      "strict_check": {
+        "passed": false,
+        "error": "Official card rules drift: BE_013t4"
+      }
+    },
+    {
+      "card_id": "BE_013t5",
+      "locale": "zh_CN",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132349-zh_CN.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132349,
+            "collectible": 0,
+            "slug": "132349-faceless-fanatic",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": null,
+            "health": 3,
+            "attack": 2,
+            "manaCost": 2,
+            "name": "无面狂热者",
+            "text": "<b>嘲讽</b>",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/298355940b07d3dababf23948c6ff6e82a4915be8a57d14ac9670399697050f7.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "keywordIds": [
+              1
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132349&locale=zh_CN&collectible=0",
+        "sha256": "25997f0fe3036d3f630f6055190efca399de8de2c22d24884c54e63ec67e0ccc",
+        "bytes": 570,
+        "observed_at": "2026-10-21T17:18:06.639111+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    },
+    {
+      "card_id": "BE_013t5",
+      "locale": "en_US",
+      "response_path": "outputs/card-integration-20261014/k376-empire-cthun/primary-cache/132349-en_US.json",
+      "complete_response": {
+        "cards": [
+          {
+            "id": 132349,
+            "collectible": 0,
+            "slug": "132349-faceless-fanatic",
+            "classId": 12,
+            "multiClassIds": [],
+            "cardTypeId": 4,
+            "cardSetId": 1994,
+            "rarityId": null,
+            "artistName": null,
+            "health": 3,
+            "attack": 2,
+            "manaCost": 2,
+            "name": "Faceless Fanatic",
+            "text": "<b>Taunt</b>",
+            "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/581a2bd3982db6c44da566b5c7aeea82ce58318481331e7820507606399a18c4.png",
+            "imageGold": "",
+            "flavorText": "",
+            "cropImage": null,
+            "parentId": 132339,
+            "keywordIds": [
+              1
+            ],
+            "isZilliaxFunctionalModule": false,
+            "isZilliaxCosmeticModule": false
+          }
+        ],
+        "cardCount": 1,
+        "pageCount": 1,
+        "page": 1
+      },
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132349&locale=en_US&collectible=0",
+        "sha256": "867cb005ae03587f8a4b2a0f85d9f5c3567f6a0ced0e50b304c74ef4e2237f21",
+        "bytes": 570,
+        "observed_at": "2026-10-21T17:18:07.022814+00:00"
+      },
+      "strict_check": {
+        "passed": true,
+        "error": null
+      }
+    }
+  ],
+  "chinese_images": [
+    {
+      "dbf_id": 132345,
+      "path": "outputs/card-integration-20261014/k376-empire-cthun/cn-images/132345-zh_CN.png",
+      "receipt": {
+        "source_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/42b04f52b8177d24815d8161f13b518e0edb3eb34051131a1334a03f918addf0.png",
+        "resolved_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/42b04f52b8177d24815d8161f13b518e0edb3eb34051131a1334a03f918addf0.png",
+        "status": 200,
+        "fetched_at": "2026-10-21T23:47:29.678731+00:00",
+        "sha256": "42b04f52b8177d24815d8161f13b518e0edb3eb34051131a1334a03f918addf0",
+        "bytes": 91372,
+        "catalog_source": "outputs\\card-integration-20261014\\k376-empire-cthun\\primary-cache\\132345-zh_CN.json",
+        "catalog_sha256": "c9c4a03b3643b8c5305016a9a081548dac86b0027a20498ffb8dcd7d853ca22a"
+      },
+      "visual_observation": "卡图为5点；固定客户端与英文规则为7点。"
+    },
+    {
+      "dbf_id": 132344,
+      "path": "outputs/card-integration-20261014/k376-empire-cthun/cn-images/132344-zh_CN.png",
+      "receipt": {
+        "source_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c42a18d4e33a50ddb8880b12114d1f977f452419c844aaaeb7419627ae90c577.png",
+        "resolved_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c42a18d4e33a50ddb8880b12114d1f977f452419c844aaaeb7419627ae90c577.png",
+        "status": 200,
+        "fetched_at": "2026-10-21T23:47:29.675103+00:00",
+        "sha256": "c42a18d4e33a50ddb8880b12114d1f977f452419c844aaaeb7419627ae90c577",
+        "bytes": 91474,
+        "catalog_source": "outputs\\card-integration-20261014\\k376-empire-cthun\\primary-cache\\132344-zh_CN.json",
+        "catalog_sha256": "286b4c777e962290244aa3832203c119f3769eac47d5b5be5a2b3e7dbdf1a891"
+      },
+      "visual_observation": "卡图为+3/+3；固定客户端与英文规则为+2/+3。"
+    },
+    {
+      "dbf_id": 132343,
+      "path": "outputs/card-integration-20261014/k376-empire-cthun/cn-images/132343-zh_CN.png",
+      "receipt": {
+        "source_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8236e96cd3638777f17c11b1180496942cea88d9f19f25481858221bb625ef41.png",
+        "resolved_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8236e96cd3638777f17c11b1180496942cea88d9f19f25481858221bb625ef41.png",
+        "status": 200,
+        "fetched_at": "2026-10-21T23:47:29.691628+00:00",
+        "sha256": "8236e96cd3638777f17c11b1180496942cea88d9f19f25481858221bb625ef41",
+        "bytes": 89232,
+        "catalog_source": "outputs\\card-integration-20261014\\k376-empire-cthun\\primary-cache\\132343-zh_CN.json",
+        "catalog_sha256": "ef82874f43f95f6ec9b4d057bdf637db8f04363e1f45b805b9d17a5594bffca4"
+      },
+      "visual_observation": "卡图为4点；固定客户端与英文规则为5点。"
+    },
+    {
+      "dbf_id": 132342,
+      "path": "outputs/card-integration-20261014/k376-empire-cthun/cn-images/132342-zh_CN.png",
+      "receipt": {
+        "source_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1f011a44b36a50e8209e8e3aecf5f832a6ce07ee015192a5f5b26473b3f21a4.png",
+        "resolved_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1f011a44b36a50e8209e8e3aecf5f832a6ce07ee015192a5f5b26473b3f21a4.png",
+        "status": 200,
+        "fetched_at": "2026-10-21T23:47:29.754066+00:00",
+        "sha256": "e1f011a44b36a50e8209e8e3aecf5f832a6ce07ee015192a5f5b26473b3f21a4",
+        "bytes": 87607,
+        "catalog_source": "outputs\\card-integration-20261014\\k376-empire-cthun\\primary-cache\\132342-zh_CN.json",
+        "catalog_sha256": "3a3eed30bc459008d7ac8532e1a2081075e17feb3ad4ae30eba2dc7fc58244d8"
+      },
+      "visual_observation": "卡图名为克苏恩的信徒，召唤2/2；固定客户端与英文规则为2/3。"
+    },
+    {
+      "dbf_id": 132349,
+      "path": "outputs/card-integration-20261014/k376-empire-cthun/cn-images/132349-zh_CN.png",
+      "receipt": {
+        "source_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/298355940b07d3dababf23948c6ff6e82a4915be8a57d14ac9670399697050f7.png",
+        "resolved_url": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/298355940b07d3dababf23948c6ff6e82a4915be8a57d14ac9670399697050f7.png",
+        "status": 200,
+        "fetched_at": "2026-10-21T23:47:30.443598+00:00",
+        "sha256": "298355940b07d3dababf23948c6ff6e82a4915be8a57d14ac9670399697050f7",
+        "bytes": 94320,
+        "catalog_source": "outputs\\card-integration-20261014\\k376-empire-cthun\\primary-cache\\132349-zh_CN.json",
+        "catalog_sha256": "25997f0fe3036d3f630f6055190efca399de8de2c22d24884c54e63ec67e0ccc"
+      },
+      "visual_observation": "实际狂热者卡图与双语结构化属性均为2/3，嘲讽；与中文技能文案的2/2冲突。"
+    }
+  ],
+  "english_complete_rule_comparisons": [
+    {
+      "card_id": "BE_013t1",
+      "complete_both_state_texts_equal_after_separator_only": true,
+      "strict_check_passed": false,
+      "rules_or_numbers_replaced": false,
+      "note": "人工前审的显示分隔比较；没有修改check_face或把严格结果改真。"
+    },
+    {
+      "card_id": "BE_013t2",
+      "complete_both_state_texts_equal_after_separator_only": true,
+      "strict_check_passed": false,
+      "rules_or_numbers_replaced": false,
+      "note": "人工前审的显示分隔比较；没有修改check_face或把严格结果改真。"
+    },
+    {
+      "card_id": "BE_013t3",
+      "complete_both_state_texts_equal_after_separator_only": true,
+      "strict_check_passed": false,
+      "rules_or_numbers_replaced": false,
+      "note": "人工前审的显示分隔比较；没有修改check_face或把严格结果改真。"
+    },
+    {
+      "card_id": "BE_013t4",
+      "complete_both_state_texts_equal_after_separator_only": true,
+      "strict_check_passed": false,
+      "rules_or_numbers_replaced": false,
+      "note": "人工前审的显示分隔比较；没有修改check_face或把严格结果改真。"
+    }
+  ],
+  "internal_implementation_reference": "固定源完整记录；有冲突的中文官网文案不覆盖原数值。",
+  "internal_ability_parameters": {
+    "BE_013t1": {
+      "base": 7,
+      "tripled": 21
+    },
+    "BE_013t2": {
+      "count": 2,
+      "base": [
+        2,
+        3
+      ],
+      "tripled": [
+        6,
+        9
+      ]
+    },
+    "BE_013t3": {
+      "base": 5,
+      "tripled": 15,
+      "lifesteal": true
+    },
+    "BE_013t4": {
+      "count": 2,
+      "base": [
+        2,
+        3
+      ],
+      "tripled": [
+        6,
+        9
+      ],
+      "taunt": true
+    }
+  },
+  "descriptor_cost_observations": {
+    "BE_013t1": {
+      "fixed_client": null,
+      "zh_CN": 0,
+      "en_US": 0
+    },
+    "BE_013t2": {
+      "fixed_client": 2,
+      "zh_CN": 2,
+      "en_US": 2
+    },
+    "BE_013t3": {
+      "fixed_client": null,
+      "zh_CN": 0,
+      "en_US": 0
+    },
+    "BE_013t4": {
+      "fixed_client": 2,
+      "zh_CN": 2,
+      "en_US": 2
+    }
+  },
+  "strict_primary_faces_passed": 11,
+  "strict_primary_faces_total": 24,
+  "source_verified": true,
+  "all_primary_faces_verified": false,
+  "registered_by_this_audit": false,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "deployment_certified": false,
+  "cn_calibrated": false,
+  "open_issues": [
+    "中文四技能数值/命名与固定客户端、英文官网不同；召唤技能文案与真实衍生物属性亦不一致。",
+    "BE_012完整三种显示状态和BE_726动态回合槽需有限显示前审；没有放宽原严格检查。",
+    "整局四技能完成、第四次技能三倍接受窗、外部技能来源和精确国服行为仍需实现/验证。"
+  ]
+}
