@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v628'
+CORE_EFFECTS_VERSION = 'core-effects-v629'
 
 
 class Mechanics:
@@ -2941,5 +2941,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_armor_summon_rewards(mechanics)
     from .deathrattle_copies import register as register_deathrattle_copies
     register_deathrattle_copies(mechanics)
+    from .minion_attack_damage import register as register_minion_attack_damage
+    register_minion_attack_damage(mechanics)
     return mechanics
 

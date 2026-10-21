@@ -275,6 +275,9 @@ class FrameCodec:
         from .forced_attack_sequences import AttackRandomEnemyMinion, AttackLowestHealthEnemy, AttackAllOtherMinions, ForceEachMinionAttack
         if type(value) in (AttackRandomEnemyMinion, AttackLowestHealthEnemy, AttackAllOtherMinions, ForceEachMinionAttack) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
+        from .minion_attack_damage import EachMinionDealsAttackDamage
+        if type(value) is EachMinionDealsAttackDamage and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         from .source_kills import KillSourceReference, ResurrectKilledMinions, validate_reference as validate_kill_source, validate_effect as validate_kill_effect
         if type(value) is KillSourceReference and self.origin_state is not None:
             validate_kill_source(self.origin_state, self.registry, value)
