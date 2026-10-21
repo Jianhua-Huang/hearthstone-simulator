@@ -961,7 +961,7 @@ def from_dict(cls,value):
         from .pool_summons import PoolSummonBasis,PoolSummonEntryLink,from_dict as pool_from_dict
         row['pool_basis']=None if row['pool_basis']is None else pool_from_dict(PoolSummonBasis,row['pool_basis'])
         if row['producer_link']is not None:
-            if set(row['producer_link'])=={'budget','remaining','previous_root_id'}:
+            if set(row['producer_link'])=={'budget','remaining','previous_root_id','tribe','position'}:
                 from .mana_worth_summons import ManaWorthEntryLink
                 row['producer_link']=ManaWorthEntryLink(**row['producer_link'])
             elif set(row['producer_link'])=={'group_id','index'}:

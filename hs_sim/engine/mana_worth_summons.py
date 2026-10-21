@@ -8,13 +8,22 @@ from .pools import GenerationPolicy, PoolQuery, SummonFromPool, summon_from_pool
 from .summon_quantities import SummonCause, FinishCardSummon, record
 
 
+def validate_tribe(tribe):
+    if tribe is not None and (type(tribe) is not str or tribe != 'mech'):
+        raise ValueError('Unknown finite printed-mana summon tribe')
+
+
 @dataclass(frozen=True)
 class ManaWorthEntryLink:
     budget: int
     remaining: int
     previous_root_id: int | None = None
+    tribe: str | None = None
+    position: int | None = None
 
     def __post_init__(self):
+        validate_tribe(self.tribe)
+        if self.position is not None: _integer(self.position, 'original budget entry position', 0)
         _integer(self.budget, 'original printed-mana budget', 1)
         _integer(self.remaining, 'remaining printed-mana budget', 1)
         if self.remaining > self.budget: raise ValueError('Remaining summon budget exceeds its original amount')
@@ -29,8 +38,12 @@ class SummonManaWorth(Effect):
     pool_id: str
     amount: int
     cause: SummonCause
+    tribe: str | None = None
+    position: int | None = None
 
     def __post_init__(self):
+        validate_tribe(self.tribe)
+        if self.position is not None: _integer(self.position, 'original budget position', 0)
         _player(self.player_id); _integer(self.amount, 'printed-mana summon amount', 1)
         if type(self.pool_id) is not str or not self.pool_id: raise ValueError('Budget summon requires its registered pool')
         if type(self.cause) is not SummonCause: raise ValueError('Budget summon requires original typed attribution')
@@ -44,8 +57,10 @@ class ContinueManaWorth(Effect):
     def __post_init__(self): _integer(self.root_id, 'actual budget summon root', 1)
 
 
-def query(remaining):
-    return PoolQuery(kinds=(CardType.MINION,), collectible=True, min_cost=0, max_cost=remaining)
+def query(remaining, tribe=None):
+    validate_tribe(tribe)
+    return PoolQuery(kinds=(CardType.MINION,), collectible=True, min_cost=0, max_cost=remaining,
+        tribes_any=() if tribe is None else (tribe,))
 
 
 def validate_recipe(request):
@@ -53,11 +68,17 @@ def validate_recipe(request):
     if type(link) is not ManaWorthEntryLink: raise ValueError('Typed original mana budget link required')
     link.__post_init__()
     basis = request.pool_basis
-    if (request.selection != 'weighted' or basis is None or request.position is not None or
+    if (request.selection != 'weighted' or basis is None or request.position != link.position or
             request.capacity != 'selection_requires_space' or request.player_id != request.cause.player_id or
-            basis.query != query(link.remaining) or basis.policy != GenerationPolicy() or
-            basis.entry_keywords or basis.entry_dormant_turns is not None):
+            basis.query != query(link.remaining, link.tribe) or basis.policy != GenerationPolicy() or
+            basis.entry_keywords or basis.entry_dormant_turns is not None or basis.entry_grant is not None or
+            basis.on_summon is not None or basis.followup_policy != 'live_friendly'):
         raise ValueError('Budget entry changed its original ordinary printed-minion pool recipe')
+
+
+def next_position(root):
+    position = root.request.position
+    return None if position is None else position + sum(d.outcome == 'delivered' for d in root.deliveries)
 
 
 def remaining_after(registry, root):
@@ -85,6 +106,7 @@ def validate_link(state, registry, root, *, closed=False, roots=None):
             previous.request.pool_basis.pool_id != root.request.pool_basis.pool_id or
             previous.request.pool_basis.context != root.request.pool_basis.context or
             previous.request.producer_link.budget != link.budget or
+            previous.request.producer_link.tribe != link.tribe or next_position(previous) != link.position or
             remaining_after(registry, previous) != link.remaining):
         raise ValueError('Budget entry changed the original previous pick, amount or attribution')
 
@@ -92,8 +114,8 @@ def validate_link(state, registry, root, *, closed=False, roots=None):
 def accept_entry(r, player_id, pool_id, cause, link):
     # The ordinary handler accepts the actual root and returns its original
     # controls. Read that returned identity; never guess a future allocator ID.
-    work = summon_from_pool(r, SummonFromPool(player_id, pool_id, query(link.remaining),
-        cause.source.entity_id, cause=cause), producer_link=link)
+    work = summon_from_pool(r, SummonFromPool(player_id, pool_id, query(link.remaining, link.tribe),
+        cause.source.entity_id, cause=cause, position=link.position), producer_link=link)
     finishes = [w for w in work if type(w) is FinishCardSummon]
     if len(finishes) != 1: raise ResolutionError('Budget summon lost its actual accepted root output')
     root = record(r.state, finishes[0].root_id)
@@ -103,7 +125,8 @@ def accept_entry(r, player_id, pool_id, cause, link):
 
 def start(r, effect):
     effect.__post_init__()
-    return accept_entry(r, effect.player_id, effect.pool_id, effect.cause, ManaWorthEntryLink(effect.amount, effect.amount))
+    return accept_entry(r, effect.player_id, effect.pool_id, effect.cause,
+        ManaWorthEntryLink(effect.amount, effect.amount, tribe=effect.tribe, position=effect.position))
 
 
 def validate_control(state, registry, effect):
@@ -121,7 +144,7 @@ def continue_budget(r, effect):
     if remaining is None or remaining == 0: return ()
     link = root.request.producer_link
     return accept_entry(r, root.request.player_id, root.request.pool_basis.pool_id, root.request.cause,
-        ManaWorthEntryLink(link.budget, remaining, root.id))
+        ManaWorthEntryLink(link.budget, remaining, root.id, link.tribe, next_position(root)))
 
 
 def validate_queue(state, registry, work):
