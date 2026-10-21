@@ -222,6 +222,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # exactly its two native parameter slots, not an executable 0/0 default.
     bones_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'TLC_829t' and
                      canonical(row) == '082069689d67c8d86b654a0fe74baabff66ebcf2830b01a7e2835714aa02a558')
+    # The complete Dreadlynx API body omits its two live reversed-stat slots.
+    # Preserve the rule, Rush, opposite-stats explanation and printed numbers.
+    dreadlynx_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'BE_850t' and
+        canonical(row) == '57a1e5f98f8362375f6979f2891fd0d484ffd8322a98bca457cb893ce4ad6190')
     # The actual Zombeast template has two runtime ingredient text slots. Both
     # complete primary faces omit them; no printed effect body is discarded.
     zombeast_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'ICC_828t' and
@@ -289,10 +293,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or
-                    (jade_coin_display or potion_display or location_template_display or trial_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+                    (jade_coin_display or potion_display or location_template_display or trial_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):

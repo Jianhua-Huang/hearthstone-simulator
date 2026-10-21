@@ -1,0 +1,359 @@
+{
+  "schema": 1,
+  "batch": "K367-dreadlynx",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_850t",
+        "dbf_id": 129814,
+        "name": "好奇的恐惧山猫",
+        "name_en": "Curious Grimlynx",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>召唤一只{0}/{1}并具有<b>突袭</b>的野兽。<i>（该野兽拥有与本随从相反的属性值！）</i>",
+        "text_en": "<b>Taunt</b>. <b>Battlecry:</b> Summon\na {0}/{1} Beast with <b>Rush</b>.\n<i>(It has the opposite stats of this minion!)</i>",
+        "cost": 5,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 5,
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "57a1e5f98f8362375f6979f2891fd0d484ffd8322a98bca457cb893ce4ad6190",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_850t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_850",
+        "dbf_id": 129810,
+        "name": "扭曲的恐惧山猫",
+        "name_en": "Twisted Grimlynx",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1994,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "1584": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "95cfbe40955db9025b9a037ee36a570c590a6df1d54ba1a96217aeb529ec7294",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_850",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      }
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_850t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 129814,
+        "collectible": 1,
+        "slug": "129814-curious-grimlynx",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "  Grafit",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 5,
+        "name": "好奇的恐惧山猫",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>召唤一只 / 并具有<b>突袭</b>的野兽。<i>（该野兽拥有与本随从相反的属性值！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61f595527bb4c2aa93e43d955fae163bd89b8b8dc67e6256bccb8d70fd0a8954.png",
+        "imageGold": "",
+        "flavorText": "为什么要怕山猫？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e061f3f053b2d887a318fc1d9df79a0c650c910d4df97fa7182609f849d25368.png",
+        "parentId": 129810,
+        "childIds": [
+          129810
+        ],
+        "keywordIds": [
+          1,
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "BE_850t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 129814,
+        "collectible": 1,
+        "slug": "129814-curious-grimlynx",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "  Grafit",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 5,
+        "name": "Curious Grimlynx",
+        "text": "<b>Taunt</b>. <b>Battlecry:</b> Summon a / Beast with <b>Rush</b>. <i>(It has the opposite stats of this minion!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/55a7b30e400419d2357cacacd9f16781e57197d227286602f820fbc6e4ec07c6.png",
+        "imageGold": "",
+        "flavorText": "His name is Grimothy.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e061f3f053b2d887a318fc1d9df79a0c650c910d4df97fa7182609f849d25368.png",
+        "parentId": 129810,
+        "childIds": [
+          129810
+        ],
+        "keywordIds": [
+          1,
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "BE_850",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129810-zh_CN.json",
+      "response_sha256": "507144ad405a247dd49e7aec5c272d60ada28094972edab53eec475230655f63",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129810&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 129810,
+        "collectible": 0,
+        "slug": "129810-twisted-grimlynx",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Grafit",
+        "health": 2,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "扭曲的恐惧山猫",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/24bbb85d667ff7c742ec374297b8f80126b7a92d1c717f0719ce488dd7095508.png",
+        "imageGold": "",
+        "flavorText": "为什么要怕山猫？",
+        "cropImage": null,
+        "childIds": [
+          129814
+        ],
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129810&locale=zh_CN&collectible=0",
+        "sha256": "507144ad405a247dd49e7aec5c272d60ada28094972edab53eec475230655f63",
+        "bytes": 624,
+        "observed_at": "2026-10-21T12:25:03.838746+00:00"
+      }
+    },
+    {
+      "card_id": "BE_850",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129810-en_US.json",
+      "response_sha256": "92c70887125bb2f6dc0f134cadc3fc7a311061e82ca7f748d471231c996cc0a1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129810&locale=en_US&collectible=0",
+      "face": {
+        "id": 129810,
+        "collectible": 0,
+        "slug": "129810-twisted-grimlynx",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Grafit",
+        "health": 2,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Twisted Grimlynx",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a1ae2c44a2d57bf67823fd4dd58366879a8ca292be525c28b6b964c00cfaf66b.png",
+        "imageGold": "",
+        "flavorText": "His name is Grimothy.",
+        "cropImage": null,
+        "childIds": [
+          129814
+        ],
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129810&locale=en_US&collectible=0",
+        "sha256": "92c70887125bb2f6dc0f134cadc3fc7a311061e82ca7f748d471231c996cc0a1",
+        "bytes": 614,
+        "observed_at": "2026-10-21T12:25:04.038243+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "{0}": "",
+    "{1}": ""
+  },
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
