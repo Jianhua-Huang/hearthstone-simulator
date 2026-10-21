@@ -8639,6 +8639,18 @@ class PlayerKeywordAuraSpec:
             raise ValueError('Player keyword aura requires an explicit tribe selector')
 
 
+@dataclass(frozen=True)
+class PlayerKeywordConditionAuraSpec:
+    """Known source-independent Charge for current Rush minions, no cycles."""
+    keyword: Keyword
+    required_keyword: Keyword
+
+    def __post_init__(self):
+        if (type(self.keyword) is not Keyword or type(self.required_keyword) is not Keyword or
+                (self.keyword,self.required_keyword) != (Keyword.CHARGE,Keyword.RUSH)):
+            raise ValueError('Player keyword predicate currently supports only Rush-to-Charge')
+
+
 ADAPTATION_CHOICES = ('UNG_999t3', 'UNG_999t4', 'UNG_999t14', 'UNG_999t6', 'UNG_999t7',
                       'UNG_999t8', 'UNG_999t13', 'UNG_999t5', 'UNG_999t10', 'UNG_999t2')
 
@@ -8664,7 +8676,7 @@ class PlayerEffectSpec:
     deathrattle_repeats: tuple[DeathrattleRepeatSpec, ...] = ()
     end_turn_repeats: tuple[EndTurnRepeatSpec, ...] = ()
     producer_quantities: tuple[ProducerQuantitySpec, ...] = ()
-    keyword_auras: tuple[PlayerKeywordAuraSpec, ...] = ()
+    keyword_auras: tuple[PlayerKeywordAuraSpec | PlayerKeywordConditionAuraSpec, ...] = ()
     target_policy: str | None = None
     allowed_card_types: tuple[CardType, ...] = ()
     next_turn_end: bool = False
@@ -8750,7 +8762,8 @@ class PlayerEffectSpec:
                 raise ValueError('Turn rules cannot combine other player effect text')
         elif self.target_policy is not None or self.allowed_card_types:
             raise ValueError('Target and manual play policies require an independent current-turn rule')
-        if type(self.keyword_auras) is not tuple or any(type(a) is not PlayerKeywordAuraSpec for a in self.keyword_auras):
+        if type(self.keyword_auras) is not tuple or any(type(a) not in
+                (PlayerKeywordAuraSpec,PlayerKeywordConditionAuraSpec) for a in self.keyword_auras):
             raise ValueError('Player keyword auras require immutable typed declarations')
         for aura in self.keyword_auras:
             aura.__post_init__()

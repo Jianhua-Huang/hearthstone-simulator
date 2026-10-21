@@ -2,8 +2,8 @@
 from dataclasses import dataclass
 
 from .effects import Effect, _integer, _source
-from .lifecycle import active_abilities, attachment_id, refresh_entity
-from .model import AbilityInstance, CardType, KeywordAuraSpec, Zone
+from .lifecycle import active_abilities, attachment_id, local_keywords, refresh_entity
+from .model import AbilityInstance, CardType, KeywordAuraSpec, PlayerKeywordConditionAuraSpec, Zone
 
 
 POSITIONAL_TARGETS = ('friendly_leftmost_minion', 'friendly_rightmost_minion')
@@ -105,6 +105,8 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
     for player in state.players.values():
         for effect in player.player_effects:
             for spec in registry.player_effect(effect.spec_id).keyword_auras:
+                if type(spec) is PlayerKeywordConditionAuraSpec:
+                    continue
                 from .tribes import has_any_tribe
                 for target_id in player.board:
                     target = state.entities[target_id]
@@ -149,6 +151,23 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                         if not matches_card_identity(target, spec.card_ids):
                             continue
                         contributions[target_id].add(spec.keyword)
+    # The only supported predicate consumes Rush and produces Charge. Read
+    # fresh ordinary contributions, never the previous derived keyword cache.
+    # Its direction is acyclic, so removal settles in this same refresh pass.
+    for player in state.players.values():
+        predicates = tuple(spec for effect in player.player_effects
+            for spec in registry.player_effect(effect.spec_id).keyword_auras
+            if type(spec) is PlayerKeywordConditionAuraSpec)
+        if not predicates:
+            continue
+        for target_id in player.board:
+            target = state.entities[target_id]
+            if target.kind != CardType.MINION or not target.active:
+                continue
+            ordinary = local_keywords(target) | conditional_keywords(state,target) | contributions[target_id]
+            for spec in predicates:
+                if spec.required_keyword in ordinary:
+                    contributions[target_id].add(spec.keyword)
     for entity_id, entity in state.entities.items():
         entity.aura_keywords = contributions[entity_id]
     refresh_conditional_keywords(state)

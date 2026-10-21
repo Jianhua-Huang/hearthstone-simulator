@@ -37,21 +37,27 @@ def initialize_dormancy(state, entity, definition, *, turns_override=None):
     refresh_entity(entity)
 
 
+def local_keywords(entity):
+    """Attachment/weapon flags without any cached external or conditional aura."""
+    keywords = {a.keyword for a in active_abilities(entity,'keyword')} | entity.weapon_keywords
+    keywords |= {a.limited_trigger.keyword for a in active_abilities(entity,'limited_trigger')
+                 if a.limited_trigger.keyword is not None}
+    keywords |= {a.hand_progress.keyword for a in active_abilities(entity,'hand_progress')
+                 if a.hand_progress.keyword is not None}
+    if entity.damage > 0:
+        keywords |= {a.keyword_aura.keyword for a in active_abilities(entity,'keyword_aura')
+                     if a.keyword_aura.condition == 'self_damaged'}
+    return keywords
+
+
 def refresh_entity(entity):
     """Rebuild caches; never accumulate derived values into permanent state."""
     attack, health = enchantment_stats(entity)
     entity.attack_bonus = attack - entity.base_attack
     entity.health_bonus = health - entity.base_health
     entity.cost_modifier = local_cost(entity)[0] - entity.base_cost
-    entity.keywords = ({a.keyword for a in active_abilities(entity, 'keyword')} | entity.weapon_keywords |
-                       entity.aura_keywords | entity.hand_aura_keywords | entity.conditional_keywords)
-    entity.keywords |= {a.limited_trigger.keyword for a in active_abilities(entity, 'limited_trigger')
-                        if a.limited_trigger.keyword is not None}
-    entity.keywords |= {a.hand_progress.keyword for a in active_abilities(entity, 'hand_progress')
-                        if a.hand_progress.keyword is not None}
-    if entity.damage > 0:
-        entity.keywords |= {a.keyword_aura.keyword for a in active_abilities(entity, 'keyword_aura')
-                            if a.keyword_aura.condition == 'self_damaged'}
+    entity.keywords = (local_keywords(entity) | entity.aura_keywords | entity.hand_aura_keywords |
+                       entity.conditional_keywords)
 
 
 def remove_attachments(entity, *, enchantment_predicate, ability_predicate):
