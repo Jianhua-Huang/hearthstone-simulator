@@ -85,17 +85,21 @@ def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=F
             raise ResolutionError('A physical draw must select an original deck card')
     else:
         entity = r.state.entities[deck_owner.deck[0]] if deck_owner.deck else None
-    spec = None
+    spec = None; grant = None
     if entity is None: outcome = 'fatigue'
     elif len(player.hand) >= hand_capacity(player, r.rules): outcome = 'burned'
     else:
         definition = r.registry.card(entity.card_id)
         if definition.cast_when_drawn is not None and Keyword.CASTS_WHEN_DRAWN in entity.keywords:
             spec = definition.cast_when_drawn
+        else:
+            from .draw_cast_grants import capture as capture_grant
+            grant = capture_grant(r.state, r.registry, entity)
+            if grant is not None: spec = CastWhenDrawnSpec()
         outcome = 'cast' if spec is not None else 'hand'
     record = DrawRecord(len(r.state.draw_history)+1, player_id, r.state.turn, r.state.action_number,
         outcome, entity.id if entity else None, entity.card_id if entity else None,
-        source_id, parent_id, spec=spec, phase='pending_cast' if spec else 'drawing')
+        source_id, parent_id, spec=spec, phase='pending_cast' if spec else 'drawing', cast_grant=grant)
     r.state.draw_history.append(record)
     if parent_id is not None:
         parent = require_phase(r,parent_id,'replacing')
@@ -121,8 +125,9 @@ def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=F
     else:
         r.move(entity,Zone.GRAVEYARD,controller_id=player_id,draw_id=record.id)
     # A drawn spell is a draw, but never a successful hand acquisition.
+    from .draw_cast_grants import event_data as grant_event_data
     r.emit('card_drawn',source_id=source_id,target_id=entity.id,player_id=player_id,
-           draw_id=record.id,casts_when_drawn=True)
+           draw_id=record.id,casts_when_drawn=True,**grant_event_data(grant))
     return (CastDrawnSpell(record.id),AfterDrawnSpell(record.id),FinishDraw(record.id))
 
 
@@ -181,6 +186,16 @@ def finish(r, effect):
     return finish_overdraw(r,record)
 
 
+def validate_declaration(state, registry, record):
+    if type(record) is not DrawRecord or record.outcome != 'cast':
+        raise ValueError('Expected the actual original draw-cast record')
+    if record.cast_grant is not None:
+        from .draw_cast_grants import validate_record as validate_granted_draw
+        validate_granted_draw(state, registry, record)
+    elif record.spec != registry.card(record.card_id).cast_when_drawn:
+        raise ValueError('Draw cast declaration does not match its card')
+
+
 def validate_history(state, registry):
     if type(state.draw_history) is not list: raise ValueError('Draw history must be a list')
     last_turn = last_action = 0
@@ -200,8 +215,7 @@ def validate_history(state, registry):
                     parent.turn > record.turn or parent.action > record.action):
                 raise ValueError('Draw parent and child disagree')
         if record.outcome == 'cast':
-            if record.spec != registry.card(record.card_id).cast_when_drawn:
-                raise ValueError('Draw cast declaration does not match its card')
+            validate_declaration(state, registry, record)
             if record.cast_id is not None:
                 from .spell_casts import cast_record
                 spell = cast_record(state,record.cast_id)
@@ -246,9 +260,13 @@ def validate_boundary(game):
         expected.append(FinishDraw(record.id))
     if actual != expected:
         raise ValueError('Draw phase and continuation markers disagree')
+    from .draw_cast_grants import validate_boundary as validate_granted_boundary
+    validate_granted_boundary(game)
 
 
 def register(mechanics):
+    from .draw_cast_grants import GrantedDrawCastBasis
+    mechanics.register_payload_type(GrantedDrawCastBasis)
     for effect,handler in ((CastDrawnSpell,cast),(AfterDrawnSpell,after_cast),
             (ReplacementDraw,replacement),(AfterReplacement,after_replacement),(FinishDraw,finish)):
         mechanics.register(effect,handler)

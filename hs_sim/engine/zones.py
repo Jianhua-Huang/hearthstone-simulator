@@ -221,8 +221,16 @@ class CopyCard(Effect):
     stats: SummonStats | None = None
     cost: CostSpec | None = None
     expires_turn: int | None = None
+    cast_when_drawn: bool = False
 
     def __post_init__(self):
+        if type(self.cast_when_drawn) is not bool:
+            raise ValueError('Copied draw-cast declaration must be boolean')
+        if self.cast_when_drawn and (type(self.card) is not CapturedCardCopyMaterial or
+                self.card.origin.kind != CardType.SPELL or self.card.origin.zone != Zone.DECK or
+                self.card.origin.controller != self.player_id or self.mode != 'current' or
+                self.destination != Zone.DECK or self.position != 'random' or self.source_id is None):
+            raise ValueError('Draw-cast copies require original current own-deck spell material and random insertion')
         if type(self.card)is DiscardRecord:
             self.card.__post_init__()
             if self.mode!='base':raise ValueError('Discard occurrence copies require the original printed recipe')
@@ -987,6 +995,9 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
     apply_summon_stats(r.state, entity, effect.stats)
     if effect.cost is not None:
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
+    if effect.cast_when_drawn:
+        from .draw_cast_grants import install as install_draw_cast
+        install_draw_cast(r, entity, effect.source_id)
     if minion_grant is not None:
         from types import SimpleNamespace
         from .card_creation import install

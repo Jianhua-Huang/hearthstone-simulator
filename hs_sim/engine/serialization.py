@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 523
+SNAPSHOT_SCHEMA_VERSION = 524
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -314,6 +314,8 @@ def _hand_progress_spec(value):
 
 def _ability_from_dict(value):
     row = _row(value, AbilityInstance)
+    if row['draw_cast'] is not None:
+        row['draw_cast'] = CastWhenDrawnSpec(**_row(row['draw_cast'], CastWhenDrawnSpec))
     if row['deathrattle_copied_from'] is not None:
         from .deathrattle_copies import source_from_dict
         row['deathrattle_copied_from'] = source_from_dict(row['deathrattle_copied_from'])
@@ -1154,6 +1156,9 @@ def _intrinsic_stage_from_dict(value):
 
 def _draw_from_dict(value):
     row = _row(value, DrawRecord)
+    if row['cast_grant'] is not None:
+        from .draw_cast_grants import from_dict as draw_grant_from_dict
+        row['cast_grant'] = draw_grant_from_dict(row['cast_grant'])
     if row['spec'] is not None:
         row['spec'] = CastWhenDrawnSpec(**_row(row['spec'], CastWhenDrawnSpec))
     return DrawRecord(**row)

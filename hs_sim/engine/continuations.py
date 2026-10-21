@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .draw_cast_grants import GrantedDrawCastBasis, validate_basis as validate_draw_cast_basis
+        if type(value) is GrantedDrawCastBasis and self.origin_state is not None:
+            validate_draw_cast_basis(self.origin_state, self.registry, value)
         from .native_hand_targets import NativeHandTargetProof,validate_proof as validate_native_hand_proof
         if type(value)is NativeHandTargetProof:
             validate_native_hand_proof(value,self.registry)

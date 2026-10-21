@@ -3008,9 +3008,17 @@ class AbilityInstance:
     spell_resummon_value: object | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
     spell_aura_id: int | None = None
+    draw_cast: 'CastWhenDrawnSpec | None' = None
 
     def __post_init__(self) -> None:
         _int(self.id, "ability ID", 1)
+        if self.draw_cast is not None:
+            if (type(self.draw_cast) is not CastWhenDrawnSpec or self.draw_cast != CastWhenDrawnSpec() or
+                    self.kind != 'keyword' or self.keyword != Keyword.CASTS_WHEN_DRAWN or
+                    self.origin != 'granted' or self.source_id is None or self.expires_turn is not None or
+                    self.timed_keyword is not None):
+                raise ValueError('Granted draw casting requires its finite persistent spell declaration')
+            self.draw_cast.__post_init__()
         if self.kind == 'random_targets':
             from dataclasses import fields
             allowed = {'id','kind','source_id','origin','magnetic_id'}
@@ -8178,6 +8186,7 @@ class DrawRecord:
     spec: CastWhenDrawnSpec | None = None
     phase: str = 'drawing'
     interrupted: bool = False
+    cast_grant: object | None = None
 
     def __post_init__(self):
         for name in ('id', 'player_id', 'turn'): _int(getattr(self,name), name, 1)
@@ -8195,10 +8204,17 @@ class DrawRecord:
         if self.outcome == 'cast':
             if type(self.spec) is not CastWhenDrawnSpec or self.phase == 'drawing': raise ValueError('Draw-cast requires its declaration')
             self.spec.__post_init__()
+            if self.cast_grant is not None:
+                from .draw_cast_grants import GrantedDrawCastBasis
+                if type(self.cast_grant) is not GrantedDrawCastBasis:
+                    raise ValueError('Draw cast grant requires its frozen original declaration')
+                self.cast_grant.__post_init__()
+                if (self.cast_grant.origin.entity_id, self.cast_grant.origin.card_id) != (self.entity_id, self.card_id):
+                    raise ValueError('Draw cast grant borrowed another original card')
             if (self.phase == 'pending_cast') != (self.cast_id is None): raise ValueError('Invalid draw cast phase')
             if not self.spec.replacement and (self.replacement_id is not None or self.phase in ('pending_replacement','replacing')):
                 raise ValueError('Unexpected replacement draw')
-        elif self.spec is not None or self.cast_id is not None or self.replacement_id is not None or self.phase not in ('drawing','done'):
+        elif self.spec is not None or self.cast_id is not None or self.replacement_id is not None or self.cast_grant is not None or self.phase not in ('drawing','done'):
             raise ValueError('Ordinary draws cannot contain spell continuation data')
         if self.parent_id is not None and self.parent_id >= self.id or self.replacement_id is not None and self.replacement_id <= self.id:
             raise ValueError('Invalid replacement draw ordering')
@@ -11848,6 +11864,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_hand_mirror_entity(state,registry,entity)
         from .spell_mirrors import validate_entity as validate_spell_mirror_entity
         validate_spell_mirror_entity(state,registry,entity)
+        from .draw_cast_grants import validate_entity as validate_draw_cast_entity
+        validate_draw_cast_entity(state,registry,entity)
         from .native_random_targets import validate_carrier as validate_random_target_carrier
         validate_random_target_carrier(registry,entity.card_id,entity.kind,entity.abilities,entity.components)
         defining = [a for a in entity.abilities if a.kind == 'defining_hand_source']

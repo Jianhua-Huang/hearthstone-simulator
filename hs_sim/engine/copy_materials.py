@@ -116,6 +116,9 @@ def validate_captured_card_copy(state,registry,material):
     from .consumed_cards import validate_payload as validate_consumed_payload
     for ability in material.local.abilities:
         validate_consumed_payload(state,registry,ability)
+        if ability.draw_cast is not None and (material.origin.kind != CardType.SPELL or
+                not registry.card(material.origin.card_id).hand_playable or ability.source_id not in state.entities):
+            raise ValueError('Captured draw-cast material requires its actual ordinary spell and grant source')
     if material.turn>state.turn or material.action>state.action_number or material.next_attachment_id>state.next_attachment_id:
         raise ValueError('Captured copy has future acceptance bounds')
     for cid in material.components:registry.card(cid)

@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v635'
+CORE_EFFECTS_VERSION = 'core-effects-v636'
 
 
 class Mechanics:
@@ -569,16 +569,19 @@ class Resolution:
         previous_zone = entity.zone
         drawn_spell_transfer = False
         if draw_id is not None:
-            from .draw_casts import draw_record
+            from .draw_casts import draw_record, validate_declaration as validate_draw_declaration
             drawn = draw_record(self.state, draw_id)
             drawn_spell_transfer = (previous_zone == Zone.DECK and zone == Zone.GRAVEYARD
                 and entity.kind == CardType.SPELL and not drawn.interrupted
                 and drawn.id == len(self.state.draw_history)
                 and (drawn.entity_id,drawn.card_id,drawn.player_id,drawn.outcome,drawn.phase) ==
-                    (entity.id,entity.card_id,controller_id,'cast','pending_cast')
-                and drawn.spec == self.registry.card(entity.card_id).cast_when_drawn)
+                    (entity.id,entity.card_id,controller_id,'cast','pending_cast'))
             if not drawn_spell_transfer:
                 raise ResolutionError('Drawn spell transfer lost its original pending physical draw')
+            validate_draw_declaration(self.state, self.registry, drawn)
+            if drawn.cast_grant is not None and (drawn.cast_grant.origin.controller, drawn.cast_grant.origin.zone_epoch) != (
+                    entity.controller, entity.zone_epoch):
+                raise ResolutionError('Drawn spell transfer changed its accepted original deck residence')
         if controller_id is not None:
             initial_minion=previous_zone==Zone.PLAY and zone==Zone.BOARD and entity.kind==CardType.MINION
             weapon_transfer=(previous_zone==zone==Zone.WEAPON and entity.kind==CardType.WEAPON

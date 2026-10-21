@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实牌库法术复制需要授予抽到时施放时，使用原`CapturedCardCopyMaterial`和`CopyCard.cast_when_drawn=True`，再交语义`shuffled`；不要只塞关键词或写抽牌监听替代执行器。该入口只接受原当前本人牌库法术，冻结的`DrawRecord.cast_grant`及印刷策略边界见[契约](m3-granted-draw-casts.md)。
+
 真实仪式选择直接用`AddPlayerEffect`安装原`ritual`实例，完成条件查询`completed_rituals`。只有真实池主交付无论后续驻留状态都要兑现的消费者，才显式声明`SummonFromPool.followup_policy='original_delivery'`，并由`original_pool_delivery`取得确切原交付；旧默认仍要求友方活跃存活，不能借新政策放宽普通攻击续接。有限材料与待校准窗口见[基希克斯契约](m3-kithix-rituals.md)。
 
 真实效果需要区分“由哪个实体交付入手”时，在原`enter_hand`或创建/移动包装器传入直接来源，复用原手牌历史。新交付者完成原材料/批量接受后调用`hand_history.publish`，消费者用`from_event`读取绑定的原行；不要猜列旧事件或按复制原实体/卡名/最近动作猜来源，见[入手来源](m3-hand-entry-sources.md)及[通知契约](m3-hand-entry-notifications.md)。

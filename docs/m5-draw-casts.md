@@ -1,5 +1,7 @@
 # 抽到时施放与可恢复抽取链
 
+下文保留原生印刷声明的历史契约。真实阿米图特副本的有限授予、原抽牌依据及对手牌库转控共用同一管线，见[授予扩展](m3-granted-draw-casts.md)；当前执行身份和验收仅以原两份台账为准。
+
 M5-10c 公共子集，`prototype-v75` / `core-effects-v75`，snapshot schema 74，玩家视图 `player-view-v44`。代表内容包仍为 `representative-m5-v38`，未增加真实卡牌。入口见 [draw_casts.py](../hs_sim/engine/draw_casts.py)，验证见 [60 项专项](../tests/test_m5_draw_casts.py)。本页描述内部契约；国服精确语义登记 **R-089**。
 
 ## 声明与来源
