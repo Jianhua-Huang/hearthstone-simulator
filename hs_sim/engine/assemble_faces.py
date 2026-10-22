@@ -16,7 +16,7 @@ from .assemble_reactions import REACTION_PREFIX, LATE_REACTION_PREFIX, REACTION_
 
 PREFIX='assemble:'
 VERSION='assemble-face-v1'
-TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))|REACTION_TIMINGS
+TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn','on_play'))|REACTION_TIMINGS
 DUAL_TIMING='battlecry_deathrattle'
 PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
@@ -26,9 +26,9 @@ BEFORE_PREFIX='assemble.before:'
 TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX,REACTION_PREFIX,LATE_REACTION_PREFIX)
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
-    Keyword.REBORN,Keyword.COLOSSAL))
+    Keyword.REBORN,Keyword.COLOSSAL,Keyword.OUTCAST))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal'))
+    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
@@ -54,10 +54,12 @@ class AssemblePrefix:
         _int(self.spell_damage,'assembled printed spell damage',0)
         if self.condition_id is not None:
             _name(self.condition_id,'assembled prefix condition')
-            if self.timing not in ('battlecry','end_turn') and self.timing not in REACTION_TIMINGS:
+            if self.timing not in ('battlecry','end_turn','on_play') and self.timing not in REACTION_TIMINGS:
                 raise ValueError('Conditional assembly prefix requires its reviewed native Battlecry or end-turn window')
         if self.timing in REACTION_TIMINGS and self.condition_id is None:
             raise ValueError('Reaction prefix requires its actual reviewed native condition')
+        if self.timing=='on_play' and self.condition_id is None:
+            raise ValueError('Minion play prefix requires its actual reviewed native condition')
         if self.before_behavior_id is not None:
             _name(self.before_behavior_id,'assembled prefix body')
             if (self.timing not in ('battlecry','deathrattle') or self.condition_id is not None or
@@ -213,7 +215,7 @@ def prefix_timings(prefix):
 def compatible(prefix,suffix):
     suffix.__post_init__()
     timings=prefix_timings(prefix)
-    if prefix.timing in REACTION_TIMINGS and prefix.timing not in suffix.allowed_timings:
+    if (prefix.timing in REACTION_TIMINGS or prefix.timing=='on_play') and prefix.timing not in suffix.allowed_timings:
         raise ValueError('Eligible reaction body context remains explicitly unimplemented: '+prefix.timing)
     if any(t in suffix.pending_timings for t in timings):
         raise ValueError('Eligible assembly timing remains explicitly unimplemented: '+','.join(timings))
@@ -235,6 +237,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=()):
         if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
         if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,colossal=colossal,
+        on_play=condition_behavior_id(prefix.condition_id,suffix.behavior_id) if prefix.timing=='on_play' else None,
         battlecry=battlecry,
         deathrattle=deathrattle if 'deathrattle'in timings else None,
         triggers=((TriggerSpec('turn_ended',condition_behavior_id(prefix.condition_id,suffix.behavior_id)
@@ -270,6 +273,11 @@ def validate_template(registry,template):
         original=replace(original,triggers=original_trigger(registry,template))
     elif template.card_id in registry._assemble_reaction_sources:
         raise ValueError('Reaction source bridge cannot mask another prefix timing')
+    if template.prefix.timing=='on_play':
+        from .assemble_on_play import original_on_play
+        original=replace(original,on_play=original_on_play(registry,template))
+    elif template.card_id in registry._assemble_on_play_sources:
+        raise ValueError('Minion play source bridge cannot mask another prefix timing')
     if template.original_battlecry_id is not None:
         registry.behavior(template.original_battlecry_id)
         if primary.battlecry!=template.original_battlecry_id:
@@ -296,6 +304,8 @@ def validate_template(registry,template):
     registry._validate_card(original)
 
 def validate_projection(registry,projection):
+    if projection.prefix.timing=='on_play':
+        raise ValueError('Assembly minion play requires an original native minion template')
     if Keyword.COLOSSAL in projection.prefix.keywords:
         raise ValueError('Assembly Colossal prefix requires an original native minion template')
     if projection.prefix.timing in REACTION_TIMINGS:
@@ -435,6 +445,9 @@ def conditional_parts(registry,behavior_id):
 def conditional_behavior(registry,behavior_id):
     row,predicate,body,timings=conditional_parts(registry,behavior_id)
     def run(context):
+        if 'on_play'in timings and context.battlecry is None and context.end_turn is None:
+            from .assemble_on_play import run as run_minion_play
+            return run_minion_play(context,registry,behavior_id,row['condition_id'],predicate,body)
         if ('battlecry'in timings and context.battlecry is not None and
                 context.battlecry.payload.behavior_id==behavior_id):
             if row['condition_id'] in registry.assemble_inner_conditions:
@@ -545,6 +558,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_on_play import validate_sources as validate_on_play_sources
+    validate_on_play_sources(registry)
     from .assemble_reactions import validate_sources
     validate_sources(registry)
     from .assemble_colossal import validate_sources as validate_colossal_sources
