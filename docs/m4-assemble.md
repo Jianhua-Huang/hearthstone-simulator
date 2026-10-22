@@ -91,3 +91,17 @@ assembled_powers.py用assemble-power:规范身份保存实际技能模板和完�
 原选择菜单直接预览被动技能结果，ResolveAssemble沿原ReplaceHeroPower安装。没有中间手牌随从，也不消耗手牌容量；旧技能退役、新实体顺序、被动手动禁用、自然结束监听、替换前后窗口、已开始反应和回滚/恢复均由原技能内核处理。所选材料仅通过原card_id保存，没有新增Entity、Player或GameState字段、Effect或payload类型。profile及兼容声明加入冻结指纹，未使用该能力的默认代表注册表保持原指纹；core652/schema537拒旧1～536，观察116/动作13/replay1保持。
 
 本层仍不代表拉夏完整实现：完整专用池、副牌费用政策、其他被动时机片段、英雄关键词/被动光环转换和国服精确安装/监听窗口继续开放。当前只接受已审核的无关键词普通被动监听文本，未实现形态明确报错；不能把排除这些未实现内容的实验夹具认证为完整正式效果。实际结果、差异和下一项只在两份原台账维护。
+
+## 具名标签、原文分界与来源角色清单
+
+[固定来源观察](../data/support/assemble-authored-sources-cn37-v1.json)由assemble_inventory.py及tools/inventory_assemble_sources.py从完整源生成，不是可安装的运行时池。它分别保存完整原行和SHA、双语原文及分界偏移、原样前后半段、CRAFTABLE_具名标签、不明数字标签、反斜杠相邻符号和GAMEPLAY_ASPROXY字面引用。偏移使用Python Unicode码点；不补闭合HTML、不改数字或宏，不把缺失的攻击/生命转换成零。
+
+裸&统计必须区分HTML实体和反斜杠相邻的普通&。例如ETC_386原英文的攻击力与护甲说明含有转义符号，不能据此造出文本半段。具名CRAFTABLE_OUTPUT_POWER的原值与整数1观察也单独记录；不能单靠分界、标签名、相同英文名或生成排除版本族认证普通/拉夏入池资格、主副角色、权重或兼容性。武器、法术、英雄的真实切分来源完整保留，当前随从专用的编译器没有因此自动支持它们。代理宏只作字面证据，不能猜测实体形态或造一个零属性随从。
+
+来源事实与一次性的注册表审查分开。前者不读取执行覆盖度，也不按拟议标准集合删掉跨系列来源；后者可记录已有定义、实验模板、缺少的来源和版本关系线索，存放于outputs，不能把这些存在性检查当成效果验证。相同双语原文前半段可按精确字节归组便于审查，组号不是新机制、可执行代码或配对许可。
+
+```powershell
+python -B -X utf8 tools/inventory_assemble_sources.py --data outputs/card-integration-20261014/cards-37.0.0.255026.json --root-manifest outputs/card-integration-20261014/k325-black-empire-first/phase-source-01.json --output outputs/新的来源清单.json --support-audit outputs/新的注册审查.json
+```
+
+必须使用新输出路径。命令核根清单绑定的完整源SHA，保存输入变化前后核对，并将可选审查绑定到实际保存的清单字节，包括宿主换行编码。省略support-audit时不构建注册表。输出始终保留formal_pool_complete=false及角色待核状态，不生成CardDefinition、不安装池、不改对战规则；完整正式资格和原生片段适配仍须独立完成。
