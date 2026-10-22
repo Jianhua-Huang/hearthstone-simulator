@@ -153,6 +153,7 @@ class Registry:
         self._assemble_inner_conditions = set()
         self._assemble_reaction_continuations = {}
         self._assemble_reaction_sources = {}
+        self._assemble_colossal_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -300,6 +301,18 @@ class Registry:
         if profile.card_id in self._assemble_reaction_sources:
             raise ValueError('Duplicate assembly reaction source')
         self._assemble_reaction_sources[profile.card_id] = profile
+
+    @property
+    def assemble_colossal_sources(self):
+        return MappingProxyType(self._assemble_colossal_sources)
+
+    def register_assemble_colossal_source(self, profile):
+        from .assemble_colossal import validate_source
+        self._require_mutable()
+        validate_source(self, profile)
+        if profile.card_id in self._assemble_colossal_sources:
+            raise ValueError('Duplicate assembly Colossal source')
+        self._assemble_colossal_sources[profile.card_id] = profile
 
     @property
     def assemble_inner_conditions(self):
@@ -2730,6 +2743,9 @@ class Registry:
         if self._assemble_reaction_sources:
             payload['assemble_reaction_sources'] = [asdict(self._assemble_reaction_sources[k])
                 for k in sorted(self._assemble_reaction_sources)]
+        if self._assemble_colossal_sources:
+            payload['assemble_colossal_sources'] = [asdict(self._assemble_colossal_sources[k])
+                for k in sorted(self._assemble_colossal_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

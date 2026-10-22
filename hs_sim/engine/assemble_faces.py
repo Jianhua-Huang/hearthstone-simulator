@@ -26,9 +26,9 @@ BEFORE_PREFIX='assemble.before:'
 TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX,REACTION_PREFIX,LATE_REACTION_PREFIX)
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
-    Keyword.REBORN))
+    Keyword.REBORN,Keyword.COLOSSAL))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions'))
+    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
@@ -222,8 +222,10 @@ def compatible(prefix,suffix):
     return all(t in suffix.allowed_timings for t in timings)
 
 
-def printed_face(primary,prefix,suffix,card_id):
+def printed_face(primary,prefix,suffix,card_id,*,colossal=()):
     prefix.__post_init__();suffix.__post_init__()
+    if type(colossal)is not tuple or bool(colossal)!=(Keyword.COLOSSAL in prefix.keywords):
+        raise ValueError('Assembled Colossal face requires the complete selected prefix appendages')
     if not compatible(prefix,suffix):raise ValueError('Unreviewed prefix/suffix compatibility')
     timings=prefix_timings(prefix)
     battlecry=(condition_behavior_id(prefix.condition_id,suffix.behavior_id)if prefix.condition_id is not None
@@ -232,7 +234,7 @@ def printed_face(primary,prefix,suffix,card_id):
     if prefix.before_behavior_id is not None:
         if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
         if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
-    return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,
+    return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,colossal=colossal,
         battlecry=battlecry,
         deathrattle=deathrattle if 'deathrattle'in timings else None,
         triggers=((TriggerSpec('turn_ended',condition_behavior_id(prefix.condition_id,suffix.behavior_id)
@@ -260,7 +262,9 @@ def validate_template(registry,template):
     if template.suffix.requires_target or template.suffix.targeting is not None:
         registry.target_rule(template.suffix.target_rule)
     if template.prefix.end_turn is not None:registry.trigger_condition(template.prefix.end_turn.condition_id)
-    original=printed_face(primary,template.prefix,template.suffix,primary.id)
+    from .assemble_colossal import prefix_appendages
+    original=printed_face(primary,template.prefix,template.suffix,primary.id,
+        colossal=prefix_appendages(registry,template))
     if template.prefix.timing in REACTION_TIMINGS:
         from .assemble_reactions import original_trigger
         original=replace(original,triggers=original_trigger(registry,template))
@@ -292,6 +296,8 @@ def validate_template(registry,template):
     registry._validate_card(original)
 
 def validate_projection(registry,projection):
+    if Keyword.COLOSSAL in projection.prefix.keywords:
+        raise ValueError('Assembly Colossal prefix requires an original native minion template')
     if projection.prefix.timing in REACTION_TIMINGS:
         raise ValueError('Reaction prefix requires its actual native minion source')
     projection.__post_init__()
@@ -541,6 +547,8 @@ def check_end_condition(resolver,effect):
 def validate_templates(registry):
     from .assemble_reactions import validate_sources
     validate_sources(registry)
+    from .assemble_colossal import validate_sources as validate_colossal_sources
+    validate_colossal_sources(registry)
     for condition_id in registry._assemble_inner_conditions:
         registry.trigger_condition(condition_id)
         if not any(template.prefix.timing == 'battlecry' and
@@ -561,9 +569,12 @@ def resolve_face(registry,card_id):
     try:
         recipe=recipe_from_id(card_id)
         first=text_source(registry,recipe.primary_card_id,primary=True);second=text_source(registry,recipe.secondary_card_id)
-        prefix=second.prefix if recipe.half=='top' else first.prefix
+        prefix_source=second if recipe.half=='top' else first
+        prefix=prefix_source.prefix
         suffix=second.suffix if recipe.half=='bottom' else first.suffix
-        face=printed_face(registry._cards[first.card_id],prefix,suffix,card_id)
+        from .assemble_colossal import prefix_appendages
+        face=printed_face(registry._cards[first.card_id],prefix,suffix,card_id,
+            colossal=prefix_appendages(registry,prefix_source))
         registry._validate_card(face)
         return face
     except (ValueError,TypeError,KeyError)as exc:
