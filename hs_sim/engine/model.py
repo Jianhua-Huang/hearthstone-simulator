@@ -10172,6 +10172,7 @@ class Entity:
     face_replaced: bool = False
     aura_health: int = 0
     frozen_until_owner_turn: int | None = None
+    spell_mana_freeze: object | None = None
     durability: int = 0
     weapon_attack: int = 0
     weapon_keywords: set[Keyword] = field(default_factory=set)
@@ -11608,6 +11609,13 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_selection(registry, entity.choose_branch, card_id=entity.card_id)
         if type(entity.kind) is not CardType or entity.kind != registry.card(entity.card_id).kind:
             raise ValueError('Entity type disagrees with its definition')
+        if entity.spell_mana_freeze is not None:
+            from .spell_mana_freeze import SpellManaFreezeState
+            if type(entity.spell_mana_freeze)is not SpellManaFreezeState:
+                raise ValueError('Conditional Freeze requires its exact typed state')
+            identity=entity.spell_mana_freeze.id
+            if identity in current_attachment_ids:raise ValueError('Duplicate conditional Freeze activation')
+            current_attachment_ids.add(identity);all_attachment_ids.add(identity)
         if (entity.zone == Zone.SECRET) != (entity.secret_instance_id is not None):
             raise ValueError('Secret instance belongs only to secret zone')
         if entity.secret_instance_id is not None:
@@ -12178,6 +12186,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_board_state(state, registry)
     from .location_rune_locks import validate_state as validate_location_rune_locks
     validate_location_rune_locks(state, registry)
+    from .spell_mana_freeze import validate_state as validate_spell_mana_freeze
+    validate_spell_mana_freeze(state, registry)
 
 
 def validate_composition(entity, registry):

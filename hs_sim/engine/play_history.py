@@ -233,7 +233,10 @@ def commit_play(state, record):
     from .held_opponent_copies import note_play
     note_play(state, record)
     from .location_rune_locks import note_play as note_location_lock_play
-    return note_location_lock_play(state, record)
+    updates=note_location_lock_play(state, record)
+    from .spell_mana_freeze import note_payment as note_spell_mana_freeze
+    note_spell_mana_freeze(state,record,'play')
+    return updates
 
 
 def play_record(state, play_id):

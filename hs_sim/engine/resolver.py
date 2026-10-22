@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v647'
+CORE_EFFECTS_VERSION = 'core-effects-v648'
 
 
 class Mechanics:
@@ -559,6 +559,8 @@ class Resolution:
         seed(self,entity)
         from .location_rune_locks import publish_birth
         publish_birth(self, entity)
+        from .spell_mana_freeze import publish_birth as publish_spell_mana_freeze_birth
+        publish_spell_mana_freeze_birth(self,entity)
         return entity
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', hand_entry_source_id=None, controller_id=None, draw_id=None):
@@ -642,6 +644,10 @@ class Resolution:
         from .location_rune_locks import initialize as initialize_location_lock, publish_birth
         initialize_location_lock(self.state, self.registry, entity)
         publish_birth(self, entity)
+        if zone!=Zone.BOARD or previous_zone!=Zone.BOARD:
+            from .spell_mana_freeze import initialize as initialize_spell_mana_freeze, publish_birth as publish_spell_mana_freeze_birth
+            initialize_spell_mana_freeze(self.state,self.registry,entity)
+            publish_spell_mana_freeze_birth(self,entity)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
         from .minion_base_programs import synchronize as synchronize_minion_bases
@@ -704,6 +710,8 @@ class Resolution:
         refresh_conditional_attacks(self.state, self.registry)
         refresh_equipment(self.state)
         from .combat import can_be_frozen
+        from .spell_mana_freeze import synchronize as synchronize_spell_mana_freeze
+        synchronize_spell_mana_freeze(self)
         thawed = tuple(e for e in self.state.entities.values() if e.active and e.is_character
             and e.zone in (Zone.BOARD, Zone.HERO) and e.frozen and not can_be_frozen(e))
         # Settle the entire contribution before publishing any thaw reaction.
@@ -1645,6 +1653,8 @@ def play_from_hand(r, effect):
     lock_updates = commit_play(r.state, record)
     from .location_rune_locks import publish_progress as publish_location_progress
     publish_location_progress(r, record, lock_updates)
+    from .spell_mana_freeze import publish_progress as publish_freeze_progress
+    publish_freeze_progress(r,record,'play')
     note_spell_group_submission(r, record)
     paid_hand_tail = None
     if paid_hand_proof is not None:
@@ -1956,6 +1966,8 @@ def board_minion(r, effect):
 def _silence_material(r, entity):
     from .remaining_mana_numbers import before_silence
     before_silence(entity,r.registry)
+    from .spell_mana_freeze import release as release_spell_mana_freeze
+    release_spell_mana_freeze(r,entity,'silence')
     had_shield=Keyword.DIVINE_SHIELD in entity.keywords
     removed = tuple(e for e in entity.enchantments if e.remove_on_silence)
     remove_attachments(entity, enchantment_predicate=lambda e: e.remove_on_silence,
@@ -2237,6 +2249,9 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
     if deathrattle_grant is not None:
         _grant_to(r, deathrattle_grant, entity, notify=False)
         granted = entity.abilities[-1]
+    from .spell_mana_freeze import initialize as initialize_spell_mana_freeze, publish_birth as publish_freeze_birth
+    initialize_spell_mana_freeze(r.state,r.registry,entity)
+    publish_freeze_birth(r,entity)
     r.refresh_auras()
     if copy_material is not None and copy_material.frozen:
         from .combat import can_be_frozen
@@ -2476,6 +2491,8 @@ def unfreeze_character(r, effect):
     if entity is None:
         r.stale(effect, effect.target_id)
     elif entity.frozen:
+        from .spell_mana_freeze import release as release_spell_mana_freeze
+        release_spell_mana_freeze(r,entity,'unfreeze')
         entity.frozen_until_owner_turn = None
         r.emit('unfrozen', target_id=entity.id)
 
@@ -2487,7 +2504,8 @@ def thaw_characters(r, effect):
     changed = []
     for entity_id in (player.hero_id, *player.board):
         entity = r.state.entities[entity_id]
-        if entity.frozen and entity.frozen_until_owner_turn <= index:
+        from .spell_mana_freeze import locked as conditional_freeze_locked
+        if entity.frozen and not conditional_freeze_locked(entity) and entity.frozen_until_owner_turn <= index:
             entity.frozen_until_owner_turn = None
             changed.append(entity_id)
     for entity_id in changed:
@@ -2531,6 +2549,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .effects import RevealHandCard
     from .information import reveal_hand_card
     mechanics = Mechanics(version)
+    from .spell_mana_freeze import register as register_spell_mana_freeze
+    register_spell_mana_freeze(mechanics)
     from .sideboards import register as register_sideboards
     register_sideboards(mechanics)
     from .interactables import register as register_interactables

@@ -91,6 +91,10 @@ def announce(r, entity, reason, origin_id=None, copy_mode=None, death_id=None):
 
 def enter_minion(r, entity, reason, *, origin_id=None, copy_mode=None, death_id=None, play_id=None):
     """Called after the source path finishes installing the body's current state."""
+    if entity.spell_mana_freeze is None:
+        from .spell_mana_freeze import initialize, publish_birth
+        initialize(r.state,r.registry,entity)
+        publish_birth(r,entity)
     from .summon_entry_stats import apply_entry as apply_entry_stat_programs
     apply_entry_stat_programs(r, entity, reason)
     definition=r.registry.card(entity.card_id)

@@ -69,5 +69,7 @@ def create_entity(state, registry, player_id, card_id, zone, position=None, read
         enter_hand(state, entity, reason=hand_entry_reason, source_id=hand_entry_source_id)
     from .location_rune_locks import initialize as initialize_location_lock
     initialize_location_lock(state, registry, entity)
+    from .spell_mana_freeze import initialize as initialize_spell_mana_freeze
+    initialize_spell_mana_freeze(state,registry,entity)
     return entity
 

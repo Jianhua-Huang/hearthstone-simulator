@@ -250,6 +250,7 @@ def reset_to_definition(state, entity, definition, registry=None, *, components=
     entity.base_cost = definition.cost
     entity.damage = entity.armor = entity.aura_attack = entity.aura_health = 0
     entity.frozen_until_owner_turn = None
+    entity.spell_mana_freeze = None
     entity.durability = definition.durability
     entity.weapon_attack = entity.uses_this_turn = 0
     entity.weapon_keywords = set()

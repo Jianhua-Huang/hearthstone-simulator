@@ -2064,3 +2064,5 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 本回合连击牌减费使用PlayerPlayedClassCostSpec(card_class=None, profile_id="cost.player-played-combo-turn-v1")；完整combo_inputs来自原提交材料，第一张未触发的连击牌同样有资格。不得用激活次数、当前实体或自动施法替代原手牌根，见[契约](m3-played-combo-costs.md)。
 
 普通法术主体读取本牌费用时注册SpellSourceCostProfile，并使用spell_source_costs.amount(context, registry)读取原CAST数值；不得装假重复来源、按免费CAST的零支出代替费用或在付款后重价。实际来源、typed保存与漂浮教程的公共增益配方见[契约](m3-spell-source-costs.md)。
+
+原生随从需按之后实际法术 Mana 支出解除冻结时注册 SpellManaFreezeProfile；出牌、消费及生命周期由公共内核维护，卡牌只组合普通召唤。不要用印刷费用、全局总法力或普通回合 thaw 替代条件；来源未确认及待国服窗口见[契约](m3-native-spell-mana-freeze.md)。

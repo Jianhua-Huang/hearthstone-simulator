@@ -143,6 +143,8 @@ def consume_mana(r,effect):
         cast.id if cast is not None else None)
     spend_mana(player,actual)
     r.state.mana_consumption_history.append(row)
+    from .spell_mana_freeze import note_payment as note_spell_mana_freeze, publish_progress as publish_freeze_progress
+    note_spell_mana_freeze(r.state,row,'consume')
     from .held_mana import note_consumption
     note_consumption(r.state,row)
     event=r.emit('mana_consumption_resolved',source_id=effect.source_id,player_id=player.id,amount=actual,result=row.payload())
@@ -150,6 +152,7 @@ def consume_mana(r,effect):
     r.emit('mana_changed',source_id=effect.source_id,player_id=player.id,amount=-actual,
         operation='SpendMana',available=player.mana,maximum=player.max_mana,temporary=player.temporary_mana,
         locked=player.overload_locked,owed=player.overload_owed)
+    publish_freeze_progress(r,row,'consume')
     return [] if effect.on_result is None else [r.call(effect.on_result,effect.source_id,player.id,event=event)]
 
 
