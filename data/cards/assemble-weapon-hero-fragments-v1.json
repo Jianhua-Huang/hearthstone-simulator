@@ -1,0 +1,611 @@
+{
+  "schema": 1,
+  "batch": "k393-assemble-weapon-hero",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_OG_031",
+        "dbf_id": 126892,
+        "name": "暮光神锤",
+        "name_en": "Hammer of Twilight",
+        "text": "<b>亡语：</b>&召唤一个4/2的元素。",
+        "text_en": "<b>Deathrattle:</b>& Summon a 4/2 Elemental.",
+        "cost": 5,
+        "attack": 4,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 38270,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 38270,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 38273,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38270",
+              "type": "Int",
+              "value": "38270"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          }
+        ]
+      },
+      "record_sha256": "f8f1f5a32d11e46afbbe72d54944c7359e017f95c743ce4ebffe4131a284efab",
+      "definition_sha256": "53158755cedf28ab65e171b243443fa85a5b3e0dc77d13e291bfd911ea1b7ff2"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_323",
+        "dbf_id": 69637,
+        "name": "加拉克苏斯大王",
+        "name_en": "Lord Jaraxxus",
+        "text": "<b>战吼：</b>&装备一把3/8的血怒。~GAMEPLAY_ASPROXY_CORE_EX1_323",
+        "text_en": "<b>Battlecry:</b>& Equip a 3/8 Blood Fury.~GAMEPLAY_ASPROXY_CORE_EX1_323",
+        "cost": 8,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 30,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 9,
+          "CARDTYPE": 3,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "251": 1,
+          "ARMOR": 5,
+          "COLLECTIBLE": 1,
+          "HERO_POWER": 1178,
+          "858": 777,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [
+          {
+            "tag": "HERO_POWER",
+            "dbf_id": 1178,
+            "card_id": "EX1_tk33"
+          }
+        ],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "777",
+              "type": "Int",
+              "value": "777"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          }
+        ]
+      },
+      "record_sha256": "13888711292ebf9135fefdfe85f30024047d35b94c2e3c5531587813cd9b8c36",
+      "definition_sha256": "c6ac9315bd1052d260c8d1811201b54ed3e7afa585c94d0d9c1354066b9642e7"
+    },
+    {
+      "record": {
+        "id": "OG_031a",
+        "dbf_id": 38273,
+        "name": "暮光元素",
+        "name_en": "Twilight Elemental",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 21,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "788f6075c71bdf7eacace6ddc53265195f3c30858e75fd3a7bf95635a3cb3ab2",
+      "definition_sha256": "36481d23da0d0430ed56841ce36067254e68e532d302ad214ceafb9a4997453a"
+    },
+    {
+      "record": {
+        "id": "EX1_323w",
+        "dbf_id": 1660,
+        "name": "血怒",
+        "name_en": "Blood Fury",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 9,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "21463752de81b8f1354dd3a3ee42d2258dfa30771a2b5cc4af02bf1dab120bac",
+      "definition_sha256": "df834857b71f098d29c6f263a107b45cd1923a4fd1b0664e6fbb413b2f74b87f"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CORE_OG_031",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\126892-zh_CN.json",
+      "response_sha256": "021d8bc190bf9559b8a2b8267cfa7867b463ed734c5b9997dea98d868fb379ca",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126892&locale=zh_CN",
+      "face": {
+        "id": 126892,
+        "collectible": 1,
+        "slug": "126892-hammer-of-twilight",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "暮光神锤",
+        "text": "<b>亡语：</b>&召唤一个4/2的元素。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/411b9c78a59212ead1697bd67abdfd4cb599cc3e7ab974220e45a487d419c949.png",
+        "imageGold": "",
+        "flavorText": "这把蕴含了元素之力的战锤散发出诡异的暮色光芒。",
+        "cropImage": null,
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          38270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126892&locale=zh_CN",
+        "sha256": "021d8bc190bf9559b8a2b8267cfa7867b463ed734c5b9997dea98d868fb379ca",
+        "bytes": 680,
+        "observed_at": "2026-10-22T05:44:30.525775+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_OG_031",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\126892-en_US.json",
+      "response_sha256": "0ad93631095a8022b0ba55cfbf23139be832551215d224b0c93ab32f86fa865a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=126892&locale=en_US",
+      "face": {
+        "id": 126892,
+        "collectible": 1,
+        "slug": "126892-hammer-of-twilight",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Hammer of Twilight",
+        "text": "<b>Deathrattle:</b>& Summon a 4/2 Elemental.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/317afc0fe7aa44ae9e27e040e683c88c50a0088676395a243d243585e1c0d653.png",
+        "imageGold": "",
+        "flavorText": "Stop! It's Twilight Hammer time.",
+        "cropImage": null,
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          38270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=126892&locale=en_US",
+        "sha256": "0ad93631095a8022b0ba55cfbf23139be832551215d224b0c93ab32f86fa865a",
+        "bytes": 649,
+        "observed_at": "2026-10-22T05:44:30.744866+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_323",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\69637-zh_CN.json",
+      "response_sha256": "0153aed4ece9109bed5e8482406ccc79a2f8ba6eafb326fb367737114428dcfd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=69637&locale=zh_CN",
+      "face": {
+        "id": 69637,
+        "collectible": 1,
+        "slug": "69637-lord-jaraxxus",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 3,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 30,
+        "manaCost": 8,
+        "armor": 5,
+        "name": "加拉克苏斯大王",
+        "text": "<b>战吼：</b> 装备一把3/8的血怒。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff23e6262f104bbe57748a185a61486d0b69dafb06d2120d2bf598d3683d9d1e.png",
+        "imageGold": "",
+        "flavorText": "“渺小的侏儒！你的傲慢会招致灭亡！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b7b5356eaa0b58c8e94086473cf89e54dd050742232225ef177bd68ff0206dc.png",
+        "childIds": [
+          1178,
+          1660,
+          1143
+        ],
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          777,
+          69925
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=69637&locale=zh_CN",
+        "sha256": "0153aed4ece9109bed5e8482406ccc79a2f8ba6eafb326fb367737114428dcfd",
+        "bytes": 825,
+        "observed_at": "2026-10-22T05:44:30.714100+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_323",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\69637-en_US.json",
+      "response_sha256": "f4670540f2e54050f87c13362ffcceb55a46e63ea54dd643160795caff7ef5c5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=69637&locale=en_US",
+      "face": {
+        "id": 69637,
+        "collectible": 1,
+        "slug": "69637-lord-jaraxxus",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 3,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 30,
+        "manaCost": 8,
+        "armor": 5,
+        "name": "Lord Jaraxxus",
+        "text": "<b>Battlecry:</b> Equip a 3/8 Blood Fury.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c0a155c67eceb16383214e6e64c6839c9f91db29e9d27b5425981300ac171bf.png",
+        "imageGold": "",
+        "flavorText": "\"TRIFLING GNOME! YOUR ARROGANCE WILL BE YOUR UNDOING!!!!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b7b5356eaa0b58c8e94086473cf89e54dd050742232225ef177bd68ff0206dc.png",
+        "childIds": [
+          1178,
+          1660,
+          1143
+        ],
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          777,
+          69925
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=69637&locale=en_US",
+        "sha256": "f4670540f2e54050f87c13362ffcceb55a46e63ea54dd643160795caff7ef5c5",
+        "bytes": 819,
+        "observed_at": "2026-10-22T05:44:30.764254+00:00"
+      }
+    },
+    {
+      "card_id": "OG_031a",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k393-assemble-weapon-hero\\primary-01\\38273-zh_CN.json",
+      "response_sha256": "38043b6ef6441ab1e2626290ea6367d39ead8f210843a1d95b8c66a561261e6c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=38273&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 38273,
+        "collectible": 0,
+        "slug": "38273-twilight-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": null,
+        "artistName": "A. J. Nazzaro",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "暮光元素",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98d22d15fa597a340656344d6c55674bd2de6aee98b220465596df7d8af65a1b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 38270,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=38273&locale=zh_CN&collectible=0",
+        "sha256": "38043b6ef6441ab1e2626290ea6367d39ead8f210843a1d95b8c66a561261e6c",
+        "bytes": 562,
+        "observed_at": "2026-10-22T06:16:04.479083+00:00"
+      }
+    },
+    {
+      "card_id": "OG_031a",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k393-assemble-weapon-hero\\primary-01\\38273-en_US.json",
+      "response_sha256": "1d0f31f09ea6911f074acbe5cb3e107da865fbb6bb3bb432996dc96fe649842d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=38273&locale=en_US&collectible=0",
+      "face": {
+        "id": 38273,
+        "collectible": 0,
+        "slug": "38273-twilight-elemental",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": null,
+        "artistName": "A. J. Nazzaro",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Twilight Elemental",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6fdecb25097bce2b61718d1974af99cf89cec7fc7e2da53dd40938be4bb09e9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 38270,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=38273&locale=en_US&collectible=0",
+        "sha256": "1d0f31f09ea6911f074acbe5cb3e107da865fbb6bb3bb432996dc96fe649842d",
+        "bytes": 568,
+        "observed_at": "2026-10-22T06:16:06.158616+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_323w",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k393-assemble-weapon-hero\\primary-01\\1660-zh_CN.json",
+      "response_sha256": "faa5825bf7144729cfa074faeaa73e5db6d143b0b6920984231636d030e0f38c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1660&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 1660,
+        "collectible": 0,
+        "slug": "1660-blood-fury",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "health": 8,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "血怒",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/905067f398f9e5a24563234d420bfc6cc6976a0aa8e9dfbdf1d745e45be865a1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 777,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1660&locale=zh_CN&collectible=0",
+        "sha256": "faa5825bf7144729cfa074faeaa73e5db6d143b0b6920984231636d030e0f38c",
+        "bytes": 514,
+        "observed_at": "2026-10-22T06:16:30.369735+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_323w",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k393-assemble-weapon-hero\\primary-01\\1660-en_US.json",
+      "response_sha256": "7c8ddd9d853f6367d66e2cb1235b703eb47c408e6e555e9fc9b963fa0d05ae11",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1660&locale=en_US&collectible=0",
+      "face": {
+        "id": 1660,
+        "collectible": 0,
+        "slug": "1660-blood-fury",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "health": 8,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Blood Fury",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/683deff6811c62a329ac7c0ffa0354f898db312af5f78d451a306f735e1c35ee.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 777,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1660&locale=en_US&collectible=0",
+        "sha256": "7c8ddd9d853f6367d66e2cb1235b703eb47c408e6e555e9fc9b963fa0d05ae11",
+        "bytes": 518,
+        "observed_at": "2026-10-22T06:16:32.052789+00:00"
+      }
+    }
+  ],
+  "reviewed_projections": [
+    {
+      "card_id": "CORE_OG_031",
+      "timing": "deathrattle",
+      "behavior_id": "cards.assemble_weapon_hero.twilight",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_EX1_323",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p51.jaraxxus",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    }
+  ],
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "global_rule_evidence": {
+    "url": "https://us.forums.blizzard.com/en/hearthstone/t/3701-hotfix-patch/166622",
+    "receipt": "outputs/card-integration-20261014/k393-assemble-weapon-hero/global-37-0-1-source-receipt-01.json",
+    "rule": "After 37.0.1 fix, Core Lord Jaraxxus used as Assemble input does not replace Hero Power",
+    "CN_deployment_verified": false
+  },
+  "experimental_roles": {
+    "physical_primary": "minion only",
+    "reviewed_sources": "secondary text only; no whole hero or weapon fields copied",
+    "complete_live_membership": false,
+    "weights_verified": false
+  },
+  "formal_pool_installed": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
