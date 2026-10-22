@@ -1,0 +1,803 @@
+{
+  "schema": 1,
+  "batch": "K378-nzoth",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_017",
+        "dbf_id": 128389,
+        "name": "恩佐斯，梦境之末",
+        "name_en": "N'Zoth, Dream's End",
+        "text": "<b>古神</b>\n在本局对战中，你每召唤过一个<b>亡语</b>随从，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Old God</b>\nCost (1) less for each\n<b>Deathrattle</b> minion you've\n___summoned this game.",
+        "cost": 15,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 15,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3631e82f3bc3ec95a741849c9ce7a50fe50060b64304405a722041654a1996d6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_017",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_017t3",
+        "dbf_id": 128398,
+        "name": "恩佐斯的召唤",
+        "name_en": "Call of N'Zoth",
+        "text": "<b>发现</b>并召唤一个法力值消耗大于或等于（5）点的<b>亡语</b>随从。",
+        "text_en": "<b>Discover</b> a <b>Deathrattle</b> minion that costs (5) or more to summon.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "762b4dd82f183e6b1732f4272ccbd82fa7298e65543abc5594f0b18f91eace96",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_017t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_017t5",
+        "dbf_id": 129205,
+        "name": "恩佐斯的大军",
+        "name_en": "Army of N'Zoth",
+        "text": "复活4个不同的<b>亡语</b>随从。",
+        "text_en": "Resurrect 4 different <b>Deathrattle</b> minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "919017c3977afedad3cc8c7bf3428868d6e987b05a3456de497360c8f9bbf74f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_017t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_017t6",
+        "dbf_id": 129210,
+        "name": "恩佐斯的领域",
+        "name_en": "Domain of N'Zoth",
+        "text": "使另一个友方随从获得“<b>亡语：</b>对所有敌方随从造成2点伤害。”",
+        "text_en": "[x]Give another friendly\nminion \"<b>Deathrattle:</b>\nDeal 2 damage to all\nenemy minions.\"",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0f56c97a06e8e1e577b0855f772f988441535b434e3c4f275035d15aa4c2f06e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_017t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_017t4",
+        "dbf_id": 129215,
+        "name": "恩佐斯的操纵",
+        "name_en": "Mastery of N'Zoth",
+        "text": "触发另一个友方随从的<b>亡语</b>，触发两次。",
+        "text_en": "Trigger another\nfriendly minion's <b>Deathrattle</b> twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fd20d64b2a36de067de78ac27fd507d907a6b26464abedcf9ad86b2c98b4c8b0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_017t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_017",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\128389-zh_CN.json",
+      "response_sha256": "7859f30ef3d04ba8ac85b6d977c34e6a6759338671cfdb50d0ede662622ba5fc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=128389&locale=zh_CN",
+      "face": {
+        "id": 128389,
+        "collectible": 1,
+        "slug": "128389-nzoth-dreams-end",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 15,
+        "name": "恩佐斯，梦境之末",
+        "text": "<b>古神</b> 在本局对战中，你每召唤过一个<b>亡语</b>随从，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2813da7a58dac86383cc773712bf4b525e536acd372617a94023f8edffabefa0.png",
+        "imageGold": "",
+        "flavorText": "（2*“师筑构翠翡，亚蕾弗”）/2+（“放齐花百”-“虚渺延火”）",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4778c93120cd1d727f74004c52277e2aea5dfa359b3cf9fc785080f3430772f.png",
+        "childIds": [
+          129205,
+          129215,
+          128398,
+          129210
+        ],
+        "keywordIds": [
+          12,
+          431
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=128389&locale=zh_CN",
+        "sha256": "7859f30ef3d04ba8ac85b6d977c34e6a6759338671cfdb50d0ede662622ba5fc",
+        "bytes": 928,
+        "observed_at": "2026-10-22T00:21:16.433636+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\128389-en_US.json",
+      "response_sha256": "16e461765d2fa479d178053bf7e0e83bd137db46b2d7afc12336f93d199d4cc9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=128389&locale=en_US",
+      "face": {
+        "id": 128389,
+        "collectible": 1,
+        "slug": "128389-nzoth-dreams-end",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 15,
+        "name": "N'Zoth, Dream's End",
+        "text": "<b>Old God</b> Cost (1) less for each <b>Deathrattle</b> minion you've summoned this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb683f71cb4e1562c7db705a1f4fe6c657e62388e4d7726ae372ffbcd720b4a6.png",
+        "imageGold": "",
+        "flavorText": "(2*\"Tcetihcra Dlareme ,Ayerf\")/2 + (\"Ecnecserolffe\" - \"Aetherial Kindling\")",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4778c93120cd1d727f74004c52277e2aea5dfa359b3cf9fc785080f3430772f.png",
+        "childIds": [
+          129205,
+          129215,
+          128398,
+          129210
+        ],
+        "keywordIds": [
+          12,
+          431
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=128389&locale=en_US",
+        "sha256": "16e461765d2fa479d178053bf7e0e83bd137db46b2d7afc12336f93d199d4cc9",
+        "bytes": 883,
+        "observed_at": "2026-10-22T00:21:16.555528+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\128398-zh_CN.json",
+      "response_sha256": "8ce3d000cc3c8b9e5e15fa9a530f78c1eef1dc707965fad4b3c55abd11b16bb1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=128398&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 128398,
+        "collectible": 0,
+        "slug": "128398-call-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Max Grecke",
+        "manaCost": 0,
+        "name": "恩佐斯的召唤",
+        "text": "<b>发现</b>并召唤一个法力值消耗大于或等于（5）点的<b>亡语</b>随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96334bcc770ee47a3ec54109e6cf1e1a05939928449ec03dba629511789dc377.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=128398&locale=zh_CN&collectible=0",
+        "sha256": "8ce3d000cc3c8b9e5e15fa9a530f78c1eef1dc707965fad4b3c55abd11b16bb1",
+        "bytes": 640,
+        "observed_at": "2026-10-22T00:44:06.620102+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\128398-en_US.json",
+      "response_sha256": "7031563c1863d02ae1442ad02271434efa2d623b2facfa8255b85fcedb20e798",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=128398&locale=en_US&collectible=0",
+      "face": {
+        "id": 128398,
+        "collectible": 0,
+        "slug": "128398-call-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Max Grecke",
+        "manaCost": 0,
+        "name": "Call of N'Zoth",
+        "text": "<b>Discover</b> a <b>Deathrattle</b> minion that costs (5) or more to summon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7de7df084641a11ec35fe50ec1ff1966f1e0a4098f573baf749dd1cc1dcbdd4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=128398&locale=en_US&collectible=0",
+        "sha256": "7031563c1863d02ae1442ad02271434efa2d623b2facfa8255b85fcedb20e798",
+        "bytes": 620,
+        "observed_at": "2026-10-22T00:44:06.516528+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\129205-zh_CN.json",
+      "response_sha256": "30a1116abf0f809d178b03d89ba4f7427854ec5112c2d0f98b36e0c4c81d5392",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129205&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 129205,
+        "collectible": 0,
+        "slug": "129205-army-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 0,
+        "name": "恩佐斯的大军",
+        "text": "复活4个不同的<b>亡语</b>随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49b4fca4fbcdf905fd61346d588f4df82d348700ceafdfbe244b002bfa8e9bda.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129205&locale=zh_CN&collectible=0",
+        "sha256": "30a1116abf0f809d178b03d89ba4f7427854ec5112c2d0f98b36e0c4c81d5392",
+        "bytes": 592,
+        "observed_at": "2026-10-22T00:44:06.626966+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\129205-en_US.json",
+      "response_sha256": "a10b8859fe7937dfd16900e82840b91690051af90642bac80de840812a089149",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129205&locale=en_US&collectible=0",
+      "face": {
+        "id": 129205,
+        "collectible": 0,
+        "slug": "129205-army-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 0,
+        "name": "Army of N'Zoth",
+        "text": "Resurrect 4 different <b>Deathrattle</b> minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e69795eac085267abb37626af7062f2c1cc5d98c30a401964c04f31a77e370fb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129205&locale=en_US&collectible=0",
+        "sha256": "a10b8859fe7937dfd16900e82840b91690051af90642bac80de840812a089149",
+        "bytes": 596,
+        "observed_at": "2026-10-22T00:44:06.460962+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\129210-zh_CN.json",
+      "response_sha256": "d01cc23523fa59238f2dd5ae00a4735eba2e3c02c69bebb7aa50c771bca96383",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129210&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 129210,
+        "collectible": 0,
+        "slug": "129210-domain-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 0,
+        "name": "恩佐斯的领域",
+        "text": "使另一个友方随从获得“<b>亡语：</b>对所有敌方随从造成2点伤害。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58f3da80c6e27557f4ac8345042c0702c892c7a9805897d2bdc419fedd29f3d4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129210&locale=zh_CN&collectible=0",
+        "sha256": "d01cc23523fa59238f2dd5ae00a4735eba2e3c02c69bebb7aa50c771bca96383",
+        "bytes": 639,
+        "observed_at": "2026-10-22T00:44:08.482663+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\129210-en_US.json",
+      "response_sha256": "83ea0038b23a59975db06c403ce560be66a41c737cdab2bc3b0847dd5ca82c90",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129210&locale=en_US&collectible=0",
+      "face": {
+        "id": 129210,
+        "collectible": 0,
+        "slug": "129210-domain-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 0,
+        "name": "Domain of N'Zoth",
+        "text": "Give another friendly minion \"<b>Deathrattle:</b> Deal 2 damage to all enemy minions.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d1f2577287c15ad5f343ebd704316764eff9ace3ffffc51ec3904eac945a1e90.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129210&locale=en_US&collectible=0",
+        "sha256": "83ea0038b23a59975db06c403ce560be66a41c737cdab2bc3b0847dd5ca82c90",
+        "bytes": 633,
+        "observed_at": "2026-10-22T00:44:08.252210+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\129215-zh_CN.json",
+      "response_sha256": "ba64e6723de977fa01ad0d16f9e479e078217c765059a1c07739e834a58f62de",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129215&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 129215,
+        "collectible": 0,
+        "slug": "129215-mastery-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "恩佐斯的操纵",
+        "text": "触发另一个友方随从的<b>亡语</b>，触发两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a71842e16390e04836c5a075bbe6303a74f47e52c79c10fe4ce15aeb03ae3e5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129215&locale=zh_CN&collectible=0",
+        "sha256": "ba64e6723de977fa01ad0d16f9e479e078217c765059a1c07739e834a58f62de",
+        "bytes": 600,
+        "observed_at": "2026-10-22T00:44:08.422721+00:00"
+      }
+    },
+    {
+      "card_id": "BE_017t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k378-nzoth\\primary-cache\\129215-en_US.json",
+      "response_sha256": "9900d6dcd170a671c64876b7ef70bd8313a14d5178a1b71b0735776f04753aba",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129215&locale=en_US&collectible=0",
+      "face": {
+        "id": 129215,
+        "collectible": 0,
+        "slug": "129215-mastery-of-nzoth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Mastery of N'Zoth",
+        "text": "Trigger another friendly minion's <b>Deathrattle</b> twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/492c8892f1bce8e131f7fe8af9d80bea6fcd339ca4e8fd0ed28eded6e0ddfeeb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 128389,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129215&locale=en_US&collectible=0",
+        "sha256": "9900d6dcd170a671c64876b7ef70bd8313a14d5178a1b71b0735776f04753aba",
+        "bytes": 597,
+        "observed_at": "2026-10-22T00:44:08.429062+00:00"
+      }
+    }
+  ],
+  "source_verified": true,
+  "official_faces_verified": 10,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

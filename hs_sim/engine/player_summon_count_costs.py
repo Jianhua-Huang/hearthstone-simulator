@@ -1,4 +1,4 @@
-"""Finite tribe price consumers of the original successful summon history."""
+"""Finite price consumers of original successful summon traits."""
 from .model import CardType, PlayerSummonCountCostSpec, PlayerSummonCountCostFact
 from .successful_summons import SuccessfulSummonRecord, _matching_rows, validate_state
 from .tribes import tribe_state_for
@@ -7,6 +7,16 @@ from .tribes import tribe_state_for
 def _tribes(spec):
     spec.__post_init__()
     return ('BEAST',) if spec.profile_id == 'cost.player-summoned-beast-count-v1' else ('TOTEM',)
+
+
+DEATHRATTLE_PROFILE = 'cost.player-summoned-deathrattle-count-v1'
+
+
+def selected_rows(records, player_id, spec):
+    spec.__post_init__()
+    if spec.profile_id == DEATHRATTLE_PROFILE:
+        return tuple(row for row in records if row.player_id==player_id and row.deathrattle_ids)
+    return _matching_rows(records,player_id,_tribes(spec),'current',None)
 
 
 def validate_definition(definition):
@@ -46,7 +56,7 @@ def validate_operand(fact):
             raise ValueError('Summon price changed its original physical allocation or chronology')
         seen.add(identity)
         last_turn, last_action, last_event = row.turn, row.action, row.event_sequence
-    selected = tuple(row.id for row in _matching_rows(fact.records, fact.player_id, _tribes(fact.spec), 'current', None))
+    selected = tuple(row.id for row in selected_rows(fact.records, fact.player_id, fact.spec))
     if (fact.selected_ids != selected or fact.quantity != len(selected) or
             fact.after != max(0, fact.before - len(selected))):
         raise ValueError('Summon price differs from its complete original successful tribe quantity')
@@ -58,8 +68,7 @@ def capture(state, registry, player_id, definition, base_cost):
         return None
     validate_state(state, registry)
     records = tuple(state.successful_summon_history)
-    selected = tuple(row.id for row in _matching_rows(records, player_id,
-        _tribes(definition.player_summon_count_cost), 'current', None))
+    selected = tuple(row.id for row in selected_rows(records, player_id, definition.player_summon_count_cost))
     fact = PlayerSummonCountCostFact(definition.player_summon_count_cost, player_id,
         state.turn, state.action_number, state.next_entity_id, state.next_order,
         state.next_successful_summon_id, records, selected, len(selected),

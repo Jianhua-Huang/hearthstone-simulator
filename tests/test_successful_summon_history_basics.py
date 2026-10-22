@@ -434,10 +434,12 @@ class SuccessfulSummonHistoryTests(unittest.TestCase):
                 self.assertNotIn('successful_summon_history', text)
                 self.assertNotIn('next_successful_summon_id', text)
                 self.assertNotIn('printed_tribes', text)
-                for key in ('_entry_stats', 'entry_attack', 'entry_health', 'entry_max_health'):
+                for key in ('_entry_stats', '_entry_deathrattles', 'deathrattle_ids',
+                        'entry_attack', 'entry_health', 'entry_max_health'):
                     self.assertNotIn(key, text)
         event = next(e for e in g.events if e.kind == 'minion_summoned')
         row = g.state.successful_summon_history[-1]
         self.assertEqual(dict(event.data), {'_entry_stats':
-            (row.entry_attack, row.entry_health, row.entry_max_health)})
+            (row.entry_attack, row.entry_health, row.entry_max_health),
+            '_entry_deathrattles': row.deathrattle_ids})
         self.assertEqual(g.snapshot(), before)

@@ -5189,7 +5189,8 @@ class PlayerSummonCountCostSpec:
 
     def __post_init__(self):
         if type(self.profile_id) is not str or self.profile_id not in (
-                'cost.player-summoned-totem-count-v1', 'cost.player-summoned-beast-count-v1'):
+                'cost.player-summoned-totem-count-v1', 'cost.player-summoned-beast-count-v1',
+                'cost.player-summoned-deathrattle-count-v1'):
             raise ValueError('Unsupported successful summon quantity price policy')
 
 

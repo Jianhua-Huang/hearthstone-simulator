@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实“每召唤一个亡语随从减1费”使用`PlayerSummonCountCostSpec('cost.player-summoned-deathrattle-count-v1')`，读取原成功入场行的deathrattle_ids。不要用当前实体文本或额外玩家计数器代替原事实；恩佐斯四技能的普通发现/复活/亡语组合及待校准政策见[契约](m3-nzoth-deathrattle-summons.md)。
+
 真实四技能族使用有限`AbilityFamilyProfile`及`TriggerFamilyAbility`，外部一项或两项不同技能通过`ChooseFamilyAbilities`沿原选择执行。实际来源由`request_from_context`捕获，健康包引用`ability_trigger_id`交原健康器叠加技能局部关键词；不要永久授予吸血、造假旧神实体或另开CAST。原战吼payload、选择目标和完成窗口见[执行契约](m3-empire-cthun.md)，此有限入口不自动代表其他旧神采用相同整局三倍规则。
 
 真实“以溢出减费重复发现”使用有限`DiscoverFromPool(..., cost=CostSpec(delta=-remaining), excess_discount=True)`，让原生成报价和发现续接负责每次预算。不要在牌层新写抽样、猜印刷费用或绕过零费/满手；原字段范围、生成原生数字及恢复边界见[重新装填契约](m3-reload-discounts.md)。

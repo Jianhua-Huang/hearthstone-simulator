@@ -12,16 +12,18 @@ from .tribes import TribeState, apply_change, tribe_changes, tribe_state_for
 from .effects import Effect
 
 ENTRY_STATS_KEY = '_entry_stats'
+ENTRY_DEATHRATTLES_KEY = '_entry_deathrattles'
 
 
 def publication_stats(state,entity_id,data):
     """Freeze actual board-entry attributes at the original publication point."""
-    if ENTRY_STATS_KEY in data:
+    if ENTRY_STATS_KEY in data or ENTRY_DEATHRATTLES_KEY in data:
         raise ValueError('Entry stats belong to the original summon publisher')
     entity=state.entities.get(entity_id)
     if entity is None or entity.kind!=CardType.MINION or entity.zone!=Zone.BOARD:
         raise ValueError('Entry stats require an actual original board minion')
-    return {ENTRY_STATS_KEY:(entity.attack,entity.health,entity.max_health)}
+    return {ENTRY_STATS_KEY:(entity.attack,entity.health,entity.max_health),
+        ENTRY_DEATHRATTLES_KEY:tuple(a.id for a in entity.abilities if a.kind=='deathrattle' and not a.consumed)}
 
 
 @dataclass(frozen=True)
@@ -136,8 +138,12 @@ class SuccessfulSummonRecord:
     entry_health: int
     entry_max_health: int
     reborn_death_id: int | None = None
+    deathrattle_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
+        if type(self.deathrattle_ids)is not tuple or len(set(self.deathrattle_ids))!=len(self.deathrattle_ids):
+            raise ValueError('Successful entry requires its distinct original Deathrattle declarations')
+        for identity in self.deathrattle_ids:_int(identity,'original entry Deathrattle',1)
         _int(self.entry_attack,'actual entry Attack',0)
         _int(self.entry_max_health,'actual entry maximum Health')
         _int(self.entry_health,'actual entry remaining Health')
@@ -203,6 +209,8 @@ def validate_state(state, registry=None):
         if type(row) is not SuccessfulSummonRecord:
             raise ValueError('Successful summon history requires immutable typed occurrences')
         row.__post_init__()
+        if any(identity>=state.next_attachment_id for identity in row.deathrattle_ids):
+            raise ValueError("Successful entry borrowed a future Deathrattle allocation")
         if row.reborn_death_id is not None:
             if deaths is None:
                 deaths = {d.id: d for d in state.death_history}
@@ -285,6 +293,9 @@ def _validate_event(row, event):
             row.entity_id, row.entity_id, row.player_id, 0):
         raise ValueError('Successful summon differs from its original physical publication')
     data = dict(event.data)
+    original=data.get(ENTRY_DEATHRATTLES_KEY)
+    if type(original)not in(tuple,list)or tuple(original)!=row.deathrattle_ids or any(type(i)is not int for i in original):
+        raise ValueError('Successful entry changed its original published Deathrattle declarations')
     stats=data.get(ENTRY_STATS_KEY)
     if (type(stats)not in(tuple,list)or len(stats)!=3 or any(type(v)is not int for v in stats)or
             tuple(stats)!=(row.entry_attack,row.entry_health,row.entry_max_health)):
@@ -320,7 +331,8 @@ by their original executors.
         tuple(change.tribe_change for change in tribe_changes(entity)),
         tribe_state_for(r.registry, entity.card_id, tribe_changes(entity)),
         entity.attack, entity.health, entity.max_health,
-        data.get('death_id') if 'reborn_from' in data else None)
+        data.get('death_id') if 'reborn_from' in data else None,
+        tuple(a.id for a in entity.abilities if a.kind=='deathrattle' and not a.consumed))
     _validate_event(row, event)
     if row.reborn_death_id is not None:
         death = next((d for d in state.death_history if d.id == row.reborn_death_id), None)
@@ -384,6 +396,7 @@ def record_from_dict(value):
         change['tribes'] = tuple(_list(change['tribes'], 'original summon change tribes'))
         changes.append(TribeChangeSpec(**change))
     row['tribe_changes'] = tuple(changes)
+    row['deathrattle_ids'] = tuple(_list(row['deathrattle_ids'],'original entry Deathrattles'))
     return SuccessfulSummonRecord(**row)
 
 
