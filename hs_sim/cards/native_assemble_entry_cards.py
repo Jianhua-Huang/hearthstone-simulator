@@ -23,8 +23,8 @@ FRAGMENT_SOURCES = ('CORE_UNG_809', 'CORE_EX1_096', 'CORE_GIL_622', 'CORE_UNG_08
     'CORE_EX1_110', 'BE_855', 'BE_856', 'BE_859', 'BE_152')
 POOL_ID = 'constructed.assemble'
 PREFIX = 'cards.native_assemble_entries.'
-BATCH_PATH = Path(__file__).resolve().parents[2] / 'data/cards/native-assemble-entries-v1.json'
-BATCH_HASH = '38ec4af9171a78c50d70ad03b25be651e7990b510f50e5493b6e0c05e567959f'
+BATCH_PATH = Path(__file__).resolve().parents[2] / 'data/cards/native-assemble-entries-v2.json'
+BATCH_HASH = 'e80a179dc7d7988feaf6a63d487ae0b94ad8b3a74fa318d067fc0d5217c2ca42'
 
 
 def load_batch():

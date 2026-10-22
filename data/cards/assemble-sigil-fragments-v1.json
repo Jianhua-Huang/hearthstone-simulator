@@ -1,0 +1,398 @@
+{
+  "schema": 1,
+  "batch": "k392-assemble-sigil-projections",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_873",
+        "dbf_id": 130680,
+        "name": "孵化咒符",
+        "name_en": "Sigil of Hatching",
+        "text": "在你的下个回合开始时，&召唤三只3/1并具有<b>突袭</b>的裂爪兽。~GAMEPLAY_ASPROXY_BE_873",
+        "text_en": "At the start of your next turn,& summon three 3/1 Shredclaws with <b>Rush</b>.~GAMEPLAY_ASPROXY_BE_873",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "SIGIL": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c5085207aa4835fa540e55b63e3a64cbe1ae5b91228257a04cacd1e90d1f4a4c",
+      "definition_sha256": "e32cf33a18666b9dac427535da6e556de99b07716ff02a3d85e6595259c8b169"
+    },
+    {
+      "record": {
+        "id": "CATA_528",
+        "dbf_id": 122773,
+        "name": "海洋咒符",
+        "name_en": "Sigil of the Seas",
+        "text": "在你的下个回合开始时，&召唤一个3/3并具有<b>嘲讽</b>的纳迦。~GAMEPLAY_ASPROXY_CATA_528",
+        "text_en": "At the start of your\nnext turn,& summon a 3/3 Naga with <b>Taunt</b>.~GAMEPLAY_ASPROXY_CATA_528",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 7,
+          "SIGIL": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4df6b3751705a3d2c9d1755545a788b41ac37aa3aa2812b56b698d74c34641ef",
+      "definition_sha256": "cf0dcd68837c47f49e88c3edbde80cc1436f60d57287c50aed2dfed2498ccea9"
+    },
+    {
+      "record": {
+        "id": "BE_873t",
+        "dbf_id": 130778,
+        "name": "裂爪兽",
+        "name_en": "Shredclaw",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 14,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          }
+        ]
+      },
+      "record_sha256": "d417c206f53ebe50961bf6bc8d1340d4c60fa5600428f187486b60ed8e6f2b41",
+      "definition_sha256": "fbaf4eeb122444481152b2ba7e872e4a8c02197d7a692aa9e82eb4f8342aec15"
+    },
+    {
+      "record": {
+        "id": "CATA_528t",
+        "dbf_id": 127933,
+        "name": "纳迦畸体",
+        "name_en": "Naga Monstrosity",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 92,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          }
+        ]
+      },
+      "record_sha256": "f6058c42a713173496424c4c0c74553210768fd95578ac1d777d775e120e5114",
+      "definition_sha256": "bc15af4b2a5f9346c4e515dca2b4ac1d127b38592b6007c530d82ecb36f5898b"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_873",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\130680-zh_CN.json",
+      "response_sha256": "6ff4ef6d8b7a7f92b93ca9b162d5516969fc06aee2d899ea853590fe35c61615",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130680&locale=zh_CN",
+      "face": {
+        "id": 130680,
+        "collectible": 1,
+        "slug": "130680-sigil-of-hatching",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 4,
+        "name": "孵化咒符",
+        "text": "在你的下个回合开始时， 召唤三只3/1并具有<b>突袭</b>的裂爪兽。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/16ebb53b96e35111a1038e575d8e78ca9fee209129754ddec45baecb720d5e02.png",
+        "imageGold": "",
+        "flavorText": "这款简单快捷的蛋类食谱只需一枚蛋，一个回合准备。甚至还可能剩一点！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae1653c8d4481ab337a9907f18013dde020643c444e6cecd7c2a8daf2124a962.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130680&locale=zh_CN",
+        "sha256": "6ff4ef6d8b7a7f92b93ca9b162d5516969fc06aee2d899ea853590fe35c61615",
+        "bytes": 841,
+        "observed_at": "2026-10-22T05:44:28.532458+00:00"
+      }
+    },
+    {
+      "card_id": "BE_873",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\130680-en_US.json",
+      "response_sha256": "64a4af946b545c801756864aba4a73b4a37177aca3fe135cebda535243e827e1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130680&locale=en_US",
+      "face": {
+        "id": 130680,
+        "collectible": 1,
+        "slug": "130680-sigil-of-hatching",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 4,
+        "name": "Sigil of Hatching",
+        "text": "At the start of your next turn, summon three 3/1 Shredclaws with <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73bf7c2666dd37f4dbd30977b60c5bab3032144dde093046e2d17d2db68b75c3.png",
+        "imageGold": "",
+        "flavorText": "This quick and easy one egg recipe only takes one turn to prepare and will potentially even leave you with leftovers!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae1653c8d4481ab337a9907f18013dde020643c444e6cecd7c2a8daf2124a962.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130680&locale=en_US",
+        "sha256": "64a4af946b545c801756864aba4a73b4a37177aca3fe135cebda535243e827e1",
+        "bytes": 855,
+        "observed_at": "2026-10-22T05:44:28.914335+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_528",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\122773-zh_CN.json",
+      "response_sha256": "426aed61ba8c8ae99f1c755f4b6e3633f62857be1dbaeb4b46974e94a308cf6f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=122773&locale=zh_CN",
+      "face": {
+        "id": 122773,
+        "collectible": 1,
+        "slug": "122773-sigil-of-the-seas",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 1,
+        "name": "海洋咒符",
+        "text": "在你的下个回合开始时， 召唤一个3/3并具有<b>嘲讽</b>的纳迦。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6ed3cf788853260f5e3c7601abba959b99872a26f96d9cb7b9395dd46620215.png",
+        "imageGold": "",
+        "flavorText": "纳迦会帮你把对手揍服。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae9c468e7a81746e10c9f7e55aea728a53fb02af72a69da38299d38f298c7e0a.png",
+        "childIds": [
+          127933
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=122773&locale=zh_CN",
+        "sha256": "426aed61ba8c8ae99f1c755f4b6e3633f62857be1dbaeb4b46974e94a308cf6f",
+        "bytes": 793,
+        "observed_at": "2026-10-22T05:44:28.797666+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_528",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k391-assemble-inventory\\next-source-primary-01\\122773-en_US.json",
+      "response_sha256": "879c115d5730b3eac397efabb692fafe866f4360843ffc7083e4de1c399c8819",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=122773&locale=en_US",
+      "face": {
+        "id": 122773,
+        "collectible": 1,
+        "slug": "122773-sigil-of-the-seas",
+        "classId": 14,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 1,
+        "name": "Sigil of the Seas",
+        "text": "At the start of your next turn, summon a 3/3 Naga with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6987833bc2d8f9206df0834409ed2ce3d9253adfe476bb9002d1f2e27ebdcc2e.png",
+        "imageGold": "",
+        "flavorText": "If your opponent has lethal, you're Naganna make it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae9c468e7a81746e10c9f7e55aea728a53fb02af72a69da38299d38f298c7e0a.png",
+        "childIds": [
+          127933
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=122773&locale=en_US",
+        "sha256": "879c115d5730b3eac397efabb692fafe866f4360843ffc7083e4de1c399c8819",
+        "bytes": 802,
+        "observed_at": "2026-10-22T05:44:29.099561+00:00"
+      }
+    }
+  ],
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "prefix_rule": {
+    "url": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/comment/pb92gac/",
+    "author": "ClayByte",
+    "policy": "While on board, repeat at the start of its controller turn; not a one-shot spell"
+  },
+  "source_role": "reviewed secondary text projection; physical primary remains a minion",
+  "runtime_pool_installed": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -7,7 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass,replace
 from random import Random
 
-from .assemble_faces import AssembleRecipe,validate_template
+from .assemble_faces import AssembleRecipe,text_source
 from .effects import Effect,AddToHand,ChoiceOption,RequestChoice,_player,_source
 from .card_creation import CreatedMinionGrant,validate_minion_grant
 from .errors import ResolutionError
@@ -121,20 +121,19 @@ def candidates(registry,context,state,spec,primary=None):
             class_mode='any'if passive else mode if mode in('specified','other')else'current')
     else:
         cost=registry.card(primary).cost
-        query=(PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=spec.secondary_min_cost)
+        query=(PoolQuery(class_mode='current',min_cost=spec.secondary_min_cost)
             if spec.secondary_min_cost is not None else
-            PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=8 if cost in(9,10)else cost,max_cost=cost+2))
+            PoolQuery(class_mode='current',min_cost=8 if cost in(9,10)else cost,max_cost=cost+2))
         if passive:query=replace(query,class_mode='any')
     rows=resolve_candidates(registry,context,spec.pool_id,query,current_class=hero,source_card_id=source,player_id=spec.player_id)
     result=[]
     for row in rows:
         card=registry.card(row.card_id)
-        if card.kind!=CardType.MINION or card.choice_only or not card.hand_playable:raise ValueError('Assembly pool contains a nonphysical minion')
+        if (primary is None and card.kind!=CardType.MINION)or card.choice_only or not card.hand_playable:
+            raise ValueError('Assembly pool contains an invalid physical source for its role')
         # Candidate availability is checked before a trait or pairing policy can
         # omit it. Missing adapters/templates never masquerade as ineligibility.
-        template=registry.assemble_templates.get(row.card_id)
-        if template is None:raise ValueError('Eligible assembly minion lacks reviewed text halves: '+row.card_id)
-        validate_template(registry,template)
+        template=text_source(registry,row.card_id,primary=primary is None)
         if passive:
             from .assembled_powers import passive_minion
             if row.card_id not in passive_profile.reviewed_fragment_ids:
@@ -150,7 +149,7 @@ def candidates(registry,context,state,spec,primary=None):
     return tuple(result)
 
 def recipe_options(registry,primary,secondary,passive_power_template_id=None):
-    first=registry.assemble_templates[primary];second=registry.assemble_templates[secondary]
+    first=text_source(registry,primary,primary=True);second=text_source(registry,secondary)
     options=[]
     for half in('top','bottom'):
         prefix=second.prefix if half=='top'else first.prefix

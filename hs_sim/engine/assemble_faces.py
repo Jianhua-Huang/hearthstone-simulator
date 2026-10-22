@@ -10,10 +10,12 @@ import binascii
 import json
 
 from .model import CardDefinition,CardType,EndTurnSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name
+from .serialization import canonical_hash
 
 PREFIX='assemble:'
 VERSION='assemble-face-v1'
-TIMINGS=frozenset(('battlecry','deathrattle','end_turn'))
+TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))
+OWNER_START_PREFIX='assemble.owner_start:'
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
@@ -47,6 +49,7 @@ class AssembleSuffix:
 
     def __post_init__(self):
         _name(self.behavior_id,'assembled suffix behavior');_name(self.target_rule,'assembled suffix target rule')
+        if self.behavior_id.startswith(OWNER_START_PREFIX):raise ValueError('Assembly suffix cannot recursively wrap a timing gate')
         if (type(self.allowed_timings)is not tuple or not self.allowed_timings or
                 any(type(t)is not str or t not in TIMINGS for t in self.allowed_timings) or
                 len(set(self.allowed_timings))!=len(self.allowed_timings)):
@@ -69,6 +72,32 @@ class AssembleTemplate:
         if self.card_id.startswith(PREFIX):raise ValueError('Assembly source must be a static reviewed minion')
         if type(self.prefix)is not AssemblePrefix or type(self.suffix)is not AssembleSuffix:
             raise ValueError('Assembly template requires immutable typed halves')
+        self.prefix.__post_init__();self.suffix.__post_init__()
+
+@dataclass(frozen=True)
+class AssembleProjection:
+    """Reviewed secondary text from a whole non-minion original.
+
+    A projection supplies text, never a replacement physical source card. The
+    original remains executable with its complete independently pinned rules.
+    """
+    card_id: str
+    source_kind: CardType
+    definition_sha256: str
+    record_sha256: str
+    prefix: AssemblePrefix
+    suffix: AssembleSuffix
+
+    def __post_init__(self):
+        _name(self.card_id,'assembly projection source')
+        if self.card_id.startswith(PREFIX) or self.source_kind not in (CardType.SPELL,CardType.WEAPON,CardType.HERO) or type(self.source_kind)is not CardType:
+            raise ValueError('Projection requires an original non-minion text source')
+        for name in ('definition_sha256','record_sha256'):
+            value=getattr(self,name)
+            if type(value)is not str or len(value)!=64 or any(c not in '0123456789abcdef'for c in value):
+                raise ValueError('Projection requires complete canonical original pins')
+        if type(self.prefix)is not AssemblePrefix or type(self.suffix)is not AssembleSuffix:
+            raise ValueError('Projection requires reviewed immutable text halves')
         self.prefix.__post_init__();self.suffix.__post_init__()
 
 @dataclass(frozen=True)
@@ -114,7 +143,8 @@ def printed_face(primary,prefix,suffix,card_id):
     return replace(primary,id=card_id,keywords=prefix.keywords,
         battlecry=suffix.behavior_id if prefix.timing=='battlecry' else None,
         deathrattle=suffix.behavior_id if prefix.timing=='deathrattle' else None,
-        triggers=(TriggerSpec('turn_ended',suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else (),
+        triggers=((TriggerSpec('turn_ended',suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
+            (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else ()),
         requires_target=suffix.requires_target if prefix.timing=='battlecry' else False,
         targeting=suffix.targeting if prefix.timing=='battlecry' else None,
         target_rule=suffix.target_rule if prefix.timing=='battlecry' else 'any_entity')
@@ -135,18 +165,65 @@ def validate_template(registry,template):
     if original!=primary:raise ValueError('Reviewed halves do not reconstruct the complete original minion')
     registry._validate_card(original)
 
+def validate_projection(registry,projection):
+    projection.__post_init__()
+    source=registry._cards.get(projection.card_id)
+    if (source is None or source.kind!=projection.source_kind or source.choice_only or not source.hand_playable or
+            canonical_hash(asdict(source))!=projection.definition_sha256):
+        raise ValueError('Assembly projection changed its complete original definition')
+    registry.behavior(projection.suffix.behavior_id)
+    if projection.suffix.behavior_id.startswith(OWNER_START_PREFIX):
+        raise ValueError('Projection payload cannot recursively wrap an owner-start gate')
+    if projection.suffix.requires_target or projection.suffix.targeting is not None:
+        registry.target_rule(projection.suffix.target_rule)
+    if projection.prefix.end_turn is not None:registry.trigger_condition(projection.prefix.end_turn.condition_id)
+
+def text_source(registry,card_id,*,primary=False):
+    source=registry._assemble_templates.get(card_id)
+    if source is not None:
+        validate_template(registry,source)
+        return source
+    if not primary:
+        source=registry._assemble_projections.get(card_id)
+        if source is not None:
+            validate_projection(registry,source)
+            return source
+    raise ValueError('Eligible assembly source lacks reviewed '+('primary minion'if primary else 'text halves')+': '+card_id)
+
+def owner_start_behavior(registry,behavior_id):
+    """Pure derived wrapper; accepted native contexts retain their original body.
+
+    The body identity lives in the printed trigger, so a later transform or a
+    copied listener cannot redirect it through a carrier's current card face.
+    """
+    from .registry import UnsupportedDefinitionError
+    payload=behavior_id[len(OWNER_START_PREFIX):]
+    sources=(*registry._assemble_templates.values(),*registry._assemble_projections.values())
+    if payload.startswith(OWNER_START_PREFIX) or not any(
+            s.suffix.behavior_id==payload and 'start_turn'in s.suffix.allowed_timings for s in sources):
+        raise UnsupportedDefinitionError('Unreviewed assembled owner-start body: '+payload)
+    body=registry.behavior(payload)
+    def run(context):
+        if context.event is None or context.event.kind!='turn_started':
+            raise ValueError('Assembled owner-start body requires its accepted native turn boundary')
+        return body(context)if context.event.player_id==context.player_id else ()
+    return run
+
 def validate_templates(registry):
     for cid,template in registry._assemble_templates.items():
         if type(template)is not AssembleTemplate or cid!=template.card_id:raise ValueError('Invalid assembly template identity')
         validate_template(registry,template)
+    for cid,projection in registry._assemble_projections.items():
+        if type(projection)is not AssembleProjection or cid!=projection.card_id or cid in registry._assemble_templates:
+            raise ValueError('Invalid or overlapping assembly text projection')
+        validate_projection(registry,projection)
     if any(cid.startswith(PREFIX)for cid in registry._cards):raise ValueError('Assembly namespace cannot contain registered substitutes')
 
 def resolve_face(registry,card_id):
     from .registry import UnsupportedDefinitionError
     try:
         recipe=recipe_from_id(card_id)
-        first=registry._assemble_templates[recipe.primary_card_id];second=registry._assemble_templates[recipe.secondary_card_id]
-        validate_template(registry,first);validate_template(registry,second)
+        first=text_source(registry,recipe.primary_card_id,primary=True);second=text_source(registry,recipe.secondary_card_id)
         prefix=second.prefix if recipe.half=='top' else first.prefix
         suffix=second.suffix if recipe.half=='bottom' else first.suffix
         face=printed_face(registry._cards[first.card_id],prefix,suffix,card_id)

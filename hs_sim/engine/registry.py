@@ -150,6 +150,7 @@ class Registry:
         self._hand_mirror_ids = frozenset()
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
+        self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
         self._crafted_minion_parts = set()
@@ -276,7 +277,7 @@ class Registry:
 
     @property
     def cards(self) -> Mapping[str, CardDefinition]:
-        if self._assemble_templates or self._assembled_power_profiles or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles or self._sham_trial_profiles:
+        if self._assemble_templates or self._assemble_projections or self._assembled_power_profiles or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles or self._sham_trial_profiles:
             from .assemble_faces import AssembleCardCatalog
             return AssembleCardCatalog(self)
         return MappingProxyType(self._cards)
@@ -284,6 +285,20 @@ class Registry:
     @property
     def assemble_templates(self):
         return MappingProxyType(self._assemble_templates)
+
+    @property
+    def assemble_projections(self):
+        return MappingProxyType(self._assemble_projections)
+
+    def register_assemble_projection(self, projection):
+        from .assemble_faces import AssembleProjection, validate_projection
+        self._require_mutable()
+        if type(projection)is not AssembleProjection:
+            raise ValueError('Expected AssembleProjection')
+        validate_projection(self,projection)
+        if projection.card_id in self._assemble_templates or projection.card_id in self._assemble_projections:
+            raise ValueError('Duplicate assembly text source')
+        self._assemble_projections[projection.card_id]=projection
 
     @property
     def assembled_power_profiles(self):
@@ -422,7 +437,7 @@ class Registry:
         if type(template) is not AssembleTemplate:
             raise ValueError('Expected AssembleTemplate')
         validate_template(self,template)
-        if template.card_id in self._assemble_templates:
+        if template.card_id in self._assemble_templates or template.card_id in self._assemble_projections:
             raise ValueError('Duplicate assembly template')
         self._assemble_templates[template.card_id] = template
 
@@ -1476,6 +1491,8 @@ class Registry:
     def register_behavior(self, id: str, handler: Behavior) -> None:
         self._require_mutable()
         _name(id, "behavior ID")
+        from .assemble_faces import OWNER_START_PREFIX
+        if id.startswith(OWNER_START_PREFIX):raise ValueError('Derived assembly timing namespace is reserved')
         if not callable(handler):
             raise ValueError("behavior handler must be callable")
         if id in self._behaviors:
@@ -1629,6 +1646,9 @@ class Registry:
 
     def behavior(self, id: str) -> Behavior:
         _name(id, "behavior ID")
+        from .assemble_faces import OWNER_START_PREFIX, owner_start_behavior
+        if id.startswith(OWNER_START_PREFIX):
+            return owner_start_behavior(self,id)
         try:
             return self._behaviors[id]
         except KeyError:
@@ -2632,6 +2652,8 @@ class Registry:
             payload['outcast_summon_profiles']=[asdict(self._outcast_summon_profiles[k])for k in sorted(self._outcast_summon_profiles)]
         if self._assemble_templates:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
+        if self._assemble_projections:
+            payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:
             payload['crafted_minion_blueprints']=[asdict(self._crafted_minion_blueprints[k])for k in sorted(self._crafted_minion_blueprints)]
         if self._crafted_minion_parts:payload['crafted_minion_parts']=sorted(self._crafted_minion_parts)
