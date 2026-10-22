@@ -279,6 +279,8 @@ def validate_accepted_prefix(original, state, registry):
     _validate_owner_interval_prefix(original.owner_turn_history, state.owner_turn_history, original.action_number)
     if any(old.played_face != new.played_face for old, new in zip(original.play_history, state.play_history)):
         raise ValueError('Accepted frozen hand-play face prefix was rewritten')
+    if state.summon_deathrattle_qualifications[:len(original.summon_deathrattle_qualifications)] != original.summon_deathrattle_qualifications:
+        raise ValueError('Accepted own-entry Deathrattle qualification prefix was rewritten')
 
 
 def _validate_owner_interval_prefix(before_rows, after_rows, capture_action):

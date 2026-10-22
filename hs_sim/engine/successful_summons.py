@@ -234,6 +234,8 @@ def validate_state(state, registry=None):
                 raise ValueError('Successful summon borrowed an unknown or future physical allocation')
         seen.add(identity)
         last_turn, last_action, last_event = row.turn, row.action, row.event_sequence
+    from .summon_deathrattle_qualifications import validate_state as validate_qualifications
+    validate_qualifications(state)
 
 
 def summoned_minions(state, player_id, *, tribes=(), basis='current', turn=None):
@@ -352,6 +354,8 @@ def validate_boundary(game):
     validate_state(state, game.registry)
     from .hero_health_history import effective_events
     timeline = tuple(effective_events(game._events))
+    from .summon_deathrattle_qualifications import validate_boundary as validate_qualifications
+    validate_qualifications(game,timeline)
     events = tuple(e for e in timeline if e.kind == 'minion_summoned')
     if len(events) != len(state.successful_summon_history):
         raise ValueError('Successful summon history lost its complete original event inventory')

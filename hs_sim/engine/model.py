@@ -5210,6 +5210,7 @@ class PlayerSummonCountCostFact:
     quantity: int
     before: int
     after: int
+    deathrattle_qualifications: tuple = ()
 
     def __post_init__(self):
         if type(self.spec) is not PlayerSummonCountCostSpec:
@@ -11038,6 +11039,7 @@ class GameState:
     card_summon_history: list = field(default_factory=list)
     next_successful_summon_id: int = 1
     successful_summon_history: list = field(default_factory=list)
+    summon_deathrattle_qualifications: list = field(default_factory=list)
     next_ritual_completion_id: int = 1
     ritual_completions: list = field(default_factory=list)
     next_pool_summon_id: int = 1

@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 538
+SNAPSHOT_SCHEMA_VERSION = 539
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1100,6 +1100,9 @@ def _intrinsic_stage_from_dict(value):
         summons['records'] = tuple(successful_summon_from_dict(item)
             for item in _list(summons['records'], 'original successful summon price prefix'))
         summons['selected_ids'] = tuple(_list(summons['selected_ids'], 'original selected successful summons'))
+        from .summon_deathrattle_qualifications import from_dict as qualification_from_dict
+        summons['deathrattle_qualifications']=tuple(qualification_from_dict(item) for item in
+            _list(summons['deathrattle_qualifications'],'original own-entry Deathrattle qualifications'))
         row['player_summons'] = PlayerSummonCountCostFact(**summons)
     if row['player_elemental_streak'] is not None:
         streak = _row(row['player_elemental_streak'], PlayerElementalStreakCostFact)
@@ -1286,6 +1289,9 @@ def state_from_dict(value: dict) -> GameState:
     discard_rows_from_dict(value)
     from .successful_summons import rows_from_dict as successful_summon_rows_from_dict
     successful_summon_rows_from_dict(value)
+    from .summon_deathrattle_qualifications import from_dict as qualification_from_dict
+    value['summon_deathrattle_qualifications']=[qualification_from_dict(item) for item in
+        _list(value['summon_deathrattle_qualifications'],'own-entry Deathrattle qualification history')]
     from .rituals import rows_from_dict as ritual_rows_from_dict
     ritual_rows_from_dict(value)
     _optional_id(value['winner'], 'winner')

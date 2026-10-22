@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v653'
+CORE_EFFECTS_VERSION = 'core-effects-v654'
 
 
 class Mechanics:
@@ -323,6 +323,9 @@ class Resolution:
         if kind == 'minion_summoned':
             from .successful_summons import publication_stats
             data.update(publication_stats(self.state,target_id,data))
+        if kind == 'ability_granted':
+            from .summon_deathrattle_qualifications import publication
+            data.update(publication(self,kind,target_id,data))
         event = Event(sequence=len(self.game._events) + 1, action=self.state.action_number,
                       kind=kind, source_id=source_id, target_id=target_id,
                       player_id=player_id, amount=amount, data=tuple(sorted(deepcopy(data).items())))
@@ -347,6 +350,9 @@ class Resolution:
         if kind == 'minion_summoned':
             from .successful_summons import commit as commit_successful_summon
             commit_successful_summon(self, event)
+        if kind == 'ability_granted':
+            from .summon_deathrattle_qualifications import commit as commit_qualification
+            commit_qualification(self,event)
         if kind == 'spell_cast_accepted':
             from .spell_casts import accepted_cast
             accepted_cast(self.state, event)
@@ -2549,6 +2555,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .effects import RevealHandCard
     from .information import reveal_hand_card
     mechanics = Mechanics(version)
+    from .summon_deathrattle_qualifications import register as register_entry_qualifications
+    register_entry_qualifications(mechanics)
     from .spell_mana_freeze import register as register_spell_mana_freeze
     register_spell_mana_freeze(mechanics)
     from .sideboards import register as register_sideboards

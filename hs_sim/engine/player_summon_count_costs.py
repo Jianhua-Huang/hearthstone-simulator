@@ -12,10 +12,11 @@ def _tribes(spec):
 DEATHRATTLE_PROFILE = 'cost.player-summoned-deathrattle-count-v1'
 
 
-def selected_rows(records, player_id, spec):
+def selected_rows(records, player_id, spec, qualifications=()):
     spec.__post_init__()
     if spec.profile_id == DEATHRATTLE_PROFILE:
-        return tuple(row for row in records if row.player_id==player_id and row.deathrattle_ids)
+        qualified={q.summon_id for q in qualifications}
+        return tuple(row for row in records if row.player_id==player_id and (row.deathrattle_ids or row.id in qualified))
     return _matching_rows(records,player_id,_tribes(spec),'current',None)
 
 
@@ -56,7 +57,9 @@ def validate_operand(fact):
             raise ValueError('Summon price changed its original physical allocation or chronology')
         seen.add(identity)
         last_turn, last_action, last_event = row.turn, row.action, row.event_sequence
-    selected = tuple(row.id for row in selected_rows(fact.records, fact.player_id, fact.spec))
+    from .summon_deathrattle_qualifications import validate_operand as validate_qualifications
+    validate_qualifications(fact.deathrattle_qualifications,fact.records,fact.action)
+    selected = tuple(row.id for row in selected_rows(fact.records, fact.player_id, fact.spec, fact.deathrattle_qualifications))
     if (fact.selected_ids != selected or fact.quantity != len(selected) or
             fact.after != max(0, fact.before - len(selected))):
         raise ValueError('Summon price differs from its complete original successful tribe quantity')
@@ -68,11 +71,12 @@ def capture(state, registry, player_id, definition, base_cost):
         return None
     validate_state(state, registry)
     records = tuple(state.successful_summon_history)
-    selected = tuple(row.id for row in selected_rows(records, player_id, definition.player_summon_count_cost))
+    qualifications=tuple(state.summon_deathrattle_qualifications)
+    selected = tuple(row.id for row in selected_rows(records, player_id, definition.player_summon_count_cost, qualifications))
     fact = PlayerSummonCountCostFact(definition.player_summon_count_cost, player_id,
         state.turn, state.action_number, state.next_entity_id, state.next_order,
         state.next_successful_summon_id, records, selected, len(selected),
-        base_cost, max(0, base_cost - len(selected)))
+        base_cost, max(0, base_cost - len(selected)),qualifications)
     validate_fact(registry, definition, fact)
     return fact
 
@@ -100,5 +104,6 @@ def validate_prefix(fact, state, registry):
     if (fact.turn > state.turn or fact.action > state.action_number or
             fact.next_entity_id > state.next_entity_id or fact.next_order > state.next_order or
             fact.next_successful_summon_id > state.next_successful_summon_id or
-            fact.records != tuple(state.successful_summon_history[:len(fact.records)])):
+            fact.records != tuple(state.successful_summon_history[:len(fact.records)]) or
+            fact.deathrattle_qualifications != tuple(state.summon_deathrattle_qualifications[:len(fact.deathrattle_qualifications)])):
         raise ValueError('Summon price rewrote its complete original success prefix')
