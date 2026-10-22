@@ -5,6 +5,21 @@ from .model import (ActionWindow, CardType, CharacterAttackCombatFact,
     CharacterAttackRecord, CharacterAttackTerminalFact, GameState, _int, _name)
 
 
+def completed_attack(context):
+    """Read the unique original declared attack behind its completion event."""
+    rows = [r for r in context.state.character_attack_history if r.terminal is not None
+            and r.terminal.status == 'completed' and r.terminal.event_cursor+1 == context.event.sequence]
+    if not rows:
+        return None  # Existing bare CombatDamage is not a declared character attack.
+    if len(rows) != 1:
+        raise ResolutionError('Attack followup lost its unique original completion')
+    row = rows[0]
+    if (row.combat is None or row.declaration.source_id != context.event.source_id
+            or row.delivery.target_id != context.event.target_id):
+        raise ResolutionError('Attack followup borrowed a different combat or target')
+    return row
+
+
 def validate_record(row):
     if type(row) is not CharacterAttackRecord or type(row.declaration) is not ActionWindow:
         raise ValueError('Character attack requires its original typed declaration')

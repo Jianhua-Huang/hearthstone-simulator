@@ -372,6 +372,9 @@ def eligible(registry, context, spec, pick):
 
 def validate_batch(registry, context, batch):
     batch.__post_init__(); used=set(); prior_choice=0
+    if batch.spec.spell_weapon_card_id is not None:
+        from .spell_weapons import validate_declaration
+        validate_declaration(registry,batch.spec)
     if batch.spec.excess_discount:
         from .discovery_discounts import validate_progress
         validate_progress(registry,batch)
@@ -466,6 +469,9 @@ def refresh_discovery(r,effect):
 
 
 def start(r, effect):
+    if effect.spell_weapon_card_id is not None:
+        from .spell_weapons import validate_declaration
+        validate_declaration(r.registry,effect)
     if effect.excess_discount and effect.cost.delta == 0:
         raise ResolutionError('An original excess discount discovery requires a positive budget')
     if effect.memory_target is not None:
@@ -562,6 +568,9 @@ def resolve_discovery(r, effect):
     if spec.memory_target is not None:
         from .discovery_memory import apply_selection
         return (*apply_selection(r, effect), continued)
+    if spec.spell_weapon_card_id is not None:
+        from .spell_weapons import DeliverDiscoveredSpellWeapon
+        return (DeliverDiscoveredSpellWeapon(effect),continued)
     if spec.keep_all_corpse_cost is not None:
         from .discovery_keep import begin
         return (*begin(r,effect),continued)
@@ -687,3 +696,5 @@ def register(mechanics):
     register_kept(mechanics)
     from .discovery_destinations import register as register_destinations
     register_destinations(mechanics)
+    from .spell_weapons import register as register_spell_weapons
+    register_spell_weapons(mechanics)

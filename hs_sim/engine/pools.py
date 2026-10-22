@@ -557,8 +557,12 @@ class DiscoverFromPool(Effect):
     refresh_card_id: str | None = None
     memory_target: object | None = None
     excess_discount: bool = False
+    spell_weapon_card_id: str | None = None
 
     def __post_init__(self):
+        if self.spell_weapon_card_id is not None:
+            from .spell_weapons import validate_spec
+            validate_spec(self)
         if type(self.excess_discount) is not bool:raise ValueError('Excess discovery discount requires an explicit boolean')
         if self.excess_discount:
             from .discovery_discounts import validate_spec

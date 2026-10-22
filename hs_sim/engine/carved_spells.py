@@ -15,6 +15,7 @@ class CarvedSpellProfile:
     source_card_id: str
     school: SpellSchool | None = None
     teaching: bool = False
+    weapon_attack: bool = False
 
     def __post_init__(self):
         _name(self.card_id,'carved carrier');_name(self.source_card_id,'carved source')
@@ -22,11 +23,19 @@ class CarvedSpellProfile:
             raise ValueError('Carved spell school requires its original enum')
         if type(self.teaching)is not bool or self.teaching and self.school is not None:
             raise ValueError('Native student teaching requires its explicit any-school profile')
+        if type(self.weapon_attack)is not bool or self.weapon_attack and (self.teaching or self.school is not None):
+            raise ValueError('Stored weapon spells require an ordinary automatic attack profile')
 
 
 def validate_profile(registry,profile):
     if type(profile) is not CarvedSpellProfile:raise ValueError('Expected a native carved spell profile')
     profile.__post_init__();card=registry.card(profile.card_id);source=registry.card(profile.source_card_id)
+    if profile.weapon_attack:
+        if (card.kind!=CardType.WEAPON or card.metadata is None or card.metadata.collectible or
+                len(card.triggers)!=1 or card.triggers[0].event!='attack_finished' or
+                source.kind!=CardType.MINION or source.battlecry is None):
+            raise ValueError('Weapon spell requires its real weapon template and creator Battlecry')
+        return
     if (card.kind!=CardType.MINION or card.metadata is None or card.metadata.collectible or card.battlecry is None or
             source.kind!=CardType.MINION or source.battlecry is None):
         raise ValueError('Carved spell requires its real noncollectible minion and original creator Battlecry')
@@ -60,6 +69,10 @@ def spell_target_definition(registry,carrier,spell_id):
 
 def validate_spell(registry,card_id,spell_id):
     profile=profile_for(registry,card_id);spell=registry.card(spell_id)
+    if profile.weapon_attack:
+        if spell.kind!=CardType.SPELL or not spell.hand_playable or spell.choice_only:
+            raise ValueError('A native weapon must retain an actual playable spell')
+        return
     if profile.school is not None and spell.spell_school!=profile.school:
         raise ValueError('Carved spell differs from its original school profile')
     spell_target_definition(registry,registry.card(card_id),spell_id)
@@ -67,7 +80,14 @@ def validate_spell(registry,card_id,spell_id):
 
 def validate_ability(registry,ability):
     if ability.carved_spell_id is None:return
-    ability.__post_init__();profile=profile_for(registry,ability.battlecry_card_id)
+    ability.__post_init__()
+    if ability.kind=='trigger':
+        profiles=[p for p in registry.carved_spell_profiles.values() if p.weapon_attack and
+            registry.card(p.card_id).triggers[0].behavior_id==ability.behavior_id]
+        if len(profiles)!=1 or ability.origin!='printed' or ability.event!='attack_finished':
+            raise ValueError('Stored weapon spell lost its exact native attack trigger')
+        validate_spell(registry,profiles[0].card_id,ability.carved_spell_id);return
+    profile=profile_for(registry,ability.battlecry_card_id)
     if ability.kind!='battlecry' or ability.behavior_id!=registry.card(profile.card_id).battlecry:
         raise ValueError('Carved value lost its exact native Battlecry declaration')
     validate_spell(registry,profile.card_id,ability.carved_spell_id)
@@ -104,9 +124,35 @@ def validate_creation(registry,effect):
 def install(registry,entity,spell_id):
     if spell_id is None:return
     validate_spell(registry,entity.card_id,spell_id)
-    rows=[(i,a) for i,a in enumerate(entity.abilities) if a.kind=='battlecry' and a.battlecry_card_id==entity.card_id]
+    profile=profile_for(registry,entity.card_id)
+    if profile.weapon_attack:
+        behavior=registry.card(entity.card_id).triggers[0].behavior_id
+        rows=[(i,a)for i,a in enumerate(entity.abilities)if a.kind=='trigger'and
+            a.origin=='printed'and a.event=='attack_finished'and a.behavior_id==behavior]
+    else:rows=[(i,a) for i,a in enumerate(entity.abilities) if a.kind=='battlecry' and a.battlecry_card_id==entity.card_id]
     if len(rows)!=1:raise ResolutionError('Carved creation lost its one original native body')
     i,ability=rows[0];entity.abilities[i]=replace(ability,carved_spell_id=spell_id)
+    if profile.weapon_attack:entity.base_cost=registry.card(spell_id).cost
+
+
+def weapon_material(entity):
+    if getattr(entity,'kind',None)!=CardType.WEAPON:return None
+    rows=[a for a in entity.abilities if a.kind=='trigger'and a.carved_spell_id is not None]
+    if not rows:return None
+    if len(rows)!=1:raise ValueError('A native weapon requires one original stored spell')
+    return rows[0].behavior_id,rows[0].carved_spell_id,entity.base_cost
+
+
+def restore_weapon_material(entity,value):
+    if value is None:return
+    behavior,spell,cost=value
+    rows=[(i,a)for i,a in enumerate(entity.abilities)if a.kind=='trigger'and a.origin=='printed'and a.behavior_id==behavior]
+    if len(rows)!=1:raise ValueError('Stored weapon copy/reset lost its exact original trigger')
+    i,ability=rows[0];entity.abilities[i]=replace(ability,carved_spell_id=spell);entity.base_cost=cost
+
+
+def inherit_weapon_material(source,destination):
+    if source.card_id==destination.card_id:restore_weapon_material(destination,weapon_material(source))
 
 
 @dataclass(frozen=True)
@@ -185,6 +231,11 @@ def validate_boundary(game):
     for entity in game._state.entities.values():
         for ability in entity.abilities:
             if ability.carved_spell_id is not None:validate_ability(game.registry,ability)
+        profile=game.registry.carved_spell_profiles.get(entity.card_id)
+        if profile is not None and profile.weapon_attack:
+            material=weapon_material(entity)
+            if material is None or entity.base_cost!=game.registry.card(material[1]).cost:
+                raise ValueError('Native weapon lost its original spell or printed spell cost')
     for record in game._state.play_history:
         for payload in record.battlecries:validate_payload(game.registry,payload)
     for record in game._state.battlecry_history:validate_payload(game.registry,record.payload)

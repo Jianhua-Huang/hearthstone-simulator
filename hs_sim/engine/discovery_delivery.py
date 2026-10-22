@@ -21,7 +21,8 @@ def recipe_types():
     from .discovery_destinations import DeliverDiscoveredSpell
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer
     from .sideboards import _TakeSideboardCard
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard)
+    from .spell_weapons import DeliverDiscoveredSpellWeapon
+    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon)
 
 
 def recipe_face(request):
@@ -170,6 +171,7 @@ def materialize(r, effect):
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
     from .sideboards import _TakeSideboardCard, materialize_discovery
+    from .spell_weapons import DeliverDiscoveredSpellWeapon,materialize as materialize_weapon
     if type(request) is AddToHand:
         from .opening import create_hand_card
         entity = create_hand_card(r, request)
@@ -199,6 +201,8 @@ def materialize(r, effect):
         entity=materialize_copy(r,request)
     elif type(request) is _TakeSideboardCard:
         entity=materialize_discovery(r,request)
+    elif type(request)is DeliverDiscoveredSpellWeapon:
+        entity=materialize_weapon(r,request)
     return (*work, finish_for_entity(r, effect.result, entity, request, cursor))
 
 
@@ -238,6 +242,8 @@ def validate_completion(state, registry, completion, *, closed=False):
     validate_destination_completion(completion,registry)
     from .opponent_deck_gift_copy import validate_completion as validate_copy_completion
     validate_copy_completion(completion,registry)
+    from .spell_weapons import validate_completion as validate_weapon_completion
+    validate_weapon_completion(state,registry,completion)
     if completion.recipient is not None:
         validate_allocation(state, registry, completion.recipient, closed=closed)
     if completion.summon_root_id is not None:

@@ -102,7 +102,10 @@ class AttackFollowupCardTests(unittest.TestCase):
         for row in batch['cards']:self.assertEqual(canonical_digest(row['record']),row['record_sha256'])
         self.assertEqual(batch['reused_dependencies'][0]['record']['dbf_id'],69625)
         self.assertEqual(self.r.card(FINJA).metadata.deck_identity,'CFM_344')
-        self.assertNotIn('CFM_344',self.r.cards)
+        packet_ids={row['record']['id']for row in batch['cards']}
+        self.assertIn(FINJA,packet_ids)
+        self.assertNotIn('CFM_344',packet_ids)
+        self.assertEqual(self.r.card(FINJA).id,FINJA)
 
     def test_each_real_root_pays_once_and_keeps_native_keyword(self):
         for cid,keyword in ((REHGAR,None),(FINJA,Keyword.STEALTH),(INQ,Keyword.RUSH)):

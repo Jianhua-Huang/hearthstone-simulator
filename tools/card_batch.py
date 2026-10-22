@@ -260,11 +260,12 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # stay strict. This exact original row is not a general {0} exception.
     egg_name_display = (display_normalizations == {'{0}': ''} and row['id'] == 'EDR_454t' and
         canonical(row) == 'cd319168db51490cfc038bcdaba343e7178c57fe6b3b00745df0ef326fa536cb')
-    # A carved Treant's actual spell is native runtime material, not an empty
-    # Battlecry. Only this full pinned source may omit its live spell name.
+    # A spell carrier's actual spell name is native runtime material. Only
+    # these complete pinned sources may omit that live name, never rule text.
     carved_spell_display = (display_normalizations == {'{0}': ''} and canonical(row) == {
         'MEND_046t': '270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a',
         'TIME_704t': 'b76ce848596c774d48234e85471174592985a622dd052ed49aaea172ff60daeb',
+        'BE_055t': '5ea2e77de346612e33729c27b62b124e4fb1fe286a292ce5eeab26e6c0553317',
     }.get(row['id']))
     # Specimen Jar's gallery retains both complete empty/filled bodies; only
     # their delimiter and the runtime captive name are absent.

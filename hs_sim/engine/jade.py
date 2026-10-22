@@ -89,10 +89,15 @@ def inherit_printed(source, destination):
     """A normal copy/revival inherits its original physical size, not current growth."""
     if source.card_id == destination.card_id and source.jade_size is not None:
         imprint(destination, source.jade_size)
+    from .carved_spells import inherit_weapon_material
+    inherit_weapon_material(source,destination)
 
 
 def printed_definition(registry, carrier):
     d = registry.card(carrier.card_id)
+    from .carved_spells import weapon_material
+    weapon=weapon_material(carrier)
+    if weapon is not None:return replace(d,cost=registry.card(weapon[1]).cost)
     if carrier.jade_size is None:
         return d
     return replace(d, attack=carrier.jade_size, health=carrier.jade_size,

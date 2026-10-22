@@ -882,7 +882,7 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
         hand_transfer=previous_zone == Zone.HAND and destination == Zone.HAND and previous_controller != player.id)
     if effect.reset and not deck_overflow:
         reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry,
-                            preserve_jade=True, preserve_cthun=previous_controller == player.id)
+                            preserve_jade=True, preserve_cthun=previous_controller == player.id,preserve_weapon_spell=True)
         if previous_controller != player.id:
             from .cthun import initialize_instance as initialize_cthun
             initialize_cthun(r.state, r.registry, entity)

@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.effects import AddToHand, ForceAttack
+from hs_sim.engine.character_attacks import completed_attack
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.model import BoardPresenceReference, CardDefinition, CardType, DamageKind, Keyword, TriggerSpec, Zone
 from hs_sim.engine.pools import PoolCard, PoolQuery
@@ -23,20 +24,6 @@ def load_batch():
     if canonical_digest(value) != BATCH_HASH:
         raise TargetValidationError('Native attack followups differ from the reviewed complete source pin')
     return value
-
-
-def completed_attack(context):
-    rows = [r for r in context.state.character_attack_history if r.terminal is not None
-            and r.terminal.status == 'completed' and r.terminal.event_cursor+1 == context.event.sequence]
-    if not rows:
-        return None  # Existing bare CombatDamage is not a declared character attack.
-    if len(rows) != 1:
-        raise ResolutionError('Attack followup lost its unique original completion')
-    row = rows[0]
-    if (row.combat is None or row.declaration.source_id != context.event.source_id
-            or row.delivery.target_id != context.event.target_id):
-        raise ResolutionError('Attack followup borrowed a different combat or target')
-    return row
 
 
 def living_source(c):

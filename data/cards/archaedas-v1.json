@@ -1,0 +1,327 @@
+{
+  "schema": 1,
+  "batch": "K388-archaedas",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_055",
+        "dbf_id": 129245,
+        "name": "阿扎达斯",
+        "name_en": "Archaedas",
+        "text": "<b>战吼：</b><b>发现</b>一个法术，并将其变形成为一张法力值消耗相同的3/3的武器牌。每当用该武器攻击时，都会施放该法术。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a spell.\nTransform it into a 3/3\nweapon of the same cost that\ncasts it each attack.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3bf9fa0712aba080bb44b2bcf41bf3e9ea11e05b5c034af55591bebe8ee2f07f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_055",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_055t",
+        "dbf_id": 132338,
+        "name": "阿扎达斯之锤",
+        "name_en": "Hammer of Archaedas",
+        "text": "在你的英雄攻击后，施放{0}，目标随机而定。",
+        "text_en": "After your hero attacks, cast '{0}' randomly.",
+        "cost": 1,
+        "attack": 3,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 10,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit"
+          }
+        ]
+      },
+      "record_sha256": "5ea2e77de346612e33729c27b62b124e4fb1fe286a292ce5eeab26e6c0553317",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_055t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_055",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k388-archaedas\\primary-01\\129245-zh_CN.json",
+      "response_sha256": "94ea3f2e5c4cfdf8b91a2f4d5057a80f86afdb7dc820a964ec421e796417ae6d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129245&locale=zh_CN",
+      "face": {
+        "id": 129245,
+        "collectible": 1,
+        "slug": "129245-archaedas",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "  Grafit",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "阿扎达斯",
+        "text": "<b>战吼：</b><b>发现</b>一个法术，并将其变形成为一张法力值消耗相同的3/3的武器牌。每当用该武器攻击时，都会施放该法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98849ca8768e45be8c86dd4ad4f6ef19135af7c567e12928814a047f08c14e37.png",
+        "imageGold": "",
+        "flavorText": "阿扎达斯是艾泽拉斯首位附魔+锻造。这都是因为泰坦们给公会银行攒足了材料，然后就去度假了，一去就是好几个资料片。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5807771ce3faf1081b4b375294da2ad1f2cea99cb60301350e64809ae2a07abc.png",
+        "childIds": [
+          132338
+        ],
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129245&locale=zh_CN",
+        "sha256": "94ea3f2e5c4cfdf8b91a2f4d5057a80f86afdb7dc820a964ec421e796417ae6d",
+        "bytes": 1001,
+        "observed_at": "2026-10-22T04:01:05.201940+00:00"
+      }
+    },
+    {
+      "card_id": "BE_055",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k388-archaedas\\primary-01\\129245-en_US.json",
+      "response_sha256": "a2375f68fbcc63f078958f3673298da8f76247e4295c7a7a4b9c1f94b057cb8c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129245&locale=en_US",
+      "face": {
+        "id": 129245,
+        "collectible": 1,
+        "slug": "129245-archaedas",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "  Grafit",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Archaedas",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a spell. Transform it into a 3/3 weapon of the same cost that casts it each attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e22ff9accac73cfa0b802c74effaf6669e1e0697025804e3cd5eae39c5a2e0e8.png",
+        "imageGold": "",
+        "flavorText": "Archaedas is Azeroth's first Enchanter-Blacksmith, thanks to the Titans farming materials for the Guild Bank, then going on vacation for a few expansions.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5807771ce3faf1081b4b375294da2ad1f2cea99cb60301350e64809ae2a07abc.png",
+        "childIds": [
+          132338
+        ],
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129245&locale=en_US",
+        "sha256": "a2375f68fbcc63f078958f3673298da8f76247e4295c7a7a4b9c1f94b057cb8c",
+        "bytes": 939,
+        "observed_at": "2026-10-22T04:01:05.376874+00:00"
+      }
+    },
+    {
+      "card_id": "BE_055t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k388-archaedas\\primary-01\\132338-zh_CN.json",
+      "response_sha256": "13f7f9cd58ab328beb313bcf64c9d45755a1d06bbf0cde98f752e2df95b31902",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132338&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132338,
+        "collectible": 0,
+        "slug": "132338-hammer-of-archaedas",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "阿扎达斯之锤",
+        "text": "在你的英雄攻击后，施放 ，目标随机而定。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ea2274796acb197c384934b1fe5aec01cab11791c00a9fcf52951bb6fbd37358.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129245,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132338&locale=zh_CN&collectible=0",
+        "sha256": "13f7f9cd58ab328beb313bcf64c9d45755a1d06bbf0cde98f752e2df95b31902",
+        "bytes": 610,
+        "observed_at": "2026-10-22T04:08:12.517773+00:00"
+      }
+    },
+    {
+      "card_id": "BE_055t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k388-archaedas\\primary-01\\132338-en_US.json",
+      "response_sha256": "a9b7a94cb5be6b0b7837bef6c97740862b2be3c2f27f3131800e097f2a824b07",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132338&locale=en_US&collectible=0",
+      "face": {
+        "id": 132338,
+        "collectible": 0,
+        "slug": "132338-hammer-of-archaedas",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "  Grafit",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Hammer of Archaedas",
+        "text": "After your hero attacks, cast ' ' randomly.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fb71565e9b14be1c77ee935ad7c68a8236b6afe9fc0c7995feff99415f94d0b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129245,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132338&locale=en_US&collectible=0",
+        "sha256": "a9b7a94cb5be6b0b7837bef6c97740862b2be3c2f27f3131800e097f2a824b07",
+        "bytes": 596,
+        "observed_at": "2026-10-22T04:08:20.062671+00:00"
+      }
+    }
+  ],
+  "official_faces_verified": 4,
+  "display_normalizations": {
+    "BE_055t": {
+      "{0}": ""
+    }
+  },
+  "source_verified": true,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "dependency_assignment_primary_confirmed": true,
+  "parent_child_dbf_ids": [
+    132338
+  ],
+  "policy": {
+    "spell_pool": "ordinary current-class collectible spells",
+    "weapon_cost": "original selected spell printed cost as native material; later weapon cost modifiers ordinary",
+    "trigger": "original attack_finished with existing weapon wear/death scheduling; ordinary completed-attack proof and automatic random-target CastSpell",
+    "lifecycle": "native spell material survives ordinary hand/deck movement and current/base copies; explicit replacement transform clears it",
+    "materialization": "actual weapon template, no synthetic card ID or new executor",
+    "source_display": "only exact full pinned BE_055t may omit live {0} name; initial strict failures retained"
+  }
+}

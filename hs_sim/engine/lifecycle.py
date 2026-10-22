@@ -235,9 +235,11 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
     refresh_entity(entity)
 
 
-def reset_to_definition(state, entity, definition, registry=None, *, components=None, preserve_jade=False, preserve_cthun=False):
+def reset_to_definition(state, entity, definition, registry=None, *, components=None, preserve_jade=False, preserve_cthun=False, preserve_weapon_spell=False):
     bases=[e for e in entity.enchantments if e.minion_base_stats is not None] if entity.card_id==definition.id else []
     jade_size = entity.jade_size if preserve_jade and entity.card_id == definition.id else None
+    from .carved_spells import weapon_material,restore_weapon_material
+    weapon_spell=weapon_material(entity)if preserve_weapon_spell and entity.card_id==definition.id else None
     ritual = [e for e in entity.enchantments if e.cthun_ritual is not None] if preserve_cthun and entity.card_id == definition.id else []
     ritual_abilities = [a for a in entity.abilities if a.cthun_ritual is not None] if preserve_cthun and entity.card_id == definition.id else []
     if components is None:
@@ -281,6 +283,7 @@ def reset_to_definition(state, entity, definition, registry=None, *, components=
     if jade_size is not None:
         from .jade import imprint
         imprint(entity, jade_size)
+    restore_weapon_material(entity,weapon_spell)
     initialize_dormancy(state, entity, definition)
 
 

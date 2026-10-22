@@ -3047,7 +3047,8 @@ class AbilityInstance:
             self.prison_playback.__post_init__()
         if self.carved_spell_id is not None:
             _name(self.carved_spell_id,'carved original spell')
-            if self.kind!='battlecry':raise ValueError('Carved spell requires its physical Battlecry body')
+            if self.kind!='battlecry'and not(self.kind=='trigger'and self.event=='attack_finished'and self.origin=='printed'):
+                raise ValueError('Stored spell requires its native Battlecry or weapon attack body')
         if self.dark_gift_id is not None:
             from .dark_gift_echo import validate_ability as validate_dark_gift_ability
             validate_dark_gift_ability(self)

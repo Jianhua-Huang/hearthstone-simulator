@@ -2068,3 +2068,5 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 原生随从需按之后实际法术 Mana 支出解除冻结时注册 SpellManaFreezeProfile；出牌、消费及生命周期由公共内核维护，卡牌只组合普通召唤。不要用印刷费用、全局总法力或普通回合 thaw 替代条件；来源未确认及待国服窗口见[契约](m3-native-spell-mana-freeze.md)。
 
 实际单次检索失败后执行其他效果使用 DrawMatching(count=1, empty_deck='skip', on_empty=(...))；只在真实候选为空时执行，不按后来手牌结果重查。德雷阿佳丝的完整候选和未实现尤格依赖须保留，见[契约](m3-matching-draw-empty-branch.md)。
+
+真实法术发现转武器使用 DiscoverFromPool 的 spell_weapon_card_id，并为实际模板声明 CarvedSpellProfile(weapon_attack=True)；触发交给 spell_weapons.cast_after_attack。原费用、保存、复制和可见字段见[契约](m3-native-spell-weapons.md)，不要把 caster_id 与施法实体 source_id 混用。
