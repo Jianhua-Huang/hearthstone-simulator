@@ -1,0 +1,472 @@
+{
+  "schema": 1,
+  "batch": "K384-discs-norgannon",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_250t",
+        "dbf_id": 131172,
+        "name": "保留圆盘",
+        "name_en": "Leave the Discs",
+        "text": "从你的牌库顶抽牌。",
+        "text_en": "Draw from the top of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "cd88116941068316871b15e92181bf3562e2765fe8b12cd7eaf4e875ccab7b6a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_250t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_250t2",
+        "dbf_id": 131173,
+        "name": "翻转圆盘",
+        "name_en": "Shift the Discs",
+        "text": "从你的牌库底抽牌。",
+        "text_en": "Draw from the bottom of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "3dd904b369729d516b270521e0a6b33e9f813491bea635cbcc1ba06861f095b6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_250t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_250e",
+        "dbf_id": 129741,
+        "name": "翻转圆盘",
+        "name_en": "Shift the Discs",
+        "text": "<b>被动</b>\n在你的回合开始时，你可以选择从牌库顶还是牌库底抽牌。",
+        "text_en": "[x]<b>Passive</b>. At the start of\nyour turn, you may choose\nto draw from the top or\nbottom of your deck.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDTYPE": 6,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c3a083b7a8bbbf010c4cdd763c3f67ccf91f73e87741df77d1a71bf65a34d129",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_250e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "source_verified": true,
+  "official_faces_verified": 6,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "BE_250",
+        "dbf_id": 129112,
+        "name": "诺甘农的圆盘",
+        "name_en": "Discs of Norgannon",
+        "text": "将你牌库中的所有法术牌移至牌库顶。每回合你可以选择从牌库顶或牌库底抽牌。",
+        "text_en": "[x]Move all spells in your\ndeck to the top. You can\npick to draw from the top\nor bottom each turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "ce38f3b245303d39405b1b30d24c424844eaed93781f2968d2fb6d9d3bfef053",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_250",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BE_250",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k384-discs-norgannon\\primary-01\\129112-zh_CN.json",
+      "response_sha256": "5cac7c2ceabf7fdafdb7361acf4d23f8e2a44b551b9e4634e28062c56997360c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129112&locale=zh_CN",
+      "face": {
+        "id": 129112,
+        "collectible": 1,
+        "slug": "129112-discs-of-norgannon",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejierasaes",
+        "manaCost": 2,
+        "name": "诺甘农的圆盘",
+        "text": "将你牌库中的所有法术牌移至牌库顶。每回合你可以选择从牌库顶或牌库底抽牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4efbabfa26fd4caf04da7b01defe3820d6969f4e79327d9bf5bd4d9efb6b283.png",
+        "imageGold": "",
+        "flavorText": "终于有人用杯垫了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb34ded4952022201f90944ce403b6b0c55213225af882658e825b1bb614c994.png",
+        "childIds": [
+          131172,
+          131173
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129112&locale=zh_CN",
+        "sha256": "5cac7c2ceabf7fdafdb7361acf4d23f8e2a44b551b9e4634e28062c56997360c",
+        "bytes": 816,
+        "observed_at": "2026-10-22T02:43:04.779817+00:00"
+      }
+    },
+    {
+      "card_id": "BE_250",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k384-discs-norgannon\\primary-01\\129112-en_US.json",
+      "response_sha256": "926cad5c2440f61a693686a38822df24a767fa0fff28aa99e2b07b3116284cf2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129112&locale=en_US",
+      "face": {
+        "id": 129112,
+        "collectible": 1,
+        "slug": "129112-discs-of-norgannon",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejierasaes",
+        "manaCost": 2,
+        "name": "Discs of Norgannon",
+        "text": "Move all spells in your deck to the top. You can pick to draw from the top or bottom each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddc855a8baf895967a1ceab8e752960d900ef0404ee0292cd70a7cd9718b34ac.png",
+        "imageGold": "",
+        "flavorText": "Finally, SOMEONE who uses a coaster.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb34ded4952022201f90944ce403b6b0c55213225af882658e825b1bb614c994.png",
+        "childIds": [
+          131172,
+          131173
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129112&locale=en_US",
+        "sha256": "926cad5c2440f61a693686a38822df24a767fa0fff28aa99e2b07b3116284cf2",
+        "bytes": 812,
+        "observed_at": "2026-10-22T02:43:04.689770+00:00"
+      }
+    },
+    {
+      "card_id": "BE_250t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k384-discs-norgannon\\primary-01\\131172-zh_CN.json",
+      "response_sha256": "d87967e22ae124ce3c21dd637946646f847a0c1f9f683517bd041a2e090f765f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131172&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131172,
+        "collectible": 0,
+        "slug": "131172-leave-the-discs",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 0,
+        "name": "保留圆盘",
+        "text": "从你的牌库顶抽牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dfb051b96041cc1ff9a7d9858888ed5bbf3772bccc41efeb631fa51659232cdb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129112,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131172&locale=zh_CN&collectible=0",
+        "sha256": "d87967e22ae124ce3c21dd637946646f847a0c1f9f683517bd041a2e090f765f",
+        "bytes": 558,
+        "observed_at": "2026-10-22T02:50:32.605465+00:00"
+      }
+    },
+    {
+      "card_id": "BE_250t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k384-discs-norgannon\\primary-01\\131172-en_US.json",
+      "response_sha256": "9cf1e68ec4f05582fb2213b7597eef6b6168555ec6e1698e1e9c1ad41cbc036a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131172&locale=en_US&collectible=0",
+      "face": {
+        "id": 131172,
+        "collectible": 0,
+        "slug": "131172-leave-the-discs",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 0,
+        "name": "Leave the Discs",
+        "text": "Draw from the top of your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/851833188fc56f91c1e78de27d9318243473bf31cfcb53597bad178c6a128201.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129112,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131172&locale=en_US&collectible=0",
+        "sha256": "9cf1e68ec4f05582fb2213b7597eef6b6168555ec6e1698e1e9c1ad41cbc036a",
+        "bytes": 565,
+        "observed_at": "2026-10-22T02:50:32.609549+00:00"
+      }
+    },
+    {
+      "card_id": "BE_250t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k384-discs-norgannon\\primary-01\\131173-zh_CN.json",
+      "response_sha256": "7c125e97ac4fd03809a8b1cf2b86a86dfc5453a56a94fd7a1ca2038647a86697",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131173&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131173,
+        "collectible": 0,
+        "slug": "131173-shift-the-discs",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 0,
+        "name": "翻转圆盘",
+        "text": "从你的牌库底抽牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7572b1fc73060ec379ccf8462395eae8e48cd33ef83513936a90e5a04690be60.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129112,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131173&locale=zh_CN&collectible=0",
+        "sha256": "7c125e97ac4fd03809a8b1cf2b86a86dfc5453a56a94fd7a1ca2038647a86697",
+        "bytes": 558,
+        "observed_at": "2026-10-22T02:50:32.341393+00:00"
+      }
+    },
+    {
+      "card_id": "BE_250t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k384-discs-norgannon\\primary-01\\131173-en_US.json",
+      "response_sha256": "3d1634a65cfc47def448d253f7a572ce1adf62c0dd9300d9f3f54400e4e1ea8f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131173&locale=en_US&collectible=0",
+      "face": {
+        "id": 131173,
+        "collectible": 0,
+        "slug": "131173-shift-the-discs",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Ivo Campelo da Silva",
+        "manaCost": 0,
+        "name": "Shift the Discs",
+        "text": "Draw from the bottom of your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9aee5d14ea418f2487c25dfc8c763beda08b5d3748b68307150630da19f0798.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 129112,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131173&locale=en_US&collectible=0",
+        "sha256": "3d1634a65cfc47def448d253f7a572ce1adf62c0dd9300d9f3f54400e4e1ea8f",
+        "bytes": 568,
+        "observed_at": "2026-10-22T02:50:32.479646+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "BE_250t": {
+      "cost": 0
+    },
+    "BE_250t2": {
+      "cost": 0
+    }
+  },
+  "policy": {
+    "spell_partition_order": "stable_within_each_group_pending_CN",
+    "normal_turn_draw_only": true,
+    "casts_when_drawn_replacement": "ordinary_top_via_existing_draw_one",
+    "empty_deck": "ordinary_fatigue_without_choice",
+    "one_card_deck": "both_direction_slots",
+    "duplicate_programs": "existing_latest_replacement_wins"
+  }
+}

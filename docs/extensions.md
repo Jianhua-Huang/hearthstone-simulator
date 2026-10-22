@@ -244,6 +244,8 @@ RotatingDiscoveryClassProfile声明真实手牌来源；参数沿原打印附件
 
 洞见之子式原随从符文奖励使用有限 `ChooseFromPools.rune_recipient` 与三种精确符文组，真实选择由公共边界绑定，交付后组合原关键词请求；不要在卡牌层自行抽样、扫描发现历史或重写授予。三符文生成禁入、原引用与待校准政策见[契约](m3-rune-group-discovery.md)。
 
+真实正常回合的顶部/底部抽牌选择可由原 `TurnDrawReplacementProfile` 与普通菜单组合 `DrawDeckEdge`。端点请求执行时只选择当前物理牌，再复用原抽牌器；不要反转牌库、把抽牌当普通移动或泄漏实际端点卡面。原法术分区与程序边界见[圆盘契约](m3-discs-deck-edge-draw.md)。
+
 普通卡池的已选进度用`DiscoveryPick.result`保存完整原选择，必须与原`card_discovery_history`一致；待选分支不得预填结果。原交付、实际收件和发现后通知分别处理，见[原始选择契约](m3-pool-discovery-receipts.md)。
 
 需要按印刷随从攻击力筛选时，用`PoolQuery(attack_parity='odd')`等有限声明及已审`PoolCard.attack`；未知明确报错，不读当前增益，见[契约](m3-printed-attack-discovery.md)。

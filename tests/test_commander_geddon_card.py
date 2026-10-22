@@ -244,16 +244,30 @@ class CommanderGeddonTests(unittest.TestCase):
         self.assertEqual(g.state.players[1].deck,deck)
 
     def test_a23_rehashed_consistent_fake_previews_are_rejected_against_original_deck_material(self):
+        from dataclasses import fields
+        from hs_sim.engine.model import CardPreview
         g=self.game();self.play(g,CARD);self.next_owner(g);saved=deepcopy(g.snapshot())
+        preview_fields={field.name for field in fields(CardPreview)}
+        mutations=[]
         def corrupt(value):
             if isinstance(value,dict):
-                if set(value)=={'cost','attack','health','max_health','durability','keywords'}:value['cost']+=100
-                for child in value.values():corrupt(child)
+                if set(value)==preview_fields:
+                    value['cost']+=100;mutations.append(True)
+                for key,child in tuple(value.items()):
+                    if isinstance(child,str)and child.startswith('{'):
+                        try:encoded=json.loads(child)
+                        except json.JSONDecodeError:continue
+                        before=len(mutations);corrupt(encoded)
+                        if len(mutations)>before:value[key]=json.dumps(encoded,ensure_ascii=False,sort_keys=True,separators=(',',':'))
+                    else:corrupt(child)
             elif isinstance(value,list):
                 for child in value:corrupt(child)
         corrupt(saved)
+        self.assertGreater(len(mutations),0,'The corruption probe must mutate actual current previews')
+        saved['events_hash']=canonical_hash(saved['events'])
         saved['state_hash']=canonical_hash({k:v for k,v in saved.items()if k not in('schema_version','events','events_hash','state_hash')})
-        with self.assertRaises(SnapshotError):Game.from_snapshot(saved,registry.__wrapped__())
+        with self.assertRaises(SnapshotError)as caught:Game.from_snapshot(saved,registry.__wrapped__())
+        self.assertNotIn('digest mismatch',str(caught.exception))
 
     def test_a24_profile_and_enriched_zone_request_are_strict_and_do_not_accept_fake_combinations(self):
         r=registry.__wrapped__()

@@ -1,7 +1,7 @@
 """Native source suppression of only the scheduled normal turn-start draw."""
 from collections import Counter
 from dataclasses import dataclass
-from .effects import Draw,Effect,_player
+from .effects import Draw,Effect,_player,_source
 from .lifecycle import active_abilities
 from .model import CardType,Zone,_name
 
@@ -31,8 +31,10 @@ def validate_replacement_profile(registry, profile):
     registry.behavior(profile.behavior_id)
     if spec != PlayerEffectSpec(spec.id, spec.card_id):
         raise ValueError('Turn draw replacement requires one independent permanent player program')
-    if registry.card(spec.card_id).kind != CardType.MINION:
-        raise ValueError('Native turn draw replacement requires its printed minion source')
+    card=registry.card(spec.card_id)
+    if (card.kind not in (CardType.MINION,CardType.SPELL) or card.choice_only or
+            card.kind==CardType.SPELL and card.on_play is None):
+        raise ValueError('Native turn draw replacement requires its printed minion or executable spell source')
 
 
 def validate_profile(registry,profile):
@@ -71,6 +73,29 @@ class DrawAtTurnStart(Effect):
     def __post_init__(self):_player(self.player_id)
 
 
+@dataclass(frozen=True)
+class DrawDeckEdge(Effect):
+    """A single real draw at the current edge, using the ordinary draw engine."""
+    player_id:int
+    edge:str
+    source_id:int|None=None
+
+    def __post_init__(self):
+        _player(self.player_id);_source(self.source_id)
+        if type(self.edge)is not str or self.edge not in ('top','bottom'):
+            raise ValueError('Deck edge draw requires top or bottom')
+
+
+def draw_edge(r,request):
+    request.__post_init__()
+    if request.edge=='top':return (Draw(request.player_id,source_id=request.source_id),)
+    from .draw_casts import draw_one
+    from .zones import CardReference
+    deck=r.player(request.player_id).deck
+    card=CardReference.capture(r.state.entities[deck[-1]]) if deck else None
+    return draw_one(r,request.player_id,card=card,source_id=request.source_id)
+
+
 def draw(r,request):
     request.__post_init__()
     if request.player_id!=r.state.active_player:raise ValueError('Normal turn draw requires the active original seat')
@@ -88,4 +113,6 @@ def draw(r,request):
     return(Draw(request.player_id),)
 
 
-def register(mechanics):mechanics.register(DrawAtTurnStart,draw)
+def register(mechanics):
+    mechanics.register(DrawAtTurnStart,draw)
+    mechanics.register(DrawDeckEdge,draw_edge)
