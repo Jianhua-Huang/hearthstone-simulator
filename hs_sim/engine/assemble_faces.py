@@ -56,9 +56,9 @@ class AssemblePrefix:
                 raise ValueError('Conditional assembly prefix requires its reviewed native Battlecry or end-turn window')
         if self.before_behavior_id is not None:
             _name(self.before_behavior_id,'assembled prefix body')
-            if (self.timing!='deathrattle' or self.condition_id is not None or
+            if (self.timing not in ('battlecry','deathrattle') or self.condition_id is not None or
                     self.before_behavior_id.startswith(TIMING_PREFIXES)):
-                raise ValueError('Assembly prefix body requires its reviewed native Deathrattle window')
+                raise ValueError('Assembly prefix body requires its reviewed native Battlecry or Deathrattle window')
         if type(self.hand_actions)is not tuple or len(self.hand_actions)>1:
             raise ValueError('Assembly prefix requires one reviewed ordinary hand action or none')
         for spec in self.hand_actions:
@@ -118,9 +118,10 @@ class AssembleTemplate:
         self.prefix.__post_init__();self.suffix.__post_init__()
         if self.original_battlecry_id is not None:
             _name(self.original_battlecry_id,'original conditional assembly Battlecry')
-            if(self.prefix.timing!='battlecry' or self.prefix.condition_id is None or
+            if(self.prefix.timing!='battlecry' or
+                    self.prefix.condition_id is None and self.prefix.before_behavior_id is None or
                     self.original_battlecry_id.startswith(TIMING_PREFIXES)):
-                raise ValueError('Original Battlecry bridge requires a reviewed native conditional prefix')
+                raise ValueError('Original Battlecry bridge requires a reviewed native condition or prefix body')
         if self.original_start_turn_id is not None:
             _name(self.original_start_turn_id,'original owner-start assembly trigger')
             if(self.prefix.timing!='start_turn' or
@@ -223,7 +224,8 @@ def printed_face(primary,prefix,suffix,card_id):
         else suffix.behavior_id)if 'battlecry'in timings else None
     deathrattle=suffix.deathrattle_behavior_id or suffix.behavior_id
     if prefix.before_behavior_id is not None:
-        deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
+        if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
+        if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,
         battlecry=battlecry,
         deathrattle=deathrattle if 'deathrattle'in timings else None,
@@ -336,7 +338,7 @@ def condition_behavior_id(condition_id,behavior_id):
 
 
 def before_behavior_id(before_behavior_id,behavior_id):
-    _name(before_behavior_id,'assembled prefix body');_name(behavior_id,'assembled Deathrattle suffix body')
+    _name(before_behavior_id,'assembled prefix body');_name(behavior_id,'assembled suffix body')
     if any(value.startswith(TIMING_PREFIXES)for value in (before_behavior_id,behavior_id)):
         raise ValueError('Assembly prefix sequence cannot recursively wrap a timing gate')
     row=dict(before_behavior_id=before_behavior_id,behavior_id=behavior_id)
@@ -347,7 +349,7 @@ def before_behavior_id(before_behavior_id,behavior_id):
 
 
 def before_behavior(registry,behavior_id):
-    """One native activation and one planner, preserving the original effect queue."""
+    """Preserve each reviewed native sequence inside one original activation."""
     from .registry import UnsupportedDefinitionError
     try:
         if len(behavior_id)>8192:raise ValueError('Oversized prefix sequence identity')
@@ -357,20 +359,36 @@ def before_behavior(registry,behavior_id):
                 before_behavior_id(**row)!=behavior_id):
             raise ValueError('Noncanonical prefix sequence identity')
         sources=(*registry._assemble_templates.values(),*registry._assemble_projections.values())
-        if (not any(s.prefix.before_behavior_id==row['before_behavior_id']for s in sources) or
-                not any((s.suffix.deathrattle_behavior_id or s.suffix.behavior_id)==row['behavior_id']and
-                    'deathrattle'in s.suffix.allowed_timings for s in sources)):
-            raise ValueError('Unreviewed prefix sequence or native Deathrattle suffix')
+        timings={s.prefix.timing for s in sources if s.prefix.before_behavior_id==row['before_behavior_id']} & {
+            timing for s in sources for timing in s.suffix.allowed_timings if
+            ((s.suffix.deathrattle_behavior_id or s.suffix.behavior_id)if timing=='deathrattle'
+                else s.suffix.behavior_id)==row['behavior_id']}
+        if not timings:
+            raise ValueError('Unreviewed prefix sequence or native suffix timing')
         first=registry.behavior(row['before_behavior_id']);second=registry.behavior(row['behavior_id'])
     except(ValueError,TypeError,UnicodeError,binascii.Error)as exc:
         raise UnsupportedDefinitionError('Unsupported assembled prefix sequence: '+str(exc))from exc
     def run(context):
-        if context.deathrattle is None or context.deathrattle.ability.behavior_id!=behavior_id:
-            raise ValueError('Assembly prefix sequence requires its original native Deathrattle context')
-        from .deathrattles import validate_context
-        validate_context(context,registry)
-        prefix_effects=first(context);suffix_effects=second(context)
-        return (*(()if prefix_effects is None else prefix_effects),*(()if suffix_effects is None else suffix_effects))
+        if ('battlecry'in timings and context.battlecry is not None and
+                context.battlecry.payload.behavior_id==behavior_id and
+                (context.battlecry.source_id,context.battlecry.player_id)==(context.source_id,context.player_id)):
+            from .battlecries import validate_record
+            from .effects import InvokeBehavior
+            validate_record(context.state,registry,context.battlecry)
+            prefix_effects=first(context)
+            # The native draw-before-buff sequence plans its suffix after Draw
+            # and its reactions, so newly drawn cards enter the actual query.
+            return (*(()if prefix_effects is None else prefix_effects),InvokeBehavior(
+                row['behavior_id'],context.source_id,context.player_id,context.target_id,
+                None if context.play is None else context.play.id))
+        if ('deathrattle'in timings and context.deathrattle is not None and
+                context.deathrattle.ability.behavior_id==behavior_id):
+            from .deathrattles import validate_context
+            validate_context(context,registry)
+            prefix_effects=first(context);suffix_effects=second(context)
+            return (*(()if prefix_effects is None else prefix_effects),*(()if suffix_effects is None else suffix_effects))
+        native='Battlecry'if timings=={'battlecry'}else'Deathrattle'if timings=={'deathrattle'}else'Battlecry or Deathrattle'
+        raise ValueError('Assembly prefix sequence requires its original native '+native+' context')
     return run
 
 

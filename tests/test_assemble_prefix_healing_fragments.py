@@ -186,7 +186,7 @@ class AssemblePrefixHealingTests(unittest.TestCase):
 
     def test_prefix_and_original_bridge_reject_wrong_timing_condition_or_native_identity(self):
         r=build_registry();t=r.assemble_templates[CARD]
-        for timing in ('battlecry','start_turn','battlecry_deathrattle'):
+        for timing in ('end_turn','start_turn','battlecry_deathrattle'):
             with self.assertRaises(ValueError):AssemblePrefix(timing,before_behavior_id=BEFORE)
         with self.assertRaises(ValueError):AssemblePrefix('deathrattle',condition_id='always',before_behavior_id=BEFORE)
         with self.assertRaises(ValueError):replace(t,original_deathrattle_id=BEFORE_PREFIX+'fake')
