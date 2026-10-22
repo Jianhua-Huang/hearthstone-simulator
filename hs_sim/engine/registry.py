@@ -156,6 +156,7 @@ class Registry:
         self._assemble_colossal_sources = {}
         self._assemble_on_play_sources = {}
         self._assemble_on_play_death_sources = {}
+        self._assemble_static_material_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -311,6 +312,18 @@ class Registry:
     @property
     def assemble_on_play_sources(self):
         return MappingProxyType(self._assemble_on_play_sources)
+
+    @property
+    def assemble_static_material_sources(self):
+        return MappingProxyType(self._assemble_static_material_sources)
+
+    def register_assemble_static_material_source(self, profile):
+        from .assemble_static_materials import validate_source
+        self._require_mutable()
+        validate_source(self, profile)
+        if profile.card_id in self._assemble_static_material_sources:
+            raise ValueError('Duplicate assembly static material source')
+        self._assemble_static_material_sources[profile.card_id] = profile
 
     @property
     def assemble_on_play_death_sources(self):
@@ -2782,6 +2795,9 @@ class Registry:
         if self._assemble_on_play_death_sources:
             payload['assemble_on_play_death_sources'] = [asdict(self._assemble_on_play_death_sources[k])
                 for k in sorted(self._assemble_on_play_death_sources)]
+        if self._assemble_static_material_sources:
+            payload['assemble_static_material_sources'] = [asdict(self._assemble_static_material_sources[k])
+                for k in sorted(self._assemble_static_material_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

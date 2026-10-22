@@ -9,7 +9,7 @@ import base64
 import binascii
 import json
 
-from .model import CardDefinition,CardType,EndTurnSpec,HandActionSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
+from .model import CardDefinition,CardType,EndTurnSpec,HandActionSpec,Keyword,KeywordAuraSpec,MinionDeathCostSpec,TargetSpec,TriggerSpec,_bool,_name,_int
 from .effects import Effect
 from .serialization import canonical_hash
 from .assemble_reactions import REACTION_PREFIX, LATE_REACTION_PREFIX, REACTION_TIMINGS, reaction_behavior_id
@@ -32,7 +32,8 @@ BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Key
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN,Keyword.COLOSSAL,Keyword.OUTCAST,Keyword.COMBO))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play','combo'))
+    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play','combo',
+    'keyword_auras','minion_death_cost'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
@@ -237,8 +238,14 @@ def compatible(prefix,suffix):
     return all(t in suffix.allowed_timings for t in timings)
 
 
-def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None):
+def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None,keyword_auras=(),minion_death_cost=None):
     prefix.__post_init__();suffix.__post_init__()
+    if type(keyword_auras)is not tuple or any(type(spec)is not KeywordAuraSpec for spec in keyword_auras):
+        raise ValueError('Assembly static keyword material requires native ordered aura declarations')
+    for spec in keyword_auras:spec.__post_init__()
+    if minion_death_cost is not None:
+        if type(minion_death_cost)is not MinionDeathCostSpec:raise ValueError('Assembly static death price requires its native declaration')
+        minion_death_cost.__post_init__()
     if type(colossal)is not tuple or bool(colossal)!=(Keyword.COLOSSAL in prefix.keywords):
         raise ValueError('Assembled Colossal face requires the complete selected prefix appendages')
     if (prefix_deathrattle is not None)!=(prefix.timing==PLAY_PREFIX_DEATH_TIMING):
@@ -253,6 +260,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=
         if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
         if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,colossal=colossal,
+        keyword_auras=keyword_auras,minion_death_cost=minion_death_cost,
         on_play=condition_behavior_id(prefix.condition_id,suffix.behavior_id) if 'on_play'in timings else None,
         combo=suffix.behavior_id if 'combo'in timings else None,
         battlecry=battlecry,
@@ -270,9 +278,12 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     """One complete material path for validation, options and canonical faces."""
     from .assemble_colossal import prefix_appendages
     from .assemble_on_play import prefix_deathrattle
+    from .assemble_static_materials import prefix_materials
+    auras,death_price=prefix_materials(registry,prefix_source)
     return printed_face(primary,prefix_source.prefix,suffix,card_id,
         colossal=prefix_appendages(registry,prefix_source),
-        prefix_deathrattle=prefix_deathrattle(registry,prefix_source))
+        prefix_deathrattle=prefix_deathrattle(registry,prefix_source),
+        keyword_auras=auras,minion_death_cost=death_price)
 
 
 def validate_template(registry,template):
@@ -584,6 +595,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_static_materials import validate_sources as validate_static_materials
+    validate_static_materials(registry)
     from .assemble_on_play import validate_sources as validate_on_play_sources
     validate_on_play_sources(registry)
     from .assemble_reactions import validate_sources
