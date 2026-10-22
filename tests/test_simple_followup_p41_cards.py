@@ -10,6 +10,7 @@ from hs_sim.cards.simple_followup_p41_cards import VARIANT,VOYAGER,ROOTS,QUERY,P
 from hs_sim.engine import CardClass,CardDefinition,CardMetadata,CardType,CostSpec,DamageKind,EndTurn,Game,HealthFlow,HealthOp,HealthRule,Keyword,PlayCard,PlayerSetup,Scenario,SelectChoice,TargetSpec,TriggerSpec,Zone
 from hs_sim.engine.effects import Buff,ChangeControl,ChoiceOption,Damage,DamageBatch,Destroy,GrantKeyword,Heal,InvokeBehavior,ModifyCost,RequestChoice,ReturnToHand,Silence,Summon,Transform
 from hs_sim.engine.errors import ResolutionError
+from hs_sim.engine.model import Rarity
 from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMember,resolve_candidates,sample_candidates
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.engine.resolver import CombatDamage
@@ -17,6 +18,7 @@ from hs_sim.engine.summon_sources import SummonFromZone
 from hs_sim.targets import canonical_digest
 
 TEST='p41.test.';YETI='CORE_CS2_182';FIVE='CORE_EX1_250';FIVE_BC='CORE_REV_946';SEVEN='CORE_CS2_088';SEVEN_OTHER='CORE_UNG_813'
+MISSING_POOL_COSTS={TEST+'unknown_five':5,TEST+'unknown_seven':7}
 MEMBERS=(*ROOTS,YETI,FIVE,FIVE_BC,SEVEN,SEVEN_OTHER);CONTEXT=GenerationContext('p41-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 
 def batch_registry():
@@ -27,7 +29,11 @@ def batch_registry():
 def registry(members=MEMBERS,mode=None,pool=True):
     r=batch_registry()
     for cid in members:
-        if cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
+        if cid in MISSING_POOL_COSTS:
+            missing=CardDefinition(cid,cid,CardType.MINION,cost=MISSING_POOL_COSTS[cid],health=1,
+                metadata=replace(META,collectible=True,rarity=Rarity.COMMON,deck_identity=cid))
+            r.register_pool_card(PoolCard.from_definition(missing))
+        elif cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     if pool:r.register_pool(PoolDefinition(POOL_ID,'p41-complete-explicit-fixture-v1',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True))
     scripts={
         'hit':lambda c:(Damage(c.target_id,1,c.source_id,DamageKind.SPELL),),
@@ -197,7 +203,7 @@ class SimpleFollowupP41Tests(unittest.TestCase):
                     self.assertEqual(g.snapshot(),before)
 
     def test_complete_unknown_eligible_candidates_fail_before_rng_without_cropping(self):
-        for cid,unknown,known in((VARIANT,'CATA_481',FIVE),(VOYAGER,'CATA_488',SEVEN)):
+        for cid,unknown,known in((VARIANT,TEST+'unknown_five',FIVE),(VOYAGER,TEST+'unknown_seven',SEVEN)):
             with self.subTest(cid=cid):
                 g=self.game((TEST+'hit',),board=(cid,),members=(known,unknown));self.assertNotIn(unknown,g.registry.cards);self.assertEqual(g.registry.pool_card(unknown).cost,5 if cid==VARIANT else 7);eid=self.first(g,cid,'board').id
                 if cid==VARIANT:g.apply(EndTurn(1))
