@@ -613,6 +613,7 @@ class DrawMatching(Effect):
     source_id: int | None = None
     owner_id: int | None = None
     card_ids: tuple[str, ...] = ()
+    on_empty: tuple[Effect, ...] = ()
 
     def __post_init__(self):
         _player(self.player_id); filter_value(self.query); _source(self.source_id)
@@ -620,6 +621,9 @@ class DrawMatching(Effect):
         if self.owner_id is not None: _player(self.owner_id)
         from .pools import ids
         ids(self.card_ids, 'positive physical draw card IDs', unique=True)
+        success_value(self.on_empty)
+        if self.on_empty and (self.count != 1 or self.empty_deck != 'skip'):
+            raise ValueError('Empty matching-draw fallback requires one skip-on-empty attempt')
         if self.selection not in ('random', 'first', 'highest_cost', 'lowest_cost') or self.empty_deck not in ('skip', 'fatigue'):
             raise ValueError('Draw requires explicit empty-deck and selection policies')
 
@@ -1166,6 +1170,8 @@ def matching_card(r, effect):
         for cid in effect.card_ids: r.registry.card(cid)
         candidates = tuple(c for c in candidates if c.card_id in effect.card_ids)
     if not candidates:
+        if drawing and effect.on_empty:
+            return effect.on_empty
         if drawing and effect.empty_deck == 'fatigue' and not r.player(owner).deck:
             if owner != effect.player_id:
                 from .draw_casts import draw_one
@@ -1195,6 +1201,8 @@ def matching_card(r, effect):
                 else DestroyDeckCard(card, effect.source_id, effect.reveal) if destroying
                 else DiscardCard(card, effect.source_id, effect.reveal,effect.on_success))
     # Re-query after each actual move and its reactions, like repeated Draw(1).
+    if drawing and effect.on_empty:
+        return (selected,)
     return (selected, replace(effect, count=effect.count - 1))
 
 

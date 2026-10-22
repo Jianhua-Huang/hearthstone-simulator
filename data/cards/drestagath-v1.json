@@ -1,0 +1,522 @@
+{
+  "schema": 1,
+  "batch": "K387-drestagath",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_703",
+        "dbf_id": 129945,
+        "name": "德雷阿佳丝",
+        "name_en": "Drest'agath",
+        "text": "<b>亡语：</b>抽一张<b>古神</b>牌。如果无法抽取，随机获取一张<b>古神</b>牌。",
+        "text_en": "<b>Deathrattle:</b> Draw an <b>Old God</b>. If you can't, get a random <b>Old God</b>.",
+        "cost": 4,
+        "attack": 6,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 6,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4993",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6838be180d153d3f5063d6f8147e14a60c5c4ac0668ae303521c31bbc7d5a949",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_703",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_013",
+        "dbf_id": 132339,
+        "name": "克苏恩，帝国之眼",
+        "name_en": "C'Thun, Eye of the Empire",
+        "text": "<b>古神</b>\n如果你在本局对战中触发了克苏恩的全部4个技能，本随从的技能效果变为三倍。",
+        "text_en": "<b>Old God.</b> If you've triggered all 4 C'Thun abilities this game, this minion's abilities are tripled.",
+        "cost": 10,
+        "attack": 12,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 12,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b26b1f0530b59b3048f0c3049ea6d665a2525f732ab0330ed76a009b17efc0bf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_013",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "874c2d7041815fbad5681835854f7e24f91ddc65d828f36121eca359967174e7"
+    },
+    {
+      "record": {
+        "id": "BE_017",
+        "dbf_id": 128389,
+        "name": "恩佐斯，梦境之末",
+        "name_en": "N'Zoth, Dream's End",
+        "text": "<b>古神</b>\n在本局对战中，你每召唤过一个<b>亡语</b>随从，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Old God</b>\nCost (1) less for each\n<b>Deathrattle</b> minion you've\n___summoned this game.",
+        "cost": 15,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 15,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3631e82f3bc3ec95a741849c9ce7a50fe50060b64304405a722041654a1996d6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_017",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "17fa88fc2ac3e331739d7a31ab3deedbd2e3af4b5372eb16d5ef57b49c10e8d3"
+    },
+    {
+      "record": {
+        "id": "BE_784",
+        "dbf_id": 131851,
+        "name": "亚煞极，泰坦杀神",
+        "name_en": "Y'Shaarj, Titan Bane",
+        "text": "<b>古神</b>\n<b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。<i>（还剩{0}点！）</i>@<b>古神</b>\n<b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。<i>（已经就绪！）</i>@<b>古神</b>\n<b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。",
+        "text_en": "[x]<b>Old God.</b> <b>Battlecry:</b> If you've\nspent 30 Mana on minions\nthis game, gain <b>Immune</b>\nfor 1 turn. <i>({0} left!)</i>@[x]<b>Old God.</b> <b>Battlecry:</b> If you've\nspent 30 mana on minions\nthis game, gain <b>Immune</b>\nfor 1 turn. <i>(Ready!)</i>@[x]<b>Old God.</b> <b>Battlecry:</b> If you've\nspent 30 mana on\nminions this game, gain\n<b>Immune</b> for 1 turn.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 30,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "18595e76a8234afb0f93bd153a6d4e61b5055532e889bd06e9d819da441867b9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_784",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "7766982062b4b01d63e9c7d4f819829a46d08e58995058223cf12e6ef73043fb"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_009",
+        "dbf_id": 132547,
+        "name": "古神主谋尤格-萨隆",
+        "name_en": "Mastermind Yogg-Saron",
+        "text": "<b>古神</b>\n<b>战吼：</b>结束你的回合。尤格-萨隆为你进行一个额外回合。<i>（每局对战限一次）</i>",
+        "text_en": "<b>Old God.</b> <b>Battlecry:</b> End your turn. Yogg-saron takes\nan extra turn for you. <i>(Once per game)</i>",
+        "cost": 9,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "551079975c1b51c2fe510cf2e69695c222fb25fb08a62e3d876b0ef714728e02",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_009",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_703",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k387-drestagath\\primary-01\\129945-zh_CN.json",
+      "response_sha256": "94852e65ad2f4829f628c7c4c621344f51ca16f994439dbc9fa3900e8d38b703",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129945&locale=zh_CN",
+      "face": {
+        "id": 129945,
+        "collectible": 1,
+        "slug": "129945-drestagath",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Tee Fuyuan",
+        "health": 4,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "德雷阿佳丝",
+        "text": "<b>亡语：</b>抽一张<b>古神</b>牌。如果无法抽取，随机获取一张<b>古神</b>牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a9d073e1bb8b87a6b3d2335d724a4bbdf138bb6ce084019bafe471d047dfd7f.png",
+        "imageGold": "",
+        "flavorText": "瞪眼大赛，启动！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbda384d8f40a06c66491bc84bca4f43a4172de62edbcf2d4a7748d2cfaaff5a.png",
+        "keywordIds": [
+          12,
+          441
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129945&locale=zh_CN",
+        "sha256": "94852e65ad2f4829f628c7c4c621344f51ca16f994439dbc9fa3900e8d38b703",
+        "bytes": 784,
+        "observed_at": "2026-10-22T03:50:54.243780+00:00"
+      }
+    },
+    {
+      "card_id": "BE_703",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k387-drestagath\\primary-01\\129945-en_US.json",
+      "response_sha256": "8d906edb8fc303f8e328e2e1657a154b61b3f2eb5fd19d547d0b253eded3b551",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129945&locale=en_US",
+      "face": {
+        "id": 129945,
+        "collectible": 1,
+        "slug": "129945-drestagath",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Tee Fuyuan",
+        "health": 4,
+        "attack": 6,
+        "manaCost": 4,
+        "name": "Drest'agath",
+        "text": "<b>Deathrattle:</b> Draw an <b>Old God</b>. If you can't, get a random <b>Old God</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9cbaff77073a43b6cad57ed3ec1ea74ad707276db17567945e52fefaf94e5325.png",
+        "imageGold": "",
+        "flavorText": "Staring contest, go!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbda384d8f40a06c66491bc84bca4f43a4172de62edbcf2d4a7748d2cfaaff5a.png",
+        "keywordIds": [
+          12,
+          441
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129945&locale=en_US",
+        "sha256": "8d906edb8fc303f8e328e2e1657a154b61b3f2eb5fd19d547d0b253eded3b551",
+        "bytes": 760,
+        "observed_at": "2026-10-22T03:50:54.432642+00:00"
+      }
+    }
+  ],
+  "official_faces_verified": 2,
+  "source_verified": true,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "pending_executable_dependencies": [
+    "BE_009"
+  ],
+  "pool_source_domain": {
+    "scope": "all OLD_GOD=1 fixed-source records, not a formal legal-pool certificate",
+    "ids": [
+      "BE_009",
+      "BE_013",
+      "BE_017",
+      "BE_784"
+    ],
+    "unknown_eligible_policy": "explicit UnsupportedDefinitionError before RNG; never omit BE_009"
+  },
+  "policy": {
+    "fallback": "only an empty actual single matching query; burn is a real draw and does not fallback",
+    "draw_query": "printed native Old God keyword, all classes; physical deck bypasses random generation policy",
+    "generation": "all four complete fixed-source native Old Gods with explicit allowed_special OLD_GOD; missing BE_009 remains an open full-card dependency"
+  }
+}
