@@ -1,0 +1,236 @@
+{
+  "schema": 1,
+  "batch": "assemble-native-forced-attack-fragments-v1",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_TTN_866",
+        "dbf_id": 129169,
+        "name": "神秘恐魔",
+        "name_en": "Mythical Terror",
+        "text": "<b>吸血</b>。在你的回合结束时，&迫使所有敌方随从攻击本随从。",
+        "text_en": "[x]<b>Lifesteal</b>\nAt the end of your turn,&\n force all enemy minions\nto attack this.",
+        "cost": 7,
+        "attack": 4,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 10,
+          "ATK": 4,
+          "COST": 7,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 98469,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 98469,
+          "2542": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "98469",
+              "type": "Int",
+              "value": "98469"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "90a9a0f8e51388831268160d160000af846ceccc472766dd2491d295b9920674",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_TTN_866",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "04b458a8ca0c4748589531c6fa4a5c2acd63650857048811f27b5d40a4258d9b"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CORE_TTN_866",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 129169,
+        "collectible": 1,
+        "slug": "129169-mythical-terror",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 10,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "神秘恐魔",
+        "text": "<b>吸血</b>。在你的回合结束时， 迫使所有敌方随从攻击本随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3c8c6e0f4d8829ffc7bdc051b5877a2bd385db7e35a00eb755edda6011623ba.png",
+        "imageGold": "",
+        "flavorText": "游戏内禁止养恐魔。",
+        "cropImage": null,
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          98469
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_TTN_866",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 129169,
+        "collectible": 1,
+        "slug": "129169-mythical-terror",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "health": 10,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "Mythical Terror",
+        "text": "<b>Lifesteal</b> At the end of your turn, force all enemy minions to attack this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/367840fbadc625b722d406bfbdcda455de947a9d0b41fd66cf5ad0ee0a174466.png",
+        "imageGold": "",
+        "flavorText": "You cannot pet the Terror in Hearthstone.",
+        "cropImage": null,
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          98469
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    }
+  ],
+  "reviewed_template": {
+    "card_id": "CORE_TTN_866",
+    "behavior_id": "cards.native_end.terror",
+    "keywords": [
+      "lifesteal"
+    ],
+    "end_turn": {
+      "turn_scope": "controller",
+      "condition_id": "always"
+    },
+    "allowed_timings": [
+      "battlecry",
+      "deathrattle",
+      "end_turn",
+      "start_turn"
+    ]
+  }
+}
