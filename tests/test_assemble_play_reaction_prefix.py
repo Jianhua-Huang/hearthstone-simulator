@@ -318,7 +318,8 @@ class AssemblePlayReactionPrefixTests(unittest.TestCase):
         # The later attack adapter amends this predecessor's exact draw template.
         # Omit that dependent installer only while testing predecessor failure.
         with patch.object(cards, 'register_assemble_play_reaction_prefix', lambda r: None), patch(
-                'hs_sim.cards.assemble_attack_finished_followups.register_assemble_attack_finished_followups', lambda r: None):
+                'hs_sim.cards.assemble_attack_finished_followups.register_assemble_attack_finished_followups', lambda r: None), patch(
+                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None):
             registry = build_registry()
         registry.register_trigger_condition(P+'test_cond', lambda c: True)
         before = registry.fingerprint()

@@ -9,7 +9,12 @@ from .errors import ResolutionError
 from .model import CardType, TriggerSpec, _name
 
 REACTION_PREFIX = 'assemble.reaction:'
-REACTION_TIMINGS = frozenset(('card_played', 'attack_finished'))
+# Existing single-ordinary-trigger roots in the pinned CN37 source inventory.
+# Syntax does not install their conditions, bodies or source declarations.
+REACTION_TIMINGS = frozenset(('attack_declared', 'attack_finished', 'card_committed', 'card_drawn',
+    'card_played', 'damage_dealt', 'hand_card_entered', 'health_resolved', 'hero_power_used',
+    'minion_died', 'minion_summoned', 'shield_lost', 'spell_cast_finished', 'spell_cast_started',
+    'stealth_lost', 'turn_started'))
 LATE_REACTION_PREFIX = 'assemble.reaction_late:'
 
 

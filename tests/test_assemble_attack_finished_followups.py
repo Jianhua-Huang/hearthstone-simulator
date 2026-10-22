@@ -141,7 +141,10 @@ class AssembleAttackFinishedTests(unittest.TestCase):
         return restored
 
     def test_a_ten_full_records_twenty_faces_eight_bridges_and_exact_draw_amendment(self):
-        data = cards.load_batch(); r = fixture()
+        data = cards.load_batch()
+        # Verify this stage's exact amendment before the later reviewed extension.
+        with patch('hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None):
+            r = build_registry()
         rows = {row['record']['id']: row for row in data['existing_dependencies']}
         self.assertEqual(tuple(rows), cards.SOURCES+(cards.BOLT, WAR))
         self.assertEqual(len(data['official_observations']), 20)
@@ -404,7 +407,8 @@ class AssembleAttackFinishedTests(unittest.TestCase):
             Game.from_snapshot(saved, fixture('normal', 'reader'))
 
     def test_t_complete_source_or_reviewed_draw_pin_drift_fails_before_partial_registration(self):
-        with patch.object(cards, 'register_assemble_attack_finished_followups', lambda r: None):
+        with patch.object(cards, 'register_assemble_attack_finished_followups', lambda r: None), patch(
+                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None):
             r = build_registry()
         original_fingerprint = r.fingerprint()
         def registrations():

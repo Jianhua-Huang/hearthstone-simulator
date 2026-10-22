@@ -18,6 +18,7 @@ from hs_sim.engine.zones import AddToDeck
 from hs_sim.targets import canonical_digest
 
 TEST='p46.test.';YETI='CORE_CS2_182';OWN='EX1_124';DUAL='END_031';SPELL='CORE_BT_491';MINION='TID_700';WEAPON='CS2_106';MAGE='CORE_CS2_029'
+MISSING=TEST+'unknown_generation'
 MEMBERS=(SHAKU,YETI,OWN,DUAL,SPELL,MINION,WEAPON,MAGE);CONTEXT=GenerationContext('p46-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 
 def batch_registry():
@@ -30,7 +31,11 @@ def batch_registry():
 def registry(members=MEMBERS,mode=None,pool=True):
     r=batch_registry()
     for cid in members:
-        if cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
+        if cid==MISSING:
+            # Keep this a real metadata-only failure as the implementation grows.
+            missing=replace(r.card(MAGE),id=MISSING,metadata=replace(r.card(MAGE).metadata,deck_identity=MISSING))
+            r.register_pool_card(PoolCard.from_definition(missing))
+        elif cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     if pool:r.register_pool(PoolDefinition(POOL_ID,'p46-complete-explicit-fixture-v1',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True))
     scripts={'draw':lambda c:(Draw(1,source_id=c.source_id),),'add':lambda c:(AddToDeck(1,YETI,'top',c.source_id),),'enemy_add':lambda c:(AddToDeck(2,YETI,'top',c.source_id),),'draw_burn':lambda c:(AddToHand(1,YETI,c.source_id),Draw(1,source_id=c.source_id)),'buff':lambda c:(Buff(c.target_id,3,source_id=c.source_id),),'silence':lambda c:(Silence(c.target_id),),'give':lambda c:(ChangeControl(c.target_id,2),),'hero_attack':lambda c:(Buff(c.state.players[1].hero_id,2,source_id=c.source_id,expires_turn=c.state.turn),),'natural':lambda c:(Summon(1,DEFENDER),Summon(1,SHAKU)),'fail':lambda c:(_ for _ in()).throw(ResolutionError('P46 deliberate original continuation failure'))}
     for name,body in scripts.items():r.register_behavior(TEST+name,body);r.register_card(CardDefinition(TEST+name,name,CardType.SPELL,on_play=TEST+name,metadata=META,targeting=TargetSpec(zones=(Zone.BOARD,),kinds=(CardType.MINION,))if name in('buff','silence','give')else None))
@@ -76,7 +81,8 @@ class SimpleFollowupP46Tests(unittest.TestCase):
         raw=d['cards'][1]['record'];self.assertEqual((raw['tags']['858'],raw['tags']['DECK_RULE_COUNT_AS_COPY_OF_CARD_ID'],d['evidence_only'][0]['record']['dbf_id']),(40905,40905,40905));self.assertEqual((r.card(SHAKU).cost,r.card(SHAKU).attack,r.card(SHAKU).health),(3,2,4));self.assertEqual(r.card(SHAKU).keywords,(Keyword.STEALTH,));self.assertEqual(r.card(DEFENDER).keywords,(Keyword.TAUNT,));self.assertEqual(r.card(DEFENDER).stat_relations,(RELATION,));self.assertNotIn(LEGACY,r.cards);self.assertFalse(d['cn_calibrated']);self.assertFalse(d['formal_pool_complete'])
 
     def test_only_two_new_defs_one_precise_pool_identity_exception_all_old_facts_default_maintained(self):
-        with patch('hs_sim.cards.simple_followup_p46_cards.register_simple_followup_p46_cards',lambda r:None):before=build_registry()
+        with patch('hs_sim.cards.simple_followup_p46_cards.register_simple_followup_p46_cards',lambda r:None), patch(
+                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups',lambda r:None):before=build_registry()
         after=batch_registry();self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertTrue(all(asdict(c)==asdict(after.card(cid))for cid,c in before.cards.items()));self.assertEqual(set(before.pool_cards),set(after.pool_cards));changed=[cid for cid in before.pool_cards if before.pool_card(cid)!=after.pool_card(cid)];self.assertEqual(changed,[SHAKU]);self.assertEqual(after.pool_card(SHAKU),replace(before.pool_card(SHAKU),metadata=replace(before.pool_card(SHAKU).metadata,deck_identity=LEGACY)));self.assertEqual(dict(before.pools),dict(after.pools));self.assertEqual(dict(before.generation_families),dict(after.generation_families));self.assertEqual(before.card('TIME_021'),after.card('TIME_021'))
         from hs_sim.engine.representative import build_registry as default
         r=default();self.assertEqual(len(r.cards),311);self.assertEqual(r.fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT);self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in after.pools.values()))
@@ -121,7 +127,7 @@ class SimpleFollowupP46Tests(unittest.TestCase):
         g=self.game(board=(SHAKU,),members=(SHAKU,OWN,DUAL,YETI));source=self.first(g,SHAKU,'board').id;rng=g._rng.getstate();self.attack(g);self.assertFalse(self.created(g,source));self.assertEqual(g._rng.getstate(),rng);self.assertEqual(g.state.entities[g.state.players[2].hero_id].health,28)
 
     def test_shaku_unknown_eligible_missing_context_and_pool_fail_before_rng_attack_rollback(self):
-        for members,pool,context in(((SPELL,'CATA_483'),True,CONTEXT),(MEMBERS,True,None),(MEMBERS,False,CONTEXT)):
+        for members,pool,context in(((SPELL,MISSING),True,CONTEXT),(MEMBERS,True,None),(MEMBERS,False,CONTEXT)):
             with self.subTest(members=members,pool=pool):
                 g=self.game(board=(SHAKU,),members=members,pool=pool,context=context);before=g.snapshot();calls=[];original=random.Random.randrange
                 def spy(r,*a,**kw):calls.append(a);return original(r,*a,**kw)
