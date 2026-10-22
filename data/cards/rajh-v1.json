@@ -1,0 +1,800 @@
+{
+  "schema": 1,
+  "batch": "K390-rajh",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_004",
+        "dbf_id": 132353,
+        "name": "拉夏",
+        "name_en": "Rajh",
+        "text": "<b>战吼：</b><b>拼装</b>一个任意职业的随从，将其变形成为一项<b>被动</b>英雄技能。",
+        "text_en": "<b>Battlecry:</b> <b>Assemble</b> a minion from any class. Transform it into a <b>Passive</b> Hero Power.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4556",
+              "name": "CRAFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ec83dc17f3f44862eb8983e233caa12d62f99c88790e419e6607e7110a355a95",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_004",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_004p",
+        "dbf_id": 132368,
+        "name": "阳炎耀光",
+        "name_en": "Sun's Radiance",
+        "text": "{0}",
+        "text_en": "{0}",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 10,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "60682d8b56e484eec1cc77cfa313b8ddb61bddfa54576184387b8b9a1796f3f0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_004p",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_152",
+        "dbf_id": 129131,
+        "name": "太阳舞者",
+        "name_en": "Sundancer",
+        "text": "在你的回合结束时，&获取一张法力值消耗为（2）的祝福。祝福可以使随从获得+2/+3。",
+        "text_en": "At the end of your turn,&\nget a 2-Cost Blessing\nthat gives +2/+3.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 130638,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 130638,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1,
+          "4578": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "ee4d39d47e6e983b45fac7d640fb259ef5a6492abd859e86a1f11eff8ea8ce40",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_152",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "ed3ea3944596b02ee52b2f872f30bc8770d0bfe541f269241372dd490e082526"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_210",
+        "dbf_id": 95746,
+        "name": "暗影升腾者",
+        "name_en": "Shadow Ascendant",
+        "text": "在你的回合结束时，&随机使另一个友方随从获得+1/+1。",
+        "text_en": "[x]At the end of your turn,&\ngive another random\nfriendly minion +1/+1.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 42574,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Kwon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "42574",
+              "type": "Int",
+              "value": "42574"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "18026dfbe7a4f807f6cf6b0b2c443dfc8e60a7a42d89e7687a7af8c8a0b99497",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_ICC_210",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "4a2db9ee9c4cbf26c9d6d688ff10ee10ccf3d316d5c64523fcfefae804adfca5"
+    },
+    {
+      "record": {
+        "id": "TIME_428",
+        "dbf_id": 120452,
+        "name": "昨日鱼人",
+        "name_en": "Yesterloc",
+        "text": "在你的回合结束时，&使你的其他随从获得+1生命值。",
+        "text_en": "At the end of your turn,& give your other minions +1_Health.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "e3572949c41a594f2c29c11e34dfe2e5a16f4cc1232a0c03e1860d27312c5ba7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_428",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "125b45f1568930f833cd368ecd512248d2bc03eb1d4b4c6709cba70d0d62a8b5"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_004",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\132353-zh_CN.json",
+      "response_sha256": "13bc5ff7dad76185ee38dd177c379696b461f16a19825a4ef315f06747cf0a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132353&locale=zh_CN",
+      "face": {
+        "id": 132353,
+        "collectible": 1,
+        "slug": "132353-rajh",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "拉夏",
+        "text": "<b>战吼：</b><b>拼装</b>一个任意职业的随从，将其变形成为一项<b>被动</b>英雄技能。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37b3615044713ee1ee39520281111fd1fd50fe41983f31a2f27c4909bd7dcd1a.png",
+        "imageGold": "",
+        "flavorText": "如果没有太阳，生命必将枯萎。然而太阳并不在乎生命。它散发着光芒，比魔法还要闪亮，甚至可以融化我们脚下的岩石。因此，拉夏肩上的责任极为重大。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e28d7d100409bb17ca66d586a81d21f1c879b4589a6059c30e21b5094cc952f2.png",
+        "childIds": [
+          132368
+        ],
+        "keywordIds": [
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132353&locale=zh_CN",
+        "sha256": "13bc5ff7dad76185ee38dd177c379696b461f16a19825a4ef315f06747cf0a18",
+        "bytes": 985,
+        "observed_at": "2026-10-22T04:29:26.729656+00:00"
+      }
+    },
+    {
+      "card_id": "BE_004",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\132353-en_US.json",
+      "response_sha256": "d77e27845bcf71e26785760b01855e1bb74be12d45e27f37c48e4c65f4cd98a9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132353&locale=en_US",
+      "face": {
+        "id": 132353,
+        "collectible": 1,
+        "slug": "132353-rajh",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Rajh",
+        "text": "<b>Battlecry:</b> <b>Assemble</b> a minion from any class. Transform it into a <b>Passive</b> Hero Power.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c687b573d20d6d8d8484cd850760ddfbffa0762a3f0f0a7cafbd5195dfd9116.png",
+        "imageGold": "",
+        "flavorText": "Without the sun, life withers. But the sun cares not for life. It shines brighter than magic. It can melt the very stones beneath our feet. So it was Rajh who was left the greatest responsibility.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e28d7d100409bb17ca66d586a81d21f1c879b4589a6059c30e21b5094cc952f2.png",
+        "childIds": [
+          132368
+        ],
+        "keywordIds": [
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132353&locale=en_US",
+        "sha256": "d77e27845bcf71e26785760b01855e1bb74be12d45e27f37c48e4c65f4cd98a9",
+        "bytes": 966,
+        "observed_at": "2026-10-22T04:29:27.225135+00:00"
+      }
+    },
+    {
+      "card_id": "BE_004p",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\132368-zh_CN.json",
+      "response_sha256": "8e45c438eb8608a356fc9be02c5f23a2d2de0ec4024a3829f6c872df51ebf6c6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132368&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132368,
+        "collectible": 0,
+        "slug": "132368-suns-radiance",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Ursula Dorada",
+        "manaCost": 0,
+        "name": "阳炎耀光",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/907736e8981a6eb77793fcd4bcbdc14a99caf61ee90a1f56788c7c89f27521fb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 132353,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132368&locale=zh_CN&collectible=0",
+        "sha256": "8e45c438eb8608a356fc9be02c5f23a2d2de0ec4024a3829f6c872df51ebf6c6",
+        "bytes": 524,
+        "observed_at": "2026-10-22T04:58:05.992402+00:00"
+      }
+    },
+    {
+      "card_id": "BE_004p",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\132368-en_US.json",
+      "response_sha256": "1d6ab50834adcc3eeae21d953d054e2dd510a59f4cce4f1868278a039ce98fd1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132368&locale=en_US&collectible=0",
+      "face": {
+        "id": 132368,
+        "collectible": 0,
+        "slug": "132368-suns-radiance",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Ursula Dorada",
+        "manaCost": 0,
+        "name": "Sun's Radiance",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aecb5cf48be455857621620448cdc06e76344e817b3c9e50862f57085f440a83.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 132353,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132368&locale=en_US&collectible=0",
+        "sha256": "1d6ab50834adcc3eeae21d953d054e2dd510a59f4cce4f1868278a039ce98fd1",
+        "bytes": 526,
+        "observed_at": "2026-10-22T04:58:07.993677+00:00"
+      }
+    },
+    {
+      "card_id": "BE_152",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\129131-zh_CN.json",
+      "response_sha256": "ec0d0d43b6a2d8b6d88891d0a40ef052e6b053c4495aed8d3b9c66adfaec87a5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129131&locale=zh_CN",
+      "face": {
+        "id": 129131,
+        "collectible": 1,
+        "slug": "129131-sundancer",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "太阳舞者",
+        "text": "在你的回合结束时， 获取一张法力值消耗为（2）的祝福。祝福可以使随从获得+2/+3。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a80d06129f0b8b43f19e0a1eda1bf83796f60abda109ea756db3db23cf59d7f3.png",
+        "imageGold": "",
+        "flavorText": "想要舞，那便舞！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3dac64a237b242365ce7d6b8c472a78327eb430bfab4c0b8778755c07615b98c.png",
+        "childIds": [
+          130638
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129131&locale=zh_CN",
+        "sha256": "ec0d0d43b6a2d8b6d88891d0a40ef052e6b053c4495aed8d3b9c66adfaec87a5",
+        "bytes": 793,
+        "observed_at": "2026-10-22T05:04:49.005552+00:00"
+      }
+    },
+    {
+      "card_id": "BE_152",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\129131-en_US.json",
+      "response_sha256": "0a46154abc49e6b3d0bd3f9899a5810ee2fb968b0e321a394a89dd3d6524d7d2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129131&locale=en_US",
+      "face": {
+        "id": 129131,
+        "collectible": 1,
+        "slug": "129131-sundancer",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Sundancer",
+        "text": "At the end of your turn, get a 2-Cost Blessing that gives +2/+3.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8bd24cbf8c1c260a5b593894f20ca476081884fca17dd2b42c593fd5241cd1e4.png",
+        "imageGold": "",
+        "flavorText": "We can sun-dance if we want to!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3dac64a237b242365ce7d6b8c472a78327eb430bfab4c0b8778755c07615b98c.png",
+        "childIds": [
+          130638
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129131&locale=en_US",
+        "sha256": "0a46154abc49e6b3d0bd3f9899a5810ee2fb968b0e321a394a89dd3d6524d7d2",
+        "bytes": 749,
+        "observed_at": "2026-10-22T05:04:40.945203+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ICC_210",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\95746-zh_CN.json",
+      "response_sha256": "3785a9e311e7bdc1fddb95bd1b8b8aaed31f50bd36b379cbb45752f4efa6d408",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=95746&locale=zh_CN",
+      "face": {
+        "id": 95746,
+        "collectible": 1,
+        "slug": "95746-shadow-ascendant",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Paul Kwon",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "暗影升腾者",
+        "text": "在你的回合结束时，&随机使另一个友方随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa3bcbad2b53c3457d65db96f8cd4f0a9571c9898dc1ef4576c8dfce0cff9418.png",
+        "imageGold": "",
+        "flavorText": "当你已经身处最底层时，只能往上升了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5d312f05dfc2c3addff36dd4e8c6925e80f98e7f3cdf777fee6073b9c266f09.png",
+        "copyOfCardId": [
+          42574
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=95746&locale=zh_CN",
+        "sha256": "3785a9e311e7bdc1fddb95bd1b8b8aaed31f50bd36b379cbb45752f4efa6d408",
+        "bytes": 806,
+        "observed_at": "2026-10-22T05:01:15.077593+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ICC_210",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\95746-en_US.json",
+      "response_sha256": "6663d118f90b5befdec17fdcad35e815b044ddffdb1c9ad8ed844edc1d0a386a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=95746&locale=en_US",
+      "face": {
+        "id": 95746,
+        "collectible": 1,
+        "slug": "95746-shadow-ascendant",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Paul Kwon",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Shadow Ascendant",
+        "text": "At the end of your turn,& give another random friendly minion +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/56f1d840db7188f1fd8876e68726403eec8f5706df85cb8fbf2fba1226f69df2.png",
+        "imageGold": "",
+        "flavorText": "When you're at the bottom, there's nowhere to ascend, but up.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5d312f05dfc2c3addff36dd4e8c6925e80f98e7f3cdf777fee6073b9c266f09.png",
+        "copyOfCardId": [
+          42574
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=95746&locale=en_US",
+        "sha256": "6663d118f90b5befdec17fdcad35e815b044ddffdb1c9ad8ed844edc1d0a386a",
+        "bytes": 810,
+        "observed_at": "2026-10-22T05:01:17.080686+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_428",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\120452-zh_CN.json",
+      "response_sha256": "a703df797052190fedaca0dc1c5648a1bde8bba63c8640b707ceab74e6d22c4e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120452&locale=zh_CN",
+      "face": {
+        "id": 120452,
+        "collectible": 1,
+        "slug": "120452-yesterloc",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "昨日鱼人",
+        "text": "在你的回合结束时，&使你的其他随从获得+1生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01153cc3d6e1b396dd41c1b921d8c1a0a3e1051eebb75d2f33a54e24566d9f7b.png",
+        "imageGold": "",
+        "flavorText": "*老派的鱼人语*",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34b9bac0beb62b857241e1f7219aa41d6df942f451163d8d7febed7831278b7c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120452&locale=zh_CN",
+        "sha256": "a703df797052190fedaca0dc1c5648a1bde8bba63c8640b707ceab74e6d22c4e",
+        "bytes": 751,
+        "observed_at": "2026-10-22T05:04:41.123919+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_428",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k390-rajh\\primary-01\\120452-en_US.json",
+      "response_sha256": "fd16360202fafa024723add3dc87ef43ea5ab73c40349bfabd653c32931543b4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120452&locale=en_US",
+      "face": {
+        "id": 120452,
+        "collectible": 1,
+        "slug": "120452-yesterloc",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Yesterloc",
+        "text": "At the end of your turn,& give your other minions +1 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72dc3654f7fda79116f5d1374c417affbc2e41d528c91b28deeb508a9ba88fe0.png",
+        "imageGold": "",
+        "flavorText": "*nostalgic mrrgls*",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/34b9bac0beb62b857241e1f7219aa41d6df942f451163d8d7febed7831278b7c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120452&locale=en_US",
+        "sha256": "fd16360202fafa024723add3dc87ef43ea5ab73c40349bfabd653c32931543b4",
+        "bytes": 737,
+        "observed_at": "2026-10-22T05:04:40.790289+00:00"
+      }
+    }
+  ],
+  "official_faces_verified": 10,
+  "source_verified": true,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "reviewed_templates": [
+    "CORE_ICC_210",
+    "TIME_428"
+  ],
+  "policy": {
+    "pool_id": "constructed.assemble.rajh",
+    "formal_pool_installed": false,
+    "primary": "any class including Neutral, separate curated domain",
+    "secondary": "any class including Neutral; existing ordinary cost band retained only as unconfirmed local policy",
+    "secondary_cost_rule_confirmed": false,
+    "template_requires_chosen_recipe": true,
+    "hand_intermediate": false,
+    "unsupported_eligible_text": "explicit error; no implementation-based pool truncation",
+    "not_a_formal_curated_pool": true
+  }
+}

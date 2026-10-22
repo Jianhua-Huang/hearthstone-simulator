@@ -150,6 +150,7 @@ class Registry:
         self._hand_mirror_ids = frozenset()
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
+        self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
         self._crafted_minion_parts = set()
         self._composed_spell_profiles = {}
@@ -275,7 +276,7 @@ class Registry:
 
     @property
     def cards(self) -> Mapping[str, CardDefinition]:
-        if self._assemble_templates or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles or self._sham_trial_profiles:
+        if self._assemble_templates or self._assembled_power_profiles or self._crafted_minion_blueprints or self._composed_spell_profiles or self._composed_location_profiles or self._sham_trial_profiles:
             from .assemble_faces import AssembleCardCatalog
             return AssembleCardCatalog(self)
         return MappingProxyType(self._cards)
@@ -283,6 +284,18 @@ class Registry:
     @property
     def assemble_templates(self):
         return MappingProxyType(self._assemble_templates)
+
+    @property
+    def assembled_power_profiles(self):
+        return MappingProxyType(self._assembled_power_profiles)
+
+    def register_assembled_power_profile(self, profile):
+        self._require_mutable()
+        from .assembled_powers import validate_profile
+        validate_profile(self, profile)
+        if profile.template_card_id in self._assembled_power_profiles:
+            raise ValueError('Duplicate assembled passive power template')
+        self._assembled_power_profiles[profile.template_card_id] = profile
 
     @property
     def crafted_minion_blueprints(self):return MappingProxyType(self._crafted_minion_blueprints)
@@ -1378,6 +1391,9 @@ class Registry:
         from .assemble_faces import PREFIX as assembly_prefix
         if isinstance(definition,CardDefinition) and definition.id.startswith(assembly_prefix):
             raise ValueError('Assembled identities require reviewed recipe resolution')
+        from .assembled_powers import PREFIX as assembled_power_prefix
+        if isinstance(definition, CardDefinition) and definition.id.startswith(assembled_power_prefix):
+            raise ValueError('Passive assembly identities require reviewed original template resolution')
         from .crafted_faces import PREFIX as crafted_prefix
         if isinstance(definition,CardDefinition)and definition.id.startswith(crafted_prefix):
             raise ValueError('Crafted identities require immutable original ingredient resolution')
@@ -1540,6 +1556,9 @@ class Registry:
         from .assemble_faces import PREFIX as assembly_prefix, resolve_face
         if id.startswith(assembly_prefix):
             return resolve_face(self,id)
+        from .assembled_powers import PREFIX as assembled_power_prefix, resolve_face as resolve_assembled_power
+        if id.startswith(assembled_power_prefix):
+            return resolve_assembled_power(self, id)
         from .crafted_faces import PREFIX as crafted_prefix,resolve_face as resolve_crafted_face
         if id.startswith(crafted_prefix):return resolve_crafted_face(self,id)
         from .composed_spells import PREFIX as potion_prefix,resolve_face as resolve_potion
@@ -2202,6 +2221,8 @@ class Registry:
         if self._hand_mirror_ids!=frozenset(cid for cid,c in self._cards.items()if c.hand_mirror is not None):
             raise ValueError('Compiled native mirror declarations differ from registered faces')
         from .assemble_faces import validate_templates
+        from .assembled_powers import validate_profiles as validate_assembled_power_profiles
+        validate_assembled_power_profiles(self)
         validate_templates(self)
         from .crafted_faces import validate_blueprint as validate_crafted_blueprint
         for blueprint in self._crafted_minion_blueprints.values():validate_crafted_blueprint(self,blueprint)
@@ -2525,6 +2546,9 @@ class Registry:
                    "use_rules": sorted(self._use_rules),
                    "target_visibility": self._target_visibility, "use_visibility": self._use_visibility}
         # Preserve old registry fingerprints when this additive API is unused.
+        if self._assembled_power_profiles:
+            payload['assembled_power_profiles'] = [asdict(self._assembled_power_profiles[k])
+                for k in sorted(self._assembled_power_profiles)]
         if self._consumption_profiles:
             payload['consumption_profiles']=[asdict(self._consumption_profiles[k]) for k in sorted(self._consumption_profiles)]
         if self._historical_deathrattle_spells:

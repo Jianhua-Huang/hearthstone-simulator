@@ -267,6 +267,14 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         'TIME_704t': 'b76ce848596c774d48234e85471174592985a622dd052ed49aaea172ff60daeb',
         'BE_055t': '5ea2e77de346612e33729c27b62b124e4fb1fe286a292ce5eeab26e6c0553317',
     }.get(row['id']))
+    # The actual Rajh child receives its whole chosen passive text at runtime.
+    # Its complete gallery faces are empty and explicitly show manaCost zero.
+    # This exact template is not permission to omit any static rule sentence.
+    assembled_power_display = (row.get('id') == 'BE_004p' and
+        canonical(row) == '60682d8b56e484eec1cc77cfa313b8ddb61bddfa54576184387b8b9a1796f3f0' and
+        row.get('type') == 'HERO_POWER' and row['tags'].get('HIDE_COST') == 1 and
+        display(raw_text) == '{0}' and face.get('text') == '' and face.get('parentId') == 132353 and
+        display_normalizations == {'{0}': ''})
     # Specimen Jar's gallery retains both complete empty/filled bodies; only
     # their delimiter and the runtime captive name are absent.
     jar_name_display = (display_normalizations == {'@': '', '{5}': ''} and row['id'] == 'TLC_841t' and
@@ -311,7 +319,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_coin_display or potion_display or location_template_display or trial_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+                    (jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')

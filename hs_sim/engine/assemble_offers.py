@@ -29,6 +29,7 @@ class Assemble(Effect):
     cost: CostSpec|None=None
     minion_grant: CreatedMinionGrant|None=None
     secondary_min_cost: int|None=None
+    passive_power_template_id: str|None=None
 
     def __post_init__(self):
         _player(self.player_id);_source(self.source_id);_name(self.pool_id,'assembly pool');_name(self.prompt,'assembly prompt')
@@ -61,6 +62,11 @@ class Assemble(Effect):
         if self.cost is not None or self.minion_grant is not None:
             if self.source_id is None or self.cost is not None and self.minion_grant is not None:
                 raise ValueError('Assembly delivery requires one independent original source-bound grant')
+        if self.passive_power_template_id is not None:
+            _name(self.passive_power_template_id, 'assembly passive power template')
+            if (self.source_id is None or self.primary_query != PoolQuery() or self.primary_trait != 'any' or
+                    self.cost is not None or self.minion_grant is not None or self.secondary_min_cost is not None):
+                raise ValueError('Passive assembly requires its independent original curated domain and no hand grant')
 
 @dataclass(frozen=True)
 class AssembleOffer:
@@ -104,16 +110,21 @@ def source_card(state,spec):
 
 def candidates(registry,context,state,spec,primary=None):
     spec.__post_init__();source=source_card(state,spec);hero=state.players[spec.player_id].hero_class
+    passive=spec.passive_power_template_id is not None
+    if passive:
+        from .assembled_powers import request_profile
+        passive_profile=request_profile(registry,state,spec)
     if type(hero)is not CardClass or hero==CardClass.NEUTRAL:raise ValueError('Assembly requires a known current hero class')
     if primary is None:
         mode=spec.primary_query.class_mode
         query=replace(spec.primary_query,kinds=(CardType.MINION,),
-            class_mode=mode if mode in('specified','other')else'current')
+            class_mode='any'if passive else mode if mode in('specified','other')else'current')
     else:
         cost=registry.card(primary).cost
         query=(PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=spec.secondary_min_cost)
             if spec.secondary_min_cost is not None else
             PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=8 if cost in(9,10)else cost,max_cost=cost+2))
+        if passive:query=replace(query,class_mode='any')
     rows=resolve_candidates(registry,context,spec.pool_id,query,current_class=hero,source_card_id=source,player_id=spec.player_id)
     result=[]
     for row in rows:
@@ -124,16 +135,21 @@ def candidates(registry,context,state,spec,primary=None):
         template=registry.assemble_templates.get(row.card_id)
         if template is None:raise ValueError('Eligible assembly minion lacks reviewed text halves: '+row.card_id)
         validate_template(registry,template)
+        if passive:
+            from .assembled_powers import passive_minion
+            if row.card_id not in passive_profile.reviewed_fragment_ids:
+                raise ValueError('Eligible passive assembly minion lacks reviewed power-context compatibility: '+row.card_id)
+            passive_minion(card)
         if primary is None:
             if spec.primary_trait!='any':
                 match=(Keyword.TAUNT in card.keywords)if spec.primary_trait=='taunt'else template.prefix.timing==spec.primary_trait
                 if not match:continue
         else:
-            if not recipe_options(registry,primary,row.card_id):continue
+            if not recipe_options(registry,primary,row.card_id,spec.passive_power_template_id):continue
         result.append(row)
     return tuple(result)
 
-def recipe_options(registry,primary,secondary):
+def recipe_options(registry,primary,secondary,passive_power_template_id=None):
     first=registry.assemble_templates[primary];second=registry.assemble_templates[secondary]
     options=[]
     for half in('top','bottom'):
@@ -142,6 +158,9 @@ def recipe_options(registry,primary,secondary):
         if prefix.timing not in suffix.allowed_timings:continue
         cid=AssembleRecipe(primary,secondary,half).card_id;card=registry.card(cid)
         if replace(card,id=primary)==registry.card(primary):continue
+        if passive_power_template_id is not None:
+            from .assembled_powers import power_id
+            cid=power_id(registry,passive_power_template_id,cid)
         options.append((half,cid))
     return tuple(options)
 
@@ -167,7 +186,7 @@ def validate_offer(registry,context,offer):
 def option_rows(registry,offer):
     rows=[]
     for index,cid in enumerate(offer.secondary_card_ids,1):
-        for half,result_id in recipe_options(registry,offer.primary_card_id,cid):
+        for half,result_id in recipe_options(registry,offer.primary_card_id,cid,offer.spec.passive_power_template_id):
             label=registry.card(cid).name+'：'+('替换上半段'if half=='top'else'替换下半段')
             rows.append((str(index)+'-'+half,label,result_id))
     if offer.spec.keep_policy=='offer':rows.append(('keep','保留原文本',offer.primary_card_id))
@@ -206,6 +225,9 @@ def resolve(r,effect):
         raise ValueError('Assembly result changed the complete offered half sequence')
     cid=next((cid for oid,_,cid in option_rows(r.registry,effect.offer)if oid==effect.option_id),None)
     if cid is None:raise ValueError('Unknown assembly half selection')
+    if spec.passive_power_template_id is not None:
+        from .effects import ReplaceHeroPower
+        return(ReplaceHeroPower(spec.player_id,cid,source_id=spec.source_id),)
     return(AddToHand(spec.player_id,cid,spec.source_id,cost=spec.cost,minion_grant=spec.minion_grant),)
 
 def validate_boundary(game):
