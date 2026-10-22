@@ -28,7 +28,10 @@ def batch_registry():
 def registry(members=MEMBERS,mode=None,pool=True):
     r=batch_registry()
     for cid in members:
-        if cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
+        if cid.startswith(TEST+'unimplemented_metadata.'):
+            original=cid[len(TEST+'unimplemented_metadata.'):]
+            r.register_pool_card(replace(r.pool_card(original),card_id=cid))
+        elif cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     if pool:r.register_pool(PoolDefinition(POOL_ID,'p29-complete-explicit-fixture-v1',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(cid)for cid in members),complete=True))
     for cid in ROOTS:
         key=TEST+'summon.'+cid;r.register_behavior(key,lambda c,card=cid:(Summon(1,card),));r.register_card(CardDefinition(key,'Natural summon',CardType.SPELL,on_play=key,metadata=META))
@@ -82,7 +85,9 @@ class SimpleFollowupP29Tests(unittest.TestCase):
         self.assertEqual(r.card(WHELP).metadata.tribes,('dragon',));self.assertEqual(r.card(WHELP).metadata.subtypes,('whelp',));self.assertEqual(r.card(VICAR).metadata.tribes,('draenei',));self.assertEqual(r.card(NETHER).metadata.tribes,());self.assertEqual(r.card(PEDDLER).metadata.tribes,('undead',))
 
     def test_four_new_defs_old_definitions_aliases_and_pool_filters_preserved(self):
-        with patch('hs_sim.cards.simple_followup_p29_cards.register_simple_followup_p29_cards',lambda r:None):before=build_registry()
+        with patch('hs_sim.cards.simple_followup_p29_cards.register_simple_followup_p29_cards',lambda r:None), \
+                patch('hs_sim.cards.assemble_hand_generation_fragments.register_assemble_hand_generation_fragments',lambda r:None):
+            before=build_registry()
         after=batch_registry();self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertFalse(DEPENDENCIES);self.assertTrue(all(asdict(before.card(cid))==asdict(after.card(cid))for cid in before.cards));self.assertEqual(dict(before.pools),dict(after.pools));self.assertEqual(set(before.pool_cards),set(after.pool_cards))
         for cid,row in before.pool_cards.items():self.assertEqual(replace(row,metadata=replace(row.metadata,deck_identity=IDENTITIES[cid]))if cid in ROOTS else row,after.pool_card(cid))
         for alias in('ONY_022','BT_321','WON_096'):self.assertEqual(alias in before.cards,alias in after.cards)
@@ -121,9 +126,12 @@ class SimpleFollowupP29Tests(unittest.TestCase):
                 self.assertEqual(g.snapshot(),saved)
 
     def test_real_eligible_unimplemented_members_fail_before_rng_not_clipped(self):
-        for cid,unknown,hero in((WHELP,'CAP_002','HERO_08'),(VICAR,'CORE_KAR_077','HERO_04'),(NETHER,'EDR_102','HERO_07'),(PEDDLER,'CATA_621','HERO_04')):
+        for cid,original,hero in((WHELP,'CAP_002','HERO_08'),(VICAR,'CORE_KAR_077','HERO_04'),(NETHER,'EDR_102','HERO_07'),(PEDDLER,'CATA_621','HERO_04')):
             with self.subTest(cid=cid):
+                unknown=TEST+'unimplemented_metadata.'+original
                 g=self.game((cid,),members=(*MEMBERS,unknown),hero=hero);self.assertIn(unknown,g.registry.pool_cards);self.assertNotIn(unknown,g.registry.cards);saved=g.snapshot()
+                self.assertIn(original,g.registry.cards)
+                self.assertEqual(replace(g.registry.pool_card(unknown),card_id=original),g.registry.pool_card(original))
                 with patch.object(random.Random,'randrange',side_effect=AssertionError('RNG before complete eligible validation'))as calls:
                     with self.assertRaises(ResolutionError):self.play(g,cid)
                     calls.assert_not_called()

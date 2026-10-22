@@ -1,0 +1,1930 @@
+{
+  "schema": 1,
+  "batch": "assemble-hand-generation-fragments-v1",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_556",
+        "dbf_id": 122933,
+        "name": "载蛋雏龙",
+        "name_en": "Carrier Whelp",
+        "text": "<b>战吼：</b>&随机获取一张法力值消耗小于或等于（3）点的龙牌。",
+        "text_en": "<b>Battlecry:</b>& Get a random\nDragon that costs\n(3) or less.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "WHELP": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "f4e48d9e2caba99ef016ba00cf15d1c47b1faee3f378c926d12e5464bb0b5c6a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CATA_556",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": [
+          "whelp"
+        ]
+      },
+      "spell_school": null,
+      "definition_sha256": "f8e2e206e5362456dcd12955efce80630a2b98c65bef7a18f9f6c41b867b2449"
+    },
+    {
+      "record": {
+        "id": "CORE_DRG_024",
+        "dbf_id": 127088,
+        "name": "空中悍匪",
+        "name_en": "Sky Raider",
+        "text": "<b>战吼：</b>&随机将一张海盗牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add a random Pirate to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 55005,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 55005,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "55005",
+              "type": "Int",
+              "value": "55005"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "ae11b0bdcd58b033435fe22b969bc10dff646c1e45aefb4be17f5912a6dfacbe",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_DRG_024",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "6c77b95ae4e0af90b057ae01f173a2ca8dfc4ec2ad60952c1e0d15459dd62405"
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_912",
+        "dbf_id": 97376,
+        "name": "宝石鹦鹉",
+        "name_en": "Jeweled Macaw",
+        "text": "<b>战吼：</b>&随机将一张野兽牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add a random Beast to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41353,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41353",
+              "type": "Int",
+              "value": "41353"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5abfb5103c1d029a338243b652dc88e2718c92413e84e70077bf529ae432c775",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_UNG_912",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "834fc24865f066d1d6a205131dd000dd4d99f6a5186c488542e08ab530729a20"
+    },
+    {
+      "record": {
+        "id": "CORE_EDR_001",
+        "dbf_id": 117307,
+        "name": "呓语魔橱",
+        "name_en": "Babbling Bookcase",
+        "text": "<b>战吼：</b>&随机将2张法师法术牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add 2 random Mage spells to your hand.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "a715b679e6753a979e488b414cbe99a2e7f3560549eb37fe9c16010ebab401d9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_EDR_001",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "40d56eb52a5557ebea587d0f7a48f2b692e7aebeb84f2e0b459c1feef50a7543"
+    },
+    {
+      "record": {
+        "id": "CORE_KAR_069",
+        "dbf_id": 69742,
+        "name": "吹嘘海盗",
+        "name_en": "Swashburglar",
+        "text": "<b>战吼：</b>&随机将一张另一职业的卡牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add a random card from another class to_your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 7,
+          "CARDRACE": 23,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 39698,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "39698",
+              "type": "Int",
+              "value": "39698"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "78d506e53b458d432d6e7848383f12ef7addd478263b7046cf582d308e29f7a7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_KAR_069",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "53856b1311a811200bda13f2cde276782b6a393c61484903482203aa07d91c2e"
+    },
+    {
+      "record": {
+        "id": "CATA_484",
+        "dbf_id": 123398,
+        "name": "冬泉雏龙",
+        "name_en": "Winterspring Whelp",
+        "text": "<b>战吼：</b>&<b>发现</b>一张任意职业的法力值消耗为（1）的法术牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a\n1-Cost spell from any_class.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "WHELP": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "6b8ff5f539b1aee53be93a73e42ecdba520c4b46b3613d54b610a4f9f103b91c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "CATA_484",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": [
+          "whelp"
+        ]
+      },
+      "spell_school": null,
+      "definition_sha256": "4af2125d796565926b51860463e994f9a1f4de0073650e6ed55e70c182bd82e9"
+    },
+    {
+      "record": {
+        "id": "CORE_BT_321",
+        "dbf_id": 129167,
+        "name": "虚无行者",
+        "name_en": "Netherwalker",
+        "text": "<b>战吼：</b>&<b>发现</b>一张恶魔牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a Demon.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 56985,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56985,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56985",
+              "type": "Int",
+              "value": "56985"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "9d0b4497882289840d52f62141e9602123d5b0c8b949a99fb6de5877eb6b7fb2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_BT_321",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "821ef270cc7452414d8b613b97ec8c5ee1d7a2fca6221cc943a8faf247371e0e"
+    },
+    {
+      "record": {
+        "id": "CORE_ONY_022",
+        "dbf_id": 128336,
+        "name": "武装教士",
+        "name_en": "Battle Vicar",
+        "text": "<b>战吼：</b>&<b>发现</b>一张神圣法术牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a\nHoly spell.",
+        "cost": 2,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 71248,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 71248,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "71248",
+              "type": "Int",
+              "value": "71248"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "a99fbddf196762a22c2642030706ef9cabfd20349b26bde0bb6e43df669384c3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_ONY_022",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "5c50c7955dd1c9f48352fdd668911b192173c4835771d65ab72192ed8ac804af"
+    },
+    {
+      "record": {
+        "id": "CORE_WON_096",
+        "dbf_id": 120467,
+        "name": "黑市摊贩",
+        "name_en": "Dark Peddler",
+        "text": "<b>战吼：</b>&<b>发现</b>一张法力值消耗为（1）的卡牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a\n1-Cost card.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 9,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 2895,
+          "USE_DISCOVER_VISUALS": 1,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 102639,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "George Davis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2895",
+              "type": "Int",
+              "value": "2895"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "75f36aa2e3fd2d9995db3a0147b89bc39902840ad7bbe38515953e050985b1d8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_WON_096",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "faa1d15ea7d7fd0d0ca75bc1864c9024c53f95b2def12f20d9a87d3bd492f80d"
+    },
+    {
+      "record": {
+        "id": "JAIL_720",
+        "dbf_id": 126221,
+        "name": "玉莲帮荷官",
+        "name_en": "Lotus Bookie",
+        "text": "<b>亡语：</b>&获取一张幸运币。",
+        "text_en": "<b>Deathrattle:</b>& Get a Coin.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4931": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milica Celikovic"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4931",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4931"
+          }
+        ]
+      },
+      "record_sha256": "6af9c1a66762f8d3ac44b3e4ffe5b4be671482ab54736126952ba0163c57c606",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_720",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "fa6ccc8321ec30553fcd12ea8300a0c17c2a6018ab2636088b83fc2bd8e8bc14"
+    },
+    {
+      "record": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          }
+        ]
+      },
+      "record_sha256": "9e2ab2e759290edd4b6c80307bf87a10a3655cd43e493da5b99207680ea564b8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "GAME_005",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "5b05f02f3a2254615b67000bd0fe9e6c2db332c4e5cfb2386000008faa03aa30"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CATA_556",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 122933,
+        "collectible": 1,
+        "slug": "122933-carrier-whelp",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "载蛋雏龙",
+        "text": "<b>战吼：</b>&随机获取一张法力值消耗小于或等于（3）点的龙牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f457e8b2c7e2d66a9b1db3ceb421b23ba8f1a2a615e6d5a9486ae665e9259bf.png",
+        "imageGold": "",
+        "flavorText": "雏龙宝宝就是这么来的……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87575d199da4be8e912053345e05ce6c2d2dcde53619450b05f53811895ede05.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_556",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 122933,
+        "collectible": 1,
+        "slug": "122933-carrier-whelp",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Carrier Whelp",
+        "text": "<b>Battlecry:</b>& Get a random Dragon that costs (3) or less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8def840cc4a2a9ff84b3c0bdc8b3309d24e6059db534ae072850f91260134092.png",
+        "imageGold": "",
+        "flavorText": "So that's where baby dragons come from...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87575d199da4be8e912053345e05ce6c2d2dcde53619450b05f53811895ede05.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_DRG_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 127088,
+        "collectible": 1,
+        "slug": "127088-sky-raider",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "空中悍匪",
+        "text": "<b>战吼：</b>&随机将一张海盗牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ad7148c00bcdc681cf32cc45074386d55fd25c3ea37e4cd479b17eb685a52a69.png",
+        "imageGold": "",
+        "flavorText": "或许他应该构思一个能把战利品也一块带回来的飞行方案。",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          55005
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_DRG_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 127088,
+        "collectible": 1,
+        "slug": "127088-sky-raider",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sky Raider",
+        "text": "<b>Battlecry:</b>& Add a random Pirate to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14d7bdd701c1e5bce0ca90be1a9faead25fea456a80abd8cfab5af7b8b291061.png",
+        "imageGold": "",
+        "flavorText": "Maybe he should've hatched a plan that could actually carry booty back too.",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          55005
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_UNG_912",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 97376,
+        "collectible": 1,
+        "slug": "97376-jeweled-macaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "宝石鹦鹉",
+        "text": "<b>战吼：</b>&随机将一张野兽牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6bc3efe195dc59a7d6f046bb3886a918ceb70b4ff5957a9b62e3ac05c514e75.png",
+        "imageGold": "",
+        "flavorText": "地精珠宝商慕名而来，失望而归…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48c52b072e283762c0507b0ee2d8eb940ba5d3adbcd23512b125a07ba3fb671.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          41353
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_UNG_912",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 97376,
+        "collectible": 1,
+        "slug": "97376-jeweled-macaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jeweled Macaw",
+        "text": "<b>Battlecry:</b>& Add a random Beast to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7b8bbf00925eb2a2861e3b6cc172b417cd4a04a9b532ef0a6a705dd24909745.png",
+        "imageGold": "",
+        "flavorText": "It’s not LITERALLY jeweled. The goblins were terribly disappointed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48c52b072e283762c0507b0ee2d8eb940ba5d3adbcd23512b125a07ba3fb671.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          41353
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EDR_001",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 117307,
+        "collectible": 1,
+        "slug": "117307-babbling-bookcase",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "呓语魔橱",
+        "text": "<b>战吼：</b>&随机将2张法师法术牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efad30f60a74317f422ebbec7044e8a79caea92258cacd3d185e1f8ddc5b2573.png",
+        "imageGold": "",
+        "flavorText": "呓语魔橱现在就是我心目当中的第一卡。阳光，积极，又大方。只需三点法力值拍到场上去，他就能给你两张实用法术牌，太棒了。",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EDR_001",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 117307,
+        "collectible": 1,
+        "slug": "117307-babbling-bookcase",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Babbling Bookcase",
+        "text": "<b>Battlecry:</b>& Add 2 random Mage spells to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cdd9161aea24916adddb0a633ba4907098bbf3f45ca9c983b73ec8874bbbe13.png",
+        "imageGold": "",
+        "flavorText": "Babbling Bookcase is quickly becoming one of my favorite cards. It's just so positive and generous. Practically costs nothing at all at three mana you drop him on the board and that chill guy gives you two spells to use later in the game.",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_KAR_069",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 69742,
+        "collectible": 1,
+        "slug": "69742-swashburglar",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "吹嘘海盗",
+        "text": "<b>战吼：</b>&随机将一张另一职业的卡牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14e0a82f58eac6906516310fb841ccfcf116b93ef9cc1453ad479bbe17d7aeba.png",
+        "imageGold": "",
+        "flavorText": "只要两杯朗姆酒，他就能吹上一整天！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3b2bfcbbc9adb5aaf61ad297755af8f0af0e3f8fcfaba903b885331eb156b8f.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          39698
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_KAR_069",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 69742,
+        "collectible": 1,
+        "slug": "69742-swashburglar",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Swashburglar",
+        "text": "<b>Battlecry:</b>& Add a random card from another class to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c1c66cea24f2d3c864e07a19983cdc24e1a1c06678217372373eaa30b8db609.png",
+        "imageGold": "",
+        "flavorText": "Was almost named \"Swashb-AAAARRHHH-gler\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3b2bfcbbc9adb5aaf61ad297755af8f0af0e3f8fcfaba903b885331eb156b8f.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          39698
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_484",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 123398,
+        "collectible": 1,
+        "slug": "123398-winterspring-whelp",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "冬泉雏龙",
+        "text": "<b>战吼：</b>&<b>发现</b>一张任意职业的法力值消耗为（1）的法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeb448421e6038b0ec4fb2f4324a0d7d72578eaaf52d3e4d9612fb0f515752a0.png",
+        "imageGold": "",
+        "flavorText": "学习展翅飞翔的时候，参考其他职业的经验很重要！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dcf03bbdf42f78f6dac74707bde6c0564bd086cdb60edfdccbb5d6cdaecb496.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_484",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 123398,
+        "collectible": 1,
+        "slug": "123398-winterspring-whelp",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Winterspring Whelp",
+        "text": "<b>Battlecry:</b>& <b>Discover</b> a 1-Cost spell from any class.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b13996e96680666823e5c96a127de8d429b06523432578c255d71b081470167d.png",
+        "imageGold": "",
+        "flavorText": "It's important to explore other classes while learning to spread your wings!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dcf03bbdf42f78f6dac74707bde6c0564bd086cdb60edfdccbb5d6cdaecb496.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_321",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 129167,
+        "collectible": 1,
+        "slug": "129167-netherwalker",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "虚无行者",
+        "text": "<b>战吼：</b> <b>发现</b>一张恶魔牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6d936c3868373e7d96f9abb43ea1dd859cd531e6e5130e7da194085884d499e.png",
+        "imageGold": "",
+        "flavorText": "在学会虚空行走之前，先给我爬。",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          56985
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_321",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 129167,
+        "collectible": 1,
+        "slug": "129167-netherwalker",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Netherwalker",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a Demon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2fbec8901abc4b276cf1d9b0060fc431b5811e0bb759429fc4d3eca6a5ae245.png",
+        "imageGold": "",
+        "flavorText": "You got to Nethercrawl before you can Netherwalk.",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          56985
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ONY_022",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 128336,
+        "collectible": 1,
+        "slug": "128336-battle-vicar",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "武装教士",
+        "text": "<b>战吼：</b> <b>发现</b>一张神圣法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e87c5c919cf51d59a2c673923e5a3a2bf1698f54c7b48cf89dbb1e6cbc300e77.png",
+        "imageGold": "",
+        "flavorText": "她是那种最接地气的圣骑士……除非她站起身来。",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          71248
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ONY_022",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 128336,
+        "collectible": 1,
+        "slug": "128336-battle-vicar",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Battle Vicar",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a Holy spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2895684c7a8d683b6a07d16976dee577bbc39f34437d5112477591c1be1d56ea.png",
+        "imageGold": "",
+        "flavorText": "She's the most down-to-earth paladin you'll ever meet... until she stands up.",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          71248
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_WON_096",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 120467,
+        "collectible": 1,
+        "slug": "120467-dark-peddler",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "George Davis",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "黑市摊贩",
+        "text": "<b>战吼：</b>&<b>发现</b>一张法力值消耗为（1）的卡牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa35d153cb4463a449234f135e7ce60265a79c3d81144510cdc4d731d897f57f.png",
+        "imageGold": "",
+        "flavorText": "快来瞧瞧这台空气净化器，它的功能如此强大，连你的灵魂都能净化！",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          2895,
+          102639
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_WON_096",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 120467,
+        "collectible": 1,
+        "slug": "120467-dark-peddler",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "George Davis",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Dark Peddler",
+        "text": "<b>Battlecry:</b>& <b>Discover</b> a 1-Cost card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/45ef438ccd46eb39354fba713073706e2ed14fe66824c722bd03cca13b155c2f.png",
+        "imageGold": "",
+        "flavorText": "I'm offering you a bargain here! This amazing vacuum cleaner for your soul!",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          2895,
+          102639
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_720",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 126221,
+        "collectible": 1,
+        "slug": "126221-lotus-bookie",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Milica Celikovic ",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "玉莲帮荷官",
+        "text": "<b>亡语：</b>&获取一张幸运币。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d1d31a6d1aad9dfca75ce9bbdb6b2c302b9cbfa0d2c97882624e74d9f732f427.png",
+        "imageGold": "",
+        "flavorText": "稍稍抽了点水。本能使然。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94f160df6ff501ca195dcd912ba3fb2a7649732e51bc6273e09a5846a5dab59f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_720",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 126221,
+        "collectible": 1,
+        "slug": "126221-lotus-bookie",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Milica Celikovic ",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Lotus Bookie",
+        "text": "<b>Deathrattle:</b>& Get a Coin.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6480ab4e0dc39a5100f0d6519b9dc0b0a327d62d7ce3e8003d059892025cfaa.png",
+        "imageGold": "",
+        "flavorText": "He skims a bit from the top. It's just his nature.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94f160df6ff501ca195dcd912ba3fb2a7649732e51bc6273e09a5846a5dab59f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "GAME_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1746-zh_CN.json",
+      "response_sha256": "d50a0d308c8493423cea0f59abaea3d1d5871c07cc79d73d48c4ff5352207227",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=zh_CN",
+      "face": {
+        "id": 1746,
+        "collectible": 0,
+        "slug": "1746-the-coin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": null,
+        "artistName": "Ben Thompson",
+        "manaCost": 0,
+        "name": "幸运币",
+        "text": "在本回合中，获得一个 法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6f1b1c388f6548077088b713b918f871edfb2891f36d8d259882ecf084555bc.png",
+        "imageGold": "",
+        "flavorText": "不管你是花掉它还是留在手里，总有一枚幸运币留给后手的你。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=zh_CN",
+        "sha256": "d50a0d308c8493423cea0f59abaea3d1d5871c07cc79d73d48c4ff5352207227",
+        "bytes": 738,
+        "observed_at": "2026-10-17T09:02:18.250250+00:00"
+      }
+    },
+    {
+      "card_id": "GAME_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1746-en_US.json",
+      "response_sha256": "9d2890a85caba0ad81e095b78948d7b6c291945558df0696f54f4602a954c66a",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=en_US",
+      "face": {
+        "id": 1746,
+        "collectible": 0,
+        "slug": "1746-the-coin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": null,
+        "artistName": "Ben Thompson",
+        "manaCost": 0,
+        "name": "The Coin",
+        "text": "Gain 1 Mana Crystal this turn only.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cea40f4b0bf4e1b972706783f6d8f83639869990f9a3e6f09aa70bdc7467bdbd.png",
+        "imageGold": "",
+        "flavorText": "Whether you spend it or save it, it's always there for a second.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=1746&locale=en_US",
+        "sha256": "9d2890a85caba0ad81e095b78948d7b6c291945558df0696f54f4602a954c66a",
+        "bytes": 706,
+        "observed_at": "2026-10-17T09:02:18.426595+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "GAME_005": {
+      "cost": 0
+    }
+  },
+  "reviewed_templates": [
+    {
+      "card_id": "CATA_556",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p25.CATA_556",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_DRG_024",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p25.CORE_DRG_024",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_UNG_912",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p25.CORE_UNG_912",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_EDR_001",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p27.CORE_EDR_001.bc",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_KAR_069",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p27.CORE_KAR_069.bc",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CATA_484",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p29.CATA_484",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_BT_321",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p29.CORE_BT_321",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_ONY_022",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p29.CORE_ONY_022",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_WON_096",
+      "timing": "battlecry",
+      "behavior_id": "cards.simple_followup_p29.CORE_WON_096",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "JAIL_720",
+      "timing": "deathrattle",
+      "behavior_id": "cards.conditions.coin_gift",
+      "keywords": [],
+      "spell_damage": 0,
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    }
+  ]
+}
