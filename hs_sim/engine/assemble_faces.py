@@ -12,7 +12,7 @@ import json
 from .model import CardDefinition,CardType,EndTurnSpec,HandActionSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
 from .effects import Effect
 from .serialization import canonical_hash
-from .assemble_reactions import REACTION_PREFIX, REACTION_TIMINGS, reaction_behavior_id
+from .assemble_reactions import REACTION_PREFIX, LATE_REACTION_PREFIX, REACTION_TIMINGS, reaction_behavior_id
 
 PREFIX='assemble:'
 VERSION='assemble-face-v1'
@@ -23,7 +23,7 @@ OWNER_START_PREFIX='assemble.owner_start:'
 CONDITION_PREFIX='assemble.condition:'
 INNER_CONDITION_PREFIX='assemble.condition_inner:'
 BEFORE_PREFIX='assemble.before:'
-TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX,REACTION_PREFIX)
+TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX,REACTION_PREFIX,LATE_REACTION_PREFIX)
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN))

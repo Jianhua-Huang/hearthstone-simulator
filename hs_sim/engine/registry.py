@@ -151,6 +151,7 @@ class Registry:
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
         self._assemble_inner_conditions = set()
+        self._assemble_reaction_continuations = {}
         self._assemble_reaction_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
@@ -311,6 +312,18 @@ class Registry:
         if condition_id in self._assemble_inner_conditions:
             raise ValueError('Duplicate assembled inner-call condition')
         self._assemble_inner_conditions.add(condition_id)
+
+    @property
+    def assemble_reaction_continuations(self):
+        return MappingProxyType(self._assemble_reaction_continuations)
+
+    def register_assemble_reaction_continuation(self, profile):
+        from .assemble_reactions import validate_continuation
+        self._require_mutable()
+        validate_continuation(self, profile)
+        if profile.condition_id in self._assemble_reaction_continuations:
+            raise ValueError('Duplicate assembly reaction continuation')
+        self._assemble_reaction_continuations[profile.condition_id] = profile
 
     @property
     def assemble_projections(self):
@@ -1692,7 +1705,10 @@ class Registry:
         from .assemble_faces import (OWNER_START_PREFIX, owner_start_behavior, CONDITION_PREFIX,
             conditional_behavior, BEFORE_PREFIX, before_behavior, INNER_CONDITION_PREFIX,
             inner_condition_behavior)
-        from .assemble_reactions import REACTION_PREFIX, reaction_behavior
+        from .assemble_reactions import (REACTION_PREFIX, reaction_behavior,
+            LATE_REACTION_PREFIX, late_reaction_behavior)
+        if id.startswith(LATE_REACTION_PREFIX):
+            return late_reaction_behavior(self, id)
         if id.startswith(REACTION_PREFIX):
             return reaction_behavior(self, id)
         if id.startswith(OWNER_START_PREFIX):
@@ -2708,6 +2724,9 @@ class Registry:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
         if self._assemble_inner_conditions:
             payload['assemble_inner_conditions'] = sorted(self._assemble_inner_conditions)
+        if self._assemble_reaction_continuations:
+            payload['assemble_reaction_continuations'] = {
+                key: asdict(value) for key, value in sorted(self._assemble_reaction_continuations.items())}
         if self._assemble_reaction_sources:
             payload['assemble_reaction_sources'] = [asdict(self._assemble_reaction_sources[k])
                 for k in sorted(self._assemble_reaction_sources)]
