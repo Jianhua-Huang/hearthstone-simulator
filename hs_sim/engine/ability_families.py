@@ -174,6 +174,27 @@ class SelectFamilyTarget(Effect):
     result: ChoiceResult | None = None
 
 
+def assembled_trigger_source(registry, profile, card_id, *, battlecry_behavior=None):
+    """Recognize an immutable face carrying an approved original family body.
+
+    Physical source and activation IDs remain the actual ones. The original
+    donor authorizes the body; a prefix, a name or an unregistered recipe does
+    not authorize a family skill.
+    """
+    from .assemble_faces import PREFIX,recipe_from_id,text_source
+    if not card_id.startswith(PREFIX):return False
+    try:
+        recipe=recipe_from_id(card_id)
+        donor_id=recipe.secondary_card_id if recipe.half=='bottom' else recipe.primary_card_id
+        if donor_id not in profile.trigger_card_ids:return False
+        donor=registry.card(donor_id);template=text_source(registry,donor_id)
+        if donor.battlecry is None or template.suffix.behavior_id!=donor.battlecry:return False
+        face=registry.card(card_id)
+        return (face.kind==CardType.MINION and
+            (battlecry_behavior is None or face.battlecry==battlecry_behavior))
+    except (KeyError,TypeError,ValueError):return False
+
+
 def profile_for(registry, request):
     request.__post_init__()
     try: profile = registry.ability_family_profiles[request.family_id]
@@ -181,8 +202,8 @@ def profile_for(registry, request):
     if request.ability_card_id not in profile.ability_card_ids:
         raise ValueError('Skill is not a declared family member')
     allowed = (profile.native_card_id,) if request.native else profile.trigger_card_ids
-    if request.source.card_id not in allowed and not (not request.native and
-            request.battlecry_id is not None and request.source.kind==CardType.MINION):
+    if request.source.card_id not in allowed and not (not request.native and request.source.kind==CardType.MINION and
+            (request.battlecry_id is not None or assembled_trigger_source(registry,profile,request.source.card_id))):
         raise ValueError('Skill was attributed to an undeclared physical producer')
     return profile
 
@@ -201,7 +222,8 @@ def make_record(state, registry, request):
         from .battlecries import battlecry_record
         original=battlecry_record(state,request.battlecry_id)
         if ((original.source_id,original.player_id)!=(request.source.entity_id,request.player_id) or
-                original.payload.card_id not in profile.trigger_card_ids or not original.payload_started or
+                (original.payload.card_id not in profile.trigger_card_ids and not assembled_trigger_source(
+                    registry,profile,original.payload.card_id,battlecry_behavior=original.payload.behavior_id)) or not original.payload_started or
                 original.failure is not None or original.completed or original.interrupted):
             raise ValueError('Family skill lost its actual original or borrowed Battlecry')
     source = state.entities[request.source.entity_id]

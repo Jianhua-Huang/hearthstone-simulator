@@ -848,9 +848,12 @@ def register_combo_pool(registry, baseline, metadata_decoder=metadata_from_recor
 
 def build_registry(*, version: str = "representative-m5-v65", known_unrarified_ids: tuple[str, ...] = (),
                    initial_hero_power_bindings: tuple[tuple[str, str], ...] = (), defer_validation: bool = False,
-                   metadata_overrides: tuple[tuple[str, CardMetadata], ...] = ()) -> Registry:
+                   metadata_overrides: tuple[tuple[str, CardMetadata], ...] = (),
+                   constructed_card_spell_sources: bool = False) -> Registry:
     """Compile fixtures; an outer content assembler can defer final reference linking."""
     if type(defer_validation)is not bool:raise ValueError('Deferred content validation must be explicit boolean')
+    if type(constructed_card_spell_sources)is not bool:
+        raise ValueError('Constructed card-spell source policy requires explicit boolean')
     if (type(metadata_overrides)is not tuple or any(type(row)is not tuple or len(row)!=2 or
             type(row[0])is not str or not row[0].strip()or type(row[1])is not CardMetadata for row in metadata_overrides)):
         raise ValueError('Printed metadata overrides require immutable explicit card/metadata pairs')
@@ -894,6 +897,12 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
     registry.register_behavior('m5.breakout_architect',lambda c:[DiscoverFromPool(c.player_id,CARD_SPELL_POOL_ID,
         PoolQuery(kinds=(CardType.SPELL,),min_cost=5,collectible=True,class_mode='current'),
         source_id=c.source_id,spell_repeat=CardSpellRepeatGrant())])
+    architect_behavior = 'm5.breakout_architect'
+    if constructed_card_spell_sources:
+        architect_behavior = 'cards.breakout_architect.constructed'
+        registry.register_behavior(architect_behavior,lambda c:[DiscoverFromPool(c.player_id,'constructed.cards',
+            PoolQuery(kinds=(CardType.SPELL,),min_cost=5,collectible=True,class_mode='current'),
+            source_id=c.source_id,spell_repeat=CardSpellRepeatGrant())])
     registry.register_behavior('m5.pyroblast',lambda c:[Damage(c.target_id,10,c.source_id,DamageKind.SPELL)])
     def enemy_spell_batch(c,amount,freeze=False):
         ids=tuple(e.id for e in enemy_minions(c))
@@ -1371,7 +1380,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         definition('CATA_472', CardType.WEAPON, deathrattle='m5.inspiring_maul'),
         definition('ICC_901', minion, end_turn_repeats=(EndTurnRepeatSpec(2, 'all'),)),
         definition('CATA_480', spell, ongoing_effect_id='m5.sandfury_aura'),
-        definition('JAIL_123',minion,battlecry='m5.breakout_architect'),
+        definition('JAIL_123',minion,battlecry=architect_behavior),
         definition('CS2_028',spell,on_play='m5.blizzard'),
         definition('CS2_032',spell,on_play='m5.flamestrike'),
         definition('EX1_279',spell,on_play='m5.pyroblast',requires_target=True),

@@ -26,6 +26,7 @@ from hs_sim.engine.battlecry_sources import TriggerBattlecry
 from hs_sim.targets import canonical_digest
 
 TEST='k139.';ONE=TEST+'one';DRAGON=TEST+'dragon';ALL=TEST+'all';YETI='CORE_CS2_182'
+UNKNOWN=TEST+'explicit_unimplemented_one_cost'
 CONTEXT=GenerationContext('k139-complete-explicit-test-pool','experimental')
 MEMBERS=(ONE,DRAGON,ALL)
 ONE_QUERY=PoolQuery(kinds=(CardType.MINION,),collectible=True,min_cost=1,max_cost=1)
@@ -38,6 +39,9 @@ def registry(mode=None,members=MEMBERS):
         c=CardDefinition(cid,cid,CardType.MINION,cost=cost,attack=1,health=3,
             metadata=CardMetadata(True,(CardClass.NEUTRAL,),None,tribes=tribes))
         r.register_card(c);r.register_pool_card(PoolCard.from_definition(c))
+    if UNKNOWN in members:
+        # Complete eligible metadata, deliberately no executable definition.
+        r.register_pool_card(replace(r.pool_card(ONE),card_id=UNKNOWN))
     r.register_pool(PoolDefinition(POOL_ID,'k139-native-fill-v1',CONTEXT.target_id,CONTEXT.mode,
         tuple(PoolMember(cid)for cid in members),complete=True))
     def fail(c):raise ResolutionError('K139 deliberate continuation failure')
@@ -217,12 +221,17 @@ class NativePoolFillTests(unittest.TestCase):
 
     def test_unknown_eligible_content_fails_before_rng_even_with_full_destination(self):
         r=shared(None,MEMBERS)
-        unknown=next(c.card_id for c in r.pool_cards.values()if c.card_id not in r.cards and
-            not SPECIAL_GENERATION_KEYWORDS.intersection(c.keywords)and matches_metadata(ONE_QUERY,
-                card_id=c.card_id,kind=c.kind,cost=c.cost,meta=c.metadata,spell_school=c.spell_school,keywords=c.keywords))
+        unknown=UNKNOWN
+        self.assertIn(ONE,r.cards)
         for enemy in((),(YETI,)*7):
             with self.subTest(full=bool(enemy)):
                 g=self.game(enemy=enemy,members=(ONE,unknown));saved=g.snapshot();calls=[];original=random.Random.randrange
+                self.assertNotIn(unknown,g.registry.cards)
+                self.assertEqual(g.registry.pool_card(unknown),replace(r.pool_card(ONE),card_id=unknown))
+                member=g.registry.pool_card(unknown)
+                self.assertFalse(SPECIAL_GENERATION_KEYWORDS.intersection(member.keywords))
+                self.assertTrue(matches_metadata(ONE_QUERY,card_id=member.card_id,kind=member.kind,
+                    cost=member.cost,meta=member.metadata,spell_school=member.spell_school,keywords=member.keywords))
                 def spy(rng,*a,**kw):calls.append(a);return original(rng,*a,**kw)
                 with patch.object(random.Random,'randrange',autospec=True,side_effect=spy):
                     with self.assertRaises(ResolutionError):self.play(g)
@@ -273,8 +282,12 @@ class NativePoolFillTests(unittest.TestCase):
     def test_actual_old_schema_requires_original_engine_and_existing_definitions_stay_identical(self):
         g=self.game();s=g.snapshot();s['schema_version']=345
         with self.assertRaisesRegex(SnapshotError,f'schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1}'):Game.from_snapshot(s,shared(*self.config))
-        with patch('hs_sim.cards.native_pool_fill_cards.register_native_pool_fill_cards',lambda r:None):before=build_registry()
-        after=build_registry();self.assertEqual(set(after.cards)-set(before.cards),{CHAMPION,MUROZOND})
+        # Isolate the later consumer in both controlled registries; it now
+        # correctly requires the original Champion as a complete dependency.
+        with patch('hs_sim.cards.assemble_discovery_copy_count_fragments.register_assemble_discovery_copy_count_fragments',lambda r:None):
+            with patch('hs_sim.cards.native_pool_fill_cards.register_native_pool_fill_cards',lambda r:None):before=build_registry()
+            after=build_registry()
+        self.assertEqual(set(after.cards)-set(before.cards),{CHAMPION,MUROZOND})
         for cid,c in before.cards.items():self.assertEqual(asdict(c),asdict(after.card(cid)))
         self.assertEqual(dict(before.pool_cards),dict(after.pool_cards));self.assertEqual(dict(before.pools),dict(after.pools))
         self.assertEqual(dict(before.generation_families),dict(after.generation_families))
