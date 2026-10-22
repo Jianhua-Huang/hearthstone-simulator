@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .assemble_faces import CheckAssembledEndCondition
+        if type(value) is CheckAssembledEndCondition and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .draw_cast_grants import GrantedDrawCastBasis, validate_basis as validate_draw_cast_basis
         if type(value) is GrantedDrawCastBasis and self.origin_state is not None:
             validate_draw_cast_basis(self.origin_state, self.registry, value)

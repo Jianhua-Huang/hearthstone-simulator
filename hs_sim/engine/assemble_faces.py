@@ -10,6 +10,7 @@ import binascii
 import json
 
 from .model import CardDefinition,CardType,EndTurnSpec,HandActionSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
+from .effects import Effect
 from .serialization import canonical_hash
 
 PREFIX='assemble:'
@@ -48,7 +49,8 @@ class AssemblePrefix:
         _int(self.spell_damage,'assembled printed spell damage',0)
         if self.condition_id is not None:
             _name(self.condition_id,'assembled prefix condition')
-            if self.timing!='battlecry':raise ValueError('Conditional assembly prefix requires its reviewed Battlecry window')
+            if self.timing not in ('battlecry','end_turn'):
+                raise ValueError('Conditional assembly prefix requires its reviewed native Battlecry or end-turn window')
         if type(self.hand_actions)is not tuple or len(self.hand_actions)>1:
             raise ValueError('Assembly prefix requires one reviewed ordinary hand action or none')
         for spec in self.hand_actions:
@@ -97,6 +99,7 @@ class AssembleTemplate:
     suffix: AssembleSuffix
     original_battlecry_id: str|None=None
     original_start_turn_id: str|None=None
+    original_end_turn_id: str|None=None
 
     def __post_init__(self):
         _name(self.card_id,'assembled template source')
@@ -106,7 +109,7 @@ class AssembleTemplate:
         self.prefix.__post_init__();self.suffix.__post_init__()
         if self.original_battlecry_id is not None:
             _name(self.original_battlecry_id,'original conditional assembly Battlecry')
-            if(self.prefix.condition_id is None or
+            if(self.prefix.timing!='battlecry' or self.prefix.condition_id is None or
                     self.original_battlecry_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
                 raise ValueError('Original Battlecry bridge requires a reviewed native conditional prefix')
         if self.original_start_turn_id is not None:
@@ -114,6 +117,11 @@ class AssembleTemplate:
             if(self.prefix.timing!='start_turn' or
                     self.original_start_turn_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
                 raise ValueError('Original owner-start bridge requires its reviewed native start prefix')
+        if self.original_end_turn_id is not None:
+            _name(self.original_end_turn_id,'original conditional assembly end trigger')
+            if(self.prefix.timing!='end_turn' or self.prefix.condition_id is None or
+                    self.original_end_turn_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
+                raise ValueError('Original end-turn bridge requires its reviewed native conditional prefix')
 
 @dataclass(frozen=True)
 class AssembleProjection:
@@ -202,7 +210,8 @@ def printed_face(primary,prefix,suffix,card_id):
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,
         battlecry=battlecry,
         deathrattle=(suffix.deathrattle_behavior_id or suffix.behavior_id)if 'deathrattle'in timings else None,
-        triggers=((TriggerSpec('turn_ended',suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
+        triggers=((TriggerSpec('turn_ended',condition_behavior_id(prefix.condition_id,suffix.behavior_id)
+            if prefix.condition_id is not None else suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
             (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else ()),
         requires_target=suffix.requires_target if 'battlecry'in timings else False,
         targeting=suffix.targeting if 'battlecry'in timings else None,
@@ -234,6 +243,12 @@ def validate_template(registry,template):
         declared=(TriggerSpec('turn_started',template.original_start_turn_id),)
         if primary.triggers!=declared:
             raise ValueError('Owner-start assembly changed its exact complete original trigger identity')
+        original=replace(original,triggers=declared)
+    if template.original_end_turn_id is not None:
+        registry.behavior(template.original_end_turn_id)
+        declared=(TriggerSpec('turn_ended',template.original_end_turn_id,template.prefix.end_turn),)
+        if primary.triggers!=declared:
+            raise ValueError('Conditional assembly changed its exact complete original end-turn trigger identity')
         original=replace(original,triggers=declared)
     if original!=primary:raise ValueError('Reviewed halves do not reconstruct the complete original minion')
     registry._validate_card(original)
@@ -296,7 +311,7 @@ def condition_behavior_id(condition_id,behavior_id):
     return result
 
 
-def conditional_behavior(registry,behavior_id):
+def conditional_parts(registry,behavior_id):
     from .registry import UnsupportedDefinitionError
     try:
         if len(behavior_id)>8192:raise ValueError('Oversized conditional identity')
@@ -305,19 +320,73 @@ def conditional_behavior(registry,behavior_id):
         if type(row)is not dict or set(row)!={'condition_id','behavior_id'}or condition_behavior_id(**row)!=behavior_id:
             raise ValueError('Noncanonical conditional identity')
         sources=(*registry._assemble_templates.values(),*registry._assemble_projections.values())
-        if(not any(s.prefix.condition_id==row['condition_id']for s in sources)or
-                not any(s.suffix.behavior_id==row['behavior_id']and 'battlecry'in s.suffix.allowed_timings for s in sources)):
+        timings={s.prefix.timing for s in sources if s.prefix.condition_id==row['condition_id']} & {
+            t for s in sources if s.suffix.behavior_id==row['behavior_id'] for t in s.suffix.allowed_timings}
+        if not timings:
             raise ValueError('Unreviewed assembly condition or payload')
         predicate=registry.trigger_condition(row['condition_id']);body=registry.behavior(row['behavior_id'])
     except(ValueError,TypeError,UnicodeError,binascii.Error)as exc:
         raise UnsupportedDefinitionError('Unsupported assembled conditional body: '+str(exc))from exc
+    return row,predicate,body,frozenset(timings)
+
+
+def conditional_behavior(registry,behavior_id):
+    row,predicate,body,timings=conditional_parts(registry,behavior_id)
     def run(context):
-        if context.battlecry is None or context.battlecry.payload.behavior_id!=behavior_id:
-            raise ValueError('Conditional assembly requires its original native Battlecry context')
-        result=predicate(context)
-        if type(result)is not bool:raise ValueError('Assembly condition requires an explicit boolean')
-        return body(context)if result else()
+        if ('battlecry'in timings and context.battlecry is not None and
+                context.battlecry.payload.behavior_id==behavior_id):
+            result=predicate(context)
+            if type(result)is not bool:raise ValueError('Assembly condition requires an explicit boolean')
+            return body(context)if result else()
+        if ('end_turn'in timings and context.end_turn is not None and
+                context.end_turn.subject.behavior_id==behavior_id):
+            from .end_turns import validate_context
+            validate_context(context,registry)
+            return (CheckAssembledEndCondition(context.end_turn.id,context.source_id,context.player_id,
+                row['condition_id'],row['behavior_id']),)
+        raise ValueError('Conditional assembly requires its original native Battlecry or end-turn context')
     return run
+
+
+@dataclass(frozen=True)
+class CheckAssembledEndCondition(Effect):
+    """Read the live inner-call view, bound to the already accepted end subject."""
+    activation_id: int
+    source_id: int
+    player_id: int
+    condition_id: str
+    behavior_id: str
+
+    def __post_init__(self):
+        _int(self.activation_id,'assembled end activation',1)
+        _int(self.source_id,'assembled end source',1)
+        if type(self.player_id)is not int or self.player_id not in (1,2):
+            raise ValueError('Assembled end condition requires its accepted player')
+        condition_behavior_id(self.condition_id,self.behavior_id)
+
+    def validate_in_state(self,state,registry):
+        from .end_turns import record,running_parent
+        self.__post_init__()
+        saved=record(state,self.activation_id);subject=saved.capture.subject
+        bid=condition_behavior_id(self.condition_id,self.behavior_id)
+        if (saved.execution_order is None or saved.completed or saved.interrupted or saved.skipped or
+                running_parent(state)!=self.activation_id or self.source_id not in state.entities or
+                (subject.source_id,subject.player_id,subject.behavior_id)!=(self.source_id,self.player_id,bid)):
+            raise ValueError('Assembled end condition differs from its running accepted subject')
+        if 'end_turn'not in conditional_parts(registry,bid)[3]:
+            raise ValueError('Assembled condition lacks its reviewed end-turn window')
+
+
+def check_end_condition(resolver,effect):
+    effect.validate_in_state(resolver.state,resolver.registry)
+    bid=condition_behavior_id(effect.condition_id,effect.behavior_id)
+    predicate=conditional_parts(resolver.registry,bid)[1]
+    # Match the original InvokeBehavior boundary, without manufacturing a new
+    # EndTurnCapture in this fresh view or moving the check to early acceptance.
+    call=resolver.call(effect.behavior_id,effect.source_id,effect.player_id)
+    result=predicate(call.context)
+    if type(result)is not bool:raise ValueError('Assembly condition requires an explicit boolean')
+    return [call]if result else []
 
 def validate_templates(registry):
     for cid,template in registry._assemble_templates.items():

@@ -195,7 +195,9 @@ class AssembleOwnerStartBodyTests(unittest.TestCase):
     def test_reviewed_old_draw_amendment_preserves_every_prior_field_and_rejects_unpinned_or_frozen_changes(self):
         r=build_registry();current=r.assemble_templates[LOOT];amendment=load_batch()['profile_amendments'][0]
         prior=replace(current,suffix=replace(current.suffix,allowed_timings=('battlecry','deathrattle','end_turn')))
-        self.assertEqual(canonical_digest(asdict(prior)),amendment['original_template_sha256'])
+        legacy=asdict(prior)
+        self.assertIsNone(legacy.pop('original_end_turn_id'))
+        self.assertEqual(canonical_digest(legacy),amendment['original_template_sha256'])
         self.assertEqual(current.suffix.allowed_timings,('battlecry','deathrattle','end_turn','start_turn'))
         saved=r.fingerprint();pin=canonical_digest(asdict(current))
         for timings,expected in((('start_turn',),'0'*64),(('start_turn',),pin),((),pin),([],pin),(('invented',),pin)):

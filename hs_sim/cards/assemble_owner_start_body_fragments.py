@@ -33,5 +33,12 @@ def register_assemble_owner_start_body_fragments(registry):
     registry.register_assemble_template(AssembleTemplate(CARD,AssemblePrefix('start_turn'),
         AssembleSuffix(body,tuple(decl['allowed_timings'])),original_start_turn_id=decl['original_start_turn_id']))
     for amendment in data['profile_amendments']:
+        current=asdict(registry.assemble_templates[amendment['card_id']])
+        legacy=dict(current)
+        # The saved whole-template pin predates the optional end bridge. Only
+        # its absent default may be added; all previously pinned fields remain.
+        if (legacy.pop('original_end_turn_id') is not None or
+                canonical_digest(legacy)!=amendment['original_template_sha256']):
+            raise TargetValidationError('Owner-start assembly changed its complete original timing declaration')
         registry.extend_assemble_suffix_timings(amendment['card_id'],tuple(amendment['additional_allowed_timings']),
-            expected_template_sha256=amendment['original_template_sha256'])
+            expected_template_sha256=canonical_digest(current))
