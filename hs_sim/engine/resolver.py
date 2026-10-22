@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v642'
+CORE_EFFECTS_VERSION = 'core-effects-v643'
 
 
 class Mechanics:
@@ -557,6 +557,8 @@ class Resolution:
             interactable_object=interactable_object, entry_dormant_turns=entry_dormant_turns)
         from .native_stat_gains import seed
         seed(self,entity)
+        from .location_rune_locks import publish_birth
+        publish_birth(self, entity)
         return entity
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', hand_entry_source_id=None, controller_id=None, draw_id=None):
@@ -637,6 +639,9 @@ class Resolution:
         if zone == Zone.HAND and previous_zone != Zone.HAND and hand_entry_reason is not None:
             from .hand_history import enter_hand
             enter_hand(self.state, entity, previous_zone, hand_entry_reason, source_id=hand_entry_source_id)
+        from .location_rune_locks import initialize as initialize_location_lock, publish_birth
+        initialize_location_lock(self.state, self.registry, entity)
+        publish_birth(self, entity)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
         from .minion_base_programs import synchronize as synchronize_minion_bases
@@ -1637,7 +1642,9 @@ def play_from_hand(r, effect):
     pay_quote(r,player,entity,quote,exclude_held_source=True)
     paid_hand_submission_base = None if paid_hand_proof is None else deepcopy(r.state)
     from .play_history import commit_play
-    commit_play(r.state, record)
+    lock_updates = commit_play(r.state, record)
+    from .location_rune_locks import publish_progress as publish_location_progress
+    publish_location_progress(r, record, lock_updates)
     note_spell_group_submission(r, record)
     paid_hand_tail = None
     if paid_hand_proof is not None:

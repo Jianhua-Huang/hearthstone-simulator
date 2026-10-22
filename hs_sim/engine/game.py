@@ -720,6 +720,8 @@ class Game:
         validate_opening_boundary(self)
         from .turn_clocks import validate_boundary as validate_turn_clock
         validate_turn_clock(self)
+        from .location_rune_locks import validate_boundary as validate_location_locks
+        validate_location_locks(self)
         from .vanished_cards import validate_boundary as validate_vanished_cards
         validate_vanished_cards(self)
         self._information.validate(self)

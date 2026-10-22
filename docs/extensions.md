@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+`location.runes-after-entry-v1`用于真实“入场后集齐三类符文，首次解锁后正常冷却”的地标。复用原出牌提交、玩家open投影和地标执行，不从整局旧历史或当前牌面反查；入口、私有收据及未支持的在场CardReference边界见[隔离区契约](m3-uldir-rune-lock.md)。
+
 整局“用于随从牌的法力”沿`played_cards`的原MINION及MANA支付金额查询，实际主体仍组合现有`GrantCapturedKeyword`、`ForceAttack`、`BuffCapturedMinion`、`SummonFromPool`和一次`AddCostModifier`。亚煞极的原交付复制及期限边界见[契约](m3-yshaarj-old-god.md)，不得按当前实体名字或印刷费用反推历史支出。
 
 真实“每召唤一个亡语随从减1费”使用`PlayerSummonCountCostSpec('cost.player-summoned-deathrattle-count-v1')`，读取原成功入场行的deathrattle_ids。不要用当前实体文本或额外玩家计数器代替原事实；恩佐斯四技能的普通发现/复活/亡语组合及待校准政策见[契约](m3-nzoth-deathrattle-summons.md)。

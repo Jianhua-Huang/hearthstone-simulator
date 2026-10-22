@@ -67,5 +67,7 @@ def create_entity(state, registry, player_id, card_id, zone, position=None, read
     if zone == Zone.HAND:
         from .hand_history import enter_hand
         enter_hand(state, entity, reason=hand_entry_reason, source_id=hand_entry_source_id)
+    from .location_rune_locks import initialize as initialize_location_lock
+    initialize_location_lock(state, registry, entity)
     return entity
 

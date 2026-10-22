@@ -232,6 +232,8 @@ def commit_play(state, record):
     consume_native_spell_bonus(state,record.player_id,record.next_spell_bonus_effects)
     from .held_opponent_copies import note_play
     note_play(state, record)
+    from .location_rune_locks import note_play as note_location_lock_play
+    return note_location_lock_play(state, record)
 
 
 def play_record(state, play_id):

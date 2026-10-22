@@ -270,6 +270,7 @@ def reset_to_definition(state, entity, definition, registry=None, *, components=
     entity.hand_lifetime = None
     entity.choose_branch = None
     entity.preparation = None
+    entity.location_lock = None
     install_base(state, entity, definition, registry, components)
     entity.enchantments.extend(ritual)
     entity.abilities.extend(ritual_abilities)

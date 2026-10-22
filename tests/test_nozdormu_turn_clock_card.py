@@ -2,6 +2,7 @@
 from copy import deepcopy
 from dataclasses import asdict
 import json
+from types import SimpleNamespace
 import unittest
 
 from hs_sim.cards.nozdormu_turn_clock_card import CARD, load_batch, register_nozdormu_turn_clock_card
@@ -56,6 +57,23 @@ def fixture(mode='normal'):
 
 
 class NozdormuTurnClockTests(unittest.TestCase):
+    def test_source_absent_frozen_projection_needs_no_synthetic_event_host(self):
+        from hs_sim.engine.turn_clocks import installation
+        g = self.game(both=False)
+        probe = SimpleNamespace(_state=g.state, registry=g.registry)
+        self.assertIsNone(installation(probe))
+        self.assertIsNone(current(probe))
+
+    def test_eligible_frozen_projection_requires_and_preserves_real_clock_events(self):
+        from hs_sim.engine.turn_clocks import installation
+        g = self.game()
+        probe = SimpleNamespace(_state=g.state, registry=g.registry)
+        with self.assertRaisesRegex(ValueError, 'original event receipts'): installation(probe)
+        self.tick(g, 1234)
+        probe = SimpleNamespace(_state=g.state, registry=g.registry, _events=tuple(g._events))
+        self.assertEqual(current(probe), current(g))
+        self.assertEqual(current(probe)['elapsed_ms'], 1234)
+
     def game(self, *, mode='normal', both=True, first=1, opening=False, duplicate=False, seed=71):
         r=fixture(mode)
         own=(CARD,)+(ASK,)*7

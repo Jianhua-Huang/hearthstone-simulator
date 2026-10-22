@@ -98,6 +98,11 @@ def original_source(game):
 
 def installation(game):
     if not game.registry._turn_clock_profiles: return None
+    if not hasattr(game, '_events'):
+        # Frozen legality probes can prove absence from the original decks.
+        # An eligible source still requires the genuine installation/time log.
+        if original_source(game) is None: return None
+        raise ValueError('Eligible turn-clock projection requires its original event receipts')
     return next((e for e in game._events if e.kind == INSTALL), None)
 
 

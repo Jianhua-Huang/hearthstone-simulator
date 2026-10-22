@@ -10187,6 +10187,7 @@ class Entity:
     starship_building: bool = False
     kind: CardType = CardType.MINION
     location_cooldown: int = 0
+    location_lock: object | None = None
     dormancy: DormancyState | None = None
     quest_progress: QuestProgress | None = None
     secret_instance_id: int | None = None
@@ -12175,6 +12176,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_interactable_state(state, registry)
     from .game_boards import validate_state as validate_board_state
     validate_board_state(state, registry)
+    from .location_rune_locks import validate_state as validate_location_rune_locks
+    validate_location_rune_locks(state, registry)
 
 
 def validate_composition(entity, registry):

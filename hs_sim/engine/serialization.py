@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 529
+SNAPSHOT_SCHEMA_VERSION = 530
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1770,6 +1770,8 @@ def _copy_origin_from_dict(value):
 
 def entity_from_dict(row):
     row = _row(row, Entity)
+    from .location_rune_locks import from_dict as location_lock_from_dict
+    row['location_lock'] = location_lock_from_dict(row['location_lock'])
     row['copy_origin'] = _copy_origin_from_dict(row['copy_origin'])
     if row['choose_branch'] is not None:
         from .choose_branch_state import selection_from_dict

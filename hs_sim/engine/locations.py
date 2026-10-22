@@ -18,6 +18,9 @@ def location_error(state, registry, rules, player_id, entity_id, *, context_fact
         return 'Activation requires a controlled location in play'
     if source.location_cooldown:
         return 'Location is cooling down'
+    from .location_rune_locks import is_locked
+    if is_locked(source):
+        return 'Location is Rune-locked'
     definition = registry.card(source.card_id)
     # The last durability frees its slot at the activation checkpoint (R-037).
     if definition.requires_board_space and source.durability > 1 and len(state.players[player_id].board) >= rules.max_board:
@@ -178,7 +181,11 @@ def modify_location(r, effect):
                player_id=entity.controller, amount=effect.durability, durability=entity.durability)
     else:
         entity.location_cooldown = 0
-        r.emit('location_opened', source_id=effect.source_id, target_id=entity.id, player_id=entity.controller)
+        from .location_rune_locks import is_locked
+        locked = is_locked(entity)
+        r.emit('location_cooldown_changed' if locked else 'location_opened',
+            source_id=effect.source_id, target_id=entity.id, player_id=entity.controller,
+            **({'cooldown': 0} if locked else {}))
 
 
 def begin_location_turn(r, player):

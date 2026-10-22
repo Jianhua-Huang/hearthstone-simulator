@@ -422,8 +422,9 @@ class Information:
                     result['minion_abilities'] = [{'ability_id': a.activation.id, 'card_id': a.activation.card_id,
                         'used': a.consumed} for a in entity.abilities if a.kind == 'activated']
                 if entity.kind == CardType.LOCATION:
+                    from .location_rune_locks import is_locked
                     result['location'] = {'cooldown_remaining': entity.location_cooldown,
-                        'open': entity.zone == Zone.BOARD and entity.location_cooldown == 0 and entity.durability > 0 and not entity.doomed}
+                        'open': entity.zone == Zone.BOARD and entity.location_cooldown == 0 and entity.durability > 0 and not entity.doomed and not is_locked(entity)}
                 from .crafted_faces import public_recipe
                 crafted=public_recipe(entity.card_id)
                 if crafted is not None:result['crafted']=crafted
