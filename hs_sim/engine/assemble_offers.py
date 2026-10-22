@@ -7,7 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass,replace
 from random import Random
 
-from .assemble_faces import AssembleRecipe,text_source,prefix_timings,compatible,printed_face
+from .assemble_faces import AssembleRecipe,text_source,prefix_timings,compatible,source_face
 from .effects import Effect,AddToHand,ChoiceOption,RequestChoice,_player,_source
 from .card_creation import CreatedMinionGrant,validate_minion_grant
 from .errors import ResolutionError
@@ -150,9 +150,7 @@ def candidates(registry,context,state,spec,primary=None):
 
 def recipe_options(registry,primary,secondary,passive_power_template_id=None):
     first=text_source(registry,primary,primary=True);second=text_source(registry,secondary)
-    from .assemble_colossal import prefix_appendages
-    original=printed_face(registry.card(primary),first.prefix,first.suffix,primary,
-        colossal=prefix_appendages(registry,first))
+    original=source_face(registry,registry.card(primary),first,first.suffix,primary)
     options=[]
     for half in('top','bottom'):
         prefix=second.prefix if half=='top'else first.prefix

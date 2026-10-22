@@ -155,6 +155,7 @@ class Registry:
         self._assemble_reaction_sources = {}
         self._assemble_colossal_sources = {}
         self._assemble_on_play_sources = {}
+        self._assemble_on_play_death_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -311,11 +312,23 @@ class Registry:
     def assemble_on_play_sources(self):
         return MappingProxyType(self._assemble_on_play_sources)
 
+    @property
+    def assemble_on_play_death_sources(self):
+        return MappingProxyType(self._assemble_on_play_death_sources)
+
+    def register_assemble_on_play_death_source(self, profile):
+        from .assemble_on_play import validate_death_source
+        self._require_mutable()
+        validate_death_source(self, profile)
+        if profile.card_id in self._assemble_on_play_death_sources or profile.card_id in self._assemble_on_play_sources:
+            raise ValueError('Duplicate assembly actual play/death source')
+        self._assemble_on_play_death_sources[profile.card_id] = profile
+
     def register_assemble_on_play_source(self, profile):
         from .assemble_on_play import validate_source
         self._require_mutable()
         validate_source(self, profile)
-        if profile.card_id in self._assemble_on_play_sources:
+        if profile.card_id in self._assemble_on_play_sources or profile.card_id in self._assemble_on_play_death_sources:
             raise ValueError('Duplicate assembly minion play source')
         self._assemble_on_play_sources[profile.card_id] = profile
 
@@ -569,7 +582,7 @@ class Registry:
 
     @property
     def kindred_profiles(self):
-        if self._assemble_on_play_sources:
+        if self._assemble_on_play_sources or self._assemble_on_play_death_sources:
             from .assemble_on_play import KindredCatalog
             return KindredCatalog(self)
         return MappingProxyType(self._kindred_profiles)
@@ -2766,6 +2779,9 @@ class Registry:
         if self._assemble_on_play_sources:
             payload['assemble_on_play_sources'] = [asdict(self._assemble_on_play_sources[k])
                 for k in sorted(self._assemble_on_play_sources)]
+        if self._assemble_on_play_death_sources:
+            payload['assemble_on_play_death_sources'] = [asdict(self._assemble_on_play_death_sources[k])
+                for k in sorted(self._assemble_on_play_death_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

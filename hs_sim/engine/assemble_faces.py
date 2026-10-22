@@ -18,7 +18,10 @@ PREFIX='assemble:'
 VERSION='assemble-face-v1'
 TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn','on_play'))|REACTION_TIMINGS
 DUAL_TIMING='battlecry_deathrattle'
-PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING}
+PLAY_DEATH_TIMING='on_play_deathrattle'
+PLAY_PREFIX_DEATH_TIMING='on_play_prefix_deathrattle'
+PLAY_PREFIXES=frozenset(('on_play',PLAY_DEATH_TIMING,PLAY_PREFIX_DEATH_TIMING))
+PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING,PLAY_DEATH_TIMING,PLAY_PREFIX_DEATH_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
 CONDITION_PREFIX='assemble.condition:'
 INNER_CONDITION_PREFIX='assemble.condition_inner:'
@@ -54,11 +57,11 @@ class AssemblePrefix:
         _int(self.spell_damage,'assembled printed spell damage',0)
         if self.condition_id is not None:
             _name(self.condition_id,'assembled prefix condition')
-            if self.timing not in ('battlecry','end_turn','on_play') and self.timing not in REACTION_TIMINGS:
+            if self.timing not in ('battlecry','end_turn') and self.timing not in PLAY_PREFIXES and self.timing not in REACTION_TIMINGS:
                 raise ValueError('Conditional assembly prefix requires its reviewed native Battlecry or end-turn window')
         if self.timing in REACTION_TIMINGS and self.condition_id is None:
             raise ValueError('Reaction prefix requires its actual reviewed native condition')
-        if self.timing=='on_play' and self.condition_id is None:
+        if self.timing in PLAY_PREFIXES and self.condition_id is None:
             raise ValueError('Minion play prefix requires its actual reviewed native condition')
         if self.before_behavior_id is not None:
             _name(self.before_behavior_id,'assembled prefix body')
@@ -209,14 +212,18 @@ def recipe_from_id(card_id):
 
 def prefix_timings(prefix):
     prefix.__post_init__()
+    if prefix.timing==PLAY_DEATH_TIMING:return ('on_play','deathrattle')
+    if prefix.timing==PLAY_PREFIX_DEATH_TIMING:return ('on_play',)
     return ('battlecry','deathrattle')if prefix.timing==DUAL_TIMING else(prefix.timing,)
 
 
 def compatible(prefix,suffix):
     suffix.__post_init__()
     timings=prefix_timings(prefix)
-    if (prefix.timing in REACTION_TIMINGS or prefix.timing=='on_play') and prefix.timing not in suffix.allowed_timings:
+    if prefix.timing in REACTION_TIMINGS and prefix.timing not in suffix.allowed_timings:
         raise ValueError('Eligible reaction body context remains explicitly unimplemented: '+prefix.timing)
+    if 'on_play'in timings and any(t not in suffix.allowed_timings for t in timings):
+        raise ValueError('Eligible minion play body context remains explicitly unimplemented: '+','.join(timings))
     if any(t in suffix.pending_timings for t in timings):
         raise ValueError('Eligible assembly timing remains explicitly unimplemented: '+','.join(timings))
     if prefix.condition_id is not None and(suffix.requires_target or suffix.targeting is not None):
@@ -224,10 +231,13 @@ def compatible(prefix,suffix):
     return all(t in suffix.allowed_timings for t in timings)
 
 
-def printed_face(primary,prefix,suffix,card_id,*,colossal=()):
+def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None):
     prefix.__post_init__();suffix.__post_init__()
     if type(colossal)is not tuple or bool(colossal)!=(Keyword.COLOSSAL in prefix.keywords):
         raise ValueError('Assembled Colossal face requires the complete selected prefix appendages')
+    if (prefix_deathrattle is not None)!=(prefix.timing==PLAY_PREFIX_DEATH_TIMING):
+        raise ValueError('Assembled independent prefix Deathrattle requires its complete selected material')
+    if prefix_deathrattle is not None:_name(prefix_deathrattle,'assembled independent prefix Deathrattle')
     if not compatible(prefix,suffix):raise ValueError('Unreviewed prefix/suffix compatibility')
     timings=prefix_timings(prefix)
     battlecry=(condition_behavior_id(prefix.condition_id,suffix.behavior_id)if prefix.condition_id is not None
@@ -237,9 +247,9 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=()):
         if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
         if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,colossal=colossal,
-        on_play=condition_behavior_id(prefix.condition_id,suffix.behavior_id) if prefix.timing=='on_play' else None,
+        on_play=condition_behavior_id(prefix.condition_id,suffix.behavior_id) if 'on_play'in timings else None,
         battlecry=battlecry,
-        deathrattle=deathrattle if 'deathrattle'in timings else None,
+        deathrattle=deathrattle if 'deathrattle'in timings else prefix_deathrattle,
         triggers=((TriggerSpec('turn_ended',condition_behavior_id(prefix.condition_id,suffix.behavior_id)
             if prefix.condition_id is not None else suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
             (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else
@@ -248,6 +258,15 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=()):
         requires_target=suffix.requires_target if 'battlecry'in timings else False,
         targeting=suffix.targeting if 'battlecry'in timings else None,
         target_rule=suffix.target_rule if 'battlecry'in timings else 'any_entity')
+
+def source_face(registry,primary,prefix_source,suffix,card_id):
+    """One complete material path for validation, options and canonical faces."""
+    from .assemble_colossal import prefix_appendages
+    from .assemble_on_play import prefix_deathrattle
+    return printed_face(primary,prefix_source.prefix,suffix,card_id,
+        colossal=prefix_appendages(registry,prefix_source),
+        prefix_deathrattle=prefix_deathrattle(registry,prefix_source))
+
 
 def validate_template(registry,template):
     template.__post_init__()
@@ -265,18 +284,18 @@ def validate_template(registry,template):
     if template.suffix.requires_target or template.suffix.targeting is not None:
         registry.target_rule(template.suffix.target_rule)
     if template.prefix.end_turn is not None:registry.trigger_condition(template.prefix.end_turn.condition_id)
-    from .assemble_colossal import prefix_appendages
-    original=printed_face(primary,template.prefix,template.suffix,primary.id,
-        colossal=prefix_appendages(registry,template))
+    original=source_face(registry,primary,template,template.suffix,primary.id)
     if template.prefix.timing in REACTION_TIMINGS:
         from .assemble_reactions import original_trigger
         original=replace(original,triggers=original_trigger(registry,template))
     elif template.card_id in registry._assemble_reaction_sources:
         raise ValueError('Reaction source bridge cannot mask another prefix timing')
-    if template.prefix.timing=='on_play':
+    if template.prefix.timing in PLAY_PREFIXES:
         from .assemble_on_play import original_on_play
         original=replace(original,on_play=original_on_play(registry,template))
-    elif template.card_id in registry._assemble_on_play_sources:
+        profile=registry._assemble_on_play_death_sources.get(template.card_id)
+        if profile is not None:original=replace(original,deathrattle=profile.original_deathrattle_id)
+    elif template.card_id in registry._assemble_on_play_sources or template.card_id in registry._assemble_on_play_death_sources:
         raise ValueError('Minion play source bridge cannot mask another prefix timing')
     if template.original_battlecry_id is not None:
         registry.behavior(template.original_battlecry_id)
@@ -304,7 +323,7 @@ def validate_template(registry,template):
     registry._validate_card(original)
 
 def validate_projection(registry,projection):
-    if projection.prefix.timing=='on_play':
+    if projection.prefix.timing in PLAY_PREFIXES:
         raise ValueError('Assembly minion play requires an original native minion template')
     if Keyword.COLOSSAL in projection.prefix.keywords:
         raise ValueError('Assembly Colossal prefix requires an original native minion template')
@@ -432,7 +451,7 @@ def conditional_parts(registry,behavior_id):
         if type(row)is not dict or set(row)!={'condition_id','behavior_id'}or condition_behavior_id(**row)!=behavior_id:
             raise ValueError('Noncanonical conditional identity')
         sources=(*registry._assemble_templates.values(),*registry._assemble_projections.values())
-        timings={s.prefix.timing for s in sources if s.prefix.condition_id==row['condition_id']} & {
+        timings={t for s in sources if s.prefix.condition_id==row['condition_id'] for t in prefix_timings(s.prefix)} & {
             t for s in sources if s.suffix.behavior_id==row['behavior_id'] for t in s.suffix.allowed_timings}
         if not timings:
             raise ValueError('Unreviewed assembly condition or payload')
@@ -587,9 +606,7 @@ def resolve_face(registry,card_id):
         prefix_source=second if recipe.half=='top' else first
         prefix=prefix_source.prefix
         suffix=second.suffix if recipe.half=='bottom' else first.suffix
-        from .assemble_colossal import prefix_appendages
-        face=printed_face(registry._cards[first.card_id],prefix,suffix,card_id,
-            colossal=prefix_appendages(registry,prefix_source))
+        face=source_face(registry,registry._cards[first.card_id],prefix_source,suffix,card_id)
         registry._validate_card(face)
         return face
     except (ValueError,TypeError,KeyError)as exc:
