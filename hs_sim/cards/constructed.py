@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v504"
+CONTENT_VERSION = "constructed-cn37-preview-v505"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -805,8 +805,8 @@ def build_registry():
     register_carved_treant_cards(registry)
     from .wallow_card import register_wallow_card
     register_wallow_card(registry)
-    from .time_lord_nozdormu_card import register_time_lord_nozdormu_card
-    register_time_lord_nozdormu_card(registry)
+    from .time_lord_nozdormu_card import register_time_lord_nozdormu_card, POSTLAUNCH_POLICY
+    register_time_lord_nozdormu_card(registry, policy_id=POSTLAUNCH_POLICY)
     from .shadow_of_demise_card import register_shadow_of_demise_card
     register_shadow_of_demise_card(registry)
     from .fission_card import register_fission_card

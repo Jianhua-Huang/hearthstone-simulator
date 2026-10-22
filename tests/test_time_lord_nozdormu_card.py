@@ -1,4 +1,4 @@
-"""Timelord uses original printed editions and original physical dormancy."""
+"""Historical prelaunch policy keeps original editions and physical dormancy."""
 from copy import deepcopy
 from dataclasses import replace
 from functools import lru_cache
@@ -6,7 +6,7 @@ import json
 import unittest
 
 from hs_sim.cards import build_registry
-from hs_sim.cards.time_lord_nozdormu_card import CARD, BODY, load_batch
+from hs_sim.cards.time_lord_nozdormu_card import CARD, BODY, load_batch,register_time_lord_nozdormu_card
 from hs_sim.engine import (Attack, CardDefinition, CardType, EndTurn, Game, Keyword, PlayCard,
     PlayerSetup, Scenario, SelectChoice, TriggerSpec, Zone)
 from hs_sim.engine.dormancy import (AdvanceCapturedDormancy, AwakenMinion, MakeDormant)
@@ -27,6 +27,13 @@ OLD = 'CORE_CS2_182'
 @lru_cache(None)
 def registry(mode=None):
     r = build_registry()
+    # Keep every original assertion tied to its explicit prelaunch target.
+    # Current constructed defaults have a distinct, reviewed postlaunch body.
+    current = r._cards.pop(CARD)
+    r._pool_cards.pop(CARD)
+    r._behaviors.pop(current.dormant_triggers[0].behavior_id)
+    register_time_lord_nozdormu_card(r)
+    r._version += '.timelord-prelaunch-20261015-fixture'
     def fail(c): raise ResolutionError('Timelord deliberate continuation failure')
     r.register_behavior(P+'fail', fail)
     r.register_behavior(P+'unknown', lambda c: (GainArmor(c.player_id, 1),))
