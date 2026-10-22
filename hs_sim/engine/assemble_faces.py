@@ -9,7 +9,7 @@ import base64
 import binascii
 import json
 
-from .model import CardDefinition,CardType,EndTurnSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name
+from .model import CardDefinition,CardType,EndTurnSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
 from .serialization import canonical_hash
 
 PREFIX='assemble:'
@@ -18,17 +18,20 @@ TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))
 DUAL_TIMING='battlecry_deathrattle'
 PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
+CONDITION_PREFIX='assemble.condition:'
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule'))
+    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
     timing: str
     keywords: tuple[Keyword,...]=()
     end_turn: EndTurnSpec|None=None
+    spell_damage: int=0
+    condition_id: str|None=None
 
     def __post_init__(self):
         if type(self.timing)is not str or self.timing not in PREFIX_TIMINGS:
@@ -41,6 +44,10 @@ class AssemblePrefix:
             self.end_turn.__post_init__()
         elif self.end_turn is not None:
             raise ValueError('Only end-turn text has an end-turn policy')
+        _int(self.spell_damage,'assembled printed spell damage',0)
+        if self.condition_id is not None:
+            _name(self.condition_id,'assembled prefix condition')
+            if self.timing!='battlecry':raise ValueError('Conditional assembly prefix requires its reviewed Battlecry window')
 
 @dataclass(frozen=True)
 class AssembleSuffix:
@@ -50,10 +57,11 @@ class AssembleSuffix:
     targeting: TargetSpec|None=None
     target_rule: str='any_entity'
     deathrattle_behavior_id: str|None=None
+    pending_timings: tuple[str,...]=()
 
     def __post_init__(self):
         _name(self.behavior_id,'assembled suffix behavior');_name(self.target_rule,'assembled suffix target rule')
-        if self.behavior_id.startswith(OWNER_START_PREFIX):raise ValueError('Assembly suffix cannot recursively wrap a timing gate')
+        if self.behavior_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX)):raise ValueError('Assembly suffix cannot recursively wrap a timing gate')
         if (type(self.allowed_timings)is not tuple or not self.allowed_timings or
                 any(type(t)is not str or t not in TIMINGS for t in self.allowed_timings) or
                 len(set(self.allowed_timings))!=len(self.allowed_timings)):
@@ -67,14 +75,18 @@ class AssembleSuffix:
         if self.deathrattle_behavior_id is not None:
             _name(self.deathrattle_behavior_id,'assembled native Deathrattle body')
             if ('deathrattle'not in self.allowed_timings or
-                    self.deathrattle_behavior_id.startswith(OWNER_START_PREFIX)):
+                    self.deathrattle_behavior_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
                 raise ValueError('Alternate Deathrattle body requires its reviewed native timing')
+        if(type(self.pending_timings)is not tuple or any(type(t)is not str or t not in TIMINGS for t in self.pending_timings)
+                or len(set(self.pending_timings))!=len(self.pending_timings)or set(self.pending_timings)&set(self.allowed_timings)):
+            raise ValueError('Pending assembly timing needs a distinct explicit unsupported inventory')
 
 @dataclass(frozen=True)
 class AssembleTemplate:
     card_id: str
     prefix: AssemblePrefix
     suffix: AssembleSuffix
+    original_battlecry_id: str|None=None
 
     def __post_init__(self):
         _name(self.card_id,'assembled template source')
@@ -82,6 +94,11 @@ class AssembleTemplate:
         if type(self.prefix)is not AssemblePrefix or type(self.suffix)is not AssembleSuffix:
             raise ValueError('Assembly template requires immutable typed halves')
         self.prefix.__post_init__();self.suffix.__post_init__()
+        if self.original_battlecry_id is not None:
+            _name(self.original_battlecry_id,'original conditional assembly Battlecry')
+            if(self.prefix.condition_id is None or
+                    self.original_battlecry_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
+                raise ValueError('Original Battlecry bridge requires a reviewed native conditional prefix')
 
 @dataclass(frozen=True)
 class AssembleProjection:
@@ -153,15 +170,22 @@ def prefix_timings(prefix):
 
 def compatible(prefix,suffix):
     suffix.__post_init__()
-    return all(t in suffix.allowed_timings for t in prefix_timings(prefix))
+    timings=prefix_timings(prefix)
+    if any(t in suffix.pending_timings for t in timings):
+        raise ValueError('Eligible assembly timing remains explicitly unimplemented: '+','.join(timings))
+    if prefix.condition_id is not None and(suffix.requires_target or suffix.targeting is not None):
+        raise ValueError('Eligible conditional assembly arrow requires its explicit targeting acceptance contract')
+    return all(t in suffix.allowed_timings for t in timings)
 
 
 def printed_face(primary,prefix,suffix,card_id):
     prefix.__post_init__();suffix.__post_init__()
     if not compatible(prefix,suffix):raise ValueError('Unreviewed prefix/suffix compatibility')
     timings=prefix_timings(prefix)
-    return replace(primary,id=card_id,keywords=prefix.keywords,
-        battlecry=suffix.behavior_id if 'battlecry'in timings else None,
+    battlecry=(condition_behavior_id(prefix.condition_id,suffix.behavior_id)if prefix.condition_id is not None
+        else suffix.behavior_id)if 'battlecry'in timings else None
+    return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,
+        battlecry=battlecry,
         deathrattle=(suffix.deathrattle_behavior_id or suffix.behavior_id)if 'deathrattle'in timings else None,
         triggers=((TriggerSpec('turn_ended',suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
             (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else ()),
@@ -180,10 +204,16 @@ def validate_template(registry,template):
     registry.behavior(template.suffix.behavior_id)
     if template.suffix.deathrattle_behavior_id is not None:
         registry.behavior(template.suffix.deathrattle_behavior_id)
+    if template.prefix.condition_id is not None:registry.trigger_condition(template.prefix.condition_id)
     if template.suffix.requires_target or template.suffix.targeting is not None:
         registry.target_rule(template.suffix.target_rule)
     if template.prefix.end_turn is not None:registry.trigger_condition(template.prefix.end_turn.condition_id)
     original=printed_face(primary,template.prefix,template.suffix,primary.id)
+    if template.original_battlecry_id is not None:
+        registry.behavior(template.original_battlecry_id)
+        if primary.battlecry!=template.original_battlecry_id:
+            raise ValueError('Conditional assembly changed its exact original Battlecry identity')
+        original=replace(original,battlecry=template.original_battlecry_id)
     if original!=primary:raise ValueError('Reviewed halves do not reconstruct the complete original minion')
     registry._validate_card(original)
 
@@ -196,6 +226,7 @@ def validate_projection(registry,projection):
     registry.behavior(projection.suffix.behavior_id)
     if projection.suffix.deathrattle_behavior_id is not None:
         registry.behavior(projection.suffix.deathrattle_behavior_id)
+    if projection.prefix.condition_id is not None:registry.trigger_condition(projection.prefix.condition_id)
     if projection.suffix.behavior_id.startswith(OWNER_START_PREFIX):
         raise ValueError('Projection payload cannot recursively wrap an owner-start gate')
     if projection.suffix.requires_target or projection.suffix.targeting is not None:
@@ -231,6 +262,40 @@ def owner_start_behavior(registry,behavior_id):
         if context.event is None or context.event.kind!='turn_started':
             raise ValueError('Assembled owner-start body requires its accepted native turn boundary')
         return body(context)if context.event.player_id==context.player_id else ()
+    return run
+
+
+def condition_behavior_id(condition_id,behavior_id):
+    _name(condition_id,'assembled condition identity');_name(behavior_id,'assembled conditional payload')
+    if behavior_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX)):
+        raise ValueError('Conditional assembly cannot recursively wrap a timing gate')
+    body=json.dumps(dict(condition_id=condition_id,behavior_id=behavior_id),sort_keys=True,separators=(',',':')).encode()
+    result=CONDITION_PREFIX+base64.urlsafe_b64encode(body).decode().rstrip('=')
+    if len(result)>8192:raise ValueError('Conditional assembly identity exceeds bounded size')
+    return result
+
+
+def conditional_behavior(registry,behavior_id):
+    from .registry import UnsupportedDefinitionError
+    try:
+        if len(behavior_id)>8192:raise ValueError('Oversized conditional identity')
+        token=behavior_id[len(CONDITION_PREFIX):]
+        row=json.loads(base64.b64decode(token+'='*(-len(token)%4),altchars=b'-_',validate=True).decode())
+        if type(row)is not dict or set(row)!={'condition_id','behavior_id'}or condition_behavior_id(**row)!=behavior_id:
+            raise ValueError('Noncanonical conditional identity')
+        sources=(*registry._assemble_templates.values(),*registry._assemble_projections.values())
+        if(not any(s.prefix.condition_id==row['condition_id']for s in sources)or
+                not any(s.suffix.behavior_id==row['behavior_id']and 'battlecry'in s.suffix.allowed_timings for s in sources)):
+            raise ValueError('Unreviewed assembly condition or payload')
+        predicate=registry.trigger_condition(row['condition_id']);body=registry.behavior(row['behavior_id'])
+    except(ValueError,TypeError,UnicodeError,binascii.Error)as exc:
+        raise UnsupportedDefinitionError('Unsupported assembled conditional body: '+str(exc))from exc
+    def run(context):
+        if context.battlecry is None or context.battlecry.payload.behavior_id!=behavior_id:
+            raise ValueError('Conditional assembly requires its original native Battlecry context')
+        result=predicate(context)
+        if type(result)is not bool:raise ValueError('Assembly condition requires an explicit boolean')
+        return body(context)if result else()
     return run
 
 def validate_templates(registry):
