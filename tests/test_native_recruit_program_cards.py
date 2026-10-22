@@ -313,7 +313,9 @@ class NativeRecruitProgramTests(unittest.TestCase):
             self.assertNotIn('recipient_ids', text)
 
     def test_current_assembly_adds_only_five_sources_and_preserves_old_definitions(self):
-        with patch('hs_sim.cards.native_recruit_program_cards.register_native_recruit_program_cards', lambda r: None):
+        with patch('hs_sim.cards.native_recruit_program_cards.register_native_recruit_program_cards', lambda r: None), \
+                patch('hs_sim.cards.assemble_player_modifier_fragments.register_assemble_player_modifier_fragments', lambda r: None), \
+                patch('hs_sim.cards.assemble_death_shield_inspire_followups.register_assemble_death_shield_inspire_followups', lambda r: None):
             before = build_registry()
         after = build_registry(); self.assertEqual(set(after.cards)-set(before.cards), set(ROOTS))
         for cid, card in before.cards.items(): self.assertEqual(asdict(card), asdict(after.card(cid)))
