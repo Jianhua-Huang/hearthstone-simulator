@@ -1,0 +1,1902 @@
+{
+  "schema": 1,
+  "batch": "assemble-draw-armor-heal-fragments-v1",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_861",
+        "dbf_id": 133415,
+        "name": "晶石魔像",
+        "name_en": "Crystalline Golem",
+        "text": "<b>嘲讽</b>。<b>复生</b>。<b>亡语：</b>&为你的英雄恢复#3点生命值。",
+        "text_en": "<b>Taunt</b>, <b>Reborn</b>\n<b>Deathrattle:</b>& Restore #3 Health to your hero.",
+        "cost": 4,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "REBORN": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "e71f8b5e4d65c4fd453cd971bfc99e8160b1dff161717cafcd9a5206e3fc1c79",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_861",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "bd7e62d94120e15f0df4546d4cfdd36d27a8e5d1b8debd9bed743ef59ee0c077"
+    },
+    {
+      "record": {
+        "id": "BAR_310",
+        "dbf_id": 62874,
+        "name": "光沐元素",
+        "name_en": "Lightshower Elemental",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&为所有友方角色恢复#8点生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b>& Restore #8 Health\nto all friendly characters.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1525,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "5dcf99295d12d68d793648c6f764cad9eae333d2804f8cbe6f4d51ed4b537fea",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BAR_310",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "a0ddec248bf8b5d0c1a688cfdd04de105023d818d3ea72bbf09814be0e87e4a1"
+    },
+    {
+      "record": {
+        "id": "CORE_BAR_310",
+        "dbf_id": 120787,
+        "name": "光沐元素",
+        "name_en": "Lightshower Elemental",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&为所有友方角色恢复#8点生命值。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b>& Restore #8 Health\nto all friendly characters.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 62874,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62874,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62874",
+              "type": "Int",
+              "value": "62874"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "176045678d979e6c947b885caf4f63cec3348b72b6d6e556ee6f95dd98f63b27",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_BAR_310",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "e7af769fc1d739722fbc47e3bdc899d3bb360045319756e38734d78fe0cd4b89"
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_413",
+        "dbf_id": 76323,
+        "name": "硬壳甲虫",
+        "name_en": "Plated Beetle",
+        "text": "<b>亡语：</b>&获得3点护甲值。",
+        "text_en": "<b>Deathrattle:</b>& Gain 3 Armor.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 45930,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "45930",
+              "type": "Int",
+              "value": "45930"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1149315c7b563d35bcaa2a1b6b3a1e095af2797fd1c8726ad6314bd59966b244",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_LOOT_413",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "96389a848fb8f33344ebee482e865bedbdfd2fecc11608b1cea444f2e47b4681"
+    },
+    {
+      "record": {
+        "id": "CS3_024",
+        "dbf_id": 66856,
+        "name": "泰兰·弗丁",
+        "name_en": "Taelan Fordring",
+        "text": "<b><b>嘲讽</b>。圣盾</b>。<b>亡语：</b>&抽取你的法力值消耗最高的随从牌。",
+        "text_en": "[x]<b><b>Taunt</b>, Divine Shield</b>\n<b>Deathrattle:</b>& Draw your\nhighest Cost minion.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steven Prescott"
+          }
+        ]
+      },
+      "record_sha256": "0ee707386708479c098ded18f1a5921fc70825f4af35929e9a43a5516cb884b7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CS3_024",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "bb15ee24f0c82940f3614fe93dba74257c1bb2abf53fd98ab99e22471c4d135e"
+    },
+    {
+      "record": {
+        "id": "EDR_485",
+        "dbf_id": 115039,
+        "name": "腐心树妖",
+        "name_en": "Rotheart Dryad",
+        "text": "<b>亡语：</b>&抽一张法力值消耗大于或等于（7）点的随从牌。",
+        "text_en": "<b>Deathrattle:</b>& Draw a minion that costs (7) or more.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "56fb895e40032aa8c531dc138b296d67147fab44afde1949c172f546d0465412",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EDR_485",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "54439cf2bf5fe59cb45e0090bdc0192a20c381fdb6f05650c8ba3ec27786df0b"
+    },
+    {
+      "record": {
+        "id": "RLK_511",
+        "dbf_id": 81972,
+        "name": "寒冬先锋",
+        "name_en": "Harbinger of Winter",
+        "text": "<b>亡语：</b>&抽一张冰霜法术牌。",
+        "text_en": "<b>Deathrattle:</b>& Draw a\nFrost spell.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COST_FROST": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Angelina Chernyak"
+          }
+        ]
+      },
+      "record_sha256": "905d420da5c6204f7c47fb7fdcfa5c0d9c921f895c63b3d4f69c5d1b60e02078",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "common",
+        "deck_identity": "RLK_511",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "a7eaafac72fbf587d8d1d15d64896ac3aea0f4202e1e3be2b4c0e783d555674e"
+    },
+    {
+      "record": {
+        "id": "TIME_601",
+        "dbf_id": 120788,
+        "name": "拾箭龙鹰",
+        "name_en": "Arrow Retriever",
+        "text": "<b>战吼：</b>&抽牌，直到你拥有三张手牌。",
+        "text_en": "<b>Battlecry:</b>& Draw until you have 3 cards.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "31f77730bf281439747fa4c82f0e5093870f5499165aed54cb8f6abb5f9190ea",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_601",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "5de70a81e6872bfb0d08159c5f6dc00a8cafe92267c266a35d68a1a3424ae96e"
+    },
+    {
+      "record": {
+        "id": "BAR_551",
+        "dbf_id": 63461,
+        "name": "巴拉克·科多班恩",
+        "name_en": "Barak Kodobane",
+        "text": "<b>战吼：</b>&抽取法力值消耗为（1），（2）和（3）点的法术牌各一张。",
+        "text_en": "[x]<b>Battlecry:</b>& Draw a 1, 2,\n__and 3-Cost spell.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1525,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "e723526ac989a25447d80e3996b83fbb69a38adaca414f6c57f59229cbdae7c7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BAR_551",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "ca221f9310c8ed956019c590265be809318eabc9c7c9a5a317ec517fa0ada1f1"
+    },
+    {
+      "record": {
+        "id": "CORE_KAR_061",
+        "dbf_id": 120180,
+        "name": "馆长",
+        "name_en": "The Curator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 39225,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 39225,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "39225",
+              "type": "Int",
+              "value": "39225"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d78c83fcb86ee7a5aed12696662cfa7ff6dd053d5569475961420a17f65d1af7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_KAR_061",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "366c2d94ba0ab0d366923ec32349639498088ea2a878257b6894e1cee497b0fc"
+    },
+    {
+      "record": {
+        "id": "KAR_061",
+        "dbf_id": 39225,
+        "name": "馆长",
+        "name_en": "The Curator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 23,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          }
+        ]
+      },
+      "record_sha256": "0bca46664c81d5e76d8577916f3490366e7d1f06696a39ea0aa0891d0c85e926",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "KAR_061",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "8389d491fd808839c8925dcd938dd35bfbbb0d9496bcbf7ef051615651b4f5ab"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_861",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 133415,
+        "collectible": 1,
+        "slug": "133415-crystalline-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "晶石魔像",
+        "text": "<b>嘲讽</b>。<b>复生</b>。<b>亡语：</b> 为你的英雄恢复 3点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/975fa63f566f6d0e08671f99659deb28e4acc308fbc110c77893aecae7263058.png",
+        "imageGold": "",
+        "flavorText": "萌萌的护卫。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08539394843945de554af114ef1615b149c7a096ec7b44a626a2a9975779372a.png",
+        "keywordIds": [
+          1,
+          12,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "BE_861",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 133415,
+        "collectible": 1,
+        "slug": "133415-crystalline-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Crystalline Golem",
+        "text": "<b>Taunt</b>, <b>Reborn</b> <b>Deathrattle:</b> Restore 3 Health to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b51d58db801238afffe9f4d249a00f8147a9477f298d449b600fcaec6578d8ab.png",
+        "imageGold": "",
+        "flavorText": "Cute'tut Defender.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08539394843945de554af114ef1615b149c7a096ec7b44a626a2a9975779372a.png",
+        "keywordIds": [
+          1,
+          12,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_310",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\62874-zh_CN.json",
+      "response_sha256": "19d9633b6b04dc8b0ce8d7eccd9c5621dccf722faaeefa44a382d27ba5e775c8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62874&locale=zh_CN",
+      "face": {
+        "id": 62874,
+        "collectible": 1,
+        "slug": "62874-lightshower-elemental",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "光沐元素",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&为所有友方角色恢复 8点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ce40e94ab3ef807f014b8edf1c21e3f7fef75ffe2867dcfdb2c1ef5de6b5438.png",
+        "imageGold": "",
+        "flavorText": "气象节目说，外面的天气可以洗澡了。你带好了伞，发现是日光浴。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2672c2b8212fbd0dd701814259fb3fe8b85ae5dc7b2f5a221c42dfdb00e685fe.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          120787
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62874&locale=zh_CN",
+        "sha256": "19d9633b6b04dc8b0ce8d7eccd9c5621dccf722faaeefa44a382d27ba5e775c8",
+        "bytes": 872,
+        "observed_at": "2026-10-22T07:05:34.318558+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_310",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\62874-en_US.json",
+      "response_sha256": "e750f7d18e3d24d547c2f35732ec9cf73474522b357b56a4b300dfa2539b012f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62874&locale=en_US",
+      "face": {
+        "id": 62874,
+        "collectible": 1,
+        "slug": "62874-lightshower-elemental",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Lightshower Elemental",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b>& Restore 8 Health to all friendly characters.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c1482e01fd54631aae97e891133d1741f57fd285b6de415cde3acbadd94937a.png",
+        "imageGold": "",
+        "flavorText": "The forecast calls for light showers, but you won’t need an umbrella.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2672c2b8212fbd0dd701814259fb3fe8b85ae5dc7b2f5a221c42dfdb00e685fe.png",
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          120787
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62874&locale=en_US",
+        "sha256": "e750f7d18e3d24d547c2f35732ec9cf73474522b357b56a4b300dfa2539b012f",
+        "bytes": 863,
+        "observed_at": "2026-10-22T07:05:34.304721+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BAR_310",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 120787,
+        "collectible": 1,
+        "slug": "120787-lightshower-elemental",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "光沐元素",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&为所有友方角色恢复 8点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b7614a7677c213d9d7f5905875a3449f281da8303230917e2d9720eb4593ebf2.png",
+        "imageGold": "",
+        "flavorText": "气象节目说，外面的天气可以洗澡了。你带好了伞，发现是日光浴。",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          62874
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BAR_310",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 120787,
+        "collectible": 1,
+        "slug": "120787-lightshower-elemental",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Lightshower Elemental",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b>& Restore 8 Health to all friendly characters.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8429f1a570ede0d93a14f6049ed1487b25f8b094fa56bcccf5104f708d891dc9.png",
+        "imageGold": "",
+        "flavorText": "The forecast calls for light showers, but you won’t need an umbrella.",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          62874
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_413",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 76323,
+        "collectible": 1,
+        "slug": "76323-plated-beetle",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ian Ameling",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "硬壳甲虫",
+        "text": "<b>亡语：</b>&获得3点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2171e615dbf92f8a6b04a46f82e9f7a70c127336351286ef78ec51735e457423.png",
+        "imageGold": "",
+        "flavorText": "“好了，你的队伍打败了那只甲虫。”“我要把它放在头上。”“什么？”“我要把它戴在头上，像帽子一样。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/573299ecb91e1d7af091e22229e3732fc9ae291f50ff4b664ba41b7e77304996.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          45930
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_413",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 76323,
+        "collectible": 1,
+        "slug": "76323-plated-beetle",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ian Ameling",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Plated Beetle",
+        "text": "<b>Deathrattle:</b>& Gain 3 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/608f5f4826f416d4753108fd8aa39e7f6d01d3312ab7eec8765aae064e98e557.png",
+        "imageGold": "",
+        "flavorText": "\"Ok, your party has defeated the beetle.\" \"I put it on my head.\" \"What?\" \"I put it on my head. Like a hat.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/573299ecb91e1d7af091e22229e3732fc9ae291f50ff4b664ba41b7e77304996.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          45930
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CS3_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 66856,
+        "collectible": 1,
+        "slug": "66856-taelan-fordring",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Steven Prescott",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "泰兰·弗丁",
+        "text": "<b><b>嘲讽</b>。圣盾</b>。<b>亡语：</b>&抽取你的法力值消耗最高的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8869c5bd68766c3cb3f21c0a9ba2be8ff22c95634da1b3a6deaa1d04b89899be.png",
+        "imageGold": "",
+        "flavorText": "泰兰和血色十字军一同度过了人生中的多数时光，最终发现，这伙人也许算不上好人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f656490c7c942b60c1c6dc45280e677b803083fd52841594cd5d89bdb52245d9.png",
+        "keywordIds": [
+          1,
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CS3_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 66856,
+        "collectible": 1,
+        "slug": "66856-taelan-fordring",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Steven Prescott",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Taelan Fordring",
+        "text": "<b><b>Taunt</b>, Divine Shield</b> <b>Deathrattle:</b>& Draw your highest Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/edf73b222b53b49855c2c3650d5e3c04aee3921bd18d00e3a1741742ce55c876.png",
+        "imageGold": "",
+        "flavorText": "After growing up with the Scarlet Crusade for most of his life, Taelan finally realized they were maybe not the nicest people.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f656490c7c942b60c1c6dc45280e677b803083fd52841594cd5d89bdb52245d9.png",
+        "keywordIds": [
+          1,
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_485",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 115039,
+        "collectible": 1,
+        "slug": "115039-rotheart-dryad",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "Timur Shevtsov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "腐心树妖",
+        "text": "<b>亡语：</b>&抽一张法力值消耗大于或等于（7）点的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d36a2b1a9776238683ca0dc0849e7bf0dc4e8edf46aad360e0ed7346e391e37.png",
+        "imageGold": "",
+        "flavorText": "腐烂到心里去了。都怪萨维斯！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1438a1ef0334b90569e89701e8395f5668f075163a6749a2004868044fa199f7.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_485",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 115039,
+        "collectible": 1,
+        "slug": "115039-rotheart-dryad",
+        "classId": 9,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 3,
+        "artistName": "Timur Shevtsov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Rotheart Dryad",
+        "text": "<b>Deathrattle:</b>& Draw a minion that costs (7) or more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0388d499379b7f8d166e0c8e636439169df14a97ca25d6dd5deaccb7d664efa.png",
+        "imageGold": "",
+        "flavorText": "Rot through the heart and Xavius is to blame!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1438a1ef0334b90569e89701e8395f5668f075163a6749a2004868044fa199f7.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_511",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 81972,
+        "collectible": 1,
+        "slug": "81972-harbinger-of-winter",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Angelina Chernyak",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "寒冬先锋",
+        "text": "<b>亡语：</b>&抽一张冰霜法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eacf2aafb5f7139ab5fd21d69214c7428d7c991dcca0ceaa919d39068472c441.png",
+        "imageGold": "",
+        "flavorText": "寒冬：它先请。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0abb8ca11a9db8e688c84caf608b5734eecceabeb2e98024be14d183b8853d3f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_511",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 81972,
+        "collectible": 1,
+        "slug": "81972-harbinger-of-winter",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Angelina Chernyak",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Harbinger of Winter",
+        "text": "<b>Deathrattle:</b>& Draw a Frost spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4ca7b5fb7d86e34d8698114936e8eefecfa687ba9f761414c6120ccf7dbbbd9.png",
+        "imageGold": "",
+        "flavorText": "Winter: it be comin'.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0abb8ca11a9db8e688c84caf608b5734eecceabeb2e98024be14d183b8853d3f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_601",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 120788,
+        "collectible": 1,
+        "slug": "120788-arrow-retriever",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "拾箭龙鹰",
+        "text": "<b>战吼：</b>&抽牌，直到你拥有三张手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d46e497436a56412f474f984b3c2d4241e87a47510fe0c34fab04f6c00599ad4.png",
+        "imageGold": "",
+        "flavorText": "不会计较你脱靶了多少次。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af205facd2141778f4bd15600e43d9c85f8ac67734c2413af2ce777334d42202.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_601",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 120788,
+        "collectible": 1,
+        "slug": "120788-arrow-retriever",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Arrow Retriever",
+        "text": "<b>Battlecry:</b>& Draw until you have 3 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c0cd1581c77aa97db5e44af4e14fe484cde6b486c3fdfbb23828ca444825932.png",
+        "imageGold": "",
+        "flavorText": "And he'll never tell how many times you missed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af205facd2141778f4bd15600e43d9c85f8ac67734c2413af2ce777334d42202.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_551",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\63461-zh_CN.json",
+      "response_sha256": "d3a57751980bf65cae9460af20d3ddacf970ebbac59d453a6e1db2018923e113",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=63461&locale=zh_CN",
+      "face": {
+        "id": 63461,
+        "collectible": 1,
+        "slug": "63461-barak-kodobane",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 5,
+        "artistName": "Ivan Fomin",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "巴拉克·科多班恩",
+        "text": "<b>战吼：</b>&抽取法力值消耗为（1），（2）和（3）点的法术牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d480c3b938ae2c7957f059f6a2e69fe1bbee7da3904d0581dd4e8e7800b8d4a5.png",
+        "imageGold": "",
+        "flavorText": "他们都说他是马背上的神射手。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c805ce65a76422989f16001cd1f47e6e43b33fb324c062f20ee9384e045c4137.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          84937,
+          111357
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=63461&locale=zh_CN",
+        "sha256": "d3a57751980bf65cae9460af20d3ddacf970ebbac59d453a6e1db2018923e113",
+        "bytes": 830,
+        "observed_at": "2026-10-22T07:05:34.482689+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_551",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\63461-en_US.json",
+      "response_sha256": "a07fa27d91a4782fee2370becaf98f34000b5ce7b669c61f3555a1cef4be0acd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=63461&locale=en_US",
+      "face": {
+        "id": 63461,
+        "collectible": 1,
+        "slug": "63461-barak-kodobane",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 5,
+        "artistName": "Ivan Fomin",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Barak Kodobane",
+        "text": "<b>Battlecry:</b>& Draw a 1, 2, and 3-Cost spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3bf1ecd47d70eb37b747568d1699db24674f72bdbf4c9a05df036419b35615a.png",
+        "imageGold": "",
+        "flavorText": "They say he's a pro at horseback archery.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c805ce65a76422989f16001cd1f47e6e43b33fb324c062f20ee9384e045c4137.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          84937,
+          111357
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=63461&locale=en_US",
+        "sha256": "a07fa27d91a4782fee2370becaf98f34000b5ce7b669c61f3555a1cef4be0acd",
+        "bytes": 774,
+        "observed_at": "2026-10-22T07:05:34.895596+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_KAR_061",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 120180,
+        "collectible": 1,
+        "slug": "120180-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "馆长",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&抽取野兽牌，龙牌和鱼人牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d428687779fed6e8729459a41d3a5e638fee408a8f4e80fd87a64344d0db439.png",
+        "imageGold": "",
+        "flavorText": "年久失修的馆长，脾气也变得十分古怪。",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          39225
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_KAR_061",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 120180,
+        "collectible": 1,
+        "slug": "120180-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "The Curator",
+        "text": "<b>Taunt</b> <b>Battlecry:</b>& Draw a Beast, Dragon, and Murloc.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9715396baf07be920d71de189dea95ec8e9d973f5875bc117e0e907f7503a4a.png",
+        "imageGold": "",
+        "flavorText": "The Curator guards Azeroth’s deadliest creatures, but it’s secretly terrified of squirrels.",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          39225
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "KAR_061",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\39225-zh_CN.json",
+      "response_sha256": "f46b7dbf858b6bb29cdbeb626bd56ef22954acaf211f7e4006c0d8f8be52eb1b",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=zh_CN",
+      "face": {
+        "id": 39225,
+        "collectible": 1,
+        "slug": "39225-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 23,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "馆长",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>抽取野兽牌，龙牌和鱼人牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77e5641d44fd874a71b43538c0d7be3411a34e46440532b051a435111dacc3ec.png",
+        "imageGold": "",
+        "flavorText": "年久失修的馆长，脾气也变得十分古怪。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6d5aa5386f512cbb9ed14edb58e38fe035d5b0ce481f2285305157d79ef7632.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          120180
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=zh_CN",
+        "sha256": "f46b7dbf858b6bb29cdbeb626bd56ef22954acaf211f7e4006c0d8f8be52eb1b",
+        "bytes": 818,
+        "observed_at": "2026-10-18T02:22:13.425767+00:00"
+      }
+    },
+    {
+      "card_id": "KAR_061",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\39225-en_US.json",
+      "response_sha256": "e25fdf7a06a7fb8a0c56509d7141e05154c9773e1ec08a5decae10d5de4365eb",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=en_US",
+      "face": {
+        "id": 39225,
+        "collectible": 1,
+        "slug": "39225-the-curator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 23,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "The Curator",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> Draw a Beast, Dragon, and Murloc.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d55225f9f88e213ed994de29c73893f281096cb07125daae989366261020b6e2.png",
+        "imageGold": "",
+        "flavorText": "The Curator guards Azeroth’s deadliest creatures, but it’s secretly terrified of squirrels.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6d5aa5386f512cbb9ed14edb58e38fe035d5b0ce481f2285305157d79ef7632.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          120180
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=39225&locale=en_US",
+        "sha256": "e25fdf7a06a7fb8a0c56509d7141e05154c9773e1ec08a5decae10d5de4365eb",
+        "bytes": 848,
+        "observed_at": "2026-10-18T02:25:25.984600+00:00"
+      }
+    }
+  ],
+  "reviewed_templates": [
+    {
+      "card_id": "BE_861",
+      "timing": "deathrattle",
+      "keywords": [
+        "taunt",
+        "reborn"
+      ],
+      "behavior_id": "cards.black_empire_primitives.golem",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "BAR_310",
+      "timing": "deathrattle",
+      "keywords": [
+        "taunt"
+      ],
+      "behavior_id": "cards.health.2c8d1adb718399d462aeb9e1",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_BAR_310",
+      "timing": "deathrattle",
+      "keywords": [
+        "taunt"
+      ],
+      "behavior_id": "cards.health.2c8d1adb718399d462aeb9e1",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_LOOT_413",
+      "timing": "deathrattle",
+      "keywords": [],
+      "behavior_id": "cards.economy.831c06b666d42f00e2a94f6a",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CS3_024",
+      "timing": "deathrattle",
+      "keywords": [
+        "taunt",
+        "divine_shield"
+      ],
+      "behavior_id": "cards.native_weapon_turn_draw.highest_deck_minion",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "EDR_485",
+      "timing": "deathrattle",
+      "keywords": [],
+      "behavior_id": "cards.economy.4ad5e9b27608c899a5d041db",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "RLK_511",
+      "timing": "deathrattle",
+      "keywords": [],
+      "behavior_id": "cards.economy.43370764275821a97318f339",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "TIME_601",
+      "timing": "battlecry",
+      "keywords": [],
+      "behavior_id": "cards.economy.6b7ef93d70b2c8b46e532430",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "BAR_551",
+      "timing": "battlecry",
+      "keywords": [],
+      "behavior_id": "cards.simple_followup_p82.kodo",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "CORE_KAR_061",
+      "timing": "battlecry",
+      "keywords": [
+        "taunt"
+      ],
+      "behavior_id": "cards.economy.3401b7bc272b6ea457dd3023",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "KAR_061",
+      "timing": "battlecry",
+      "keywords": [
+        "taunt"
+      ],
+      "behavior_id": "cards.economy.3401b7bc272b6ea457dd3023",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    }
+  ],
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "source_roles": {
+    "new_static_root_cards": false,
+    "source_ids_are_exact_not_core_aliases": true,
+    "membership_and_weights_not_certified": true,
+    "all_originals_already_executable": true
+  },
+  "experimental_policy": {
+    "formal_pool_installed": false,
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "suffixes_reuse_original_native_behaviors": true,
+    "ordinary_reborn_uses_existing_executor": true
+  }
+}

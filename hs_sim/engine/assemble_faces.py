@@ -17,7 +17,8 @@ VERSION='assemble-face-v1'
 TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))
 OWNER_START_PREFIX='assemble.owner_start:'
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
-    Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE))
+    Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
+    Keyword.REBORN))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
     'battlecry','deathrattle','triggers','requires_target','targeting','target_rule'))
 
