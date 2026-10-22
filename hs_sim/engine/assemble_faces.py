@@ -9,7 +9,7 @@ import base64
 import binascii
 import json
 
-from .model import CardDefinition,CardType,EndTurnSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
+from .model import CardDefinition,CardType,EndTurnSpec,HandActionSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
 from .serialization import canonical_hash
 
 PREFIX='assemble:'
@@ -23,7 +23,7 @@ BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Key
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage'))
+    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
@@ -32,6 +32,7 @@ class AssemblePrefix:
     end_turn: EndTurnSpec|None=None
     spell_damage: int=0
     condition_id: str|None=None
+    hand_actions: tuple[HandActionSpec,...]=()
 
     def __post_init__(self):
         if type(self.timing)is not str or self.timing not in PREFIX_TIMINGS:
@@ -48,6 +49,14 @@ class AssemblePrefix:
         if self.condition_id is not None:
             _name(self.condition_id,'assembled prefix condition')
             if self.timing!='battlecry':raise ValueError('Conditional assembly prefix requires its reviewed Battlecry window')
+        if type(self.hand_actions)is not tuple or len(self.hand_actions)>1:
+            raise ValueError('Assembly prefix requires one reviewed ordinary hand action or none')
+        for spec in self.hand_actions:
+            if type(spec)is not HandActionSpec:raise ValueError('Assembly hand action requires its immutable native declaration')
+            spec.__post_init__()
+            if (spec.id,spec.kind,spec.cost,spec.upgrade_card_id,spec.on_use,spec.use_rule) not in (
+                    ('trade','trade',1,None,None,'always'),('prepare','prepare',1,None,None,'always')):
+                raise ValueError('Assembly only reviewed ordinary one-fee Trade or Prepare prefixes')
 
 @dataclass(frozen=True)
 class AssembleSuffix:
@@ -184,7 +193,7 @@ def printed_face(primary,prefix,suffix,card_id):
     timings=prefix_timings(prefix)
     battlecry=(condition_behavior_id(prefix.condition_id,suffix.behavior_id)if prefix.condition_id is not None
         else suffix.behavior_id)if 'battlecry'in timings else None
-    return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,
+    return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,
         battlecry=battlecry,
         deathrattle=(suffix.deathrattle_behavior_id or suffix.behavior_id)if 'deathrattle'in timings else None,
         triggers=((TriggerSpec('turn_ended',suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else

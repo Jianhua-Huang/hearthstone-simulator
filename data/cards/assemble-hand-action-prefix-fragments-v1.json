@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "batch": "assemble-hand-action-prefix-fragments-v1",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_SW_072",
+        "dbf_id": 102221,
+        "name": "锈烂蝰蛇",
+        "name_en": "Rustrot Viper",
+        "text": "<b>可交易</b>。<b>战吼：</b>&摧毁对手的武器。",
+        "text_en": "[x]<b>Tradeable</b>\n<b>Battlecry:</b>& Destroy your\nopponent's weapon.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 64720,
+          "TRADEABLE": 1,
+          "DECK_ACTION_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zhefei Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "64720",
+              "type": "Int",
+              "value": "64720"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "29e5098f4c713823c9d77c8b0b4145f734571d205704eda4fce45704224757cf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_SW_072",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "d3a28d94fd4221cdb7b595af3c181be3115634c3f171ea23027d1e1729f898a2"
+    },
+    {
+      "record": {
+        "id": "JAIL_457",
+        "dbf_id": 127688,
+        "name": "被破解的安保机器人",
+        "name_en": "Hijacked Securitybot",
+        "text": "<b>预备</b>。<b>战吼：</b>&使你的其他随从获得+1/+1。",
+        "text_en": "<b>Prepare</b>\n<b>Battlecry:</b>& Give your other minions +1/+1.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "2540": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "47c7ba459fb35b1f7cdd6d250a13809098f86d51f51f706be3fd065cc444baf7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_457",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech",
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "62f1347f25e62fb5e78133ea7c210822bcb3c151184cacc564b025dbc1128d9e"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CORE_SW_072",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 102221,
+        "collectible": 1,
+        "slug": "102221-rustrot-viper",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Zhefei Hou",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "锈烂蝰蛇",
+        "text": "<b>可交易</b>。<b>战吼：</b>&摧毁对手的武器。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c49998afe1cdff533e79032176c1d6d76a553a721adf301be88bb30384fc6081.png",
+        "imageGold": "",
+        "flavorText": "这也是剧毒，针对武器的剧毒。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da4abc8912e66289a2ec09529324d1fb246e748ba623976f1d660e917e15daec.png",
+        "keywordIds": [
+          8,
+          97
+        ],
+        "copyOfCardId": [
+          64720
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_SW_072",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 102221,
+        "collectible": 1,
+        "slug": "102221-rustrot-viper",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Zhefei Hou",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Rustrot Viper",
+        "text": "<b>Tradeable</b> <b>Battlecry:</b>& Destroy your opponent's weapon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8541b103d0c191a399fed4faa24749eeb990e990212c3dd3bb7850828aa43650.png",
+        "imageGold": "",
+        "flavorText": "Poisonous to weapons.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da4abc8912e66289a2ec09529324d1fb246e748ba623976f1d660e917e15daec.png",
+        "keywordIds": [
+          8,
+          97
+        ],
+        "copyOfCardId": [
+          64720
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_457",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 127688,
+        "collectible": 1,
+        "slug": "127688-hijacked-securitybot",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "被破解的安保机器人",
+        "text": "<b>预备</b>。<b>战吼：</b>&使你的其他随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6eb3ae83a43cf6c5984758cb044aca623e843e9a520080de8834a05cf9c43606.png",
+        "imageGold": "",
+        "flavorText": "被破解之后，它变成了一台反安保机器人，甚至会怀疑自己能否继续保护囚犯。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d74610a529a553cc78d2b9ede4166c70c18d251bd6391363ad926a3381502964.png",
+        "keywordIds": [
+          8,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_457",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 127688,
+        "collectible": 1,
+        "slug": "127688-hijacked-securitybot",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Hijacked Securitybot",
+        "text": "<b>Prepare</b> <b>Battlecry:</b>& Give your other minions +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b83b135988870126b15fdbb78e726ac3ad162ee55769d44e77200da5cf96f21d.png",
+        "imageGold": "",
+        "flavorText": "After the hijacking, it became an insecuritybot and wondered if it would ever be good enough to guard prisoners again.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d74610a529a553cc78d2b9ede4166c70c18d251bd6391363ad926a3381502964.png",
+        "keywordIds": [
+          8,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    }
+  ],
+  "reviewed_templates": [
+    {
+      "card_id": "CORE_SW_072",
+      "timing": "battlecry",
+      "keywords": [],
+      "hand_actions": [
+        {
+          "id": "trade",
+          "kind": "trade",
+          "cost": 1,
+          "upgrade_card_id": null,
+          "on_use": null,
+          "use_rule": "always"
+        }
+      ],
+      "behavior_id": "cards.utility.body.565c913cd1e3ecc797bd28be",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    },
+    {
+      "card_id": "JAIL_457",
+      "timing": "battlecry",
+      "keywords": [],
+      "hand_actions": [
+        {
+          "id": "prepare",
+          "kind": "prepare",
+          "cost": 1,
+          "upgrade_card_id": null,
+          "on_use": null,
+          "use_rule": "always"
+        }
+      ],
+      "behavior_id": "cards.utility.body.63aea00af36c6b2c9d07dd79",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ]
+    }
+  ],
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "experimental_policy": {
+    "formal_pool_installed": false,
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "original_native_bodies_and_hand_operations_reused": true,
+    "new_static_roots": false,
+    "single_plain_trade_or_prepare_only": true
+  }
+}
