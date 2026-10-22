@@ -96,6 +96,7 @@ class AssembleTemplate:
     prefix: AssemblePrefix
     suffix: AssembleSuffix
     original_battlecry_id: str|None=None
+    original_start_turn_id: str|None=None
 
     def __post_init__(self):
         _name(self.card_id,'assembled template source')
@@ -108,6 +109,11 @@ class AssembleTemplate:
             if(self.prefix.condition_id is None or
                     self.original_battlecry_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
                 raise ValueError('Original Battlecry bridge requires a reviewed native conditional prefix')
+        if self.original_start_turn_id is not None:
+            _name(self.original_start_turn_id,'original owner-start assembly trigger')
+            if(self.prefix.timing!='start_turn' or
+                    self.original_start_turn_id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX))):
+                raise ValueError('Original owner-start bridge requires its reviewed native start prefix')
 
 @dataclass(frozen=True)
 class AssembleProjection:
@@ -223,6 +229,12 @@ def validate_template(registry,template):
         if primary.battlecry!=template.original_battlecry_id:
             raise ValueError('Conditional assembly changed its exact original Battlecry identity')
         original=replace(original,battlecry=template.original_battlecry_id)
+    if template.original_start_turn_id is not None:
+        registry.behavior(template.original_start_turn_id)
+        declared=(TriggerSpec('turn_started',template.original_start_turn_id),)
+        if primary.triggers!=declared:
+            raise ValueError('Owner-start assembly changed its exact complete original trigger identity')
+        original=replace(original,triggers=declared)
     if original!=primary:raise ValueError('Reviewed halves do not reconstruct the complete original minion')
     registry._validate_card(original)
 
