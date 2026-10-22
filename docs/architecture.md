@@ -1582,6 +1582,8 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 真实法术的正常回合抽牌替换继续使用原永久玩家程序；牌库底抽牌的有限 `DrawDeckEdge` 将当前原牌交回 `draw_one`，法术移顶复用 `ReorderZone`。原抽牌/补抽、菜单信息和待国服政策见[圆盘契约](m3-discs-deck-edge-draw.md)。
 
+真实延迟护甲转换复用自身回合历史、精确玩家程序消费和 `ArmorLossResult.actual`，把原扣除量交给既有召唤材料；没有新的计时或护甲账户。原来源、零值、容量及待校准边界见[塞特斯契约](m3-setesh-armor-golem.md)。
+
 
 真实发现后的零费条件复用原固有费用及完整付款证明，只增加完整发现前缀匹配事实；原同回合布尔查询、历史前缀和国服边界见[契约](m3-discovery-turn-costs.md)。
 
