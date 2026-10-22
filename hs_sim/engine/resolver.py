@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v640'
+CORE_EFFECTS_VERSION = 'core-effects-v641'
 
 
 class Mechanics:
@@ -1538,7 +1538,8 @@ def split_damage(r, effect):
         return
     target = r.game._rng.choice(candidates)
     r.emit('random_choice', source_id=effect.source_id, target_id=target, candidates=tuple(candidates))
-    return [Damage(target, 1, effect.source_id, effect.kind), replace(effect, amount=effect.amount - 1)]
+    return [Damage(target, 1, effect.source_id, effect.kind, ability_trigger_id=effect.ability_trigger_id),
+            replace(effect, amount=effect.amount - 1)]
 
 
 def random_buff(r,effect):
@@ -1550,6 +1551,10 @@ def random_buff(r,effect):
         and e.kind==CardType.MINION and e.zone==Zone.BOARD and e.health>0 and not e.doomed))
     if not candidates:
         r.emit('random_choice_skipped',source_id=effect.source_id,reason='no_candidates');return()
+    if effect.count==2:
+        targets=r.game._rng.sample(candidates,min(2,len(candidates)))
+        r.emit("random_choice",source_id=effect.source_id,candidates=candidates,selected_ids=tuple(targets))
+        return tuple(Buff(t,effect.attack,effect.health,effect.source_id)for t in targets)
     target=r.game._rng.choice(candidates)
     r.emit('random_choice',source_id=effect.source_id,target_id=target,candidates=candidates)
     return(Buff(target,effect.attack,effect.health,effect.source_id),)
@@ -2584,6 +2589,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_locations(mechanics)
     register_dormancy(mechanics)
     register_minion_abilities(mechanics)
+    from .ability_families import register as register_ability_families
+    register_ability_families(mechanics)
     register_quests(mechanics)
     register_player_effects(mechanics)
     from .adapt_memory import register as register_adapt_memory

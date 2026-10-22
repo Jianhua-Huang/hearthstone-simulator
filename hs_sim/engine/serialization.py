@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 527
+SNAPSHOT_SCHEMA_VERSION = 528
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -63,6 +63,9 @@ def state_to_dict(state: GameState) -> dict:
     for row, record in zip(result['end_turn_history'], state.end_turn_history):
         if record.guard_event is not None:
             row['guard_event'] = event_to_dict(record.guard_event)
+    for row, record in zip(result['ability_trigger_history'], state.ability_trigger_history):
+        if record.request.native_event is not None:
+            row['request']['native_event'] = event_to_dict(record.request.native_event)
     for row, receipt in zip(result['resource_operations'], state.resource_operations):
         row['event'] = event_to_dict(receipt.event)
     result['entities'] = {}
@@ -1320,6 +1323,8 @@ def state_from_dict(value: dict) -> GameState:
     recruit_summon_rows_from_dict(value)
     from .resurrection_summons import rows_from_dict as resurrection_summon_rows_from_dict
     resurrection_summon_rows_from_dict(value)
+    from .ability_families import rows_from_dict as ability_family_rows_from_dict
+    ability_family_rows_from_dict(value)
     from .random_split_damage import rows_from_dict as split_rows_from_dict
     split_rows_from_dict(value)
     from .resource_operations import SpendUpToResource, ResourceConsumptionResult, ResourceConsumptionReceipt, SourceAllocationFact

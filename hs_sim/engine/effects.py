@@ -156,8 +156,10 @@ class SplitDamage(Effect):
     source_id: int | None = None
     include_hero: bool = True
     kind: DamageKind = DamageKind.EFFECT
+    ability_trigger_id: int | None = None
 
     def __post_init__(self):
+        _source(self.ability_trigger_id)
         _player(self.player_id)
         _integer(self.amount, 'amount', 0)
         _source(self.source_id)
@@ -474,8 +476,12 @@ class Damage(Effect):
     kind: DamageKind = DamageKind.EFFECT
     on_result: str | None = None
     spell_bonus_multiplier: int = 1
+    ability_trigger_id: int | None = None
 
     def __post_init__(self) -> None:
+        _source(self.ability_trigger_id)
+        if self.ability_trigger_id is not None and self.kind not in (DamageKind.EFFECT, DamageKind.MINION_ABILITY):
+            raise ValueError("Skill damage is an effect or minion ability, never another CAST")
         _integer(self.target_id, "target_id", 1)
         _integer(self.amount, "amount", 0)
         _source(self.source_id)
@@ -674,8 +680,11 @@ class RandomBuff(Effect):
     attack: int = 0
     health: int = 0
     source_id: int | None = None
+    count: int = 1
 
     def __post_init__(self):
+        _integer(self.count,'distinct random buff count',1)
+        if self.count not in (1,2):raise ValueError('Random buffs support one or two distinct minions')
         if type(self.candidate_ids)is not tuple:raise ValueError('Random buff candidates require an immutable tuple')
         for identity in self.candidate_ids:_integer(identity,'random buff minion',1)
         if len(set(self.candidate_ids))!=len(self.candidate_ids):raise ValueError('Random buff candidates must be unique')

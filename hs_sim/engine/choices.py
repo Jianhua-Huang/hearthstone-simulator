@@ -83,6 +83,8 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     if native_request is not None:
         from .native_hand_targets import ResolveNativeHandChoice
         return [ResolveNativeHandChoice(native_request,result,selection_event)]
+    from .ability_families import selected as selected_family_ability
+    selected_family_ability(r,result,options)
     from .card_discoveries import commit
     commit(r, result, selection_event, options, on_select)
     from .resolver import ResolveChoiceResult
@@ -98,7 +100,10 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     from .summon_sources import ResurrectMinion
     from .suspicious_discoveries import ChooseSuspiciousMinion
     from .discovery_delivery import MaterializeDiscoveredCard, MaterializeDiscoveredResurrection, recipe_types
+    from .ability_families import SelectFamilyAbility, SelectFamilyTarget
     def selected_effect(effect):
+        if type(effect) in (SelectFamilyAbility, SelectFamilyTarget):
+            return replace(effect, result=result)
         if type(effect) is ChooseSuspiciousMinion:
             return replace(effect, result=result)
         if type(effect) in (ResolveAssemble,ResolveCraft):

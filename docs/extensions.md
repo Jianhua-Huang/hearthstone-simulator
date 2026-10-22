@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实四技能族使用有限`AbilityFamilyProfile`及`TriggerFamilyAbility`，外部一项或两项不同技能通过`ChooseFamilyAbilities`沿原选择执行。实际来源由`request_from_context`捕获，健康包引用`ability_trigger_id`交原健康器叠加技能局部关键词；不要永久授予吸血、造假旧神实体或另开CAST。原战吼payload、选择目标和完成窗口见[执行契约](m3-empire-cthun.md)，此有限入口不自动代表其他旧神采用相同整局三倍规则。
+
 真实“以溢出减费重复发现”使用有限`DiscoverFromPool(..., cost=CostSpec(delta=-remaining), excess_discount=True)`，让原生成报价和发现续接负责每次预算。不要在牌层新写抽样、猜印刷费用或绕过零费/满手；原字段范围、生成原生数字及恢复边界见[重新装填契约](m3-reload-discounts.md)。
 
 真实吸血武器需要恢复两个英雄时注册有限`LifestealRecipientProfile`，交原健康批次生成两项普通恢复；不要在伤害通知后另写治疗触发或复制第一位英雄的实际恢复量。其他来源保持原单英雄规则，生命周期和未校准边界见[唤光长枪契约](m3-lightcaller-lifesteal.md)。

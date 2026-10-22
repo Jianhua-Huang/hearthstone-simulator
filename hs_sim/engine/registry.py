@@ -188,6 +188,7 @@ class Registry:
         self._native_stat_gain_profiles = {}
         self._remaining_mana_numbers_profiles = {}
         self._lifesteal_recipient_profiles = {}
+        self._ability_family_profiles = {}
         self._rotating_discovery_class_profiles = {}
         self._held_battlecry_forms_profiles = {}
         self._named_minion_boon_profiles = {}
@@ -562,6 +563,9 @@ class Registry:
     def remaining_mana_numbers_profiles(self):return MappingProxyType(self._remaining_mana_numbers_profiles)
 
     @property
+    def ability_family_profiles(self):return MappingProxyType(self._ability_family_profiles)
+
+    @property
     def lifesteal_recipient_profiles(self):return MappingProxyType(self._lifesteal_recipient_profiles)
 
     @property
@@ -779,6 +783,13 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._remaining_mana_numbers_profiles:raise ValueError('Duplicate remaining-mana declaration')
         self._remaining_mana_numbers_profiles[profile.card_id]=profile
+
+    def register_ability_family_profile(self, profile):
+        self._require_mutable()
+        from .ability_families import validate_profile
+        validate_profile(self, profile)
+        if profile.id in self._ability_family_profiles:raise ValueError("Duplicate ability family")
+        self._ability_family_profiles[profile.id] = profile
 
     def register_lifesteal_recipient_profile(self,profile):
         self._require_mutable()
@@ -2149,6 +2160,8 @@ class Registry:
         for profile in self._native_stat_gain_profiles.values():validate_native_stat_gain_profile(self,profile)
         from .remaining_mana_numbers import validate_profile as validate_remaining_numbers_profile
         for profile in self._remaining_mana_numbers_profiles.values():validate_remaining_numbers_profile(self,profile)
+        from .ability_families import validate_profile as validate_ability_family_profile
+        for profile in self._ability_family_profiles.values():validate_ability_family_profile(self,profile)
         from .lifesteal_recipients import validate_profile as validate_lifesteal_recipient_profile
         for profile in self._lifesteal_recipient_profiles.values():validate_lifesteal_recipient_profile(self,profile)
         from .rotating_discovery_classes import validate_profile as validate_rotating_discovery_class_profile
@@ -2559,6 +2572,8 @@ class Registry:
             payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
         if self._remaining_mana_numbers_profiles:
             payload['remaining_mana_numbers_profiles']=[asdict(self._remaining_mana_numbers_profiles[k])for k in sorted(self._remaining_mana_numbers_profiles)]
+        if self._ability_family_profiles:
+            payload["ability_family_profiles"]=[asdict(self._ability_family_profiles[k])for k in sorted(self._ability_family_profiles)]
         if self._lifesteal_recipient_profiles:
             payload['lifesteal_recipient_profiles']=[asdict(self._lifesteal_recipient_profiles[k])for k in sorted(self._lifesteal_recipient_profiles)]
         if self._hero_health_target_profiles:

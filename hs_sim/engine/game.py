@@ -650,6 +650,8 @@ class Game:
         from .resurrection_summons import validate_boundary as validate_resurrection_summon_boundary,validate_closed_events as validate_resurrection_summon_events
         validate_resurrection_summon_boundary(self)
         validate_resurrection_summon_events(self)
+        from .ability_families import validate_boundary as validate_ability_family_boundary
+        validate_ability_family_boundary(self)
         from .random_split_damage import validate_boundary as validate_split_damage_boundary
         validate_split_damage_boundary(self)
         from .random_split_damage import validate_closed_events as validate_closed_split_events

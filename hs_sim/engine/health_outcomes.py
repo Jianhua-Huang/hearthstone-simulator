@@ -86,8 +86,13 @@ class HealthResult:
     floor_prevented: int = 0
     split_packet: SplitPacketLink | None = None
     player_origin: PlayerHealthOrigin | None = None
+    ability_trigger_id: int | None = None
 
     def __post_init__(self):
+        if self.ability_trigger_id is not None:
+            _int(self.ability_trigger_id,"skill health invocation",1)
+            if self.player_origin is not None or self.split_packet is not None or self.damage_kind not in (DamageKind.EFFECT.value,DamageKind.MINION_ABILITY.value):
+                raise ValueError("Skill health changed its original nonspell producer")
         if self.player_origin is not None:
             if type(self.player_origin) is not PlayerHealthOrigin:
                 raise ValueError('Logical health result requires its typed origin')
@@ -274,7 +279,7 @@ def capture_result(state, packet, target, before, batch_id, packet_index, combat
     """Called only by the mutating resolver, immediately after one packet settles."""
     source = state.entities.get(packet.source_id)
     split_source = packet.split_quote.source if packet.split_quote is not None else None
-    original_source=packet.player_source or split_source
+    original_source=packet.ability_source or packet.player_source or split_source
     weapon = (state.entities.get(combat.weapon_id) if combat is not None and
               combat.attacker_id == packet.source_id and packet.damage_kind == DamageKind.COMBAT else None)
     value = HealthResult(batch_id=batch_id, packet_index=packet_index, turn=state.turn, active_player=state.active_player,
@@ -294,7 +299,7 @@ def capture_result(state, packet, target, before, batch_id, packet_index, combat
         overheal=max(0, packet.amount-healed) if packet.flow == HealthFlow.HEALING and not prevention else 0,
         prevention=prevention, converted=packet.converted, from_lifesteal=packet.from_lifesteal,
         floor_plan=packet.floor_plan, floor_prevented=damage.floor_prevented if damage else 0, split_packet=packet.split_packet,
-        player_origin=player_origin_from_payload(packet.player_origin))
+        player_origin=player_origin_from_payload(packet.player_origin),ability_trigger_id=packet.ability_trigger_id)
     return dict(source_id=value.source_id, target_id=value.target_id, player_id=value.target_controller,
                 amount=value.damage_dealt or value.healed, result=value.payload())
 

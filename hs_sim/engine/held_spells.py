@@ -8,13 +8,17 @@ from copy import deepcopy
 from dataclasses import replace
 
 from .errors import ResolutionError
-from .model import CardType, HandProgressSpec, HeldSpellProgress
+from .model import CardType, HandProgressSpec, HeldSpellProgress, SpellSchool
 
 
 DIFFERENT_PLAYED_SCHOOLS = 'held_spells.different_played_schools'
+SHADOW_CASTS = 'held_spells.shadow_casts'
 
 
 def validate_spec(spec):
+    if spec.condition_id == SHADOW_CASTS and spec != HandProgressSpec(
+            "spell_cast", goal=2, condition_id=SHADOW_CASTS):
+        raise ValueError("Held Shadow progress requires two original accepted casts")
     if spec.condition_id == DIFFERENT_PLAYED_SCHOOLS and spec != HandProgressSpec(
             'spell_cast', goal=2, condition_id=DIFFERENT_PLAYED_SCHOOLS):
         raise ValueError('Different played schools require two original nonrepeating held-spell witnesses')
@@ -48,6 +52,16 @@ def different_played_schools(context, registry):
     previous = tuple(played_school(context.state, registry, cast_record(context.state, int(key[5:])))
         for key in ability.progress_keys)
     return school not in previous
+
+
+def shadow_casts(context, registry):
+    ability=context.trigger
+    if (ability is None or ability.hand_progress is None or context.cast is None or
+            ability.hand_progress.condition_id != SHADOW_CASTS):
+        raise ResolutionError("Shadow progress requires its actual held-cast acceptance")
+    validate_spec(ability.hand_progress)
+    return (context.cast.player_id==context.player_id and context.cast.payload_started and
+        context.cast.failure is None and registry.card(context.cast.card_id).spell_school==SpellSchool.SHADOW)
 
 
 def ability(entity):
@@ -132,6 +146,9 @@ def validate_progress(state,registry,progress,play=None):
             raise ValueError('Held-spell witness requires accepted spell payload')
         if play is not None and (cast.turn>play.turn or cast.action>play.action):
             raise ValueError('Held-spell witness postdates its play')
+    if progress.spec.condition_id == SHADOW_CASTS and any(
+            registry.card(cast_record(state,cid).card_id).spell_school!=SpellSchool.SHADOW for cid in progress.cast_ids):
+        raise ValueError("Held Shadow progress borrowed another spell school")
     if progress.spec.condition_id == DIFFERENT_PLAYED_SCHOOLS:
         schools = tuple(played_school(state, registry, cast_record(state, cast_id))
             for cast_id in progress.cast_ids)

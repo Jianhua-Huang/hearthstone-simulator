@@ -11098,6 +11098,7 @@ class GameState:
     invoke_history: list[InvokeRecord] = field(default_factory=list)
     jade_history: list[JadeGolemRecord] = field(default_factory=list)
     cthun_history: list[CthunGrowthRecord] = field(default_factory=list)
+    ability_trigger_history: list[object] = field(default_factory=list)
     minion_family_history: list[object] = field(default_factory=list)
     galakrond_mains: dict[int, GalakrondMain | None] = field(default_factory=lambda: {1: None, 2: None})
     spell_repeats: list[SpellRepeatRecord] = field(default_factory=list)
@@ -11220,6 +11221,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_corpse_spend_history(state, registry)
     from .resources import validate_mana_consumption_history
     validate_mana_consumption_history(state, registry)
+    from .ability_families import validate_state as validate_ability_family_state
+    validate_ability_family_state(state, registry)
     from .random_split_damage import validate_state as validate_split_damage_state
     validate_split_damage_state(state, registry)
     from .hero_lethal_windows import validate_state as validate_hero_lethal_state

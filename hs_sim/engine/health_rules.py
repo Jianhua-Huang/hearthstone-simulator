@@ -54,6 +54,8 @@ class PreparedHealth:
     numeric_limit: int | None = None
     player_source: SourceAllocationFact | None = None
     player_origin: tuple | None = None
+    ability_source: SourceAllocationFact | None = None
+    ability_trigger_id: int | None = None
 
     def event_data(self):
         return dict(base_amount=self.base_amount, spell_bonus=self.spell_bonus, modified_amount=self.amount,
@@ -218,6 +220,17 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
     definition = registry.card(source.card_id) if source else None
     player_source=None
     player_origin=None
+    ability_source=None
+    ability_trigger_id=getattr(instruction,"ability_trigger_id",None)
+    ability_controller=None
+    ability_keywords=None
+    if ability_trigger_id is not None:
+        from .ability_families import health_source as ability_health_source
+        if player_effect is not None or split_link is not None or source_packet is not None or partition_source is not None:
+            raise ResolutionError("Skill health cannot borrow another logical producer")
+        ability_source,ability_controller,ability_keywords=ability_health_source(state,registry,
+            ability_trigger_id,instruction.source_id,instruction.kind)
+        definition=registry.card(ability_source.card_id)
     if player_effect is not None:
         from .player_effects import health_source
         if (type(instruction)is not Damage or instruction.kind!=DamageKind.EFFECT or
@@ -270,13 +283,17 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
                             player_effect_owner if player_source is not None else source.controller if source else None, keywords, instruction.amount, instruction.amount,
                             damage_kind, healing_kind, definition.spell_school if definition else None,
                             from_lifesteal=from_lifesteal, split_quote=split_quote, split_packet=split_link,
-                            numeric_limit=numeric_limit,player_source=player_source,player_origin=player_origin)
+                            numeric_limit=numeric_limit,player_source=player_source,player_origin=player_origin,
+                            ability_source=ability_source,ability_trigger_id=ability_trigger_id)
+    if ability_source is not None:
+        packet=replace(packet,source_controller=ability_controller,source_keywords=ability_keywords,school=None)
     if split_quote is not None:
         packet = replace(packet, source_controller=split_quote.cast.player_id if split_quote.cast is not None else split_quote.source.controller,
             source_keywords=frozenset(split_quote.source_keywords), school=split_quote.school)
     if source_packet is not None:
         packet = replace(packet, source_controller=source_packet.source_controller,
-                         source_keywords=source_packet.source_keywords, school=source_packet.school)
+                         source_keywords=source_packet.source_keywords, school=source_packet.school,
+                         ability_source=source_packet.ability_source,ability_trigger_id=source_packet.ability_trigger_id)
     if partition_source is not None:
         if (type(partition_source) is not PreparedHealth or type(instruction) is not Damage or
                 instruction.kind != partition_source.damage_kind or instruction.source_id != partition_source.source_id or
