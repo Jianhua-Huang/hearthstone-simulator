@@ -10,6 +10,33 @@ from tools import card_batch as batch
 
 
 class CardBatchToolTests(unittest.TestCase):
+    def test_name_preflight_understands_imports_closures_comprehensions_and_never_executes(self):
+        source = ('import math as numbers\nVALUE = 3\n'
+                  'def outer(seed):\n'
+                  '    local = [item + VALUE for item in range(seed)]\n'
+                  '    def inner(): return sum(local) + numbers.floor(0.1)\n'
+                  '    return inner\n'
+                  'class Holder:\n'
+                  '    marker = 2\n'
+                  '    def go(self): return outer(self.marker)()\n'
+                  'raise AssertionError("must never execute")\n')
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)/'fixture.py'; path.write_text(source, encoding='utf-8')
+            self.assertEqual(batch.python_name_candidates(['fixture.py'], root=folder), [])
+            self.assertEqual(path.read_text(encoding='utf-8'), source)
+
+    def test_name_preflight_reports_missing_import_and_nested_misspelling(self):
+        source = ('EXPLICIT = 1\n'
+                  'def function(): return MissingRecipe + EXPLICIT\n'
+                  'class Holder:\n'
+                  '    def go(self): return module_alias.effect()\n')
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder)/'fixture.py'; path.write_text(source, encoding='utf-8')
+            rows = batch.python_name_candidates(['fixture.py'], root=folder)
+            self.assertEqual({r['symbol'] for r in rows}, {'MissingRecipe', 'module_alias'})
+            self.assertTrue(all(r['path']=='fixture.py' and r['line']>=1 for r in rows))
+            self.assertEqual(path.read_text(encoding='utf-8'), source)
+
     def leyline_display_fixture(self):
         data = batch.read(Path(__file__).resolve().parents[1]/'data/support/card-source-leyline-display-v1.json')
         self.assertEqual(batch.canonical(data), '9ed92e3741808d262c9777d237da714ea4d09bcccc95ad32b91ba9763101fe62')

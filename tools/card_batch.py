@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import ast
+import builtins
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 from datetime import datetime, timezone
@@ -17,6 +18,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import symtable
 import unittest
 from urllib.request import Request, urlopen
 from urllib.parse import parse_qs, urlsplit
@@ -58,6 +60,33 @@ def relative_file(value):
     require(not p.is_absolute() and p.parts and '..' not in p.parts and ':' not in value,
             'A batch path must remain inside the repository')
     return p
+
+
+def python_name_candidates(paths, *, root=ROOT):
+    """Read-only missing-global hints; never import or execute candidate files.
+
+    This catches missing imports and misspelled module names before managed
+    tests. It is a conservative diagnostic, not a proof of runtime correctness.
+    """
+    special = {'__name__', '__file__', '__package__', '__doc__', '__builtins__',
+               '__loader__', '__spec__', '__cached__', '__annotations__'}
+    result = []
+    for value in paths:
+        relative = relative_file(value)
+        require(relative.suffix == '.py', 'Name preflight requires Python sources')
+        table = symtable.symtable((Path(root)/relative).read_text(encoding='utf-8-sig'), value, 'exec')
+        declared = {s.get_name() for s in table.get_symbols()
+                    if s.is_assigned() or s.is_imported() or s.is_namespace()}
+        known = declared | set(dir(builtins)) | special
+        pending = [(table, table.get_name())]
+        while pending:
+            scope, name = pending.pop()
+            for symbol in scope.get_symbols():
+                if symbol.is_global() and symbol.is_referenced() and symbol.get_name() not in known:
+                    result.append(dict(path=value, scope=name, line=max(1, scope.get_lineno()),
+                                       symbol=symbol.get_name()))
+            pending.extend((child, name+'.'+child.get_name()) for child in scope.get_children())
+    return sorted(result, key=lambda row: (row['path'], row['scope'], row['symbol']))
 
 
 def load_manifest(path):
