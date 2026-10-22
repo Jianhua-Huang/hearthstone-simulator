@@ -20,8 +20,9 @@ DUAL_TIMING='battlecry_deathrattle'
 PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
 CONDITION_PREFIX='assemble.condition:'
+INNER_CONDITION_PREFIX='assemble.condition_inner:'
 BEFORE_PREFIX='assemble.before:'
-TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX)
+TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX)
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN))
@@ -416,6 +417,12 @@ def conditional_behavior(registry,behavior_id):
     def run(context):
         if ('battlecry'in timings and context.battlecry is not None and
                 context.battlecry.payload.behavior_id==behavior_id):
+            if row['condition_id'] in registry.assemble_inner_conditions:
+                from .effects import InvokeBehavior
+                return (InvokeBehavior(inner_condition_behavior_id(row['condition_id'],
+                    row['behavior_id'], context.battlecry.id), context.source_id,
+                    context.player_id, context.target_id,
+                    None if context.play is None else context.play.id),)
             result=predicate(context)
             if type(result)is not bool:raise ValueError('Assembly condition requires an explicit boolean')
             return body(context)if result else()
@@ -426,6 +433,54 @@ def conditional_behavior(registry,behavior_id):
             return (CheckAssembledEndCondition(context.end_turn.id,context.source_id,context.player_id,
                 row['condition_id'],row['behavior_id']),)
         raise ValueError('Conditional assembly requires its original native Battlecry or end-turn context')
+    return run
+
+
+def inner_condition_behavior_id(condition_id, behavior_id, battlecry_id):
+    # The continuation carries its exact already accepted activation, rather
+    # than selecting whichever incomplete Battlecry happens to be nearest.
+    condition_behavior_id(condition_id, behavior_id)
+    _int(battlecry_id, 'assembled inner condition Battlecry', 1)
+    row = dict(condition_id=condition_id, behavior_id=behavior_id, battlecry_id=battlecry_id)
+    body = json.dumps(row, sort_keys=True, separators=(',', ':')).encode()
+    result = INNER_CONDITION_PREFIX + base64.urlsafe_b64encode(body).decode().rstrip('=')
+    if len(result) > 8192:
+        raise ValueError('Assembled inner condition identity exceeds bounded size')
+    return result
+
+
+def inner_condition_behavior(registry, behavior_id):
+    """Use the ordinary fresh InvokeBehavior view, retaining the native root."""
+    from .registry import UnsupportedDefinitionError
+    try:
+        if not behavior_id.startswith(INNER_CONDITION_PREFIX) or len(behavior_id) > 8192:
+            raise ValueError('Invalid assembled inner condition identity')
+        token = behavior_id[len(INNER_CONDITION_PREFIX):]
+        row = json.loads(base64.b64decode(token + '=' * (-len(token) % 4),
+            altchars=b'-_', validate=True).decode())
+        if (type(row) is not dict or set(row) != {'condition_id', 'behavior_id', 'battlecry_id'} or
+                inner_condition_behavior_id(**row) != behavior_id):
+            raise ValueError('Noncanonical assembled inner condition identity')
+        outer = condition_behavior_id(row['condition_id'], row['behavior_id'])
+        _, predicate, body, timings = conditional_parts(registry, outer)
+        if 'battlecry' not in timings or row['condition_id'] not in registry.assemble_inner_conditions:
+            raise ValueError('Unreviewed assembled inner condition window')
+    except (ValueError, TypeError, UnicodeError, binascii.Error) as exc:
+        raise UnsupportedDefinitionError('Unsupported assembled inner condition: ' + str(exc)) from exc
+
+    def run(context):
+        from .battlecries import battlecry_record, validate_record
+        record = battlecry_record(context.state, row['battlecry_id'])
+        if (context.battlecry != record or record.completed or record.interrupted or
+                record.failure is not None or record.payload.behavior_id != outer or
+                (record.source_id, record.player_id, record.target_id) !=
+                (context.source_id, context.player_id, context.target_id)):
+            raise ValueError('Assembled inner condition differs from its accepted Battlecry')
+        validate_record(context.state, registry, record)
+        result = predicate(context)
+        if type(result) is not bool:
+            raise ValueError('Assembly condition requires an explicit boolean')
+        return body(context) if result else ()
     return run
 
 
@@ -470,6 +525,12 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    for condition_id in registry._assemble_inner_conditions:
+        registry.trigger_condition(condition_id)
+        if not any(template.prefix.timing == 'battlecry' and
+                template.prefix.condition_id == condition_id
+                for template in (*registry._assemble_templates.values(), *registry._assemble_projections.values())):
+            raise ValueError('Assembled inner condition requires its actual reviewed Battlecry prefix')
     for cid,template in registry._assemble_templates.items():
         if type(template)is not AssembleTemplate or cid!=template.card_id:raise ValueError('Invalid assembly template identity')
         validate_template(registry,template)

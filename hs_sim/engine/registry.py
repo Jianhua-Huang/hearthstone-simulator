@@ -150,6 +150,7 @@ class Registry:
         self._hand_mirror_ids = frozenset()
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
+        self._assemble_inner_conditions = set()
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -285,6 +286,18 @@ class Registry:
     @property
     def assemble_templates(self):
         return MappingProxyType(self._assemble_templates)
+
+    @property
+    def assemble_inner_conditions(self):
+        return frozenset(self._assemble_inner_conditions)
+
+    def register_assemble_inner_condition(self, condition_id):
+        """One reviewed assembly predicate uses the native inner-call window."""
+        self._require_mutable()
+        self.trigger_condition(condition_id)
+        if condition_id in self._assemble_inner_conditions:
+            raise ValueError('Duplicate assembled inner-call condition')
+        self._assemble_inner_conditions.add(condition_id)
 
     @property
     def assemble_projections(self):
@@ -1663,11 +1676,15 @@ class Registry:
 
     def behavior(self, id: str) -> Behavior:
         _name(id, "behavior ID")
-        from .assemble_faces import OWNER_START_PREFIX, owner_start_behavior,CONDITION_PREFIX,conditional_behavior,BEFORE_PREFIX,before_behavior
+        from .assemble_faces import (OWNER_START_PREFIX, owner_start_behavior, CONDITION_PREFIX,
+            conditional_behavior, BEFORE_PREFIX, before_behavior, INNER_CONDITION_PREFIX,
+            inner_condition_behavior)
         if id.startswith(OWNER_START_PREFIX):
             return owner_start_behavior(self,id)
         if id.startswith(CONDITION_PREFIX):
             return conditional_behavior(self,id)
+        if id.startswith(INNER_CONDITION_PREFIX):
+            return inner_condition_behavior(self, id)
         if id.startswith(BEFORE_PREFIX):
             return before_behavior(self,id)
         try:
@@ -2673,6 +2690,8 @@ class Registry:
             payload['outcast_summon_profiles']=[asdict(self._outcast_summon_profiles[k])for k in sorted(self._outcast_summon_profiles)]
         if self._assemble_templates:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
+        if self._assemble_inner_conditions:
+            payload['assemble_inner_conditions'] = sorted(self._assemble_inner_conditions)
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:
