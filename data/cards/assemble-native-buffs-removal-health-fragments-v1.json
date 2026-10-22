@@ -1,0 +1,1196 @@
+{
+  "schema": 1,
+  "batch": "assemble-native-buffs-removal-health-fragments-v1",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_CFM_753",
+        "dbf_id": 102196,
+        "name": "污手街供货商",
+        "name_en": "Grimestreet Outfitter",
+        "text": "<b>战吼：</b>&使你手牌中的所有随从牌获得+1/+1。",
+        "text_en": "<b>Battlecry:</b>& Give all minions in your hand +1/+1.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 40567,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40567",
+              "type": "Int",
+              "value": "40567"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "bae626673ba54221d97b4d38a8996444e71e4032f44f85fee590c001f4544c85",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_CFM_753",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "40b06ff796b9b87db14baa61fbf3f83c038134d85c19f7938f1bacb244c4abc5"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_214",
+        "dbf_id": 95732,
+        "name": "黑曜石雕像",
+        "name_en": "Obsidian Statue",
+        "text": "<b>嘲讽</b>。<b>吸血</b>。<b>亡语：</b>&随机消灭一个敌方随从。",
+        "text_en": "[x]<b><b>Taunt</b>, Lifesteal</b>\n<b>Deathrattle:</b>& Destroy a\n random enemy minion.",
+        "cost": 9,
+        "attack": 4,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 4,
+          "COST": 9,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 42598,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "42598",
+              "type": "Int",
+              "value": "42598"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d5321c71a6d480d1d665c9e9a12cd0615d4e5add5cee1fb6cfa725440d7f3ed4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_ICC_214",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "d32dab57b216c8bdd5972d3ec431622b15da6ba54fad0373178e3f5070024094"
+    },
+    {
+      "record": {
+        "id": "CORE_WW_329",
+        "dbf_id": 127469,
+        "name": "机甲爆王",
+        "name_en": "Detonation Juggernaut",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&使你手牌中的<b>嘲讽</b>随从牌获得+2/+2。",
+        "text_en": "<b>Taunt</b>. <b>Battlecry:</b>& Give <b>Taunt</b> minions in your hand +2/+2.",
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 100062,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 100062,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "100062",
+              "type": "Int",
+              "value": "100062"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9e55460ee47f2324a90bd7b4ae031a43d102adb3194506d196158f09b4b37bfe",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_WW_329",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3843c86cc785398137d96f21f2522b42824e9b224d14ee6bb33452ab4089b3ee"
+    },
+    {
+      "record": {
+        "id": "TIME_603",
+        "dbf_id": 119702,
+        "name": "计时炸弹",
+        "name_en": "Ticking Timebomb",
+        "text": "<b>亡语：</b>&随机消灭一个敌方随从。",
+        "text_en": "<b>Deathrattle:</b>& Destroy a random enemy minion.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "83df4c0a2b72baf5ac47869a6e8040c41a81721ad7c7c54baac231bb4484baf0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_603",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "5f4fb10d3b0a1174c0ea056aa0b2bf9d07aa195b1e366177f246b9aa8c1f2464"
+    },
+    {
+      "record": {
+        "id": "CATA_304",
+        "dbf_id": 122881,
+        "name": "受伤的侍者",
+        "name_en": "Injured Attendant",
+        "text": "<b><b>吸血</b>。战吼：</b>&对本随从造成4点伤害。",
+        "text_en": "<b><b>Lifesteal</b>\nBattlecry:</b>& Deal 4 damage to this minion.",
+        "cost": 3,
+        "attack": 3,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          }
+        ]
+      },
+      "record_sha256": "12476eb4323472965e2da568c27996f2dd8d8362f974e5363accf5155b39a95d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CATA_304",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "732edef3cdd634d03f42d6b354051f7d961cb3193d8dee24bcd0810013d6894e"
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_848",
+        "dbf_id": 76327,
+        "name": "始生幼龙",
+        "name_en": "Primordial Drake",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&对所有其他随从造成2点伤害。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b>& Deal 2 damage\nto all other minions.",
+        "cost": 8,
+        "attack": 4,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 4,
+          "COST": 8,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41929,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41929",
+              "type": "Int",
+              "value": "41929"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "99bfcdbfe5f288e29d3806e874119171a663ebb739abde60c540d1c7abf75182",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_UNG_848",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "a61231e8699e7d0ef152f32895e2755b2d35cd6081b9dffda627b5abf319577f"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CORE_CFM_753",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 102196,
+        "collectible": 1,
+        "slug": "102196-grimestreet-outfitter",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Peter Stapleton",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "污手街供货商",
+        "text": "<b>战吼：</b>&使你手牌中的所有随从牌获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3b3bcab9aebabdba9213917e827080d3cb6812eff882b8a8eb09dacf61e287c.png",
+        "imageGold": "",
+        "flavorText": "如果你是杀价的高手，他还会把帽子也算进来送你。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a103112c139226d946f28d7fdffe0fa4fb993c9e93ccbc1a0e10a5e8b33a7c3.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          40567
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_CFM_753",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 102196,
+        "collectible": 1,
+        "slug": "102196-grimestreet-outfitter",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Peter Stapleton",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Grimestreet Outfitter",
+        "text": "<b>Battlecry:</b>& Give all minions in your hand +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ddfa1fffaa3ab2c69b6af09a9f4f044b415214d4fc71e767d401333854e7117.png",
+        "imageGold": "",
+        "flavorText": "If you bargain hard, he'll throw in the hat.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a103112c139226d946f28d7fdffe0fa4fb993c9e93ccbc1a0e10a5e8b33a7c3.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          40567
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ICC_214",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 95732,
+        "collectible": 1,
+        "slug": "95732-obsidian-statue",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "A. J. Nazzaro",
+        "health": 8,
+        "attack": 4,
+        "manaCost": 9,
+        "name": "黑曜石雕像",
+        "text": "<b>嘲讽</b>。<b>吸血</b>。<b>亡语：</b>&随机消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e5588a9211ef32787b48c45dd2b101aae70c450410abfdb056cc4e27355614d.png",
+        "imageGold": "",
+        "flavorText": "原画师花了大量工夫，用凿子在面部精雕细琢，才表现出这副嘲讽的表情。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3b2bfcbbc9adb5aaf61ad297755af8f0af0e3f8fcfaba903b885331eb156b8f.png",
+        "keywordIds": [
+          1,
+          12,
+          38
+        ],
+        "copyOfCardId": [
+          42598
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_ICC_214",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 95732,
+        "collectible": 1,
+        "slug": "95732-obsidian-statue",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "A. J. Nazzaro",
+        "health": 8,
+        "attack": 4,
+        "manaCost": 9,
+        "name": "Obsidian Statue",
+        "text": "<b><b>Taunt</b>, Lifesteal</b> <b>Deathrattle:</b>& Destroy a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99f146f463cdabb9d7e20bb8a60d4d08ef37b8c1c870d65bc1201dc7a3804b28.png",
+        "imageGold": "",
+        "flavorText": "The original artist spent many hours with a fine chisel perfecting the facial expression for maximum tauntiness.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3b2bfcbbc9adb5aaf61ad297755af8f0af0e3f8fcfaba903b885331eb156b8f.png",
+        "keywordIds": [
+          1,
+          12,
+          38
+        ],
+        "copyOfCardId": [
+          42598
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_WW_329",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-2.json",
+      "response_sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+      "face": {
+        "id": 127469,
+        "collectible": 1,
+        "slug": "127469-detonation-juggernaut",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "机甲爆王",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&使你手牌中的<b>嘲讽</b>随从牌获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df82e7e09920d708b4cb47c1a9a632aa8ad53b6150c349ee82f2f2074cd71eb0.png",
+        "imageGold": "",
+        "flavorText": "就为了扔这么一捆炸药，你至于穿这么大一身机甲吗？",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          100062
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=zh_CN",
+        "sha256": "9793238bf6c7fdc7087c50d52ba20200b7b6fba604120dba214c5881d2464cc7",
+        "bytes": 382946,
+        "observed_at": "2026-10-20T16:28:57.653333+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_WW_329",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-1.json",
+      "response_sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+      "face": {
+        "id": 127469,
+        "collectible": 1,
+        "slug": "127469-detonation-juggernaut",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Detonation Juggernaut",
+        "text": "<b>Taunt</b>. <b>Battlecry:</b>& Give <b>Taunt</b> minions in your hand +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c92b1473a65710683496a6d86fc446f3ba62602e4bf4e9402053456a7a4bbf5e.png",
+        "imageGold": "",
+        "flavorText": "Did you really need a whole giant mecha-suit just for one bundle of dynamite?",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          100062
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=en_US",
+        "sha256": "30b6a9744c39f0b2f82856bde23f7af7c440734ab866b94e85a61f5bc9d46832",
+        "bytes": 377871,
+        "observed_at": "2026-10-20T16:28:58.803294+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_603",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 119702,
+        "collectible": 1,
+        "slug": "119702-ticking-timebomb",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "计时炸弹",
+        "text": "<b>亡语：</b>&随机消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d8c2fa1c9fdddbdb00ae1690e3f31ad28e5063967c12e567b605ce7d23b20382.png",
+        "imageGold": "",
+        "flavorText": "相信我，计时器总会在0秒时准时停止。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0cd241cd48327c385ee0a96e04db8b7025d465ad0b31eb1e5063d6cc96ef590d.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_603",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 119702,
+        "collectible": 1,
+        "slug": "119702-ticking-timebomb",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Ticking Timebomb",
+        "text": "<b>Deathrattle:</b>& Destroy a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4270f2e841cde498abeaf0074bf6767b82063b15559d84ad9330c0123cf9ce15.png",
+        "imageGold": "",
+        "flavorText": "Trust me, the timer always stops at 0 seconds.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0cd241cd48327c385ee0a96e04db8b7025d465ad0b31eb1e5063d6cc96ef590d.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_304",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 122881,
+        "collectible": 1,
+        "slug": "122881-injured-attendant",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Brian Despain",
+        "health": 8,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "受伤的侍者",
+        "text": "<b><b>吸血。</b>战吼：</b>&对本随从造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec589a12690b3f3085bf30abd67d4e2a6889a037be5083da4bff4d70e867191d.png",
+        "imageGold": "",
+        "flavorText": "这就是快速自疗。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5719c4803d634374032dfbc30c3f0e64e16b52183dccd4e568a6f4191be2d98a.png",
+        "keywordIds": [
+          8,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CATA_304",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 122881,
+        "collectible": 1,
+        "slug": "122881-injured-attendant",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1980,
+        "rarityId": 3,
+        "artistName": "Brian Despain",
+        "health": 8,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Injured Attendant",
+        "text": "<b><b>Lifesteal</b> Battlecry:</b>& Deal 4 damage to this minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76b549b44f786fc5c3a742436cd84c15e817d77442bd6dce0d5ade235594fcbc.png",
+        "imageGold": "",
+        "flavorText": "It's just a flesh heal.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5719c4803d634374032dfbc30c3f0e64e16b52183dccd4e568a6f4191be2d98a.png",
+        "keywordIds": [
+          8,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_UNG_848",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-1.json",
+      "response_sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+      "face": {
+        "id": 76327,
+        "collectible": 1,
+        "slug": "76327-primordial-drake",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Mike Sass",
+        "health": 8,
+        "attack": 4,
+        "manaCost": 8,
+        "name": "始生幼龙",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>&对所有其他随从造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84b5776272821131e1fc5dc8aaa95ea4ee581c5793439d0bd6a500aa0d2c2617.png",
+        "imageGold": "",
+        "flavorText": "它的一副公鸭嗓让自己在族群里独树一帜。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d66f77d0840b14a54d9acfc9868922c2c4db979aa327018083178ba19d68f9df.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          41929
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=1&locale=zh_CN",
+        "sha256": "033ca1f968b1270e2e17d6ca377c1890d2836738111a24a78335aaf15bfa47bc",
+        "bytes": 384302,
+        "observed_at": "2026-10-20T16:28:57.457209+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_UNG_848",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-2.json",
+      "response_sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+      "face": {
+        "id": 76327,
+        "collectible": 1,
+        "slug": "76327-primordial-drake",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Mike Sass",
+        "health": 8,
+        "attack": 4,
+        "manaCost": 8,
+        "name": "Primordial Drake",
+        "text": "<b>Taunt</b> <b>Battlecry:</b>& Deal 2 damage to all other minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f25c766a38c9217f119522f9b0f2c5e701b17416be30f13026ac1917da699e09.png",
+        "imageGold": "",
+        "flavorText": "Before he became a rap artist.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d66f77d0840b14a54d9acfc9868922c2c4db979aa327018083178ba19d68f9df.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "copyOfCardId": [
+          41929
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=2&locale=en_US",
+        "sha256": "0dc41b8b526e29f754f3823d5db240e59b6fb3f7f8004184e596583b2b1764d1",
+        "bytes": 377823,
+        "observed_at": "2026-10-20T16:28:59.159147+00:00"
+      }
+    }
+  ],
+  "reviewed_templates": [
+    {
+      "card_id": "CORE_CFM_753",
+      "timing": "battlecry",
+      "keywords": [],
+      "behavior_id": "cards.utility.body.2ae043bff8571053de9d92f5",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ],
+      "original_module": "hs_sim.cards.utility_cards",
+      "original_stages": [
+        "cards.utility.body.2ae043bff8571053de9d92f5.0"
+      ],
+      "original_steps": [
+        {
+          "operation": "buff",
+          "scope": "friendly_hand_minions",
+          "amount": 0,
+          "attack": 1,
+          "health": 1,
+          "keyword": null,
+          "card_id": null,
+          "count": 1,
+          "temporary": false,
+          "tribes": [],
+          "keywords_all": [],
+          "damaged": null,
+          "attack_min": null,
+          "attack_max": null,
+          "success": [],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "card_id": "CORE_ICC_214",
+      "timing": "deathrattle",
+      "keywords": [
+        "taunt",
+        "lifesteal"
+      ],
+      "behavior_id": "cards.utility.body.88157dad2b0a7526385745e8",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ],
+      "original_module": "hs_sim.cards.utility_cards",
+      "original_stages": [
+        "cards.utility.body.88157dad2b0a7526385745e8.0"
+      ],
+      "original_steps": [
+        {
+          "operation": "random_destroy",
+          "scope": "enemy_minions",
+          "amount": 0,
+          "attack": 0,
+          "health": 0,
+          "keyword": null,
+          "card_id": null,
+          "count": 1,
+          "temporary": false,
+          "tribes": [],
+          "keywords_all": [],
+          "damaged": null,
+          "attack_min": null,
+          "attack_max": null,
+          "success": [],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "card_id": "CORE_WW_329",
+      "timing": "battlecry",
+      "keywords": [
+        "taunt"
+      ],
+      "behavior_id": "cards.utility.body.e50d4e73d4b9d6a8cd92a05a",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ],
+      "original_module": "hs_sim.cards.utility_cards",
+      "original_stages": [
+        "cards.utility.body.e50d4e73d4b9d6a8cd92a05a.0"
+      ],
+      "original_steps": [
+        {
+          "operation": "buff",
+          "scope": "friendly_hand_minions",
+          "amount": 0,
+          "attack": 2,
+          "health": 2,
+          "keyword": null,
+          "card_id": null,
+          "count": 1,
+          "temporary": false,
+          "tribes": [],
+          "keywords_all": [
+            "taunt"
+          ],
+          "damaged": null,
+          "attack_min": null,
+          "attack_max": null,
+          "success": [],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "card_id": "TIME_603",
+      "timing": "deathrattle",
+      "keywords": [],
+      "behavior_id": "cards.utility.body.88157dad2b0a7526385745e8",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ],
+      "original_module": "hs_sim.cards.utility_cards",
+      "original_stages": [
+        "cards.utility.body.88157dad2b0a7526385745e8.0"
+      ],
+      "original_steps": [
+        {
+          "operation": "random_destroy",
+          "scope": "enemy_minions",
+          "amount": 0,
+          "attack": 0,
+          "health": 0,
+          "keyword": null,
+          "card_id": null,
+          "count": 1,
+          "temporary": false,
+          "tribes": [],
+          "keywords_all": [],
+          "damaged": null,
+          "attack_min": null,
+          "attack_max": null,
+          "success": [],
+          "failure": []
+        }
+      ]
+    },
+    {
+      "card_id": "CATA_304",
+      "timing": "battlecry",
+      "keywords": [
+        "lifesteal"
+      ],
+      "behavior_id": "cards.health.dbd2da11be35061480a8446a",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ],
+      "original_module": "hs_sim.cards.health_cards",
+      "original_stages": [],
+      "original_steps": [
+        {
+          "operation": "damage",
+          "scope": "self",
+          "amount": 4,
+          "basis": "constant",
+          "opponent_amount": null
+        }
+      ]
+    },
+    {
+      "card_id": "CORE_UNG_848",
+      "timing": "battlecry",
+      "keywords": [
+        "taunt"
+      ],
+      "behavior_id": "cards.health.e89aecdbbbdc51356caeabf3",
+      "allowed_timings": [
+        "battlecry",
+        "deathrattle",
+        "end_turn",
+        "start_turn"
+      ],
+      "original_module": "hs_sim.cards.health_cards",
+      "original_stages": [],
+      "original_steps": [
+        {
+          "operation": "damage",
+          "scope": "other_minions",
+          "amount": 2,
+          "basis": "constant",
+          "opponent_amount": null
+        }
+      ]
+    }
+  ],
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "experimental_policy": {
+    "formal_pool_installed": false,
+    "formal_pool_complete": false,
+    "cn_calibrated": false,
+    "original_native_helpers_reused": true,
+    "new_static_roots": false,
+    "self_damage_to_dead_carrier_uses_shared_stale_target_policy": true
+  }
+}
