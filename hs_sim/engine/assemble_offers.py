@@ -7,7 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass,replace
 from random import Random
 
-from .assemble_faces import AssembleRecipe,text_source
+from .assemble_faces import AssembleRecipe,text_source,prefix_timings,compatible
 from .effects import Effect,AddToHand,ChoiceOption,RequestChoice,_player,_source
 from .card_creation import CreatedMinionGrant,validate_minion_grant
 from .errors import ResolutionError
@@ -141,7 +141,7 @@ def candidates(registry,context,state,spec,primary=None):
             passive_minion(card)
         if primary is None:
             if spec.primary_trait!='any':
-                match=(Keyword.TAUNT in card.keywords)if spec.primary_trait=='taunt'else template.prefix.timing==spec.primary_trait
+                match=(Keyword.TAUNT in card.keywords)if spec.primary_trait=='taunt'else spec.primary_trait in prefix_timings(template.prefix)
                 if not match:continue
         else:
             if not recipe_options(registry,primary,row.card_id,spec.passive_power_template_id):continue
@@ -154,7 +154,7 @@ def recipe_options(registry,primary,secondary,passive_power_template_id=None):
     for half in('top','bottom'):
         prefix=second.prefix if half=='top'else first.prefix
         suffix=second.suffix if half=='bottom'else first.suffix
-        if prefix.timing not in suffix.allowed_timings:continue
+        if not compatible(prefix,suffix):continue
         cid=AssembleRecipe(primary,secondary,half).card_id;card=registry.card(cid)
         if replace(card,id=primary)==registry.card(primary):continue
         if passive_power_template_id is not None:

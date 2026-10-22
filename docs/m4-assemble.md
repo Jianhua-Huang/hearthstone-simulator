@@ -135,3 +135,13 @@ python -B -X utf8 tools/inventory_assemble_sources.py --data outputs/card-integr
 晶石魔像的真实前半段包含嘲讽、复生及亡语，因此AssemblePrefix允许普通印刷REBORN关键词。新面沿原打印附件安装；自然死亡按原DeathRecord.card_id重新解析同一不可变配方，由原RebornMinion执行一次1点生命返回并消费复生。普通当前复制保留已消费状态，回手重置后再出牌恢复完整印刷面；沉默、变形和实际死亡控制者仍由原生命周期处理。非默认reborn_policy没有因新增关键词白名单而自动获得移植许可，原完整字段守卫仍拒绝未审核政策。
 
 此有限关键词支持用core655区分，schema539、655 Effect/260 payload、状态与观察协议保持。没有新的复生解释器、计数器、特殊卡名分支或组合预制卡。原完整来源及此处的文本相容声明不单独证明普通/拉夏的正式成员、权重、全部来源角色或国服精确时序；未知合格内容继续明确失败，不能静默裁掉。
+
+## 原文明确的战吼及亡语双时机
+
+[四份完整来源](../data/cards/assemble-dual-prefix-fragments-v1.json)分别绑定托维尔先锋、原版及CORE版地底虫王、堕寒男爵的原行、旧完整定义SHA和八份双语主面。它们的真实前半段均同时包含战吼及亡语；AssemblePrefix用有限值battlecry_deathrattle表达这一个已存在的原文前缀，不接受任意时机列表或其它组合名称。
+
+prefix_timings将这个值展开为两个原生入口，compatible要求同一个后半段已分别审核允许battlecry和deathrattle；只允许战吼的显式箭头主体不能因此成为亡语。printed_face同时写入原生CardDefinition.battlecry及deathrattle，不生成新的队列或重复触发器。原出牌、战吼重复、自然死亡、主动亡语、复制/复活以及等待/回滚继续沿各自既有执行器；普通复制和复活不会重演战吼。原battlecry/deathrattle主牌条件也按两个实际入口判断，不能因前缀不是单个字符串而漏掉这些来源。
+
+AssembleSuffix增加可选deathrattle_behavior_id，明确保存同一原文后半段在现有适配中的原生亡语入口。未声明时沿原behavior_id；声明时只能用于已审核的deathrattle时机，必须注册实际行为且不能占用派生owner-start命名空间。地底虫王及堕寒男爵的旧战吼/亡语回调身份本来不同，两个ID均保留；编译时战吼、亡语各自使用原对应入口。其它开始/结束移植使用原canonical behavior_id。所有源仍须逐字段重建完整旧随从，没有重写旧卡定义或放宽完整字段守卫。
+
+这个可选项进入静态注册声明指纹；旧声明取None默认值，完整旧卡牌定义、状态和存档字段保持。core656区分有限前缀及入口语义，schema539及655 Effect/260 payload不变。不可变配方语法仍为原版本，保存的注册指纹与内核版本绑定其含义；没有新Effect、payload类型或玩家命令。双时机支持不授权被动英雄技能载体，也不推定正式池成员、角色、权重、等效文本去重政策或国服精确时序。

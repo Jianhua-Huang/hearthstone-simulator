@@ -15,6 +15,8 @@ from .serialization import canonical_hash
 PREFIX='assemble:'
 VERSION='assemble-face-v1'
 TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))
+DUAL_TIMING='battlecry_deathrattle'
+PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
@@ -29,7 +31,7 @@ class AssemblePrefix:
     end_turn: EndTurnSpec|None=None
 
     def __post_init__(self):
-        if type(self.timing)is not str or self.timing not in TIMINGS:
+        if type(self.timing)is not str or self.timing not in PREFIX_TIMINGS:
             raise ValueError('Unsupported assembled text prefix timing')
         if (type(self.keywords)is not tuple or any(type(k)is not Keyword or k not in BASIC_KEYWORDS for k in self.keywords)
                 or len(set(self.keywords))!=len(self.keywords)):
@@ -47,6 +49,7 @@ class AssembleSuffix:
     requires_target: bool=False
     targeting: TargetSpec|None=None
     target_rule: str='any_entity'
+    deathrattle_behavior_id: str|None=None
 
     def __post_init__(self):
         _name(self.behavior_id,'assembled suffix behavior');_name(self.target_rule,'assembled suffix target rule')
@@ -61,6 +64,11 @@ class AssembleSuffix:
             self.targeting.__post_init__()
         if (self.requires_target or self.targeting is not None) and self.allowed_timings!=('battlecry',):
             raise ValueError('Explicitly selected suffix targets only support a Battlecry prefix')
+        if self.deathrattle_behavior_id is not None:
+            _name(self.deathrattle_behavior_id,'assembled native Deathrattle body')
+            if ('deathrattle'not in self.allowed_timings or
+                    self.deathrattle_behavior_id.startswith(OWNER_START_PREFIX)):
+                raise ValueError('Alternate Deathrattle body requires its reviewed native timing')
 
 @dataclass(frozen=True)
 class AssembleTemplate:
@@ -138,17 +146,28 @@ def recipe_from_id(card_id):
     if recipe.card_id!=card_id:raise ValueError('Assembly identity is not canonical')
     return recipe
 
+def prefix_timings(prefix):
+    prefix.__post_init__()
+    return ('battlecry','deathrattle')if prefix.timing==DUAL_TIMING else(prefix.timing,)
+
+
+def compatible(prefix,suffix):
+    suffix.__post_init__()
+    return all(t in suffix.allowed_timings for t in prefix_timings(prefix))
+
+
 def printed_face(primary,prefix,suffix,card_id):
     prefix.__post_init__();suffix.__post_init__()
-    if prefix.timing not in suffix.allowed_timings:raise ValueError('Unreviewed prefix/suffix compatibility')
+    if not compatible(prefix,suffix):raise ValueError('Unreviewed prefix/suffix compatibility')
+    timings=prefix_timings(prefix)
     return replace(primary,id=card_id,keywords=prefix.keywords,
-        battlecry=suffix.behavior_id if prefix.timing=='battlecry' else None,
-        deathrattle=suffix.behavior_id if prefix.timing=='deathrattle' else None,
+        battlecry=suffix.behavior_id if 'battlecry'in timings else None,
+        deathrattle=(suffix.deathrattle_behavior_id or suffix.behavior_id)if 'deathrattle'in timings else None,
         triggers=((TriggerSpec('turn_ended',suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
             (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else ()),
-        requires_target=suffix.requires_target if prefix.timing=='battlecry' else False,
-        targeting=suffix.targeting if prefix.timing=='battlecry' else None,
-        target_rule=suffix.target_rule if prefix.timing=='battlecry' else 'any_entity')
+        requires_target=suffix.requires_target if 'battlecry'in timings else False,
+        targeting=suffix.targeting if 'battlecry'in timings else None,
+        target_rule=suffix.target_rule if 'battlecry'in timings else 'any_entity')
 
 def validate_template(registry,template):
     template.__post_init__()
@@ -159,6 +178,8 @@ def validate_template(registry,template):
     if any(getattr(primary,f.name)!=getattr(default,f.name)for f in fields(CardDefinition)if f.name not in SOURCE_FIELDS):
         raise ValueError('Assembly template has unreviewed text or declaration fields')
     registry.behavior(template.suffix.behavior_id)
+    if template.suffix.deathrattle_behavior_id is not None:
+        registry.behavior(template.suffix.deathrattle_behavior_id)
     if template.suffix.requires_target or template.suffix.targeting is not None:
         registry.target_rule(template.suffix.target_rule)
     if template.prefix.end_turn is not None:registry.trigger_condition(template.prefix.end_turn.condition_id)
@@ -173,6 +194,8 @@ def validate_projection(registry,projection):
             canonical_hash(asdict(source))!=projection.definition_sha256):
         raise ValueError('Assembly projection changed its complete original definition')
     registry.behavior(projection.suffix.behavior_id)
+    if projection.suffix.deathrattle_behavior_id is not None:
+        registry.behavior(projection.suffix.deathrattle_behavior_id)
     if projection.suffix.behavior_id.startswith(OWNER_START_PREFIX):
         raise ValueError('Projection payload cannot recursively wrap an owner-start gate')
     if projection.suffix.requires_target or projection.suffix.targeting is not None:
