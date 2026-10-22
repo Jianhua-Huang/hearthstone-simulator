@@ -34,10 +34,12 @@ class Assemble(Effect):
         _player(self.player_id);_source(self.source_id);_name(self.pool_id,'assembly pool');_name(self.prompt,'assembly prompt')
         if type(self.primary_query)is not PoolQuery:raise ValueError('Assembly requires explicit PoolQuery')
         self.primary_query.__post_init__()
-        if self.primary_query.kinds not in((),(CardType.MINION,)) or self.primary_query.class_mode not in('any','current','specified'):
+        if self.primary_query.kinds not in((),(CardType.MINION,)) or self.primary_query.class_mode not in('any','current','specified','other'):
             raise ValueError('Assembly primary query requires the ordinary or explicitly specified class minion domain')
-        if self.primary_query.class_mode=='specified' and self.source_id is None:
+        if self.primary_query.class_mode in('specified','other') and self.source_id is None:
             raise ValueError('Specified-class assembly requires its original source')
+        if self.primary_query.class_mode=='other'and self.primary_query.include_neutral:
+            raise ValueError('Other-class primary assembly excludes Neutral explicitly')
         if self.secondary_min_cost is not None and (type(self.secondary_min_cost)is not int or
                 self.secondary_min_cost<0 or self.source_id is None):
             raise ValueError('Assembly absolute secondary cost floor requires a nonnegative integer and original source')
@@ -104,8 +106,9 @@ def candidates(registry,context,state,spec,primary=None):
     spec.__post_init__();source=source_card(state,spec);hero=state.players[spec.player_id].hero_class
     if type(hero)is not CardClass or hero==CardClass.NEUTRAL:raise ValueError('Assembly requires a known current hero class')
     if primary is None:
+        mode=spec.primary_query.class_mode
         query=replace(spec.primary_query,kinds=(CardType.MINION,),
-            class_mode='specified'if spec.primary_query.class_mode=='specified'else'current')
+            class_mode=mode if mode in('specified','other')else'current')
     else:
         cost=registry.card(primary).cost
         query=(PoolQuery(kinds=(CardType.MINION,),class_mode='current',min_cost=spec.secondary_min_cost)

@@ -131,7 +131,7 @@ class AssembleSourceExceptionTests(unittest.TestCase):
         self.assertEqual(len(data['official_observations']), 6)
         for obs in data['official_observations']: check_face(rows[obs['card_id']], obs['face'], obs['locale'])
 
-    def test_new_declarations_are_typed_source_bound_and_do_not_accept_other_class_mode(self):
+    def test_new_declarations_are_typed_source_bound_and_reject_ambiguous_other_class_mode(self):
         base = Assemble(1, POOL_ID, 1)
         for kwargs in (dict(secondary_min_cost=True), dict(secondary_min_cost=-1), dict(secondary_min_cost='5'),
                 dict(source_id=None, secondary_min_cost=5), dict(primary_query=PoolQuery(class_mode='other')),
