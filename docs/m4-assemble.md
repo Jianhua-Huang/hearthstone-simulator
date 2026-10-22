@@ -208,3 +208,12 @@ AssembleTemplate.original_start_turn_id只允许本人开始前缀及一个确�
 Registry.extend_assemble_suffix_timings只对可变注册表、完整旧声明SHA和不可变显式时机增量生效；保持其余字段，完整重验后再原子替换。重复/未知/不兼容的时机或错误pin、冻结注册表都不能改变声明。战利品贮藏者的旧无条件Draw1主体经独立完整资料核验后显式加入start_turn；原始资料包和原卡不改，不把可表达但尚未登记的新窗口配方从诊断候选中静默删去。该扩展不认证官方角色或权重。
 
 新增桥默认None进入静态指纹，core659/schema539，无新State、Effect、payload或玩家命令。既有定义、原生来源、批次死亡和亡语子体政策保持，普通/拉夏完整正式池及精确国服窗口仍独立验收。
+
+
+## 原普通结束主体、本人/双方时钟及固定材料
+
+[九份原生结束来源和固定子定义](../data/cards/assemble-native-end-body-fragments-v1.json)绑定CATA_133/475/476/999、DINO_132、EDR_816/942/971、JAIL_883的完整原行/旧定义SHA及CATA_476t完整材料，并保留20份双语完整主面。前半段原样保存EndTurnSpec和印刷关键词；JAIL_883为either，其它为controller，不把每个回合结束收窄为本人结束。后半段直接引用原native_end callback及其已有InvokeBehavior阶段，不复制执行器。
+
+其它友方增益按实际物理source_id排除自身；敌方伤害沿原MINION_ABILITY分类及当前控制者，既不应用法伤也不新增CAST。固定6/6圣盾元素龙沿原完整定义和SummonByCard，数量、容量和出生来源仍交公共计划。英雄圣盾和自身复生沿原GrantKeyword；死后自身授予按原stale-target处理，战吼授予复生后的重生不重演战吼。生命恢复保持原双方英雄EFFECT批次。
+
+替换前半段会移除原时钟及其关键词，只借后半段不会带原结束触发；移植的either结束仍在双方结束时按实际控制者执行。沉默、转控、当前复制和回手恢复保持原生命周期。满血条件CATA_305、自身状态CATA_478和有序强制攻击CORE_TTN_866作为真实独立需求另行核实；本组不借旧框架可表达推定这些需求已完成。没有新增内核、状态、Effect、payload或命令，正式完整池/角色/权重及国服窗口继续独立核定。
