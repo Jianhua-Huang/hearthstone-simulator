@@ -150,7 +150,9 @@ def candidates(registry,context,state,spec,primary=None):
 
 def recipe_options(registry,primary,secondary,passive_power_template_id=None):
     first=text_source(registry,primary,primary=True);second=text_source(registry,secondary)
-    original=printed_face(registry.card(primary),first.prefix,first.suffix,primary)
+    from .assemble_colossal import prefix_appendages
+    original=printed_face(registry.card(primary),first.prefix,first.suffix,primary,
+        colossal=prefix_appendages(registry,first))
     options=[]
     for half in('top','bottom'):
         prefix=second.prefix if half=='top'else first.prefix
