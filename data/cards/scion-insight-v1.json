@@ -1,0 +1,195 @@
+{
+  "schema": 1,
+  "batch": "K383-scion-insight",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "source_verified": true,
+  "official_faces_verified": 2,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "BE_298",
+        "dbf_id": 130555,
+        "name": "洞见之子",
+        "name_en": "Scion of Insight",
+        "text": "<b>战吼：</b><b>发现</b>一张鲜血，冰霜或邪恶符文牌。并对应获得<b>吸血</b>，<b>复生</b>或<b>突袭</b>。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a Blood,\nFrost or Unholy card. Gain\n<b>Lifesteal</b>, <b>Reborn</b> or <b>Rush</b>\nbased on your choice.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "64e844377cd39d40fd20c060bb2f1a047510f71fd6f8a7044dda849bf72324dd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_298",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BE_298",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k382-ghuun\\next-scion-primary\\130555-zh_CN.json",
+      "response_sha256": "d7dd5e0f41806859d4764b13803ab5b796c4b380102bde000695ab93d1e7db35",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130555&locale=zh_CN",
+      "face": {
+        "id": 130555,
+        "collectible": 1,
+        "slug": "130555-scion-of-insight",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Felideus Bubastis",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "洞见之子",
+        "text": "<b>战吼：</b><b>发现</b>一张鲜血，冰霜或邪恶符文牌。并对应获得<b>吸血</b>，<b>复生</b>或<b>突袭</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8794aa9a410363b6a4f6c91ff52bb92f8d474bd1a934668738e43213f5f5a6a1.png",
+        "imageGold": "",
+        "flavorText": "显然缺乏自我开解的能力。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b131f684041aaf85fd73a2a28c80d0f066709e28e2c1fa16a1ac4b630e0ccdf6.png",
+        "keywordIds": [
+          8,
+          21,
+          38,
+          53,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130555&locale=zh_CN",
+        "sha256": "d7dd5e0f41806859d4764b13803ab5b796c4b380102bde000695ab93d1e7db35",
+        "bytes": 845,
+        "observed_at": "2026-10-22T02:25:09.218306+00:00"
+      }
+    },
+    {
+      "card_id": "BE_298",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k382-ghuun\\next-scion-primary\\130555-en_US.json",
+      "response_sha256": "c7e41fcd4a18bc47cc23fd45ec00b404c067251de932ee9f0f00b57e254ca515",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130555&locale=en_US",
+      "face": {
+        "id": 130555,
+        "collectible": 1,
+        "slug": "130555-scion-of-insight",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Felideus Bubastis",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Scion of Insight",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a Blood, Frost or Unholy card. Gain <b>Lifesteal</b>, <b>Reborn</b> or <b>Rush</b> based on your choice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a06242f7e547f41cc27b757d9a4b2afdf8f19bc9f2b617d52b9aff4252384971.png",
+        "imageGold": "",
+        "flavorText": "Apparently lacks the insight to untangle itself.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b131f684041aaf85fd73a2a28c80d0f066709e28e2c1fa16a1ac4b630e0ccdf6.png",
+        "keywordIds": [
+          8,
+          21,
+          38,
+          53,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130555&locale=en_US",
+        "sha256": "c7e41fcd4a18bc47cc23fd45ec00b404c067251de932ee9f0f00b57e254ca515",
+        "bytes": 865,
+        "observed_at": "2026-10-22T02:25:09.375339+00:00"
+      }
+    }
+  ]
+}

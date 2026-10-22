@@ -8,10 +8,11 @@ from .construction import ids, name, integer
 from .costs import quote_generated_cost, payment_error, validate_creation_cost, matches_cost
 from .effects import Effect, ChoiceOption, RequestChoice, AddToHand, _player, _source, validate_generated_cost
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardClass, CardPreview, CardType, ChoicePurpose, CostSpec, Keyword
+from .model import CardClass, CardPreview, CardType, ChoicePurpose, ChoiceResult, CostSpec, Keyword
 from .pools import (PoolQuery, GenerationPolicy, GenerateFromPool, generation_candidates,
     resolve_candidates, sample_candidates, validate_policy)
 from .temporary_cards import CreateTemporaryCard
+from .sacrifice import MinionReference, GrantCapturedKeyword, reference_value
 
 
 @dataclass(frozen=True)
@@ -39,6 +40,7 @@ class ChooseFromPools(Effect):
     policy: GenerationPolicy = GenerationPolicy()
     prompt: str = '选择一张牌'
     delivery: str = 'hand'
+    rune_recipient: MinionReference | None = None
 
     def __post_init__(self):
         _player(self.player_id);_source(self.source_id);name(self.prompt,'offer prompt')
@@ -52,6 +54,16 @@ class ChooseFromPools(Effect):
         if self.minimum_cost and self.temporary_until is None:raise ValueError('A final cost floor requires a temporary card')
         if type(self.affordable) is not bool:raise ValueError('Affordability policy must be boolean')
         if self.delivery not in ('hand','secret_pair'):raise ValueError('Unknown grouped offer delivery')
+        if self.rune_recipient is not None:
+            reference_value(self.rune_recipient)
+            if (self.source_id != self.rune_recipient.entity_id or self.player_id != self.rune_recipient.player_id or
+                    self.delivery != 'hand' or self.cost is not None or self.expires_turn is not None or
+                    self.temporary_until is not None or self.minimum_cost or self.affordable or
+                    self.policy != GenerationPolicy() or len(self.groups) != 3 or
+                    len({g.pool_id for g in self.groups}) != 1 or
+                    any(g.count != 1 or g.query != PoolQuery(collectible=True,runes_any=(rune,))
+                        for g,rune in zip(self.groups,('blood','frost','unholy')))):
+                raise ValueError('Rune discovery requires three plain Rune groups and its original minion')
         if self.delivery=='secret_pair' and (len(self.groups)!=1 or self.groups[0].count!=2 or
                 self.groups[0].query!=PoolQuery(kinds=(CardType.SPELL,),collectible=True,
                     keywords_all=(Keyword.SECRET,)) or self.cost is not None or self.expires_turn is not None or
@@ -115,6 +127,7 @@ class ResolvePoolOffer(Effect):
     receipt: PoolOfferReceipt
     group_index: int
     card_id: str
+    result: ChoiceResult | None = None
 
     def __post_init__(self):
         if type(self.receipt) is not PoolOfferReceipt:raise ValueError('Expected pool offer receipt')
@@ -122,6 +135,21 @@ class ResolvePoolOffer(Effect):
         if (self.group_index>=len(self.receipt.groups) or self.card_id not in
                 {c.card_id for c in self.receipt.groups[self.group_index].offered}):
             raise ValueError('Selection outside captured offers')
+        if self.result is not None:
+            if self.receipt.spec.rune_recipient is None or type(self.result) is not ChoiceResult:
+                raise ValueError('Only genuine Rune discovery binds an original choice result')
+            self.result.__post_init__()
+            index = next(n for n,c in enumerate(self.receipt.groups[self.group_index].offered) if c.card_id==self.card_id)
+            choice=self.result.choice;spec=self.receipt.spec
+            if ((choice.player_id,choice.source_id,choice.prompt,choice.purpose,choice.min_count,choice.max_count,choice.repeat_key) !=
+                    (spec.player_id,spec.source_id,spec.prompt,ChoicePurpose.CARD_DISCOVERY,1,1,None) or
+                    self.result.selected_ids != (f'pool-{self.group_index+1}-{index+1}',) or
+                    self.result.selected[0].card_id != self.card_id):
+                raise ValueError('Rune discovery borrowed another original selection')
+
+
+def choice_purpose(spec):
+    return ChoicePurpose.CARD_DISCOVERY if spec.rune_recipient is not None else ChoicePurpose.EFFECT
 
 
 def preview(definition, cost):
@@ -161,7 +189,8 @@ def choose_from_pools(r,spec):
     hero_class=r.player(spec.player_id).hero_class if any(g.query.class_mode in ('current','other') for g in spec.groups) else None
     source=r.state.entities[spec.source_id].card_id if spec.source_id is not None else None
     receipt=PoolOfferReceipt(spec,tuple(groups),hero_class,source,r.state.turn)
-    return (RequestChoice(spec.player_id,options(r.registry,receipt),spec.source_id,spec.prompt),)
+    return (RequestChoice(spec.player_id,options(r.registry,receipt),spec.source_id,spec.prompt,
+        purpose=choice_purpose(spec)),)
 
 
 def options(registry,receipt):
@@ -194,6 +223,16 @@ def validate_receipt(registry,context,receipt):
 def resolve_offer(r,effect):
     effect.__post_init__();validate_receipt(r.registry,r.game._generation_context,effect.receipt)
     spec=effect.receipt.spec
+    if spec.rune_recipient is not None:
+        validate_discovery_result(r.game,effect)
+        from .discovery_delivery import MaterializeDiscoveredCard
+        runes=r.registry.card(effect.card_id).metadata.runes
+        if runes is None:
+            raise ResolutionError('Selected Rune discovery has unknown printed Runes')
+        return (MaterializeDiscoveredCard(effect.result,AddToHand(spec.player_id,effect.card_id,spec.source_id)),
+            *(GrantCapturedKeyword(spec.rune_recipient,keyword,spec.source_id)
+              for rune,keyword in (('blood',Keyword.LIFESTEAL),('frost',Keyword.REBORN),('unholy',Keyword.RUSH))
+              if getattr(runes,rune)>0))
     if spec.delivery=='secret_pair':
         from .spell_casts import CastSpell
         other=tuple(card.card_id for card in effect.receipt.groups[0].offered if card.card_id!=effect.card_id)
@@ -205,6 +244,14 @@ def resolve_offer(r,effect):
     return (AddToHand(spec.player_id,effect.card_id,spec.source_id,cost=spec.cost,expires_turn=spec.expires_turn),)
 
 
+def validate_discovery_result(game,effect):
+    from .discovery_offers import offer_for_result
+    if effect.result is None:raise ValueError('Rune discovery requires its actual committed choice')
+    offer=offer_for_result(game,effect.result)
+    if offer.options != options(game.registry,effect.receipt) or offer.on_select is not None:
+        raise ValueError('Rune discovery lost its complete original grouped offer')
+
+
 def validate_boundary(game):
     frame=game._frame
     if frame is None:return
@@ -214,6 +261,7 @@ def validate_boundary(game):
             spec=work.receipt.spec
             if work.receipt.turn>game._state.turn or spec.source_id is not None and spec.source_id not in game._state.entities:
                 raise ValueError('Invalid captured offer source or chronology')
+            if work.result is not None:validate_discovery_result(game,work)
         elif type(work) is ChooseFromPools:
             work.__post_init__()
             for group in work.groups:game.registry.pool(group.pool_id,game._generation_context)
@@ -228,7 +276,7 @@ def validate_boundary(game):
     receipt=selected[0].receipt;spec=receipt.spec;choice=game._state.pending_choice
     if (frame.options!=options(game.registry,receipt) or frame.on_select is not None or
         (choice.player_id,choice.source_id,choice.prompt,choice.min_count,choice.max_count,choice.purpose,choice.repeat_key)!=
-        (spec.player_id,spec.source_id,spec.prompt,1,1,ChoicePurpose.EFFECT,None)):
+        (spec.player_id,spec.source_id,spec.prompt,1,1,choice_purpose(spec),None)):
         raise ValueError('Grouped offer branches disagree with the public choice')
 
 

@@ -437,6 +437,10 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
     for member in sorted(pool.members, key=lambda m: m.card_id):
         row = registry.pool_card(member.card_id)
         meta = row.metadata
+        # 26.0.4 ordinary generation rule, independent of executable coverage.
+        # Named and physical delivery never use this random-candidate query.
+        if meta.runes is not None and meta.runes.total == 3:
+            continue
         # Fabled roots and attached cards are excluded by independent declarations,
         # including unimplemented roots. Named delivery and physical cards bypass this query.
         if row.card_id in registry.fabled_generation_exclusions or row.generation_identity in registry.fabled_generation_exclusions:
@@ -457,6 +461,8 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
         from .starting_generation import eligible as starting_eligible
         if not starting_eligible(registry, context, player_id, row.card_id, row.keywords):
             continue
+        if CardClass.DEATH_KNIGHT in meta.classes and meta.runes is None:
+            raise UnknownCardFactError('Ordinary Death Knight generation requires known printed Runes: '+row.card_id)
         registry.card(row.card_id)  # Never filter by executable coverage.
         eligible.append(member)
     unique = {}

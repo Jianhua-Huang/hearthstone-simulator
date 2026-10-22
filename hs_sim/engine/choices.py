@@ -101,7 +101,10 @@ def choice_effects(r, result, options, on_select, *, kindred=None, selection_eve
     from .suspicious_discoveries import ChooseSuspiciousMinion
     from .discovery_delivery import MaterializeDiscoveredCard, MaterializeDiscoveredResurrection, recipe_types
     from .ability_families import SelectFamilyAbility, SelectFamilyTarget
+    from .pool_offers import ResolvePoolOffer
     def selected_effect(effect):
+        if type(effect) is ResolvePoolOffer and effect.receipt.spec.rune_recipient is not None:
+            return replace(effect,result=result)
         if type(effect) in (SelectFamilyAbility, SelectFamilyTarget):
             return replace(effect, result=result)
         if type(effect) is ChooseSuspiciousMinion:
