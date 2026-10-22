@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "recorded_utc": "2026-10-22T02:17:37.357806+00:00",
+  "card_id": "BE_287",
+  "source_pack": "data/cards/ghuun-v1.json",
+  "raw_record_sha256": "18da3d900cc5a0ce58b10eb2107b93898207235143edf8cf01182a425cfcd26e",
+  "primary_clarifications": [
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/comment/pam1t89/",
+      "author": "JohnEMcIntyre",
+      "role": "John McIntyre, Principal Game Designer Supervisor",
+      "quote": "It does not count itself so 6 by default, the text it shows you in-hand will be the amount stolen.",
+      "confirmed": "Default six; its own currently played triple-Blood root is not included."
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/comment/pbllnzw/",
+      "author": "ClayByte",
+      "role": "Clay Howell, Senior Software Engineer",
+      "quote": "G'Huun scales with multi rune cards. Bloodfiend will give your G'Huun +3.",
+      "confirmed": "Each printed Blood Rune contributes one; multiple Runes on one card are counted separately."
+    }
+  ],
+  "author_identity_source": "https://www.reddit.com/r/u_HearthstoneTeam/comments/1whbyck/reign_of_the_black_empire_how_does_this_work/",
+  "initial_strict_rejections": "outputs/card-integration-20261014/k381-fetid-devourer/next-ghuun-source-audit-01.json",
+  "primary_display_policy": "Existing card_batch explicit @ omission with printed script tag 6. Full raw and both complete primary responses retained; no checker change.",
+  "internal_policy_pending_cn": {
+    "count_window": "Read completed original own PlayRecords at each actual Battlecry body acceptance; countered completed roots count, automatic casts and summons do not. A normal currently unresolved Ghuun is excluded; later indirect triggers observe the then completed prefix.",
+    "allocation": "Consume one unit per step, recompute current lowest living enemy after each ordinary death/reaction checkpoint; equal current Health has one uniform weight per physical character, singleton/empty no RNG.",
+    "transfer": "Minions transfer current remaining Health through ordinary stat attachments. A hero donor loses permanent maximum Health while preserving its damage; the original minion beneficiary receives an ordinary health buff in the same atomic commit. No damage/healing packets.",
+    "stale_or_terminal": "Original recipient residence is fixed; departure/control/reset stops remaining steps. An accepted stale donor consumes its unit, without retargeting that unit. Terminal rules and hero rescue remain with the shared engine.",
+    "hand_text": "The combat number is implemented as a pure history query. This increment does not add a UI text renderer or expose omniscient state to players."
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "official_full_behavior_certified": false
+}

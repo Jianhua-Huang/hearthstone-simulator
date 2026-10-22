@@ -54,16 +54,29 @@ class RandomStealHealthToHero(Effect):
 @dataclass(frozen=True)
 class StealHealthToMinion(Effect):
     beneficiary: MinionReference
-    donor: MinionReference
+    donor: MinionReference | int
     amount: int
     source_id: int
 
     def __post_init__(self):
-        reference_value(self.beneficiary); reference_value(self.donor)
+        reference_value(self.beneficiary); reference_id(self.donor)
         _integer(self.amount, 'stolen remaining minion health', 0)
         _integer(self.source_id, 'minion health theft source', 1)
-        if self.beneficiary.player_id == self.donor.player_id or self.beneficiary.entity_id == self.donor.entity_id:
+        if type(self.donor) is MinionReference and (self.beneficiary.player_id == self.donor.player_id or self.beneficiary.entity_id == self.donor.entity_id):
             raise ValueError('Minion health theft requires original enemy donor and recipient')
+
+
+@dataclass(frozen=True)
+class StealLowestEnemyHealthToMinion(Effect):
+    """Spend one original unit at a time, requerying after ordinary reactions."""
+    beneficiary: MinionReference
+    amount: int
+    source_id: int
+
+    def __post_init__(self):
+        reference_value(self.beneficiary)
+        _integer(self.amount, 'remaining lowest-enemy health theft', 0)
+        _integer(self.source_id, 'lowest-enemy health theft source', 1)
 
 
 @dataclass(frozen=True)
@@ -159,28 +172,64 @@ def choose(r, request):
 
 
 def deliver_to_minion(r, request):
-    """Commit both ordinary minion attachments before either notification."""
+    """Commit both sides before notifying; original minion donors keep their path."""
     from .resolver import _buff_to
     validate_source(r, request)
     beneficiary = live_minion(r.state, request.beneficiary)
-    donor = live_minion(r.state, request.donor)
-    for ref in (request.beneficiary, request.donor):
+    donor = eligible(r, request.beneficiary.player_id, request.donor)
+    for ref in (request.beneficiary,):
         card = r.registry.card(ref.card_id)
         if card.kind != CardType.MINION or card.interactable is not None:
             raise ResolutionError('Minion health transfer requires original ordinary minions')
     if beneficiary is None or donor is None:
-        r.stale(request, request.donor.entity_id)
+        r.stale(request, reference_id(request.donor))
         return ()
     amount = min(request.amount, donor.health)
     if not amount:
         return ()
-    debit = _buff_to(r, Buff(donor.id, health=-amount, source_id=request.source_id), donor, notify=False)
+    if donor.kind == CardType.HERO:
+        events = adjust_max_health(r, donor, -amount, request.source_id, 'preserve_missing')
+    else:
+        debit = _buff_to(r, Buff(donor.id, health=-amount, source_id=request.source_id), donor, notify=False)
+        if donor.health <= 0 and donor.death_cause is None:
+            from .death_causes import mark
+            mark(r, donor, 'health_state', 'minion_health_theft', request.source_id)
+        events = [('stats_changed', dict(source_id=request.source_id, target_id=donor.id,
+            enchantment_id=debit.id, attack_delta=0, health_delta=-amount))]
     credit = _buff_to(r, Buff(beneficiary.id, health=amount, source_id=request.source_id), beneficiary, notify=False)
     r.refresh_auras()
-    for entity, enchantment, delta in ((donor, debit, -amount), (beneficiary, credit, amount)):
-        r.emit('stats_changed', source_id=request.source_id, target_id=entity.id,
-               enchantment_id=enchantment.id, attack_delta=0, health_delta=delta)
+    events.append(('stats_changed', dict(source_id=request.source_id, target_id=beneficiary.id,
+        enchantment_id=credit.id, attack_delta=0, health_delta=amount)))
+    for kind, data in events: r.emit(kind, **data)
     return ()
+
+
+def steal_lowest_to_minion(r, request):
+    validate_source(r, request)
+    beneficiary = live_minion(r.state, request.beneficiary)
+    if beneficiary is None or not request.amount: return ()
+    if request.amount > r.rules.max_resolution_steps:
+        from .errors import ResolutionLimitExceeded
+        raise ResolutionLimitExceeded('Lowest-enemy theft exceeds the ordinary resolution budget')
+    if r.registry.card(request.beneficiary.card_id).interactable is not None:
+        raise ResolutionError('Lowest-enemy thief must be an ordinary original minion')
+    opponent = r.player(3-request.beneficiary.player_id)
+    candidates = []
+    for eid in sorted((opponent.hero_id, *opponent.board)):
+        entity = r.state.entities[eid]
+        if entity.kind not in (CardType.HERO, CardType.MINION) or not entity.active or entity.health <= 0 or entity.doomed:
+            continue
+        ref = MinionReference.capture(entity) if entity.kind == CardType.MINION else entity.id
+        if eligible(r, request.beneficiary.player_id, ref) is not None: candidates.append(ref)
+    if not candidates: return ()
+    health = min(r.state.entities[reference_id(ref)].health for ref in candidates)
+    candidates = tuple(ref for ref in candidates if r.state.entities[reference_id(ref)].health == health)
+    selected = candidates[0] if len(candidates) == 1 else r.game._rng.choice(candidates)
+    if len(candidates) > 1:
+        r.emit('random_choice', source_id=request.source_id, target_id=reference_id(selected),
+            candidates=tuple(reference_id(ref) for ref in candidates))
+    tail = (replace(request, amount=request.amount-1),) if request.amount > 1 else ()
+    return (StealHealthToMinion(request.beneficiary, selected, 1, request.source_id), *tail)
 
 
 def steal_from_other_minions(r, request):
@@ -256,5 +305,6 @@ def register(mechanics):
     mechanics.register(StealHealthToHero, deliver)
     mechanics.register(RandomStealHealthToHero, choose)
     mechanics.register(StealHealthToMinion, deliver_to_minion)
+    mechanics.register(StealLowestEnemyHealthToMinion, steal_lowest_to_minion)
     mechanics.register(ChooseHealthForMinion, choose_for_minion)
     mechanics.register(StealHealthFromOtherMinions, steal_from_other_minions)

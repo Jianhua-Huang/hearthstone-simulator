@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+从当前敌方英雄向原随从转移生命可用StealHealthToMinion(minion_ref, hero_id, amount, source_id)；按最低剩余生命逐点分配用StealLowestEnemyHealthToMinion，仍固定原随从驻留并沿普通反应后续查询，见[戈霍恩契约](m3-ghuun-health-theft.md)。
+
 真实手牌符文换形可复用每个目的面自己的HandProgressSpec及UpgradeHandCard；RequestChoice的显式场上随从目标域支持固定1、2、3目标，手牌仍只支持1，详见[腐臭吞噬者契约](m3-fetid-devourer.md)。
 
 `location.runes-after-entry-v1`用于真实“入场后集齐三类符文，首次解锁后正常冷却”的地标。复用原出牌提交、玩家open投影和地标执行，不从整局旧历史或当前牌面反查；入口、私有收据及未支持的在场CardReference边界见[隔离区契约](m3-uldir-rune-lock.md)。

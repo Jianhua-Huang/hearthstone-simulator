@@ -1,5 +1,7 @@
 # 原随从之间的生命偷取与逐次选取
 
+后续戈霍恩将StealHealthToMinion的提供者增加当前物理英雄ID，并复用该转移执行最低生命分配；下文两个随从的初始范围保留为历史来源说明。英雄上限、来源归因和有限后续见[新契约](m3-ghuun-health-theft.md)。
+
 后续翼手龙蛋的原具名交付和全体其他随从偷取见[独立契约](m3-pterrordax-egg.md)。它新增有限原子批次，保留下文单目标敌方及旧英雄来源的原限制。
 
 CATA_699恐怖海兽的固定原行和双语官方卡面是9费8/8野兽、嘲讽，战吼选择敌方随从偷取3点生命，触发三次。36.4.2的[国服补丁](https://hs.blizzard.cn/news/24296231/index.html)确认身材改为8/8。[35.0.2官方修正](https://us.forums.blizzard.com/en/hearthstone/t/3502-hotfix-patch/158856)及[35.4国服修正](https://hs.blizzard.cn/news/24266874/index.html)确认曾修复它处理受伤随从生命量/生命上限的问题；这些公告没有完整定义正确数值公式或每次选择的精确窗口。
