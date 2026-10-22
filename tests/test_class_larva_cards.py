@@ -18,6 +18,7 @@ from hs_sim.engine.effects import (
 )
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.health_outcomes import health_result
+from hs_sim.engine.health_rules import spell_bonus
 from hs_sim.engine.model import DamageKind, PLAYABLE_CARD_CLASSES
 from hs_sim.engine.pools import PoolMember, sample_candidates
 from hs_sim.engine.replay import build_replay, replay
@@ -39,7 +40,7 @@ def full_registry():
 def uninstalled_registry(mode=None):
     source = full_registry()
     registry = Registry('k414-native-larvae')
-    for cid in cards.EXISTING + (FILLER, 'CS2_052'):
+    for cid in cards.EXISTING + (FILLER,):
         definition = source.card(cid)
         registry.register_card(definition)
         for trigger in definition.triggers:
@@ -151,8 +152,8 @@ class ClassLarvaTests(unittest.TestCase):
     def test_a_complete_records_faces_class_family_and_neutral_placeholder(self):
         data = cards.load_batch()
         self.assertEqual(tuple(len(data[k]) for k in ('cards', 'dependencies', 'existing_dependencies', 'evidence_only')),
-            (3, 12, 6, 1))
-        self.assertEqual(len(data['official_observations']), 44)
+            (3, 12, 7, 1))
+        self.assertEqual(len(data['official_observations']), 46)
         rows = {item['record']['id']: item['record'] for key in
             ('cards', 'dependencies', 'existing_dependencies', 'evidence_only') for item in data[key]}
         token_dbfs = {rows[cid]['dbf_id'] for cid in cards.LARVAE}
@@ -318,7 +319,7 @@ class ClassLarvaTests(unittest.TestCase):
         self.play(game, 'BE_720t2')
         self.assertEqual(len(self.board(game)), 6)
         self.assertIn(self.board(game)[-1], cards.BASIC_TOTEMS)
-        self.assertNotIn('CS2_052', self.board(game))
+        self.assertNotIn(cards.STRENGTH_TOTEM, self.board(game))
         self.assertEqual(game.state.hero_power_history, [])
 
     def test_n_strength_totem_buffs_one_other_friendly_minion_at_its_controller_end(self):
@@ -413,6 +414,24 @@ class ClassLarvaTests(unittest.TestCase):
         for item in data['existing_dependencies']:
             self.assertEqual(canonical_digest(asdict(full_registry().card(item['record']['id']))),
                 item['definition_sha256'])
+
+    def test_u_blue_larva_can_summon_each_post_29_basic_totem_with_full_frozen_candidates(self):
+        for expected in cards.BASIC_TOTEMS:
+            seed = next(seed for seed in range(100)
+                if cards.BASIC_TOTEMS[Random(seed).randrange(4)] == expected)
+            game = self.game((NOP, 'BE_720t2'), seed=seed)
+            self.play(game, NOP)
+            source = self.play(game, 'BE_720t2')
+            self.assertEqual(self.board(game), ('BE_720t2', expected))
+            self.assertEqual(spell_bonus(game.state, 1, game.registry), int(expected == 'CS2_052'))
+            receipt = game.state.card_summon_history[-1]
+            self.assertEqual(tuple(item.card_id for item in receipt.request.materials), cards.BASIC_TOTEMS)
+            self.assertEqual((receipt.request.cause.origin, receipt.request.cause.source.entity_id),
+                ('card_effect', source))
+            self.assertEqual(game.registry.card('BE_720t2').combo, cards.PREFIX + 'shaman.current_air')
+            self.assertEqual(game.state.hero_power_history, [])
+            if expected == 'CS2_052':
+                self.portable(game)
 
 
 if __name__ == '__main__':

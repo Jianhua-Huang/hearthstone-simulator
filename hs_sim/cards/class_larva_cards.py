@@ -14,17 +14,17 @@ from hs_sim.engine.pools import (
 )
 from hs_sim.engine.summon_quantities import SummonByCard, SummonCause, SummonEntryMaterial
 from hs_sim.targets import TargetValidationError, canonical_digest
+from .basic_hero_roles import TOTEMS as BASIC_TOTEMS
 from .health_cards import SCHOOLS
 from .metadata import metadata_from_record
 from .native_followup_cards import minions
 
-BATCH_PATH = Path(__file__).resolve().parents[2] / 'data/cards/class-larva-cards-v1.json'
-BATCH_HASH = '7d76e7509e10f54413b41d60dc10887b98d028c086f1d3679e05edc17ea134e5'
+BATCH_PATH = Path(__file__).resolve().parents[2] / 'data/cards/class-larva-cards-v2.json'
+BATCH_HASH = 'f5cd2fcc7ba53353c12af8fc345c7cbcb2316dc5b40bceff61cadbb69c07cb04'
 ROOTS = ('BE_720', 'BE_722', 'BE_724')
 LARVAE = tuple(f'BE_720t{i}' for i in range(1, 12))
 STRENGTH_TOTEM = 'CS2_058'
-BASIC_TOTEMS = ('CS2_050', 'CS2_051', 'NEW1_009', STRENGTH_TOTEM)
-EXISTING = ('CS2_050', 'CS2_051', 'NEW1_009', 'CS2_082', 'CS2_101t', 'HERO_11bpt')
+EXISTING = ('CS2_050', 'CS2_051', 'NEW1_009', 'CS2_082', 'CS2_101t', 'HERO_11bpt', 'CS2_052')
 PREFIX = 'cards.class_larva.'
 QUERY = PoolQuery(kinds=(CardType.MINION,), collectible=False,
     class_mode='other', include_neutral=False)
@@ -90,7 +90,11 @@ def register_class_larva_cards(registry):
         'three': lambda c: generate(c, 3),
         'priest': lambda c: () if c.target_id is None else
             (Heal(c.target_id, 2, c.source_id, HealingKind.EFFECT),),
-        'shaman': lambda c: (SummonFromCandidates(c.player_id, BASIC_TOTEMS,
+        # Keep the prior recipe under its actual old identity. The current
+        # printed leaf points to the corrected post-29.0 behavior below.
+        'shaman': lambda c: (SummonFromCandidates(c.player_id, tuple(data['prior_shaman_totem_ids']),
+            c.source_id, SummonCause.capture(c)),),
+        'shaman.current_air': lambda c: (SummonFromCandidates(c.player_id, BASIC_TOTEMS,
             c.source_id, SummonCause.capture(c)),),
         'rogue': lambda c: (EquipWeapon(c.player_id, 'CS2_082'),),
         'paladin': lambda c: summon(c, 'CS2_101t'),
@@ -125,6 +129,8 @@ def register_class_larva_cards(registry):
         else:
             card_class, = metadata_from_record(raw).classes
             kwargs.update(keywords=(Keyword.COMBO,), combo=PREFIX + card_class.value)
+            if cid == 'BE_720t2':
+                kwargs['combo'] = PREFIX + 'shaman.current_air'
             if cid in (LARVAE[0], LARVAE[7]):
                 kwargs.update(targeting=TargetSpec(TargetMode.IF_AVAILABLE), target_condition='combo')
         definitions.append(CardDefinition(cid, raw['name'], CardType[raw['type']],
