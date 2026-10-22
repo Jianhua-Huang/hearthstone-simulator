@@ -420,3 +420,16 @@ source_face(registry, primary, prefix_source, suffix, card_id)统一构造完整
 条件包装兼容范围按prefix_timings展开求交，不把复合前半名称伪装成一次战吼。实际出牌仍核原PlayRecord或PhysicalReplayProgress，延系仍交原KindredCatalog/ResolveKindred接受、完整来源计划和每组件窗口。共享生成直接复用原无守卫亡语主体及完整查询/减费，不复制随机或交付执行器；图书管理员的独立亡语原DrawMatching亦直接保留。当前复制在延系中复用原current_source的驻留证明，其它已审存活时机用真实BoardPresenceReference和CopyMinion；自然召唤不运行复制出牌体。复制后半的亡语上下文仍明确pending，合格未知上下文整根报未实现，不能武断返回空复制或裁掉半个选项；是否属于正式可达配对及其精确死亡复制物料仍须另核，未据此宣称该路径完成。
 
 没有新Effect、队列payload或GameState字段，core671/schema540与完整注册身份约束恢复。有限静态库存与按需纯解析的延系profile边界保持，玩家不能取得内部接受/规则来源表。正式普通/拉夏拼装池、死亡复制资格/行为及国服精确时序仍独立核定；实际实现、证据和下一项只在两份原台账维护。
+
+
+## 真实连击与战吼/连击/亡语共享前半
+
+AssemblePrefix('combo', keywords=(Keyword.COMBO,...))表达真实原生连击。battlecry_combo_deathrattle仅表达已核定原卡的三个实际共享入口，prefix_timings依次展开为battlecry、combo、deathrattle；不能按关键词名字拼造尚未存在的组合。COMBO关键词存在性必须与实际连击前半一致，普通前半不能保留旧COMBO标记。SOURCE_FIELDS允许原CardDefinition.combo，完整原模板仍须逐字段重建原生定义，没有新模板字段、来源桥或自建连击执行器。
+
+完整印刷面在含combo时直接将已审核独立后半写入CardDefinition.combo；不含时清空原primary.combo。战吼、亡语、普通触发、出牌及前半独立物料仍各按实际前半生成。身材、费用、职业/种族元数据保持来自primary。源的普通手牌动作随真实新前半移动，不借旧连击标记制造额外触发。
+
+原Combo提交、激活和重复引擎继续负责真实本回合先前出牌条件、一次支付、反制/满场/入场接受、原ComboPayload与独立身份、原来源max计划和每次实际组件。战吼不借连击条件取消，连击也不因同卡有战吼而成为无条件效果；自然亡语不伪造一次连击或再次支付。自然召唤不会运行战吼/连击，保留的亡语仍可在实际死亡时执行。重复来源对原战吼、连击分别按各自计划捕获，不能把三个印刷入口当三次出牌或共享一次重复用途。
+
+每个后半需显式审核combo。合格连击或三入口前半遇到缺任一所需上下文的后半时明确报未实现，不少给选项或裁候选。带明确箭头的连击/多入口仍没有新的目标接受契约，本扩展不猜目标。已审核普通Draw后半可通过完整旧模板pin追加combo，除allowed_timings新增项外全部字段保持；独立主体本身不重查旧连击守卫。真实迪菲亚主体及原有有序召唤阶段、具名迪菲亚强盗和奥普的原刀扇施放直接复用，不复制召唤、施法或抽牌解释器。
+
+没有新Effect、队列payload或状态字段，core672/schema540及完整注册身份约束恢复。M0正式普通/拉夏拼装池、M6国服精确时序和全部剩余上下文仍单独核定；具体执行结果与下一项仍仅在两份原台账维护。

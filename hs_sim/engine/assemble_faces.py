@@ -16,12 +16,13 @@ from .assemble_reactions import REACTION_PREFIX, LATE_REACTION_PREFIX, REACTION_
 
 PREFIX='assemble:'
 VERSION='assemble-face-v1'
-TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn','on_play'))|REACTION_TIMINGS
+TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn','on_play','combo'))|REACTION_TIMINGS
 DUAL_TIMING='battlecry_deathrattle'
+COMBO_TRIPLE_TIMING='battlecry_combo_deathrattle'
 PLAY_DEATH_TIMING='on_play_deathrattle'
 PLAY_PREFIX_DEATH_TIMING='on_play_prefix_deathrattle'
 PLAY_PREFIXES=frozenset(('on_play',PLAY_DEATH_TIMING,PLAY_PREFIX_DEATH_TIMING))
-PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING,PLAY_DEATH_TIMING,PLAY_PREFIX_DEATH_TIMING}
+PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING,PLAY_DEATH_TIMING,PLAY_PREFIX_DEATH_TIMING,COMBO_TRIPLE_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
 CONDITION_PREFIX='assemble.condition:'
 INNER_CONDITION_PREFIX='assemble.condition_inner:'
@@ -29,9 +30,9 @@ BEFORE_PREFIX='assemble.before:'
 TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX,REACTION_PREFIX,LATE_REACTION_PREFIX)
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
-    Keyword.REBORN,Keyword.COLOSSAL,Keyword.OUTCAST))
+    Keyword.REBORN,Keyword.COLOSSAL,Keyword.OUTCAST,Keyword.COMBO))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play'))
+    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play','combo'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
@@ -49,6 +50,8 @@ class AssemblePrefix:
         if (type(self.keywords)is not tuple or any(type(k)is not Keyword or k not in BASIC_KEYWORDS for k in self.keywords)
                 or len(set(self.keywords))!=len(self.keywords)):
             raise ValueError('Assembled prefix requires unique supported native keywords')
+        if (Keyword.COMBO in self.keywords)!=(self.timing in ('combo',COMBO_TRIPLE_TIMING)):
+            raise ValueError('Assembly Combo prefix must retain its actual printed keyword and native window')
         if self.timing=='end_turn':
             if type(self.end_turn)is not EndTurnSpec:raise ValueError('End-turn prefix requires its explicit native policy')
             self.end_turn.__post_init__()
@@ -212,6 +215,7 @@ def recipe_from_id(card_id):
 
 def prefix_timings(prefix):
     prefix.__post_init__()
+    if prefix.timing==COMBO_TRIPLE_TIMING:return ('battlecry','combo','deathrattle')
     if prefix.timing==PLAY_DEATH_TIMING:return ('on_play','deathrattle')
     if prefix.timing==PLAY_PREFIX_DEATH_TIMING:return ('on_play',)
     return ('battlecry','deathrattle')if prefix.timing==DUAL_TIMING else(prefix.timing,)
@@ -224,6 +228,8 @@ def compatible(prefix,suffix):
         raise ValueError('Eligible reaction body context remains explicitly unimplemented: '+prefix.timing)
     if 'on_play'in timings and any(t not in suffix.allowed_timings for t in timings):
         raise ValueError('Eligible minion play body context remains explicitly unimplemented: '+','.join(timings))
+    if 'combo'in timings and any(t not in suffix.allowed_timings for t in timings):
+        raise ValueError('Eligible Combo body context remains explicitly unimplemented: '+','.join(timings))
     if any(t in suffix.pending_timings for t in timings):
         raise ValueError('Eligible assembly timing remains explicitly unimplemented: '+','.join(timings))
     if prefix.condition_id is not None and(suffix.requires_target or suffix.targeting is not None):
@@ -248,6 +254,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=
         if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,colossal=colossal,
         on_play=condition_behavior_id(prefix.condition_id,suffix.behavior_id) if 'on_play'in timings else None,
+        combo=suffix.behavior_id if 'combo'in timings else None,
         battlecry=battlecry,
         deathrattle=deathrattle if 'deathrattle'in timings else prefix_deathrattle,
         triggers=((TriggerSpec('turn_ended',condition_behavior_id(prefix.condition_id,suffix.behavior_id)
