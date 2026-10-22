@@ -166,6 +166,23 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     require(face['name'] == row['name_en' if trial_english_fallback or not chinese else 'name'], 'Official card name drift')
     raw_text = row['text_en' if trial_english_fallback or not chinese else 'text']
     states = raw_text.split('@')
+    # This exact source repeats one rule in initial/ready/plain UI forms.
+    # The gallery shows the initial form with its explicit printed threshold.
+    # Check all complete bodies; never discard a different alternate effect.
+    yshaarj_display = (row.get('id') == 'BE_784' and
+        canonical(row) == '18595e76a8234afb0f93bd153a6d4e61b5055532e889bd06e9d819da441867b9' and
+        display_normalizations == {'{0}': '30'})
+    if yshaarj_display:
+        forms = [re.fullmatch(r'(.+?)\s*<i>([^<>]*)</i>\s*', s, flags=re.S) for s in states[:2]]
+        labels = ('（还剩{0}点！）', '（已经就绪！）') if chinese else ('({0}left!)', '(Ready!)')
+        def same_rule(text):
+            value = display(text)
+            return value if chinese else value.replace('Mana', 'mana')
+        require(len(states) == 3 and all(forms) and row['tags'].get('TAG_SCRIPT_DATA_NUM_1') == 30 and
+                tuple(display(form[2]) for form in forms) == labels and '{0}' not in states[2] and
+                all(same_rule(form[1]) == same_rule(states[2]) for form in forms),
+                'Yshaarj lost its complete original thirty-Mana progress forms')
+        raw_text = states[0]
     # This complete pinned source repeats the same rule body in initial/ready/
     # plain display forms. The gallery shows only the initial printed count5.
     # Preserve the full original row; this is not a general progress shortcut.
@@ -292,7 +309,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
-            require(broodqueen_display and replacement == '5' or
+            require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
                     (jade_coin_display or potion_display or location_template_display or trial_template_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':

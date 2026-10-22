@@ -1,0 +1,686 @@
+{
+  "schema": 1,
+  "batch": "K379-yshaarj",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_784",
+        "dbf_id": 131851,
+        "name": "亚煞极，泰坦杀神",
+        "name_en": "Y'Shaarj, Titan Bane",
+        "text": "<b>古神</b>\n<b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。<i>（还剩{0}点！）</i>@<b>古神</b>\n<b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。<i>（已经就绪！）</i>@<b>古神</b>\n<b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。",
+        "text_en": "[x]<b>Old God.</b> <b>Battlecry:</b> If you've\nspent 30 Mana on minions\nthis game, gain <b>Immune</b>\nfor 1 turn. <i>({0} left!)</i>@[x]<b>Old God.</b> <b>Battlecry:</b> If you've\nspent 30 mana on minions\nthis game, gain <b>Immune</b>\nfor 1 turn. <i>(Ready!)</i>@[x]<b>Old God.</b> <b>Battlecry:</b> If you've\nspent 30 mana on\nminions this game, gain\n<b>Immune</b> for 1 turn.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 30,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "18595e76a8234afb0f93bd153a6d4e61b5055532e889bd06e9d819da441867b9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_784",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_784t1",
+        "dbf_id": 131852,
+        "name": "亚煞极的凝视",
+        "name_en": "Gaze of Y'Shaarj",
+        "text": "迫使所有敌方随从攻击本随从。",
+        "text_en": "Force all enemy minions to attack this.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a1489a0405536fe8a56777ff49cab055e4cceb175083dd4aeb9bb5cf083fb737",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_784t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_784t3",
+        "dbf_id": 131853,
+        "name": "亚煞极的威力",
+        "name_en": "Might of Y'Shaarj",
+        "text": "获得相邻随从的属性值。",
+        "text_en": "Gain the stats of adjacent minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "05c6b35d197f3462827cc6428223e9a7578e0c9076662169cb9c823a46f85792",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_784t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_784t2",
+        "dbf_id": 131854,
+        "name": "亚煞极的子嗣",
+        "name_en": "Spawn of Y'Shaarj",
+        "text": "随机召唤一个法力值消耗大于或等于（8）点的随从，并获取一张它的复制。",
+        "text_en": "Summon a random minion that costs (8) or more. Get a copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          }
+        ]
+      },
+      "record_sha256": "79e1fc0de2e93bfca60faf73f20f7adf54650e09bc568e7be3b06957b743c1f1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_784t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_784t4",
+        "dbf_id": 131855,
+        "name": "亚煞极的领域",
+        "name_en": "Domain of Y'Shaarj",
+        "text": "你的下一张牌的法力值消耗减少（5）点。",
+        "text_en": "Your next card costs\n(5) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "6f24af1f60dcdd14bf95fb10b7cd12005ee91cdc0ff662a235dacaa12a9c842e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_784t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_784",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131851-zh_CN.json",
+      "response_sha256": "f94c467b28df5b1c0e3b2f21e6fe3426ce24e912336c70eab0f85331dab27bec",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131851&locale=zh_CN",
+      "face": {
+        "id": 131851,
+        "collectible": 1,
+        "slug": "131851-yshaarj-titan-bane",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": " Mooncolony",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "亚煞极，泰坦杀神",
+        "text": "<b>古神</b> <b>战吼：</b>如果你在本局对战中消耗了30点法力值用于随从牌上，获得<b>免疫</b>1回合。<i>（还剩30点！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38509fc510e39c74d6b2efaf4f75e147aa1003d470ba073971572ff871a669a4.png",
+        "imageGold": "",
+        "flavorText": "“滑行者巨怪”+“穿刺者克洛恩”+（“地母塞拉赞恩”-“耐普图隆，潮汐之王”）",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74cc05fece28296a74fc10a55667b0aa6c2b9e46e1d97c958b2a720d1cc5b968.png",
+        "childIds": [
+          131852,
+          131853,
+          131854,
+          131855
+        ],
+        "keywordIds": [
+          8,
+          17,
+          431
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131851&locale=zh_CN",
+        "sha256": "f94c467b28df5b1c0e3b2f21e6fe3426ce24e912336c70eab0f85331dab27bec",
+        "bytes": 991,
+        "observed_at": "2026-10-22T00:54:42.239383+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131851-en_US.json",
+      "response_sha256": "5cb8d3817baf5f987f0621e4296204f316c9d33724527145ddf280900caf58b2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131851&locale=en_US",
+      "face": {
+        "id": 131851,
+        "collectible": 1,
+        "slug": "131851-yshaarj-titan-bane",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": " Mooncolony",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "Y'Shaarj, Titan Bane",
+        "text": "<b>Old God.</b> <b>Battlecry:</b> If you've spent 30 Mana on minions this game, gain <b>Immune</b> for 1 turn. <i>(30 left!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eaa99bac482a7a5c481bdcc4e06ddfbdb31155818323a8a6aae32ba2aafa9426.png",
+        "imageGold": "",
+        "flavorText": "\"Gargantuan Slitherer\" + \"Kronn the Impaler\" + (\"Therazane the Earthmother\" - \"Neptulon, Lord of Tides\")",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74cc05fece28296a74fc10a55667b0aa6c2b9e46e1d97c958b2a720d1cc5b968.png",
+        "childIds": [
+          131852,
+          131853,
+          131854,
+          131855
+        ],
+        "keywordIds": [
+          8,
+          17,
+          431
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131851&locale=en_US",
+        "sha256": "5cb8d3817baf5f987f0621e4296204f316c9d33724527145ddf280900caf58b2",
+        "bytes": 959,
+        "observed_at": "2026-10-22T00:54:41.761730+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131852-zh_CN.json",
+      "response_sha256": "b23df48572addd617db7977d84daea950a379b8083b898ce3d7c12e0f0a257bb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131852&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131852,
+        "collectible": 0,
+        "slug": "131852-gaze-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "亚煞极的凝视",
+        "text": "迫使所有敌方随从攻击本随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3516975dccf2851a95a50a123de8caf33544c164c9ea8d19b0d3e40ba524eb34.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131852&locale=zh_CN&collectible=0",
+        "sha256": "b23df48572addd617db7977d84daea950a379b8083b898ce3d7c12e0f0a257bb",
+        "bytes": 562,
+        "observed_at": "2026-10-22T01:02:01.385135+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131852-en_US.json",
+      "response_sha256": "296d7ed7c0869aac8ba0dc59e4f78dd151d4c0e48642687ef86a8ef41ec537d5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131852&locale=en_US&collectible=0",
+      "face": {
+        "id": 131852,
+        "collectible": 0,
+        "slug": "131852-gaze-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Gaze of Y'Shaarj",
+        "text": "Force all enemy minions to attack this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3dca8eb6ad7eeda0522457c4286da90863e22169cae5245f2fd6b12794c0f42a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131852&locale=en_US&collectible=0",
+        "sha256": "296d7ed7c0869aac8ba0dc59e4f78dd151d4c0e48642687ef86a8ef41ec537d5",
+        "bytes": 557,
+        "observed_at": "2026-10-22T01:02:01.173876+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131853-zh_CN.json",
+      "response_sha256": "cd44adf60570df1608f95cb3510c99e4620496af0b757fc7d53e19922b6da977",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131853&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131853,
+        "collectible": 0,
+        "slug": "131853-might-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "亚煞极的威力",
+        "text": "获得相邻随从的属性值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3754b6b27a161ab080d027ef87c58e430bd6da71fb9f4f8f1c64835dbdf556fd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131853&locale=zh_CN&collectible=0",
+        "sha256": "cd44adf60570df1608f95cb3510c99e4620496af0b757fc7d53e19922b6da977",
+        "bytes": 554,
+        "observed_at": "2026-10-22T01:02:01.360270+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131853-en_US.json",
+      "response_sha256": "9ee403e1384f1e278bb31deca4d9b7bc89dbaf985b923e94778654ea392ab674",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131853&locale=en_US&collectible=0",
+      "face": {
+        "id": 131853,
+        "collectible": 0,
+        "slug": "131853-might-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 0,
+        "name": "Might of Y'Shaarj",
+        "text": "Gain the stats of adjacent minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/396c415aa7468726aed4351b81c2eacefabf7efd5c6489b4d858ce9f2e4f9e26.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131853&locale=en_US&collectible=0",
+        "sha256": "9ee403e1384f1e278bb31deca4d9b7bc89dbaf985b923e94778654ea392ab674",
+        "bytes": 555,
+        "observed_at": "2026-10-22T01:02:01.895830+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131854-zh_CN.json",
+      "response_sha256": "e93934f4cc50fcffac3ead7faf2c1d06fd318d6aa984454fadb93deb7f738a26",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131854&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131854,
+        "collectible": 0,
+        "slug": "131854-spawn-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Tee Fuyuan",
+        "manaCost": 0,
+        "name": "亚煞极的子嗣",
+        "text": "随机召唤一个法力值消耗大于或等于（8）点的随从，并获取一张它的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a6a7b22989c444d045f94304ed223dbdb3a87732ee3aeae75318ea433e6970e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131854&locale=zh_CN&collectible=0",
+        "sha256": "e93934f4cc50fcffac3ead7faf2c1d06fd318d6aa984454fadb93deb7f738a26",
+        "bytes": 629,
+        "observed_at": "2026-10-22T01:02:00.870043+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131854-en_US.json",
+      "response_sha256": "ce3a536f4a409ad261767798782c6315344799d4324ab8530dbbf848d4119d73",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131854&locale=en_US&collectible=0",
+      "face": {
+        "id": 131854,
+        "collectible": 0,
+        "slug": "131854-spawn-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Tee Fuyuan",
+        "manaCost": 0,
+        "name": "Spawn of Y'Shaarj",
+        "text": "Summon a random minion that costs (8) or more. Get a copy of it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61d55dee5261c6b41993ceff1711724afb081674a6236c217f11aacb9a9ed24e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131854&locale=en_US&collectible=0",
+        "sha256": "ce3a536f4a409ad261767798782c6315344799d4324ab8530dbbf848d4119d73",
+        "bytes": 592,
+        "observed_at": "2026-10-22T01:02:01.355713+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131855-zh_CN.json",
+      "response_sha256": "f9d75bf2a52fd3fbc9e2517e2806b57ee5ea63d1c373df9b866904e09e29c4e0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131855&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131855,
+        "collectible": 0,
+        "slug": "131855-domain-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 0,
+        "name": "亚煞极的领域",
+        "text": "你的下一张牌的法力值消耗减少（5）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b0b2c459eb8a7a200623554a7fb7514071efebe32e14aee7262bd70c396351c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131855&locale=zh_CN&collectible=0",
+        "sha256": "f9d75bf2a52fd3fbc9e2517e2806b57ee5ea63d1c373df9b866904e09e29c4e0",
+        "bytes": 585,
+        "observed_at": "2026-10-22T01:02:01.684348+00:00"
+      }
+    },
+    {
+      "card_id": "BE_784t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k379-yshaarj\\primary-cache\\131855-en_US.json",
+      "response_sha256": "2ce74ba0bc987497938435ef53dede7b1540123bb362b06dbfa333cf6b75cb66",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131855&locale=en_US&collectible=0",
+      "face": {
+        "id": 131855,
+        "collectible": 0,
+        "slug": "131855-domain-of-yshaarj",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1994,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 0,
+        "name": "Domain of Y'Shaarj",
+        "text": "Your next card costs (5) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ecc6e5a4495c130d1594d7a12b89255758ddde09d9876ba32b5c7d9551dd147.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131851,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131855&locale=en_US&collectible=0",
+        "sha256": "2ce74ba0bc987497938435ef53dede7b1540123bb362b06dbfa333cf6b75cb66",
+        "bytes": 560,
+        "observed_at": "2026-10-22T01:02:01.166183+00:00"
+      }
+    }
+  ],
+  "source_verified": true,
+  "official_faces_verified": 10,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
