@@ -339,3 +339,16 @@ core663表达新增真实技能来源权限，schema540和Effect/续接形状保
 内部续接复用普通InvokeBehavior，以规范、有界的保留命名空间编码条件、后半行为及原接受BattlecryRecord.id。执行时核对同一未完成记录、实际载体、玩家、目标与完整原前半行为身份，再在内部调用的新RuleContext上检查条件和计划后半；不能用最近的另一个战吼替代接受身份。内部行为不能作为独立拼装后半，也不能递归包装进其他时机。没有新增效果类型或存档字段，语义版本与注册表指纹共同约束恢复。
 
 这项声明用于保留既有原生回调的内部执行契约，不替代国服时序校准。实际结果、证据和下一项仍只登记在项目状态与机制台账。
+
+
+## 普通出牌反应前半
+
+真实普通TriggerSpec(card_played, original_callback)可用AssemblePrefix('card_played', condition_id=...)表达；这里仍是原普通触发，不是额外战吼、结束主体或limited_trigger。condition_id引用纯布尔谓词；前半必须有已审核条件。源身材、关键词和印刷属性保持在各自前半/主面，后半行为与前半守卫分开。
+
+先注册谓词，再以registry.register_assemble_reaction_source(AssembleReactionSource(card_id, event, original_behavior_id, condition_id))绑定确切静态原卡，随后注册原AssembleTemplate。原卡必须是具有该唯一普通触发的真实随从，实际模板必须使用同一事件和条件；重复、缺失或未使用桥被拒绝。assemble_reaction_sources为不可变查询，桥对象也不可变；只有非空配置进入注册指纹。没有新增AssemblePrefix/AssembleTemplate字段，原完整声明形状及历史数据不改。
+
+编译面仍生成普通TriggerSpec，行为使用规范有界的assemble.reaction:身份编码事件、条件和后半。解析只接受已声明反应前半及已审核该上下文的后半，禁止递归时机包装。执行要求原事件及其捕获的实际拼装随从声明/控制者匹配；实际出牌谓词核完整已完成Play记录与事件source/player的一致性，再检查同玩家、随从、排除自身和捕获视图中的存活来源。原普通触发由Resolver.emit/call捕获独立RuleContext，队列等待、先行反应造成的变形/死亡不会将旧调用改路由到当前载体；物理增益引用仍会按实际驻留失效，已经接受的普通抽牌仍沿原来源和玩家交付。
+
+同一后半必须逐上下文审核。新反应前半遇到没有该上下文声明的合格后半直接报未实现，不静默少给一半选项或删候选；带箭头的其它上下文也不自行猜目标。已有精确整份pin可用extend_assemble_suffix_timings显式追加一个已审核上下文；除该元组外所有字段保留，历史材料和原静态整卡不改。
+
+本次只表达真实card_played反应，不据此推定攻击、伤害、施法或其他事件族已经适配。已有纯效果、普通触发队列、区域/资源、信息投影和恢复继续复用；无新Effect、payload或存档字段。core665/schema540拒绝旧core664语义，默认注册指纹保持，默认完整快照仅机制版本和派生状态哈希改变。正式候选池、其它未审上下文和精确国服时序仍独立核定；实际执行、差异和下一项仅在两份原台账维护。

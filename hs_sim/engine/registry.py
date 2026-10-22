@@ -151,6 +151,7 @@ class Registry:
         self._spell_mirror_ids = frozenset()
         self._assemble_templates = {}
         self._assemble_inner_conditions = set()
+        self._assemble_reaction_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -286,6 +287,18 @@ class Registry:
     @property
     def assemble_templates(self):
         return MappingProxyType(self._assemble_templates)
+
+    @property
+    def assemble_reaction_sources(self):
+        return MappingProxyType(self._assemble_reaction_sources)
+
+    def register_assemble_reaction_source(self, profile):
+        from .assemble_reactions import validate_source
+        self._require_mutable()
+        validate_source(self, profile)
+        if profile.card_id in self._assemble_reaction_sources:
+            raise ValueError('Duplicate assembly reaction source')
+        self._assemble_reaction_sources[profile.card_id] = profile
 
     @property
     def assemble_inner_conditions(self):
@@ -1679,6 +1692,9 @@ class Registry:
         from .assemble_faces import (OWNER_START_PREFIX, owner_start_behavior, CONDITION_PREFIX,
             conditional_behavior, BEFORE_PREFIX, before_behavior, INNER_CONDITION_PREFIX,
             inner_condition_behavior)
+        from .assemble_reactions import REACTION_PREFIX, reaction_behavior
+        if id.startswith(REACTION_PREFIX):
+            return reaction_behavior(self, id)
         if id.startswith(OWNER_START_PREFIX):
             return owner_start_behavior(self,id)
         if id.startswith(CONDITION_PREFIX):
@@ -2692,6 +2708,9 @@ class Registry:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
         if self._assemble_inner_conditions:
             payload['assemble_inner_conditions'] = sorted(self._assemble_inner_conditions)
+        if self._assemble_reaction_sources:
+            payload['assemble_reaction_sources'] = [asdict(self._assemble_reaction_sources[k])
+                for k in sorted(self._assemble_reaction_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

@@ -12,17 +12,18 @@ import json
 from .model import CardDefinition,CardType,EndTurnSpec,HandActionSpec,Keyword,TargetSpec,TriggerSpec,_bool,_name,_int
 from .effects import Effect
 from .serialization import canonical_hash
+from .assemble_reactions import REACTION_PREFIX, REACTION_TIMINGS, reaction_behavior_id
 
 PREFIX='assemble:'
 VERSION='assemble-face-v1'
-TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))
+TIMINGS=frozenset(('battlecry','deathrattle','end_turn','start_turn'))|REACTION_TIMINGS
 DUAL_TIMING='battlecry_deathrattle'
 PREFIX_TIMINGS=TIMINGS|{DUAL_TIMING}
 OWNER_START_PREFIX='assemble.owner_start:'
 CONDITION_PREFIX='assemble.condition:'
 INNER_CONDITION_PREFIX='assemble.condition_inner:'
 BEFORE_PREFIX='assemble.before:'
-TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX)
+TIMING_PREFIXES=(OWNER_START_PREFIX,CONDITION_PREFIX,BEFORE_PREFIX,INNER_CONDITION_PREFIX,REACTION_PREFIX)
 BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Keyword.RUSH,
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN))
@@ -53,8 +54,10 @@ class AssemblePrefix:
         _int(self.spell_damage,'assembled printed spell damage',0)
         if self.condition_id is not None:
             _name(self.condition_id,'assembled prefix condition')
-            if self.timing not in ('battlecry','end_turn'):
+            if self.timing not in ('battlecry','end_turn') and self.timing not in REACTION_TIMINGS:
                 raise ValueError('Conditional assembly prefix requires its reviewed native Battlecry or end-turn window')
+        if self.timing in REACTION_TIMINGS and self.condition_id is None:
+            raise ValueError('Reaction prefix requires its actual reviewed native condition')
         if self.before_behavior_id is not None:
             _name(self.before_behavior_id,'assembled prefix body')
             if (self.timing not in ('battlecry','deathrattle') or self.condition_id is not None or
@@ -210,6 +213,8 @@ def prefix_timings(prefix):
 def compatible(prefix,suffix):
     suffix.__post_init__()
     timings=prefix_timings(prefix)
+    if prefix.timing in REACTION_TIMINGS and prefix.timing not in suffix.allowed_timings:
+        raise ValueError('Eligible reaction body context remains explicitly unimplemented: '+prefix.timing)
     if any(t in suffix.pending_timings for t in timings):
         raise ValueError('Eligible assembly timing remains explicitly unimplemented: '+','.join(timings))
     if prefix.condition_id is not None and(suffix.requires_target or suffix.targeting is not None):
@@ -232,7 +237,9 @@ def printed_face(primary,prefix,suffix,card_id):
         deathrattle=deathrattle if 'deathrattle'in timings else None,
         triggers=((TriggerSpec('turn_ended',condition_behavior_id(prefix.condition_id,suffix.behavior_id)
             if prefix.condition_id is not None else suffix.behavior_id,prefix.end_turn),) if prefix.timing=='end_turn' else
-            (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else ()),
+            (TriggerSpec('turn_started',OWNER_START_PREFIX+suffix.behavior_id),) if prefix.timing=='start_turn' else
+            (TriggerSpec(prefix.timing,reaction_behavior_id(prefix.timing,prefix.condition_id,suffix.behavior_id)),)
+                if prefix.timing in REACTION_TIMINGS else ()),
         requires_target=suffix.requires_target if 'battlecry'in timings else False,
         targeting=suffix.targeting if 'battlecry'in timings else None,
         target_rule=suffix.target_rule if 'battlecry'in timings else 'any_entity')
@@ -254,6 +261,11 @@ def validate_template(registry,template):
         registry.target_rule(template.suffix.target_rule)
     if template.prefix.end_turn is not None:registry.trigger_condition(template.prefix.end_turn.condition_id)
     original=printed_face(primary,template.prefix,template.suffix,primary.id)
+    if template.prefix.timing in REACTION_TIMINGS:
+        from .assemble_reactions import original_trigger
+        original=replace(original,triggers=original_trigger(registry,template))
+    elif template.card_id in registry._assemble_reaction_sources:
+        raise ValueError('Reaction source bridge cannot mask another prefix timing')
     if template.original_battlecry_id is not None:
         registry.behavior(template.original_battlecry_id)
         if primary.battlecry!=template.original_battlecry_id:
@@ -280,6 +292,8 @@ def validate_template(registry,template):
     registry._validate_card(original)
 
 def validate_projection(registry,projection):
+    if projection.prefix.timing in REACTION_TIMINGS:
+        raise ValueError('Reaction prefix requires its actual native minion source')
     projection.__post_init__()
     source=registry._cards.get(projection.card_id)
     if (source is None or source.kind!=projection.source_kind or source.choice_only or not source.hand_playable or
@@ -525,6 +539,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_reactions import validate_sources
+    validate_sources(registry)
     for condition_id in registry._assemble_inner_conditions:
         registry.trigger_condition(condition_id)
         if not any(template.prefix.timing == 'battlecry' and
