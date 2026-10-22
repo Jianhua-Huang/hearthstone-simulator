@@ -1,0 +1,237 @@
+{
+  "schema": 1,
+  "batch": "assemble-prefix-healing-fragments-v1",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "JAIL_912",
+        "dbf_id": 124079,
+        "name": "预言师",
+        "name_en": "Soothsayer",
+        "text": "<b>预备</b>。<b>嘲讽</b>。<b>亡语：</b>为你的英雄恢复#6点生命值。&随机召唤一个法力值消耗为（6）的随从。",
+        "text_en": "[x]<b>Prepare</b>, <b>Taunt</b>\n<b>Deathrattle:</b> Restore #6 Health\nto your hero.& Summon a\n_random 6-Cost minion.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1988,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4547": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4547",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4547"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1b52f767b4c19568ff0cb805ff265a3858edd5d69e9200c197c79ea3ae938425",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAIL_912",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "8dadcbca75fc4ad391ea3cc3384346e9d609c238d7729ca943d84b27d961532c"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAIL_912",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-zh_CN-3.json",
+      "response_sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+      "face": {
+        "id": 124079,
+        "collectible": 1,
+        "slug": "124079-soothsayer",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Stefano Spagnuolo",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "预言师",
+        "text": "<b>预备</b>。<b>嘲讽</b>。<b>亡语：</b>为你的英雄恢复 6点生命值。&随机召唤一个法力值消耗为（6）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/012d1c4cb75802741ef07d7a3d26f2b36368f7477908d884a88f4be99b891103.png",
+        "imageGold": "",
+        "flavorText": "“精神放松。预言的……力度可以吗？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b1d134590754c9646a662d113cbf97c00d655f8676bb7ba430af9a4c7636b81.png",
+        "keywordIds": [
+          1,
+          12,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=zh_CN",
+        "sha256": "fe2619ecf8a98deb057f97d04803310b3efffded872c1d73a3eb3f6852364e25",
+        "bytes": 249617,
+        "observed_at": "2026-10-20T16:28:58.058645+00:00"
+      }
+    },
+    {
+      "card_id": "JAIL_912",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k325-black-empire-first\\catalog-en_US-3.json",
+      "response_sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+      "face": {
+        "id": 124079,
+        "collectible": 1,
+        "slug": "124079-soothsayer",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 3,
+        "artistName": "Stefano Spagnuolo",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Soothsayer",
+        "text": "<b>Prepare</b>, <b>Taunt</b> <b>Deathrattle:</b> Restore 6 Health to your hero.& Summon a random 6-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66bf82c8bad3fbfbaa75db97087ef486e24925f204932c297d124be5b7c32d93.png",
+        "imageGold": "",
+        "flavorText": "\"Sooth. Sooth. ...Sooth. Am I doing it right?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b1d134590754c9646a662d113cbf97c00d655f8676bb7ba430af9a4c7636b81.png",
+        "keywordIds": [
+          1,
+          12,
+          382
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "final_url": "https://hearthstone.blizzard.com/en-us/api/cards?set=standard&pageSize=500&page=3&locale=en_US",
+        "sha256": "507cc908e885018cff90d4816654afaf580208faedce3d3640aa76fa47299ed0",
+        "bytes": 242450,
+        "observed_at": "2026-10-20T16:28:59.150944+00:00"
+      }
+    }
+  ],
+  "reviewed_template": {
+    "card_id": "JAIL_912",
+    "original_deathrattle_id": "cards.simple_followup_p47.JAIL_912",
+    "before_behavior_id": "cards.assemble_prefix_healing.heal",
+    "behavior_id": "cards.assemble_prefix_healing.summon",
+    "deathrattle_behavior_id": "cards.assemble_prefix_healing.death_summon",
+    "keywords": [
+      "taunt"
+    ],
+    "hand_actions": [
+      {
+        "id": "prepare",
+        "kind": "prepare",
+        "cost": 1,
+        "upgrade_card_id": null,
+        "on_use": null,
+        "use_rule": "always"
+      }
+    ],
+    "pool_id": "constructed.cards",
+    "query": {
+      "kinds": [
+        "minion"
+      ],
+      "min_cost": 6,
+      "max_cost": 6,
+      "collectible": true,
+      "class_mode": "any",
+      "classes": [],
+      "include_neutral": true,
+      "rarities": [],
+      "tribes_any": [],
+      "spell_schools": [],
+      "keywords_all": [],
+      "exclude_card_ids": [],
+      "exclude_source": false,
+      "factions_any": [],
+      "ability": null,
+      "subtypes_any": [],
+      "deathrattle": null,
+      "choose_one": null,
+      "any_of": [],
+      "runes_any": [],
+      "attack_parity": null,
+      "card_ids": [],
+      "attack_equals": null,
+      "keywords_none": []
+    },
+    "allowed_timings": [
+      "battlecry",
+      "deathrattle",
+      "end_turn",
+      "start_turn"
+    ]
+  }
+}

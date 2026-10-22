@@ -1508,8 +1508,8 @@ class Registry:
     def register_behavior(self, id: str, handler: Behavior) -> None:
         self._require_mutable()
         _name(id, "behavior ID")
-        from .assemble_faces import OWNER_START_PREFIX,CONDITION_PREFIX
-        if id.startswith((OWNER_START_PREFIX,CONDITION_PREFIX)):raise ValueError('Derived assembly timing namespace is reserved')
+        from .assemble_faces import TIMING_PREFIXES
+        if id.startswith(TIMING_PREFIXES):raise ValueError('Derived assembly timing namespace is reserved')
         if not callable(handler):
             raise ValueError("behavior handler must be callable")
         if id in self._behaviors:
@@ -1663,11 +1663,13 @@ class Registry:
 
     def behavior(self, id: str) -> Behavior:
         _name(id, "behavior ID")
-        from .assemble_faces import OWNER_START_PREFIX, owner_start_behavior,CONDITION_PREFIX,conditional_behavior
+        from .assemble_faces import OWNER_START_PREFIX, owner_start_behavior,CONDITION_PREFIX,conditional_behavior,BEFORE_PREFIX,before_behavior
         if id.startswith(OWNER_START_PREFIX):
             return owner_start_behavior(self,id)
         if id.startswith(CONDITION_PREFIX):
             return conditional_behavior(self,id)
+        if id.startswith(BEFORE_PREFIX):
+            return before_behavior(self,id)
         try:
             return self._behaviors[id]
         except KeyError:
