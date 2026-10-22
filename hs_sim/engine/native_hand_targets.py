@@ -113,7 +113,7 @@ def selected_ids(request,selections):
 
 @dataclass(frozen=True)
 class NativeChoiceResult(ChoiceResult):
-    """Execution subset only; the original two-target user input stays valid.
+    """Execution subset only; the original complete user input stays valid.
 
     A reaction may remove all but one candidate. Never falsify the original
     PendingChoice counts or pass an invalid manual ChoiceResult to a callback.

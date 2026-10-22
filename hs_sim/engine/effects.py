@@ -229,7 +229,7 @@ class RequestChoice(Effect):
             board = (type(self.targeting) is TargetSpec and self.targeting.zones==(Zone.BOARD,) and
                      self.targeting.kinds==(CardType.MINION,))
             if (not(hand or board) or hand and self.targeting.relation!='friendly' or self.source_id is None or
-                    self.min_count!=self.max_count or self.min_count not in ((1,)if hand else(1,2)) or self.sample_size is not None or
+                    self.min_count!=self.max_count or self.min_count not in ((1,)if hand else(1,2,3)) or self.sample_size is not None or
                     self.purpose!=ChoicePurpose.EFFECT or self.repeat_key is not None or self.kindred is not None):
                 raise ValueError('Target choice requires its explicit hand or minion domain and fixed count')
             self.targeting.__post_init__()

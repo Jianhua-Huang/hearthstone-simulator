@@ -1,0 +1,3599 @@
+{
+  "schema": 1,
+  "batch": "K381-fetid-devourer",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "source_verified": true,
+  "official_faces_verified": 40,
+  "behavior_verified": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "cards": [
+    {
+      "record": {
+        "id": "BE_781",
+        "dbf_id": 131127,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "本牌在你手中时，会根据你使用的符文牌的符文变形。",
+        "text_en": "While in your hand, this transforms after you play\na card with a rune.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "1da217d974ef24ba71bd6415ef3612d5f6a4ca73f44938a72b5ec58df5f40c5d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BE_781t1",
+        "dbf_id": 131169,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭一个敌方随从。抽一张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "[x]<b>Battlecry</b>: Destroy an enemy\nminion. Draw a card. It costs\n(3) less. Summon two random\n3-Cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "8cff26b37ce3273f3b56c70adecf411e44ee2fa7637644587493346d5d2c5494",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 1,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t10",
+        "dbf_id": 132574,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（9）的随从。",
+        "text_en": "<b>Battlecry:</b> Summon two random 9-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_UNHOLY": 3,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "d5071d0afcfddcff76c16a11a37b1187ceaaeedd43382857029510e08db2e2ef",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t10",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 3
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t11",
+        "dbf_id": 132700,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭一个敌方随从。抽一张牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> Destroy an enemy minion. Draw a card. It costs (3) less.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 1,
+          "COST_FROST": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "f452b9ee9bf9a31a9dbe4b5f10813d9b7b7585f4c30b8fe792c00732ceb1597c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t11",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t12",
+        "dbf_id": 132701,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭一个敌方随从。随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy an enemy\nminion. Summon two\nrandom 3-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 1,
+          "COST_UNHOLY": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "ca5195744abf54ce87157e83092e702251982726ec5944732e6d1ee559a4637e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t12",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t13",
+        "dbf_id": 132702,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭两个敌方随从。抽一张牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> Destroy 2 enemy minions. Draw a card. It costs (3) less.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 2,
+          "COST_FROST": 1,
+          "2436": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2436",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2436"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "9f9ff505ac785c4b36983c68b3f674c6192dd9562b41beeccf32ac3757342e59",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t13",
+        "max_copies": null,
+        "runes": {
+          "blood": 2,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t14",
+        "dbf_id": 132703,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭两个敌方随从。随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy 2 enemy\nminions. Summon two\nrandom 3-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 2,
+          "COST_UNHOLY": 1,
+          "2436": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2436",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2436"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "4fc34e5f9628fbb4f7a9465d583ad5837832d65dcf4a7a43e257bad90a63be06",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t14",
+        "max_copies": null,
+        "runes": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t15",
+        "dbf_id": 132704,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭一个敌方随从。抽两张牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> Destroy an enemy minion. Draw 2 cards. They costs (3) less.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 1,
+          "COST_FROST": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "cba5c87dd511022b056443727348fea752c5fd285fe39c1be4ae3d5a847b83eb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t15",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 2,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t16",
+        "dbf_id": 132705,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭一个敌方随从。随机召唤两个法力值消耗为（6）的随从。",
+        "text_en": "[x]<b>Battlecry:</b> Destroy an enemy\nminion. Summon two\nrandom 6-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 1,
+          "COST_UNHOLY": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "136e7605beb510d1d2d8a28a4bfb4e2428579d54b11c6ab94c43e0995e566cb0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t16",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 2
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t17",
+        "dbf_id": 132706,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "[x]<b>Battlecry:</b> Draw a card. It\ncosts (3) less. Summon two\nrandom 3-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "8b9c2ff455e35a149c4bf5f8df1a1d9e57b047d255f29345fbd63dd3a2c46e91",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t17",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t18",
+        "dbf_id": 132707,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>抽两张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "[x]<b>Battlecry:</b> Draw 2 cards. They\ncosts (3) less. Summon two\nrandom 3-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_FROST": 2,
+          "COST_UNHOLY": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "2f33d30ad85197c0e31b97ee697ac065d76a706bb2d1a95dba1d07960fbd2a81",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t18",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t19",
+        "dbf_id": 132708,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（6）的随从。",
+        "text_en": "[x]<b>Battlecry:</b> Draw a card. It\ncosts (3) less. Summon two\nrandom 6-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_FROST": 1,
+          "COST_UNHOLY": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "ccd051289b8caef3b7a3fc4362340d3f25a06ac5cea01cdea1a92af0a3b5fb2b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t19",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 2
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t2",
+        "dbf_id": 131170,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭一个敌方随从。",
+        "text_en": "<b>Battlecry:</b> Destroy an enemy minion.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "6ea1c779f0ede94e5a5689856c22bc577ae857f6023600b5b6f3fd36f1a94060",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t3",
+        "dbf_id": 131171,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭两个敌方随从。",
+        "text_en": "<b>Battlecry:</b> Destroy 2 enemy minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 2,
+          "2436": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2436",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2436"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "cb262a5d21226a0504952072d8295f6fcb4fad670172c047dc14f30cac2640b2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t4",
+        "dbf_id": 132565,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>消灭三个敌方随从。",
+        "text_en": "<b>Battlecry:</b> Destroy 3 enemy minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_BLOOD": 3,
+          "2436": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2436",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2436"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "ab7822d17f10ad8f6e86b296148ef3a5cb446617e5a9aac2d3f695d1dd7c6450",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 3,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t5",
+        "dbf_id": 132566,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> Draw a card. It costs (3) less.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_FROST": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "381257f1fe9a18ffe73df4feb3612030142bafb0f53bbb999f07a47ff26829ec",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t6",
+        "dbf_id": 132567,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>抽两张牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> Draw 2 cards. They costs (3) less.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_FROST": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "aaed9f98ff208a44b4fe9053c0273d4ebd61067d3edf9e6ff6a6612bacd66581",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t7",
+        "dbf_id": 132568,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>抽三张牌，其法力值消耗减少（3）点。",
+        "text_en": "<b>Battlecry:</b> Draw 3 cards. They costs (3) less.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_FROST": 3,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "3f99b27c6f146f568d2cc37a6427e7b175cfb279c0c757eea79b983b8174a350",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 3,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t8",
+        "dbf_id": 132571,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "<b>Battlecry:</b> Summon two random 3-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_UNHOLY": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "3b333773a70f40d09226a0db2f756b5a4cede83745e9972fac24c783649c6ab2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t8",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_781t9",
+        "dbf_id": 132573,
+        "name": "腐臭吞噬者",
+        "name_en": "Fetid Devourer",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（6）的随从。",
+        "text_en": "<b>Battlecry:</b> Summon two random 6-cost minions.",
+        "cost": 7,
+        "attack": 9,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 9,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COST_UNHOLY": 2,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "9b5f67435e00954194448aaa2e1a7784e8a3dd501c87bf21211002c7e45e0442",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_781t9",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BE_781",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131127-zh_CN.json",
+      "response_sha256": "8bc6c339f9c3064d6c144a22429c0af04efbb61bed1ee57a694e6aa06080903b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131127&locale=zh_CN",
+      "face": {
+        "id": 131127,
+        "collectible": 1,
+        "slug": "131127-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "本牌在你手中时，会根据你使用的符文牌的符文变形。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40319e4cb9c1ae62f4f08ab11c457dd0a05f9f0a8ca637bfb665743154f25b1b.png",
+        "imageGold": "",
+        "flavorText": "终极传说守门员。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58d9922c9380d97038459fd8bff64bdd54509cdaea5f00ef85c980c90a836a0d.png",
+        "childIds": [
+          131169,
+          131170,
+          131171,
+          132565,
+          132566,
+          132567,
+          132568,
+          132571,
+          132573,
+          132574,
+          132700,
+          132701,
+          132702,
+          132703,
+          132704,
+          132705,
+          132706,
+          132707,
+          132708
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131127&locale=zh_CN",
+        "sha256": "8bc6c339f9c3064d6c144a22429c0af04efbb61bed1ee57a694e6aa06080903b",
+        "bytes": 926,
+        "observed_at": "2026-10-22T01:26:01.747342+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131127-en_US.json",
+      "response_sha256": "ddc9dd7ecf579357b47899e0e07ccc111f88f1817c61ae8073af4f0784cf8d82",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131127&locale=en_US",
+      "face": {
+        "id": 131127,
+        "collectible": 1,
+        "slug": "131127-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "While in your hand, this transforms after you play a card with a rune.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebeb9ca8f85d4a1f2d6778d2982e227c945d5d9356dc43698ff796dc2eec3558.png",
+        "imageGold": "",
+        "flavorText": "The ultimate Legend Gatekeeper.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58d9922c9380d97038459fd8bff64bdd54509cdaea5f00ef85c980c90a836a0d.png",
+        "childIds": [
+          131169,
+          131170,
+          131171,
+          132565,
+          132566,
+          132567,
+          132568,
+          132571,
+          132573,
+          132574,
+          132700,
+          132701,
+          132702,
+          132703,
+          132704,
+          132705,
+          132706,
+          132707,
+          132708
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131127&locale=en_US",
+        "sha256": "ddc9dd7ecf579357b47899e0e07ccc111f88f1817c61ae8073af4f0784cf8d82",
+        "bytes": 930,
+        "observed_at": "2026-10-22T01:26:01.747342+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131169-zh_CN.json",
+      "response_sha256": "aaf158b813c38aa3fb1f6860917af9d2fd8ece617f3d4cedb6cbe7f85d21f547",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131169&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131169,
+        "collectible": 0,
+        "slug": "131169-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭一个敌方随从。抽一张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1611bbfc37483391c02ca0887791d96fd87a6b65fc7ff364557abcf71a73ef7f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 1,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131169&locale=zh_CN&collectible=0",
+        "sha256": "aaf158b813c38aa3fb1f6860917af9d2fd8ece617f3d4cedb6cbe7f85d21f547",
+        "bytes": 797,
+        "observed_at": "2026-10-22T01:26:02.000158+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131169-en_US.json",
+      "response_sha256": "584ad62a522dda44be6603112ee4eb98422ca19fa2a19c28d5f84922eb1ea7d6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131169&locale=en_US&collectible=0",
+      "face": {
+        "id": 131169,
+        "collectible": 0,
+        "slug": "131169-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry</b>: Destroy an enemy minion. Draw a card. It costs (3) less. Summon two random 3-Cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7c208e03a6490d7734ba115e9554e280a61588074f5e6498e61a4bede882b7a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 1,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131169&locale=en_US&collectible=0",
+        "sha256": "584ad62a522dda44be6603112ee4eb98422ca19fa2a19c28d5f84922eb1ea7d6",
+        "bytes": 754,
+        "observed_at": "2026-10-22T01:26:01.955926+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t10",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132574-zh_CN.json",
+      "response_sha256": "e20c7357bef96b6b51ea0d99e5e5b26aa59941e89872b1019f6fcd809a09d0a2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132574&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132574,
+        "collectible": 0,
+        "slug": "132574-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（9）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae613f97d91cfcdfea3ab7dd19899adadef90359d2fba2e6621a19c3cc73b540.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 3
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132574&locale=zh_CN&collectible=0",
+        "sha256": "e20c7357bef96b6b51ea0d99e5e5b26aa59941e89872b1019f6fcd809a09d0a2",
+        "bytes": 718,
+        "observed_at": "2026-10-22T01:26:01.680954+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t10",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132574-en_US.json",
+      "response_sha256": "6066dba3291d6c243b9832d10a4d62fa1cd2c7839c6ac460fcc26d2a6cc4e266",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132574&locale=en_US&collectible=0",
+      "face": {
+        "id": 132574,
+        "collectible": 0,
+        "slug": "132574-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Summon two random 9-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0753fe06485bdb85305054aaf3bdc8a3bc3adbda1fac093dc10cb7e470784dac.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 3
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132574&locale=en_US&collectible=0",
+        "sha256": "6066dba3291d6c243b9832d10a4d62fa1cd2c7839c6ac460fcc26d2a6cc4e266",
+        "bytes": 697,
+        "observed_at": "2026-10-22T01:26:01.768252+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t11",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132700-zh_CN.json",
+      "response_sha256": "86fe03ee58f982f0062b195a56701f2276ebe23034aeabfc3cc1f8bc86864b72",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132700&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132700,
+        "collectible": 0,
+        "slug": "132700-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭一个敌方随从。抽一张牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe0192f893014fedd437922907f3d81b919819268c80a4ec8bf1be641346f021.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132700&locale=zh_CN&collectible=0",
+        "sha256": "86fe03ee58f982f0062b195a56701f2276ebe23034aeabfc3cc1f8bc86864b72",
+        "bytes": 742,
+        "observed_at": "2026-10-22T01:26:01.945816+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t11",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132700-en_US.json",
+      "response_sha256": "d162b6bb409a0bf12f7e4601d3bd5df6e2713d08001374a5e8224ed64e62f226",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132700&locale=en_US&collectible=0",
+      "face": {
+        "id": 132700,
+        "collectible": 0,
+        "slug": "132700-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. Draw a card. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44601241ec5e536fad3d8f99f083fddf228b8b902c71302e881d011ba74aff4f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132700&locale=en_US&collectible=0",
+        "sha256": "d162b6bb409a0bf12f7e4601d3bd5df6e2713d08001374a5e8224ed64e62f226",
+        "bytes": 720,
+        "observed_at": "2026-10-22T01:26:01.700066+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t12",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132701-zh_CN.json",
+      "response_sha256": "b7e6b3518efe7972867582e576a8a1b1077db9f658f69d3af1a222561bd4b143",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132701&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132701,
+        "collectible": 0,
+        "slug": "132701-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭一个敌方随从。随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5df08680b4e872f6b3863a8d31e4f3f9d53a7a43d96a7b1fa6fe482f7ce0bfe7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132701&locale=zh_CN&collectible=0",
+        "sha256": "b7e6b3518efe7972867582e576a8a1b1077db9f658f69d3af1a222561bd4b143",
+        "bytes": 745,
+        "observed_at": "2026-10-22T01:26:03.316075+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t12",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132701-en_US.json",
+      "response_sha256": "b98c3b8b9377e7941a36516124169d2caf8a34a797b2515d617dfef6831cfa98",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132701&locale=en_US&collectible=0",
+      "face": {
+        "id": 132701,
+        "collectible": 0,
+        "slug": "132701-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. Summon two random 3-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c250a9d51f60e8aad93cba8e18cbdad1c0e5af11a3ce5f3f254c54f008c1882.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132701&locale=en_US&collectible=0",
+        "sha256": "b98c3b8b9377e7941a36516124169d2caf8a34a797b2515d617dfef6831cfa98",
+        "bytes": 722,
+        "observed_at": "2026-10-22T01:26:03.488365+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t13",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132702-zh_CN.json",
+      "response_sha256": "a5b98752b292d60f839e880991fb77fd61d0c91c53c2d30cd46f81773fa70e63",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132702&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132702,
+        "collectible": 0,
+        "slug": "132702-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭两个敌方随从。抽一张牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72969012e6b936c9f8e013d8d23160321424d8e9e7be6a5fb781f563c597847a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 2,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132702&locale=zh_CN&collectible=0",
+        "sha256": "a5b98752b292d60f839e880991fb77fd61d0c91c53c2d30cd46f81773fa70e63",
+        "bytes": 742,
+        "observed_at": "2026-10-22T01:26:03.265630+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t13",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132702-en_US.json",
+      "response_sha256": "d6349e3dc85495e9723f79eac1466e5afc4fcecf95a2acd3b484688a33763b1c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132702&locale=en_US&collectible=0",
+      "face": {
+        "id": 132702,
+        "collectible": 0,
+        "slug": "132702-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy 2 enemy minions. Draw a card. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c1fbe7886e5e308f8451388b38834ac88385832041cf4562e536605576ffbe0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 2,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132702&locale=en_US&collectible=0",
+        "sha256": "d6349e3dc85495e9723f79eac1466e5afc4fcecf95a2acd3b484688a33763b1c",
+        "bytes": 720,
+        "observed_at": "2026-10-22T01:26:03.723845+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t14",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132703-zh_CN.json",
+      "response_sha256": "78179d1cbd82c10cfa07274add1e48aeb2ee2468665ddf3878f4a14dccb30e81",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132703&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132703,
+        "collectible": 0,
+        "slug": "132703-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭两个敌方随从。随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c75fcec8f6c319b8d612b4ac020fb4ee56fe815e8871b31f726c248bcc026f68.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132703&locale=zh_CN&collectible=0",
+        "sha256": "78179d1cbd82c10cfa07274add1e48aeb2ee2468665ddf3878f4a14dccb30e81",
+        "bytes": 745,
+        "observed_at": "2026-10-22T01:26:03.457018+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t14",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132703-en_US.json",
+      "response_sha256": "49455b5f951fc09435fefde0ef8eb9ea07c7f4ea806e4e9917939c0300c2df7d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132703&locale=en_US&collectible=0",
+      "face": {
+        "id": 132703,
+        "collectible": 0,
+        "slug": "132703-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy 2 enemy minions. Summon two random 3-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b71c0f763194da7454682f419165d35daf1e95c08e4687600133391ced6ebcf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132703&locale=en_US&collectible=0",
+        "sha256": "49455b5f951fc09435fefde0ef8eb9ea07c7f4ea806e4e9917939c0300c2df7d",
+        "bytes": 722,
+        "observed_at": "2026-10-22T01:26:03.904618+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t15",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132704-zh_CN.json",
+      "response_sha256": "814569751246af948c0ece2f92bef178d749af7a006fd230ea783fd22147e313",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132704&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132704,
+        "collectible": 0,
+        "slug": "132704-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭一个敌方随从。抽两张牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94738ac578d1ab9a1d2faeeafcc9d73ac445ce909019c191309ae09ce02d1306.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 2,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132704&locale=zh_CN&collectible=0",
+        "sha256": "814569751246af948c0ece2f92bef178d749af7a006fd230ea783fd22147e313",
+        "bytes": 742,
+        "observed_at": "2026-10-22T01:26:03.749011+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t15",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132704-en_US.json",
+      "response_sha256": "3a18eb87bea893b4a3a80aa3ae0ff5f673342a572fc7a28645f9686b145f8845",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132704&locale=en_US&collectible=0",
+      "face": {
+        "id": 132704,
+        "collectible": 0,
+        "slug": "132704-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. Draw 2 cards. They costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cde3c43a049d2c667cf34b29aa6c34d9b5c399ca869b26ea04068c898e4a86f6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 2,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132704&locale=en_US&collectible=0",
+        "sha256": "3a18eb87bea893b4a3a80aa3ae0ff5f673342a572fc7a28645f9686b145f8845",
+        "bytes": 723,
+        "observed_at": "2026-10-22T01:26:03.500739+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t16",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132705-zh_CN.json",
+      "response_sha256": "036f462244decf56a20820442f23a58b0ccee34b9e9d1bb713b0709dedf50fd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132705&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132705,
+        "collectible": 0,
+        "slug": "132705-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭一个敌方随从。随机召唤两个法力值消耗为（6）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8efb68ae372c3ae086acaf32c2686a4ea3d618144ee6968c3d25e76b84679b0d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132705&locale=zh_CN&collectible=0",
+        "sha256": "036f462244decf56a20820442f23a58b0ccee34b9e9d1bb713b0709dedf50fd5",
+        "bytes": 745,
+        "observed_at": "2026-10-22T01:26:04.770916+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t16",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132705-en_US.json",
+      "response_sha256": "bff9775f5e4dc969b397df0bce18e697912b410b249b0ddc943124544e9b275a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132705&locale=en_US&collectible=0",
+      "face": {
+        "id": 132705,
+        "collectible": 0,
+        "slug": "132705-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. Summon two random 6-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b00519d69cab695886dfd1ab18ca9a407cc333ea1417696c0fa5ae88b2be4239.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132705&locale=en_US&collectible=0",
+        "sha256": "bff9775f5e4dc969b397df0bce18e697912b410b249b0ddc943124544e9b275a",
+        "bytes": 722,
+        "observed_at": "2026-10-22T01:26:05.314534+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t17",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132706-zh_CN.json",
+      "response_sha256": "82a4d8166d32c8a5eb1b98ea2fb8dd8bf0f08d0b1fb690adf5a9197a3c044f02",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132706&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132706,
+        "collectible": 0,
+        "slug": "132706-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a700a8b2bac1dffa4a562dc196936f781786b923abf3bc29a2527cb108418e34.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132706&locale=zh_CN&collectible=0",
+        "sha256": "82a4d8166d32c8a5eb1b98ea2fb8dd8bf0f08d0b1fb690adf5a9197a3c044f02",
+        "bytes": 770,
+        "observed_at": "2026-10-22T01:26:05.241454+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t17",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132706-en_US.json",
+      "response_sha256": "e8bf5bb9e9bfebecc8a4d8b9a81a995cf8612a5e19fdcf8e4aa6439314baf58b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132706&locale=en_US&collectible=0",
+      "face": {
+        "id": 132706,
+        "collectible": 0,
+        "slug": "132706-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Draw a card. It costs (3) less. Summon two random 3-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b24446c0b087320039335a4f79ec0db1e8e74b9234862ad8538d5470299e9e3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132706&locale=en_US&collectible=0",
+        "sha256": "e8bf5bb9e9bfebecc8a4d8b9a81a995cf8612a5e19fdcf8e4aa6439314baf58b",
+        "bytes": 729,
+        "observed_at": "2026-10-22T01:26:05.729460+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t18",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132707-zh_CN.json",
+      "response_sha256": "e26b350ba36e55d4a89867119f0f493dbbbac28372ab1c32081985bdf3c28362",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132707&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132707,
+        "collectible": 0,
+        "slug": "132707-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>抽两张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbdf36d7e8d53451f14c44f62f2d3efc480e3128f75533831aea66c87118c084.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132707&locale=zh_CN&collectible=0",
+        "sha256": "e26b350ba36e55d4a89867119f0f493dbbbac28372ab1c32081985bdf3c28362",
+        "bytes": 770,
+        "observed_at": "2026-10-22T01:26:05.319676+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t18",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132707-en_US.json",
+      "response_sha256": "e1a9c1eaa90e4f5c92594f5cf934ec6573d1cf42571fd3084994bb683ebf2db2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132707&locale=en_US&collectible=0",
+      "face": {
+        "id": 132707,
+        "collectible": 0,
+        "slug": "132707-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Draw 2 cards. They costs (3) less. Summon two random 3-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84ce46b0e374f18b543d2132c106b2da8eaaef2ac299f27063983ebdbdc014a6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132707&locale=en_US&collectible=0",
+        "sha256": "e1a9c1eaa90e4f5c92594f5cf934ec6573d1cf42571fd3084994bb683ebf2db2",
+        "bytes": 732,
+        "observed_at": "2026-10-22T01:26:05.558089+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t19",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132708-zh_CN.json",
+      "response_sha256": "6c4867e5688c4f700eef9a37f0d272a93e5ef4a69c9bc1f4a57d2dc33d8be2fa",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132708&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132708,
+        "collectible": 0,
+        "slug": "132708-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗减少（3）点。随机召唤两个法力值消耗为（6）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/052151f09de5ce19ca8b4aecf32968299d961a154dbe1bd59ccbb251703242f3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132708&locale=zh_CN&collectible=0",
+        "sha256": "6c4867e5688c4f700eef9a37f0d272a93e5ef4a69c9bc1f4a57d2dc33d8be2fa",
+        "bytes": 770,
+        "observed_at": "2026-10-22T01:26:05.227223+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t19",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132708-en_US.json",
+      "response_sha256": "de88bd9d958f1cb47f2fb1955285a3e52f7bf86f8e1a0fdddacac3b0a401588a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132708&locale=en_US&collectible=0",
+      "face": {
+        "id": 132708,
+        "collectible": 0,
+        "slug": "132708-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Draw a card. It costs (3) less. Summon two random 6-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84cd766a4d7448ec954b7e6520ecf5d79fdc81305312968e06edfca695726bbf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132708&locale=en_US&collectible=0",
+        "sha256": "de88bd9d958f1cb47f2fb1955285a3e52f7bf86f8e1a0fdddacac3b0a401588a",
+        "bytes": 729,
+        "observed_at": "2026-10-22T01:26:05.681536+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131170-zh_CN.json",
+      "response_sha256": "58955a70bafd633320cc4fe6b3f91cdc825d29c979575d73063e5b494a2e3d55",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131170&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131170,
+        "collectible": 0,
+        "slug": "131170-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f7e616d25871f9724a4ff4fe3a517c4510edf2b271005f3f40b561d32b22cba.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131170&locale=zh_CN&collectible=0",
+        "sha256": "58955a70bafd633320cc4fe6b3f91cdc825d29c979575d73063e5b494a2e3d55",
+        "bytes": 690,
+        "observed_at": "2026-10-22T01:26:06.579529+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131170-en_US.json",
+      "response_sha256": "652da1206258f50b5957822f01aba81bf2a5ebb8451f6e212bdc81be4aa592fe",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131170&locale=en_US&collectible=0",
+      "face": {
+        "id": 131170,
+        "collectible": 0,
+        "slug": "131170-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6c7bee21592b14aba628f04db6748a03c179af25f8e39aca9ba0704c01e8a39.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131170&locale=en_US&collectible=0",
+        "sha256": "652da1206258f50b5957822f01aba81bf2a5ebb8451f6e212bdc81be4aa592fe",
+        "bytes": 688,
+        "observed_at": "2026-10-22T01:26:07.021088+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131171-zh_CN.json",
+      "response_sha256": "62da70969c386ed055918f42049cfef338bb114e1486b19a2810d6a6a19b0d3c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131171&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 131171,
+        "collectible": 0,
+        "slug": "131171-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭两个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3b580704d41b3634bf329a067cc87fad30d887c150d95ae1a3f25ed950b703a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131171&locale=zh_CN&collectible=0",
+        "sha256": "62da70969c386ed055918f42049cfef338bb114e1486b19a2810d6a6a19b0d3c",
+        "bytes": 690,
+        "observed_at": "2026-10-22T01:26:07.268878+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\131171-en_US.json",
+      "response_sha256": "bb0f831845a4549f7e3fa4b16e404887712d348eaf8bd2a9ddbc3aee63f16b52",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131171&locale=en_US&collectible=0",
+      "face": {
+        "id": 131171,
+        "collectible": 0,
+        "slug": "131171-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy 2 enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/671c3047946b508c14f8cd615ed904a638431a446343edb9269668eff484f3c0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 2,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131171&locale=en_US&collectible=0",
+        "sha256": "bb0f831845a4549f7e3fa4b16e404887712d348eaf8bd2a9ddbc3aee63f16b52",
+        "bytes": 688,
+        "observed_at": "2026-10-22T01:26:06.808105+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132565-zh_CN.json",
+      "response_sha256": "da670d035cbffa087b35f49dc959b78cb01f60b0b05dd008cdd27f01dded0ac2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132565&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132565,
+        "collectible": 0,
+        "slug": "132565-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>消灭三个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c6849e09c5954216f46f7ca141ebbdf5ea2f50e308152a09c608bc238b9115f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 3,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132565&locale=zh_CN&collectible=0",
+        "sha256": "da670d035cbffa087b35f49dc959b78cb01f60b0b05dd008cdd27f01dded0ac2",
+        "bytes": 690,
+        "observed_at": "2026-10-22T01:26:06.794805+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132565-en_US.json",
+      "response_sha256": "3bca2750429d5ff731374f1da31b748d5b7eb425b0950680afea2000f2459a7b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132565&locale=en_US&collectible=0",
+      "face": {
+        "id": 132565,
+        "collectible": 0,
+        "slug": "132565-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Destroy 3 enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3fd181d7b4e4848939b4e8c35002b8a435030887ae2dde748c0394ae795f941.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 3,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132565&locale=en_US&collectible=0",
+        "sha256": "3bca2750429d5ff731374f1da31b748d5b7eb425b0950680afea2000f2459a7b",
+        "bytes": 688,
+        "observed_at": "2026-10-22T01:26:07.078390+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132566-zh_CN.json",
+      "response_sha256": "96e3f31cad83b7fb2823df7a8fb40b1ee5abc18cfd37fc6ca18d16518ee28161",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132566&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132566,
+        "collectible": 0,
+        "slug": "132566-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>抽一张牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d3a3a8a20df64fe39cf298ebea1b258360e6714e7da20c17e4af403273d682e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132566&locale=zh_CN&collectible=0",
+        "sha256": "96e3f31cad83b7fb2823df7a8fb40b1ee5abc18cfd37fc6ca18d16518ee28161",
+        "bytes": 715,
+        "observed_at": "2026-10-22T01:26:07.502118+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132566-en_US.json",
+      "response_sha256": "2ff68420462ef37419dff7ce7dcf409b6e0084779011e7f4d9fd8f7098b81f86",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132566&locale=en_US&collectible=0",
+      "face": {
+        "id": 132566,
+        "collectible": 0,
+        "slug": "132566-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Draw a card. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1748494e0b1ed12613a376c31d324fd5f1646029be6544d398c5f990f1979bf6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132566&locale=en_US&collectible=0",
+        "sha256": "2ff68420462ef37419dff7ce7dcf409b6e0084779011e7f4d9fd8f7098b81f86",
+        "bytes": 695,
+        "observed_at": "2026-10-22T01:26:07.390915+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t6",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132567-zh_CN.json",
+      "response_sha256": "3a9532f3e7a9418232f209b9686525c5348745ad59f938a1cd65665dfedd4d3e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132567&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132567,
+        "collectible": 0,
+        "slug": "132567-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>抽两张牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc233bf6ec27a370eb27ce4a123a82cc4d8f5e614711610dd7b26616b727d856.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132567&locale=zh_CN&collectible=0",
+        "sha256": "3a9532f3e7a9418232f209b9686525c5348745ad59f938a1cd65665dfedd4d3e",
+        "bytes": 715,
+        "observed_at": "2026-10-22T01:26:08.336971+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t6",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132567-en_US.json",
+      "response_sha256": "990b9522f4e0c9d435b9aca9ed12abba4066d209503ea3a12684934492626f78",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132567&locale=en_US&collectible=0",
+      "face": {
+        "id": 132567,
+        "collectible": 0,
+        "slug": "132567-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Draw 2 cards. They costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fd312654a1c6786c804f038a028ea32cf816d9887985fd2453e315624c8d5f7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132567&locale=en_US&collectible=0",
+        "sha256": "990b9522f4e0c9d435b9aca9ed12abba4066d209503ea3a12684934492626f78",
+        "bytes": 698,
+        "observed_at": "2026-10-22T01:26:08.301832+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t7",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132568-zh_CN.json",
+      "response_sha256": "bb1ba011fef6f0a8f0b196a45c6f57656d982fe03d895aa6f60b7099959255e7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132568&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132568,
+        "collectible": 0,
+        "slug": "132568-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>抽三张牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1917ca5ed9980d2a1a892207596f812e10ef54e77cb1a6028015547e855ca49.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 3,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132568&locale=zh_CN&collectible=0",
+        "sha256": "bb1ba011fef6f0a8f0b196a45c6f57656d982fe03d895aa6f60b7099959255e7",
+        "bytes": 715,
+        "observed_at": "2026-10-22T01:26:08.587119+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t7",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132568-en_US.json",
+      "response_sha256": "889dd1b266c9a87cc22857c694a63170fca6e7f85ed8aa8c96285fc3030350ff",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132568&locale=en_US&collectible=0",
+      "face": {
+        "id": 132568,
+        "collectible": 0,
+        "slug": "132568-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Draw 3 cards. They costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e72835125086db319627895353c0dbc7b6db950740963cb95d7af142b13b4b6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 3,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132568&locale=en_US&collectible=0",
+        "sha256": "889dd1b266c9a87cc22857c694a63170fca6e7f85ed8aa8c96285fc3030350ff",
+        "bytes": 698,
+        "observed_at": "2026-10-22T01:26:08.834738+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t8",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132571-zh_CN.json",
+      "response_sha256": "5f16e57e34aa7f1d9b461a916e89c34f64cfcdf298655b7d5856a222c75b5e23",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132571&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132571,
+        "collectible": 0,
+        "slug": "132571-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae4391adcf5e20d33fec0fb91207f117b63e3753d2e508c7c56d5c51e453eb94.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132571&locale=zh_CN&collectible=0",
+        "sha256": "5f16e57e34aa7f1d9b461a916e89c34f64cfcdf298655b7d5856a222c75b5e23",
+        "bytes": 718,
+        "observed_at": "2026-10-22T01:26:08.847174+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t8",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132571-en_US.json",
+      "response_sha256": "79d9a1ce9d0c2217ec59a14db0a2a5742b9f6797fa2330fbaa54b9d1db321890",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132571&locale=en_US&collectible=0",
+      "face": {
+        "id": 132571,
+        "collectible": 0,
+        "slug": "132571-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Summon two random 3-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c90fc81ea9d1c9f00f1dd3962bd18a8e36b73c08a6808992f0a2ef9147a26d60.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132571&locale=en_US&collectible=0",
+        "sha256": "79d9a1ce9d0c2217ec59a14db0a2a5742b9f6797fa2330fbaa54b9d1db321890",
+        "bytes": 697,
+        "observed_at": "2026-10-22T01:26:08.753384+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t9",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132573-zh_CN.json",
+      "response_sha256": "f138d3631321181b6c3405b375812ace7d90fef7a5ca39ec85bd4aa0f11c621b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132573&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 132573,
+        "collectible": 0,
+        "slug": "132573-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "腐臭吞噬者",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（6）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/caed0fb957583c314d697c101956efc36ea17b8c2cde83978750e004985cb798.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132573&locale=zh_CN&collectible=0",
+        "sha256": "f138d3631321181b6c3405b375812ace7d90fef7a5ca39ec85bd4aa0f11c621b",
+        "bytes": 718,
+        "observed_at": "2026-10-22T01:26:09.157587+00:00"
+      }
+    },
+    {
+      "card_id": "BE_781t9",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k380-uldir-quarantine\\next-devourer-primary\\132573-en_US.json",
+      "response_sha256": "d8790a28e0e93c4fb29226423b5b4cbdf01843d2016118f3e905a128eded8454",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=132573&locale=en_US&collectible=0",
+      "face": {
+        "id": 132573,
+        "collectible": 0,
+        "slug": "132573-fetid-devourer",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Mauricio Herrera",
+        "health": 6,
+        "attack": 9,
+        "manaCost": 7,
+        "name": "Fetid Devourer",
+        "text": "<b>Battlecry:</b> Summon two random 6-cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ccd14ee58c6b8a6be974734fb6f80cb74bc5d7d8791e36413438017b5774336.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 131127,
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 2
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=132573&locale=en_US&collectible=0",
+        "sha256": "d8790a28e0e93c4fb29226423b5b4cbdf01843d2016118f3e905a128eded8454",
+        "bytes": 697,
+        "observed_at": "2026-10-22T01:26:09.402126+00:00"
+      }
+    }
+  ]
+}
