@@ -444,3 +444,14 @@ AssembleStaticMaterialSource(card_id, keyword_auras=(), minion_death_cost=None)�
 END_004的费用规格精确使用cost.minion-deaths-both-turn-v1，不借默认的己方整局死亡范围。实际费用查询、支付时接受的死亡前缀、后续死亡和回合重置复用原费用执行器。CORE_CATA_001的友方英雄免疫保留完整KeywordAuraSpec，持续来源随控制者、沉默、死亡和当前/基础复制重新计算；其独立后半所授予的本回合下一恶魔零费是原AddCostModifier，不随光环来源离场撤销。两类生命周期不得相互冒充。
 
 本扩展没有新Effect、支付解释器或状态字段；core673/schema540区分新的完整面语义，旧core672恢复明确拒绝。数据和内部执行不能证明M0普通/拉夏正式候选资格或M6国服校准。实际验收与下一项仍只在两份原台账登记。
+
+
+### 原生结束回调条件视图与无额外条件的原触发桥
+
+original_end_turn_id允许绑定已审核的结束前半，无需额外制造恒真condition_id；它仍必须与原静态随从的唯一完整turn_ended触发及EndTurnSpec逐字段一致。换时钟、冒用其它主体、多出触发或更换类型仍被拒绝。真实恐龙保育师的本人结束守卫移到原controller结束政策，独立RandomBuffStoredMinion后半不再读取旧事件；当前手牌、完整野兽查询、CostSpec(delta=-1)及tribe_basis=current由原执行器解释。
+
+AssembleNativeEndConditionSource(card_id, original_behavior_id, condition_id)仅为实际来源声明原回调的条件视图，condition_id使用assemble.native_end_condition:保留命名空间。注册表的只读assemble_native_end_conditions绑定唯一静态随从、原完整结束主体及已注册布尔条件；拒绝重复、孤立、错误前半、缺来源或冻结后注册。仅非空配置进入指纹，不改变旧模板/前半结构或默认空配置身份。完整整卡校验仍保留原触发和原完整时钟，不以另一条EndTurnSpec条件替换原有空主体接受记录。
+
+此类条件在原生结束解释器交给该回调的RuleContext上求值，不额外制造一次新的内部读取。首次排队保留原回调接受视图，额外调用仍沿用原解释器为该次提供的视图；不全局冻结额外结算，也不增加用途或检查点。水晶商人以该视图中的实际mana>0决定是否运行独立后半。原有未声明此政策的条件前半继续使用CheckAssembledEndCondition原有的后续实时读取，二者不能互换。未知保留命名空间条件缺来源证明时明确失败，不能退回另一窗口。
+
+没有新Effect、状态字段、支付或结束解释器，core674/schema540绑定该声明与编译语义，旧core673恢复明确拒绝。这里只证明原内部来源行为与拼装适配一致，精确国服条件时序仍属M6；执行与下一项仅在两份原台账维护。

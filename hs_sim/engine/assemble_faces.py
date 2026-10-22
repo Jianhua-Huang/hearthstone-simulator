@@ -141,10 +141,10 @@ class AssembleTemplate:
                     self.original_start_turn_id.startswith(TIMING_PREFIXES)):
                 raise ValueError('Original owner-start bridge requires its reviewed native start prefix')
         if self.original_end_turn_id is not None:
-            _name(self.original_end_turn_id,'original conditional assembly end trigger')
-            if(self.prefix.timing!='end_turn' or self.prefix.condition_id is None or
+            _name(self.original_end_turn_id,'original assembly end trigger')
+            if(self.prefix.timing!='end_turn' or
                     self.original_end_turn_id.startswith(TIMING_PREFIXES)):
-                raise ValueError('Original end-turn bridge requires its reviewed native conditional prefix')
+                raise ValueError('Original end-turn bridge requires its reviewed native ending prefix')
         if self.original_deathrattle_id is not None:
             _name(self.original_deathrattle_id,'original prefixed assembly Deathrattle')
             if (self.prefix.before_behavior_id is None or self.prefix.timing!='deathrattle' or
@@ -288,6 +288,8 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
 
 def validate_template(registry,template):
     template.__post_init__()
+    from .assemble_end_conditions import validate_template as validate_end_condition_source
+    validate_end_condition_source(registry,template)
     primary=registry._cards.get(template.card_id)
     if primary is None or primary.kind!=CardType.MINION:
         raise ValueError('Assembly template needs an executable static minion')
@@ -500,6 +502,11 @@ def conditional_behavior(registry,behavior_id):
                 context.end_turn.subject.behavior_id==behavior_id):
             from .end_turns import validate_context
             validate_context(context,registry)
+            from .assemble_end_conditions import native_callback_condition
+            if native_callback_condition(registry,row['condition_id']):
+                result=predicate(context)
+                if type(result)is not bool:raise ValueError('Assembly condition requires an explicit boolean')
+                return body(context)if result else()
             return (CheckAssembledEndCondition(context.end_turn.id,context.source_id,context.player_id,
                 row['condition_id'],row['behavior_id']),)
         raise ValueError('Conditional assembly requires its original native Battlecry or end-turn context')
@@ -595,6 +602,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_end_conditions import validate_sources as validate_end_condition_sources
+    validate_end_condition_sources(registry)
     from .assemble_static_materials import validate_sources as validate_static_materials
     validate_static_materials(registry)
     from .assemble_on_play import validate_sources as validate_on_play_sources

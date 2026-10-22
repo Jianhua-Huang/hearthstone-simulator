@@ -157,6 +157,7 @@ class Registry:
         self._assemble_on_play_sources = {}
         self._assemble_on_play_death_sources = {}
         self._assemble_static_material_sources = {}
+        self._assemble_native_end_conditions = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -316,6 +317,19 @@ class Registry:
     @property
     def assemble_static_material_sources(self):
         return MappingProxyType(self._assemble_static_material_sources)
+
+    @property
+    def assemble_native_end_conditions(self):
+        return MappingProxyType(self._assemble_native_end_conditions)
+
+    def register_assemble_native_end_condition(self, source):
+        from .assemble_end_conditions import validate_source
+        self._require_mutable()
+        validate_source(self, source)
+        if (source.condition_id in self._assemble_native_end_conditions or
+                any(old.card_id == source.card_id for old in self._assemble_native_end_conditions.values())):
+            raise ValueError('Duplicate native end condition source')
+        self._assemble_native_end_conditions[source.condition_id] = source
 
     def register_assemble_static_material_source(self, profile):
         from .assemble_static_materials import validate_source
@@ -2798,6 +2812,9 @@ class Registry:
         if self._assemble_static_material_sources:
             payload['assemble_static_material_sources'] = [asdict(self._assemble_static_material_sources[k])
                 for k in sorted(self._assemble_static_material_sources)]
+        if self._assemble_native_end_conditions:
+            payload['assemble_native_end_conditions'] = [asdict(self._assemble_native_end_conditions[k])
+                for k in sorted(self._assemble_native_end_conditions)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:
