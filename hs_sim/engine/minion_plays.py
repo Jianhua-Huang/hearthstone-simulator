@@ -51,6 +51,8 @@ def resolve(r, effect):
     from .magnetic import host_eligible, merge
     host = r.state.entities.get(record.magnetic_target_id)
     if host is not None and host_eligible(r.state, r.registry, entity, host):
+        from .summon_entry_stats import apply_paid_play
+        apply_paid_play(r,record,entity)
         from .costs import install_paid_minion_keywords
         install_paid_minion_keywords(r, record, entity)
         from .adapt_memory import install_paid
@@ -71,6 +73,8 @@ def resolve(r, effect):
         from .rewind_outcomes import canceled_combos
         return canceled_combos(r,play_record(r.state,record.id),'board_full')
     from .costs import install_paid_minion_keywords
+    from .summon_entry_stats import apply_paid_play
+    apply_paid_play(r,record,entity)
     install_paid_minion_keywords(r, record, entity)
     from .adapt_memory import install_paid
     install_paid(r, record, entity)
@@ -80,6 +84,8 @@ def resolve(r, effect):
     r.emit('minion_play_accepted', source_id=entity.id, target_id=entity.id,
            player_id=record.player_id, play_id=record.id)
     from .colossal import enter_minion, ColossalBattlecry
+    from .summon_completions import paid_tail
+    completion=paid_tail(r,record,entity)
     result = enter_minion(r, entity, 'play',play_id=record.id)
     if result:
         result.append(ColossalBattlecry(r.state.colossal_history[-1].id, record.id))
@@ -90,7 +96,7 @@ def resolve(r, effect):
         result.extend(payload(r, entity.id, record.player_id, record.target_id,
             tuple(a.behavior_id for a in active_abilities(entity, 'on_play')),
             play=play_record(r.state, record.id), battlecries=capture(entity)))
-    return result
+    return [*result,*completion]
 
 
 def validate_boundary(game):

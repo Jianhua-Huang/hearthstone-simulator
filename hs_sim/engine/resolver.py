@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v705'
+CORE_EFFECTS_VERSION = 'core-effects-v706'
 
 
 class Mechanics:
@@ -257,7 +257,7 @@ class Resolution:
             result.append(item)
         return result
 
-    def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, _hand_entry_record=None, **data):
+    def emit(self, kind, *, source_id=None, target_id=None, player_id=None, amount=0, _spellburst_candidates=(), _capture=True, _end_turn=False, _end_turn_guard=None, _choice_paid_boundary=False, _cast_acceptance=False, _overload_commit=None, _discard_commit=None, _deck_insertion_mode=None, _hero_health_before=None, _corpse_spend_record=None, _hand_entry_record=None, _defer_summon_completion=False, **data):
         from .hand_history import EVENT as HAND_ENTRY_EVENT
         if ((kind == HAND_ENTRY_EVENT) != (_hand_entry_record is not None) or
                 kind == HAND_ENTRY_EVENT and ('hand_entry_id' in data or 'hand_entry_hash' in data)):
@@ -480,6 +480,9 @@ class Resolution:
             from .zones import capture_destroyed_body
             own_body=capture_destroyed_body(self,event)
             self._captured.extend(own_body)
+        if kind=='minion_summoned' and not _defer_summon_completion:
+            from .summon_completions import announced
+            announced(self,self.state.entities[target_id],event)
         return event
 
     def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None, kindred=None, draw_group=None, deathrattle_followup=None, paid_battlecry_followup=None):
@@ -3044,6 +3047,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_permanent_minion_stats(mechanics)
     from .original_minion_shuffles import register as register_original_minion_shuffles
     register_original_minion_shuffles(mechanics)
+    from .summon_completions import register as register_summon_completions
+    register_summon_completions(mechanics)
     from .discovery_trigger_sources import register as register_discovery_trigger_sources
     register_discovery_trigger_sources(mechanics)
     from .discovered_card_copies import register as register_discovered_card_copies

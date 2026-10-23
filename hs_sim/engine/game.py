@@ -426,6 +426,8 @@ class Game:
             validate_death_neighbor_events(game._state, game._events)
             from .summon_entry_stats import validate_boundary as validate_entry_stat_programs
             validate_entry_stat_programs(game)
+            from .summon_completions import validate_boundary as validate_summon_completions
+            validate_summon_completions(game)
             from .resources import validate_mana_consumption_events
             validate_mana_consumption_events(game._state,game._events)
             from .equipment import validate_weapon_transfer_events

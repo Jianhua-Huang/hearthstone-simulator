@@ -662,6 +662,8 @@ def finish_child(r, effect):
         raise ResolutionError('Physical replay child cannot finish before its full actual body')
     r.state.whole_card_replay_ledger = finish_replay_child(r.state.whole_card_replay_ledger,
         child.id, failure=child.physical.failure)
+    from .summon_completions import physical_tail
+    return physical_tail(r,child.physical)
 
 
 def automatic_choice(r, choice, options, on_select):

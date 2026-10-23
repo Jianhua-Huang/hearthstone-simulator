@@ -82,11 +82,15 @@ def announce(r, entity, reason, origin_id=None, copy_mode=None, death_id=None):
     if reason=='copy':data.update(copied_from=origin_id,copy_mode=copy_mode)
     if reason=='reborn':data.update(reborn_from=origin_id,death_id=death_id)
     if reason=='resurrect':data.update(resurrected_from=origin_id,death_id=death_id)
-    r.emit('minion_summoned',source_id=entity.id,target_id=entity.id,player_id=entity.controller,**data)
+    event=r.emit('minion_summoned',source_id=entity.id,target_id=entity.id,player_id=entity.controller,
+        _defer_summon_completion=True,**data)
     if reason=='reborn':
         r.emit('minion_reborn',source_id=origin_id,target_id=entity.id,player_id=entity.controller,death_id=death_id)
     if reason=='resurrect':
         r.emit('minion_resurrected',source_id=origin_id,target_id=entity.id,player_id=entity.controller,death_id=death_id)
+    if reason!='play':
+        from .summon_completions import announced
+        announced(r,entity,event)
 
 
 def enter_minion(r, entity, reason, *, origin_id=None, copy_mode=None, death_id=None, play_id=None):
