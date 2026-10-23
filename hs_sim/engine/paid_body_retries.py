@@ -133,7 +133,12 @@ def receipt_from_dict(value,*,root=False):
     from .body_target_origin import origin_from_dict
     target=_row(value,PaidBodyTargetReceipt)
     if root and target['retry_root']is not None:raise ValueError('Body retry receipts cannot recursively nest attempts')
-    action=_row(target['action'],PlayCard);action['type']='play_card';target['action']=action_from_dict(action)
+    action=_row(target['action'],PlayCard)
+    # Internal receipts store all dataclass fields, including the empty plural
+    # arrow sentinel. Public commands may only supply a nonempty target_ids.
+    arrows=_list(action.pop('target_ids'),'receipt spell arrow targets')
+    if arrows:action['target_ids']=arrows
+    action['type']='play_card';target['action']=action_from_dict(action)
     target['selected']=tuple(PlayBodyTarget(**_row(v,PlayBodyTarget)) for v in _list(target['selected'],'selected bodies'))
     target['body_choices']=tuple(tuple(_list(v,'body candidates')) for v in _list(target['body_choices'],'body choices'))
     target['body_target_active']=tuple(_list(target['body_target_active'],'body activation flags'))

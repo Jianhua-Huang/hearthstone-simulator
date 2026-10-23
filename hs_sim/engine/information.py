@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v116'
+VIEW_VERSION = 'player-view-v117'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -528,6 +528,8 @@ class Information:
                 'resources': {r.value: count for r, count in player.resources.items()},
             }
             if player.id == viewer:
+                item['spells_played_this_turn'] = len(played_cards(
+                    state, player.id, turn=state.turn, kind=CardType.SPELL))
                 item['spell_schools_played_this_turn'] = [school.value for school in
                     spell_schools_from_plays(played_cards(state, player.id, turn=state.turn))]
                 item['quests_played_total'] = len(quests_from_plays(played_cards(state, player.id), game.registry))

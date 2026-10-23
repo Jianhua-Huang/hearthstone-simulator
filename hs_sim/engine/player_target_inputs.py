@@ -88,8 +88,15 @@ def decode(proof, *, require_active_player=True):
     if type(value['players']) is not list or [p.get('id') for p in value['players'] if type(p) is dict] != [1, 2]:
         raise ValueError('Player target observation requires both ordered seats')
     for p in value['players']:
-        if set(p) - {'invoke_count', 'jade_count', 'cthun_ritual', 'spell_schools_played_this_turn', 'quests_played_total', 'hero_attacked_this_turn'} != PLAYER or type(p['id']) is not int:
+        if set(p) - {'invoke_count', 'jade_count', 'cthun_ritual', 'spells_played_this_turn', 'spell_schools_played_this_turn', 'quests_played_total', 'hero_attacked_this_turn'} != PLAYER or type(p['id']) is not int:
             raise ValueError('Player target observation lost complete public player fields')
+        if p['id'] == value['viewer']:
+            count = p.get('spells_played_this_turn')
+            if (type(count) is not int or count < 0 or type(p['cards_played_this_turn']) is not int or
+                    count > p['cards_played_this_turn']):
+                raise ValueError('Own spell-play count requires an exact bounded hand-play count')
+        elif 'spells_played_this_turn' in p:
+            raise ValueError('Spell-play count input is private to its own viewer')
         if p['id'] == value['viewer']:
             if type(p.get('hero_attacked_this_turn')) is not bool:
                 raise ValueError('Own hero-attack input requires an exact boolean')
@@ -291,6 +298,10 @@ def validate_origin(registry, origin, source, *, history_state, play=None, prior
             r for r in prior if r.player_id == source.controller and r.turn == origin.turn)]
         if own['spell_schools_played_this_turn'] != expected:
             raise ValueError('Original player target view changed its actual preceding spell schools')
+        expected_spells = sum(r.player_id == source.controller and r.turn == origin.turn and
+            r.kind == CardType.SPELL for r in prior)
+        if own['spells_played_this_turn'] != expected_spells:
+            raise ValueError('Original player target view changed its actual preceding spell-play count')
         from .play_history import quests_from_plays
         expected_quests = len(quests_from_plays((r for r in prior if r.player_id == source.controller), registry))
         if own['quests_played_total'] != expected_quests:
