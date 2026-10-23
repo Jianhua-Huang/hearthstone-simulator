@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 from .effects import Effect, _integer, _source
 from .lifecycle import active_abilities, attachment_id, local_keywords, refresh_entity
-from .model import AbilityInstance, CardType, KeywordAuraSpec, PlayerKeywordConditionAuraSpec, Zone
+from .model import AbilityInstance, CardType, Keyword, KeywordAuraSpec, PlayerKeywordConditionAuraSpec, Zone
 
 
 POSITIONAL_TARGETS = ('friendly_leftmost_minion', 'friendly_rightmost_minion')
@@ -124,6 +124,7 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                 continue
             for ability in active_abilities(source, 'keyword_aura'):
                 spec = ability.keyword_aura
+                if spec.condition=='rush_summon_turn':continue
                 if spec.condition == 'controller_turn' and source.controller != state.active_player:
                     continue
                 if spec.target == 'self':
@@ -155,9 +156,22 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                         if not matches_card_identity(target, spec.card_ids):
                             continue
                         contributions[target_id].add(spec.keyword)
-    # The only supported predicate consumes Rush and produces Charge. Read
+    # Native Rush immunity and the player Rush-to-Charge predicate read
     # fresh ordinary contributions, never the previous derived keyword cache.
-    # Its direction is acyclic, so removal settles in this same refresh pass.
+    # Neither produces Rush, so removal settles in this same refresh pass.
+    from .successful_summons import original_entry_turn
+    for player in state.players.values():
+        native=tuple(a.keyword_aura for source_id in player.board
+            if (source:=state.entities[source_id]).kind==CardType.MINION and source.active and
+                (include_dying or source.health>0 and not source.doomed)
+            for a in active_abilities(source,'keyword_aura')if a.keyword_aura.condition=='rush_summon_turn')
+        if not native:continue
+        for target_id in player.board:
+            target=state.entities[target_id]
+            if target.kind!=CardType.MINION or not target.active:continue
+            ordinary=local_keywords(target)|conditional_keywords(state,target)|contributions[target_id]
+            if Keyword.RUSH in ordinary and original_entry_turn(state,target)==state.turn:
+                contributions[target_id].update(spec.keyword for spec in native)
     for player in state.players.values():
         predicates = tuple(spec for effect in player.player_effects
             for spec in registry.player_effect(effect.spec_id).keyword_auras
@@ -180,13 +194,21 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
 
 def refresh_turn_keywords(state, registry):
     """Update existing keyword caches before the new actual turn captures work."""
-    if not any(a.kind == 'keyword_aura' and a.keyword_aura.condition in ('controller_turn','controller_opponent_turn')
+    if not any(a.kind == 'keyword_aura' and a.keyword_aura.condition in ('controller_turn','controller_opponent_turn','rush_summon_turn')
                for player in state.players.values() for source_id in player.board
                for a in state.entities[source_id].abilities):
         return
     refresh_keyword_auras(state, registry)
     for entity in state.entities.values():
         refresh_entity(entity)
+
+
+def refresh_summon_keywords(state,registry):
+    if any(entity.zone==Zone.BOARD and entity.active and any(a.kind=='keyword_aura'and
+            a.keyword_aura.condition=='rush_summon_turn'for a in entity.abilities)
+            for entity in state.entities.values()):
+        refresh_keyword_auras(state,registry)
+        for entity in state.entities.values():refresh_entity(entity)
 
 
 def refresh_hand_keyword_auras(state, *, include_dying=False):

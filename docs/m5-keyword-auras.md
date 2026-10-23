@@ -57,3 +57,12 @@ v76复验说明：上文原批次契约和验收数字保留为历史；当前�
 原外部光环与授予契约保持。已知本体连续条件分别见[受伤风怒](m2-self-damaged-keyword.md)和[装备武器时冲锋](m2-weapon-presence-keyword.md)；后者由独立自身派生集合保存GameState依赖，事件前和原捕获域校验不会提前重选旧外部来源。新条件授予仍明确拒绝，不扩大旧R-079官方证据范围。
 
 当前受益者种族的必要原生冲锋光环见[独立筛选契约](m2-tribal-keyword-aura.md)，复用has_any_tribe/current和原外部光环检查点。此扩展不改变本页旧生命周期、其他印刷依据查询或可选授予范围。
+
+
+## K486 原召唤回合的突袭免疫
+
+[犀牛之灵](../data/cards/past-passive-armor-spirit-cards-v1.json)使用有限原生KeywordAuraSpec(IMMUNE, friendly_minions, include_self=True, condition='rush_summon_turn')。该形状不开放任意关键词、相邻或种族组合授予；Spec没有新字段。普通本地/条件/外部突袭先在本轮重算形成真实输入，再在独立后段判断免疫，不读取上一轮aura_keywords，不生成突袭本身，避免派生缓存互相维持。
+
+资格按当前友方随从、当前有效RUSH及原在场发生的全局turn判断，不能用可被唤醒或转控改写的summoned_turn当出生证明。original_entry_turn查询当前board_presence对应的成功入场事实；原巨型父完成事实及已接受付费手牌随从的首次结果补足主入场通知前的真实窗口。巨型父在附肢主体执行前获得应有免疫；successful_summons.commit在原监听捕获前沿旧关键词刷新。构造场景中没有真实入场事实的旧板面不虚造召唤。
+
+原回合切换刷新撤销过期免疫。唤醒/控制病不重写原出生，真实新复制/复生则各有新发生；来源或受益者沉默、来源消失、当前外部突袭获得/撤销按原连续层重算。两份之灵的“一回合潜行”直接使用原TimedKeywordSpec及控制者时钟，不另建持续时间器。无新GameState/Entity字段、进度计数或玩家DTO；精确国服接受时序与特殊复合来源仍按原M6/M7边界处理，内部结果只在两份台账维护。

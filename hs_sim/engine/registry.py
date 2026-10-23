@@ -220,6 +220,7 @@ class Registry:
         self._spell_source_cost_profiles = {}
         self._spell_source_cost_observers = {}
         self._dormant_spell_mana_profiles = {}
+        self._armor_gain_bonus_profiles = {}
         self._spell_target_group_profiles = {}
         self._hand_cost_rank_profiles = {}
         self._summon_entry_stats_profiles = {}
@@ -808,6 +809,9 @@ class Registry:
     def dormant_spell_mana_profiles(self):return MappingProxyType(self._dormant_spell_mana_profiles)
 
     @property
+    def armor_gain_bonus_profiles(self):return MappingProxyType(self._armor_gain_bonus_profiles)
+
+    @property
     def spell_target_group_profiles(self): return MappingProxyType(self._spell_target_group_profiles)
 
     @property
@@ -1089,6 +1093,14 @@ class Registry:
         if profile.card_id in self._dormant_spell_mana_profiles:
             raise ValueError('Duplicate dormant spell-mana declaration')
         self._dormant_spell_mana_profiles[profile.card_id] = profile
+
+    def register_armor_gain_bonus_profile(self,profile):
+        self._require_mutable()
+        from .armor_gains import ArmorGainBonusProfile
+        if type(profile)is not ArmorGainBonusProfile:raise ValueError('Typed extra armor profile required')
+        profile.__post_init__()
+        if profile.card_id in self._armor_gain_bonus_profiles:raise ValueError('Duplicate native extra armor source')
+        self._armor_gain_bonus_profiles[profile.card_id]=profile
 
     def register_spell_target_group_profile(self, profile):
         self._require_mutable()
@@ -2548,6 +2560,8 @@ class Registry:
         for profile in self._spell_source_cost_observers.values():validate_spell_cost_observer(self,profile)
         from .dormant_spell_mana import validate_profile as validate_dormant_spell_mana
         for profile in self._dormant_spell_mana_profiles.values():validate_dormant_spell_mana(self,profile)
+        from .armor_gains import validate_profile as validate_armor_gain_bonus
+        for profile in self._armor_gain_bonus_profiles.values():validate_armor_gain_bonus(self,profile)
         from .spell_target_groups import validate_profile as validate_spell_target_group_profile
         for profile in self._spell_target_group_profiles.values(): validate_spell_target_group_profile(self, profile)
         from .hand_cost_rank import validate_profile as validate_hand_cost_rank
@@ -2973,6 +2987,9 @@ class Registry:
         if self._dormant_spell_mana_profiles:
             payload['dormant_spell_mana_profiles']=[asdict(self._dormant_spell_mana_profiles[k])
                 for k in sorted(self._dormant_spell_mana_profiles)]
+        if self._armor_gain_bonus_profiles:
+            payload['armor_gain_bonus_profiles']=[asdict(self._armor_gain_bonus_profiles[k])
+                for k in sorted(self._armor_gain_bonus_profiles)]
         if self._spell_target_group_profiles:
             payload['spell_target_group_profiles'] = [asdict(self._spell_target_group_profiles[k])
                 for k in sorted(self._spell_target_group_profiles)]

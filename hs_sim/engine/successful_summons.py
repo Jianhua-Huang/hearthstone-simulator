@@ -291,6 +291,21 @@ def other_self_summon_count(state, entity):
         for row in summoned_minions(state,entity.controller)if row.card_id == entity.card_id)
 
 
+def original_entry_turn(state,entity):
+    """Original physical birth, never sickness reset by control or awakening."""
+    if entity.kind!=CardType.MINION or entity.zone!=Zone.BOARD:return None
+    for row in reversed(state.successful_summon_history):
+        if (row.entity_id,row.minion.entered_order)==(entity.id,entity.board_presence_id):return row.turn
+    # A Colossal's actual body exists before its appendages and late announcement.
+    for row in reversed(state.colossal_history):
+        if (row.entity_id,row.entered_order)==(entity.id,entity.board_presence_id)and row.reason!='transform':return row.turn
+    # Pending paid entry publishes its accepted fact before its ordinary summon.
+    for row in reversed(state.play_history):
+        if row.source_id==entity.id and row.kind==CardType.MINION and row.minion_result=='summoned'and not row.completed:
+            return row.turn
+    return None
+
+
 def _validate_event(row, event):
     if type(event) is not Event:
         raise ValueError('Successful summon requires its original event')
@@ -358,6 +373,8 @@ by their original executors.
     state.next_successful_summon_id += 1
     from .stat_relations import refresh_named_summon_relations
     refresh_named_summon_relations(state,r.registry)
+    from .keyword_auras import refresh_summon_keywords
+    refresh_summon_keywords(state,r.registry)
 
 
 def validate_boundary(game):

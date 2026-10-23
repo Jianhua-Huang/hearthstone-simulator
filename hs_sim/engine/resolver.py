@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v707'
+CORE_EFFECTS_VERSION = 'core-effects-v708'
 
 
 class Mechanics:
@@ -1518,13 +1518,13 @@ def double_stats(r, effect):
                  entity.health if effect.health else 0, effect.source_id, effect.expires_turn)]
 
 
-def armor(r, effect):
+def armor(r, effect, *, bonus=None):
     nonnegative(effect.amount)
     hero = r.state.entities[r.player(effect.player_id).hero_id]
     before = hero.armor
     hero.armor += effect.amount
     from .armor_gains import commit as commit_armor_gain
-    commit_armor_gain(r, hero, before, effect.amount, 'gain_armor')
+    commit_armor_gain(r, hero, before, effect.amount, 'gain_armor',bonus=bonus)
     r.emit('armor_gained', target_id=hero.id, player_id=effect.player_id, amount=effect.amount)
 
 

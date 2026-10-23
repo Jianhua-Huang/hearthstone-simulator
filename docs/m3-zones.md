@@ -135,3 +135,12 @@ ShuffleHand(player_id, source_id=None)仅表达指定一方当前手牌的随机
 原reset_to_definition的印刷保留路径同时保留这项物理材料，换面路径清除；原基础/当前复制、死亡与复活、丢弃、原手牌使用和招募候选须保留原值。CopyEntryMaterial、DiscardRecord、PlayedMinionCopyMaterial、RecruitCandidateFact分别增加permanent_stats，已有原完整死亡和捕获材料仍用原附件，不重复字段。状态没有新GameState/Entity/Player成员，也没有新的玩家DTO字段。引用、分配、帧、回放、回滚、控制、隐藏信息与实际查询仍属于原公共层。
 
 历史[实际复制载体报告](https://www.reddit.com/r/hearthstone/comments/y5ed0a/)及[玩家沉默报告](https://www.reddit.com/r/hearthstone/comments/uiamxb/)支持这里采用的物理基础复制/沉默政策；它们不确认当前国服37.0全部行为。普通非融合载体之外的组合/打造来源仍报未支持，不能丢组成或当白板。精确接受窗、当前客户端对应规则、所有可达材料与正式池仍待M0/M6/M7，内部一致性验证不认证未签名存档的历史真伪。运行版本、实际结果及下一项仅在原两份台账维护。
+
+
+## K486 原死亡记录的一费基础复制
+
+[亡者之灵](../data/cards/past-passive-armor-spirit-cards-v1.json)监听真实minion_died，从原冻结context.state.death_history按原事件death_id查找完整DeathRecord，核同控制者、BOARD和原物理目标。普通死亡监听不提供亡语专用context.death，不能借最近一条死亡、当前新面或另一个接收者替代。随后只提交既有CopyCard(row, player_id, DECK, mode='base', cost=CostSpec(set_to=1))及shuffled包装；多来源各自提交，不在卡牌层建立死亡/复制/洗牌执行器。
+
+基础复制清除普通增益、受伤和外来临时材料，固定费用附件沿原层次生效；原永久印刷成长、青玉及组成等材料政策继续由原复制器决定，不能把“基础”一概解释为丢弃所有物理印刷材料。容量、分配、拥有者、随机位置、成功洗牌记录、等待续接及异常回滚仍走原区域器，满牌库不先创建再丢弃。
+
+copy_physical_card的DeathRecord入口改为按原id精确查询并比对完整行，移除“id减一就是列表下标”的错误假设。真实Rewind退休旧尝试后，单调death_id可能大于当前历史长度，原合法死亡仍能复制；缺失或不相等的原行仍拒绝。其他复制模式和旧死亡消费者形状保持。原一回合潜行复用TimedKeywordSpec；精确国服材料继承与死亡/洗牌窗口保留M6，实际执行和下一项只在两份台账维护。

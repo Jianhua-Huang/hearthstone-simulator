@@ -1,0 +1,513 @@
+{
+  "schema": 1,
+  "batch": "K486-past-passive-armor-spirit",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "ETC_355",
+    "TRL_327",
+    "TRL_502"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ETC_355",
+        "dbf_id": 91888,
+        "name": "剃刀沼泽摇滚明星",
+        "name_en": "Razorfen Rockstar",
+        "text": "在你获得护甲值后，再获得2点。",
+        "text_en": "After you gain Armor,\ngain 2 more.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 10,
+          "CARDRACE": 43,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "7ca952ed92ca0dc4b479ccd2dace8ac9967ee1611ea1c5f4e86d5a939de4aff2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "common",
+        "deck_identity": "ETC_355",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "quilboar"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TRL_327",
+        "dbf_id": 52242,
+        "name": "犀牛之灵",
+        "name_en": "Spirit of the Rhino",
+        "text": "<b>潜行</b>一回合。你的具有<b>突袭</b>的随从在它被召唤的回合<b>免疫</b>。",
+        "text_en": "<b>Stealth</b> for 1 turn.\nYour <b>Rush</b> minions are <b>Immune</b> the turn they're summoned.",
+        "cost": 1,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "STEALTH": 1,
+          "CLASS": 10,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "2542": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "55acf673ef0a3caa1fcd0b9e0a267eba86670626657d1928a3e3ac3a89cbf23a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TRL_327",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TRL_502",
+        "dbf_id": 50352,
+        "name": "亡者之灵",
+        "name_en": "Spirit of the Dead",
+        "text": "<b>潜行</b>一回合。在一个友方随从死亡后，将它的一张复制洗入你的牌库，其法力值消耗为（1）。",
+        "text_en": "[x]<b>Stealth</b> for 1 turn.\nAfter a friendly minion dies,\nshuffle a 1-Cost copy of it\ninto your deck.",
+        "cost": 1,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "STEALTH": 1,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "d8444701de826bba511e755f80813de9304eb373b88dc935e004d0e5937537e7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TRL_502",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {
+    "TRL_327": {
+      "attack": 0
+    },
+    "TRL_502": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "ETC_355",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 91888,
+        "collectible": 1,
+        "slug": "91888-razorfen-rockstar",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 43,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Ursula Dorada",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "剃刀沼泽摇滚明星",
+        "text": "在你获得护甲值后，再获得2点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1723208b038035de1c52a0dde0495c7516cc801109b0b9903918b6cdd35668af.png",
+        "imageGold": "",
+        "flavorText": "野猪人的鲜血里饱是摇滚。野猪人的摇滚靠鲜血宝石。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d211f2f16c41dba2ebfbf4e30ad4d1731309fb0e3e3846fcb7f2847c12d4f87.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_355",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 91888,
+        "collectible": 1,
+        "slug": "91888-razorfen-rockstar",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 43,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Ursula Dorada",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Razorfen Rockstar",
+        "text": "After you gain Armor, gain 2 more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/169402594b4809d1d809da960cbe53ee3b5019747a5010866337bf8cddb95f2f.png",
+        "imageGold": "",
+        "flavorText": "Quilboar feel Rock in their blood. And blood in their rocks.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d211f2f16c41dba2ebfbf4e30ad4d1731309fb0e3e3846fcb7f2847c12d4f87.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_327",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 52242,
+        "collectible": 1,
+        "slug": "52242-spirit-of-the-rhino",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "犀牛之灵",
+        "text": "<b>潜行</b>一回合。你的具有<b>突袭</b>的随从在它被召唤的回合<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66767235ee73452593bd7a3372cefe89cf94d6cb42d2681579cd2059b26b5e07.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d38cf00bd01ac3d710e5f2b78e426a340c13eeb70e0cdc6ffc8cebe179a6c6c.png",
+        "flavorText": "我头上有犄角，我身后有尾巴。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39755004cd1188f4e919d13aa3f0af3c7b1727cfe5cfc5a2b6cc408a20c1c7f3.png",
+        "keywordIds": [
+          6,
+          17,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_327",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 52242,
+        "collectible": 1,
+        "slug": "52242-spirit-of-the-rhino",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Spirit of the Rhino",
+        "text": "<b>Stealth</b> for 1 turn. Your <b>Rush</b> minions are <b>Immune</b> the turn they're summoned.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/55fe493bb37ad800b1e542830cf1332903a2d9b7c36d4f543436597d378a53b6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/895b1076a1e4bcc7e1bfba285957847ae3a779cee5cecc66d8a85479d146756b.png",
+        "flavorText": "Where did they get this preposterous hypothesis?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39755004cd1188f4e919d13aa3f0af3c7b1727cfe5cfc5a2b6cc408a20c1c7f3.png",
+        "keywordIds": [
+          6,
+          17,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_502",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 50352,
+        "collectible": 1,
+        "slug": "50352-spirit-of-the-dead",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "亡者之灵",
+        "text": "<b>潜行</b>一回合。在一个友方随从死亡后，将它的一张复制洗入你的牌库，其法力值消耗为（1）。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee99fbbc567ff992575775dcff3cb7c02a8a69261a0b8e49e1631028cdbd223d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95259ce6ed2f0e5892e84d459d80029d14c187bb2481e30c0c5d0b2f071df880.png",
+        "flavorText": "生是队里的人，死是队里的死人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e91bbd6d58e79a4b853820e420b465c070d86a7830860400a68c995e040eb137.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_502",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 50352,
+        "collectible": 1,
+        "slug": "50352-spirit-of-the-dead",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 3,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Spirit of the Dead",
+        "text": "<b>Stealth</b> for 1 turn. After a friendly minion dies, shuffle a 1-Cost copy of it into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0dbe5cbeb071829b6d6c7763896b3df12d833eb18ce6307d2a1904daeb6363b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/735acae243c959f0b877240875bdced69065694a8d79196b8baf2427b2786610.png",
+        "flavorText": "Just because you’re dead doesn’t mean you’re off the team.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e91bbd6d58e79a4b853820e420b465c070d86a7830860400a68c995e040eb137.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": "Original positive armor grants accept one independent +2 reward per declared actor. The child grant remains real armor but cannot feed these extra-armor listeners. Rush immunity is a native fresh-keyword aura over original physical entry turns, not reset sickness; source birth proofs use original success and accepted Colossal/paid entry. Spirit of the Dead uses the committed original death base recipe, one-Mana cost and shared semantic shuffle. Ordinary buffs/damage reset; existing printed-material rules remain. Exact CN37 calibration open.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

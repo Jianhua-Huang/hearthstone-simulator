@@ -949,7 +949,8 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
             components=row.components,jade_size=row.jade_size)
     elif type(effect.card)is DeathRecord:
         row=effect.card
-        if row.id>len(r.state.death_history)or r.state.death_history[row.id-1]!=row or r.registry.card(row.card_id).kind!=CardType.MINION:
+        if (next((old for old in r.state.death_history if old.id==row.id),None)!=row or
+                r.registry.card(row.card_id).kind!=CardType.MINION):
             raise ResolutionError('Stored death copy lost its original committed minion death')
         source=Entity(row.entity_id,row.card_id,row.owner,row.controller,Zone.GRAVEYARD,kind=CardType.MINION,
             components=row.components,jade_size=row.jade_size)
