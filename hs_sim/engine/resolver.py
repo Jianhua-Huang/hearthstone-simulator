@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v678'
+CORE_EFFECTS_VERSION = 'core-effects-v679'
 
 
 class Mechanics:
@@ -479,10 +479,10 @@ class Resolution:
             self._captured.extend(own_body)
         return event
 
-    def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None, kindred=None):
+    def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None, kindred=None, draw_group=None):
         if discard is not None:
             if target_id is not None or any(value is not None for value in
-                    (death,choice,player_effect,window,play,cast,draw,power,battlecry,combo,deathrattle,power_payload,end_turn,physical)):
+                    (death,choice,player_effect,window,play,cast,draw,power,battlecry,combo,deathrattle,power_payload,end_turn,physical,draw_group)):
                 raise ResolutionError('Own-discard acceptance is independent of other body roots')
             call = BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id, player_id,
                 event=deepcopy(event), trigger=deepcopy(trigger), discard=discard))
@@ -535,8 +535,12 @@ class Resolution:
                 and battlecry.physical_child_id == physical.child_id and battlecry.outcome_id == retained.id
                 and physical.active_battlecry_id == battlecry.id and source_id == battlecry.source_id)
             if not own_physical_result: attempt = 0
-        return BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id,
-                                                     player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical,kindred=kindred))
+        call = BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id,
+                                                     player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical,kindred=kindred,draw_group=draw_group))
+        if draw_group is not None:
+            from .physical_draw_groups import validate_qualified_call
+            validate_qualified_call(call, self.registry)
+        return call
 
     def player(self, player_id):
         if type(player_id) is not int or player_id not in self.state.players:

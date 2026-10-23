@@ -19,6 +19,8 @@ from .registry import UnsupportedDefinitionError
 from .tribes import TribeState, tribe_state
 from .zones import CardReference, CopyCard, ModifyStoredCost, MoveCard, reference_entity, zone_candidates
 
+QUALIFIED_FOLLOWUPS = frozenset(('qualified_non_minion_followup', 'qualified_both_minions_followup'))
+
 
 @dataclass(frozen=True)
 class DrawGroupSlot:
@@ -56,20 +58,25 @@ class DrawGroupReward:
     repetitions: int = 1
     source: BoardPresenceReference | None = None
     behavior_id: str | None = None
+    target_id: int | None = field(default=None, kw_only=True)
 
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions', 'non_minion_followup'):
+        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions', 'non_minion_followup') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
-        if self.kind == 'non_minion_followup':
+        if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
         elif self.behavior_id is not None:
             raise ValueError('Only original non-minion draw followups declare a callback')
-        if self.kind == 'source_charge_if_both_minions':
+        if self.kind == 'source_charge_if_both_minions' or self.kind in QUALIFIED_FOLLOWUPS and self.source is not None:
             if type(self.source) is not BoardPresenceReference: raise ValueError('Draw-conditioned Charge requires its original board residence')
             self.source.__post_init__()
         elif self.source is not None: raise ValueError('Only the native draw-conditioned source reward captures board residence')
+        if self.target_id is not None:
+            _integer(self.target_id, 'original draw followup target', 1)
+            if self.kind not in QUALIFIED_FOLLOWUPS:
+                raise ValueError('Only qualified selected rewards carry an original target')
         _integer(self.amount, 'draw reward amount', 0)
         if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
             raise ValueError('Draw reward amount differs from its operation')
@@ -126,6 +133,9 @@ class DrawPhysicalGroup(Effect):
             raise ValueError('Minion draw buffs require explicit minion slots')
         if self.reward.kind == 'source_charge_if_both_minions' and (self.slots != (DrawGroupSlot(), DrawGroupSlot()) or self.reward.source.entity_id != self.source_id):
             raise ValueError('Draw-conditioned Charge requires exactly two ordinary draws and the original source')
+        if self.reward.kind in QUALIFIED_FOLLOWUPS and (self.slots != (DrawGroupSlot(),)*2 or
+                self.kindred_pair or self.reward.source is not None and self.reward.source.entity_id != self.source_id):
+            raise ValueError('Qualified text rewards require exactly two original ordinary draws')
 
 
 @dataclass(frozen=True)
@@ -206,6 +216,8 @@ def validate_material(state, registry, request, *, completed=False):
     if request.source_id not in state.entities: raise ValueError('Draw group source does not exist')
     if request.reward.behavior_id is not None:
         registry.behavior(request.reward.behavior_id)
+    if request.reward.target_id is not None and request.reward.target_id not in state.entities:
+        raise ValueError('Draw followup changed its original selected target')
     if request.reward.source is not None:
         ref = request.reward.source
         if ref.presence_id >= state.next_order or state.entities[ref.entity_id].kind != CardType.MINION:
@@ -215,7 +227,7 @@ def validate_material(state, registry, request, *, completed=False):
     for row in getattr(request, 'arrivals', ()):
         if row.draw_id is None: continue
         record = draw_record(state, row.draw_id)
-        if request.reward.kind == 'non_minion_followup' and record.parent_id is not None:
+        if (request.reward.kind == 'non_minion_followup' or request.reward.kind in QUALIFIED_FOLLOWUPS) and record.parent_id is not None:
             raise ValueError('Original type reward cannot borrow a replacement draw')
         validate_copy(state,registry,request,row,record)
         if record.player_id != request.player_id or record.source_id != request.source_id or completed and not record.completed:
@@ -360,6 +372,10 @@ def capture(r, request):
 def finish(r, request):
     reward = request.reward
     if reward.kind == 'none': return ()
+    if reward.kind in QUALIFIED_FOLLOWUPS:
+        records = qualified_records(r.state, r.registry, request)
+        return tuple(r.call(reward.behavior_id, request.source_id, request.player_id,
+            target_id=reward.target_id, draw=record, draw_group=request) for record in records)
     if reward.kind == 'non_minion_followup':
         # Original root attempts determine type, including burns and draw-casts.
         # Replacement and reaction draws are not additional accepted slots.
@@ -408,6 +424,36 @@ def finish(r, request):
         results.append(RequestChoice(request.player_id, tuple(options), request.source_id,
             prompt='选择一张抽到的牌'))
     return tuple(results)*reward.repetitions
+
+
+def qualified_records(state, registry, request):
+    if type(request) is not ContinuePhysicalDrawGroup or request.index != len(request.slots):
+        raise ValueError('Qualified draw reward requires its entire completed original group')
+    validate_material(state, registry, request, completed=True)
+    records = tuple(draw_record(state, row.draw_id) for row in request.arrivals)
+    if request.reward.kind == 'qualified_non_minion_followup':
+        return tuple(row for row in records if row.card_id is not None and
+            registry.card(row.card_id).kind != CardType.MINION)
+    if request.reward.kind == 'qualified_both_minions_followup':
+        return records[-1:] if all(row.card_id is not None and
+            registry.card(row.card_id).kind == CardType.MINION for row in records) else ()
+    raise ValueError('Unknown qualified draw reward')
+
+
+def validate_qualified_call(call, registry):
+    validate_qualified_context(call.context, registry, behavior_id=call.behavior_id)
+
+
+def validate_qualified_context(context, registry, *, behavior_id=None):
+    if context.draw_group is None:
+        return
+    request = context.draw_group
+    records = qualified_records(context.state, registry, request)
+    if ((context.source_id, context.player_id, context.target_id) !=
+            (request.source_id, request.player_id, request.reward.target_id) or
+            behavior_id is not None and behavior_id != request.reward.behavior_id or
+            context.draw is None or context.draw not in records):
+        raise ValueError('Qualified draw callback changed its original group, target or accepted attempt')
 
 
 def register(mechanics):

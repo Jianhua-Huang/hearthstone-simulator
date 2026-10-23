@@ -290,6 +290,9 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
         prefix_deathrattle=prefix_deathrattle(registry,prefix_source),
         keyword_auras=auras,minion_death_cost=death_price,
         fixed_battlecry=prefix_battlecry(registry,prefix_source))
+    from .assemble_draw_groups import native_battlecry
+    original_draw=native_battlecry(registry,prefix_source,suffix)
+    if original_draw is not None:face=replace(face,battlecry=original_draw)
     from .assemble_reactions import native_subject
     native=native_subject(registry,prefix_source,suffix)
     return replace(face,**native) if native is not None else face
@@ -454,6 +457,9 @@ def before_behavior(registry,behavior_id):
             from .battlecries import validate_record
             from .effects import InvokeBehavior
             validate_record(context.state,registry,context.battlecry)
+            from .assemble_draw_groups import selected_request
+            selected=selected_request(registry,context,row['before_behavior_id'],row['behavior_id'])
+            if selected is not None:return selected
             prefix_effects=first(context)
             # The native draw-before-buff sequence plans its suffix after Draw
             # and its reactions, so newly drawn cards enter the actual query.
@@ -611,6 +617,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_draw_groups import validate_sources as validate_draw_group_sources
+    validate_draw_group_sources(registry)
     from .assemble_fixed_battlecry import validate_sources as validate_fixed_battlecries
     validate_fixed_battlecries(registry)
     from .assemble_end_conditions import validate_sources as validate_end_condition_sources

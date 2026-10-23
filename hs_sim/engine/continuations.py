@@ -349,6 +349,8 @@ class FrameCodec:
             validate_discard_call(value, self.registry)
             from .zones import validate_destroyed_call
             validate_destroyed_call(value, self.registry)
+            from .physical_draw_groups import validate_qualified_call
+            validate_qualified_call(value, self.registry)
         if type(value) is effects.RequestChoice:
             from .choose_policies import reject_choice_control as reject_choose_policy_control
             reject_choose_policy_control(value.options)
@@ -667,6 +669,8 @@ class FrameCodec:
                 raise ValueError('Captured hero power is absent from its context')
             if value.draw is not None and value.draw not in value.state.draw_history:
                 raise ValueError('Captured draw is absent from its context')
+            from .physical_draw_groups import validate_qualified_context
+            validate_qualified_context(value, self.registry)
             from .end_turns import started_extra_context
             if value.trigger is not None and value.trigger not in value.source.abilities and not started_extra_context(value):
                 raise ValueError('Captured trigger instance is absent from its source')
