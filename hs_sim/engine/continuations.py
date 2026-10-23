@@ -270,6 +270,15 @@ class FrameCodec:
             AssembledHealthDamageBatch,ResolveAssembledHealthResult,RecheckAssembledHealthResult,
             validate_material as validate_health_material)
         if type(value)is AssembleHealthContinuation:validate_health_material(self.registry,value)
+        from .assemble_reveals import (AssembleRevealContinuation,RevealAssembledPrefix,ResolveAssembledRevealResult,
+            validate_material as validate_reveal_material)
+        if type(value)is AssembleRevealContinuation:validate_reveal_material(self.registry,value)
+        if type(value)in(RevealAssembledPrefix,ResolveAssembledRevealResult)and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+            if type(value)is ResolveAssembledRevealResult and self.origin_events is not None:
+                event=value.context.event
+                if event.sequence>len(self.origin_events)or self.origin_events[event.sequence-1]!=event:
+                    raise ValueError('Assembled reveal lost its original committed event')
         if type(value)in(ApplyAssembledHealthPrefix,AssembledHealthDamageBatch,ResolveAssembledHealthResult,
                 RecheckAssembledHealthResult)and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)

@@ -181,6 +181,7 @@ class Registry:
         self._assemble_health_prefix_sources = {}
         self._assemble_conditional_death_sources = {}
         self._assemble_hand_progress_sources = {}
+        self._assemble_reveal_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -407,6 +408,17 @@ class Registry:
                 p.condition_id==source.condition_id for p in self._assemble_hand_progress_sources.values()):
             raise ValueError('Duplicate original held progress source')
         self._assemble_hand_progress_sources[source.card_id]=source
+
+    @property
+    def assemble_reveal_sources(self):return MappingProxyType(self._assemble_reveal_sources)
+
+    def register_assemble_reveal_source(self,source):
+        from .assemble_reveals import validate_source
+        self._require_mutable();validate_source(self,source)
+        if source.card_id in self._assemble_reveal_sources or any(
+                p.original_battlecry_id==source.original_battlecry_id for p in self._assemble_reveal_sources.values()):
+            raise ValueError('Duplicate original reveal prefix')
+        self._assemble_reveal_sources[source.card_id]=source
 
     @property
     def assemble_corpse_gain_sources(self):return MappingProxyType(self._assemble_corpse_gain_sources)
@@ -2967,6 +2979,8 @@ class Registry:
             payload['assemble_conditional_death_sources']=[asdict(self._assemble_conditional_death_sources[k])for k in sorted(self._assemble_conditional_death_sources)]
         if self._assemble_hand_progress_sources:
             payload['assemble_hand_progress_sources']=[asdict(self._assemble_hand_progress_sources[k])for k in sorted(self._assemble_hand_progress_sources)]
+        if self._assemble_reveal_sources:
+            payload['assemble_reveal_sources']=[asdict(self._assemble_reveal_sources[k])for k in sorted(self._assemble_reveal_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

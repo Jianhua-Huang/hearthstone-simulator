@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v683'
+CORE_EFFECTS_VERSION = 'core-effects-v684'
 
 
 class Mechanics:
@@ -894,7 +894,8 @@ class Resolution:
             from .indirect_body_targets import CONTROL as INDIRECT_BODY_CONTROL
             from .historical_body_targets import CONTROL as HISTORICAL_BODY_CONTROL
             from .assemble_health_prefixes import CONTROL as ASSEMBLE_HEALTH_CONTROL
-            if type(work) in (*ASSEMBLE_HEALTH_CONTROL,*RECRUIT_STAT_CONTROL,*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
+            from .assemble_reveals import CONTROL as ASSEMBLE_REVEAL_CONTROL
+            if type(work) in (*ASSEMBLE_REVEAL_CONTROL,*ASSEMBLE_HEALTH_CONTROL,*RECRUIT_STAT_CONTROL,*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
                               InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,RequestNaturalTurnEnd,*HERO_CONTROL) or transparent_power_guard:
                 # Diagnostic control work preserves the old callback window.
                 generated = self.game.mechanics.handler(work)(self,work)
@@ -2928,6 +2929,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_health_followups(mechanics)
     from .assemble_health_prefixes import register as register_assemble_health_prefixes
     register_assemble_health_prefixes(mechanics)
+    from .assemble_reveals import register as register_assemble_reveals
+    register_assemble_reveals(mechanics)
     from .spell_sequences import register as register_spell_sequences
     register_spell_sequences(mechanics)
     from .spell_target_sequences import register as register_spell_target_sequences

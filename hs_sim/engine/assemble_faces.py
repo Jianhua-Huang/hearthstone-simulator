@@ -297,6 +297,9 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
         allow_conditional_targeting=held is not None)
     original_held=held_battlecry(registry,prefix_source,suffix)
     if original_held is not None:face=replace(face,battlecry=original_held)
+    from .assemble_reveals import native_battlecry as reveal_battlecry
+    original_reveal=reveal_battlecry(registry,prefix_source,suffix)
+    if original_reveal is not None:face=replace(face,battlecry=original_reveal)
     from .assemble_draw_groups import native_battlecry
     original_draw=native_battlecry(registry,prefix_source,suffix)
     if original_draw is not None:face=replace(face,battlecry=original_draw)
@@ -480,6 +483,9 @@ def before_behavior(registry,behavior_id):
             from .assemble_health_prefixes import selected_request as selected_health_request
             selected=selected_health_request(registry,context,row['before_behavior_id'],row['behavior_id'])
             if selected is not None:return selected
+            from .assemble_reveals import selected_request as selected_reveal_request
+            selected=selected_reveal_request(registry,context,row['before_behavior_id'],row['behavior_id'])
+            if selected is not None:return selected
             prefix_effects=first(context)
             # The native draw-before-buff sequence plans its suffix after Draw
             # and its reactions, so newly drawn cards enter the actual query.
@@ -640,6 +646,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_reveals import validate_sources as validate_reveal_sources
+    validate_reveal_sources(registry)
     from .assemble_hand_progress import validate_sources as validate_held_sources
     validate_held_sources(registry)
     from .assemble_health_prefixes import validate_sources as validate_health_prefixes
