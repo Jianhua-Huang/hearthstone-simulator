@@ -153,6 +153,9 @@ def consume_mana(r,effect):
         operation='SpendMana',available=player.mana,maximum=player.max_mana,temporary=player.temporary_mana,
         locked=player.overload_locked,owed=player.overload_owed)
     publish_freeze_progress(r,row,'consume')
+    if effect.source_growth is not None:
+        from .sacrifice import BuffCapturedMinion
+        return [BuffCapturedMinion(effect.source_growth,actual,actual,effect.source_id)] if actual else []
     return [] if effect.on_result is None else [r.call(effect.on_result,effect.source_id,player.id,event=event)]
 
 

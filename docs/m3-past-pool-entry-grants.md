@@ -145,3 +145,12 @@ Spellburst使用原LimitedTriggerSpec.spellburst及原候选/消费，不另造�
 原完成攻击奖励从completed_attack核本体原驻留、实际控制方及最终英雄目标，再沿CopyCard(MinionReference, HAND)复制当前材料。普通伤害、攻击随从、另一实体或同ID重入不能代替。具名洗入使用原shuffled和AddToDeck，一次操作可有多个独立物理插入；抽到时施放的法术必须有完整主体及CastWhenDrawnSpec，恢复、补抽与空库疲劳仍交原引擎，不在牌层监听抽牌后仿造施放。
 
 淤泥桶使用原on_play/on_discard/on_destroyed三个入口，最低敌方角色从当前活跃角色域筛选，一次RandomDamage处理并列。手动SPELL伤害与原生弃置/摧毁非CAST效果分开，不能继承外层法术上下文或法伤；容量烧毁的原生摧毁回调继续按原归属和公开信息政策。蛇油是必选角色、基础0点SPELL伤害和独立1费trade手操作，不能把零伤写成无主体；实际法伤与手交易继续交原公共层。复刻青玉沿原Classic家族和玩家成长，原模板不复制或改写。上述内部行为及复制、烧毁、随机和生成资格的精确国服政策仍需独立校准。
+
+
+## 原手动使用、实际过载与法力消费者
+
+TSC_828用played_cards的原本人、本回合、SPELL手牌提交事实；原手动反制仍算实际使用，自动CAST及英雄技能不造手牌历史。LOE_018从原overload_added.sequence取唯一OverloadRecord并核通知玩家/金额，再对当前活跃原载体BuffCapturedMinion；owed/locked存量、unlock和回合转换不能重发新增额度。
+
+LOOT_231在原spell_cast_started上核CastRecord的source/player/target，仅接受本人hand来源和iteration==1；再查原PlayRecord的SPELL身份及submitted_cost，GainArmor使用原quote.amount，不重算当前成本或当次实际法力扣除。原手动反制仍在该接受窗口，自动及额外重复施法排除，零费不造护甲事件。此处是该消费者的明确内部政策，不定义所有“施放”文案的统一来源范围，也不认证国服精确反制/重复窗口；历史上游及玩家观察不替代当前CN校准。
+
+OG_051在原战吼捕获存活源的MinionReference，再用SpendMana(source_growth=reference)消费实际剩余法力并沿公共属性层增益。不存在原存活源仍执行普通全额支出而不授予身材；实际扣除、临时法力、零支付、驻留守卫、恢复、回滚和版本拒旧见[有限法力契约](m3-numeric-resource-spells.md#全额实际法力支出与原随从增益)。四张完整卡面来自[固定完整数据包](../data/cards/past-one-cost-mana-overload-v1.json)，均为历史依赖，不以其注册认证完整Past资格或正式生成域。

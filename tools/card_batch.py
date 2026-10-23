@@ -283,6 +283,9 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     counter = re.fullmatch(r'([^@]*)@\s*<i>([^<>@]*@[^<>@]*)</i>\s*', raw_text, flags=re.S)
     counter_labels = (('（已使用@张）', '（已死亡@个）', '（减少@点）', '（@/4）') if chinese
                       else ('(@)', '(@/4)'))
+    if (chinese and row.get('id') == 'TSC_828' and
+            canonical(row) == 'b2d471ec57b58d5f4bf7ad31d67cdb13db5b3a5f499fea1fbd19a2ccde5f386c'):
+        counter_labels += ('（复原@个）',)
     counter_display = (display_normalizations == {'@': ''} and counter is not None and
                        bool(display(counter[1])) and display(counter[2]) in counter_labels)
     recruit_bodies = {

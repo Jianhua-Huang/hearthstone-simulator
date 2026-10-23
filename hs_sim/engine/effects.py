@@ -343,6 +343,7 @@ class SpendMana(Effect):
     amount: int | None = None
     source_id: int | None = None
     on_result: str | None = None
+    source_growth: object | None = None
 
     def __post_init__(self):
         _player(self.player_id)
@@ -352,6 +353,12 @@ class SpendMana(Effect):
             _behavior(self.on_result)
             if self.source_id is None:
                 raise ValueError('Mana result callback requires a physical source')
+        if self.source_growth is not None:
+            from .sacrifice import MinionReference
+            if (type(self.source_growth) is not MinionReference or self.amount is not None or
+                    self.on_result is not None or self.source_id != self.source_growth.entity_id):
+                raise ValueError('Mana growth requires its original source minion and one all-Mana debit')
+            self.source_growth.__post_init__()
 
 
 @dataclass(frozen=True)

@@ -41,6 +41,8 @@ META = CardMetadata(False, (CardClass.NEUTRAL,), None, tribes=())
 CONTEXT = GenerationContext('p52-complete-explicit-fixture', 'experimental')
 M0, M2, M4, OFF2, HOLY3 = (TEST + name for name in ('minion0', 'minion2', 'minion4', 'druid2', 'holy3'))
 MEMBERS = (M0, M2, M4, FIRE, OFF2, HOLY3)
+UNKNOWN_MINION = TEST + 'unknown_minion2'
+UNKNOWN_SPELL = TEST + 'unknown_druid_spell4'
 
 
 def batch_registry():
@@ -58,6 +60,13 @@ def batch_registry():
 
 def registry(mode=None, members=MEMBERS):
     r = batch_registry()
+    # Finite diagnostic metadata has no executable definition. This negative
+    # case must remain valid when every previously registered real card works.
+    for cid, kind, cost, card_class in ((UNKNOWN_MINION, CardType.MINION, 2, CardClass.NEUTRAL),
+                                      (UNKNOWN_SPELL, CardType.SPELL, 4, CardClass.DRUID)):
+        if cid in members:
+            r.register_pool_card(PoolCard(cid, kind, cost,
+                CardMetadata(True, (card_class,), None, tribes=(), factions=(), subtypes=())))
     for cid, cost in ((M0, 0), (M2, 2), (M4, 4)):
         r.register_card(CardDefinition(cid, cid, CardType.MINION, cost=cost, attack=2, health=6,
             metadata=CardMetadata(True, (CardClass.NEUTRAL,), None, tribes=())))
@@ -211,7 +220,15 @@ class SimpleFollowupP52Tests(unittest.TestCase):
         self.assertEqual(r.card(CROOK).hand_actions[0].kind, 'prepare')
         self.assertEqual((r.card(SHADOW).attack, r.card(SHADOW).health), (4, 1))
         self.assertEqual(tuple(rows[cid]['record']['id'] for cid in SKIPPED), SKIPPED)
-        self.assertTrue(all(cid not in r.cards for cid in SKIPPED))
+        self.assertEqual(tuple(x['record']['id'] for x in data['skipped']), SKIPPED)
+        # "Skipped by P52" is historical, not a permanent ban on later cards.
+        # Verify the original registration boundary rather than global absence.
+        from tools.card_batch import registration_prefix
+        target = 'hs_sim.cards.simple_followup_p52_cards.register_simple_followup_p52_cards'
+        before = registration_prefix(build_registry, target, register_simple_followup_p52_cards)
+        after = registration_prefix(build_registry, target, register_simple_followup_p52_cards, after=True)
+        for cid in SKIPPED:
+            self.assertEqual(before.cards.get(cid), after.cards.get(cid))
 
     def test_only_eight_new_definitions_preserve_complete_old_cards_pool_metadata_families_and_default(self):
         before, after = build_registry(), batch_registry()
@@ -416,12 +433,7 @@ class SimpleFollowupP52Tests(unittest.TestCase):
         self.assertEqual([c.card_id for c in g.state.cast_history if c.origin == 'effect'], [OFF2])
 
     def test_complete_unknown_eligible_minion_or_spell_errors_before_rng_and_restores_payment(self):
-        r = batch_registry()
-        unknown_minion = next(c.card_id for c in r.pool_cards.values() if c.card_id not in r.cards and
-            c.kind == CardType.MINION and c.cost == 2 and c.metadata.collectible)
-        unknown_spell = next(c.card_id for c in r.pool_cards.values() if c.card_id not in r.cards and
-            c.kind == CardType.SPELL and c.cost == 4 and c.metadata.collectible and
-            c.metadata.classes and CardClass.MAGE not in c.metadata.classes and CardClass.NEUTRAL not in c.metadata.classes)
+        unknown_minion, unknown_spell = UNKNOWN_MINION, UNKNOWN_SPELL
         for hand, board, mana, members, cid, target in (
             ((CROOK,), (), 5, (M2, unknown_minion), CROOK, None),
             ((FIRE,), (SUPPLICANT,), 30, (unknown_spell,), FIRE, 'enemy')):

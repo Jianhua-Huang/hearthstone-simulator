@@ -1,0 +1,631 @@
+{
+  "schema": 1,
+  "batch": "K466-past-one-cost-mana-overload",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TSC_828",
+        "dbf_id": 71945,
+        "name": "女祭司瓦丽丝琪",
+        "name_en": "Priestess Valishj",
+        "text": "<b>战吼：</b>在本回合中你每施放过一个法术，复原一个空的法力水晶。@<i>（复原@个）</i>",
+        "text_en": "[x]<b>Battlecry:</b> Refresh an empty\nMana Crystal for each spell\n___you've cast this turn.@ <i>(@)</i>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 6,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejiarasaes"
+          }
+        ]
+      },
+      "record_sha256": "b2d471ec57b58d5f4bf7ad31d67cdb13db5b3a5f499fea1fbd19a2ccde5f386c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_828",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "naga"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "OG_051",
+        "dbf_id": 38340,
+        "name": "禁忌古树",
+        "name_en": "Forbidden Ancient",
+        "text": "<b>战吼：</b>消耗你所有的法力值，每消耗一点法力值，便获得+1/+1。",
+        "text_en": "<b>Battlecry:</b> Spend all your Mana. Gain +1/+1 for each Mana spent.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 21,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          }
+        ]
+      },
+      "record_sha256": "0c39afb9a7c604612b2246730b7d392bd5f5f068ed0bdbeac94aff6db9f5ff4d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "OG_051",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "LOE_018",
+        "dbf_id": 2890,
+        "name": "坑道穴居人",
+        "name_en": "Tunnel Trogg",
+        "text": "每当你<b>过载</b>时，每一个被锁的法力水晶会使其获得+1攻击力。",
+        "text_en": "Whenever you <b>Overload</b>, gain +1 Attack per locked Mana Crystal.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 20,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9300cbc14fe66a186c3ded7a5b69e6674b6eb71d3bca8f80f105585b616b5031",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "LOE_018",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "LOOT_231",
+        "dbf_id": 45590,
+        "name": "奥术工匠",
+        "name_en": "Arcane Artificer",
+        "text": "每当你施放一个法术，便获得等同于其法力值消耗的护甲值。",
+        "text_en": "Whenever you cast a spell, gain Armor equal to its_Cost.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "bfbefa9ebd73d6ba89b5949a51f82c0a27c81ec25f47357dc42c03c6b67d05e5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "LOOT_231",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {
+    "TSC_828": {
+      "@": ""
+    }
+  },
+  "collectible_leaf_ids": [
+    "TSC_828",
+    "OG_051",
+    "LOE_018",
+    "LOOT_231"
+  ],
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "past_scope": "Actual Standard past-source candidates only; formal past membership/edition weights and CN timing remain unverified. No production past or ordinary domain bound.",
+  "official_observations": [
+    {
+      "card_id": "TSC_828",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 71945,
+        "collectible": 1,
+        "slug": "71945-priestess-valishj",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejiarasaes",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "女祭司瓦丽丝琪",
+        "text": "<b>战吼：</b>在本回合中你每施放过一个法术，复原一个空的法力水晶。 <i>（复原 个）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b7017721b309ffbe9e97df3c6686c14695bd1998da3c3c6a6938b42a7737adb.png",
+        "imageGold": "",
+        "flavorText": "某不愿透露姓名的相关人士表示这个“丽”字有失公允。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1829ad8b4341ec27e044129de1f30c1b62bc55986c9a5e3f8c693c4215400e46.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_828",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 71945,
+        "collectible": 1,
+        "slug": "71945-priestess-valishj",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Tanamaes Leejiarasaes",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Priestess Valishj",
+        "text": "<b>Battlecry:</b> Refresh an empty Mana Crystal for each spell you've cast this turn. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd6f7ddedd4a54c6d11247efe46fbb056b9fef0adb2ee7c6fab5baba90a7cac2.png",
+        "imageGold": "",
+        "flavorText": "Some of the more stoic priestesses worry that she's living too lavishjly.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1829ad8b4341ec27e044129de1f30c1b62bc55986c9a5e3f8c693c4215400e46.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_051",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 38340,
+        "collectible": 1,
+        "slug": "38340-forbidden-ancient",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 4,
+        "artistName": "Grace Liu",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "禁忌古树",
+        "text": "<b>战吼：</b>消耗你所有的法力值，每消耗一点法力值，便获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52b016c29826a5d5953696cececf5b6d3f3e29abaca4ce2c6505ad2333f3551f.png",
+        "imageGold": "",
+        "flavorText": "禁忌古树在自己的套牌里放满了砰砰博士，因此旅店里没人愿意跟它玩。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3387320b27472e22cde46ad7f114d5e16b1a1d487c8b18c3390e032e3101eeb.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_051",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 38340,
+        "collectible": 1,
+        "slug": "38340-forbidden-ancient",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 4,
+        "artistName": "Grace Liu",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Forbidden Ancient",
+        "text": "<b>Battlecry:</b> Spend all your Mana. Gain +1/+1 for each Mana spent.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/531aa3de00527d0ac3d9b7d1be280c1a86940a57cd22ca91e995b599853a6fac.png",
+        "imageGold": "",
+        "flavorText": "This Ancient was banned from the local tavern after tucking a 'Dr. Boom' up its sleeve.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3387320b27472e22cde46ad7f114d5e16b1a1d487c8b18c3390e032e3101eeb.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOE_018",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 2890,
+        "collectible": 1,
+        "slug": "2890-tunnel-trogg",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 20,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "坑道穴居人",
+        "text": "每当你<b>过载</b>时，每一个被锁的法力水晶会使其获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4d1d0e491010a5cab9c60b4bf60e78725b9e5f178a70b3f72e98d5b3d762abf5.png",
+        "imageGold": "",
+        "flavorText": "穴居人的确很丑，因为他们常年生活在不见天日的坑道里。不信你进去住几天试试。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d28a86e186be617ae1569a3a7963cdecd9bd557b708e7ec1438a3b1c9e6d4b3.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOE_018",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 2890,
+        "collectible": 1,
+        "slug": "2890-tunnel-trogg",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 20,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Tunnel Trogg",
+        "text": "Whenever you <b>Overload</b>, gain +1 Attack per locked Mana Crystal.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e297191a62c25acd19d404228db90c0a6f0b46a9c48a14031c2e86ed207934e.png",
+        "imageGold": "",
+        "flavorText": "Sure, they're ugly, but they live in tunnels. You try your beauty routine without natural light.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d28a86e186be617ae1569a3a7963cdecd9bd557b708e7ec1438a3b1c9e6d4b3.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_231",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 45590,
+        "collectible": 1,
+        "slug": "45590-arcane-artificer",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Arthur Gimaldinov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "奥术工匠",
+        "text": "每当你施放一个法术，便获得等同于其法力值消耗的护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/951bbe0fd41b2871a79f60103d97a722cd604b13c97c4c51c928620e40fd1c86.png",
+        "imageGold": "",
+        "flavorText": "以太护甲会在6小时后消失，可能会给初次购买的顾客带来尴尬的经历。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a35cbd10417f211bdc94348c3104422381d4f5b0b828371d3814abf831eaae5.png",
+        "copyOfCardId": [
+          97374
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_231",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 45590,
+        "collectible": 1,
+        "slug": "45590-arcane-artificer",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Arthur Gimaldinov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Arcane Artificer",
+        "text": "Whenever you cast a spell, gain Armor equal to its Cost.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f03237c43ac1ab260935876a7c46e25c32a1843623823d24bbe1d774cf878e4b.png",
+        "imageGold": "",
+        "flavorText": "Ethereal armor dissipates in 6 hours which can cause extreme awkwardness for first time buyers.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a35cbd10417f211bdc94348c3104422381d4f5b0b828371d3814abf831eaae5.png",
+        "copyOfCardId": [
+          97374
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
