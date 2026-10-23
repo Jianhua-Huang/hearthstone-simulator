@@ -282,6 +282,8 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     """One complete material path for validation, options and canonical faces."""
     from .assemble_colossal import prefix_appendages
     from .assemble_on_play import prefix_deathrattle
+    from .assemble_corpse_prefixes import validate_gain_prefix,native_battlecry as paid_battlecry
+    validate_gain_prefix(registry,prefix_source)
     from .assemble_static_materials import prefix_materials
     from .assemble_fixed_battlecry import prefix_battlecry
     auras,death_price=prefix_materials(registry,prefix_source)
@@ -293,6 +295,8 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     from .assemble_draw_groups import native_battlecry
     original_draw=native_battlecry(registry,prefix_source,suffix)
     if original_draw is not None:face=replace(face,battlecry=original_draw)
+    original_paid=paid_battlecry(registry,prefix_source,suffix)
+    if original_paid is not None:face=replace(face,battlecry=original_paid)
     from .assemble_death_programs import native_deathrattle
     original_death=native_deathrattle(registry,prefix_source,suffix)
     if original_death is not None:face=replace(face,deathrattle=original_death)
@@ -463,6 +467,9 @@ def before_behavior(registry,behavior_id):
             from .assemble_draw_groups import selected_request
             selected=selected_request(registry,context,row['before_behavior_id'],row['behavior_id'])
             if selected is not None:return selected
+            from .assemble_corpse_prefixes import selected_request as selected_paid_request
+            selected=selected_paid_request(registry,context,row['before_behavior_id'],row['behavior_id'])
+            if selected is not None:return selected
             prefix_effects=first(context)
             # The native draw-before-buff sequence plans its suffix after Draw
             # and its reactions, so newly drawn cards enter the actual query.
@@ -623,6 +630,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_corpse_prefixes import validate_sources as validate_corpse_prefixes
+    validate_corpse_prefixes(registry)
     from .assemble_death_programs import validate_sources as validate_deferred_death_sources
     validate_deferred_death_sources(registry)
     from .assemble_draw_groups import validate_sources as validate_draw_group_sources

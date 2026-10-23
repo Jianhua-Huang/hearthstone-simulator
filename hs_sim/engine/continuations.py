@@ -261,6 +261,11 @@ class FrameCodec:
             value.validate_in_state(self.origin_state,self.registry)
         if type(value) is AssembleDeathContinuation:
             validate_death_program(self.registry,value)
+        from .assemble_corpse_prefixes import ContinueAssembledPaidBattlecry,AssemblePaidBattlecryContinuation,validate_material as validate_paid_material
+        if type(value)is ContinueAssembledPaidBattlecry and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+        if type(value)is AssemblePaidBattlecryContinuation:
+            validate_paid_material(self.registry,value)
         from .next_spell_bodies import ContinueNextSpellBodies, FinishNextSpellBody, validate_queued as validate_next_spell_body
         if type(value) in (ContinueNextSpellBodies, FinishNextSpellBody) and self.origin_state is not None:
             validate_next_spell_body(self.origin_state, self.registry, value)
@@ -358,6 +363,8 @@ class FrameCodec:
             validate_qualified_call(value, self.registry)
             from .assemble_death_programs import validate_call as validate_death_followup
             validate_death_followup(value,self.registry)
+            from .assemble_corpse_prefixes import validate_call as validate_paid_followup
+            validate_paid_followup(value,self.registry)
         if type(value) is effects.RequestChoice:
             from .choose_policies import reject_choice_control as reject_choose_policy_control
             reject_choose_policy_control(value.options)
@@ -643,6 +650,9 @@ class FrameCodec:
                 raise ValueError('Native destroyed frame lost its actual original event')
             from .deathrattles import validate_context as validate_deathrattle_context
             validate_deathrattle_context(value,self.registry)
+            if value.paid_battlecry_followup is not None:
+                from .assemble_corpse_prefixes import validate_context as validate_paid_context
+                validate_paid_context(value,self.registry)
             from .power_payloads import validate_context as validate_power_payload_context
             validate_power_payload_context(value,self.registry)
             from .end_turns import validate_context as validate_end_turn_context

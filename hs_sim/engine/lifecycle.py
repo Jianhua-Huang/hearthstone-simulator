@@ -91,8 +91,10 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
     if definition.spell_damage:
         add('spell_damage', spell_damage=definition.spell_damage, spell_damage_schools=definition.spell_damage_schools,
             native_condition=definition.native_condition if definition.native_condition is not None and definition.native_condition.kind=='self_damaged'else None)
-    if registry is not None and definition.id in registry.corpse_gain_profiles:
-        add('corpse_gain', corpse_gain_card_id=definition.id)
+    if registry is not None:
+        from .corpse_gains import declaration_ids as corpse_gain_declarations
+        for native_id in corpse_gain_declarations(registry,definition.id):
+            add('corpse_gain', corpse_gain_card_id=native_id)
     if registry is not None and definition.id in registry.turn_draw_profiles:
         add('turn_draw_suppression',turn_draw_card_id=definition.id)
     if registry is not None and definition.id in registry.native_producer_quantity_profiles:

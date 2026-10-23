@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v680'
+CORE_EFFECTS_VERSION = 'core-effects-v681'
 
 
 class Mechanics:
@@ -479,10 +479,10 @@ class Resolution:
             self._captured.extend(own_body)
         return event
 
-    def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None, kindred=None, draw_group=None, deathrattle_followup=None):
+    def call(self, behavior_id, source_id, player_id, target_id=None, event=None, death=None, choice=None, player_effect=None, window=None, play=None, trigger=None, cast=None, draw=None, power=None, battlecry=None, combo=None, deathrattle=None, power_payload=None, end_turn=None, physical=None, discard=None, kindred=None, draw_group=None, deathrattle_followup=None, paid_battlecry_followup=None):
         if discard is not None:
             if target_id is not None or any(value is not None for value in
-                    (death,choice,player_effect,window,play,cast,draw,power,battlecry,combo,deathrattle,power_payload,end_turn,physical,draw_group,deathrattle_followup)):
+                    (death,choice,player_effect,window,play,cast,draw,power,battlecry,combo,deathrattle,power_payload,end_turn,physical,draw_group,deathrattle_followup,paid_battlecry_followup)):
                 raise ResolutionError('Own-discard acceptance is independent of other body roots')
             call = BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id, player_id,
                 event=deepcopy(event), trigger=deepcopy(trigger), discard=discard))
@@ -536,13 +536,16 @@ class Resolution:
                 and physical.active_battlecry_id == battlecry.id and source_id == battlecry.source_id)
             if not own_physical_result: attempt = 0
         call = BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id,
-                                                     player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical,kindred=kindred,draw_group=draw_group,deathrattle_followup=deathrattle_followup))
+                                                     player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical,kindred=kindred,draw_group=draw_group,deathrattle_followup=deathrattle_followup,paid_battlecry_followup=paid_battlecry_followup))
         if draw_group is not None:
             from .physical_draw_groups import validate_qualified_call
             validate_qualified_call(call, self.registry)
         if deathrattle_followup is not None:
             from .assemble_death_programs import validate_call as validate_death_followup
             validate_death_followup(call,self.registry)
+        if paid_battlecry_followup is not None:
+            from .assemble_corpse_prefixes import validate_call as validate_paid_followup
+            validate_paid_followup(call,self.registry)
         return call
 
     def player(self, player_id):
@@ -2928,6 +2931,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_physical_draw_groups(mechanics)
     from .assemble_death_programs import register as register_assemble_death_programs
     register_assemble_death_programs(mechanics)
+    from .assemble_corpse_prefixes import register as register_assemble_corpse_prefixes
+    register_assemble_corpse_prefixes(mechanics)
     from .destruction_resources import register as register_destruction_resources
     register_destruction_resources(mechanics)
     from .hand_play_locks import register as register_hand_play_locks

@@ -40,12 +40,20 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
         return
     if kind != CardType.MINION:
         raise ValueError('Corpse gain source requires its original minion carrier')
-    declared, installed = Counter((card_id, *components)), Counter()
+    declared=Counter(cid for source in (card_id,*components)for cid in declaration_ids(registry,source))
+    installed=Counter()
     for ability in rows:
         validate_ability(registry, ability)
         installed[ability.corpse_gain_card_id] += 1
         if installed[ability.corpse_gain_card_id] > declared[ability.corpse_gain_card_id]:
             raise ValueError('Duplicate or foreign printed corpse gain source')
+
+
+def declaration_ids(registry,card_id):
+    if card_id.startswith('assemble:'):
+        from .assemble_corpse_prefixes import assembled_gain_ids
+        return assembled_gain_ids(registry,card_id)
+    return (card_id,)if card_id in registry.corpse_gain_profiles else ()
 
 
 def gain_amount(state, registry, player_id, base):

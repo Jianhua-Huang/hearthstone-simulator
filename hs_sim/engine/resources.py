@@ -290,9 +290,11 @@ def resource_effect(r, effect):
     before = player.resources[effect.resource]
     player.resources[effect.resource] -= effect.amount
     row = commit_corpse_spend(r.state, player.id, before, effect.amount, 'fixed')
+    from .assemble_corpse_prefixes import bind_success as bind_paid_battlecry
+    success=bind_paid_battlecry(r.state,r.registry,effect,row)
     r.emit('resource_spent', player_id=player.id, amount=effect.amount,
            resource=effect.resource.value, _corpse_spend_record=row)
-    return effect.on_success
+    return success
 
 
 def prepare_corpse_spend(state, player_id, before, amount, origin, source_id=None, operation_id=None):
