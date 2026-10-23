@@ -22,7 +22,8 @@ def recipe_types():
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer
     from .sideboards import _TakeSideboardCard
     from .spell_weapons import DeliverDiscoveredSpellWeapon
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon)
+    from .hero_power_discovery import InstallDiscoveredHeroPower
+    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower)
 
 
 def recipe_face(request):
@@ -54,6 +55,8 @@ def validate_recipe(result, request):
     if type(request)is CopyOpponentDeckOffer:validate_copy_recipe(result,request)
     from .sideboards import _TakeSideboardCard, validate_discovery_recipe
     if type(request) is _TakeSideboardCard:validate_discovery_recipe(result,request)
+    from .hero_power_discovery import validate_recipe as validate_skill_recipe
+    validate_skill_recipe(result, request)
 
 
 @dataclass(frozen=True)
@@ -172,6 +175,7 @@ def materialize(r, effect):
     from .temporary_cards import CreateTemporaryCard
     from .sideboards import _TakeSideboardCard, materialize_discovery
     from .spell_weapons import DeliverDiscoveredSpellWeapon,materialize as materialize_weapon
+    from .hero_power_discovery import InstallDiscoveredHeroPower, materialize as materialize_skill
     if type(request) is AddToHand:
         from .opening import create_hand_card
         entity = create_hand_card(r, request)
@@ -203,6 +207,8 @@ def materialize(r, effect):
         entity=materialize_discovery(r,request)
     elif type(request)is DeliverDiscoveredSpellWeapon:
         entity=materialize_weapon(r,request)
+    elif type(request) is InstallDiscoveredHeroPower:
+        entity = materialize_skill(r, effect.result, request)
     return (*work, finish_for_entity(r, effect.result, entity, request, cursor))
 
 
@@ -244,6 +250,8 @@ def validate_completion(state, registry, completion, *, closed=False):
     validate_copy_completion(completion,registry)
     from .spell_weapons import validate_completion as validate_weapon_completion
     validate_weapon_completion(state,registry,completion)
+    from .hero_power_discovery import validate_completion as validate_skill_completion
+    validate_skill_completion(state, registry, completion)
     if completion.recipient is not None:
         validate_allocation(state, registry, completion.recipient, closed=closed)
     if completion.summon_root_id is not None:
@@ -335,6 +343,10 @@ def validate_boundary(game):
                         witnesses = [e for e in window if e.kind in ('card_moved_to_hand', 'card_moved_to_deck', 'card_drawn', 'card_burned')]
                     witnesses = [e for e in witnesses if e.action == event.action and
                                  e.source_id == completion.recipe.source_id]
+                    from .hero_power_discovery import InstallDiscoveredHeroPower
+                    if type(completion.recipe) is InstallDiscoveredHeroPower:
+                        witnesses = [e for e in window if e.kind == 'hero_power_replaced' and
+                            e.action == event.action and e.player_id == completion.recipe.player_id]
                     if created and fact is not None and len(witnesses) != 1:
                         raise ValueError('Discovery creation lost its one original synchronous allocation')
                     if fact is not None and not any(e.target_id == fact.entity_id for e in witnesses):

@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v693'
+CORE_EFFECTS_VERSION = 'core-effects-v694'
 
 
 class Mechanics:
@@ -3025,5 +3025,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_minion_attack_damage(mechanics)
     from .recruit_stat_groups import register as register_recruit_stat_groups
     register_recruit_stat_groups(mechanics)
+    from .hero_power_discovery import register as register_hero_power_discovery
+    register_hero_power_discovery(mechanics)
     return mechanics
 

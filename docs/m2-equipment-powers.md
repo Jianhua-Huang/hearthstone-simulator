@@ -96,3 +96,14 @@ M5-12c-03a：`passive_hero_power=True` + 普通 `TriggerSpec` 声明被动技能
 M5-12d-01：主技能 `hero_power_id` 与有序 `additional_hero_power_ids` 分别保存；派生 `hero_power_ids` 供统一枚举，`AddHeroPower` 安装额外实体。手动动作、费用/次数、在位监听和观察/恢复处理所有已安装技能；刷新/替换/间接触发的空引用默认指主位；12d-02 已支持捕获引用的定向操作，见 [技能生命周期](m5-power-lifecycle.md)。见 [多技能契约与 R-107](m5-multiple-powers.md)。
 
 M5-12d-02：`HeroPowerReference` 冻结安装身份；定向技能操作复核引用，过时引用跳过。安装成本在事件前提交；英雄替换显式声明保留/移除额外技能。观察 v42 新增移除事件。具体接口与 R-108 见 [技能生命周期契约](m5-power-lifecycle.md)。
+
+
+## K471 基础英雄技能发现
+
+hero_power_discovery.py增加冻结HeroPowerDiscoveryProfile，按真实来源登记完整、每职业一个主动技能的有限家族；非空配置进入注册指纹，空配置不改变旧默认指纹。DiscoverHeroPower只捕获本人原主技能的印刷职业及原物理分配，依该职业排除对应基础技能，独立于英雄职业和额外技能槽。当前政策对升级/特殊技能同样读取其自身职业，对已知中性或空主槽不排除，未知职业、多职业和未实现成员明确失败。此精确职业政策仍待国服37.0校准，不能据卡文和子关联宣称官方已验证。
+
+原整数采样器从排序的完整剩余家族按每技能一份权重抽取三个不同选项；HeroPowerDiscoveryOffer保存完整原请求、来源/主技能分配、候选/选项及MT19937前后状态，局部重演核完整抽样。空有限家族不请求选择、不耗RNG。后续合法随机不需要停在原after；私有收据不是未签名存档来源认证。当前芬利的真实完整父面关联11个已有基础技能，含DH/DK；不退回历史九职业，也不按已实现覆盖删池。
+
+RequestChoice、原发现菜单/记录/材料及提交恢复继续共用。旧hand_playable限制只对有完整typed原技能菜单的发现有限放行；普通裸HeroPower或混合未签名菜单仍拒绝。InstallDiscoveredHeroPower直接执行拒绝，只能由原已提交选择的MaterializeDiscoveredCard交付。原install_hero_power负责当前主槽退休和新物理身份，额外槽及玩家真实使用历史保持；菜单接受后来源或主槽合法变化不重抽，实际交付替换届时主槽。新技能不入手、不受手牌容量或安装场地空位限制，后续真实使用仍沿原费用、次数、目标与召唤空间规则。
+
+完成收据保存真实HERO_POWER分配，沿既有hero_power_replaced验证同步物理窗口，不伪造普通card_created。技能发现沿现有genuine card-discovery账本及完成通知登记，其他精确国服计数消费者仍待校准。起源之石仅对该受益者类型跳过其他选项和耐久消费，依据[开发者原答复](https://www.reddit.com/r/hearthstone/comments/1l4xksa/comment/mwcxckz/?context=3)；其他普通发现路径保持。无新玩家/实体/状态字段或第二套付款、安装、伤害、选择执行器。[完整芬利来源与政策](../data/cards/past-basic-hero-power-discovery-v1.json)及实际验收、版本和下一项仍由两份原台账登记。

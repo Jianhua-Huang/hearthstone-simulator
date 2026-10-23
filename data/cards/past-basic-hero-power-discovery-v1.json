@@ -1,0 +1,965 @@
+{
+  "schema": 1,
+  "batch": "K471-past-basic-hero-power-discovery",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "LOE_076",
+        "dbf_id": 2948,
+        "name": "芬利·莫格顿爵士",
+        "name_en": "Sir Finley Mrrgglton",
+        "text": "<b>战吼：发现</b>一个新的基础英雄技能。",
+        "text_en": "<b><b>Battlecry:</b> Discover</b> a new basic Hero Power.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 20,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "59382f878d67bed8d6817e3a64c3f7105528241f1778715a064e4e006aceb6a4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "LOE_076",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "HERO_11bp",
+        "dbf_id": 78162,
+        "name": "食尸鬼冲锋",
+        "name_en": "Ghoul Charge",
+        "text": "<b>英雄技能</b>\n召唤一个1/1并具有<b>冲锋</b>的食尸鬼。它会在回合结束时死亡。",
+        "text_en": "[x]<b>Hero Power</b>\nSummon a 1/1 Ghoul\nwith <b>Charge</b>. It dies at\nend of turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 2,
+          "CLASS": 1,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "UPGRADED_HERO_POWER": 79943
+        },
+        "card_set_id": 2,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2f5e4947580e2c99b16c9a6998cca276e1126a725934c3a507a1e2b7979e12a4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_11bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_10bp",
+        "dbf_id": 60224,
+        "name": "恶魔之爪",
+        "name_en": "Demon Claws",
+        "text": "<b>英雄技能</b>\n在本回合中+$a1\n攻击力。",
+        "text_en": "[x]<b>Hero Power</b>\n+$a1 Attack this turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 14,
+          "CARDTYPE": 10,
+          "UPGRADED_HERO_POWER": 60483
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Virtuos"
+          }
+        ]
+      },
+      "record_sha256": "7f110b01f2446121c77d5580716c63f24338471852fd103391b3c99a692fd0fe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "HERO_10bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_06bp",
+        "dbf_id": 1123,
+        "name": "变形",
+        "name_en": "Shapeshift",
+        "text": "<b>英雄技能</b>\n本回合+$a1攻击力。+$d1护甲值。",
+        "text_en": "<b>Hero Power</b>\n+$a1 Attack this turn.\n+$d1 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2737
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "ece066010b4ff7807e69b67b3f2e2b9f5c7aa697f29665b65aeb87a53dc6e042",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_06bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_05bp",
+        "dbf_id": 229,
+        "name": "稳固射击",
+        "name_en": "Steady Shot",
+        "text": "<b>英雄技能</b>\n对敌方英雄造成$2点伤害。@<b>英雄技能</b>\n造成$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $2 damage to the enemy hero.@<b>Hero Power</b>\nDeal $2 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2738
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "b8799a64c55c2a528dad18ed018665ddbeccaac9216f7687480cc20ad563bc5e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_05bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_08bp",
+        "dbf_id": 807,
+        "name": "火焰冲击",
+        "name_en": "Fireblast",
+        "text": "<b>英雄技能</b>\n造成$1点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $1 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2739
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "47bbed58ec36f0475a76ca3052b1af5368e09ea7f5cf3fd11e4ed2e04c68c2d2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_08bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_04bp",
+        "dbf_id": 472,
+        "name": "援军",
+        "name_en": "Reinforce",
+        "text": "<b>英雄技能</b>\n召唤一个{0}的白银之手新兵。",
+        "text_en": "<b>Hero Power</b>\nSummon a {0} Silver Hand Recruit.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2740
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2b15ba0279015106dec1e96db10dfcc4869f2bd77708c75c18aaf858e83dfd37",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_04bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_09bp",
+        "dbf_id": 479,
+        "name": "次级治疗术",
+        "name_en": "Lesser Heal",
+        "text": "<b>英雄技能</b>\n恢复#2点生命值。",
+        "text_en": "<b>Hero Power</b>\nRestore #2 Health.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2741
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "f2ad180874d6bff22e4813d68e0014ef6c193ab27993e990dd1232b8bd229f9a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_09bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_03bp",
+        "dbf_id": 730,
+        "name": "匕首精通",
+        "name_en": "Dagger Mastery",
+        "text": "<b>英雄技能</b>\n装备一把1/2的\n匕首。",
+        "text_en": "<b>Hero Power</b>\nEquip a 1/2 Dagger.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2743
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "a64e43f41e574492de579b3964d07c727a6e2eaa0a15c220c8d2deb2a370fec4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_03bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_02bp",
+        "dbf_id": 687,
+        "name": "图腾召唤",
+        "name_en": "Totemic Call",
+        "text": "<b>英雄技能</b>\n随机召唤一个基础图腾。",
+        "text_en": "<b>Hero Power</b>\nSummon a random basic Totem.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2742
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "34cea5dafd89b3a56fe78d232503c947789fcba34249b108a999f385124f51ac",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_02bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_07bp",
+        "dbf_id": 300,
+        "name": "生命分流",
+        "name_en": "Life Tap",
+        "text": "<b>英雄技能</b>\n抽一张牌并受到$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDraw a card and take $2_damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2744
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "77fb8dc92e66b55dce52ec831c0eac460c0cc43a982db43b9f8b5ab2a4d227e3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_07bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_01bp",
+        "dbf_id": 725,
+        "name": "全副武装！",
+        "name_en": "Armor Up!",
+        "text": "<b>英雄技能</b>\n获得$d2点护甲值。",
+        "text_en": "<b>Hero Power</b>\nGain $d2 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2745
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "abd6fa492222a7454ca69a2308a5fd3ddd5f3ccfbf4f46b3acb250abeeed0c4e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_01bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "LOE_076",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 2948,
+        "collectible": 1,
+        "slug": "2948-sir-finley-mrrgglton",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 20,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "芬利·莫格顿爵士",
+        "text": "<b>战吼：发现</b>一个新的基础英雄技能。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e38b801192b863e89e22e8b920534498ac0e5421c73d0ee99faccc0eed9580f9.png",
+        "imageGold": "",
+        "flavorText": "除了正常的官方用语外，他还精通14种鱼人方言。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5bc144d7b1c18a9ffeeac00d7f08d768ec01039fd0effc855c1e7eed377bf2cc.png",
+        "childIds": [
+          78162,
+          60224,
+          1123,
+          229,
+          807,
+          472,
+          479,
+          730,
+          687,
+          300,
+          725
+        ],
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          76311
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOE_076",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 2948,
+        "collectible": 1,
+        "slug": "2948-sir-finley-mrrgglton",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 20,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sir Finley Mrrgglton",
+        "text": "<b><b>Battlecry:</b> Discover</b> a new basic Hero Power.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba13e66fdb1cc24b80f502fef40d96b46e94dfefe077aff75794666a53457bdb.png",
+        "imageGold": "",
+        "flavorText": "In addition to fluent Common, he also speaks fourteen dialects of 'mrgl'.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5bc144d7b1c18a9ffeeac00d7f08d768ec01039fd0effc855c1e7eed377bf2cc.png",
+        "childIds": [
+          78162,
+          60224,
+          1123,
+          229,
+          807,
+          472,
+          479,
+          730,
+          687,
+          300,
+          725
+        ],
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          76311
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "collectible_leaf_ids": [
+    "LOE_076"
+  ],
+  "profile_power_ids": [
+    "HERO_11bp",
+    "HERO_10bp",
+    "HERO_06bp",
+    "HERO_05bp",
+    "HERO_08bp",
+    "HERO_04bp",
+    "HERO_09bp",
+    "HERO_03bp",
+    "HERO_02bp",
+    "HERO_07bp",
+    "HERO_01bp"
+  ],
+  "existing_power_definition_pins": {
+    "HERO_11bp": "5b564696b8803d1ed32c179428ee308c8ca61bcc4197a030619f68803981fd0f",
+    "HERO_10bp": "6ca08345e4fad20322716d45fb70b39547e6afbadff543a08990d2aedde8aedb",
+    "HERO_06bp": "30064f297445eff58687a16ddbcb5300b2d1905b38298dc382be8e2daf1b9a62",
+    "HERO_05bp": "a001918e6ab813d75d94237665cf40e397472cba505f3b5aa74d4d3e72f41067",
+    "HERO_08bp": "8770589737ee09377718eafbd34a02df383ad6e412a5048f07a3abc0ba5c749a",
+    "HERO_04bp": "2a8e1b12cd25a88c171e6b86bd7074aae1873ee9b6050f336f515cc01c8ac6db",
+    "HERO_09bp": "d61d872f2601ccd505248f84b999f65f9913c4896c4fe9090637ee7110ff83c6",
+    "HERO_03bp": "43a8e4fd34f8a86601edd5ba341a3ba1307fae7d260693114314d8c4aaf9484f",
+    "HERO_02bp": "8dd782df176ca1869be01ce374f50088d7efd58037eef56e924193dbcbcfc71d",
+    "HERO_07bp": "25ff5a0dfd14b98d700ab260dbed4c1c91217cbe187ffb916d164f4e85e7d487",
+    "HERO_01bp": "6dda7603b2a46ff33f0f09c41d7274f83a0f8f078a33db92ac9dc0cbf1d9122f"
+  },
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "exclusion_policy": "Exclude the printed class of the captured current primary skill; hero class and extra slots do not decide the exclusion. Exact CN37 exclusion and neutral/special-power policy remain uncalibrated.",
+  "discovery_policy": "Three distinct uniformly sampled eligible skills; original complete candidates and MT19937 states retained; shared original Discover delivery and primary-slot installation.",
+  "primary_face_scope": [
+    "LOE_076"
+  ],
+  "child_primary_faces_observed": false
+}

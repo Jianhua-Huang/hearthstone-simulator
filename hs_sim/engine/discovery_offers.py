@@ -78,6 +78,8 @@ def capture(r, choice, options, on_select):
     from .discovery import ordinary_options
     offer = OriginalDiscoveryOffer(choice, tuple(options), on_select,
         tuple(capture_material(r, option) for option in ordinary_options(options)))
+    from .hero_power_discovery import validate_original_offer as validate_skill_offer
+    validate_skill_offer(r.game, offer)
     extra={EXCESS_DISCOUNT:True} if excess_discount(offer) else {}
     r.emit(ACCEPTED, source_id=choice.source_id, player_id=choice.player_id,
         choice_id=choice.id, original_offer=encode_offer(r.game, offer), _capture=False, **extra)
@@ -114,6 +116,8 @@ def validate_boundary(game, events):
         data = dict(event.data)
         if 'original_offer' not in data:raise ValueError('Original discovery offer was lost')
         offer = decode_offer(game, data['original_offer'])
+        from .hero_power_discovery import validate_original_offer as validate_skill_offer
+        validate_skill_offer(game, offer)
         expected={'choice_id','original_offer'}|({EXCESS_DISCOUNT} if excess_discount(offer) else set())
         if (set(data) != expected or data['choice_id'] in accepted or
                 EXCESS_DISCOUNT in data and data[EXCESS_DISCOUNT] is not True):

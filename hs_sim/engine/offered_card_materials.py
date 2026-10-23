@@ -84,6 +84,7 @@ def capture(r, option):
     from .summon_sources import ResurrectMinion
     from .suspicious_discoveries import ChooseSuspiciousMinion, validate_mutation
     from .pool_offers import ResolvePoolOffer
+    from .hero_power_discovery import InstallDiscoveredHeroPower, validate_offer_data
     # All currently supported genuine discovery producers have one original
     # delivery operation. Do not infer hidden material from a CardPreview.
     if len(option.effects) > 1:
@@ -91,6 +92,12 @@ def capture(r, option):
     if not option.effects:
         return OfferedCardMaterial(option.id, option.card_id, 'printed')
     work = option.effects[0]
+    if type(work) is InstallDiscoveredHeroPower:
+        work.__post_init__()
+        validate_offer_data(r.state, r.registry, work.offer)
+        if work.card_id != option.card_id:
+            raise ValueError('Offered basic skill differs from its original sampled face')
+        return OfferedCardMaterial(option.id, option.card_id, 'printed')
     if type(work) is ResolvePoolOffer:
         work.__post_init__()
         if work.card_id != option.card_id or work.result is not None or work.receipt.spec.rune_recipient is None:

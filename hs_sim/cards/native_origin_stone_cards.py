@@ -38,7 +38,9 @@ def register_native_origin_stone_cards(registry):
             key='discovery:' + str(dict(c.event.data)['discovery_id'])),)
     def play_options(c):
         if c.event.player_id != c.player_id: return ()
-        original_recipient(c.state, c.event)
+        recipient = original_recipient(c.state, c.event)
+        if recipient is not None and recipient.kind == CardType.HERO_POWER:
+            return ()
         return (PlayDiscoveredOptions(c.player_id, c.source_id, dict(c.event.data)['discovery_id']),
             ModifyWeapon(EquippedWeaponReference.capture(c.source), durability=-1, source_id=c.source_id))
     registry.register_behavior(PREFIX + 'progress', progress)

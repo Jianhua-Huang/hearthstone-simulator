@@ -45,7 +45,7 @@ def commit(r, result, selection_event, options, on_select):
     controls = tuple(o for o in options if is_refresh_option(o))
     if controls and (len(controls) != 1 or controls[0] != options[-1]):
         raise ValueError('Discovery refresh requires its single final typed control')
-    validate_offered_faces(result, r.registry)
+    validate_offered_faces(result, r.registry, original_offer=original)
     is_control = any(o.id in result.selected_ids for o in controls)
     control_roll = r.game._rng.randrange(5) if is_control else None
     offered_work = encode_offer(r.game, original)
@@ -90,11 +90,22 @@ def capture_turn_match(state, player_id):
         tuple(state.card_discovery_history), discovered_this_turn(state, player_id))
 
 
-def validate_offered_faces(result, registry):
-    """The sole non-card menu slot is the last declared refresh visual."""
+def validate_offered_faces(result, registry, *, original_offer=None):
+    """Non-hand skills require their typed original producer; refresh stays finite."""
     from .model import CardType
+    skill_menu = False
+    if any(registry.card(o.card_id).kind == CardType.HERO_POWER for o in result.choice.options):
+        if type(original_offer) is str:
+            from .offered_card_execution import original_offer as decode_original
+            original_offer = decode_original(registry, original_offer)
+        from .hero_power_discovery import validate_menu
+        if original_offer is None or original_offer.choice != result.choice or not validate_menu(registry, original_offer):
+            raise ValueError('Hero Power discovery requires its complete typed original skill menu')
+        skill_menu = True
     for index, option in enumerate(result.choice.options):
         card = registry.card(option.card_id)
+        if skill_menu and card.kind == CardType.HERO_POWER:
+            continue
         if card.hand_playable:
             continue
         if (result.choice.purpose != ChoicePurpose.POOL_DISCOVERY or
@@ -109,7 +120,7 @@ def validate_turn_match(match, registry):
         raise ValueError('Discovery price requires its complete typed selection prefix')
     match.__post_init__()
     for row in match.records:
-        validate_offered_faces(row.result, registry)
+        validate_offered_faces(row.result, registry, original_offer=row.original_offer)
 
 
 def validate_turn_prefix(match, state, registry):
@@ -140,7 +151,7 @@ def validate_history(state, registry):
         owner = state.owner_turn_history[row.owner_turn_id - 1]
         if owner.turn != row.turn or row.action < owner.start_action:
             raise ValueError('Card discovery borrowed another actual turn interval')
-        validate_offered_faces(row.result, registry)
+        validate_offered_faces(row.result, registry, original_offer=row.original_offer)
         for option in choice.options:
             if option.entity_id is not None and option.entity_id not in state.entities:
                 raise ValueError('Card discovery lost an original offered card')
