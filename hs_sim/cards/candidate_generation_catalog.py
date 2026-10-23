@@ -74,9 +74,12 @@ def reviewed_zero_attacks():
     return result
 
 
-def candidate_pool_rows():
+def candidate_pool_rows(*, batch=None, zero_costs=None, zero_attacks=None, keyword_tags=KEYWORD_TAGS):
     """Compile metadata without consulting executable coverage or card text."""
-    validate_race_pin();data=load_batch();zero=reviewed_zero_costs();zero_attack=reviewed_zero_attacks()
+    validate_race_pin()
+    data=load_batch() if batch is None else batch
+    zero=reviewed_zero_costs() if zero_costs is None else zero_costs
+    zero_attack=reviewed_zero_attacks() if zero_attacks is None else zero_attacks
     result=[];used_zero=set();used_zero_attack=set()
     for row in data['cards']:
         raw=row['record'];cid=raw['id'];tags=raw['tags'];cost=raw['cost']
@@ -99,7 +102,7 @@ def candidate_pool_rows():
         if school is not None and(type(school)is not int or school not in SCHOOLS):
             raise TargetValidationError('Unknown candidate spell school')
         keywords=[]
-        for tag in KEYWORD_TAGS:
+        for tag in keyword_tags:
             value=tags.get(tag,0)
             if type(value)is not int or value not in(0,1):raise TargetValidationError('Candidate keyword tag must be a reviewed boolean')
             if value:keywords.append(Keyword[tag])

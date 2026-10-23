@@ -30,3 +30,30 @@ player = game.for_player(1)
 ```
 
 入口仅需已提交的项目数据；不需要原客户端、提取outputs或联网。旧`build_registry()`继续保持原无宿主候选池的默认行为。固定获取、物理库存、卡牌实现、默认代表包和玩家协议不由此改变。正式禁限、完整生成资格、热修集合、国服校准、实际可达闭合及阶段发布验收仍是原目标的必要门槛。
+
+
+## 上线后的候选入口与观察性禁用政策
+
+`hs_sim.launch_candidate_format.build_cn37_launch_candidate_format()`是独立的上线后实验入口。原`build_cn37_candidate_format()`继续表示扩展上线前的历史阶段，不按当前日期换池。新入口复用原1188份完整候选记录，以固定37.0源的134份完整记录增量构成1322身份；两份目录不按执行覆盖裁减。普通卡牌域覆盖同一完整清单，随从域只按独立印刷类型投影。
+
+新数据固定三项缺省零数值的双语完整官网主面，并为原始布尔标签缺失的两项印刷关键词保存明确的双语主面依据。共享编译器可显式接收已审核记录与证据；无参路径仍执行原历史目录及其原证据核验。新原始记录中的OLD_GOD等实际标签保留，不能由已实现定义反推未知候选的查询资格。
+
+该实验入口明确采用2026-10-23观察到的国际官方标准禁用清单：DINO_402、TIME_030、TLC_817。它们只进入原`DeckPolicy.banned_card_ids`，不从候选库存、记录或普通生成池删除；已有任务等原生随机禁令仍独立执行。此处没有认证国服禁用的生效时点或完整集合，`cn_bans_verified=False`、`formal_pool_complete=False`及`require_formal()`的拒绝保持。应把这项显式实验政策与正式国服合法性分开理解。
+
+`effective_from`为此固定观察的接受点，`ban_observed_at`保留同一时刻；`expansion_launched_at`单列源说明中的国服扩展上线边界，`effective_until=None`不表示已经证明未来一直有效。入口不读取墙钟或联网；目录、观察、内容版本、构筑允许/禁用集合及两个完整域进入新目标绑定。来源变化需新绑定，不能无声改变保存的对局。
+
+已知牌组可以通过原`Game.from_decks`正常创建；`unimplemented_root_card_ids`公开独立的实现缺口。缺失执行定义的根仍保留独立PoolCard及完整库存位置，绝不创建可出牌的占位白板。实际牌组请求该根由原构筑校验拒绝；查询遇到合格未知成员由原候选管线在抽样前拒绝，正常事务负责回滚付款和RNG。完整候选域不等于完整执行覆盖或正式生成资格。
+
+新宿主仅补缺少的独立元数据和两个显式库存，不改默认构筑注册表、旧来源政策或战斗内核。快照、换牌、原牌表、玩家隔离、恢复和回放复用原Game/DeckPolicy/GenerationContext；旧入口与新入口的目标及注册指纹不同，不能交叉恢复。
+
+```python
+from hs_sim.launch_candidate_format import build_cn37_launch_candidate_format
+
+candidate = build_cn37_launch_candidate_format()
+print(candidate.unimplemented_root_card_ids)
+# decks为两个完整DeckSpec；此入口始终为experimental。
+game = candidate.new_game(decks, seed=1, first_player=1)
+player = game.for_player(1)
+```
+
+本入口只绑定普通卡牌和随从域。过去卡牌、过去法术、标准卡包等域必须分别确定成员、年代/身份与适用权重，不能从这两个普通域或组牌禁用列表推导。缺失域继续明确报错；标准卡实际需要的跨系列内容仍属于目标内依赖，不能因所属狂野系列略去。
