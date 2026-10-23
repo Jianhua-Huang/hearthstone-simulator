@@ -227,15 +227,20 @@ def validate_hand_card(r, effect, *, origin_entity_id=None):
     return definition
 
 
-def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False, defer_hand_notification=False):
+def create_hand_card(r, effect, *, origin_entity_id=None, native_spell_value=None, aura_duration_source=None, live_hand_source=None, defer_publication=False, defer_hand_notification=False, hand_entry_source_id=None):
     """Shared generated materialization; public AddToHand still returns no work."""
     definition = validate_hand_card(r,effect,origin_entity_id=origin_entity_id)
     if type(defer_hand_notification) is not bool:raise ValueError('Hand notification deferral must be boolean')
+    if hand_entry_source_id is not None:
+        from .effects import _integer
+        _integer(hand_entry_source_id, 'original hand delivery source', 1)
+        if hand_entry_source_id not in r.state.entities:raise ResolutionError('Original hand delivery source does not exist')
     player = r.player(effect.player_id)
     from .card_creation import install
     from .carved_spells import install as install_carved
     zone = Zone.HAND if len(player.hand) < hand_capacity(player, r.rules) else Zone.GRAVEYARD
-    entity = r.create_entity(player.id, definition.id, zone, hand_entry_source_id=effect.source_id)
+    entity = r.create_entity(player.id, definition.id, zone,
+        hand_entry_source_id=effect.source_id if hand_entry_source_id is None else hand_entry_source_id)
     entity.origin_entity_id = origin_entity_id
     if effect.cost is not None:
         from .costs import attach_cost

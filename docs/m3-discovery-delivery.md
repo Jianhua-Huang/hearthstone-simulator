@@ -22,3 +22,14 @@
 实际交付完成后，原resolver在原listener位置筛选声明过的普通能力：实体/卡面/owner/controller/区域代数/在场身份和能力身份须仍属于原资格。新召唤或复活的来源、后来重进场或换面的原实体不能承接旧资格；已经由原解释器捕获的主体保持原接受语义，后续来源移除不重新撤销。支付、死亡、交付、普通触发排序和续接写入器均不另建。资格进入原完整私有选择收据与哈希，JSON恢复重核原字段、顺序、分配界限和有限注册行为，沿原等待/回滚/回放及信息隔离执行；一致性证明不提供未签名存档的外部来源认证。
 
 本能力在core699/schema558接入，仅新增一个私有历史字段及一个payload，无新Effect或GameState/Entity/Player字段。构筑注册表尚无此profile，也尚未注册GDB_841，完整复制材料及英雄技能等非手牌对象仍待接入；源记录见[完整原行及两完整主面](../outputs/card-integration-20261014/k476-discovery-trigger-sources/prepared-01/source-review.json)。精确资格接受窗及国服37.0仍待M6校准，实际执行和下一项只在原两份台账维护。
+
+
+## K477 游侠斥候的原结果复制
+
+GDB_841声明既有DiscoveryTriggerProfile；新CopyDiscoveredCard仅持玩家、原观察来源和原card_discovered事件。执行核对实际原日志、完整原选择/收据/配方及原资格来源，受益者身份不按卡名替换。原完成事件固定对象，实际复制接受时才读取同一实体、卡面、owner/controller及驻留的当前手牌/牌库材料，因此原普通观察位置更早的减费可见，后来的减费不追改已创建复制。场上/装备结果使用已有base复制及原发现内在奖励。
+
+烧毁、换面/重入、空受益者按原typed创建配方或原OfferedCardMaterial复用普通创建/复制器；不按墓地剩余局部状态或另一同名实体猜材料。原创建配方的授予来源与新复制的手牌交付来源分开，后者为游侠斥候。共享apply_discovery_intrinsics的默认原授予保持，复制路径以既有publish_gift=False保留完整赐福而不成为第二个dark_gift_granted。普通current复制沿原copy_attachments保留HandLifetime；原临时配方回退按原CardDiscoveryRecord.turn和原到期/最低费恢复，不延长时限。base复制沿原政策重置局部临时材料。
+
+原on_select后失去受益者、陈旧draw-cast复制、不可用物理材料及没有完整组分的空受益星舰仍明确未支持。英雄技能等非手牌对象也显式拒绝并回滚原待选；没有直接游侠斥候规则证据，不能套用仅针对起源之石的开发者答复。实际代码只实现可确认的普通可手持卡上下文，场上/陈旧重建和精确国服时序仍为待M6校准政策。
+
+core700/schema559只新增1Effect，无新payload或状态字段；内容v567新增一历史依赖，未扩标准合法根。普通复制、创建、生命周期、支付、随机、回溯和玩家投影执行器继续共用。实际验收与下一项仅维护在[项目状态](project-status.md)和[机制清单](mechanism-backlog.md)。

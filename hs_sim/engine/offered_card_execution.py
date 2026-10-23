@@ -111,12 +111,17 @@ def apply_material(r, selection, slot_id, entity):
         inherit_printed(Entity(row.entity_id, row.card_id, row.owner if material.death else row.card.owner,
             row.controller if material.death else row.player_id, Zone.GRAVEYARD,
             kind=entity.kind, components=row.components, jade_size=row.jade_size), entity)
+    apply_discovery_intrinsics(r, option, entity, selection.discovery.result.choice.source_id)
+
+
+def apply_discovery_intrinsics(r, option, entity, source_id, *, gifts=True, publish_gift=True):
+    """Original per-option mutations/gifts, shared with selected-card copies."""
     gift = None
     if option.effects:
         from .suspicious_discoveries import ChooseSuspiciousMinion, install_mutation
         work = option.effects[0]
         if type(work) is ChooseSuspiciousMinion:
-            install_mutation(r, entity, work.profile_card_id, work.mutation, selection.discovery.result.choice.source_id)
+            install_mutation(r, entity, work.profile_card_id, work.mutation, source_id)
         from .discovery import ResolvePoolDiscovery
         from .stored_gift_discovery import SelectGiftedDeckCard, gift_by_id
         from .opponent_deck_gift_copy import CopyOpponentDeckOffer
@@ -125,15 +130,15 @@ def apply_material(r, selection, slot_id, entity):
         elif type(work) is SelectGiftedDeckCard: gift = gift_by_id(work.offered[work.index].gift_id)
         elif type(work)is CopyOpponentDeckOffer and work.offered[work.index].gift_id is not None:
             gift=gift_by_id(work.offered[work.index].gift_id)
-    if gift is not None:
+    if gifts and gift is not None:
         from .card_creation import install
-        source_id = selection.discovery.result.choice.source_id
         if gift.cost_delta:
             from .costs import attach_cost
             from .model import CostSpec
             attach_cost(r.state, entity, CostSpec(delta=gift.cost_delta), source_id)
         install(r.state, entity, SimpleNamespace(spell_repeat=None,
-            minion_grant=replace(gift.grant, identity=gift.id), source_id=source_id),resolver=r)
+            minion_grant=replace(gift.grant, identity=gift.id), source_id=source_id),
+            resolver=r, publish_gift=publish_gift)
     from .lifecycle import refresh_entity
     refresh_entity(entity)
     r.refresh_auras()
