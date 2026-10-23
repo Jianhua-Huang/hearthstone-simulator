@@ -267,6 +267,13 @@ def resource_effect(r, effect):
         effect.__post_init__()
         from .summon_quantities import validate_cause
         validate_cause(r.state, r.registry, effect.on_success[0].cause)
+        from .summon_quantities import SummonByCard
+        if type(effect.on_success[0]) is SummonByCard:
+            request = effect.on_success[0]
+            source = r.registry.card(request.cause.source.card_id)
+            target = r.registry.card(request.materials[0].card_id)
+            if source.interactable is not None or target.kind != CardType.MINION or target.interactable is not None:
+                raise ResolutionError('Fixed corpse gate requires ordinary source and target minions')
         if len(player.board) >= r.rules.max_board:
             return ()
     if isinstance(effect, GainResource):

@@ -12,7 +12,7 @@ from hs_sim.engine.effects import (AddToHand,ChoiceOption,GainArmor,GainResource
     RequestChoice,SpendResource,Summon)
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.hand_upgrades import BuffStoredCard
-from hs_sim.engine.model import Rarity,Resource,SummonQuantitySpec,SummonStats
+from hs_sim.engine.model import Rarity,Resource,Runes,SummonQuantitySpec,SummonStats
 from hs_sim.engine.pools import DiscoverFromPool,GenerationContext,PoolCard,PoolDefinition,PoolMember
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.engine.spell_casts import CastSpell
@@ -28,7 +28,7 @@ MEMBERS=(A,B,BC,OTHER,SPELL,FOREIGN)
 
 def metadata(collectible=False,cls=CardClass.NEUTRAL):
     return CardMetadata(collectible,(cls,),Rarity.COMMON if collectible else None,
-                        tribes=(),factions=(),subtypes=())
+                        tribes=(),factions=(),subtypes=(),runes=Runes() if cls==CardClass.DEATH_KNIGHT else None)
 
 
 @lru_cache(None)

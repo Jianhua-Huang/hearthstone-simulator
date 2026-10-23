@@ -441,11 +441,21 @@ class SpendResource(Effect):
         if self.requires_board_space:
             from .pools import SummonFromPool
             from .discovery import SummonDiscoveredMinionCopy
+            from .summon_quantities import SummonByCard, SummonEntryMaterial
             if (self.resource != Resource.CORPSES or self.amount <= 0 or self.required or
-                    self.on_failure or len(self.on_success) != 1 or type(self.on_success[0]) not in (SummonFromPool,SummonDiscoveredMinionCopy)):
+                    self.on_failure or len(self.on_success) != 1 or type(self.on_success[0]) not in (SummonFromPool,SummonDiscoveredMinionCopy,SummonByCard)):
                 raise ValueError('Capacity gate requires one ordinary corpse-paid summon')
             request = self.on_success[0]
             request.__post_init__()
+            if type(request) is SummonByCard:
+                if (request.player_id != self.player_id or request.cause.player_id != self.player_id or
+                        request.cause.origin != 'card_effect' or request.cause.source.kind != CardType.MINION or len(request.materials) != 1 or
+                        type(request.materials[0]) is not SummonEntryMaterial):
+                    raise ValueError('Fixed corpse gate requires its original minion and one friendly entry')
+                plain = SummonEntryMaterial(request.materials[0].card_id)
+                if request != SummonByCard(self.player_id, (plain,), request.cause, position=request.position):
+                    raise ValueError('Fixed corpse gate rejects additional entry material or selection policies')
+                return
             if type(request) is SummonDiscoveredMinionCopy:
                 spec=request.discovery.batch.spec
                 if (spec.player_id!=self.player_id or spec.summon_copy_corpse_cost!=self.amount or

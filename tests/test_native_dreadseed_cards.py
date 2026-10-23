@@ -22,10 +22,24 @@ from hs_sim.engine.model import DamageKind, LimitedTriggerSpec
 from hs_sim.engine.registry import Registry
 from hs_sim.engine.replay import build_replay, replay
 from hs_sim.targets import canonical_digest
+from tools.card_batch import registration_prefix
 
 P = 'k123.test.'
 YETI = 'CORE_CS2_182'
 META = CardMetadata(False, (CardClass.NEUTRAL,), None, tribes=(), factions=(), subtypes=())
+
+
+def native_registry(after=True):
+    from hs_sim.cards.native_dreadseed_cards import register_native_dreadseed_cards
+    from hs_sim.cards.constructed_metadata_catalog import register_reviewed_pool_metadata
+    from hs_sim.cards.candidate_generation_catalog import register_candidate_pool_metadata
+    r = registration_prefix(build_registry,
+        'hs_sim.cards.native_dreadseed_cards.register_native_dreadseed_cards',
+        register_native_dreadseed_cards, after=after)
+    register_reviewed_pool_metadata(r)
+    register_candidate_pool_metadata(r)
+    r.validate()
+    return r
 
 
 @lru_cache(None)
@@ -35,7 +49,7 @@ def registry(mode=None, missing=None):
         if card.id != missing:
             return original(r, card)
     with patch.object(Registry, 'register_card', register):
-        r = build_registry()
+        r = native_registry()
     scripts = {
         'kill': lambda c: (Destroy(c.target_id, c.source_id),),
         'trigger': lambda c: (TriggerDeathrattles(c.target_id, c.source_id),),
@@ -163,9 +177,8 @@ class NativeDreadseedTests(unittest.TestCase):
         self.assertIsNone(r.card(SERPENT).on_awaken)
 
     def test_eight_new_definitions_preserve_existing_default_and_only_add_three_seed_metadata_rows(self):
-        with patch('hs_sim.cards.native_dreadseed_cards.register_native_dreadseed_cards', lambda r: None):
-            before = build_registry()
-        after = build_registry()
+        before = native_registry(after=False)
+        after = native_registry()
         self.assertEqual(set(after.cards) - set(before.cards), set(ROOTS + DEPENDENCIES))
         self.assertTrue(all(asdict(before.card(cid)) == asdict(after.card(cid)) for cid in before.cards))
         self.assertEqual(set(after.pool_cards) - set(before.pool_cards), set(SEEDS))
