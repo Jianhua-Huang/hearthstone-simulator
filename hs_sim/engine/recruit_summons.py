@@ -5,6 +5,7 @@ prove internal consistency; unsigned saves do not authenticate historical truth.
 Quantity, ownership of extras and insertion policy await CN calibration.
 """
 from __future__ import annotations
+from .model import SummonStats
 from dataclasses import asdict,dataclass,fields,is_dataclass,replace
 import json
 from random import Random
@@ -92,7 +93,10 @@ class RecruitCandidateFact:
     current_battlecry:bool
     jade_size:int|None=None
     current_attack:int|None=None
+    permanent_stats:SummonStats|None=None
     def __post_init__(self):
+        from .permanent_minion_stats import validate_value
+        validate_value(self.permanent_stats)
         if type(self.allocation)is not SourceAllocationFact or type(self.current_battlecry)is not bool:raise ValueError('Complete typed original physical zone candidate required')
         self.allocation.__post_init__()
         if self.current_attack is not None:_integer(self.current_attack,'original physical candidate Attack',0)
@@ -160,15 +164,16 @@ def candidates(registry,basis):
         if a.card_id not in excluded and matches_metadata(query,card_id=a.card_id,kind=card.kind,cost=cost,
             meta=card.metadata,spell_school=card.spell_school,keywords=card.keywords,current_class=basis.hero_class,
             printed_battlecry=card.battlecry is not None,current_battlecry=fact.current_battlecry,
-            printed_attack=card.attack if fact.jade_size is None else fact.jade_size):result.append(fact.reference())
+            printed_attack=fact.permanent_stats.attack if fact.permanent_stats is not None else card.attack if fact.jade_size is None else fact.jade_size):result.append(fact.reference())
     return tuple(result)
 
 
 def capture_basis(r,spec):
     from .summon_sources import minion_query
     from .card_conditions import has_battlecry
+    from .permanent_minion_stats import value as permanent_value
     inventory=tuple(RecruitCandidateFact(SourceAllocationFact.capture(r.state,r.state.entities[i]),has_battlecry(r.state.entities[i].abilities),r.state.entities[i].jade_size,
-        r.state.entities[i].attack if spec.attack_basis=='current'else None)
+        r.state.entities[i].attack if spec.attack_basis=='current'else None,permanent_value(r.state.entities[i]))
         for i in getattr(r.player(spec.owner_id or spec.player_id),spec.zone.value))
     return RecruitBasis(spec.player_id,spec.owner_id or spec.player_id,spec.zone,minion_query(spec.query),
         None if spec.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[spec.source_id]),
@@ -531,7 +536,9 @@ def from_dict(cls,value):
         ref=_row(row['reference'],CardReference);ref['zone']=Zone(ref['zone']);row['reference']=CardReference(**ref)
         row['copy']=copy_from_dict(CopyEntryMaterial,row['copy'])
         row['swap_minion']=None if row['swap_minion']is None else MinionReference(**_row(row['swap_minion'],MinionReference))
-    elif cls is RecruitCandidateFact:row['allocation']=allocation_from_dict(row['allocation'])
+    elif cls is RecruitCandidateFact:
+        row['allocation']=allocation_from_dict(row['allocation'])
+        row['permanent_stats']=None if row['permanent_stats']is None else SummonStats(**_row(row['permanent_stats'],SummonStats))
     elif cls is RecruitBasis:
         row['zone']=Zone(row['zone']);row['query']=query_from_dict(row['query']);row['source']=allocation_from_dict(row['source'])
         row['hero_class']=None if row['hero_class']is None else CardClass(row['hero_class']);row['inventory']=tuple(from_dict(RecruitCandidateFact,x)for x in row['inventory'])
@@ -545,7 +552,6 @@ def from_dict(cls,value):
     elif cls is RecruitRecord:
         from .summon_sources import SummonFromZone
         from .summon_quantities import SummonCause,from_dict as cause_from_dict
-        from .model import SummonStats
         spec=_row(row['spec'],SummonFromZone);spec['zone']=Zone(spec['zone']);spec['query']=query_from_dict(spec['query'])
         spec['cause']=cause_from_dict(SummonCause,spec['cause']);spec['stats']=None if spec['stats']is None else SummonStats(**_row(spec['stats'],SummonStats))
         row['spec']=SummonFromZone(**spec);row['rounds']=tuple(from_dict(RecruitRound,x)for x in row['rounds'])

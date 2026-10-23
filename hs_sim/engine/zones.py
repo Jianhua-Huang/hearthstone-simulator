@@ -924,11 +924,17 @@ def copy_card(r, effect):
     copy_physical_card(r, effect)
 
 
-def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_hand_entry=True):
+def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_hand_entry=True, permanent_stats=None):
     """Shared copy materialization; internal callers may bind the new body."""
     effect.__post_init__()
     if type(publish) is not bool:raise ValueError('Copy publication must be boolean')
     if type(notify_hand_entry) is not bool:raise ValueError('Hand notification deferral must be boolean')
+    if permanent_stats is not None:
+        from .permanent_minion_stats import validate_value
+        validate_value(permanent_stats)
+        if (type(effect.card)is not CapturedCardCopyMaterial or effect.card.origin.kind!=CardType.MINION or
+                effect.mode!='base' or effect.destination!=Zone.DECK or effect.stats is not None or minion_grant is not None):
+            raise ValueError('Permanent printed growth requires an original base minion deck copy')
     source_exists(r, effect.source_id)
     material=effect.card if type(effect.card)is CopyEntryMaterial else None
     if type(effect.card) is PlayedMinionCopyMaterial:
@@ -992,7 +998,8 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
     if material is not None:
         apply(r,material,entity)
     else:
-        inherit_printed(source, entity)
+        from .permanent_minion_stats import value as permanent_value
+        inherit_printed(source, entity, state=r.state, permanent_stats=permanent_value(effect.card))
     if material is None and effect.mode == 'current':
         copy_current_stored_state(r.state,source,entity)
         if type(effect.card) is MinionReference:
@@ -1002,6 +1009,9 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
             refresh_entity(entity)
     from .lifecycle import apply_summon_stats
     from .native_stat_gains import seed
+    if permanent_stats is not None:
+        from .permanent_minion_stats import imprint
+        imprint(r.state,entity,permanent_stats,effect.source_id)
     seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state, entity, effect.stats)
     if effect.cost is not None:
@@ -1105,9 +1115,10 @@ def discard_card(r, effect, *, deathrattle_memory=None):
     if entity is None:
         return
     from .allocation_facts import SourceAllocationFact
+    from .permanent_minion_stats import value as permanent_value
     capture=(SourceAllocationFact.capture(r.state,entity),entity.hand_entry_id,
         SourceAllocationFact.capture(r.state,r.state.entities.get(effect.source_id)),effect.reveal,
-        entity.components,entity.jade_size,deathrattle_memory)
+        entity.components,entity.jade_size,deathrattle_memory,permanent_value(entity))
     r.move(entity, Zone.GRAVEYARD)
     viewers = (1, 2) if effect.reveal else (entity.controller,)
     for viewer in viewers:

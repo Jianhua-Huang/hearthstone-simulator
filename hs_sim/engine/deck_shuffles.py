@@ -145,17 +145,18 @@ class ShuffleDeckCards(Effect):
         from .zones import AddToDeck,MoveCard,CopyCard
         from .dead_minion_shuffles import ShuffleDeadMinion
         from .growing_weapon_shuffles import ShuffleGrowingWeapon
+        from .permanent_minion_stats import CreateGrowingMinion
         _player(self.player_id);_player(self.actor_id);_source(self.source_id)
         if type(self.entries)is not tuple:raise ValueError('Shuffle entries must be immutable')
         for entry in self.entries:
-            if type(entry)not in(AddToDeck,MoveCard,CopyCard,ShuffleIntoDeck,ShuffleDeadMinion,ShuffleGrowingWeapon):raise ValueError('Shuffle supports only original physical deck insertion primitives')
+            if type(entry)not in(AddToDeck,MoveCard,CopyCard,ShuffleIntoDeck,ShuffleDeadMinion,ShuffleGrowingWeapon,CreateGrowingMinion):raise ValueError('Shuffle supports only original physical deck insertion primitives')
             entry.__post_init__()
             owner=entry.player_id
             if type(entry)is ShuffleIntoDeck:
                 if owner is None:raise ValueError('Grouped physical shuffle requires an explicit recipient')
             elif type(entry)in(MoveCard,CopyCard)and(entry.destination!=Zone.DECK or entry.position!='random'):
                 raise ValueError('Shuffle group requires random deck insertions')
-            elif type(entry)is AddToDeck and entry.position!='random':raise ValueError('Shuffle group cannot hide a positional insertion')
+            elif type(entry)in(AddToDeck,CreateGrowingMinion) and entry.position!='random':raise ValueError('Shuffle group cannot hide a positional insertion')
             if owner!=self.player_id:raise ValueError('Shuffle group changed its declared recipient')
 
 

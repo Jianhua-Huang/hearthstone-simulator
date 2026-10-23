@@ -4,6 +4,7 @@ No hand staging, acquisition, payment, original-card removal or effect loop.
 Only the per-option intrinsic gift travels; selected-only delivery rewards do
 not become grants on the other options. These policies remain CN-calibratable.
 """
+from .permanent_minion_stats import value as permanent_value
 from dataclasses import replace
 from functools import lru_cache
 from types import SimpleNamespace
@@ -92,7 +93,7 @@ def apply_material(r, selection, slot_id, entity):
         from .held_opponent_copies import copy_origin
         entity.copy_origin = copy_origin(source)
         from .jade import inherit_printed
-        inherit_printed(source, entity)
+        inherit_printed(source, entity, state=r.state)
         if copy_mode(r.state, option) == 'current':
             from .zones import copy_current_stored_state
             copy_current_stored_state(r.state, source, entity)
@@ -110,7 +111,7 @@ def apply_material(r, selection, slot_id, entity):
         from .model import Entity, Zone
         inherit_printed(Entity(row.entity_id, row.card_id, row.owner if material.death else row.card.owner,
             row.controller if material.death else row.player_id, Zone.GRAVEYARD,
-            kind=entity.kind, components=row.components, jade_size=row.jade_size), entity)
+            kind=entity.kind, components=row.components, jade_size=row.jade_size), entity, state=r.state, permanent_stats=permanent_value(row))
     apply_discovery_intrinsics(r, option, entity, selection.discovery.result.choice.source_id)
 
 

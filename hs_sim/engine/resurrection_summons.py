@@ -93,7 +93,7 @@ def create_body(r,material,player_id,position):
     entity = r.create_entity(player_id,material.card_id,Zone.BOARD,position,
         components=material.death.components,entry_herald_count=material.entry_herald_count)
     from .jade import inherit_printed
-    inherit_printed(material.death, entity)
+    inherit_printed(material.death, entity, state=r.state)
     return entity
 
 

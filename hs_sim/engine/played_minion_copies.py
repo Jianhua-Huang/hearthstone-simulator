@@ -7,7 +7,7 @@ overflow and publication remain the ordinary CopyCard operation.
 from dataclasses import dataclass
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
-from .model import CardType, Entity, Zone, _components, _int
+from .model import CardType, Entity, SummonStats, Zone, _components, _int
 
 
 @dataclass(frozen=True)
@@ -18,6 +18,7 @@ class PlayedMinionCopyMaterial:
     jade_size: int | None
     turn: int
     action: int
+    permanent_stats: SummonStats | None = None
 
     def __post_init__(self):
         for key in ('play_id', 'turn'): _int(getattr(self, key), 'played copy '+key, 1)
@@ -28,6 +29,8 @@ class PlayedMinionCopyMaterial:
         if (self.source.kind, self.source.zone) != (CardType.MINION, Zone.HAND):
             raise ValueError('Played base copy requires the original submitted hand minion')
         _components(self.components)
+        from .permanent_minion_stats import validate_value
+        validate_value(self.permanent_stats)
         if self.jade_size is not None:
             _int(self.jade_size, 'played innate Jade size', 1)
             if self.jade_size > 30 or self.components:
@@ -36,8 +39,9 @@ class PlayedMinionCopyMaterial:
     @classmethod
     def capture(cls, state, source, play_id):
         if source.kind != CardType.MINION: return None
+        from .permanent_minion_stats import value
         return cls(play_id, SourceAllocationFact.capture(state, source),
-            source.components, source.jade_size, state.turn, state.action_number)
+            source.components, source.jade_size, state.turn, state.action_number,value(source))
 
     def entity(self):
         s = self.source
@@ -90,6 +94,7 @@ def from_dict(value):
     row = _row(value, PlayedMinionCopyMaterial)
     row['source'] = allocation_from_dict(row['source'])
     row['components'] = tuple(_list(row['components'], 'original played composition'))
+    row['permanent_stats']=None if row['permanent_stats']is None else SummonStats(**_row(row['permanent_stats'],SummonStats))
     return PlayedMinionCopyMaterial(**row)
 
 

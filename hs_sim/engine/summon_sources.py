@@ -286,7 +286,7 @@ def resurrect_minion(r, effect):
                              effect.position, components=record.components)
     entity.origin_entity_id = record.entity_id
     from .jade import inherit_printed
-    inherit_printed(record, entity)
+    inherit_printed(record, entity, state=r.state)
     from .lifecycle import apply_summon_stats
     apply_summon_stats(r.state, entity, effect.stats)
     history = ResurrectionRecord(len(r.state.resurrection_history)+1,
@@ -492,7 +492,7 @@ def copy_stored_minion(r, effect):
     from .held_opponent_copies import copy_origin
     entity.copy_origin = copy_origin(source)
     from .jade import inherit_printed
-    inherit_printed(source, entity)
+    inherit_printed(source, entity, state=r.state)
     if effect.mode == 'current':
         entity.base_attack, entity.base_health, entity.base_cost = source.base_attack, source.base_health, source.base_cost
         entity.damage, entity.corpse_value = source.damage, source.corpse_value

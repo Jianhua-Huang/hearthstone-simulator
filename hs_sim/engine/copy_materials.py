@@ -166,8 +166,14 @@ class CopyEntryMaterial:
     minion_grant:CreatedMinionGrant|None=None
     grant_source_id:int|None=None
     stored_components:tuple[str,...]=()
+    permanent_stats:SummonStats|None=None
 
     def __post_init__(self):
+        from .permanent_minion_stats import validate_value
+        validate_value(self.permanent_stats)
+        if self.local is not None:
+            from .permanent_minion_stats import value
+            if value(self.local)!=self.permanent_stats:raise ValueError('Current copy lost its original permanent base')
         if (type(self.stored_components)is not tuple or any(type(x)is not str or not x for x in self.stored_components)
                 or self.stored_components and (self.profile not in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy') or self.mode!='current')):
             raise ValueError('Stored composition requires its current physical minion recipe')
@@ -247,9 +253,11 @@ class CopyEntryMaterial:
             entry_count=herald_count(state,player_id)
         local=CopyLocalState.capture(source)if mode=='current'else None
         if profile in ('discard_copy','discard_summon_copy')and local is not None:local=replace(local,hand_lifetime=None)
+        from .permanent_minion_stats import value as permanent_value
         result=cls(source.card_id,SourceAllocationFact.capture(state,source),profile,mode,state.turn,state.action_number,
             state.next_attachment_id,local,stats,entry_count,source.jade_size,discard,
-            source.dormancy is not None and profile in ('board_copy','remembered_copy') and mode == 'current')
+            source.dormancy is not None and profile in ('board_copy','remembered_copy') and mode == 'current',
+            permanent_stats=permanent_value(source))
         if on_summon is not None:result=replace(result,on_summon=on_summon)
         if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
         if profile in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy')and mode=='current':result=replace(result,stored_components=source.components)
@@ -377,6 +385,8 @@ def apply(r,material,entity):
     if material.jade_size is not None:
         from .jade import imprint
         imprint(entity, material.jade_size)
+    from .permanent_minion_stats import imprint
+    imprint(r.state,entity,material.permanent_stats,material.origin.entity_id)
     if material.mode=='current':
         local=material.local
         if material.profile in ('board_copy','remembered_copy') and not material.dormant_entry:entity.dormancy=None
@@ -454,6 +464,7 @@ def from_dict(cls,value):
         row['origin']=allocation_from_dict(row['origin'])
         row['local']=None if row['local']is None else from_dict(CopyLocalState,row['local'])
         row['stats']=None if row['stats']is None else SummonStats(**_row(row['stats'],SummonStats))
+        row['permanent_stats']=None if row['permanent_stats']is None else SummonStats(**_row(row['permanent_stats'],SummonStats))
         if row['minion_grant'] is not None:
             from .model import Keyword
             grant=dict(_row(row['minion_grant'],CreatedMinionGrant));grant['keywords']=tuple(Keyword(k)for k in grant['keywords'])
@@ -464,6 +475,7 @@ def from_dict(cls,value):
             row['discard']['card']=allocation_from_dict(row['discard']['card'])
             row['discard']['source']=allocation_from_dict(row['discard']['source'])
             row['discard']['components']=tuple(_list(row['discard']['components'],'discard original components'))
+            row['discard']['permanent_stats']=None if row['discard']['permanent_stats']is None else SummonStats(**_row(row['discard']['permanent_stats'],SummonStats))
             row['discard']=DiscardRecord(**row['discard'])
     return cls(**row)
 

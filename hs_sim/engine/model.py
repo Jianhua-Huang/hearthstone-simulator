@@ -999,6 +999,15 @@ class Enchantment:
     hand_discount_boundary: str = 'turn_started'
 
     def __post_init__(self) -> None:
+        if self.label == 'permanent_minion_stats':
+            _int(self.set_attack, 'permanent printed Attack', 0)
+            _int(self.set_health, 'permanent printed Health', 1)
+            if self.remove_on_silence:
+                raise ValueError('Permanent printed minion stats survive ordinary silence')
+            allowed = {'id','source_id','set_attack','set_health','remove_on_silence','label'}
+            for item in self.__dataclass_fields__.values():
+                if item.name not in allowed and getattr(self,item.name)!=item.default:
+                    raise ValueError('Permanent printed minion stats are an independent base layer')
         if self.display_name is not None:
             _name(self.display_name, 'current minion name')
             if len(self.display_name) > 256 or self.label != 'minion_name' or self.remove_on_silence is not True:
@@ -12201,6 +12210,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_invoke_state(state, registry)
     from .jade import validate_state as validate_jade_state
     validate_jade_state(state, registry)
+    from .permanent_minion_stats import validate_carrier as validate_permanent_carrier
+    for entity in state.entities.values():validate_permanent_carrier(entity)
     from .cthun import validate_state as validate_cthun_state
     validate_cthun_state(state, registry)
     from .minion_families import validate_state as validate_minion_families

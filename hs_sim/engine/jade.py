@@ -85,10 +85,13 @@ def initialize_instance(entity, registry):
         imprint(entity, STARTS[family.forms.index(entity.card_id)])
 
 
-def inherit_printed(source, destination):
+def inherit_printed(source, destination, *, state=None, permanent_stats=None):
     """A normal copy/revival inherits its original physical size, not current growth."""
     if source.card_id == destination.card_id and source.jade_size is not None:
         imprint(destination, source.jade_size)
+    from .permanent_minion_stats import inherit
+    if source.card_id == destination.card_id:
+        inherit(state,source,destination,permanent_stats)
     from .carved_spells import inherit_weapon_material
     inherit_weapon_material(source,destination)
 
@@ -98,10 +101,11 @@ def printed_definition(registry, carrier):
     from .carved_spells import weapon_material
     weapon=weapon_material(carrier)
     if weapon is not None:return replace(d,cost=registry.card(weapon[1]).cost)
-    if carrier.jade_size is None:
-        return d
-    return replace(d, attack=carrier.jade_size, health=carrier.jade_size,
-                   cost=min(10, carrier.jade_size))
+    if carrier.jade_size is not None:
+        d=replace(d,attack=carrier.jade_size,health=carrier.jade_size,cost=min(10,carrier.jade_size))
+    from .permanent_minion_stats import value
+    stats=value(carrier)
+    return d if stats is None else replace(d,attack=stats.attack,health=stats.health)
 
 
 def jade_count(state, player_id):

@@ -240,7 +240,8 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
 
 
 def reset_to_definition(state, entity, definition, registry=None, *, components=None, preserve_jade=False, preserve_cthun=False, preserve_weapon_spell=False):
-    bases=[e for e in entity.enchantments if e.minion_base_stats is not None] if entity.card_id==definition.id else []
+    bases=[e for e in entity.enchantments if e.minion_base_stats is not None or
+           preserve_jade and e.label=='permanent_minion_stats'] if entity.card_id==definition.id else []
     jade_size = entity.jade_size if preserve_jade and entity.card_id == definition.id else None
     from .carved_spells import weapon_material,restore_weapon_material
     weapon_spell=weapon_material(entity)if preserve_weapon_spell and entity.card_id==definition.id else None

@@ -98,6 +98,8 @@ def seed_entry(r, material, entity):
             for a in entity.abilities]
     else:
         row = r.state.discard_history[material.discard_id-1]
+        from .permanent_minion_stats import imprint as imprint_permanent
+        imprint_permanent(r.state,entity,row.permanent_stats,row.entity_id)
         if row.jade_size is not None:
             from .jade import imprint
             imprint(entity, row.jade_size)

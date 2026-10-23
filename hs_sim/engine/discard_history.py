@@ -7,7 +7,7 @@ from .hand_capacity import hand_capacity
 from dataclasses import dataclass
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
-from .model import AbilityInstance, CardType, Event, Zone, _int, _bool, _optional_id
+from .model import AbilityInstance, CardType, Event, SummonStats, Zone, _int, _bool, _optional_id
 
 
 @dataclass(frozen=True)
@@ -23,6 +23,7 @@ class DiscardRecord:
     reveal: bool
     components: tuple[str, ...] = ()
     jade_size: int | None = None
+    permanent_stats: SummonStats | None = None
 
     def __post_init__(self):
         for name in ('id','player_id','turn','event_sequence','hand_entry_id'):
@@ -41,7 +42,9 @@ class DiscardRecord:
         if type(self.components) is not tuple or any(type(cid) is not str or not cid for cid in self.components):
             raise ValueError('Discard base material requires ordered component identities')
         if self.jade_size is not None:_int(self.jade_size,'discard innate Jade size',0)
-        if self.kind != CardType.MINION and (self.components or self.jade_size is not None):
+        from .permanent_minion_stats import validate_value
+        validate_value(self.permanent_stats)
+        if self.kind != CardType.MINION and (self.components or self.jade_size is not None or self.permanent_stats is not None):
             raise ValueError('Only discarded minions carry innate minion material')
 
     @property
@@ -135,11 +138,11 @@ def validate_base_copy(state,registry,row):
 
 def commit(r,event,capture):
     """Publish once after actual HAND -> GRAVEYARD, before listeners capture."""
-    if type(capture) is not tuple or len(capture)!=7:raise ValueError('Discard publication needs its complete original capture')
-    card,entry_id,source,reveal,components,jade_size,memory=capture
+    if type(capture) is not tuple or len(capture)!=8:raise ValueError('Discard publication needs its complete original capture')
+    card,entry_id,source,reveal,components,jade_size,memory,permanent_stats=capture
     validate_state(r.state,r.registry)
     row=DiscardRecord(r.state.next_discard_id,event.player_id,r.state.turn,r.state.action_number,
-        event.sequence,card,entry_id,source,reveal,components,jade_size)
+        event.sequence,card,entry_id,source,reveal,components,jade_size,permanent_stats)
     _validate_event(row,event);entity=r.state.entities.get(row.entity_id)
     if (event.sequence!=len(r.game._events)+1 or entity is None or
             (entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch)!=
@@ -170,6 +173,7 @@ def rows_from_dict(value):
     for item in _list(value['discard_history'],'discard history'):
         row=_row(item,DiscardRecord);row['card']=allocation_from_dict(row['card']);row['source']=allocation_from_dict(row['source'])
         row['components']=tuple(_list(row['components'],'discard original components'))
+        row['permanent_stats']=None if row['permanent_stats']is None else SummonStats(**_row(row['permanent_stats'],SummonStats))
         rows.append(DiscardRecord(**row))
     value['discard_history']=rows
 

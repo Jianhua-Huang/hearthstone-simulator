@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v702'
+CORE_EFFECTS_VERSION = 'core-effects-v703'
 
 
 class Mechanics:
@@ -2332,7 +2332,7 @@ def copy_minion(r, effect):
     from .held_opponent_copies import copy_origin
     entity.copy_origin = copy_origin(source)
     from .jade import inherit_printed
-    inherit_printed(source, entity)
+    inherit_printed(source, entity, state=r.state)
     if effect.mode == 'current':
         if not (effect.allow_dormant and source.dormancy is not None):
             entity.dormancy = None
@@ -2477,7 +2477,7 @@ def reborn_minion(r, effect):
     entity = r.create_entity(player.id, record.card_id, Zone.BOARD, record.position, components=record.components)
     entity.origin_entity_id = record.entity_id
     from .jade import inherit_printed
-    inherit_printed(record, entity)
+    inherit_printed(record, entity, state=r.state)
     full_health = any(a.kind == 'keyword' and a.keyword == Keyword.REBORN and
                       not a.consumed and a.reborn_policy == 'full_health_enchantments'
                       for a in record.abilities)
@@ -3036,6 +3036,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_deck_movement(mechanics)
     from .played_minion_copies import register as register_played_minion_copies
     register_played_minion_copies(mechanics)
+    from .permanent_minion_stats import register as register_permanent_minion_stats
+    register_permanent_minion_stats(mechanics)
     from .discovery_trigger_sources import register as register_discovery_trigger_sources
     register_discovery_trigger_sources(mechanics)
     from .discovered_card_copies import register as register_discovered_card_copies

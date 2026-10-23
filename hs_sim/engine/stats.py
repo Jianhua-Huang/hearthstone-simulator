@@ -10,10 +10,13 @@ from .model import CardType, StatReference, StatRelationLayer, StatRelationSpec,
 def enchantment_stats(entity):
     attack, health = entity.base_attack, entity.base_health
     for enchantment in entity.enchantments:
+        if enchantment.label == 'permanent_minion_stats':
+            attack,health=enchantment.set_attack,enchantment.set_health
+    for enchantment in entity.enchantments:
         if enchantment.minion_base_stats is not None:
             attack,health=enchantment.minion_base_stats.attack,enchantment.minion_base_stats.health
     for enchantment in entity.enchantments:
-        if enchantment.minion_base_stats is not None:continue
+        if enchantment.minion_base_stats is not None or enchantment.label == 'permanent_minion_stats':continue
         attack = (enchantment.set_attack if enchantment.set_attack is not None
                   else attack + enchantment.attack)
         health = (enchantment.set_health if enchantment.set_health is not None

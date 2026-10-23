@@ -124,3 +124,14 @@ ShuffleHand(player_id, source_id=None)仅表达指定一方当前手牌的随机
 多张参与随机的卡统一退休隐藏追踪句柄，无论实际是否换位；否则对手能通过保留句柄获知隐藏排列。确定的0/1张保留原有效追踪。完整顺序一次交给原reorder_zone，在同一请求内完成写入后才捕获反应，没有中间空手或晚到的另一组手牌借位。每个请求发布一次原hand_reordered，带原ShuffleHand来源；内部reorder_zone只增加可选source_id关键字，旧ReorderZone数据形状及默认无来源事件保持。
 
 新Effect按现有机制allowlist进入FrameCodec，待选前后和多个相继请求继续保存原剩余工作及MT状态，不重抽已执行排列。异常整动作回滚包括顺序、附件、知识、历史和RNG；玩家只取得原投影，不暴露全知顺序证明或随机状态。core692/schema551拒绝旧1～550存档，未声明迁移；无新状态或payload字段，观察117/命令13/replay1布局保持。实际随机算法及精确国服窗口仍待校准。
+
+
+## K481 原物理复制的永久印刷属性
+
+[三份真实来源](../data/cards/past-persistent-minion-rewards-v1.json)把逐物理复制的永久成长与整局族增益明确分开。BAR_031和TSC_653的原载体材料由CapturedCardCopyMaterial冻结；CreateGrowingMinion(original, player_id, attack_growth, health_growth, position)只接受完整普通原随从材料及random/bottom位置，交原CopyCard(base,DECK)及copy_physical_card。没有第二套候选、RNG、创建、复制、牌库写入或解释器；原身份、拥有者、原生青玉尺寸/费用、复制来源与容量由原复制器处理。额外永久属性在原创建通知前安装。
+
+内部permanent_minion_stats标记是独立的Enchantment数值基底，仅含两个完整印刷属性，不混成本、期限、磁力、种族、控制、玩家基底程序或普通Buff。它不可被普通沉默移除；旧stats先读取这个物理印刷层，再处理原玩家基底程序和普通修正。普通Buff/伤害/外来能力不因成长新建而继承，不使用当前可见攻击或剩余生命推测印刷值。相同载体的后继复制继续在原永久值上成长，其他同名牌不受影响。
+
+原reset_to_definition的印刷保留路径同时保留这项物理材料，换面路径清除；原基础/当前复制、死亡与复活、丢弃、原手牌使用和招募候选须保留原值。CopyEntryMaterial、DiscardRecord、PlayedMinionCopyMaterial、RecruitCandidateFact分别增加permanent_stats，已有原完整死亡和捕获材料仍用原附件，不重复字段。状态没有新GameState/Entity/Player成员，也没有新的玩家DTO字段。引用、分配、帧、回放、回滚、控制、隐藏信息与实际查询仍属于原公共层。
+
+历史[实际复制载体报告](https://www.reddit.com/r/hearthstone/comments/y5ed0a/)及[玩家沉默报告](https://www.reddit.com/r/hearthstone/comments/uiamxb/)支持这里采用的物理基础复制/沉默政策；它们不确认当前国服37.0全部行为。普通非融合载体之外的组合/打造来源仍报未支持，不能丢组成或当白板。精确接受窗、当前客户端对应规则、所有可达材料与正式池仍待M0/M6/M7，内部一致性验证不认证未签名存档的历史真伪。运行版本、实际结果及下一项仅在原两份台账维护。
