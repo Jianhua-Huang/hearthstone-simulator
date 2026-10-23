@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v684'
+CORE_EFFECTS_VERSION = 'core-effects-v685'
 
 
 class Mechanics:
@@ -2931,6 +2931,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_assemble_health_prefixes(mechanics)
     from .assemble_reveals import register as register_assemble_reveals
     register_assemble_reveals(mechanics)
+    from .adjacent_stat_gains import register as register_adjacent_stat_gains
+    register_adjacent_stat_gains(mechanics)
     from .spell_sequences import register as register_spell_sequences
     register_spell_sequences(mechanics)
     from .spell_target_sequences import register as register_spell_target_sequences

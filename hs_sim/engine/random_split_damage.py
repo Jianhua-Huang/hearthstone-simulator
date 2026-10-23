@@ -8,7 +8,7 @@ from dataclasses import asdict, dataclass, fields, replace
 import json, random
 from .effects import Damage, Heal, Effect, RequestChoice, _integer, _player
 from .errors import ResolutionError
-from .model import (AbilityInstance, CardType, DamageKind, GameState, HealingKind, HealthFlow, Keyword,
+from .model import (AbilityInstance, BoardPresenceReference, CardType, DamageKind, GameState, HealingKind, HealthFlow, Keyword,
     PlayerEffect, SpellCastRecord, SpellSchool, Zone, _name)
 from .resource_operations import SourceAllocationFact
 
@@ -21,11 +21,17 @@ HEALING_PROFILE = 'spell_healing_immune_base_units_live_health_rules'
 class SplitDamageScope:
     relation: str = 'enemy'
     kinds: tuple[CardType, ...] = (CardType.HERO, CardType.MINION)
+    exclude_source: BoardPresenceReference | None = None
     def __post_init__(self):
         if self.relation not in ('any', 'friendly', 'enemy'): raise ValueError('Unsupported split relation')
         if (type(self.kinds) is not tuple or not self.kinds or len(set(self.kinds)) != len(self.kinds) or
                 any(type(k) is not CardType or k not in (CardType.HERO, CardType.MINION) for k in self.kinds)):
             raise ValueError('Split candidates require unique character kinds')
+        if self.exclude_source is not None:
+            if (type(self.exclude_source) is not BoardPresenceReference or
+                    self.relation != 'any' or self.kinds != (CardType.MINION,)):
+                raise ValueError('Original source exclusion requires all-other-minion split scope')
+            self.exclude_source.__post_init__()
 
 @dataclass(frozen=True)
 class RandomSplitDamage(Effect):
@@ -66,6 +72,10 @@ class RandomSplitDamage(Effect):
         else: raise ValueError('Unsupported whole split profile')
         if self.profile != DELAYED_SPELL_PROFILE and self.player_effect is not None:
             raise ValueError('Only a delayed Sigil split may carry its original player source')
+        if self.scope.exclude_source is not None and (
+                self.profile != NON_SPELL_PROFILE or self.kind != DamageKind.MINION_ABILITY or
+                self.scope.exclude_source.entity_id != self.source_id):
+            raise ValueError('Excluded split residence must be its original native minion source')
         for name in ('on_result','on_complete'):
             if getattr(self,name) is not None: _name(getattr(self,name),'split callback')
 
@@ -352,9 +362,13 @@ def split_candidates(state,registry,player_id,scope, *, injured_only=False):
     _player(player_id)
     if type(scope) is not SplitDamageScope: raise ValueError('Expected typed split scope')
     scope.__post_init__(); rows=[]
+    from .board_presence import resolve_board_presence
+    excluded = resolve_board_presence(state, scope.exclude_source) if scope.exclude_source is not None else None
     for p in state.players.values():
         if scope.relation=='friendly' and p.id!=player_id or scope.relation=='enemy' and p.id==player_id: continue
         for entity_id in (p.hero_id,*p.board):
+            if excluded is not None and entity_id == excluded.id:
+                continue
             e=state.entities[entity_id]
             if (e.kind not in scope.kinds or not e.active or not e.is_character or e.doomed or e.health<=0 or
                     e.zone!=(Zone.HERO if e.kind==CardType.HERO else Zone.BOARD)): continue
@@ -767,7 +781,10 @@ def rows_from_dict(value):
         row=_row(v,SourceAllocationFact);row['kind']=CardType(row['kind']);row['zone']=Zone(row['zone'])
         return SourceAllocationFact(**row)
     def scope(v):
-        row=_row(v,SplitDamageScope);row['kinds']=tuple(CardType(k) for k in row['kinds']);return SplitDamageScope(**row)
+        row=_row(v,SplitDamageScope);row['kinds']=tuple(CardType(k) for k in row['kinds'])
+        if row['exclude_source'] is not None:
+            row['exclude_source']=BoardPresenceReference(**_row(row['exclude_source'],BoardPresenceReference))
+        return SplitDamageScope(**row)
     def selection(v):
         row=_row(v,SplitSelection)
         def candidate(v):
