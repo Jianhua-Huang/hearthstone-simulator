@@ -224,7 +224,9 @@ class NativeMasterDuskTests(unittest.TestCase):
         self.assertEqual(g.state.entities[target].zone, Zone.GRAVEYARD); self.portable(g); saved = g.snapshot()
         with self.assertRaises(ResolutionError): self.choose(g, 'bad')
         self.assertEqual(g.snapshot(), saved); self.choose(g, 'early')
-        self.assertEqual(g.state.entities[target].zone, Zone.DECK); self.assertEqual(len(g.state.deck_shuffle_history), 1); self.portable(g)
+        self.assertEqual(g.state.entities[target].zone, Zone.DECK); self.assertEqual(len(g.state.deck_shuffle_history), 1)
+        self.assertTrue(any(e.kind == 'effect_skipped' and e.target_id == target and
+            dict(e.data).get('effect') == 'ShuffleDeadMinion' for e in g.events)); self.portable(g)
 
     def test_c2_old_queued_death_cannot_borrow_same_entity_after_redraw_and_second_death(self):
         g = self.game((DUSK, KILL), mode='death'); self.play(g, DUSK); target = self.ninja_ids(g)[0]; self.play(g, KILL, target)
@@ -283,13 +285,21 @@ class NativeMasterDuskTests(unittest.TestCase):
         self.assertTrue(all(r.selected is None for r in g.state.card_summon_history))
         self.assertEqual(g._rng.getstate(), before); self.portable(g)
 
-    def test_e1_full_hand_reward_burns_once_and_releases_completed_quest(self):
+    def test_e1_full_hand_reward_waits_then_delivers_once_and_releases_completed_quest(self):
         g = self.game((QUEST, ONE, ONE, ONE, ONE, FILL)); self.play(g, QUEST)
         for _ in range(4): self.play(g, ONE)
         self.play(g, FILL); self.assertFalse(g.state.players[1].quests)
         self.assertEqual(len(g.state.players[1].hand), 10)
-        rewards = [e for e in g.state.entities.values() if e.card_id == DUSK]
-        self.assertEqual(len(rewards), 1); self.assertEqual(rewards[0].zone, Zone.GRAVEYARD); self.portable(g)
+        row, = g.state.quest_hand_rewards
+        self.assertEqual((row.phase, row.request.instruction.card_id), ('pending', DUSK))
+        self.assertFalse(any(e.card_id == DUSK for e in g.state.entities.values()))
+        self.assertFalse(any(e.kind == 'card_burned' for e in g.events)); self.portable(g)
+        before = g._rng.getstate(); self.play(g, VICTIM)
+        row, = g.state.quest_hand_rewards; reward = g.state.entities[row.delivery.entity_id]
+        self.assertEqual((row.phase, reward.card_id, reward.zone), ('delivered', DUSK, Zone.HAND))
+        self.assertEqual(g._rng.getstate(), before)
+        self.play(g, VICTIM)
+        self.assertEqual(sum(e.card_id == DUSK for e in g.state.entities.values()), 1); self.portable(g)
 
     def test_e2_simultaneous_ninjas_keep_independent_deaths_and_semantic_operations(self):
         g = self.game((DUSK, ALL)); self.play(g, DUSK); targets = set(self.ninja_ids(g)); self.play(g, ALL)

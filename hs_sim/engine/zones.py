@@ -1042,11 +1042,11 @@ def announce_copied_card(r,entity,effect,origin_id,*,notify_hand_entry=True):
             publish_hand_entry(r, entity.hand_entry_id)
 
 
-def copy_current_stored_state(state, source, entity):
+def copy_current_stored_state(state, source, entity, *, retain_ids=False):
     """Existing stored current-copy recipe, independent of recipient allocation."""
     entity.base_attack, entity.base_health, entity.base_cost = source.base_attack, source.base_health, source.base_cost
     entity.damage, entity.durability, entity.corpse_value = source.damage, source.durability, source.corpse_value
-    copy_attachments(state,source,entity,rebind_printed=True)
+    copy_attachments(state,source,entity,rebind_printed=True,retain_ids=retain_ids)
     entity.galakrond_invocations = source.galakrond_invocations
 
 

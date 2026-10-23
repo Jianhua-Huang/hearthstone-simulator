@@ -1,0 +1,484 @@
+{
+  "schema": 1,
+  "batch": "K482-original-minion-zone-transforms",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "CFM_095",
+    "BT_731",
+    "VAC_958"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CFM_095",
+        "dbf_id": 40549,
+        "name": "鼬鼠挖掘工",
+        "name_en": "Weasel Tunneler",
+        "text": "<b>亡语：</b>将本随从洗入你对手的牌库。",
+        "text_en": "<b>Deathrattle:</b> Shuffle this minion into your opponent's deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "542": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "542"
+          }
+        ]
+      },
+      "record_sha256": "27b53a467861bb6db6097356a58030a3e66b45dfcc582437e891fe4f356fe60f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CFM_095",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_731",
+        "dbf_id": 57191,
+        "name": "传染孢子",
+        "name_en": "Infectious Sporeling",
+        "text": "在对随从造成伤害后，将其变为\n传染孢子。",
+        "text_en": "After this damages a minion, turn it into an Infectious_Sporeling.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "591cba11bd4761a42a9019a7deadd580565246c14e781c0407f2fa497b2ce262",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BT_731",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_958",
+        "dbf_id": 108950,
+        "name": "进化融合怪",
+        "name_en": "Adaptive Amalgam",
+        "text": "<i>本随从拥有全部随从类型。</i><b>亡语：</b>将本随从洗入你的牌库。保留所有附加效果。",
+        "text_en": "[x]<i>This has all minion types.</i>\n<b>Deathrattle:</b> Shuffle this\ninto your deck. It keeps\nany enchantments.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 12,
+          "CARDRACE": 26,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "542": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "542"
+          }
+        ]
+      },
+      "record_sha256": "926534ebff9e5ca0ca12a5ea9b4c283a5ec8eb79380660e477e95534b8b61403",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "VAC_958",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "all"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "CFM_095",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 40549,
+        "collectible": 1,
+        "slug": "40549-weasel-tunneler",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 4,
+        "artistName": "Andrew Hou",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "鼬鼠挖掘工",
+        "text": "<b>亡语：</b>将本随从洗入你对手的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d808f1808a9caeed0159b051370422c55679507335739340c34281febea5c573.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fbfea828b4223380c8d7798762c744d25f2950ab1710bd6e7f10b601bc9f5933.png",
+        "flavorText": "就是因为他，加基森银行才花了大笔钱来采购钢筋地板。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/650b935b32b88f3c274d92b62d363ea76ad06be80c033b774ff4dbc792dac4e4.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_095",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 40549,
+        "collectible": 1,
+        "slug": "40549-weasel-tunneler",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 4,
+        "artistName": "Andrew Hou",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Weasel Tunneler",
+        "text": "<b>Deathrattle:</b> Shuffle this minion into your opponent's deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50663bc28c17c3632fef24e46511f6ca0dabb3a02ac04ea93a8e7304c70e26b1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/71287d4c22e8f8819762d04b64f10c2862988b493249077f5f22374bd33a9ae1.png",
+        "flavorText": "He's the reason the First Bank of Gadgetzan has steel floors.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/650b935b32b88f3c274d92b62d363ea76ad06be80c033b774ff4dbc792dac4e4.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_731",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 57191,
+        "collectible": 1,
+        "slug": "57191-infectious-sporeling",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "传染孢子",
+        "text": "在对随从造成伤害后，将其变为 传染孢子。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7002652dba848ecf903345aa5e93be503b643156d4cc6d20f4834a7a3193df61.png",
+        "imageGold": "",
+        "flavorText": "无防护措施的活动极易造成传染，请不要模仿。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae92fbef51e348b03103c9ee62c751ab34340b2177039cfa451205c31636e172.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_731",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 57191,
+        "collectible": 1,
+        "slug": "57191-infectious-sporeling",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Infectious Sporeling",
+        "text": "After this damages a minion, turn it into an Infectious Sporeling.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e98b41f8cc9434faabeb11e8ee96fc18f5f5012093598891d2164415dfce840.png",
+        "imageGold": "",
+        "flavorText": "\"The best thing about being me—there’s so many 'me's.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae92fbef51e348b03103c9ee62c751ab34340b2177039cfa451205c31636e172.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_958",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 108950,
+        "collectible": 1,
+        "slug": "108950-adaptive-amalgam",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 26,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Slawomir Maniak",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "进化融合怪",
+        "text": "<i>本随从拥有全部随从类型。</i><b>亡语：</b>将本随从洗入你的牌库。保留所有附加效果。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/613e0f9d30052901ad8084824497264404fa387979971cfde204ff0217c5917f.png",
+        "imageGold": "",
+        "flavorText": "目前人类只探索了海洋的5%。所以说这东西真实存在的几率高达95%。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ee68c56a4fecc186128ec87b032db4a9679fa0f6e658188be04004cb02cfe26.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_958",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 108950,
+        "collectible": 1,
+        "slug": "108950-adaptive-amalgam",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 26,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Slawomir Maniak",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Adaptive Amalgam",
+        "text": "<i>This has all minion types.</i> <b>Deathrattle:</b> Shuffle this into your deck. It keeps any enchantments.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00b3a5763ce4ce77477d91282b6f2ca5b8ac9bb387fe7ba45d5fd312a725905b.png",
+        "imageGold": "",
+        "flavorText": "We've only explored 5% of the ocean. So there's like a 95% chance this is accurate.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7ee68c56a4fecc186128ec87b032db4a9679fa0f6e658188be04004cb02cfe26.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": "Original physical self-shuffle, current enchantment material for Amalgam, and original post-damage minion transform through shared writers. Exact CN windows/retained-use-state remain uncalibrated.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

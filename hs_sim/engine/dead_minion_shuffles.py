@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from .allocation_facts import SourceAllocationFact, validate_allocation
 from .effects import Effect, _integer, _player, _source
 from .errors import ResolutionError
-from .lifecycle import reset_to_definition
 from .model import CardType, DeathRecord, Zone
 
 
@@ -44,29 +43,9 @@ def validate_request(state, registry, request):
 
 
 def shuffle_dead_minion(r, request):
-    try:
-        validate_request(r.state, r.registry, request)
-    except ValueError as exc:
-        raise ResolutionError(str(exc)) from exc
-    fact = request.card
-    entity = r.state.entities[fact.entity_id]
-    if (entity.card_id, entity.kind, entity.owner, entity.controller, entity.zone,
-            entity.zone_epoch, entity.entered_order) != (
-            fact.card_id, fact.kind, fact.owner, fact.controller, fact.zone, fact.zone_epoch, fact.entered_order):
-        r.stale(request, entity.id)
-        return
-    from .deck_capacity import admits, failure
-    if not admits(r.state, request.player_id, entity):
-        failure(r, request.player_id, entity.card_id, request.source_id, original=fact)
-        return
-    reset_to_definition(r.state, entity, r.registry.card(fact.card_id), r.registry,
-                        preserve_jade=True, preserve_cthun=True)
-    player = r.player(request.player_id)
-    position = r.game._rng.randrange(len(player.deck) + 1)
-    r.move(entity, Zone.DECK, position)
-    r.refresh_auras()
-    r.emit('card_shuffled', source_id=request.source_id, target_id=entity.id,
-           player_id=player.id, position=position, _deck_insertion_mode='random')
+    from .original_minion_shuffles import ShuffleOriginalMinion,shuffle
+    request.__post_init__()
+    return shuffle(r,ShuffleOriginalMinion(request.card,request.player_id,request.source_id,request.death),reported_request=request)
 
 
 def register(mechanics):

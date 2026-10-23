@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v703'
+CORE_EFFECTS_VERSION = 'core-effects-v704'
 
 
 class Mechanics:
@@ -583,9 +583,13 @@ class Resolution:
         return entity
 
     def move(self, entity, zone, position=None, *, hand_entry_reason='move', hand_entry_source_id=None, controller_id=None, draw_id=None):
+        minion_deck_transfer=(zone==Zone.DECK and entity.zone in(Zone.BOARD,Zone.GRAVEYARD)and
+            entity.kind==CardType.MINION and type(controller_id)is int and controller_id in(1,2))
         if zone == Zone.DECK:
+            if controller_id is not None and not minion_deck_transfer:
+                raise ResolutionError('Deck controller transfer requires its original board/dead minion')
             from .deck_capacity import require_room
-            require_room(self.state, entity.controller, entity)
+            require_room(self.state, controller_id if minion_deck_transfer else entity.controller, entity)
         if entity.kind == CardType.HERO_POWER and zone not in (Zone.HERO_POWER, Zone.SETASIDE):
             from .temporary_hero_powers import cancel
             cancel(self, entity.id)
@@ -609,7 +613,7 @@ class Resolution:
             initial_minion=previous_zone==Zone.PLAY and zone==Zone.BOARD and entity.kind==CardType.MINION
             weapon_transfer=(previous_zone==zone==Zone.WEAPON and entity.kind==CardType.WEAPON
                 and controller_id!=entity.controller and self.player(entity.controller).weapon_id==entity.id)
-            if type(controller_id) is not int or controller_id not in (1,2) or not (initial_minion or weapon_transfer or drawn_spell_transfer):
+            if type(controller_id) is not int or controller_id not in (1,2) or not (initial_minion or weapon_transfer or drawn_spell_transfer or minion_deck_transfer):
                 raise ResolutionError('Controller movement requires its exact pending minion, weapon or drawn spell transfer')
         if zone == Zone.DECK:
             from .prepare import enter_deck
@@ -3038,6 +3042,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_played_minion_copies(mechanics)
     from .permanent_minion_stats import register as register_permanent_minion_stats
     register_permanent_minion_stats(mechanics)
+    from .original_minion_shuffles import register as register_original_minion_shuffles
+    register_original_minion_shuffles(mechanics)
     from .discovery_trigger_sources import register as register_discovery_trigger_sources
     register_discovery_trigger_sources(mechanics)
     from .discovered_card_copies import register as register_discovered_card_copies

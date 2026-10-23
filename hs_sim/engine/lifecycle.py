@@ -299,7 +299,9 @@ def consume_keyword(entity, keyword):
     refresh_entity(entity)
 
 
-def copy_attachments(state, source, destination, *, rebind_printed=False):
+def copy_attachments(state, source, destination, *, rebind_printed=False, retain_ids=False):
+    if type(retain_ids)is not bool or retain_ids and (source.id,source.card_id,source.kind)!=(destination.id,destination.card_id,destination.kind):
+        raise ValueError('Retaining attachments requires the same original physical card')
     if any(a.kind == 'defining_hand_source' for a in source.abilities):
         from .errors import ResolutionError
         raise ResolutionError('Copying a defining hand source requires an explicit supported lifecycle policy')
@@ -311,12 +313,12 @@ def copy_attachments(state, source, destination, *, rebind_printed=False):
     copied = tuple(e for e in source.enchantments if e.control_return_player_id is None)
     if not any(e.minion_base_stats is not None for e in copied):
         copied=(*tuple(e for e in destination.enchantments if e.minion_base_stats is not None),*copied)
-    enchantment_ids = {e.id: attachment_id(state) for e in copied}
+    enchantment_ids = {e.id: e.id if retain_ids else attachment_id(state) for e in copied}
     destination.enchantments = [replace(e, id=enchantment_ids[e.id]) for e in copied]
     from .prepare import copy_state
     copy_state(source, destination, enchantment_ids)
     # Keep allocation order; local references are rewritten only after all IDs exist.
-    ability_ids = {a.id: attachment_id(state) for a in source.abilities}
+    ability_ids = {a.id: a.id if retain_ids else attachment_id(state) for a in source.abilities}
     destination.abilities = []
     for ability in source.abilities:
         permit = ability.printed_attack_permit
