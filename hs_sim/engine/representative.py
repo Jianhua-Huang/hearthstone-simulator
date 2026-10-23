@@ -5,6 +5,7 @@ tags/text never create behavior automatically. Pinned record hashes reject a
 changed data version until this adapter is deliberately reviewed and versioned.
 """
 from __future__ import annotations
+from .hero_power_values import armor_effect as hero_power_armor
 from .summon_quantities import card_summon, SummonCause
 
 from .model import CardAbilityCondition, CostAuraSpec
@@ -1314,10 +1315,10 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
                                    for p in c.state.players.values() for i in p.board))],
         "m2.fireblast": lambda c: [Damage(c.target_id, 1, c.source_id, DamageKind.HERO_POWER)],
         "m2.dagger": lambda c: [EquipWeapon(c.player_id, 'CS2_082')],
-        "m2.armor_up": lambda c: [GainArmor(c.player_id, 2)],
+        "m2.armor_up": lambda c: [hero_power_armor(c, 2, registry)],
         "m2.reinforce": lambda c: [card_summon(c,c.player_id, 'CS2_101t')],
         "m2.shapeshift": lambda c: [Buff(c.state.players[c.player_id].hero_id, attack=1,
-                                         source_id=c.source_id, expires_turn=c.state.turn), GainArmor(c.player_id, 1)],
+                                         source_id=c.source_id, expires_turn=c.state.turn), hero_power_armor(c, 1, registry)],
     }
     for behavior_id, handler in behaviors.items():
         registry.register_behavior(behavior_id, handler)

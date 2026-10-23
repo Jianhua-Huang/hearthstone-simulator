@@ -7853,8 +7853,16 @@ class HeroPowerRecord:
     payloads: tuple[AbilityInstance, ...] = ()
     repeat_plan: HeroPowerRepeatPlan = field(default_factory=HeroPowerRepeatPlan)
     native_target: object | None = None
+    value_plan: object | None = None
 
     def __post_init__(self):
+        if self.value_plan is not None:
+            from .hero_power_values import HeroPowerValuePlan
+            if type(self.value_plan) is not HeroPowerValuePlan:
+                raise ValueError('Hero power values require their typed original acceptance plan')
+            self.value_plan.__post_init__()
+            if (self.value_plan.player_id, self.value_plan.turn) != (self.player_id, self.turn) or self.failure is not None:
+                raise ValueError('Hero power value plan borrowed another activation')
         from .native_target_acceptance import validate_model_selection
         validate_model_selection(self.native_target,'hero_power',self.source_id,self.player_id,self.target_id)
         if self.native_target is not None and self.origin!='manual':
@@ -8763,6 +8771,12 @@ class PlayerEffectSpec:
     next_spell_cost_reduction: int = 0
 
     def __post_init__(self):
+        if self.kind in ('hero_power_armor', 'next_power_damage') and any((
+                self.duration, self.tick_event, self.on_expire, self.triggers, self.spell_damage, self.auras,
+                self.deathrattle_repeats, self.end_turn_repeats, self.producer_quantities, self.keyword_auras,
+                self.target_policy, self.allowed_card_types, self.next_turn_end, self.opponent_spell_cost,
+                self.spell_effects, self.capture_health_source, self.stored_spell, self.next_spell_cost_reduction)):
+            raise ValueError('Personal skill values require one independent finite player program')
         _int(self.next_spell_cost_reduction,'native next-spell price reduction',0)
         if (self.kind=='next_spell_bonus')!=(self.next_spell_cost_reduction>0):
             raise ValueError('Paired native spell reduction requires its explicit independent kind')
@@ -8850,9 +8864,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('ritual', 'persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus'):
+        if self.kind not in ('ritual', 'persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus'):
+        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:
@@ -11585,7 +11599,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_cost_binding(state, registry, player.id, effect)
             from .hand_inspection import validate_program as validate_hand_investigation
             validate_hand_investigation(state, registry, player.id, effect)
-            if spec.kind in ('turn_rule','next_spell_damage','next_healing_damage') and effect.created_turn != state.turn:
+            if spec.kind in ('turn_rule','next_spell_damage','next_healing_damage','next_power_damage') and effect.created_turn != state.turn:
                 raise ValueError('Current-turn target rule cannot survive into another actual turn')
             from .repeat_source_conditions import validate_source_declaration
             for repeat in spec.end_turn_repeats:

@@ -107,3 +107,16 @@ hero_power_discovery.py增加冻结HeroPowerDiscoveryProfile，按真实来源�
 RequestChoice、原发现菜单/记录/材料及提交恢复继续共用。旧hand_playable限制只对有完整typed原技能菜单的发现有限放行；普通裸HeroPower或混合未签名菜单仍拒绝。InstallDiscoveredHeroPower直接执行拒绝，只能由原已提交选择的MaterializeDiscoveredCard交付。原install_hero_power负责当前主槽退休和新物理身份，额外槽及玩家真实使用历史保持；菜单接受后来源或主槽合法变化不重抽，实际交付替换届时主槽。新技能不入手、不受手牌容量或安装场地空位限制，后续真实使用仍沿原费用、次数、目标与召唤空间规则。
 
 完成收据保存真实HERO_POWER分配，沿既有hero_power_replaced验证同步物理窗口，不伪造普通card_created。技能发现沿现有genuine card-discovery账本及完成通知登记，其他精确国服计数消费者仍待校准。起源之石仅对该受益者类型跳过其他选项和耐久消费，依据[开发者原答复](https://www.reddit.com/r/hearthstone/comments/1l4xksa/comment/mwcxckz/?context=3)；其他普通发现路径保持。无新玩家/实体/状态字段或第二套付款、安装、伤害、选择执行器。[完整芬利来源与政策](../data/cards/past-basic-hero-power-discovery-v1.json)及实际验收、版本和下一项仍由两份原台账登记。
+
+
+## K472 玩家拥有的技能数值程序
+
+[两真实消费者](../data/cards/past-personal-hero-power-values-v1.json)使用原PlayerEffect账户。HeroPowerValueProfile只允许正整数及严格独立的hero_power_armor/next_power_damage声明，禁止混入期限、法术伤害、光环或其他附件字段；配置进入非空注册指纹，默认无profile的注册表指纹保持。没有新Player字段或卡牌私有计数器。
+
+整局护甲程序由来源战吼/亡语授予。技能主体仅对自己实际GainArmor输出使用armor_effect；存在配置时返回带原技能根身份的GainHeroPowerArmor，校验原活动根后读取当前控制玩家的护甲程序，再交原GainArmor。不放大技能反应里普通法术或其他来源的护甲；没有原护甲输出的技能不创建新主体。基础及升级德鲁伊/战士共用helper，来源离场和更换技能/英雄不删除独立玩家效果。无配置的旧默认局仍直接返回原GainArmor。
+
+下一次本回合技能伤害在成功原根接受时，一次领取该玩家全部待消费程序。HeroPowerValuePlan保存完整原账户before及完整有序claimed；HeroPowerRecord.value_plan必须绑定本人/原回合及成功根，原完成证明重核接受后账户。历史验证拒绝漏领、跨根重复、已领仍存活及未来来源。失败的目标/支付不领取；成功非伤害技能也领取但不凭空伤害；未领实例沿原本回合期限退役，过期实例不能重新引入稳定局面。
+
+真实DamageKind.HERO_POWER包在原健康准备层加领取的数值，保留原数值上限及后续来源/目标层，不使用Spell Damage。原重复主体共享同一根预算，每包使用原领取；新的根不重用旧预算。普通法术、攻击和非原技能伤害保持，原治疗转技能伤害也经过该数值层。待选序列化恢复、clone、回放、晚失败回滚和玩家投影沿原解释器，私有完整计划不进入公开玩家DTO。新增一个Effect和一个payload、仅一个HeroPowerRecord字段，schema554拒旧1～553。
+
+原战吼/亡语控制者、反应期护甲读取、下一次消费接受窗口、重复/多包及治疗转伤的精确国服37.0规则尚未校准；当前内部验证不能认证其他尚未适配技能主体或正式完整过去域。实际执行、证据与下一项只在两份主台账维护。

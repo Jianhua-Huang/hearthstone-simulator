@@ -945,7 +945,7 @@ def validate_player_effect_view(value, registry, event_kind):
     if value['card_id'] != spec.card_id or value['effect_kind'] != spec.kind:
         raise ValueError('Invalid public player effect definition')
     remaining = value['remaining_turns']
-    if spec.kind in ('turn_rule','next_spell_damage','next_spell_damage_until_cast','next_healing_damage','next_healing_damage_until_used'):
+    if spec.kind in ('turn_rule','next_spell_damage','next_spell_damage_until_cast','next_healing_damage','next_healing_damage_until_used','next_power_damage'):
         if event_kind == 'player_effect_ticked':
             raise ValueError('Current-turn rules do not have countdown ticks')
         if event_kind == 'player_effect_expired':

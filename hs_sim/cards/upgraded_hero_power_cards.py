@@ -9,6 +9,7 @@ from hs_sim.engine.model import (CardDefinition, CardType, DamageKind, EndTurnSp
     HealingKind, Keyword, TargetSpec, TriggerSpec)
 from hs_sim.engine.pools import PoolCard
 from hs_sim.engine.summon_quantities import SummonByCard, SummonCause, SummonEntryMaterial
+from hs_sim.engine.hero_power_values import armor_effect as hero_power_armor
 from hs_sim.targets import TargetValidationError, canonical_digest
 from .basic_hero_roles import TOTEMS
 from .metadata import metadata_from_record
@@ -47,9 +48,9 @@ def register_upgraded_hero_power_cards(registry):
         return (RequestChoice(c.player_id, options, c.source_id),)
     def attack(c, armor=0):
         return (Buff(c.state.players[c.player_id].hero_id, attack=2,
-            source_id=c.source_id, expires_turn=c.state.turn), *(() if not armor else (GainArmor(c.player_id, armor),)))
+            source_id=c.source_id, expires_turn=c.state.turn), *(() if not armor else (hero_power_armor(c, armor, registry),)))
     bodies = {
-        POWERS[0]: lambda c: (GainArmor(c.player_id, 4),),
+        POWERS[0]: lambda c: (hero_power_armor(c, 4, registry),),
         POWERS[1]: totems,
         POWERS[2]: lambda c: (EquipWeapon(c.player_id, DAGGER),),
         POWERS[3]: lambda c: summon(c, (RECRUIT, RECRUIT)),

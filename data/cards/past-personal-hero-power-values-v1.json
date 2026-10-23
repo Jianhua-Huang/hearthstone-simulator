@@ -1,0 +1,1086 @@
+{
+  "schema": 1,
+  "batch": "K472-past-personal-hero-power-values",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ETC_382",
+        "dbf_id": 94218,
+        "name": "自由之魂",
+        "name_en": "Free Spirit",
+        "text": "<b>战吼，亡语：</b>在本局对战中，你的英雄技能多获得1点护甲值。",
+        "text_en": "[x]<b>Battlecry and Deathrattle:</b>\nYour Hero Power gains 1\nmore Armor this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2534": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "59909672ef6b898bb60bd7ec263af11d49f0c0d2e258dbfa7c03420c2179972a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "ETC_382",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TRL_390",
+        "dbf_id": 50381,
+        "name": "大胆的吞火者",
+        "name_en": "Daring Fire-Eater",
+        "text": "<b>战吼：</b>在本回合中，你的下一个英雄技能会额外造成2点伤害。",
+        "text_en": "<b>Battlecry:</b> Your next Hero Power this turn deals 2_more damage.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jesper Ejsing"
+          }
+        ]
+      },
+      "record_sha256": "22a390b4eadc2b67b837f96c359be88aba6a3c50283894e16c37cf1368013fff",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "TRL_390",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "HERO_11bp",
+        "dbf_id": 78162,
+        "name": "食尸鬼冲锋",
+        "name_en": "Ghoul Charge",
+        "text": "<b>英雄技能</b>\n召唤一个1/1并具有<b>冲锋</b>的食尸鬼。它会在回合结束时死亡。",
+        "text_en": "[x]<b>Hero Power</b>\nSummon a 1/1 Ghoul\nwith <b>Charge</b>. It dies at\nend of turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 2,
+          "CLASS": 1,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "UPGRADED_HERO_POWER": 79943
+        },
+        "card_set_id": 2,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2f5e4947580e2c99b16c9a6998cca276e1126a725934c3a507a1e2b7979e12a4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_11bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_10bp",
+        "dbf_id": 60224,
+        "name": "恶魔之爪",
+        "name_en": "Demon Claws",
+        "text": "<b>英雄技能</b>\n在本回合中+$a1\n攻击力。",
+        "text_en": "[x]<b>Hero Power</b>\n+$a1 Attack this turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 14,
+          "CARDTYPE": 10,
+          "UPGRADED_HERO_POWER": 60483
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Virtuos"
+          }
+        ]
+      },
+      "record_sha256": "7f110b01f2446121c77d5580716c63f24338471852fd103391b3c99a692fd0fe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "HERO_10bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_06bp",
+        "dbf_id": 1123,
+        "name": "变形",
+        "name_en": "Shapeshift",
+        "text": "<b>英雄技能</b>\n本回合+$a1攻击力。+$d1护甲值。",
+        "text_en": "<b>Hero Power</b>\n+$a1 Attack this turn.\n+$d1 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2737
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "ece066010b4ff7807e69b67b3f2e2b9f5c7aa697f29665b65aeb87a53dc6e042",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_06bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_05bp",
+        "dbf_id": 229,
+        "name": "稳固射击",
+        "name_en": "Steady Shot",
+        "text": "<b>英雄技能</b>\n对敌方英雄造成$2点伤害。@<b>英雄技能</b>\n造成$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $2 damage to the enemy hero.@<b>Hero Power</b>\nDeal $2 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2738
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "b8799a64c55c2a528dad18ed018665ddbeccaac9216f7687480cc20ad563bc5e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_05bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_08bp",
+        "dbf_id": 807,
+        "name": "火焰冲击",
+        "name_en": "Fireblast",
+        "text": "<b>英雄技能</b>\n造成$1点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $1 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2739
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "47bbed58ec36f0475a76ca3052b1af5368e09ea7f5cf3fd11e4ed2e04c68c2d2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_08bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_04bp",
+        "dbf_id": 472,
+        "name": "援军",
+        "name_en": "Reinforce",
+        "text": "<b>英雄技能</b>\n召唤一个{0}的白银之手新兵。",
+        "text_en": "<b>Hero Power</b>\nSummon a {0} Silver Hand Recruit.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2740
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2b15ba0279015106dec1e96db10dfcc4869f2bd77708c75c18aaf858e83dfd37",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_04bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_09bp",
+        "dbf_id": 479,
+        "name": "次级治疗术",
+        "name_en": "Lesser Heal",
+        "text": "<b>英雄技能</b>\n恢复#2点生命值。",
+        "text_en": "<b>Hero Power</b>\nRestore #2 Health.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 6,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2741
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "f2ad180874d6bff22e4813d68e0014ef6c193ab27993e990dd1232b8bd229f9a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_09bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_03bp",
+        "dbf_id": 730,
+        "name": "匕首精通",
+        "name_en": "Dagger Mastery",
+        "text": "<b>英雄技能</b>\n装备一把1/2的\n匕首。",
+        "text_en": "<b>Hero Power</b>\nEquip a 1/2 Dagger.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2743
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "a64e43f41e574492de579b3964d07c727a6e2eaa0a15c220c8d2deb2a370fec4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_03bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_02bp",
+        "dbf_id": 687,
+        "name": "图腾召唤",
+        "name_en": "Totemic Call",
+        "text": "<b>英雄技能</b>\n随机召唤一个基础图腾。",
+        "text_en": "<b>Hero Power</b>\nSummon a random basic Totem.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2742
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "34cea5dafd89b3a56fe78d232503c947789fcba34249b108a999f385124f51ac",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_02bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_07bp",
+        "dbf_id": 300,
+        "name": "生命分流",
+        "name_en": "Life Tap",
+        "text": "<b>英雄技能</b>\n抽一张牌并受到$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDraw a card and take $2_damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "UPGRADED_HERO_POWER": 2744
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "77fb8dc92e66b55dce52ec831c0eac460c0cc43a982db43b9f8b5ab2a4d227e3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_07bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_01bp",
+        "dbf_id": 725,
+        "name": "全副武装！",
+        "name_en": "Armor Up!",
+        "text": "<b>英雄技能</b>\n获得$d2点护甲值。",
+        "text_en": "<b>Hero Power</b>\nGain $d2 Armor.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2745
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "abd6fa492222a7454ca69a2308a5fd3ddd5f3ccfbf4f46b3acb250abeeed0c4e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_01bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "ETC_382",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 94218,
+        "collectible": 1,
+        "slug": "94218-free-spirit",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "自由之魂",
+        "text": "<b>战吼，亡语：</b>在本局对战中，你的英雄技能多获得1点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/670e062a2a2055adc17843de8f3a6a95eba4fb74e2e20a4ab6671edb58dfc237.png",
+        "imageGold": "",
+        "flavorText": "他的灵魂本该去往炽蓝仙野，但自由的灵魂注定不受拘束。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f3d1cd2e1673c2fb5411255e6899ce1c00709f9c8d896bff25d53906d9942d4.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_382",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 94218,
+        "collectible": 1,
+        "slug": "94218-free-spirit",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Free Spirit",
+        "text": "<b>Battlecry and Deathrattle:</b> Your Hero Power gains 1 more Armor this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b086494249054b126f23c399326d983fd30b47c1cc2ba85be5de61c63cfd280.png",
+        "imageGold": "",
+        "flavorText": "His soul was supposed to go to Ardenweald, but you can't chain a free spirit down.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f3d1cd2e1673c2fb5411255e6899ce1c00709f9c8d896bff25d53906d9942d4.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_390",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 50381,
+        "collectible": 1,
+        "slug": "50381-daring-fire-eater",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 1,
+        "artistName": "Jesper Ejsing",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "大胆的吞火者",
+        "text": "<b>战吼：</b>在本回合中，你的下一个英雄技能会额外造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d54f26673382ad835d610bb5131a6b511f7322c031529d3b90534c00ee30970.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8543fc9411fc242129abd9698b395135db32a249b9363aec572e155b87a36a9.png",
+        "flavorText": "数小时后，竞技场的洗手间被烧毁了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b3d89a9bb86cc81fd64dcb0ffcb5c00d7ad5a0ecce4d77cb8bbacf51c85d00a.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_390",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 50381,
+        "collectible": 1,
+        "slug": "50381-daring-fire-eater",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 1,
+        "artistName": "Jesper Ejsing",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Daring Fire-Eater",
+        "text": "<b>Battlecry:</b> Your next Hero Power this turn deals 2 more damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdbc185224e9e7ba4bd9ede19a4148bca89e0776b6237866abba2cc7ff7fb7fe.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1126f7ae0bde0a5692c1f542e3a869b9fe159fe43ab34fe336e7c329e45a105b.png",
+        "flavorText": "A few hours later he DESTROYED the arena bathrooms.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b3d89a9bb86cc81fd64dcb0ffcb5c00d7ad5a0ecce4d77cb8bbacf51c85d00a.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "collectible_leaf_ids": [
+    "ETC_382",
+    "TRL_390"
+  ],
+  "programs": {
+    "ETC_382": {
+      "kind": "hero_power_armor",
+      "amount": 1
+    },
+    "TRL_390": {
+      "kind": "next_power_damage",
+      "amount": 2
+    }
+  },
+  "existing_power_definition_pins": {
+    "HERO_11bp": "5b564696b8803d1ed32c179428ee308c8ca61bcc4197a030619f68803981fd0f",
+    "HERO_10bp": "6ca08345e4fad20322716d45fb70b39547e6afbadff543a08990d2aedde8aedb",
+    "HERO_06bp": "30064f297445eff58687a16ddbcb5300b2d1905b38298dc382be8e2daf1b9a62",
+    "HERO_05bp": "a001918e6ab813d75d94237665cf40e397472cba505f3b5aa74d4d3e72f41067",
+    "HERO_08bp": "8770589737ee09377718eafbd34a02df383ad6e412a5048f07a3abc0ba5c749a",
+    "HERO_04bp": "2a8e1b12cd25a88c171e6b86bd7074aae1873ee9b6050f336f515cc01c8ac6db",
+    "HERO_09bp": "d61d872f2601ccd505248f84b999f65f9913c4896c4fe9090637ee7110ff83c6",
+    "HERO_03bp": "43a8e4fd34f8a86601edd5ba341a3ba1307fae7d260693114314d8c4aaf9484f",
+    "HERO_02bp": "8dd782df176ca1869be01ce374f50088d7efd58037eef56e924193dbcbcfc71d",
+    "HERO_07bp": "25ff5a0dfd14b98d700ab260dbed4c1c91217cbe187ffb916d164f4e85e7d487",
+    "HERO_01bp": "6dda7603b2a46ff33f0f09c41d7274f83a0f8f078a33db92ac9dc0cbf1d9122f"
+  },
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "value_policy": "Player-owned Armor affects tagged native skill Armor outputs at execution. Next damage is claimed on a successful original activation, reused within that activation only, and expires at the current turn end if unused. Exact CN37 acceptance, repetition and conversion windows remain uncalibrated."
+}

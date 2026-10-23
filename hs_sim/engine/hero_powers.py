@@ -272,6 +272,8 @@ boundary callers additionally validate declared historical source provenance.
             (accepted.uses_before+increment,accepted.player_uses_before+increment)):
         raise ValueError('Hero power root differs from its original successful use window')
     if registry is not None:
+        from .hero_power_values import validate_acceptance as validate_value_acceptance
+        validate_value_acceptance(c.state, registry, accepted)
         validate_plan(c.state,registry,accepted.repeat_plan,accepted.player_id,accepted.turn)
         if capture_plan(c.state,registry,accepted.player_id)!=accepted.repeat_plan:
             raise ValueError('Hero power root differs from its complete acceptance view')
@@ -370,6 +372,9 @@ def begin(r, player, source, origin, target_id, *, quote=None, effect=None, fail
                        repeat_plan=capture_plan(r.state,r.registry,player.id))
         r.state.hero_power_history[record.id-1]=record
     choose_tail = accept_choose(r, choose_proof)
+    if failure is None:
+        from .hero_power_values import claim as claim_personal_values
+        record = claim_personal_values(r, record)
     r.emit('hero_power_started' if origin == 'manual' else 'hero_power_trigger_started',
         source_id=source.id,target_id=target_id,player_id=player.id,power_id=record.id)
     if failure is not None:
@@ -448,6 +453,8 @@ def validate_history(state, registry):
         previous = (record.turn,record.action)
     from .power_payloads import validate_history as validate_payload_history
     validate_payload_history(state,registry)
+    from .hero_power_values import validate_history as validate_value_history
+    validate_value_history(state, registry)
 
 
 def validate_boundary(game):
