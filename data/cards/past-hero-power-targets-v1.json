@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "batch": "past-hero-power-targets-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "DRG_253"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DRG_253",
+        "dbf_id": 55292,
+        "name": "矮人神射手",
+        "name_en": "Dwarven Sharpshooter",
+        "text": "你的英雄技能能够以随从为目标。",
+        "text_en": "Your Hero Power can target_minions.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "4c92b92e773708afa72a61d31b32ae5bf572656c4a1cc3fa4b231ad4086d3eed",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "DRG_253",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "HERO_05bp",
+        "dbf_id": 229,
+        "name": "稳固射击",
+        "name_en": "Steady Shot",
+        "text": "<b>英雄技能</b>\n对敌方英雄造成$2点伤害。@<b>英雄技能</b>\n造成$2点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $2 damage to the enemy hero.@<b>Hero Power</b>\nDeal $2 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 10,
+          "RARITY": 2,
+          "251": 1,
+          "UPGRADED_HERO_POWER": 2738
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "b8799a64c55c2a528dad18ed018665ddbeccaac9216f7687480cc20ad563bc5e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "free",
+        "deck_identity": "HERO_05bp",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "HERO_05bp2",
+        "dbf_id": 2738,
+        "name": "弩炮射击",
+        "name_en": "Ballista Shot",
+        "text": "<b>英雄技能</b>\n对敌方英雄造成$3点伤害。@<b>英雄技能</b>\n造成$3点伤害。",
+        "text_en": "<b>Hero Power</b>\nDeal $3 damage to the enemy hero.@<b>Hero Power</b>\nDeal $3 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "405a2877e62fd20fd01e5ec1c38c7eb4a1bcb84b4a263a8750bdaf6e2a4f925a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "HERO_05bp2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "DRG_253",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 55292,
+        "collectible": 1,
+        "slug": "55292-dwarven-sharpshooter",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "矮人神射手",
+        "text": "你的英雄技能能够以随从为目标。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82795bdb2f783c9701b562d2a16c8ed16b1781dd03a8811708e86575dd17693e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afbd2a5657f0671accd802736a9485529291c357ebc971cae0f0a7f92822067a.png",
+        "flavorText": "剪子，飞刀，钢针，你说什么他打什么。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5619a5e6fde948470a2defb45e5e378685bb36424b32ac2962631264b6c28749.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_253",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 55292,
+        "collectible": 1,
+        "slug": "55292-dwarven-sharpshooter",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Dwarven Sharpshooter",
+        "text": "Your Hero Power can target minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3902e5391fd5526cb6410189fb6b34cfe078f0660621d2fbcfbfcc0fa7fb1c69.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afbd2a5657f0671accd802736a9485529291c357ebc971cae0f0a7f92822067a.png",
+        "flavorText": "Scissors, knives, needles, you name it! He'll shoot it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5619a5e6fde948470a2defb45e5e378685bb36424b32ac2962631264b6c28749.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "existing_power_definition_pins": {
+    "HERO_05bp": "a001918e6ab813d75d94237665cf40e397472cba505f3b5aa74d4d3e72f41067",
+    "HERO_05bp2": "005391a01cc0f6c37dca8d2e71764bd390deb23a68d68cadbb2514b6cc747a7e"
+  },
+  "profile_power_ids": [
+    "HERO_05bp",
+    "HERO_05bp2"
+  ],
+  "policy": {
+    "source": "live removable native ordinary minion on the current skill controller board",
+    "target_domain": "friendly or enemy minions plus the enemy hero; original untargeted skill becomes required-target while source is live",
+    "scope": "finite reviewed basic and upgraded Hunter skills only",
+    "native_target_acceptance": "uses original shared target predicates and original activation target; no post-acceptance retarget when aura disappears"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

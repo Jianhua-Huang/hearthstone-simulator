@@ -53,7 +53,8 @@ def register_basic_hero_roles(registry):
         entries=tuple(SummonEntryMaterial(cid)for cid in TOTEMS if cid not in present)
         return(SummonByCard(c.player_id,entries,SummonCause.capture(c),selection='random'),)if entries else ()
     bodies=dict(totemic_call=totem,
-        steady_shot=lambda c:(Damage(c.state.players[3-c.player_id].hero_id,2,c.source_id,DamageKind.HERO_POWER),),
+        steady_shot=lambda c:(Damage(c.state.players[3-c.player_id].hero_id if c.target_id is None else c.target_id,
+            2,c.source_id,DamageKind.HERO_POWER),),
         lesser_heal=lambda c:(Heal(c.target_id,2,c.source_id,HealingKind.HERO_POWER),)if c.target_id is not None else (),
         demon_claws=lambda c:(Buff(c.state.players[c.player_id].hero_id,attack=1,source_id=c.source_id,expires_turn=c.state.turn),),
         ghoul_charge=lambda c:(SummonByCard(c.player_id,(SummonEntryMaterial('HERO_11bpt'),),SummonCause.capture(c)),),

@@ -19,9 +19,11 @@ def effective_target_spec(state,registry,source,definition):
     from .hero_health_targets import effective_spec as health_spec
     from .kindred_targets import effective_spec as kindred_spec
     from .assemble_hand_progress import effective_spec as held_spec
-    return held_spec(state,registry,source,definition,kindred_spec(state,registry,source,definition,
+    from .hero_power_targets import effective_spec as power_spec
+    spec = held_spec(state,registry,source,definition,kindred_spec(state,registry,source,definition,
                        health_spec(state,registry,source,definition,
                        effective_spec(state,registry,source,definition,target_spec(definition)))))
+    return power_spec(state,registry,source,definition,spec)
 
 
 def accepts_target(state, registry, source, definition, target_id, *, context_factory=None, automatic=False):
@@ -32,6 +34,9 @@ def accepts_target(state, registry, source, definition, target_id, *, context_fa
     if spec is None or target is None or not target.active or target.zone not in spec.zones:
         return False
     if registry.card(target.card_id).kind not in spec.kinds:
+        return False
+    from .hero_power_targets import target_allowed as power_target_allowed
+    if not power_target_allowed(state,registry,source,definition,target):
         return False
     from .player_effects import target_allowed
     if not target_allowed(state, registry, source.controller, definition.kind, target.kind):
