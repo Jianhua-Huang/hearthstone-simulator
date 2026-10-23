@@ -1,0 +1,364 @@
+{
+  "schema": 1,
+  "batch": "K483-dormant-mana-hero-kill",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "TSC_657",
+    "TRL_223"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TSC_657",
+        "dbf_id": 73712,
+        "name": "嗜睡的藻农",
+        "name_en": "Dozing Kelpkeeper",
+        "text": "<b>突袭</b>，起始<b>休眠</b>状态。在你施放消耗总计5点法力值的法术后唤醒。",
+        "text_en": "[x]<b>Rush</b>. Starts <b>Dormant</b>.\nAfter you've cast 5 Mana\n_worth of spells, awaken.",
+        "cost": 1,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 1,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "1652": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejiarasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "736c3d3d63dfb0d4f4ffeb3b6800053e26c3ada44e16cd95edf9a208dd4c6519",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TSC_657",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "naga"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TRL_223",
+        "dbf_id": 49944,
+        "name": "迅猛龙之灵",
+        "name_en": "Spirit of the Raptor",
+        "text": "<b>潜行</b>一回合。在你的英雄攻击并消灭一个随从后，抽一张牌。",
+        "text_en": "[x]<b>Stealth</b> for 1 turn.\nAfter your hero attacks and\n__kills a minion, draw a card.__",
+        "cost": 1,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "STEALTH": 1,
+          "CLASS": 2,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "2542": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Hayes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "a9a58ac81788b31377df541888d54ef26ee03dc3749a7b1259bec86f7351f33d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TRL_223",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {
+    "TRL_223": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "TSC_657",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 73712,
+        "collectible": 1,
+        "slug": "73712-dozing-kelpkeeper",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Tanamaes Leejiarasaes",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 1,
+        "name": "嗜睡的藻农",
+        "text": "<b>突袭</b>，起始<b>休眠</b>状态。在你施放消耗总计5点法力值的法术后唤醒。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10bda012b6a2d6815d807946383cc141f86dc35b702e6219f0a5b23bb39a1058.png",
+        "imageGold": "",
+        "flavorText": "*哈欠*过5个法力水晶再叫醒我。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c8389a2e1fe00810223a60026e0d07f6b330c5be12263b842b8b553b3d90407.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_657",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 73712,
+        "collectible": 1,
+        "slug": "73712-dozing-kelpkeeper",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Tanamaes Leejiarasaes",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 1,
+        "name": "Dozing Kelpkeeper",
+        "text": "<b>Rush</b>. Starts <b>Dormant</b>. After you've cast 5 Mana worth of spells, awaken.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b774d42353c80e398c4151bc8663b3e70fc2c6c6d57ae4a3c3606047ff2fb129.png",
+        "imageGold": "",
+        "flavorText": "*Yaaaaawn* wake me up in another 5 Mana.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c8389a2e1fe00810223a60026e0d07f6b330c5be12263b842b8b553b3d90407.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_223",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 49944,
+        "collectible": 1,
+        "slug": "49944-spirit-of-the-raptor",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 3,
+        "artistName": "Christopher Hayes",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "迅猛龙之灵",
+        "text": "<b>潜行</b>一回合。在你的英雄攻击并消灭一个随从后，抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d976a48c7e67e592b9429aea02fede4dab3cd7f46c582090e071131e219adc3.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91864953123b19dd7b417a47e49397aa506c1ab2547c8bb2025a49e421efd834.png",
+        "flavorText": "“罗缇！放下！这个不能咬，乖罗缇！真乖！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b52299c6604d3311fd504556216a66f41118165f3427494cf8edd2159a822e0.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_223",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 49944,
+        "collectible": 1,
+        "slug": "49944-spirit-of-the-raptor",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 3,
+        "artistName": "Christopher Hayes",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Spirit of the Raptor",
+        "text": "<b>Stealth</b> for 1 turn. After your hero attacks and kills a minion, draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ec03a5d63c02b660020a0a5e30c83e6dd98e2c6f846a1f7f707a22ff25aea32.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/795b4467ee746b10cc562cb671a37865a6fd5711f00006d001b8b2fe0f7d0764.png",
+        "flavorText": "“Loti! LOTI! Drop it. Drop it Loti! Down! Down Loti!”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b52299c6604d3311fd504556216a66f41118165f3427494cf8edd2159a822e0.png",
+        "keywordIds": [
+          6
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": "Post-installation completed original CAST effective quotes; original hero combat kill and existing printed one-turn Stealth. Finite internal timing/cost policy; exact CN calibration open.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

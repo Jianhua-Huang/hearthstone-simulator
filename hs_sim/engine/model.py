@@ -10192,11 +10192,13 @@ class DormancyState:
     remaining_turns: int | None
     started_turn: int
     permanent: bool = False
+    first_cast_id: int = 1
 
     def __post_init__(self):
         _int(self.id, 'dormancy ID', 1)
         _int(self.started_turn, 'dormancy started_turn', 1)
         _bool(self.permanent, 'permanent dormancy')
+        _int(self.first_cast_id, 'first post-installation CAST', 1)
         if self.permanent and self.remaining_turns is not None:
             raise ValueError('Permanent dormancy cannot have a countdown')
         if self.remaining_turns is not None:
@@ -11734,7 +11736,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             from .stat_auras import controlled_card_bonus
             dormant_bonus = controlled_card_bonus(state, registry, entity)
             if (entity.kind != CardType.MINION or entity.zone != Zone.BOARD or entity.starship_building or
-                    entity.dormancy.started_turn > state.turn or entity.keywords or
+                    entity.dormancy.started_turn > state.turn or
+                    entity.dormancy.first_cast_id > len(state.cast_history) + 1 or entity.keywords or
                     (entity.aura_attack, entity.aura_health) != dormant_bonus):
                 raise ValueError('Dormancy requires an inactive board minion')
             if entity.dormancy.id in current_attachment_ids:

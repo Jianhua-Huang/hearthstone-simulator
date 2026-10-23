@@ -120,7 +120,8 @@ def make_dormant(r, effect, *, deathrattle_memory=None):
     entity = _target(r, effect, dormant=False)
     if entity is None:
         return
-    entity.dormancy = DormancyState(attachment_id(r.state), effect.turns, r.state.turn)
+    entity.dormancy = DormancyState(attachment_id(r.state), effect.turns, r.state.turn,
+                                   first_cast_id=len(r.state.cast_history) + 1)
     if deathrattle_memory is not None:
         from .deathrattle_memory import remember_dormancy
         remember_dormancy(r,deathrattle_memory,entity)

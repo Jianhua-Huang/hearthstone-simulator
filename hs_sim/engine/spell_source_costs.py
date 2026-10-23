@@ -42,8 +42,8 @@ def requires_quote(registry, card_id):
         validate_profile(registry,profile)
         return True
     card=registry.card(card_id)
-    return card.kind==CardType.SPELL and any(card.spell_school==p.school
-        for p in registry.spell_source_cost_observers.values())
+    return card.kind==CardType.SPELL and (bool(registry.dormant_spell_mana_profiles) or
+        any(card.spell_school==p.school for p in registry.spell_source_cost_observers.values()))
 
 
 def validate_profile(registry, profile):
@@ -115,6 +115,8 @@ def amount(context, registry):
     if (record is None or not record.payload_started or record.failure is not None or
             (record.source_id, record.player_id) != (context.source_id, context.player_id)):
         raise ValueError('Source-cost payload requires its actual accepted original CAST')
+    if record.card_id not in registry.spell_source_cost_profiles:
+        raise ValueError('Source-cost payload requires its declared original cost')
     validate_record(context.state, registry, record)
     if record.source_cost is None:
         raise ValueError('Source-cost payload requires its declared original cost')

@@ -219,6 +219,7 @@ class Registry:
         self._source_attack_spell_profiles = {}
         self._spell_source_cost_profiles = {}
         self._spell_source_cost_observers = {}
+        self._dormant_spell_mana_profiles = {}
         self._spell_target_group_profiles = {}
         self._hand_cost_rank_profiles = {}
         self._summon_entry_stats_profiles = {}
@@ -804,6 +805,9 @@ class Registry:
     def spell_source_cost_observers(self):return MappingProxyType(self._spell_source_cost_observers)
 
     @property
+    def dormant_spell_mana_profiles(self):return MappingProxyType(self._dormant_spell_mana_profiles)
+
+    @property
     def spell_target_group_profiles(self): return MappingProxyType(self._spell_target_group_profiles)
 
     @property
@@ -1075,6 +1079,16 @@ class Registry:
         if profile.effect_id in self._spell_source_cost_observers:
             raise ValueError('Duplicate original spell-cost observer')
         self._spell_source_cost_observers[profile.effect_id]=profile
+
+    def register_dormant_spell_mana_profile(self, profile):
+        self._require_mutable()
+        from .dormant_spell_mana import DormantSpellManaProfile
+        if type(profile) is not DormantSpellManaProfile:
+            raise ValueError('Typed dormant spell-mana declaration required')
+        profile.__post_init__()
+        if profile.card_id in self._dormant_spell_mana_profiles:
+            raise ValueError('Duplicate dormant spell-mana declaration')
+        self._dormant_spell_mana_profiles[profile.card_id] = profile
 
     def register_spell_target_group_profile(self, profile):
         self._require_mutable()
@@ -2532,6 +2546,8 @@ class Registry:
         for profile in self._spell_source_cost_profiles.values():validate_spell_source_cost(self,profile)
         from .spell_source_costs import validate_observer as validate_spell_cost_observer
         for profile in self._spell_source_cost_observers.values():validate_spell_cost_observer(self,profile)
+        from .dormant_spell_mana import validate_profile as validate_dormant_spell_mana
+        for profile in self._dormant_spell_mana_profiles.values():validate_dormant_spell_mana(self,profile)
         from .spell_target_groups import validate_profile as validate_spell_target_group_profile
         for profile in self._spell_target_group_profiles.values(): validate_spell_target_group_profile(self, profile)
         from .hand_cost_rank import validate_profile as validate_hand_cost_rank
@@ -2954,6 +2970,9 @@ class Registry:
         if self._spell_source_cost_observers:
             payload['spell_source_cost_observers']=[asdict(self._spell_source_cost_observers[k])
                 for k in sorted(self._spell_source_cost_observers)]
+        if self._dormant_spell_mana_profiles:
+            payload['dormant_spell_mana_profiles']=[asdict(self._dormant_spell_mana_profiles[k])
+                for k in sorted(self._dormant_spell_mana_profiles)]
         if self._spell_target_group_profiles:
             payload['spell_target_group_profiles'] = [asdict(self._spell_target_group_profiles[k])
                 for k in sorted(self._spell_target_group_profiles)]

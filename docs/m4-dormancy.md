@@ -69,3 +69,16 @@ python -m hs_sim replay outputs/dormancy-replay.json --card-set representative
 v73复验：awaken_minions.py 为 11 动作/48 事件。动作及其余摘要字段相对v72保持；事件增量来自独立战吼的开始/完成宿主记录，玩家过滤日志不新增这些事件。本页原批次的验收数字保留为历史；逐项比较见[示例核对](../outputs/v73-example-count-check.json)。
 
 v76复验说明：上文原批次契约和验收数字保留为历史；当前运行结果为awaken_minions.py：11动作/54事件。完整结果及摘要见[59示例日志](../outputs/v76-examples.txt)；随从承诺/入场阶段变化见[反制契约](m5-minion-counters.md)。
+
+
+## K483 原休眠实例后的法术费用查询
+
+TSC_657嗜睡的藻农使用已有无限期休眠、休眠专用触发及原`AwakenCapturedMinion`。只新增有限只读`DormantSpellManaProfile(card_id, goal=5)`声明，要求真实可用随从、非永久无限期休眠和一个`spell_cast_finished`休眠触发；声明进入注册表指纹，空映射保持默认指纹。
+
+`DormancyState.first_cast_id`在普通休眠安装处记录当时`len(cast_history)+1`，原字段保持。当前内部政策只计算该原休眠安装后接受、由当前控制者成功完成的CAST，原先已开始但随后才召唤载体的同次施法不追计。查询直接汇总原完整`SpellCastRecord.source_cost.amount`，不增加第二份进度、金额账户或施法执行器。跨回合保持；多个原随从各有起点，后来再次休眠重新取起点。已完成的嵌套子CAST也参与汇总，不按外层cast ID上界误删已完成子施法。
+
+声明存在的注册表对所有SPELL保留原接受费用报价，沿已有手动支付前输入及自动接受报价、开始摘要、完整历史与恢复校验；不按当前是否有休眠载体改变历史结构。减费后的实际报价、每个原重复CAST及自动CAST各读取其原金额，支付只由原路径执行。反制、失败、未完成、对方施法和非SPELL不推进。这里的“费用”采用原有效报价，不按印刷数字或重新报当前价格；自动/替代资源及精确源资格政策仍待CN37校准。2022年[玩家原报告](https://us.forums.blizzard.com/en/hearthstone/t/another-bad-interaction/93234)只支持冰冻陷阱退回的已付款法术不唤醒这一历史观察，不认证当前完整国服规则。
+
+达到五点后仅返回绑定原随从驻留和原dormancy ID的`AwakenCapturedMinion`。等待中已唤醒又重新休眠的同ID实体不被旧请求唤醒；原唤醒、突袭、伤害、死亡、选择、回滚和回放保持。来源费用观察与数值主体权限分开：`spell_source_costs.amount`仍要求原法术本身声明生产者profile，不能借观察所保存的报价调用任意未声明主体。
+
+新增字段只在宿主保存，玩家仍只接收原休眠DTO；字段严格为正且不超过当前CAST分配边界。schema564/core705拒旧563及更早，不自动补默认起点迁移历史状态。精确接受/完成时序和全部费用来源仍属M6边界，实际执行与验收只在原两份台账登记。
