@@ -234,6 +234,15 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
             states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
             'Swarmer lost its equivalent complete live and plain rule bodies')
         raw_text = states[0 if chinese else 1]
+    # This restored printing's gallery concatenates both complete UI forms.
+    # Retain both, and permit only this exact source's absent live stat values.
+    jade_reprint_display = (row.get('id') == 'WON_067' and
+        canonical(row) == 'c0bc826ec6c81226ed23e8c7e513f64e92d326b4f2f6b94f01a76bacb54a2720' and
+        display_normalizations == ({'@': '', '{0}': ''} if chinese else {'@': '', '{0}': '', '{1}': ''}))
+    if jade_reprint_display:
+        require(len(states) == 2 and display(states[0].replace('{0}的', '') if chinese else
+            states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
+            'Restored Swarmer lost either complete equivalent rule body')
     # This exact source repeats one rule in initial/ready/plain UI forms.
     # The gallery shows the initial form with its explicit printed threshold.
     # Check all complete bodies; never discard a different alternate effect.
@@ -381,16 +390,16 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display) and replacement == '' or
+            require(type(replacement) is str and ((jade_reprint_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+                    (jade_reprint_display or jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_reprint_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):

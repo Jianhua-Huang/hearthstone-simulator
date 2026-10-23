@@ -1,0 +1,4288 @@
+{
+  "schema": 1,
+  "batch": "K465-past-one-cost-named-shuffles",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "SCH_133",
+        "dbf_id": 59170,
+        "name": "鹿角小飞兔",
+        "name_en": "Wolpertinger",
+        "text": "<b>战吼：</b>召唤一个本随从的复制。",
+        "text_en": "<b>Battlecry:</b> Summon a copy of this.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1443,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "784e4415960f9bead038a2b1a4888379037a98ee5c316b7e26e1f3688295f7a3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "SCH_133",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "LOOT_218",
+        "dbf_id": 45547,
+        "name": "凶猛的聒噪怪",
+        "name_en": "Feral Gibberer",
+        "text": "在本随从攻击一方英雄后，将一张它的复制置入你的手牌。",
+        "text_en": "After this minion attacks a hero, add a copy of it to_your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "e252a4cb078ef668278de69919ce3375716b33d918c71ec97fabca0251c102c6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "LOOT_218",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TRL_363",
+        "dbf_id": 50796,
+        "name": "萨隆铁矿监工",
+        "name_en": "Saronite Taskmaster",
+        "text": "<b>亡语：</b>为你的对手召唤一个0/3并具有<b>嘲讽</b>的自由的矿工。",
+        "text_en": "<b>Deathrattle:</b> Summon a 0/3 Free Agent with <b>Taunt</b> for_your opponent.",
+        "cost": 1,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 50797
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean McNally"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "40c0db46b6d4adb0d041e4c52fcbd51afe7876129fb744a8cc027aeb98d835ba",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TRL_363",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_412",
+        "dbf_id": 106636,
+        "name": "当日渔获",
+        "name_en": "Catch of the Day",
+        "text": "<b>突袭</b>。<b>战吼：\n</b>为你的对手召唤一只2/1的鱼虫。",
+        "text_en": "[x]<b>Rush</b>\n<b>Battlecry:</b> Summon a 2/1\nWorm for your opponent.",
+        "cost": 1,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "7a5944e0c65c3e560aa18bf8f2c3792ea18386f97a6142953217de7f38ee993e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "VAC_412",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_940",
+        "dbf_id": 107797,
+        "name": "派对邪犬",
+        "name_en": "Party Fiend",
+        "text": "<b>战吼：</b>召唤两只1/1的邪能兽。对你的英雄造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> Summon two 1/1 Felbeasts. Deal 3 damage to your hero.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "7d3aa44975dbc54960b7a25658dfb696dcf238404d3bde49f26f5b0cd2d69e8c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "VAC_940",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "RLK_650",
+        "dbf_id": 85041,
+        "name": "盘桓僵尸",
+        "name_en": "Lingering Zombie",
+        "text": "<b>亡语：</b>召唤一个1/1并具有“<b>亡语：</b>召唤一个1/1的僵尸”的徒手僵尸。",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\n1/1 Disarmed Zombie with\n\"<b>Deathrattle:</b> Summon\na 1/1 Zombie.\"",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "22ce9dc078e6c551b99690803f8e1ab9bbf690ab66999ef245b7423b226219bf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "RLK_650",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_010",
+        "dbf_id": 112867,
+        "name": "跳虫",
+        "name_en": "Zergling",
+        "text": "<b>战吼：</b>召唤一个1/1的跳虫。",
+        "text_en": "<b>Battlecry:</b> Summon a\n1/1 Zergling.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 8453,
+          "1724": 1,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "ZERG": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "aa6bcddd03b9cd9b2049eb55e24821a0da86e940dd3f498de40fc9bdafc8fcfe",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight",
+          "hunter",
+          "warlock",
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "SC_010",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "zerg"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_914",
+        "dbf_id": 41357,
+        "name": "迅猛龙宝宝",
+        "name_en": "Raptor Hatchling",
+        "text": "<b>亡语：</b>将一张4/5的“迅猛龙头领”洗入你的\n牌库。",
+        "text_en": "<b>Deathrattle:</b> Shuffle a 4/5 Raptor into your deck.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 41356
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "a51ba218ba590ffa04622fde23c3f542a215838eefd16a3f7b24d1d1878187ea",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "UNG_914",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SCH_700",
+        "dbf_id": 59724,
+        "name": "精魂狱卒",
+        "name_en": "Spirit Jailer",
+        "text": "<b>战吼：</b>将两张灵魂残片洗入你的牌库。",
+        "text_en": "<b>Battlecry:</b> Shuffle 2 Soul Fragments into your deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1443,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 8448,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 59723,
+          "1590": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Olson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1590",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1590"
+          }
+        ]
+      },
+      "record_sha256": "37f72b65a04f504caa85656493ddea5cba8c2ce5285d58dd1d6b63ffd92b4c64",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock",
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "SCH_700",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WW_044",
+        "dbf_id": 101272,
+        "name": "列车机务工",
+        "name_en": "Tram Mechanic",
+        "text": "<b>亡语：</b>获取一张淤泥桶。<i>有毒废弃物：请妥善处理。</i>",
+        "text_en": "<b>Deathrattle:</b> Get a Barrel\nof Sludge. <i>TOXIC WASTE: Handle with care.</i>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 100963
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "ef0894f05a4c7aa068112b983f83a8ffee4a486e08175e07beb3cfbdf9d81c33",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "WW_044",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WW_331",
+        "dbf_id": 100101,
+        "name": "奇迹推销员",
+        "name_en": "Miracle Salesman",
+        "text": "<b>亡语：</b>获取一张<b>可交易</b>的蛇油。",
+        "text_en": "<b>Deathrattle:</b> Get a <b>Tradeable</b> Snake Oil.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 100102
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1720",
+              "name": "TRADEABLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2f065c1ef39449f47eff8e3e850ca199257596dbc3f1cf8f661b8067e49c93bb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "WW_331",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WON_067",
+        "dbf_id": 102602,
+        "name": "青玉游荡者",
+        "name_en": "Jade Swarmer",
+        "text": "<b>潜行，亡语：</b>召唤一个{0}的<b>青玉魔像</b>。@<b>潜行，亡语：</b>召唤一个<b>青玉魔像</b>。",
+        "text_en": "<b>Stealth</b>\n<b>Deathrattle:</b> Summon a{1} {0} <b>Jade Golem</b>.@<b>Stealth</b>\n<b>Deathrattle:</b> Summon a <b>Jade Golem</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1898,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 40697,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40697",
+              "type": "Int",
+              "value": "40697"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c0bc826ec6c81226ed23e8c7e513f64e92d326b4f2f6b94f01a76bacb54a2720",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "WON_067",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SW_439",
+        "dbf_id": 64388,
+        "name": "活泼的松鼠",
+        "name_en": "Vibrant Squirrel",
+        "text": "<b>亡语：</b>将四张橡果洗入你的牌库。当抽到橡果时，召唤一只2/1的松鼠。",
+        "text_en": "[x]<b>Deathrattle:</b> Shuffle 4 Acorns\ninto your deck. When drawn,\nsummon a 2/1 Squirrel.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "742aa6956c1222ed9ab6dab893b4122de8f7bf94ef36569b7353af6038ed9a88",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "rare",
+        "deck_identity": "SW_439",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "RLK_650t",
+        "dbf_id": 85043,
+        "name": "徒手僵尸",
+        "name_en": "Disarmed Zombie",
+        "text": "<b>亡语：</b>召唤一个1/1的僵尸。",
+        "text_en": "<b>Deathrattle:</b> Summon a 1/1 Zombie.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "5233fe8ac77ddbf5cb15035a996641e1cabe6947cb239b48f1858e06df7bf3fd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_650t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "RLK_650t2",
+        "dbf_id": 85045,
+        "name": "空手僵尸",
+        "name_en": "Unarmed Zombie",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDRACE": 11,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e6cad4966ea2c557aab4bc03a8bae4ab182b4ea8366275933806ad5cc788793f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_650t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TRL_363t",
+        "dbf_id": 50797,
+        "name": "自由的矿工",
+        "name_en": "Free Agent",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 2,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean McNally"
+          }
+        ]
+      },
+      "record_sha256": "e92aa22827f6cf5dc464f577a0b8b65c39f4d6a4dbe493d840134e7c8b56cd31",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TRL_363t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_412t",
+        "dbf_id": 109325,
+        "name": "美味鱼虫",
+        "name_en": "Delicious Worm",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "a88bbafd6616085856eb3ff01a2bd66f37fb861211bffcf6e3e3a34c811d39c6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "VAC_412t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_940t",
+        "dbf_id": 107798,
+        "name": "邪能兽",
+        "name_en": "Felbeast",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "2a27b6f98376b1b2de0562b861bef4dbb609d8fb0fda2ebd4aded4b1cca4fe33",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "VAC_940t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_914t1",
+        "dbf_id": 41356,
+        "name": "迅猛龙头领",
+        "name_en": "Raptor Patriarch",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "65df7015d46cd9e1f0cd4fe22fe134142844edfbf216f1e00021092a42f820bf",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_914t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SCH_307t",
+        "dbf_id": 59723,
+        "name": "灵魂残片",
+        "name_en": "Soul Fragment",
+        "text": "<b>抽到时施放</b>\n为你的英雄恢复#2点生命值。",
+        "text_en": "<b>Casts When Drawn</b>\nRestore #2 Health to your hero.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1443,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "MULTIPLE_CLASSES": 8448,
+          "CASTS_WHEN_DRAWN": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "5f6cf9780b02d199bb30dd6c90758a9882d728fa3d225e134c578462c65f0d0f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock",
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "SCH_307t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "WW_044t",
+        "dbf_id": 100963,
+        "name": "淤泥桶",
+        "name_en": "Barrel of Sludge",
+        "text": "当本牌被使用，弃掉或摧毁时，对生命值最低的敌人造成$4点伤害。",
+        "text_en": "When this is played, discarded, or destroyed, deal $4 damage to the lowest Health enemy.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "335": 1,
+          "SPELL_SCHOOL": 7,
+          "1724": 1,
+          "IGNORE_SUPPRESS_MILL_ANIMATION": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "335",
+              "name": "InvisibleDeathrattle",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "335"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "2331df81a88a9fb1ab60606d193acfcf17d7b450e957182c7164dbb74d4f63f3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "WW_044t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fel"
+    },
+    {
+      "record": {
+        "id": "WW_331t",
+        "dbf_id": 100102,
+        "name": "蛇油",
+        "name_en": "Snake Oil",
+        "text": "<b>可交易</b>\n造成$0点伤害。<i>好像没什么用……</i>",
+        "text_en": "<b>Tradeable</b>\nDeal $0 damage.\n<i>This seems useless...</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "TRADEABLE": 1,
+          "DECK_ACTION_COST": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "be211d4aa2651c547dee9c47a611401b438c84be5e2481cf1388910e9121598e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "WW_331t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "SW_439t",
+        "dbf_id": 64851,
+        "name": "橡果",
+        "name_en": "Acorn",
+        "text": "<b>抽到时施放</b>\n召唤一只2/1的\n松鼠。",
+        "text_en": "[x]<b>Casts When Drawn</b>\nSummon a 2/1 Squirrel.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "78203c23df2ca4f7404c12d2ccefdccb3ffe2142a3403fa2eca22c36521d1d1f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "SW_439t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "1e66e960229d52cdb99a4e403b2b3bb4a3d064aca17fb2cc18f55e9a56f38727"
+    },
+    {
+      "record": {
+        "id": "SW_439t2",
+        "dbf_id": 68116,
+        "name": "满足的松鼠",
+        "name_en": "Satisfied Squirrel",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "0286d158d1a6a8f65cead395ea2d2386e697e3ac43e851a31768c75c45035121",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "SW_439t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "684e492e5083caeb48e6614e357540dde6808c6375cd190dd2007f9cb1d40420"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t01",
+        "dbf_id": 42098,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "78c8443f33c9c8ba15220b9db1c7881483a2db8f8bc959acaa5a75ddf44ab757",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CFM_712_t01",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "99ec6aea6f3102d66f22beae70d0602473351539f2f08290e2a585541c51373c"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t04",
+        "dbf_id": 42101,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "925d15129f419325f6ee58aa284d41b710c77a7cf7a1ee0d66163799e98942bd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CFM_712_t04",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "70412b34681220dd528148d141152c9a67ed0ef27858a3e68cb43d1df4f510fc"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t07",
+        "dbf_id": 42104,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f0aa23e5c37caac6e277f5263e52cb403d3bed1502ce0cd50018e885d5c73644",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CFM_712_t07",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "2921cfd56307ad161f100e1f911f0dd752c528cd7c3a8bfba74d17f1c192ece3"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t20",
+        "dbf_id": 42128,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 10,
+        "attack": 20,
+        "health": 20,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 20,
+          "ATK": 20,
+          "COST": 10,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4d04bea823cb0299600870ef858f9dda7a21d2c165002eb695337b005ae63be1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "CFM_712_t20",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b3b676eec9e5701d125a107c02d63848defdf476d40eb90f196fe084306c1833"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {
+    "TRL_363t": {
+      "attack": 0
+    },
+    "SCH_307t": {
+      "cost": 0
+    },
+    "WW_331t": {
+      "cost": 0
+    }
+  },
+  "display_normalizations": {
+    "WON_067": {
+      "zh_CN": {
+        "@": "",
+        "{0}": ""
+      },
+      "en_US": {
+        "@": "",
+        "{0}": "",
+        "{1}": ""
+      }
+    }
+  },
+  "collectible_leaf_ids": [
+    "SCH_133",
+    "LOOT_218",
+    "TRL_363",
+    "VAC_412",
+    "VAC_940",
+    "RLK_650",
+    "SC_010",
+    "UNG_914",
+    "SCH_700",
+    "WW_044",
+    "WW_331",
+    "WON_067",
+    "SW_439"
+  ],
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "past_scope": "Actual Standard past-source candidates only; formal past membership/edition weights and CN timing remain unverified. No production past or ordinary domain bound.",
+  "official_observations": [
+    {
+      "card_id": "SCH_133",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 59170,
+        "collectible": 1,
+        "slug": "59170-wolpertinger",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "鹿角小飞兔",
+        "text": "<b>战吼：</b>召唤一个本随从的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4daca2803c10ee2eece5323b6f32ab8bf3a6c13e67293cdfb300b5a768bb428.png",
+        "imageGold": "",
+        "flavorText": "学园的学生在美酒节玩得实在是太过分了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/702bbffd32baa00744e4cd55abcca205eda336f117e0e2bfcdf9c54cf8a7230b.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_133",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 59170,
+        "collectible": 1,
+        "slug": "59170-wolpertinger",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Wolpertinger",
+        "text": "<b>Battlecry:</b> Summon a copy of this.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4555c56487a8bab5dfd5c7946c9bbc65661a6d0b9fb7da03c4f48c4be0b2ecc1.png",
+        "imageGold": "",
+        "flavorText": "Scholomance student Brewfest prank gone awry.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/702bbffd32baa00744e4cd55abcca205eda336f117e0e2bfcdf9c54cf8a7230b.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_218",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 45547,
+        "collectible": 1,
+        "slug": "45547-feral-gibberer",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "凶猛的聒噪怪",
+        "text": "在本随从攻击一方英雄后，将一张它的复制置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/384cf1754c61537a0726c391765506a02110f2499113cb6e1e88ea2a24814a23.png",
+        "imageGold": "",
+        "flavorText": "肯定不是有文化的聒噪怪。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ade59a1ee64e5af27c6938ba3a562d83c7e52190a80f669b2cefe2ef0323305.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_218",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 45547,
+        "collectible": 1,
+        "slug": "45547-feral-gibberer",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Feral Gibberer",
+        "text": "After this minion attacks a hero, add a copy of it to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/42fc825bcd96caaf7c3e0a3d31a44308355701173884947ec2ffa76c5b657977.png",
+        "imageGold": "",
+        "flavorText": "It's certainly not civilized gibbering.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ade59a1ee64e5af27c6938ba3a562d83c7e52190a80f669b2cefe2ef0323305.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_363",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 50796,
+        "collectible": 1,
+        "slug": "50796-saronite-taskmaster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 1,
+        "artistName": "Sean McNally",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "萨隆铁矿监工",
+        "text": "<b>亡语：</b>为你的对手召唤一个0/3并具有<b>嘲讽</b>的自由的矿工。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78e0ad733df3e6a6d4e3574c58371c3b676a2c782cb129a23db6760d12e1d6f3.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c265bec508f822347e54f940c5ca94a9c683a1e6b345b3bdd11092d78db1435.png",
+        "flavorText": "不要妄想放风的机会。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be6d461eb535064a1d4163f8d07277b0053bb08caff3b988806262ae512c4be5.png",
+        "childIds": [
+          50797
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_363",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 50796,
+        "collectible": 1,
+        "slug": "50796-saronite-taskmaster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 1,
+        "artistName": "Sean McNally",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Saronite Taskmaster",
+        "text": "<b>Deathrattle:</b> Summon a 0/3 Free Agent with <b>Taunt</b> for your opponent.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93f4d2f4f42482ce821b921b652b7819c44c52a10c77e906b7554c3d890d4655.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51979cb468d7462bdaf9c30dcdc5a6e872f1f0da5f17f7b81dcc07f4e08c0882.png",
+        "flavorText": "Don't even think of asking for time off.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be6d461eb535064a1d4163f8d07277b0053bb08caff3b988806262ae512c4be5.png",
+        "childIds": [
+          50797
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_412",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 106636,
+        "collectible": 1,
+        "slug": "106636-catch-of-the-day",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "当日渔获",
+        "text": "<b>突袭</b>。<b>战吼： </b>为你的对手召唤一只2/1的鱼虫。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/247f6841247cac2e584b53a0b3fe4cf17861e59d77c4c214cf8fb970da0d3889.png",
+        "imageGold": "",
+        "flavorText": "这么大的鱼，真是好辐气！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dcf2c68933e25131c9c4ca4f32377da436948340341b8cebdaec7888e8e8dcc.png",
+        "childIds": [
+          109325
+        ],
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_412",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 106636,
+        "collectible": 1,
+        "slug": "106636-catch-of-the-day",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Catch of the Day",
+        "text": "<b>Rush</b> <b>Battlecry:</b> Summon a 2/1 Worm for your opponent.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8ea1219d45e69ee2b7473571b866c3e8d48f8b57a517a0af801987572bd5be2.png",
+        "imageGold": "",
+        "flavorText": "Only its fish mother thinks it's a catch.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dcf2c68933e25131c9c4ca4f32377da436948340341b8cebdaec7888e8e8dcc.png",
+        "childIds": [
+          109325
+        ],
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_940",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 107797,
+        "collectible": 1,
+        "slug": "107797-party-fiend",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Juan Calle",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "派对邪犬",
+        "text": "<b>战吼：</b>召唤两只1/1的邪能兽。对你的英雄造成3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48b0d502d1bc0cfb39846c3828a4bdfaee1c8ddb2a5ba8f55e421370b5fa1a8f.png",
+        "imageGold": "",
+        "flavorText": "布吉舞怪兽的主要竞争对手。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab6f535bb14b3798c84c5a9499cf0d32061c51bb7bd45170a64569b8aeba202d.png",
+        "childIds": [
+          107798
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_940",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 107797,
+        "collectible": 1,
+        "slug": "107797-party-fiend",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Juan Calle",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Party Fiend",
+        "text": "<b>Battlecry:</b> Summon two 1/1 Felbeasts. Deal 3 damage to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88504e4754d7abb9b469a25ef3c945fd65d43d8678fcf33872fad9d9baf7f085.png",
+        "imageGold": "",
+        "flavorText": "Arch-rival of the Boogiemonster.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab6f535bb14b3798c84c5a9499cf0d32061c51bb7bd45170a64569b8aeba202d.png",
+        "childIds": [
+          107798
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_650",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 85041,
+        "collectible": 1,
+        "slug": "85041-lingering-zombie",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "盘桓僵尸",
+        "text": "<b>亡语：</b>召唤一个1/1并具有“<b>亡语：</b>召唤一个1/1的僵尸”的徒手僵尸。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ba4f904703f8a67291f57cfee9fa3b89c258f0e6faab74a9c07af9d8fa8b80af.png",
+        "imageGold": "",
+        "flavorText": "1/1/1/1/1/1",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff3df2155f79d9a68d198037dd4cc1842ec57df8bb346f69616232b3ffac5c7f.png",
+        "childIds": [
+          85043,
+          85045
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_650",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 85041,
+        "collectible": 1,
+        "slug": "85041-lingering-zombie",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Lingering Zombie",
+        "text": "<b>Deathrattle:</b> Summon a 1/1 Disarmed Zombie with \"<b>Deathrattle:</b> Summon a 1/1 Zombie.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/902a29dff51237c68364412f977f93aafbd7f38ce393c298f5fd7fd28851a87b.png",
+        "imageGold": "",
+        "flavorText": "1/1/1/1/1/1",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff3df2155f79d9a68d198037dd4cc1842ec57df8bb346f69616232b3ffac5c7f.png",
+        "childIds": [
+          85043,
+          85045
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_010",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 112867,
+        "collectible": 1,
+        "slug": "112867-zergling",
+        "classId": null,
+        "multiClassIds": [
+          1,
+          3,
+          9,
+          14
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "跳虫",
+        "text": "<b>战吼：</b>召唤一个1/1的跳虫。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f871565b0fd90ab39d6302da28bbb56f56c93ec3a6725462896cf1307acf55e1.png",
+        "imageGold": "",
+        "flavorText": "本来玩得好好的，2分钟一到，8只这东西冲到了你家门口。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a4ea0bd0c65f6c42814b6c1516483054a9489312857fcc324931b584cc1e62a.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3457
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_010",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 112867,
+        "collectible": 1,
+        "slug": "112867-zergling",
+        "classId": null,
+        "multiClassIds": [
+          1,
+          3,
+          9,
+          14
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Zergling",
+        "text": "<b>Battlecry:</b> Summon a 1/1 Zergling.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/541a686103743c02d73704373316ede6f17e14b157640b2a78336794fe5314db.png",
+        "imageGold": "",
+        "flavorText": "It's all fun and games until 8 of these show up at your door at the 2 minute mark.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a4ea0bd0c65f6c42814b6c1516483054a9489312857fcc324931b584cc1e62a.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3457
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_914",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 41357,
+        "collectible": 1,
+        "slug": "41357-raptor-hatchling",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "迅猛龙宝宝",
+        "text": "<b>亡语：</b>将一张4/5的“迅猛龙头领”洗入你的 牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1d1b32ec0e84b4c8f5255bd622f7e4d96413222bf443dd77a7832292023b33c.png",
+        "imageGold": "",
+        "flavorText": "等它咬掉你的手指时，你就不会觉得它可爱了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca72b1bb0e9824f0889890904f6bc3624944bacd9932354b806e17bf591e4577.png",
+        "childIds": [
+          41356
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_914",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 41357,
+        "collectible": 1,
+        "slug": "41357-raptor-hatchling",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Raptor Hatchling",
+        "text": "<b>Deathrattle:</b> Shuffle a 4/5 Raptor into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48f3dbda48885f8a7cc1c171ca2bd7c3f3c2e96a3af53b80d8759f2761da1e75.png",
+        "imageGold": "",
+        "flavorText": "They’re just baby teeth. Lots and lots of baby teeth.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca72b1bb0e9824f0889890904f6bc3624944bacd9932354b806e17bf591e4577.png",
+        "childIds": [
+          41356
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_700",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 59724,
+        "collectible": 1,
+        "slug": "59724-spirit-jailer",
+        "classId": 9,
+        "multiClassIds": [
+          9,
+          14
+        ],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Ben Olson",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "精魂狱卒",
+        "text": "<b>战吼：</b>将两张灵魂残片洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a72fbf6b0fadedd1ee0baf22b54d9aa15f2139bd22a7473304ce660bad47bc70.png",
+        "imageGold": "",
+        "flavorText": "“当然了，它们确实被关在你的牌库里。但思想，才更像是真正的监牢。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a5a8c97f1242e1dd2d8bc0e63383d363229e9caa972ff8ac4b4ddd168b5b859.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          75971
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_700",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 59724,
+        "collectible": 1,
+        "slug": "59724-spirit-jailer",
+        "classId": 9,
+        "multiClassIds": [
+          9,
+          14
+        ],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Ben Olson",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Spirit Jailer",
+        "text": "<b>Battlecry:</b> Shuffle 2 Soul Fragments into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13f3c1ef832f0f3f17ce09f688705a13c943839f0e97e1b488188de8f43b817e.png",
+        "imageGold": "",
+        "flavorText": "\"Sure, they're in your deck, but the mind is like, the REAL prison.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a5a8c97f1242e1dd2d8bc0e63383d363229e9caa972ff8ac4b4ddd168b5b859.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          75971
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_044",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 101272,
+        "collectible": 1,
+        "slug": "101272-tram-mechanic",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "列车机务工",
+        "text": "<b>亡语：</b>获取一张淤泥桶。<i>有毒废弃物：请妥善处理。</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b74ef729dc002745c8e95a2f0b7a889fc2de5dd2d3f0de45e609767c58e4511b.png",
+        "imageGold": "",
+        "flavorText": "头戴淤泥眼镜，笑看多彩人生。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/710401a2e4b7015c96427396b2dfe4f0a4412c71efde4910ac6d84b2a4c53f1e.png",
+        "childIds": [
+          100963
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_044",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 101272,
+        "collectible": 1,
+        "slug": "101272-tram-mechanic",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Tram Mechanic",
+        "text": "<b>Deathrattle:</b> Get a Barrel of Sludge. <i>TOXIC WASTE: Handle with care.</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0af104c6976b14a48f79237cf8a140095b9e26cf390327fdafcb727234771f5d.png",
+        "imageGold": "",
+        "flavorText": "He looks at life through sludge-tinted glasses.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/710401a2e4b7015c96427396b2dfe4f0a4412c71efde4910ac6d84b2a4c53f1e.png",
+        "childIds": [
+          100963
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_331",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 100101,
+        "collectible": 1,
+        "slug": "100101-miracle-salesman",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "奇迹推销员",
+        "text": "<b>亡语：</b>获取一张<b>可交易</b>的蛇油。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/987b97fc914db783d29b206bec7b59cf4d27ddb675f989b5f729b1b0f3d4c290.png",
+        "imageGold": "",
+        "flavorText": "“嗨！你好啊亲！你想创业自己当老板吗？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f5ffbc94a88d0841ab4669ad123e4b100d601e060fd4a6a2878d5a10d5ef47a.png",
+        "childIds": [
+          100102
+        ],
+        "keywordIds": [
+          12,
+          97
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_331",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 100101,
+        "collectible": 1,
+        "slug": "100101-miracle-salesman",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Miracle Salesman",
+        "text": "<b>Deathrattle:</b> Get a <b>Tradeable</b> Snake Oil.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95eea7f3f8c57c767e58940e4c764726c6de9e51d53d89322b62c9bafdc846b9.png",
+        "imageGold": "",
+        "flavorText": "\"Hey! Hope you’re well. Have you ever wanted to be your own boss?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f5ffbc94a88d0841ab4669ad123e4b100d601e060fd4a6a2878d5a10d5ef47a.png",
+        "childIds": [
+          100102
+        ],
+        "keywordIds": [
+          12,
+          97
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_067",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 102602,
+        "collectible": 1,
+        "slug": "102602-jade-swarmer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Slawomir Maniak",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "青玉游荡者",
+        "text": "<b>潜行，亡语：</b>召唤一个 的<b>青玉魔像</b>。 <b>潜行，亡语：</b>召唤一个<b>青玉魔像</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f25b3e490df245488c23cdbc2c50e4b65c08e50659336ad0b57a7a8bf812a089.png",
+        "imageGold": "",
+        "flavorText": "所到之处，寸草不生。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00b3c0b56e6a8481c3d7ed0300ed84cac24ae9afff8d2bcdf3b8cf68cd10ed27.png",
+        "keywordIds": [
+          6,
+          12,
+          26
+        ],
+        "copyOfCardId": [
+          40697
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_067",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 102602,
+        "collectible": 1,
+        "slug": "102602-jade-swarmer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Slawomir Maniak",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jade Swarmer",
+        "text": "<b>Stealth</b> <b>Deathrattle:</b> Summon a <b>Jade Golem</b>. <b>Stealth</b> <b>Deathrattle:</b> Summon a <b>Jade Golem</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f935f83be7662435aa8c13fb718056ba7585d3417accca48f0266fde23ebe58.png",
+        "imageGold": "",
+        "flavorText": "He's so good at swarming, he can swarm all by himself!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00b3c0b56e6a8481c3d7ed0300ed84cac24ae9afff8d2bcdf3b8cf68cd10ed27.png",
+        "keywordIds": [
+          6,
+          12,
+          26
+        ],
+        "copyOfCardId": [
+          40697
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_439",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 64388,
+        "collectible": 1,
+        "slug": "64388-vibrant-squirrel",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "活泼的松鼠",
+        "text": "<b>亡语：</b>将四张橡果洗入你的牌库。当抽到橡果时，召唤一只2/1的松鼠。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbcffba8e0393de00a51013ebf54e8b8f37ed57578d893d7ba96b5888043782.png",
+        "imageGold": "",
+        "flavorText": "别看它们现在萌萌的，等你听到野蛮咆哮，就晚了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48bd448375245bd94a62774e9696aa27296bab36415160c9d53e5aa9e292b1eb.png",
+        "childIds": [
+          64851,
+          68116
+        ],
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          120393
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_439",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 64388,
+        "collectible": 1,
+        "slug": "64388-vibrant-squirrel",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Vibrant Squirrel",
+        "text": "<b>Deathrattle:</b> Shuffle 4 Acorns into your deck. When drawn, summon a 2/1 Squirrel.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ee483bf088f98ae6cff65a3b5cbdb6411e87dd1215cfb6d2cd71d03b391252a.png",
+        "imageGold": "",
+        "flavorText": "Oh, they're cute now. Just wait till they unleash a Savage Roar.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48bd448375245bd94a62774e9696aa27296bab36415160c9d53e5aa9e292b1eb.png",
+        "childIds": [
+          64851,
+          68116
+        ],
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          120393
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_650t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\85043-zh_CN.json",
+      "response_sha256": "786f7abdf7489cf3f6a7ea33c2730a6dc8d2b525f8d9f29305649485a1bd4b7d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=85043&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 85043,
+        "collectible": 0,
+        "slug": "85043-disarmed-zombie",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Konstantin Porubov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "徒手僵尸",
+        "text": "<b>亡语：</b>召唤一个1/1的僵尸。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b1c3d2e2514832fe899fb6dbdfc30c7944cf6adaefec298c13a5e6c6c0c6d41a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 85041,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=85043&locale=zh_CN&collectible=0",
+        "sha256": "786f7abdf7489cf3f6a7ea33c2730a6dc8d2b525f8d9f29305649485a1bd4b7d",
+        "bytes": 627,
+        "observed_at": "2026-10-23T14:21:53.927829+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_650t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\85043-en_US.json",
+      "response_sha256": "0441eea6e0442dc3508214eaf1812dac8149621921d0e6c95bfa57cae73df596",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=85043&locale=en_US&collectible=0",
+      "face": {
+        "id": 85043,
+        "collectible": 0,
+        "slug": "85043-disarmed-zombie",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Konstantin Porubov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Disarmed Zombie",
+        "text": "<b>Deathrattle:</b> Summon a 1/1 Zombie.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3052ae08dd6c293d3e180e77f5528a6a40f3bef1f0901b6218d71d15a86aeeb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 85041,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=85043&locale=en_US&collectible=0",
+        "sha256": "0441eea6e0442dc3508214eaf1812dac8149621921d0e6c95bfa57cae73df596",
+        "bytes": 627,
+        "observed_at": "2026-10-23T14:21:53.799893+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_650t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\85045-zh_CN.json",
+      "response_sha256": "519a3ae77b84fb857e115620d47e72c32ad4cdbefce4936d9700c95a20050b7c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=85045&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 85045,
+        "collectible": 0,
+        "slug": "85045-unarmed-zombie",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "空手僵尸",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76b440dcdeea5989788b6ba7e92a3384aa025ec6ce1ab5a03d26b816271df4a0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 85041,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=85045&locale=zh_CN&collectible=0",
+        "sha256": "519a3ae77b84fb857e115620d47e72c32ad4cdbefce4936d9700c95a20050b7c",
+        "bytes": 549,
+        "observed_at": "2026-10-23T14:21:53.929271+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_650t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\85045-en_US.json",
+      "response_sha256": "bb939d41e907def3e0c8c89cfa7da3c1927dc64da5934cb8ca42eae662b8bd49",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=85045&locale=en_US&collectible=0",
+      "face": {
+        "id": 85045,
+        "collectible": 0,
+        "slug": "85045-unarmed-zombie",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Unarmed Zombie",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22fea9f3248b2110bbb2e103cdc3263d4349f01522791d34671fa6b13b52e23c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 85041,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=85045&locale=en_US&collectible=0",
+        "sha256": "bb939d41e907def3e0c8c89cfa7da3c1927dc64da5934cb8ca42eae662b8bd49",
+        "bytes": 551,
+        "observed_at": "2026-10-23T14:21:53.962374+00:00"
+      }
+    },
+    {
+      "card_id": "TRL_363t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\50797-zh_CN.json",
+      "response_sha256": "cb3ddddd37acd91ce116cc36e2f54e691a49c3f914669e38454cd507f3b100df",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=50797&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 50797,
+        "collectible": 0,
+        "slug": "50797-free-agent",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": null,
+        "artistName": "Sean McNally",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "自由的矿工",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b089222540e4b109879a81a2e7a16048454d0ade6d6128b2ae2792889d2c2b9e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 50796,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=50797&locale=zh_CN&collectible=0",
+        "sha256": "cb3ddddd37acd91ce116cc36e2f54e691a49c3f914669e38454cd507f3b100df",
+        "bytes": 588,
+        "observed_at": "2026-10-23T14:21:55.322782+00:00"
+      }
+    },
+    {
+      "card_id": "TRL_363t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\50797-en_US.json",
+      "response_sha256": "c4321bbb6874f05da47e6da46527542a7e1ce489484c11e613958e7617e277ab",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=50797&locale=en_US&collectible=0",
+      "face": {
+        "id": 50797,
+        "collectible": 0,
+        "slug": "50797-free-agent",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": null,
+        "artistName": "Sean McNally",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Free Agent",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc02ab2cffb8b318d5a4e0b5750883cd46388b991c6298bfc1b311083ccc8b45.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 50796,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=50797&locale=en_US&collectible=0",
+        "sha256": "c4321bbb6874f05da47e6da46527542a7e1ce489484c11e613958e7617e277ab",
+        "bytes": 582,
+        "observed_at": "2026-10-23T14:21:56.273569+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_412t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\109325-zh_CN.json",
+      "response_sha256": "538fe7265f2f01db2b9853d9d911dc0595ab3c76c94189c849c905daa3ca1a78",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=109325&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 109325,
+        "collectible": 0,
+        "slug": "109325-delicious-worm",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "美味鱼虫",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ab735568dc3e0bbb49265890b781562b7d2fda2648dbbbef52cede0276874c7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 106636,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=109325&locale=zh_CN&collectible=0",
+        "sha256": "538fe7265f2f01db2b9853d9d911dc0595ab3c76c94189c849c905daa3ca1a78",
+        "bytes": 571,
+        "observed_at": "2026-10-23T14:21:55.552759+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_412t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\109325-en_US.json",
+      "response_sha256": "c50c45cd9f70f7ebde12252017fbe870c99310e102773e3395177949fd2792d5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=109325&locale=en_US&collectible=0",
+      "face": {
+        "id": 109325,
+        "collectible": 0,
+        "slug": "109325-delicious-worm",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Delicious Worm",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5501087b75975fe683a417d0865484cb945b5455b4388c9f33060df5b97ff83f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 106636,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=109325&locale=en_US&collectible=0",
+        "sha256": "c50c45cd9f70f7ebde12252017fbe870c99310e102773e3395177949fd2792d5",
+        "bytes": 573,
+        "observed_at": "2026-10-23T14:21:55.616894+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_940t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\107798-zh_CN.json",
+      "response_sha256": "ec1a5b2f279d81d12646e1a63dc39f34292de7e91de40998e48e319548569bd4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=107798&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 107798,
+        "collectible": 0,
+        "slug": "107798-felbeast",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Juan Calle",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "邪能兽",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ccb4ff680a4960b8c3937d6f761a70b27dd0fbf9c1163b7485627557f674def0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 107797,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=107798&locale=zh_CN&collectible=0",
+        "sha256": "ec1a5b2f279d81d12646e1a63dc39f34292de7e91de40998e48e319548569bd4",
+        "bytes": 551,
+        "observed_at": "2026-10-23T14:21:57.533163+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_940t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\107798-en_US.json",
+      "response_sha256": "ed11cd3a7fe883459e821d8fa9e9a71b838d2fa4304e1a99ef4920652361a0bd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=107798&locale=en_US&collectible=0",
+      "face": {
+        "id": 107798,
+        "collectible": 0,
+        "slug": "107798-felbeast",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Juan Calle",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Felbeast",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f368331da61c4f34c43047c6d00f756dfcdec106c994ce80a7ded6fb193e2da6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 107797,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=107798&locale=en_US&collectible=0",
+        "sha256": "ed11cd3a7fe883459e821d8fa9e9a71b838d2fa4304e1a99ef4920652361a0bd",
+        "bytes": 550,
+        "observed_at": "2026-10-23T14:21:57.122852+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_914t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\41356-zh_CN.json",
+      "response_sha256": "9739de4bf7625fe17ea70314a479c085318746fea4062141b6c31df7205853a0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41356&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 41356,
+        "collectible": 0,
+        "slug": "41356-raptor-patriarch",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Jaemin Kim",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 1,
+        "name": "迅猛龙头领",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6b42a321b852025455bc4fd9e8e1ad525524c22a96d86885bfdc9c171e0813f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41357,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41356&locale=zh_CN&collectible=0",
+        "sha256": "9739de4bf7625fe17ea70314a479c085318746fea4062141b6c31df7205853a0",
+        "bytes": 560,
+        "observed_at": "2026-10-23T14:21:57.461141+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_914t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\41356-en_US.json",
+      "response_sha256": "ff27bdd7d03c6a4d94ddb3768002926dcd9f769c56517bd373d93887772be54e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41356&locale=en_US&collectible=0",
+      "face": {
+        "id": 41356,
+        "collectible": 0,
+        "slug": "41356-raptor-patriarch",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Jaemin Kim",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 1,
+        "name": "Raptor Patriarch",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cbc49f8f159da6cd18e4bbd172a7376d3a056b0cbe14824654289e95e9261be.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41357,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41356&locale=en_US&collectible=0",
+        "sha256": "ff27bdd7d03c6a4d94ddb3768002926dcd9f769c56517bd373d93887772be54e",
+        "bytes": 561,
+        "observed_at": "2026-10-23T14:21:58.289273+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_307t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\59723-zh_CN.json",
+      "response_sha256": "1f911a40eba76c58a99a9eed1b826c71c8124c488fa397c751e5a80380fb7380",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=59723&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 59723,
+        "collectible": 0,
+        "slug": "59723-soul-fragment",
+        "classId": 9,
+        "multiClassIds": [
+          9,
+          14
+        ],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": null,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 0,
+        "name": "灵魂残片",
+        "text": "<b>抽到时施放</b> 为你的英雄恢复 2点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1dcef340430b663c81e81729c82710f682ad84f369eaed97dab02780474a5bde.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 58796,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59723&locale=zh_CN&collectible=0",
+        "sha256": "1f911a40eba76c58a99a9eed1b826c71c8124c488fa397c751e5a80380fb7380",
+        "bytes": 623,
+        "observed_at": "2026-10-23T14:21:58.844996+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_307t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\59723-en_US.json",
+      "response_sha256": "d275eb06b3027fd2701f9bde93c9619afbdad120f3db9dbaee4d1601fd48cda8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=59723&locale=en_US&collectible=0",
+      "face": {
+        "id": 59723,
+        "collectible": 0,
+        "slug": "59723-soul-fragment",
+        "classId": 9,
+        "multiClassIds": [
+          9,
+          14
+        ],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": null,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 0,
+        "name": "Soul Fragment",
+        "text": "<b>Casts When Drawn</b> Restore 2 Health to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc3b051ecd5eb3a115957e0442b50d4f3fcac4f8d0ab2f70692d723ed9cb74a4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 58796,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59723&locale=en_US&collectible=0",
+        "sha256": "d275eb06b3027fd2701f9bde93c9619afbdad120f3db9dbaee4d1601fd48cda8",
+        "bytes": 617,
+        "observed_at": "2026-10-23T14:21:59.022874+00:00"
+      }
+    },
+    {
+      "card_id": "WW_044t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\100963-zh_CN.json",
+      "response_sha256": "57a98645e60e555f0ca5bdf859d65d746d351b9fe00191a176a65fb5f23de512",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=100963&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 100963,
+        "collectible": 0,
+        "slug": "100963-barrel-of-sludge",
+        "classId": 12,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": null,
+        "artistName": "Max Grecke",
+        "manaCost": 3,
+        "name": "淤泥桶",
+        "text": "当本牌被使用，弃掉或摧毁时，对生命值最低的敌人造成 4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a57a8e744ecc8412370f0401f4079ca384d02bc728957857e92f7a123e52baeb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 101272,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=100963&locale=zh_CN&collectible=0",
+        "sha256": "57a98645e60e555f0ca5bdf859d65d746d351b9fe00191a176a65fb5f23de512",
+        "bytes": 627,
+        "observed_at": "2026-10-23T14:21:59.024989+00:00"
+      }
+    },
+    {
+      "card_id": "WW_044t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\100963-en_US.json",
+      "response_sha256": "f20412b63777a745d49a0a7cb47e19003b192b812b4fab1157ac2761d6cf3126",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=100963&locale=en_US&collectible=0",
+      "face": {
+        "id": 100963,
+        "collectible": 0,
+        "slug": "100963-barrel-of-sludge",
+        "classId": 12,
+        "multiClassIds": [],
+        "spellSchoolId": 7,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": null,
+        "artistName": "Max Grecke",
+        "manaCost": 3,
+        "name": "Barrel of Sludge",
+        "text": "When this is played, discarded, or destroyed, deal 4 damage to the lowest Health enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62d492175b1f4d4053e32dcf7943a67dfdf53bf79007764e23815bbdecbb1abe.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 101272,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=100963&locale=en_US&collectible=0",
+        "sha256": "f20412b63777a745d49a0a7cb47e19003b192b812b4fab1157ac2761d6cf3126",
+        "bytes": 632,
+        "observed_at": "2026-10-23T14:21:59.786581+00:00"
+      }
+    },
+    {
+      "card_id": "WW_331t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\100102-zh_CN.json",
+      "response_sha256": "4cd85598ed94c6d85445030150849db6c6cd0484025be6f5cecdddba39c3d6b4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=100102&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 100102,
+        "collectible": 0,
+        "slug": "100102-snake-oil",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "manaCost": 0,
+        "name": "蛇油",
+        "text": "<b>可交易</b> 造成 0点伤害。<i>好像没什么用……</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10904cb368b39aca9f933561f3153e2640d3fe3453bbd30ffd9d1c1d4bd3e43b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 100101,
+        "keywordIds": [
+          97
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=100102&locale=zh_CN&collectible=0",
+        "sha256": "4cd85598ed94c6d85445030150849db6c6cd0484025be6f5cecdddba39c3d6b4",
+        "bytes": 596,
+        "observed_at": "2026-10-23T14:22:00.405557+00:00"
+      }
+    },
+    {
+      "card_id": "WW_331t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\100102-en_US.json",
+      "response_sha256": "232d93a928b15db3abd7afd74ac15eb27a955d2049170a19c5277b867a18bcac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=100102&locale=en_US&collectible=0",
+      "face": {
+        "id": 100102,
+        "collectible": 0,
+        "slug": "100102-snake-oil",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "manaCost": 0,
+        "name": "Snake Oil",
+        "text": "<b>Tradeable</b> Deal 0 damage. <i>This seems useless...</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be8f67572ef80b6c94629fdf88d2af013f45a19d56fbb58eded667f5614624fc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 100101,
+        "keywordIds": [
+          97
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=100102&locale=en_US&collectible=0",
+        "sha256": "232d93a928b15db3abd7afd74ac15eb27a955d2049170a19c5277b867a18bcac",
+        "bytes": 591,
+        "observed_at": "2026-10-23T14:22:00.594355+00:00"
+      }
+    },
+    {
+      "card_id": "SW_439t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\64851-zh_CN.json",
+      "response_sha256": "9cbc4ca0ff2680b34ce0a540dca8fe0748e0cefa3fe0aaa514b0d9720b07a1f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64851&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 64851,
+        "collectible": 0,
+        "slug": "64851-acorn",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "manaCost": 1,
+        "name": "橡果",
+        "text": "<b>抽到时施放</b> 召唤一只2/1的 松鼠。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7bf7a9f27734526929325738985ebfa1b5cdf08e7fdebff9f1895dfa5a282a85.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64388,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64851&locale=zh_CN&collectible=0",
+        "sha256": "9cbc4ca0ff2680b34ce0a540dca8fe0748e0cefa3fe0aaa514b0d9720b07a1f3",
+        "bytes": 571,
+        "observed_at": "2026-10-23T14:22:00.778058+00:00"
+      }
+    },
+    {
+      "card_id": "SW_439t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\64851-en_US.json",
+      "response_sha256": "084f87c3b8939048cd3a5c2fd1760d65b2f343d14ecdf91d67e6e51aeeecafbb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64851&locale=en_US&collectible=0",
+      "face": {
+        "id": 64851,
+        "collectible": 0,
+        "slug": "64851-acorn",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "manaCost": 1,
+        "name": "Acorn",
+        "text": "<b>Casts When Drawn</b> Summon a 2/1 Squirrel.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5350f833578356c156c09c81467da822cbfe16193311ed356ddc97c5338e4cf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64388,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64851&locale=en_US&collectible=0",
+        "sha256": "084f87c3b8939048cd3a5c2fd1760d65b2f343d14ecdf91d67e6e51aeeecafbb",
+        "bytes": 565,
+        "observed_at": "2026-10-23T14:22:01.640433+00:00"
+      }
+    },
+    {
+      "card_id": "SW_439t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\68116-zh_CN.json",
+      "response_sha256": "7de6f1c1578ec559433075c2df2994198e59f44e5b37488302b921dba88f8fd7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=68116&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 68116,
+        "collectible": 0,
+        "slug": "68116-satisfied-squirrel",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "满足的松鼠",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f31f8bfd5b48e094ca811e9b9809a06c802687d9a09def2efc4b46f4f687310.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64388,
+        "copyOfCardId": [
+          76491
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=68116&locale=zh_CN&collectible=0",
+        "sha256": "7de6f1c1578ec559433075c2df2994198e59f44e5b37488302b921dba88f8fd7",
+        "bytes": 587,
+        "observed_at": "2026-10-23T14:22:02.220043+00:00"
+      }
+    },
+    {
+      "card_id": "SW_439t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k465-past-one-cost-named-shuffles\\official-cache-01\\68116-en_US.json",
+      "response_sha256": "cefbb8219dfa3448d2aa4cb433b30c8dbf4b86fb5017c1e14a9b6819c49e6a03",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=68116&locale=en_US&collectible=0",
+      "face": {
+        "id": 68116,
+        "collectible": 0,
+        "slug": "68116-satisfied-squirrel",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Satisfied Squirrel",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddaeba9b62ae16ad3fec4dda1bfea53192ecfb5728f3214ac09b54828ad82ab7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64388,
+        "copyOfCardId": [
+          76491
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=68116&locale=en_US&collectible=0",
+        "sha256": "cefbb8219dfa3448d2aa4cb433b30c8dbf4b86fb5017c1e14a9b6819c49e6a03",
+        "bytes": 590,
+        "observed_at": "2026-10-23T14:22:02.115868+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t01",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42098-zh_CN.json",
+      "response_sha256": "6f8153340eecab3ec1727ce80b2be20ea5414e11ebcf6b7045f6c21095de6457",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42098,
+        "collectible": 0,
+        "slug": "42098-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/872ff7ae21abd570e90a43e7c54afb18be8881f34c9ca9ba90443e727fc38b88.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=zh_CN&collectible=0",
+        "sha256": "6f8153340eecab3ec1727ce80b2be20ea5414e11ebcf6b7045f6c21095de6457",
+        "bytes": 543,
+        "observed_at": "2026-10-23T10:49:40.015297+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t01",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42098-en_US.json",
+      "response_sha256": "e9384c6279ec4e34a9d83437233d65177030e1c010c931c278839790e5166fd3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=en_US&collectible=0",
+      "face": {
+        "id": 42098,
+        "collectible": 0,
+        "slug": "42098-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b15b33fa8a69d0c69da614885b42c6e200298ca9de6dc765177ffab3be140ccb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=en_US&collectible=0",
+        "sha256": "e9384c6279ec4e34a9d83437233d65177030e1c010c931c278839790e5166fd3",
+        "bytes": 541,
+        "observed_at": "2026-10-23T10:49:40.055440+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t04",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42101-zh_CN.json",
+      "response_sha256": "51ebb1d4d5e73418f398eb111b3490ea2f76e5bb19bf616b02fcb3d6923d03d6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42101,
+        "collectible": 0,
+        "slug": "42101-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee2406a5fa01789643111ad591c84a003deccaeaf6270deb94a3bb31513e6002.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=zh_CN&collectible=0",
+        "sha256": "51ebb1d4d5e73418f398eb111b3490ea2f76e5bb19bf616b02fcb3d6923d03d6",
+        "bytes": 543,
+        "observed_at": "2026-10-23T10:49:40.409345+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t04",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42101-en_US.json",
+      "response_sha256": "dad65fc6d17cfc19c19d91be177cc924d0977ab7e4c9e97e3e6f3b4ed62e6487",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=en_US&collectible=0",
+      "face": {
+        "id": 42101,
+        "collectible": 0,
+        "slug": "42101-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a05b5f949d354bb31a99cac3535ded033df3a57dc31dd62fbb3392c6917036a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=en_US&collectible=0",
+        "sha256": "dad65fc6d17cfc19c19d91be177cc924d0977ab7e4c9e97e3e6f3b4ed62e6487",
+        "bytes": 541,
+        "observed_at": "2026-10-23T10:49:40.294413+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t07",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42104-zh_CN.json",
+      "response_sha256": "3e69f9d2705fa4e32f90ff9bd13551cb32031d62754d4c41bb83a037dde185d3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42104,
+        "collectible": 0,
+        "slug": "42104-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d0af8583222bb2355f1b2bd5b42bebef4add3dff70e831df03d593cce1bbd7c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=zh_CN&collectible=0",
+        "sha256": "3e69f9d2705fa4e32f90ff9bd13551cb32031d62754d4c41bb83a037dde185d3",
+        "bytes": 543,
+        "observed_at": "2026-10-23T10:49:41.513314+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t07",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42104-en_US.json",
+      "response_sha256": "fda06475539d03c9c3b88a852f6fb4485e69c3dc000750ccc47f92eb3c512c36",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=en_US&collectible=0",
+      "face": {
+        "id": 42104,
+        "collectible": 0,
+        "slug": "42104-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e01e85cf990ca4b2ee46907bcde91159f6137954440344d14c20d34854bc46b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=en_US&collectible=0",
+        "sha256": "fda06475539d03c9c3b88a852f6fb4485e69c3dc000750ccc47f92eb3c512c36",
+        "bytes": 541,
+        "observed_at": "2026-10-23T10:49:41.565228+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t20",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42128-zh_CN.json",
+      "response_sha256": "bf19432a03c75bb9a3652f1ec20a3c256f91c17a7a2d0ee248302cf5e898ce57",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42128,
+        "collectible": 0,
+        "slug": "42128-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/517672df5d20d186075f019c3d24cfe0fc6893fef6251bc416091be739d7b67f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=zh_CN&collectible=0",
+        "sha256": "bf19432a03c75bb9a3652f1ec20a3c256f91c17a7a2d0ee248302cf5e898ce57",
+        "bytes": 546,
+        "observed_at": "2026-10-23T10:49:41.926866+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t20",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42128-en_US.json",
+      "response_sha256": "1d950e043624aa9f7c793b66d169e32192a3314d2a25ff64b11151c28fc7e262",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=en_US&collectible=0",
+      "face": {
+        "id": 42128,
+        "collectible": 0,
+        "slug": "42128-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b71c236abf92c0e09891e995ecc13545d7c9ce6b1b7cfaa8cfb38542d3606c8c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=en_US&collectible=0",
+        "sha256": "1d950e043624aa9f7c793b66d169e32192a3314d2a25ff64b11151c28fc7e262",
+        "bytes": 544,
+        "observed_at": "2026-10-23T10:49:42.077479+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
