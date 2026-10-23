@@ -6,9 +6,12 @@ def normalize_event_state(state, reason, *, registry=None, cause_source=None, ca
     from .keyword_auras import refresh_hand_keyword_auras, refresh_conditional_keywords
     from .stat_auras import refresh_weapon_auras
     from .stat_relations import refresh_conditional_attacks
-    refresh_conditional_attacks(state, registry)
+    hero_followers = refresh_conditional_attacks(state, registry)
     refresh_conditional_keywords(state)
     refresh_weapon_auras(state, include_dying=True)
+    if hero_followers:
+        from .stat_relations import _refresh_hero_attack_followers
+        _refresh_hero_attack_followers(state, registry, hero_followers)
     sync_state(state, reason, cause_source=cause_source, cause_target_id=cause_target_id)
     # Sources remain until the old death checkpoint; this does not allocate IDs.
     refresh_hand_keyword_auras(state, include_dying=True)

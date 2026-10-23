@@ -222,9 +222,13 @@ class MinionSubtypeBasicsTests(unittest.TestCase):
 
     def test_subtype_difference_blocks_false_generation_equivalence(self):
         r = registry(equivalent=True)
-        a, b = (r.pool_card(cid).filter_signature() for cid in ('alias.a', 'alias.b'))
-        self.assertEqual(a[:-1], b[:-1])
-        self.assertNotEqual(a[-1], b[-1])
+        a, b = (r.pool_card(cid) for cid in ('alias.a', 'alias.b'))
+        self.assertNotEqual(a.metadata.subtypes, b.metadata.subtypes)
+        self.assertNotEqual(a.filter_signature(), b.filter_signature())
+        # Later filter fields can follow subtypes. Normalize only the named
+        # classification and verify that every other filter fact agrees.
+        same_subtype = replace(b, metadata=replace(b.metadata, subtypes=a.metadata.subtypes))
+        self.assertEqual(a.filter_signature(), same_subtype.filter_signature())
         with self.assertRaisesRegex(ValueError, 'Conflicting generation aliases'):
             r.validate()
 

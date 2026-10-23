@@ -16,7 +16,15 @@ def validate_ordinary_face(card):
         raise ValueError('Stat relations require ordinary non-fusion minion declarations')
 
 
+NATIVE_COUNT_ATTACK = (StatRelationOperand.CONTROLLER_HERO_ATTACK, StatRelationOperand.CONTROLLER_IMP_COUNT)
+
+
 def _validate_relation_face(card, specs):
+    if any(s.operand in NATIVE_COUNT_ATTACK for s in specs):
+        if len(specs) != 1:
+            raise ValueError('Native hero/Imp Attack requires one independent declaration')
+        validate_ordinary_face(card)
+        return
     if (card.kind == CardType.MINION and len(specs) == 1 and
             specs[0].operand == StatRelationOperand.CONTROLLER_OVERLOADED_MANA):
         validate_ordinary_face(card)
@@ -68,6 +76,8 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                                             StatRelationOperand.OTHER_BATTLEFIELD_TRIBE_COUNT,
                                             StatRelationOperand.CONTROLLER_OVERLOADED_MANA,
                                             StatRelationOperand.CONTROLLER_OPPONENT_TURN,
+                                            StatRelationOperand.CONTROLLER_HERO_ATTACK,
+                                            StatRelationOperand.CONTROLLER_IMP_COUNT,
                                             StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE):
             installed[ability.stat_relation] += 1
             if installed[ability.stat_relation] > card.stat_relations.count(ability.stat_relation):
@@ -86,7 +96,9 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                            'spell-damage-weapon' if ability.stat_relation.operand ==
                            StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE else
                            'opponent-turn' if ability.stat_relation.operand ==
-                           StatRelationOperand.CONTROLLER_OPPONENT_TURN else 'discard-count')
+                           StatRelationOperand.CONTROLLER_OPPONENT_TURN else
+                           'hero-attack' if ability.stat_relation.operand == StatRelationOperand.CONTROLLER_HERO_ATTACK else
+                           'imp-count' if ability.stat_relation.operand == StatRelationOperand.CONTROLLER_IMP_COUNT else 'discard-count')
                 attribute = 'Health' if ability.stat_relation.target == StatReference.HEALTH else 'Attack'
                 raise ValueError(f'Duplicate native {profile} {attribute} relation')
 
@@ -97,6 +109,20 @@ def conditional_attack(state, entity, registry=None):
     from .equipment import equipped_weapon
     specs = tuple(a.stat_relation for a in active_abilities(entity, 'stat_relation')
                   if a.stat_relation.target == StatReference.ATTACK)
+    native = tuple(s for s in specs if s.operand in NATIVE_COUNT_ATTACK)
+    if native:
+        if len(specs) != 1 or entity.kind != CardType.MINION or entity.components:
+            raise ValueError('Native hero/Imp Attack requires one ordinary minion')
+        if entity.zone != Zone.BOARD:
+            return 0
+        if native[0].operand == StatRelationOperand.CONTROLLER_HERO_ATTACK:
+            return state.entities[state.players[entity.controller].hero_id].attack
+        if registry is None:
+            raise ValueError('Native Imp-count Attack requires its fixed registry')
+        from .cross_zone import MinionScope, minion_references
+        from .pools import PoolQuery
+        return len(minion_references(state, registry, entity.controller,
+            MinionScope(zones=(Zone.BOARD,), query=PoolQuery(subtypes_any=('imp',)))))
     if any(s.operand == StatRelationOperand.CONTROLLER_ARMOR for s in specs):
         return state.entities[state.players[entity.controller].hero_id].armor
     overloaded = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_OVERLOADED_MANA)
@@ -155,6 +181,24 @@ def conditional_attack(state, entity, registry=None):
     return bonus
 
 
+def _hero_attack_followers(state):
+    from .lifecycle import active_abilities
+    return tuple(entity for entity in state.entities.values() if entity.zone == Zone.BOARD and entity.active and
+        any(a.stat_relation.operand == StatRelationOperand.CONTROLLER_HERO_ATTACK
+            for a in active_abilities(entity, 'stat_relation')))
+
+
+def _refresh_hero_attack_followers(state, registry, followers):
+    if not followers:
+        return
+    from .equipment import refresh_equipment
+    # Native weapon relations were evaluated first. Publish the active equipment
+    # view before reading hero Attack; off-turn weapons contribute nothing.
+    refresh_equipment(state)
+    for entity in followers:
+        entity.conditional_attack = conditional_attack(state, entity, registry)
+
+
 def refresh_turn_attacks(state, registry):
     """Refresh only genuine turn-dependent carriers before new start capture."""
     from .stat_auras import refresh_hero_auras
@@ -163,6 +207,7 @@ def refresh_turn_attacks(state, registry):
         if any(a.kind == 'stat_relation' and a.stat_relation.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN
                for a in entity.abilities):
             entity.conditional_attack = conditional_attack(state, entity, registry)
+    _refresh_hero_attack_followers(state, registry, _hero_attack_followers(state))
 
 
 def conditional_health(state, entity):
@@ -193,8 +238,11 @@ def refresh_conditional_health(state, *, clamp=True):
 def refresh_conditional_attacks(state, registry=None):
     """Normalize only self numeric caches; never rematch external aura sources."""
     refresh_conditional_health(state)
+    followers = _hero_attack_followers(state)
+    follower_ids = {entity.id for entity in followers}
     for entity in state.entities.values():
-        entity.conditional_attack = conditional_attack(state, entity, registry)
+        if entity.id not in follower_ids:
+            entity.conditional_attack = conditional_attack(state, entity, registry)
     # Continuous inputs can change before an event freezes its context. Keep the original
     # active hero equipment view current without changing wear or attack uses.
     from .lifecycle import refresh_entity
@@ -208,6 +256,8 @@ def refresh_conditional_attacks(state, registry=None):
         hero = state.entities[player.hero_id]
         hero.weapon_attack = weapon.attack
         refresh_entity(hero)
+    _refresh_hero_attack_followers(state, registry, followers)
+    return followers
 
 
 @dataclass(frozen=True)

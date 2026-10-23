@@ -84,3 +84,12 @@ python -m unittest discover -s tests -q
 ```
 
 schema 74 严格保存新操作数字段；旧 schema 1～73 明确拒绝，需原引擎或未来显式迁移器。外层回放仍为 schema 1，当前起点为 schema 74；更换原型版本时不能将旧摘要当作可兼容结果。
+
+
+## K469 原生英雄攻击与小鬼数量关系
+
+MIS_710和REV_242只在CardDefinition.stat_relations声明一个原生普通非融合随从关系。新增CONTROLLER_HERO_ATTACK、CONTROLLER_IMP_COUNT操作数只允许target=ATTACK、CONDITIONAL_ATTACK、amount=1；不允许额外计数条件、混合声明、动态授予、可消费或有期限的非原生能力。关系共用现有conditional_attack层，不写永久Buff或基础攻击，不增加状态字段。
+
+英雄输入读取控制方当前hero.attack。原条件武器先算出自身攻击，再经refresh_equipment发布当前装备贡献，失活的对方回合武器不算入；不得改用包含失活武器的total_hero_attack。事件规范化先保留既有关键词/受伤武器光环顺序，在光环提交后再刷新英雄依赖；新回合捕获前同样更新装备与跟随者。没有任意表达式图或第二套装备执行器。
+
+小鬼数量使用原MinionScope(BOARD, subtypes_any=('imp',))及当前卡面的印刷分类，未知必要信息明确失败。来源只在BOARD且原生能力活跃时贡献，候选沿原活跃、正生命、非待消灭政策；沉默/转控/当前复制/回手/变形/休眠仍复用原生命周期。场外来源及休眠/待死小鬼是否应计入仍须国服37.0校准，不能从内部测试推定官方规则。当前关系版本和实际证据只在两份原台账记录；[完整真实数据](../data/cards/past-continuous-attack-v1.json)保留该政策边界。

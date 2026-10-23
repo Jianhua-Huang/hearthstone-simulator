@@ -172,3 +172,8 @@ TSC_642用Dredge(..., on_select=...)接受原选中卡，机械/全部类型匹�
 GDB_116按[固定完整原行及双语主面](../data/cards/past-hand-shuffle-v1.json)声明1费1/3、OUTCAST和SPELLBURST。on_play读取原冻结spell_conditions.outcast，源离手后只洗当前剩余手牌；没有原接受条件时明确拒绝，不从后来牌序猜边缘。LimitedTriggerSpec.spellburst独立调用同一ShuffleHand，流放不消费迸发用途，普通召唤也保留固有迸发而不执行流放。
 
 物理顺序和隐藏追踪交[公共单手洗混](m3-zones.md#单个物理手牌的随机洗混)，能力消费、当前控制者、沉默/死亡和已接受主体沿有限触发。手动反制不消费迸发、自动CAST不假造手动候选，依据和当前国服未校准范围见[迸发追加契约](m5-limited-triggers.md#k468-法术迸发反制资格修正)。本适配不提供正式过去池，也不为其他卡穷举流放和关键词组合。
+
+
+## 两个原生持续攻击候选
+
+MIS_710滑矛布袋手偶和REV_242慌乱的图书管理员的[完整原行/双语主面](../data/cards/past-continuous-attack-v1.json)仅接入历史执行叶子，COLLECTIBLE_ROOTS为空。普通池召唤安装原印刷StatRelationSpec，不执行战吼、不在卡牌回调写计数；手动支付与原入场流程共用同一属性层。前者读取当前控制方英雄攻击，后者查询真实imp印刷分类，见[有限关系契约](m2-stats.md#k469-原生英雄攻击与小鬼数量关系)。生产过去域仍未绑定，内部有限池、候选登记与完整过去资格/精确国服规则保持独立。

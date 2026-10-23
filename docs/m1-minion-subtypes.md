@@ -13,3 +13,10 @@
 官方[奥妮克希亚的巢穴公告](https://hearthstone.blizzard.com/en-us/news/23763644)明确存在雏龙条件；[拉法姆官方卡牌页](https://hearthstone.blizzard.com/en-gb/cards/78363-imp-king-rafaam?set=murder-at-castle-nathria)的检索卡文包含小鬼条件，直接页面正文为脚本容器。二者仅支持存在这种分类需求，不认证完整成员表或国服时序。ONY_004、REV_835、GIL_681及CS2_065仅原始依据，未适配这些完整主体。
 
 分类是定义元信息，不增加 Entity/Player/GameState 字段、分类计数缓存、授予效果或新模块。冻结出牌卡面保存新字段，JSON解码恢复 tuple；待选帧、回放、clone、回滚、信息隔离继续原流程。结构使用 prototype-v302/core-effects-v304/schema265，旧1～264明确拒绝；观察84、命令12、replay1保持。实际进度、证据、已知差异和下一项只在[项目状态](project-status.md)与[机制清单](mechanism-backlog.md)维护。
+
+
+## K469 小鬼数量的持续属性消费者
+
+REV_242复用原印刷imp分类及MinionScope作为持续攻击输入，不增加分类缓存或第二套计数器。已经接入的UNG_829t3虚空小鬼为必要行为验证材料，不从孤立代表包推定生产装配。名称包含小鬼、恶魔种族与all均不授予imp；改变种族不改分类，变形读取新卡面。未知活跃候选分类在真实动作中明确失败并整体回滚。
+
+活跃/正生命/非待消灭的小鬼存在政策沿旧候选查询，来源只在BOARD的活跃原生能力贡献；休眠及待死窗口仍待CN校准。PoolCard.filter_signature已有后续字段，小鬼分类测试必须比较具名metadata.subtypes，并只归一该分类核完整其余签名，不能再依赖分类位于最后一项。其原提交复现及完整相关证据只登记在两份原台账，见[属性契约](m2-stats.md#k469-原生英雄攻击与小鬼数量关系)。

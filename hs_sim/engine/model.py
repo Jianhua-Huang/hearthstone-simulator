@@ -360,6 +360,8 @@ class StatRelationOperand(StrEnum):
     CONTROLLER_OVERLOADED_MANA = "controller_overloaded_mana"
     CONTROLLER_HAS_SPELL_DAMAGE = "controller_has_spell_damage"
     CONTROLLER_OPPONENT_TURN = "controller_opponent_turn"
+    CONTROLLER_HERO_ATTACK = "controller_hero_attack"
+    CONTROLLER_IMP_COUNT = "controller_imp_count"
 
 
 class StatRelationLayer(StrEnum):
@@ -430,6 +432,9 @@ class StatRelationSpec:
         elif self.operand == StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE:
             if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
                 raise ValueError('Spell Damage weapon Attack requires its conditional layer and positive amount')
+        elif self.operand in (StatRelationOperand.CONTROLLER_HERO_ATTACK, StatRelationOperand.CONTROLLER_IMP_COUNT):
+            if (self.target != StatReference.ATTACK or self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount != 1):
+                raise ValueError('Native hero/Imp Attack requires one conditional Attack contribution')
         elif self.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN:
             if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
                 raise ValueError('Opponent-turn Attack requires its conditional layer and positive amount')
@@ -3316,6 +3321,9 @@ class AbilityInstance:
             if self.stat_relation.operand == StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE and (
                     self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
                 raise ValueError('Spell Damage weapon Attack requires an active native printed declaration')
+            if self.stat_relation.operand in (StatRelationOperand.CONTROLLER_HERO_ATTACK, StatRelationOperand.CONTROLLER_IMP_COUNT) and (
+                    self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
+                raise ValueError('Native hero/Imp Attack requires an active printed declaration')
         elif self.stat_relation is not None:
             raise ValueError('Only stat relation abilities carry StatRelationSpec')
         if self.attack_policy_declaration is not None:
