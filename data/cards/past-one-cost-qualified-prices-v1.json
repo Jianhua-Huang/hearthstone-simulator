@@ -1,0 +1,2046 @@
+{
+  "schema": 1,
+  "batch": "past-one-cost-qualified-prices-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ETC_359",
+        "dbf_id": 92228,
+        "name": "驭流骑士",
+        "name_en": "Flowrider",
+        "text": "<b>战吼：</b>如果你有<b>过载</b>的法力水晶，从你的牌库中<b>发现</b>一张\n法术牌。",
+        "text_en": "[x]<b>Battlecry:</b> If you're\n<b>Overloaded</b>, <b>Discover</b> a\nspell from your deck.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 8,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6439e509e547026bc273a4f7c31a69c6d878d7414540803994fb8433cfd38797"
+    },
+    {
+      "record": {
+        "id": "WC_803",
+        "dbf_id": 63464,
+        "name": "安瑟教士",
+        "name_en": "Cleric of An'she",
+        "text": "<b>战吼：</b>在本回合中，如果你恢复过生命值，便从你的牌库中<b>发现</b>一张法术牌。",
+        "text_en": "<b>Battlecry:</b> If you've restored Health this turn, <b>Discover</b> a spell from your deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1525,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Maria Trepalina"
+          }
+        ]
+      },
+      "record_sha256": "c41c5f048533d0fef857ed50825ae6f13abb3e2f43da183d8f3c4d350eaf0022"
+    },
+    {
+      "record": {
+        "id": "YOD_013",
+        "dbf_id": 56088,
+        "name": "龙鳞祭司",
+        "name_en": "Cleric of Scales",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，便<b>发现</b>你牌库中的一张法术牌。",
+        "text_en": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b> a spell from your deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1403,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1403,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Maria Trepalina"
+          }
+        ]
+      },
+      "record_sha256": "eea63a25723c01ea6b3ea2db43eb19f8111d3ce3440912d759d51dd71c91b8a9"
+    },
+    {
+      "record": {
+        "id": "LOOT_154",
+        "dbf_id": 43528,
+        "name": "砂齿骑兵",
+        "name_en": "Gravelsnout Knight",
+        "text": "<b>战吼：</b>为你的对手随机召唤一个法力值消耗为（1）的随从。",
+        "text_en": "<b>Battlecry:</b> Summon a random 1-Cost minion for_your opponent.",
+        "cost": 1,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "4a84ec660320e32976d5e16a941b1f475eec5a08e7174056b1b212cb2c5f02df"
+    },
+    {
+      "record": {
+        "id": "TOY_006",
+        "dbf_id": 102347,
+        "name": "甲虫钥匙链",
+        "name_en": "Scarab Keychain",
+        "text": "<b>战吼：</b><b>发现</b>一张\n法力值消耗为（2）的卡牌。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a\n2-Cost card.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "80ac41891cdf3183ba0534bb88562abf81580b90e41250ee3153cac11c317799"
+    },
+    {
+      "record": {
+        "id": "BT_020",
+        "dbf_id": 56445,
+        "name": "奥尔多侍从",
+        "name_en": "Aldor Attendant",
+        "text": "<b>战吼：</b>在本局对战中，你的圣契的法力值消耗减少（1）点。",
+        "text_en": "<b>Battlecry:</b> Reduce the Cost_of your Librams by_(1) this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "ab258f2afd016eceb17535a796deda26d20817c9b593f909495474cc85974cbe"
+    },
+    {
+      "record": {
+        "id": "GDB_875",
+        "dbf_id": 111338,
+        "name": "星岩收藏家",
+        "name_en": "Spacerock Collector",
+        "text": "<b>战吼：</b>你的下一张\n<b>连击</b>牌法力值消耗减少（1）点。",
+        "text_en": "<b>Battlecry:</b> Your next <b>Combo</b> card costs (1) less.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CLASS": 7,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "220",
+              "name": "COMBO",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fbea636cbe210645f7dbfdb5aaac51444da1568c8cc7340885c242cd4e1f4975"
+    },
+    {
+      "record": {
+        "id": "RLK_207",
+        "dbf_id": 84232,
+        "name": "凶猛的外来者",
+        "name_en": "Fierce Outsider",
+        "text": "<b>突袭</b>。<b>流放：</b>你的下一张<b>流放</b>牌法力值消耗减少（1）点。",
+        "text_en": "<b>Rush</b>\n<b>Outcast:</b> Your next <b>Outcast</b> card costs (1) less.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "OUTCAST": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "0825be6c882a74f15add7651548605e0b86a09a9c6261a0ca35a09295d224928"
+    },
+    {
+      "record": {
+        "id": "EX1_196",
+        "dbf_id": 60069,
+        "name": "血色征服者",
+        "name_en": "Scarlet Subjugator",
+        "text": "<b>战吼：</b>直到你的下个回合，使一个敌方随从获得-2攻击力。",
+        "text_en": "<b>Battlecry:</b> Give an enemy minion -2 Attack until your_next turn.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Adam Byrne"
+          }
+        ]
+      },
+      "record_sha256": "28c9666b340be37120d72721c1937df80633f674d45806950a04b8d5588558ee"
+    },
+    {
+      "record": {
+        "id": "ETC_081",
+        "dbf_id": 90854,
+        "name": "虚空协奏者",
+        "name_en": "Void Virtuoso",
+        "text": "在你的回合中，你的英雄<b>免疫</b>。",
+        "text_en": "During your turn,\nyour hero is <b>Immune</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bda8fd0bb0ebb4ed61e5e68036c21dd99b954034f1b6a85f55da64ebc74b17e1"
+    },
+    {
+      "record": {
+        "id": "BT_025",
+        "dbf_id": 56555,
+        "name": "智慧圣契",
+        "name_en": "Libram of Wisdom",
+        "text": "使一个随从获得+1/+1，以及“<b>亡语：</b>将一张‘智慧圣契’法术牌置入你的手牌。”",
+        "text_en": "[x]Give a minion +1/+1\nand \"<b>Deathrattle:</b> Add\na 'Libram of Wisdom'\nspell to your hand.\"",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1414,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Adam Byrne"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "42855e25327196872aa8503b645c985e13b65ffea166bcbcd3efac71c6c9c2cb"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BT_011",
+        "dbf_id": 56394,
+        "name": "正义圣契",
+        "name_en": "Libram of Justice",
+        "text": "装备一把1/4的武器。将所有敌方随从的生命值变为1。",
+        "text_en": "Equip a 1/4 weapon. Change the Health of all enemy minions to 1.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1414,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57738,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Wu"
+          }
+        ]
+      },
+      "record_sha256": "38cbe5a4fce983cfa34b6ab9607a85668ea7bf967cd4d6a538460a3924f71516"
+    },
+    {
+      "record": {
+        "id": "BT_024",
+        "dbf_id": 56554,
+        "name": "希望圣契",
+        "name_en": "Libram of Hope",
+        "text": "恢复#8点生命值。召唤一个8/8并具有<b>嘲讽</b>和<b>圣盾</b>的\n守卫。",
+        "text_en": "Restore #8 Health. Summon an 8/8 Guardian with <b>Taunt</b> and_<b>Divine Shield</b>.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1414,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57471,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "MAR Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4e1fa71f719b6f4b52111390cbd1f6b5353cda16470568e2ee261b0c8e24a930"
+    },
+    {
+      "record": {
+        "id": "GDB_137",
+        "dbf_id": 111644,
+        "name": "明澈圣契",
+        "name_en": "Libram of Clarity",
+        "text": "抽两张随从牌。如果本牌的法力值消耗为（0）点，使抽到的随从牌获得+2/+1。",
+        "text_en": "Draw 2 minions.\nIf this costs (0), give them +2/+1.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "481ee9230bc4437dc978c1a28432286d5765f5eaaebefa00edb2dcbb599c6c65"
+    },
+    {
+      "record": {
+        "id": "GDB_138",
+        "dbf_id": 111647,
+        "name": "神性圣契",
+        "name_en": "Libram of Divinity",
+        "text": "使一个随从获得+3/+3。如果本牌的法力值消耗为（0）点，在你的回合结束时将本牌移回你的手牌。",
+        "text_en": "Give a minion +3/+3. If this costs (0), return this to your hand\nat the end of your turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "268c5a548436514890c4fb9260c8b1a93cd3895baf6b2d1521270fa9c356bfb7"
+    },
+    {
+      "record": {
+        "id": "GDB_139",
+        "dbf_id": 111650,
+        "name": "信仰圣契",
+        "name_en": "Libram of Faith",
+        "text": "召唤三个3/3并具有<b>圣盾</b>的德莱尼。如果本牌的法力值消耗为（0）点，使其获得<b>突袭</b>。",
+        "text_en": "Summon three\n3/3 Draenei with <b>Divine Shield</b>. If this costs (0), give them <b>Rush</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ab58143a4355dbd90b911d9c8e406853d29e5863ff7bf449525279675436ebe0"
+    },
+    {
+      "record": {
+        "id": "Story_01_LibramofWisdom",
+        "dbf_id": 63721,
+        "name": "智慧圣契",
+        "name_en": "Libram of Wisdom",
+        "text": "使一个随从获得+1/+1，以及“<b>亡语：</b>将一张‘智慧圣契’法术牌置入你的手牌。”",
+        "text_en": "[x]Give a minion +1/+1\nand \"<b>Deathrattle:</b> Add\na 'Libram of Wisdom'\nspell to your hand.\"",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1443,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "858": 56555,
+          "HIDE_WATERMARK": 1,
+          "LIBRAM": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56555",
+              "type": "Int",
+              "value": "56555"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e6c5f40ab57971f3d204f7f0e49add422b9585f3c9c4f370bc55802510f54644"
+    },
+    {
+      "record": {
+        "id": "Story_04_LibramofCompassion",
+        "dbf_id": 66639,
+        "name": "悲悯圣契",
+        "name_en": "Libram of Compassion",
+        "text": "选择一个友方随从。随机为一个友方随从恢复等同于所选随从攻击力的生命值。",
+        "text_en": "Choose a friendly minion. Restore Health equal to its Attack to a random friendly minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1466,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "LIBRAM": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "028b1c73d8f82c8cea90dff9608a32ef05bf1bd9e16c199f93c995af847ea306"
+    },
+    {
+      "record": {
+        "id": "Story_04_LibramofHoliness",
+        "dbf_id": 66630,
+        "name": "圣洁圣契",
+        "name_en": "Libram of Holiness",
+        "text": "使一个随从获得+3生命值。为你的英雄恢复3点生命值。",
+        "text_en": "Give a minion +3 Health. Restore 3 Health to your hero.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1466,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "LIBRAM": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d71ff06cfc325da4d3261035d6bf33358555e690ff3b15b6baf4067964019c82"
+    },
+    {
+      "record": {
+        "id": "Story_04_LibramofJustice",
+        "dbf_id": 66709,
+        "name": "正义圣契",
+        "name_en": "Libram of Justice",
+        "text": "装备一把1/4的武器。将所有敌方随从的生命值变为1。",
+        "text_en": "Equip a 1/4 weapon. Change the Health of all enemy minions to 1.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1466,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "858": 56394,
+          "HIDE_WATERMARK": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "LIBRAM": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56394",
+              "type": "Int",
+              "value": "56394"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5fd5678196f9fe8e1bb455e36a418629ff1eecad096d9f55cdfe50085094792f"
+    },
+    {
+      "record": {
+        "id": "YOP_011",
+        "dbf_id": 61949,
+        "name": "审判圣契",
+        "name_en": "Libram of Judgment",
+        "text": "<b>腐蚀：</b>获得<b>吸血</b>。",
+        "text_en": "<b>Corrupt:</b> Gain <b>Lifesteal</b>.",
+        "cost": 7,
+        "attack": 5,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 7,
+          "CARD_SET": 1466,
+          "CLASS": 5,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 61981,
+          "CORRUPT": 1,
+          "LIBRAM": 1,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8dfd52f82a027136ab0b0f6655dfbc9728d74ae0754cd5fc31fbef4387e13262"
+    },
+    {
+      "record": {
+        "id": "YOP_011t",
+        "dbf_id": 61981,
+        "name": "审判圣契",
+        "name_en": "Libram of Judgment",
+        "text": "<b>已腐蚀</b>\n<b>吸血</b>",
+        "text_en": "<b>Corrupted</b>\n<b>Lifesteal</b>",
+        "cost": 7,
+        "attack": 5,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 7,
+          "CARD_SET": 1466,
+          "CLASS": 5,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "LIFESTEAL": 1,
+          "LIBRAM": 1,
+          "CORRUPTED_CARD": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "52b5c9e964bd08447929bef429d6d7e4bd79fa6bc396928eb1e1871670a00603"
+    }
+  ],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "collectible_leaf_ids": [
+    "ETC_359",
+    "WC_803",
+    "YOD_013",
+    "LOOT_154",
+    "TOY_006",
+    "BT_020",
+    "GDB_875",
+    "RLK_207",
+    "EX1_196",
+    "ETC_081"
+  ],
+  "printed_libram_ids": [
+    "BT_011",
+    "BT_024",
+    "BT_025",
+    "GDB_137",
+    "GDB_138",
+    "GDB_139",
+    "Story_01_LibramofWisdom",
+    "Story_04_LibramofCompassion",
+    "Story_04_LibramofHoliness",
+    "Story_04_LibramofJustice",
+    "YOP_011",
+    "YOP_011t"
+  ],
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "past_scope": "Actual Standard past-source candidates only; formal past membership/edition weights and CN timing remain unverified. No production past or ordinary domain bound.",
+  "official_observations": [
+    {
+      "card_id": "ETC_359",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 92228,
+        "collectible": 1,
+        "slug": "92228-flowrider",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "驭流骑士",
+        "text": "<b>战吼：</b>如果你有<b>过载</b>的法力水晶，从你的牌库中<b>发现</b>一张 法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a489313d234c4ce289afb74999b54d9fe7c4a34366d5eaa410437a20ba671ac3.png",
+        "imageGold": "",
+        "flavorText": "她的歌有点水，要在水下才听得清。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a57d6ee93c90fcb8171a568d8eb0d13dda6cebbe33f95dfe50e45998129e9bdb.png",
+        "keywordIds": [
+          8,
+          14,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_359",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 92228,
+        "collectible": 1,
+        "slug": "92228-flowrider",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Flowrider",
+        "text": "<b>Battlecry:</b> If you're <b>Overloaded</b>, <b>Discover</b> a spell from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ffd5a72f8d6b879d1c80884de5409a43f0cf5ea53d7fea7ceddab23e74cdef3.png",
+        "imageGold": "",
+        "flavorText": "Her music sounds a lot better underwater where you can't hear it at all.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a57d6ee93c90fcb8171a568d8eb0d13dda6cebbe33f95dfe50e45998129e9bdb.png",
+        "keywordIds": [
+          8,
+          14,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WC_803",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 63464,
+        "collectible": 1,
+        "slug": "63464-cleric-of-anshe",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 1,
+        "artistName": "Maria Trepalina",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "安瑟教士",
+        "text": "<b>战吼：</b>在本回合中，如果你恢复过生命值，便从你的牌库中<b>发现</b>一张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2aab4d15351e205f588b07b0b5c335e680df0534edef3cc0a1f2e00eb36e7b38.png",
+        "imageGold": "",
+        "flavorText": "高端的牛头人，往往只需要最朴素的烹饪方式：圣光灼烤。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c676c9cdbee574bc2e3d9e6620b65be1b79dd14f7fe393ad0b9e466835980fce.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WC_803",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 63464,
+        "collectible": 1,
+        "slug": "63464-cleric-of-anshe",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 1,
+        "artistName": "Maria Trepalina",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Cleric of An'she",
+        "text": "<b>Battlecry:</b> If you've restored Health this turn, <b>Discover</b> a spell from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d58f54c51ceebe6d4a3c2b481f55402d2cf10bf8f6f2e6fd138b542c29938989.png",
+        "imageGold": "",
+        "flavorText": "When it's her turn to cook, she'll always go for a Light sear.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c676c9cdbee574bc2e3d9e6620b65be1b79dd14f7fe393ad0b9e466835980fce.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 56088,
+        "collectible": 1,
+        "slug": "56088-cleric-of-scales",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1403,
+        "rarityId": 3,
+        "artistName": "Maria Trepalina",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "龙鳞祭司",
+        "text": "<b>战吼：</b>如果你的手牌中有龙牌，便<b>发现</b>你牌库中的一张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c719e2bad9d5667d5b406ebc21bbb0bb5f60eb88aae400ee222e46909e5accaa.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa917eeb75ebf2025cae00bd08315be69d14fcf7e4d923b1525514b1b19a7cf9.png",
+        "flavorText": "手牌中没有龙牌的时候能把人急死。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f5a6cb7bb72fff124fc3e07c8c65828942cb479df0cf347e71d442ecf8f7d82.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 56088,
+        "collectible": 1,
+        "slug": "56088-cleric-of-scales",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1403,
+        "rarityId": 3,
+        "artistName": "Maria Trepalina",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Cleric of Scales",
+        "text": "<b>Battlecry:</b> If you're holding a Dragon, <b>Discover</b> a spell from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b384e7772fd93ab7a5335b83edc37e044ce1c518bcc397169aa549fb4375cb7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c51579e32020b0b9f0ca7b01925b90f679e203bc63230b95e985b9959fc9a124.png",
+        "flavorText": "If she can't find a spell, it's a clerical error.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f5a6cb7bb72fff124fc3e07c8c65828942cb479df0cf347e71d442ecf8f7d82.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_154",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 43528,
+        "collectible": 1,
+        "slug": "43528-gravelsnout-knight",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "砂齿骑兵",
+        "text": "<b>战吼：</b>为你的对手随机召唤一个法力值消耗为（1）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73837df48fda9ceb95ef23e5f825c8f1b3ee2623e57e2dfb7f8b178afc27d988.png",
+        "imageGold": "",
+        "flavorText": "无论道路通向何方，光辉将邀我前往！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b58edea7f1ced28c2467bdb97492ad179849a28d020b22d9468bfb4f9545d03.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_154",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 43528,
+        "collectible": 1,
+        "slug": "43528-gravelsnout-knight",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Gravelsnout Knight",
+        "text": "<b>Battlecry:</b> Summon a random 1-Cost minion for your opponent.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97f39a43a6b9fa1e185fdac96f8b093595e2ae096ed4946d9167fcac246099fc.png",
+        "imageGold": "",
+        "flavorText": "The mole of La Mancha rides again!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b58edea7f1ced28c2467bdb97492ad179849a28d020b22d9468bfb4f9545d03.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_006",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 102347,
+        "collectible": 1,
+        "slug": "102347-scarab-keychain",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "甲虫钥匙链",
+        "text": "<b>战吼：</b><b>发现</b>一张 法力值消耗为（2）的卡牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd07ef3b4682ea126a81263e3e1f68386d6f2e4fafbb735b19cf15f8dcbd53bd.png",
+        "imageGold": "",
+        "flavorText": "“你的钥匙为什么总丢？难道它还能自己长腿跑了吗？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/417be276e0ad62d315d6070e3a93b1a1a8fa6f255552049ad9ff027e3ab205dc.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_006",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 102347,
+        "collectible": 1,
+        "slug": "102347-scarab-keychain",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Scarab Keychain",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a 2-Cost card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b014c713b7a9ce7bfec8912d37625e1f7bae3d4ce53db6c51349051bf46a446b.png",
+        "imageGold": "",
+        "flavorText": "\"How do you keep losing your keys!? They couldn't have just gotten up and walked away!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/417be276e0ad62d315d6070e3a93b1a1a8fa6f255552049ad9ff027e3ab205dc.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_020",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 56445,
+        "collectible": 1,
+        "slug": "56445-aldor-attendant",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Anton Zemskov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "奥尔多侍从",
+        "text": "<b>战吼：</b>在本局对战中，你的圣契的法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c583fbcb31c743e45a4ddb8a59df3a7e023294d6dbeb662af7699b71966bfd71.png",
+        "imageGold": "",
+        "flavorText": "借阅圣契的时候请她招呼一声，打折。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37cc5562c88dfd81381d816c20acc507d5bb67ec72eff2137917fb5fd0fd96fb.png",
+        "childIds": [
+          56555,
+          56394,
+          56554,
+          61949,
+          57738,
+          57471,
+          61981
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_020",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 56445,
+        "collectible": 1,
+        "slug": "56445-aldor-attendant",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Anton Zemskov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Aldor Attendant",
+        "text": "<b>Battlecry:</b> Reduce the Cost of your Librams by (1) this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f02a2679c40ac5a4e6beb869f6f4b4d7ba09f62c281a87d269bdc3c6ea7c76d0.png",
+        "imageGold": "",
+        "flavorText": "Will check to make sure you have a valid libramary card.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37cc5562c88dfd81381d816c20acc507d5bb67ec72eff2137917fb5fd0fd96fb.png",
+        "childIds": [
+          56555,
+          56394,
+          56554,
+          61949,
+          57738,
+          57471,
+          61981
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_875",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 111338,
+        "collectible": 1,
+        "slug": "111338-spacerock-collector",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Brian Despain",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "星岩收藏家",
+        "text": "<b>战吼：</b>你的下一张 <b>连击</b>牌法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/929c8f49fffbf9cfff145b4f09e85f1c25314b2e7b393b6c2be87996384642ab.png",
+        "imageGold": "",
+        "flavorText": "这位藏家真的有石粒！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6dfab2873435f41bbda514711a3bab3e1c9bcfc766e846d7ab380cbe8b252711.png",
+        "keywordIds": [
+          8,
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_875",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 111338,
+        "collectible": 1,
+        "slug": "111338-spacerock-collector",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Brian Despain",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Spacerock Collector",
+        "text": "<b>Battlecry:</b> Your next <b>Combo</b> card costs (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/208dd29492a973d4b64a11e146f7213221b7608124b2eb8d8fad171f30ab86b0.png",
+        "imageGold": "",
+        "flavorText": "\"Space ROCKS!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6dfab2873435f41bbda514711a3bab3e1c9bcfc766e846d7ab380cbe8b252711.png",
+        "keywordIds": [
+          8,
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_207",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 84232,
+        "collectible": 1,
+        "slug": "84232-fierce-outsider",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "凶猛的外来者",
+        "text": "<b>突袭</b>。<b>流放：</b>你的下一张<b>流放</b>牌法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4bd8a70cb0af2d15755277008f2f76a0adf37b2e179c9ee60b12cb189344863.png",
+        "imageGold": "",
+        "flavorText": "听好了，如果你保证不再拆家，就放你进来。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c925b8a273acc30f50a9d7f8780e55dfb675381a094c257eb13d9cc8ab5ad02b.png",
+        "keywordIds": [
+          53,
+          86
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_207",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 84232,
+        "collectible": 1,
+        "slug": "84232-fierce-outsider",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Fierce Outsider",
+        "text": "<b>Rush</b> <b>Outcast:</b> Your next <b>Outcast</b> card costs (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c543c0cf3dc445bbc71e48dd12f88b471b5c2229ff514ca5318e8dad92cc3538.png",
+        "imageGold": "",
+        "flavorText": "Look, if you stopped breaking stuff you wouldn't have to stay outside.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c925b8a273acc30f50a9d7f8780e55dfb675381a094c257eb13d9cc8ab5ad02b.png",
+        "keywordIds": [
+          53,
+          86
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_196",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 60069,
+        "collectible": 1,
+        "slug": "60069-scarlet-subjugator",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 3,
+        "artistName": "Adam Byrne",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "血色征服者",
+        "text": "<b>战吼：</b>直到你的下个回合，使一个敌方随从获得-2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e6396e192509761a2d7a8aea611eacf48c221410bb884be31c8159715b6bbad.png",
+        "imageGold": "",
+        "flavorText": "在血色修道院，他学到了遇强则强的神圣战术。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/546d59c4e963d57fbe07a41de1be3f5fc26e5631915c8ec29158c0d87a085470.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_196",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 60069,
+        "collectible": 1,
+        "slug": "60069-scarlet-subjugator",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 3,
+        "artistName": "Adam Byrne",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Scarlet Subjugator",
+        "text": "<b>Battlecry:</b> Give an enemy minion -2 Attack until your next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87b4c407a8b5b166bb5a50ce475fd40f3e5ac728d161824560ee251715e18d49.png",
+        "imageGold": "",
+        "flavorText": "At the Scarlet Monastery, he learned the sacred art of kicking people when they're up.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/546d59c4e963d57fbe07a41de1be3f5fc26e5631915c8ec29158c0d87a085470.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_081",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 90854,
+        "collectible": 1,
+        "slug": "90854-void-virtuoso",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "虚空协奏者",
+        "text": "在你的回合中，你的英雄<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2fe446095c725c518601a692572d58cf38624a347355a169aa7b0695611d1977.png",
+        "imageGold": "",
+        "flavorText": "这身行头有点意思。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cba98f9e2cb75903a7ebf9f9cca3333434853fbf6d1403e1dba26352bc1fd128.png",
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_081",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 90854,
+        "collectible": 1,
+        "slug": "90854-void-virtuoso",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Void Virtuoso",
+        "text": "During your turn, your hero is <b>Immune</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8094bd556d1bcae1265ca18f469c9ac81acccd2eb6067748e1317095bf2b17c.png",
+        "imageGold": "",
+        "flavorText": "That is one interesting dress code.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cba98f9e2cb75903a7ebf9f9cca3333434853fbf6d1403e1dba26352bc1fd128.png",
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_025",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 56555,
+        "collectible": 1,
+        "slug": "56555-libram-of-wisdom",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Adam Byrne",
+        "manaCost": 2,
+        "name": "智慧圣契",
+        "text": "使一个随从获得+1/+1，以及“<b>亡语：</b>将一张‘智慧圣契’法术牌置入你的手牌。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/828ad6cdd87d78b5c70ccd3674713e60191f1eba182f2992f991dc0ac1fd2adb.png",
+        "imageGold": "",
+        "flavorText": "最好的智慧便是传承。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0691a365dbafa991ee54802c9f31ccbd25acc581a142f116b558383c751bf6d9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_025",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 56555,
+        "collectible": 1,
+        "slug": "56555-libram-of-wisdom",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Adam Byrne",
+        "manaCost": 2,
+        "name": "Libram of Wisdom",
+        "text": "Give a minion +1/+1 and \"<b>Deathrattle:</b> Add a 'Libram of Wisdom' spell to your hand.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e34a91e58cd9760c3321f2501fcac2b18cf78ea782f7bb02c635f58e2fae921.png",
+        "imageGold": "",
+        "flavorText": "The best wisdom is passed on.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0691a365dbafa991ee54802c9f31ccbd25acc581a142f116b558383c751bf6d9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

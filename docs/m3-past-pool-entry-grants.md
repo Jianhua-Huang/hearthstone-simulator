@@ -127,3 +127,12 @@ CardAbilityCondition('secret', basis='printed')只匹配印刷原生奥秘声明
 Spellburst使用原LimitedTriggerSpec.spellburst及原候选/消费，不另造一次性状态。实际FIRE完成读取原CastRecord；反制/自动来源与Spellburst不同的接受政策保持明确。监听damage_dealt时实际量直接来自原事件amount；RuleContext.health_result只解析health_resolved，不能在普通伤害通知强求该对象或按当前生命差反推伤害。原目标驻留由MinionReference及捕获消灭效果守卫。
 
 当前亡灵随机增益使用RandomBuff并只抽一次物理对象，空域不消耗随机；自然尸体与存活主动载体范围分别处理。对方牌库复制使用CopyMatching的原物理槽权重及CopyCard当前材料，新实体入手不移走原牌；完整材料、满手、私有交付、恢复和RNG继续交原公共模块。以上是内部执行契约，完整生成资格和精确国服时序仍独立校准。
+
+
+## 条件原牌库发现、圣契与下一张价格消费者
+
+条件牌库发现使用原ChooseFromZone(..., operation='take', distinct='entity', discovery=True)。过载查本人owed/locked；本回合恢复查原实际正恢复与来源玩家，允许原敌方目标而不计零过量治疗；持龙条件查当前手牌龙/all。原物理牌和当前材料保留，不当抽牌或基础新副本；普通take的公开ChoiceItem不含内部效果或全知引用，内部测试从原frame核物理选择。重复槽及展示沿既有内部政策，精确国服菜单仍待核。普通一费随机召唤/二费当前职业发现使用独立完整constructed.cards，不能从Past域或已实现列表回退。
+
+圣契费用按全源正LIBRAM身份集合匹配，包含真实武器；不按名称子串或仅SPELL过滤。永久价格为原玩家账户，源退役和跨回合不撤销；未实现族成员只保留完整原行事实，不能以价格名单宣称整卡已实现。下一Combo沿原combo_only资格；下一Outcast价格用CardAbilityCondition('outcast',basis='printed')，授予是否激活则查原提交手牌边缘，二者分开。原付款一次消费包括零费，用完从活动账户移除，连续授予先结原付款再安装新账户，原cost_use_history保留独立证明。
+
+智慧圣契真实主体使用BuffCapturedMinion及GrantCapturedDeathrattle绑定原连续驻留，重复授予独立、沉默去除；原自然死亡按当前控制方AddToHand新的BT_025，价格由各自玩家账户决定，不复制施法者旧物理法术。临时敌方减攻使用原until_owner_turn_start绑定原本人开始，连续免疫沿原KeywordAuraSpec的当前控制者和本人回合条件。数值、健康、消费、选择恢复、容量、随机及回滚均交原公共执行器；以上内部契约不认证完整正式生成资格或国服精确时序。
