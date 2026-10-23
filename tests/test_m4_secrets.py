@@ -417,8 +417,10 @@ class SecretTests(unittest.TestCase):
     def test_real_example_uses_player_ports_restores_and_replays(self):
         from examples.trigger_secrets import run
         game,snapshot,hidden=run()
-        self.assertEqual((len(game.history),len(game.events)),(9,67))
+        # The native trace includes the two ordinary resource-gain notices.
+        self.assertEqual((len(game.history),len(game.events)),(9,69))
         self.assertEqual(sum(e.kind == 'health_resolved' for e in game.events), 3)
+        self.assertEqual(sum(e.kind == 'resource_gained' for e in game.events), 2)
         self.assertEqual(snapshot['schema_version'],SNAPSHOT_SCHEMA_VERSION)
         self.assertTrue(all(s['card_id'] is None for s in hidden['players'][0]['secrets']))
 

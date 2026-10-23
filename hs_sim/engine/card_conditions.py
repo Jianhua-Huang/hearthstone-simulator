@@ -33,8 +33,9 @@ def matches_ability(condition, definition, entity=None):
         raise ValueError('Card condition instance and definition disagree')
     # A generated candidate represents a fresh instance. Current and printed
     # identities coincide until lifecycle operations alter its attachments.
-    printed = (Keyword.OUTCAST in definition.keywords if condition.ability == 'outcast'
+    printed = (definition.secret is not None if condition.ability == 'secret' else
+               Keyword.OUTCAST in definition.keywords if condition.ability == 'outcast'
                else definition.battlecry is not None)
     # Structural presence differs from activation eligibility (e.g. dormancy).
-    current = printed if condition.ability == 'outcast' or entity is None else has_battlecry(entity.abilities)
+    current = printed if condition.ability in ('outcast', 'secret') or entity is None else has_battlecry(entity.abilities)
     return matches_ability_values(condition, printed=printed, current=current)

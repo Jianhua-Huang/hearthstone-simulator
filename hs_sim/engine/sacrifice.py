@@ -5,7 +5,7 @@ beneficiary or attaches to a later incarnation that happens to reuse its ID.
 """
 from dataclasses import dataclass
 
-from .effects import Buff, Destroy, Effect, GrantDeathrattle, GrantKeyword, SetStats, Transform, _behavior, _integer, _player, _source
+from .effects import Buff, Destroy, Effect, GrantDeathrattle, GrantKeyword, GrantSpellDamage, SetStats, Transform, _behavior, _integer, _player, _source
 from .errors import ResolutionError
 from .model import AbilityInstance, BoardPresenceReference, CardType, DeckSacrificeSpec, Keyword, LimitedTriggerSpec, StatReference, TimedKeywordSpec, Zone
 
@@ -247,6 +247,45 @@ def grant_captured_keyword(r, effect):
         return ()
     grant_ability(r, GrantKeyword(effect.beneficiary.entity_id, effect.keyword, effect.source_id, effect.expires_turn,
                                 duration=effect.duration))
+
+
+@dataclass(frozen=True)
+class GrantCapturedSpellDamage(Effect):
+    beneficiary: MinionReference | BoardPresenceReference
+    amount: int
+    source_id: int | None = None
+    expires_turn: int | None = None
+
+    def __post_init__(self):
+        if type(self.beneficiary) is BoardPresenceReference:
+            self.beneficiary.__post_init__()
+        else:
+            reference_value(self.beneficiary)
+        GrantSpellDamage(self.beneficiary.entity_id, self.amount, self.source_id, self.expires_turn)
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        ref = self.beneficiary
+        if type(ref) is BoardPresenceReference:
+            validate_reward_presence(state, ref)
+        else:
+            entity = state.entities.get(ref.entity_id)
+            if entity is None or ref.zone_epoch > entity.zone_epoch or ref.entered_order >= state.next_order:
+                raise ValueError('Spell Damage grant borrowed an unknown or future minion allocation')
+        if self.source_id is not None and self.source_id not in state.entities:
+            raise ValueError('Spell Damage grant has an unknown original source')
+
+
+def grant_captured_spell_damage(r, effect):
+    from .resolver import grant_ability, validate_attachment_source
+    effect.validate_in_state(r.state)
+    validate_request(r, effect)
+    validate_attachment_source(r, effect.source_id, effect.expires_turn)
+    if live_reward_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    grant_ability(r, GrantSpellDamage(effect.beneficiary.entity_id, effect.amount,
+        effect.source_id, effect.expires_turn))
 
 
 @dataclass(frozen=True)
@@ -521,6 +560,7 @@ def register(mechanics):
     mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
     mechanics.register(TransformCapturedMinion, transform_captured_minion)
     mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
+    mechanics.register(GrantCapturedSpellDamage, grant_captured_spell_damage)
     mechanics.register(RemoveCapturedKeyword, remove_captured_keyword)
     mechanics.register(GrantCapturedDeathrattle, grant_captured_deathrattle)
     mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)

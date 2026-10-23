@@ -144,3 +144,6 @@
 
 
 来源观察缓存保留完整JSON响应，即使cards中缺少主卡面或出现歧义；字节收据只证明观察内容，语义仍拒绝，不把空响应当作卡牌已核，也不重复请求覆盖历史观察。显式离线缓存继续检查URL、语言与字节。主线独立审查工具改动时，可向check_preservation显式传reviewed_tooling_python元组，仅限基线已保护的tools/tests Python文件；默认子线/CLI仍遵循三文件规则，公共内核、完整旧定义/池及默认快照保全不能因此放宽。
+
+
+批次专项可复用tests/card_batch_testkit.py的CardBatchTestMixin，子类显式提供独立registry_factory。portable返回独立注册表恢复后的游戏，需由调用测试实际续接；同时核clone、回放及玩家私有字段隔离，不能只造快照后丢弃恢复体。event_player仅为测试诊断夹具：通知无player_id时可读取实际接收实体控制者；不改变生产事件归属，不据此给任意事件补玩家。真实触发、支付与关键边界仍逐卡覆盖，同一公共能力集中验证，所有apply/from_decks继续通过托管测试器执行。来源准备/完整缓存、范围与成功收据核验仍复用tools/card_batch.py。

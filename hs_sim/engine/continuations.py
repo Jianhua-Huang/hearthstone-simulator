@@ -291,8 +291,8 @@ class FrameCodec:
             validate_next_spell_body(self.origin_state, self.registry, value)
         from .bonus_effects import RotatePrintedHandBonuses
         from .bonus_effects import GrantRandomBonusEffects
-        from .sacrifice import BuffCapturedMinion, GrantCapturedKeyword
-        if type(value) in (GrantRandomBonusEffects, BuffCapturedMinion, GrantCapturedKeyword) and self.origin_state is not None:
+        from .sacrifice import BuffCapturedMinion, GrantCapturedKeyword, GrantCapturedSpellDamage
+        if type(value) in (GrantRandomBonusEffects, BuffCapturedMinion, GrantCapturedKeyword, GrantCapturedSpellDamage) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
         if type(value) is RotatePrintedHandBonuses and self.origin_state is not None:
             value.validate_in_state(self.origin_state)

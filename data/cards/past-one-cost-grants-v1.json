@@ -1,0 +1,1383 @@
+{
+  "schema": 1,
+  "batch": "past-one-cost-grants-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BT_722",
+        "dbf_id": 57182,
+        "name": "防护改装师",
+        "name_en": "Guardian Augmerchant",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>圣盾</b>。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Divine Shield</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alexa Rockman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b8f48846cd6b92e8d93a2fa14e3d66cd3e0e1f8981149edbe22402ae17954f4b"
+    },
+    {
+      "record": {
+        "id": "BT_723",
+        "dbf_id": 57183,
+        "name": "火箭改装师",
+        "name_en": "Rocket Augmerchant",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>突袭</b>。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Rush</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b490b3b5ce88d8297eb48f4ce518a944e491741aafacb65c07db8e345e825841"
+    },
+    {
+      "record": {
+        "id": "BT_724",
+        "dbf_id": 57184,
+        "name": "虚灵改装师",
+        "name_en": "Ethereal Augmerchant",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Spell Damage +1</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "974e1f8b2b09bc8f958451a90e8f4a9638143580f87dbbd0bbfd51a6aa1cf076"
+    },
+    {
+      "record": {
+        "id": "BT_727",
+        "dbf_id": 57187,
+        "name": "魂缚灰舌",
+        "name_en": "Soulbound Ashtongue",
+        "text": "每当本随从受到伤害，对你的英雄造成等量的伤害。",
+        "text_en": "Whenever this minion takes damage, also deal that amount to your hero.",
+        "cost": 1,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "9e5c0f03fef52514550fc14f54a0fb64240cd1eda4c82a4c0d8d92171cd705c1"
+    },
+    {
+      "record": {
+        "id": "CFM_066",
+        "dbf_id": 40299,
+        "name": "暗金教侍从",
+        "name_en": "Kabal Lackey",
+        "text": "<b>战吼：</b>\n在本回合中，你使用的下一个<b>奥秘</b>的法力值消耗为（1）点。",
+        "text_en": "[x]<b>Battlecry:</b> The next <b>Secret</b>\nyou play this turn costs (1).",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "219",
+              "name": "SECRET",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "798de028dcbdf0e985ad50b14b57151cabee45383b76ac36ca22f7d152918344"
+    },
+    {
+      "record": {
+        "id": "CFM_759",
+        "dbf_id": 40577,
+        "name": "海象人执法官",
+        "name_en": "Meanstreet Marshal",
+        "text": "<b>亡语：</b>如果本随从的攻击力大于或等于2，抽一张牌。",
+        "text_en": "<b>Deathrattle:</b> If this minion has 2 or more Attack, draw a card.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Richie Marella"
+          }
+        ]
+      },
+      "record_sha256": "c0e8b0c8c6431a77319192a0bfcfcff14e1be97bcd6fa5b7367199c533b2a22c"
+    },
+    {
+      "record": {
+        "id": "BOT_283",
+        "dbf_id": 48471,
+        "name": "蹦蹦兔",
+        "name_en": "Pogo-Hopper",
+        "text": "<b>战吼：</b>在本局对战中，你每使用过一张其他蹦蹦兔，便获得+2/+2。",
+        "text_en": "[x]<b>Battlecry:</b> Gain +2/+2 for\neach other Pogo-Hopper\nyou played this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 7,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2542": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "f29346b91479914429ffcfb62b2f0ddfbf52c250927a65984cc8a0ed740644d8"
+    },
+    {
+      "record": {
+        "id": "TSC_632",
+        "dbf_id": 72417,
+        "name": "械钳虾",
+        "name_en": "Click-Clocker",
+        "text": "<b>圣盾</b>，<b>战吼：</b>随机使你手牌中的一张机械牌获得+1/+1。",
+        "text_en": "[x]<b>Divine Shield</b>. <b>Battlecry:</b>\nGive a random Mech in\nyour hand +1/+1.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1658,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2542": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "3eb9a0c007529b5590cc49aebf04ebbb54cf0b8230db8d9537278d6638215ef8"
+    },
+    {
+      "record": {
+        "id": "TSC_827",
+        "dbf_id": 71944,
+        "name": "凶恶的滑矛纳迦",
+        "name_en": "Vicious Slitherspear",
+        "text": "在你施放一个法术后，直到你的下个回合，获得+1攻击力。",
+        "text_en": "[x]After you cast a spell,\ngain +1 Attack until\nyour next turn.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "29f2dcd0fe231e5e101fc9bac4246e87a8451bfb8bdfaa337d055b9a1be72f61"
+    },
+    {
+      "record": {
+        "id": "AT_133",
+        "dbf_id": 2818,
+        "name": "加基森枪骑士",
+        "name_en": "Gadgetzan Jouster",
+        "text": "<b>战吼：</b>揭示双方牌库里的一张随从牌。如果你的牌法力值消耗较大，则获得+1/+1。",
+        "text_en": "<b>Battlecry:</b> Reveal a minion in each deck. If yours costs more, gain +1/+1.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 15,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          }
+        ]
+      },
+      "record_sha256": "b0b8217a2337d459573c5e7dc0d76f76376192a7d033dbee09c36abac81b3243"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BT_722",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 57182,
+        "collectible": 1,
+        "slug": "57182-guardian-augmerchant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Alexa Rockman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "防护改装师",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>圣盾</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b973c5bf6b9231029aae1ffad58037cff9f64e5e6baa745cbfbe0011f23bb54.png",
+        "imageGold": "",
+        "flavorText": "“只要你还有一口气在，就得给我结账！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddb4b529e3aa1739804633f3b89ceab7b031ebd5a988eb76c4c32be1863b4633.png",
+        "keywordIds": [
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_722",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 57182,
+        "collectible": 1,
+        "slug": "57182-guardian-augmerchant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Alexa Rockman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Guardian Augmerchant",
+        "text": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5781eabf327a981e2247b6bced037a93e07866b4e6fd3c56490fabd5846286bb.png",
+        "imageGold": "",
+        "flavorText": "\"What doesn't kill you makes me money!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddb4b529e3aa1739804633f3b89ceab7b031ebd5a988eb76c4c32be1863b4633.png",
+        "keywordIds": [
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_723",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 57183,
+        "collectible": 1,
+        "slug": "57183-rocket-augmerchant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Anton Zemskov",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "火箭改装师",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>突袭</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4077a242e36cd698fbfebaf12338e4a52da5dfaa835d2a41bfb3a08f40465353.png",
+        "imageGold": "",
+        "flavorText": "“别担心，改装伤不到我的。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/334763aa83d37bb0be07a2122026c2add645ca231f341c4acf58dbc5f8613e8b.png",
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_723",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 57183,
+        "collectible": 1,
+        "slug": "57183-rocket-augmerchant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Anton Zemskov",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Rocket Augmerchant",
+        "text": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cf75465ddc699d1955e86131349447387280c0f34c5934917f2587ae6f0e9ea.png",
+        "imageGold": "",
+        "flavorText": "\"Don't worry, this won't hurt me a bit.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/334763aa83d37bb0be07a2122026c2add645ca231f341c4acf58dbc5f8613e8b.png",
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_724",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 57184,
+        "collectible": 1,
+        "slug": "57184-ethereal-augmerchant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "虚灵改装师",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>法术伤害+1</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae2556224ffad4e53e170593889bf553b41d6aa1d7dc1ddea772a631c8a12792.png",
+        "imageGold": "",
+        "flavorText": "没有受到过伤害的随从，没有资格谈论法术伤害。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e924ab6b2227f2db7fa0c44b05baf3ffe57b2a7a4b34beb2ab1991704894efc1.png",
+        "keywordIds": [
+          2,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_724",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 57184,
+        "collectible": 1,
+        "slug": "57184-ethereal-augmerchant",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Ethereal Augmerchant",
+        "text": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Spell Damage +1</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/232379c0d73f91604b9e756d47137b0a70372e9233ba2ba6df5fb6f5852e032d.png",
+        "imageGold": "",
+        "flavorText": "According to him, undamaged minions just spell problems.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e924ab6b2227f2db7fa0c44b05baf3ffe57b2a7a4b34beb2ab1991704894efc1.png",
+        "keywordIds": [
+          2,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_727",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 57187,
+        "collectible": 1,
+        "slug": "57187-soulbound-ashtongue",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "魂缚灰舌",
+        "text": "每当本随从受到伤害，对你的英雄造成等量的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a24621c9984a542fe476a1889e26353f3bacc2cf55123b493c8ec84d1c47d57d.png",
+        "imageGold": "",
+        "flavorText": "他说这是“灵魂的牵缚”，但我觉得这就是他在作。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8eadbd6a67d4b7293ed6a4b135b0408488172b123db26ba0d090695d7d597a01.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_727",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 57187,
+        "collectible": 1,
+        "slug": "57187-soulbound-ashtongue",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Soulbound Ashtongue",
+        "text": "Whenever this minion takes damage, also deal that amount to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e314da4f680511fd00be08cdeb00d2eee170d44729c3bd50d234209d6404f9a.png",
+        "imageGold": "",
+        "flavorText": "He claims to be \"soulbound,\" but I just think he's clingy.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8eadbd6a67d4b7293ed6a4b135b0408488172b123db26ba0d090695d7d597a01.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_066",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 40299,
+        "collectible": 1,
+        "slug": "40299-kabal-lackey",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "暗金教侍从",
+        "text": "<b>战吼：</b> 在本回合中，你使用的下一个<b>奥秘</b>的法力值消耗为（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e1605403b71790bb1b77b1784c45fa7ba37749c950448013ce33b1c856f938f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd8bf7485ad34156da3f33e692e61d36ff52f10df53e64188661f040798004e7.png",
+        "flavorText": "他配制的药水粘稠度很高。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a74276d462ba4b0a69533bd1ae4a0c107266834deca8af9411b88210c956c33.png",
+        "keywordIds": [
+          5,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_066",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 40299,
+        "collectible": 1,
+        "slug": "40299-kabal-lackey",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Kabal Lackey",
+        "text": "<b>Battlecry:</b> The next <b>Secret</b> you play this turn costs (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51d60f17b3e44d1fdb2cddf143c7c2329544281def0a2492f758d82e3263f678.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fab3c4498a1f4dc54280aea3ef5ee20c7ad27e1945e6e2c5beaaf64c71714f1b.png",
+        "flavorText": "I'll tell you one thing he doesn't lack: GUMPTION.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a74276d462ba4b0a69533bd1ae4a0c107266834deca8af9411b88210c956c33.png",
+        "keywordIds": [
+          5,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_759",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 40577,
+        "collectible": 1,
+        "slug": "40577-meanstreet-marshal",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 4,
+        "artistName": "Richie Marella",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "海象人执法官",
+        "text": "<b>亡语：</b>如果本随从的攻击力大于或等于2，抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9af8aad1f1af259addcea00678f46681542c2115a9f399c83b8e7bbbd158a252.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96987af8abb86b864f10124b5e82331b81efb2d4612dcb6672f3020035f1c77a.png",
+        "flavorText": "所有赃物必须上缴给我，这是法律规定的！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2114609269c49c819a4e5e698b12979a95fb056892ee48a446cd3f3ff5a549a5.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_759",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 40577,
+        "collectible": 1,
+        "slug": "40577-meanstreet-marshal",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 4,
+        "artistName": "Richie Marella",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Meanstreet Marshal",
+        "text": "<b>Deathrattle:</b> If this minion has 2 or more Attack, draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cf39e5fdad1a0272cc8719f7fd87f53eafcffd9f8564812dba79547e47c3566b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6698065feb2c69bf79e3548e9c79ff579d1fbdd720363a44dd71f17ce54b66cb.png",
+        "flavorText": "Remember, submit your bribes directly to the Marshal - it's the law!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2114609269c49c819a4e5e698b12979a95fb056892ee48a446cd3f3ff5a549a5.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_283",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 48471,
+        "collectible": 1,
+        "slug": "48471-pogo-hopper",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "蹦蹦兔",
+        "text": "<b>战吼：</b>在本局对战中，你每使用过一张其他蹦蹦兔，便获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58c6efab8ba624ff3bec8b50e263bfa3e6df4ce4daaa7e0693de1f64ca3d03e8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9b139c8ec91c5c6ae22c57c074c7f5fe92981ec836b04a65d381612ec888a68.png",
+        "flavorText": "根本停不下来！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c341190d0423d725f3de648947a7a39937bfea8ddb816963422f8d498c8381fd.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_283",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 48471,
+        "collectible": 1,
+        "slug": "48471-pogo-hopper",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Pogo-Hopper",
+        "text": "<b>Battlecry:</b> Gain +2/+2 for each other Pogo-Hopper you played this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3d8c94e5f260a3ba3788fed6ddbf1c83aec861664079f9f27b436d92980a52a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae2bd90173bbcbe24ebdcf44f24af84a355707eb74e52fb9128a1f4e004db947.png",
+        "flavorText": "Once you hop, you just can't stop!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c341190d0423d725f3de648947a7a39937bfea8ddb816963422f8d498c8381fd.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_632",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 72417,
+        "collectible": 1,
+        "slug": "72417-click-clocker",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "械钳虾",
+        "text": "<b>圣盾</b>，<b>战吼：</b>随机使你手牌中的一张机械牌获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/382c3ae1582ae1c8219085beb466dddeee5023884aaec9d9c680e79a730e2c87.png",
+        "imageGold": "",
+        "flavorText": "艾伦请补充细节",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8dd989cbf14f1cccdadf720516987aab836433a9f89a2d3d8147f4ec6005175.png",
+        "keywordIds": [
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_632",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 72417,
+        "collectible": 1,
+        "slug": "72417-click-clocker",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Click-Clocker",
+        "text": "<b>Divine Shield</b>. <b>Battlecry:</b> Give a random Mech in your hand +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbc58a627ea1f0ff29dbf52093cb63d64fa808ea00d2ad7f442387870aeb8f72.png",
+        "imageGold": "",
+        "flavorText": "Allan please add details",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8dd989cbf14f1cccdadf720516987aab836433a9f89a2d3d8147f4ec6005175.png",
+        "keywordIds": [
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_827",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 71944,
+        "collectible": 1,
+        "slug": "71944-vicious-slitherspear",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "凶恶的滑矛纳迦",
+        "text": "在你施放一个法术后，直到你的下个回合，获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e45e06d3705f63dcd4ec6d532d4dfc881d6c2e825fa4538c3f4ffa7b1b901da.png",
+        "imageGold": "",
+        "flavorText": "相亲个人简介上写的是“有爱的滑矛纳迦一枚”。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0836ecd96cce5701a1b1fdbfd3a87b754052204fe50135069fe80046d6c0a788.png",
+        "copyOfCardId": [
+          113111
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_827",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 71944,
+        "collectible": 1,
+        "slug": "71944-vicious-slitherspear",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 92,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Vicious Slitherspear",
+        "text": "After you cast a spell, gain +1 Attack until your next turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0369a3ef7bf49a43e4655af89b07d89a777fa5b7d9f4f94f37a06283a108f0ab.png",
+        "imageGold": "",
+        "flavorText": "He goes by ‘Fun-Loving Slitherspear’ on his dating profile.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0836ecd96cce5701a1b1fdbfd3a87b754052204fe50135069fe80046d6c0a788.png",
+        "copyOfCardId": [
+          113111
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_133",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 2818,
+        "collectible": 1,
+        "slug": "2818-gadgetzan-jouster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Skan Srisuwan",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "加基森枪骑士",
+        "text": "<b>战吼：</b>揭示双方牌库里的一张随从牌。如果你的牌法力值消耗较大，则获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38b69a5896361d890b3021ca436e7b64081f4a2a34f64c330f53dfbdccd8c4a9.png",
+        "imageGold": "",
+        "flavorText": "这并不能怪她，谁叫你不在自己的坐骑上也装一个伐木圆锯呢。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/064d3c9e00340481b0104899efc7464b8152c0d99f3232f39a4ad00d9313aa71.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_133",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 2818,
+        "collectible": 1,
+        "slug": "2818-gadgetzan-jouster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 1,
+        "artistName": "Skan Srisuwan",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Gadgetzan Jouster",
+        "text": "<b>Battlecry:</b> Reveal a minion in each deck. If yours costs more, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5d6b70957652174576eea6400a2b9b3f40e3dd6a98ab58f66b71bb4b2d8fff6.png",
+        "imageGold": "",
+        "flavorText": "It's not HER fault you didn't put a spinning saw blade on your horse.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/064d3c9e00340481b0104899efc7464b8152c0d99f3232f39a4ad00d9313aa71.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "collectible_leaf_ids": [
+    "BT_722",
+    "BT_723",
+    "BT_724",
+    "BT_727",
+    "CFM_066",
+    "CFM_759",
+    "BOT_283",
+    "TSC_632",
+    "TSC_827",
+    "AT_133"
+  ],
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "past_scope": "Historical one-cost candidates for real Standard past sources; exact membership and duplicate weights remain unverified. No production past domain.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
