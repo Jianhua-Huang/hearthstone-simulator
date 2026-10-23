@@ -1,9 +1,11 @@
-"""One current-turn player program; ordinary health rules own conversion."""
+"""Finite next-healing programs; ordinary health rules own conversion."""
 from .errors import ResolutionError
 from .model import HealthFlow, HealthOp, HealthRule, Zone
 from .player_effects import ConsumePlayerEffect, consume
 
 KIND = 'next_healing_damage'
+UNTIL_USED_KIND = 'next_healing_damage_until_used'
+KINDS = (KIND, UNTIL_USED_KIND)
 RULE = HealthRule(HealthFlow.HEALING, HealthOp.CONVERT, source_relation='friendly')
 
 
@@ -24,9 +26,10 @@ def claim(r, state, packets, rules, pending_events):
     additions = []
     for player_id in sorted(owners):
         instances = tuple(e for e in r.state.players[player_id].player_effects
-                          if r.registry.player_effect(e.spec_id).kind == KIND)
+                          if r.registry.player_effect(e.spec_id).kind in KINDS)
         for instance in instances:
-            if instance.created_turn != state.turn:
+            if (instance.created_turn > state.turn or
+                    r.registry.player_effect(instance.spec_id).kind == KIND and instance.created_turn != state.turn):
                 raise ResolutionError('Stale pending next-healing conversion')
             consume(r, ConsumePlayerEffect(player_id, instance), pending_events=pending_events)
             additions.append((instance.id, instance.source_id, player_id, RULE))

@@ -161,7 +161,7 @@ def consume(r, effect, *, pending_events=None):
         raise ResolutionError(str(exc)) from exc
     if current is None:
         return ()
-    if pending_events is not None and (r.registry.player_effect(current.spec_id).kind != 'next_healing_damage' or
+    if pending_events is not None and (r.registry.player_effect(current.spec_id).kind not in ('next_healing_damage', 'next_healing_damage_until_used') or
                                       effect.on_success):
         raise ResolutionError('Atomic health consumption only accepts its finite conversion with no separate payload')
     # Removal is committed before its event can capture reentrant callbacks.
@@ -193,7 +193,7 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     if spec.capture_health_source and (source.kind != CardType.SPELL or source.card_id != spec.card_id
             or source.controller != player.id):
         raise ResolutionError('Captured Sigil requires its actual controlled spell source')
-    if spec.kind == 'next_healing_damage' and (source.card_id != spec.card_id or effect.capture_health_source):
+    if spec.kind in ('next_healing_damage', 'next_healing_damage_until_used') and (source.card_id != spec.card_id or effect.capture_health_source):
         raise ResolutionError('Next-healing program requires its own original card and no independent damage source')
     if spec.kind == 'adaptations':
         from .allocation_facts import SourceAllocationFact, validate_allocation
@@ -429,7 +429,7 @@ def remove(r, effect, *, atomic=False):
     instance = matching(r, effect)
     if instance is None:
         return
-    if atomic and r.registry.player_effect(instance.spec_id).kind != 'next_healing_damage':
+    if atomic and r.registry.player_effect(instance.spec_id).kind not in ('next_healing_damage', 'next_healing_damage_until_used'):
         raise ResolutionError('Only the stat-free next-healing program has atomic batch removal')
     retire_cost_binding(r, effect.player_id, instance)
     r.player(effect.player_id).player_effects.remove(instance)

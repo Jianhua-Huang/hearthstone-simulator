@@ -154,3 +154,14 @@ TSC_828用played_cards的原本人、本回合、SPELL手牌提交事实；原�
 LOOT_231在原spell_cast_started上核CastRecord的source/player/target，仅接受本人hand来源和iteration==1；再查原PlayRecord的SPELL身份及submitted_cost，GainArmor使用原quote.amount，不重算当前成本或当次实际法力扣除。原手动反制仍在该接受窗口，自动及额外重复施法排除，零费不造护甲事件。此处是该消费者的明确内部政策，不定义所有“施放”文案的统一来源范围，也不认证国服精确反制/重复窗口；历史上游及玩家观察不替代当前CN校准。
 
 OG_051在原战吼捕获存活源的MinionReference，再用SpendMana(source_growth=reference)消费实际剩余法力并沿公共属性层增益。不存在原存活源仍执行普通全额支出而不授予身材；实际扣除、临时法力、零支付、驻留守卫、恢复、回滚和版本拒旧见[有限法力契约](m3-numeric-resource-spells.md#全额实际法力支出与原随从增益)。四张完整卡面来自[固定完整数据包](../data/cards/past-one-cost-mana-overload-v1.json)，均为历史依赖，不以其注册认证完整Past资格或正式生成域。
+
+
+## 真实抉择形态与探底后原牌抽取
+
+DED_001以原ChooseOneSpec声明两普通分支和显式兼得，主体使用原TransformCapturedMinion及原MinionReference；两普通目的体是DED_001at/bt，兼得目的体来自完整客户端DED_001c。DED_001a/b原记录仅提供选项ID/标签，不因类型为MINION而注册成可召唤新体，也不扩展choice_only的类型限制。已有真实范达尔选择显式兼得，不能顺序执行两次覆盖变形；普通召唤原1/1不调用出牌主体。三目的体沿普通变形的材料和驻留政策，精确自变形继承仍须国服校准。
+
+ETC_375原抽取按本人真实牌库、野兽/全部类型匹配，无匹配跳过且不疲劳，保留原实体和当前材料。发现按独立完整constructed.cards、当前职业/中立与可收藏野兽资格查询；没有域或合格未知内容时明确失败，不能裁成已实现列表。两原选择法术只是非物理描述，显式兼得先原抽取再原发现，沿已有解释器和选择恢复。完整普通域及精确兼得顺序未获正式资格认证。
+
+TSC_642用Dredge(..., on_select=...)接受原选中卡，机械/全部类型匹配后捕获新的CardReference，用MoveCard(..., HAND, draw=True)抽该物理对象；不重新读取牌库顶或按同名查找。反应移走原卡后引用跳过，不能借下一张牌继续抽取；当前改费、满手烧毁和独立重复菜单继续交原区域/抽牌解释器。来源离场不撤销已接受探底。具体候选顺序、原材料、反应和生成资格仍受[原探底契约](m5-dredge.md)及M0/M6独立核定。
+
+[固定数据包](../data/cards/past-choice-dredge-healing-v1.json)同时保存三份暂未返回主面的客户端记录DED_001c和ETC_375a/b；未将其写作已观察官网卡面。影触克瓦迪尔的独立跨回合玩家程序见[下一治疗契约](m3-next-healing-conversion.md#跨回合保留至实际消费的有限种类)，不能用旧本回合到期政策替代其原卡文。

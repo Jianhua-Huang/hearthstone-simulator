@@ -1,0 +1,1416 @@
+{
+  "schema": 1,
+  "batch": "K467-past-choice-dredge-healing",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DED_001",
+        "dbf_id": 65580,
+        "name": "暗礁德鲁伊",
+        "name_en": "Druid of the Reef",
+        "text": "<b>抉择：</b>变形成为3/1并具有<b>突袭</b>的鲨鱼；或者变形成为1/3并具有<b>嘲讽</b>的海龟。",
+        "text_en": "[x]<b>Choose One - </b>Transform into\na 3/1 Shark with <b>Rush</b>; or\na 1/3 Turtle with <b>Taunt</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1bddd0eece584c3d12d38d543fa1470ae541da42636e2a9555fc81aaca69ece5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "DED_001",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ETC_375",
+        "dbf_id": 94204,
+        "name": "沉静的吹笛人",
+        "name_en": "Peaceful Piper",
+        "text": "<b>抉择：</b>抽一张野兽牌；或者<b>发现</b>一张野兽牌。",
+        "text_en": "<b>Choose One -</b> Draw a Beast; or <b>Discover</b> one.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "eb2705d76734d628eef55f2b236a2b8f4f58c1c401a8e166dba33051906270ef",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "ETC_375",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_642",
+        "dbf_id": 72925,
+        "name": "海沟勘测机",
+        "name_en": "Trench Surveyor",
+        "text": "<b>战吼：</b><b>探底</b>。如果选中的是机械牌，抽取这张牌。",
+        "text_en": "<b>Battlecry:</b> <b>Dredge</b>.\nIf it's a Mech, draw it.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DREDGE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "6157d2304b872c823e412c2298e4d4398e33943efd9ee28487d5b796efffa474",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TSC_642",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "YOG_300",
+        "dbf_id": 101493,
+        "name": "影触克瓦迪尔",
+        "name_en": "Shadowtouched Kvaldir",
+        "text": "<b>战吼：</b>你的下一次治疗效果转而造成等量的伤害。",
+        "text_en": "<b>Battlecry:</b> Your next healing effect deals damage instead.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "9a00f8684c1a687ac3b63f44462cc288f40da8f8ca792e3b3b54e1c67ba69c97",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "YOG_300",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DED_001at",
+        "dbf_id": 65586,
+        "name": "暗礁德鲁伊",
+        "name_en": "Druid of the Reef",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "RUSH": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "29a73a99e6834f50c7b8f1d31456647c44c04bcf8b94605e1c04370c3b3dc786",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "DED_001at",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DED_001bt",
+        "dbf_id": 65587,
+        "name": "暗礁德鲁伊",
+        "name_en": "Druid of the Reef",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "eabcbc74a5c8738772ffdc6386e164a6255d7607d52f583b93e985422414eecf",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "DED_001bt",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DED_001c",
+        "dbf_id": 65588,
+        "name": "暗礁德鲁伊",
+        "name_en": "Druid of the Reef",
+        "text": "<b>突袭</b>\n<b>嘲讽</b>",
+        "text_en": "<b>Rush</b>\n<b>Taunt</b>",
+        "cost": 1,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "RUSH": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "fca81bbc0f616d34c4897b5e984c7db90d973dd2dfc8e68c48d9113287691ed3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "DED_001c",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ETC_375a",
+        "dbf_id": 97387,
+        "name": "和善欢颜",
+        "name_en": "Friendly Face",
+        "text": "抽一张野兽牌。",
+        "text_en": "Draw a Beast.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "b1b1dab4db6a9b99bb877700e18847381a230ff22387657b93e7885db36e141c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "ETC_375a",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ETC_375b",
+        "dbf_id": 97388,
+        "name": "馨暖嬉笑",
+        "name_en": "Happy Hippie",
+        "text": "<b>发现</b>一张野兽牌。",
+        "text_en": "<b>Discover</b> a Beast.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "7e458ed603cb9739dfea2a4d386ea9c69b00f4a2046323604b5843ed3e25f890",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "ETC_375b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "DED_001a",
+        "dbf_id": 65581,
+        "name": "鲨鱼形态",
+        "name_en": "Shark Form",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "RUSH": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "77b2d00b09a62068752b0971c0430b14ba6d1627e87b0a0c7ee6dcfe64d2e630",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "DED_001a",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DED_001b",
+        "dbf_id": 65582,
+        "name": "海龟形态",
+        "name_en": "Sea Turtle Form",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "70ccff12e461fc8d1d667c6d236319a8d0695644e771adcbdd8553efc02c28e0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "DED_001b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "collectible_leaf_ids": [
+    "DED_001",
+    "ETC_375",
+    "TSC_642",
+    "YOG_300"
+  ],
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "past_scope": "Actual Standard past-source candidates only; formal past membership/edition weights and CN timing remain unverified. No production past or ordinary domain bound.",
+  "official_observations": [
+    {
+      "card_id": "DED_001",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 65580,
+        "collectible": 1,
+        "slug": "65580-druid-of-the-reef",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "暗礁德鲁伊",
+        "text": "<b>抉择：</b>变形成为3/1并具有<b>突袭</b>的鲨鱼；或者变形成为1/3并具有<b>嘲讽</b>的海龟。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7fb8c99b267f971a4f2e7ea08c9cc3d9576727eb360144b2e3c174d74117df64.png",
+        "imageGold": "",
+        "flavorText": "“哇，下面还有一座完整的沉没之城！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e046f848ea3aa508ccf8d0c461243ba0c4159ae55440e95a96ba0e5bdf159d6.png",
+        "childIds": [
+          65581,
+          65582,
+          65586,
+          65587
+        ],
+        "keywordIds": [
+          1,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DED_001",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 65580,
+        "collectible": 1,
+        "slug": "65580-druid-of-the-reef",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Druid of the Reef",
+        "text": "<b>Choose One - </b>Transform into a 3/1 Shark with <b>Rush</b>; or a 1/3 Turtle with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7781e6817761cf2fb8cc3e4266a320af1f450fdc4668480eb5b24c5a30c8094a.png",
+        "imageGold": "",
+        "flavorText": "“Wow, there’s a whole sunken city down here!”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e046f848ea3aa508ccf8d0c461243ba0c4159ae55440e95a96ba0e5bdf159d6.png",
+        "childIds": [
+          65581,
+          65582,
+          65586,
+          65587
+        ],
+        "keywordIds": [
+          1,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_375",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 94204,
+        "collectible": 1,
+        "slug": "94204-peaceful-piper",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "沉静的吹笛人",
+        "text": "<b>抉择：</b>抽一张野兽牌；或者<b>发现</b>一张野兽牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4098c408e42370cf6d0d1c94eff5e7650c010174af6285a4d2bc115f50315a9.png",
+        "imageGold": "",
+        "flavorText": "“在艾泽拉斯这颗星球上，还有什么能比爱与和平更珍贵？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1d0adfd0cb12a2ab41bed68495138e8fba4bec403d976a017edb07851d9c976.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_375",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 94204,
+        "collectible": 1,
+        "slug": "94204-peaceful-piper",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Peaceful Piper",
+        "text": "<b>Choose One -</b> Draw a Beast; or <b>Discover</b> one.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c245ff985af5f2481aa308bd122ac3c9413f661cd53589007bae40cdee910738.png",
+        "imageGold": "",
+        "flavorText": "\"Is there anything worth more than peace and love on the planet Azeroth?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1d0adfd0cb12a2ab41bed68495138e8fba4bec403d976a017edb07851d9c976.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_642",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 72925,
+        "collectible": 1,
+        "slug": "72925-trench-surveyor",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "海沟勘测机",
+        "text": "<b>战吼：</b><b>探底</b>。如果选中的是机械牌，抽取这张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a6a8849d8e7926c7d6f0d99bdd8e51410c3a854f6f22f2d5d8ae9222aad0f4f.png",
+        "imageGold": "",
+        "flavorText": "装有液冷系统。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc5aa23737d2b4cbaf7d893714537c1bafb32dc03bb1d53be6d94c140f8d0568.png",
+        "keywordIds": [
+          8,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_642",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 72925,
+        "collectible": 1,
+        "slug": "72925-trench-surveyor",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Trench Surveyor",
+        "text": "<b>Battlecry:</b> <b>Dredge</b>. If it's a Mech, draw it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8f670cce6801b759de0a0b79fd169effcc8fb92ee5ef707e9894757a84ffb86.png",
+        "imageGold": "",
+        "flavorText": "Liquid cooled.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc5aa23737d2b4cbaf7d893714537c1bafb32dc03bb1d53be6d94c140f8d0568.png",
+        "keywordIds": [
+          8,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_300",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 101493,
+        "collectible": 1,
+        "slug": "101493-shadowtouched-kvaldir",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "影触克瓦迪尔",
+        "text": "<b>战吼：</b>你的下一次治疗效果转而造成等量的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1df30c361ed5bc0df0a5238c2b53e53f02e609c6f2d0a1afcc31dfe3759e672.png",
+        "imageGold": "",
+        "flavorText": "无证上岗的“套牌名医”群体中有八成表示这张牌与雷诺·杰克逊配合极佳！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5b1e23377b3df377066c92d76c75e29af7bec9d428855f6804d677f7b974b65.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_300",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 101493,
+        "collectible": 1,
+        "slug": "101493-shadowtouched-kvaldir",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Shadowtouched Kvaldir",
+        "text": "<b>Battlecry:</b> Your next healing effect deals damage instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a86478af8828447574baf895f2268bbd0119fcd287f62f1401c59e64137d46c0.png",
+        "imageGold": "",
+        "flavorText": "Four out of five deck doctors say this works great with Reno Jackson!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5b1e23377b3df377066c92d76c75e29af7bec9d428855f6804d677f7b974b65.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DED_001a",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65581-zh_CN.json",
+      "response_sha256": "7f0d52530fdcf2da29c4c3f4a19cc4b1b3e7def4ed02617c6d46e67ea800657e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65581&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 65581,
+        "collectible": 0,
+        "slug": "65581-shark-form",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "鲨鱼形态",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d285f7a03c11c57d8f4fde547c35af12b9aadf5e10672dcbf59697885901b35.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65581&locale=zh_CN&collectible=0",
+        "sha256": "7f0d52530fdcf2da29c4c3f4a19cc4b1b3e7def4ed02617c6d46e67ea800657e",
+        "bytes": 583,
+        "observed_at": "2026-10-23T15:51:44.316502+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001a",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65581-en_US.json",
+      "response_sha256": "aee979a360e710f2e2de764be9453a26c8b95a40c13d17915f186feb02c2c226",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65581&locale=en_US&collectible=0",
+      "face": {
+        "id": 65581,
+        "collectible": 0,
+        "slug": "65581-shark-form",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Shark Form",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f3bab2faf685c15db27efe3c9e74480b999293f696c651cbee9c74cb98275e2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65581&locale=en_US&collectible=0",
+        "sha256": "aee979a360e710f2e2de764be9453a26c8b95a40c13d17915f186feb02c2c226",
+        "bytes": 579,
+        "observed_at": "2026-10-23T15:51:44.280699+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001b",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65582-zh_CN.json",
+      "response_sha256": "a2a475905770c7a7a29240f8a7c3b68424bc0f7a88fd8975581a7d00f0b1da62",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65582&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 65582,
+        "collectible": 0,
+        "slug": "65582-sea-turtle-form",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "海龟形态",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04864665d45ab42ba8bf9feda9748dd920787d3f41806ae4ff4cdcd26d8df0ac.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65582&locale=zh_CN&collectible=0",
+        "sha256": "a2a475905770c7a7a29240f8a7c3b68424bc0f7a88fd8975581a7d00f0b1da62",
+        "bytes": 587,
+        "observed_at": "2026-10-23T15:51:44.136279+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001b",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65582-en_US.json",
+      "response_sha256": "79263825a350b951ff30e506777f3383d84443dcec4792440c03de085e9175ef",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65582&locale=en_US&collectible=0",
+      "face": {
+        "id": 65582,
+        "collectible": 0,
+        "slug": "65582-sea-turtle-form",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sea Turtle Form",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72557d18c9e851786a8ead0682b771fd8233c78600dc0a791bfce809e7b32ad8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65582&locale=en_US&collectible=0",
+        "sha256": "79263825a350b951ff30e506777f3383d84443dcec4792440c03de085e9175ef",
+        "bytes": 589,
+        "observed_at": "2026-10-23T15:51:44.126080+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001at",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65586-zh_CN.json",
+      "response_sha256": "1afa3a6a6989323e974b03628c78a07bc53eaa4535957b595ccd5e087aa486d8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65586&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 65586,
+        "collectible": 0,
+        "slug": "65586-druid-of-the-reef",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": null,
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "暗礁德鲁伊",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99ccab67a343326671c749dec943093fdd43b035f9c52ad65f6d55a21da03f84.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65586&locale=zh_CN&collectible=0",
+        "sha256": "1afa3a6a6989323e974b03628c78a07bc53eaa4535957b595ccd5e087aa486d8",
+        "bytes": 583,
+        "observed_at": "2026-10-23T15:51:45.655115+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001at",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65586-en_US.json",
+      "response_sha256": "7e0bf4ce2dea8a600a070ddca2a2f8ef9c0fdbf440201020529cb09b7474d8b0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65586&locale=en_US&collectible=0",
+      "face": {
+        "id": 65586,
+        "collectible": 0,
+        "slug": "65586-druid-of-the-reef",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": null,
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Druid of the Reef",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0893c76fcd9d5122d7864ce0e70836c198008321aef9570edb0fc26d339d8e4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65586&locale=en_US&collectible=0",
+        "sha256": "7e0bf4ce2dea8a600a070ddca2a2f8ef9c0fdbf440201020529cb09b7474d8b0",
+        "bytes": 583,
+        "observed_at": "2026-10-23T15:51:45.778089+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001bt",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65587-zh_CN.json",
+      "response_sha256": "02f0b0245b262101d1c33786b9559e3461196911e58b767a624bee00130354e9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65587&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 65587,
+        "collectible": 0,
+        "slug": "65587-druid-of-the-reef",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": null,
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "暗礁德鲁伊",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15cec072082fdc3cff715fd950360cfefe8196a6a00afed78acea1f0f33f35e9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65587&locale=zh_CN&collectible=0",
+        "sha256": "02f0b0245b262101d1c33786b9559e3461196911e58b767a624bee00130354e9",
+        "bytes": 582,
+        "observed_at": "2026-10-23T15:51:46.195767+00:00"
+      }
+    },
+    {
+      "card_id": "DED_001bt",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k467-past-choice-dredge-healing/dependency-primary/65587-en_US.json",
+      "response_sha256": "421aadc0904535b5572eeb4c825f54f39038f43e52d20d30ea68e0bc93ae88af",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=65587&locale=en_US&collectible=0",
+      "face": {
+        "id": 65587,
+        "collectible": 0,
+        "slug": "65587-druid-of-the-reef",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": null,
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Druid of the Reef",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5711656e9d27c220ec8aad92887b98e603ee29d32261029a15700ad4e15de527.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 65580,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=65587&locale=en_US&collectible=0",
+        "sha256": "421aadc0904535b5572eeb4c825f54f39038f43e52d20d30ea68e0bc93ae88af",
+        "bytes": 583,
+        "observed_at": "2026-10-23T15:51:46.148426+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "choice_only_ids": [
+    "ETC_375a",
+    "ETC_375b"
+  ],
+  "official_face_unavailable_ids": [
+    "DED_001c",
+    "ETC_375a",
+    "ETC_375b"
+  ]
+}
