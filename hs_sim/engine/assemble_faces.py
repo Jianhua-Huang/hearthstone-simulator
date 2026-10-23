@@ -32,7 +32,7 @@ BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Key
     Keyword.WINDFURY,Keyword.MEGA_WINDFURY,Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.STEALTH,Keyword.ELUSIVE,
     Keyword.REBORN,Keyword.COLOSSAL,Keyword.OUTCAST,Keyword.COMBO))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
-    'battlecry','deathrattle','triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play','combo',
+    'battlecry','deathrattle','triggers','limited_triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play','combo',
     'keyword_auras','minion_death_cost'))
 
 @dataclass(frozen=True)
@@ -276,7 +276,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=
                 if prefix.timing in REACTION_TIMINGS else ()),
         requires_target=suffix.requires_target if 'battlecry'in timings else False,
         targeting=suffix.targeting if 'battlecry'in timings else None,
-        target_rule=suffix.target_rule if 'battlecry'in timings else 'any_entity')
+        target_rule=suffix.target_rule if 'battlecry'in timings else 'any_entity',limited_triggers=())
 
 def source_face(registry,primary,prefix_source,suffix,card_id):
     """One complete material path for validation, options and canonical faces."""
@@ -285,11 +285,14 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     from .assemble_static_materials import prefix_materials
     from .assemble_fixed_battlecry import prefix_battlecry
     auras,death_price=prefix_materials(registry,prefix_source)
-    return printed_face(primary,prefix_source.prefix,suffix,card_id,
+    face=printed_face(primary,prefix_source.prefix,suffix,card_id,
         colossal=prefix_appendages(registry,prefix_source),
         prefix_deathrattle=prefix_deathrattle(registry,prefix_source),
         keyword_auras=auras,minion_death_cost=death_price,
         fixed_battlecry=prefix_battlecry(registry,prefix_source))
+    from .assemble_reactions import native_subject
+    native=native_subject(registry,prefix_source,suffix)
+    return replace(face,**native) if native is not None else face
 
 
 def validate_template(registry,template):
@@ -312,8 +315,8 @@ def validate_template(registry,template):
     if template.prefix.end_turn is not None:registry.trigger_condition(template.prefix.end_turn.condition_id)
     original=source_face(registry,primary,template,template.suffix,primary.id)
     if template.prefix.timing in REACTION_TIMINGS:
-        from .assemble_reactions import original_trigger
-        original=replace(original,triggers=original_trigger(registry,template))
+        from .assemble_reactions import original_subject
+        original=replace(original,**original_subject(registry,template))
     elif template.card_id in registry._assemble_reaction_sources:
         raise ValueError('Reaction source bridge cannot mask another prefix timing')
     if template.prefix.timing in PLAY_PREFIXES:

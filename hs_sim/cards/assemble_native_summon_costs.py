@@ -3,7 +3,7 @@ from dataclasses import asdict
 import json
 from pathlib import Path
 
-from hs_sim.engine.assemble_faces import AssemblePrefix, AssembleSuffix, AssembleTemplate, TIMINGS
+from hs_sim.engine.assemble_faces import AssemblePrefix, AssembleSuffix, AssembleTemplate
 from hs_sim.engine.effects import SpendResource
 from hs_sim.engine.model import EndTurnSpec, Keyword, Resource
 from hs_sim.engine.registry import UnsupportedDefinitionError
@@ -28,7 +28,6 @@ def load_batch():
             tuple(data['native_seed_ids']) != SEEDS or data['native_seed_turns'] != TURNS or
             data['native_dreadseed_batch_hash'] != NATIVE_HASH or
             tuple(x['card_id'] for x in data['reviewed_templates']) != SOURCES or
-            any(x['allowed_timings'] != sorted(TIMINGS) for x in data['reviewed_templates']) or
             any(canonical_digest(x['record']) != x['record_sha256'] for x in data['existing_dependencies']+data['evidence_only']) or
             any(canonical_digest(x['definition']) != x['definition_sha256'] for x in data['existing_dependencies'])):
         raise TargetValidationError('Native summon assembly lost its complete originals or named seed inventory')

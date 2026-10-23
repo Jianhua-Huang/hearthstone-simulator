@@ -1,19 +1,19 @@
 """Reviewed ordinary reaction subjects use the existing captured trigger calls."""
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import base64
 import binascii
 import hashlib
 import json
 
 from .errors import ResolutionError
-from .model import CardType, TriggerSpec, _name
+from .model import CardType, TriggerSpec, LimitedTriggerSpec, _name
 
 REACTION_PREFIX = 'assemble.reaction:'
-# Existing single-ordinary-trigger roots in the pinned CN37 source inventory.
+# Actual ordinary and native finite-trigger roots in the pinned CN37 inventory.
 # Syntax does not install their conditions, bodies or source declarations.
 REACTION_TIMINGS = frozenset(('attack_declared', 'attack_finished', 'card_committed', 'card_drawn',
     'card_played', 'damage_dealt', 'hand_card_entered', 'health_resolved', 'hero_power_used',
-    'minion_died', 'minion_summoned', 'shield_lost', 'spell_cast_finished', 'spell_cast_started',
+    'mana_spent', 'mana_consumed', 'minion_died', 'minion_summoned', 'shield_lost', 'spell_cast_finished', 'spell_cast_started',
     'stealth_lost', 'turn_started'))
 LATE_REACTION_PREFIX = 'assemble.reaction_late:'
 
@@ -34,13 +34,61 @@ class AssembleReactionSource:
             raise ValueError('Assembled reaction needs its reviewed ordinary native subject')
 
 
+@dataclass(frozen=True)
+class AssembleNativeReactionSource:
+    card_id: str
+    events: tuple[str, ...]
+    original_behavior_id: str
+    condition_id: str
+    limited: LimitedTriggerSpec | None = None
+
+    @property
+    def event(self): return self.events[0]
+
+    def __post_init__(self):
+        from .assemble_faces import TIMING_PREFIXES
+        for field in ('card_id', 'original_behavior_id', 'condition_id'):
+            _name(getattr(self, field), 'native assembled reaction '+field)
+        if (type(self.events) is not tuple or not self.events or
+                len(set(self.events)) != len(self.events) or
+                any(e not in REACTION_TIMINGS for e in self.events) or
+                self.original_behavior_id.startswith(TIMING_PREFIXES)):
+            raise ValueError('Native reaction requires its complete ordered original events')
+        if self.limited is None:
+            if len(self.events) < 2:
+                raise ValueError('One ordinary event uses the original reaction declaration')
+        else:
+            if type(self.limited) is not LimitedTriggerSpec:
+                raise ValueError('Native reaction requires a complete limited trigger')
+            self.limited.__post_init__()
+            if (self.events != (self.limited.event,) or self.limited.keyword is not None or
+                    self.limited.end_turn is not None or self.limited.reset != 'turn' or
+                    self.limited.uses != 1 or self.limited.behavior_id != self.original_behavior_id or
+                    self.limited.condition_id != self.condition_id):
+                raise ValueError('Native finite reaction requires its original once-per-turn subject')
+
+
+def source_events(profile):
+    return profile.events if type(profile) is AssembleNativeReactionSource else (profile.event,)
+
+
+def subject_specs(profile, behavior_id=None):
+    if type(profile) is AssembleNativeReactionSource and profile.limited is not None:
+        return dict(triggers=(), limited_triggers=(profile.limited if behavior_id is None else
+            replace(profile.limited, behavior_id=behavior_id),))
+    return dict(triggers=tuple(TriggerSpec(event, profile.original_behavior_id if behavior_id is None
+        else reaction_behavior_id(event, profile.condition_id, behavior_id)) for event in source_events(profile)),
+        limited_triggers=())
+
+
 def validate_source(registry, profile, *, require_template=False):
-    if type(profile) is not AssembleReactionSource:
-        raise ValueError('Expected AssembleReactionSource')
+    if type(profile) not in (AssembleReactionSource, AssembleNativeReactionSource):
+        raise ValueError('Expected a complete assembly reaction source')
     profile.__post_init__()
     original = registry._cards.get(profile.card_id)
     if (original is None or original.kind != CardType.MINION or
-            original.triggers != (TriggerSpec(profile.event, profile.original_behavior_id),)):
+            original.triggers != subject_specs(profile)['triggers'] or
+            original.limited_triggers != subject_specs(profile)['limited_triggers']):
         raise ValueError('Reaction bridge differs from the complete original ordinary trigger')
     registry.behavior(profile.original_behavior_id)
     registry.trigger_condition(profile.condition_id)
@@ -52,13 +100,34 @@ def validate_source(registry, profile, *, require_template=False):
 
 
 def original_trigger(registry, template):
+    return original_subject(registry, template)['triggers']
+
+
+def original_subject(registry, template):
     profile = registry._assemble_reaction_sources.get(template.card_id)
     if profile is None:
         raise ValueError('Reaction prefix lacks its complete native source bridge')
     validate_source(registry, profile)
     if (template.prefix.timing, template.prefix.condition_id) != (profile.event, profile.condition_id):
         raise ValueError('Reaction template changed its actual event or original guard')
-    return (TriggerSpec(profile.event, profile.original_behavior_id),)
+    return subject_specs(profile)
+
+
+def native_subject(registry, template, suffix):
+    profile = registry._assemble_reaction_sources.get(template.card_id)
+    if type(profile) is not AssembleNativeReactionSource:
+        return None
+    validate_source(registry, profile)
+    if (template.prefix.timing, template.prefix.condition_id) != (profile.event, profile.condition_id):
+        raise ValueError('Native reaction changed its complete prefix')
+    if suffix == template.suffix:
+        return subject_specs(profile)
+    if any(event not in suffix.allowed_timings or event in suffix.pending_timings
+            for event in source_events(profile)):
+        raise ValueError('Native reaction body has an explicitly unreviewed event context')
+    if profile.limited is not None:
+        return subject_specs(profile, reaction_behavior_id(profile.event, profile.condition_id, suffix.behavior_id))
+    return subject_specs(profile, suffix.behavior_id)
 
 
 def validate_sources(registry):
@@ -100,7 +169,8 @@ def reaction_behavior(registry, behavior_id):
             raise ValueError('Noncanonical reaction identity')
         templates = (*registry._assemble_templates.values(), *registry._assemble_projections.values())
         if not any(t.card_id in registry._assemble_reaction_sources and
-                (t.prefix.timing, t.prefix.condition_id) == (row['event'], row['condition_id']) for t in templates):
+                row['event'] in source_events(registry._assemble_reaction_sources[t.card_id]) and
+                t.prefix.condition_id == row['condition_id'] for t in templates):
             raise ValueError('Unreviewed reaction subject or condition')
         if not any(t.suffix.behavior_id == row['behavior_id'] and
                 row['event'] in t.suffix.allowed_timings and row['event'] not in t.suffix.pending_timings for t in templates):
@@ -115,13 +185,26 @@ def reaction_behavior(registry, behavior_id):
         if context.event is None or context.event.kind != row['event']:
             raise ResolutionError('Reaction requires its original captured event')
         try:
-            recipe_from_id(context.source.card_id)
+            recipe = recipe_from_id(context.source.card_id)
             face = registry.card(context.source.card_id)
-        except ValueError as exc:
+            prefix_id = recipe.secondary_card_id if recipe.half == 'top' else recipe.primary_card_id
+            profile = registry._assemble_reaction_sources[prefix_id]
+            if row['condition_id'] != profile.condition_id or row['event'] not in source_events(profile):
+                raise ValueError('Reaction borrowed another native prefix')
+            expected = (subject_specs(profile, behavior_id) if
+                type(profile) is AssembleNativeReactionSource and profile.limited is not None else
+                subject_specs(profile, row['behavior_id']))
+        except (ValueError, KeyError) as exc:
             raise ResolutionError('Reaction requires its actual immutable assembled source') from exc
         if (context.source.kind != CardType.MINION or context.source.controller != context.player_id or
-                face.triggers != (TriggerSpec(row['event'], behavior_id),)):
+                face.triggers != expected['triggers'] or face.limited_triggers != expected['limited_triggers']):
             raise ResolutionError('Reaction differs from its captured source declaration')
+        if type(profile) is AssembleNativeReactionSource and profile.limited is not None:
+            trigger = context.trigger
+            if (trigger is None or trigger.kind != 'limited_trigger' or
+                    trigger.limited_trigger != expected['limited_triggers'][0] or
+                    trigger not in context.source.abilities or trigger.uses_remaining >= trigger.limited_trigger.uses):
+                raise ResolutionError('Native finite reaction requires its actually consumed original budget')
         result = predicate(context)
         if type(result) is not bool:
             raise ResolutionError('Reaction condition requires an explicit boolean')

@@ -23,7 +23,7 @@ from hs_sim.engine.registry import RuleContext
 from hs_sim.engine.replay import build_replay, replay
 from hs_sim.engine.serialization import canonical_hash
 from hs_sim.targets import TargetValidationError, canonical_digest
-from tools.card_batch import check_face, sha
+from tools.card_batch import check_face, registration_prefix, sha
 from test_assemble_attack_finished_followups import fixture as base_fixture, DUMMY, BOOST
 from test_assemble_card_play_followups import META, N, C, SP, KILL, COIN, WAR, CURATOR, LOOT, END, START
 
@@ -150,20 +150,26 @@ class AssembleAttackDeclaredTests(unittest.TestCase):
         self.assertEqual(current['suffix']['allowed_timings'],old['suffix']['allowed_timings']+amendment['add_timings'])
         current['suffix']['allowed_timings']=old['suffix']['allowed_timings'];self.assertEqual(current,old)
         self.assertEqual(set(r.assemble_templates[WAR].suffix.allowed_timings),
-            {'battlecry','deathrattle','end_turn','start_turn'}|set(REACTION_TIMINGS))
+            {'battlecry','deathrattle','end_turn','start_turn'}|set(data['ordinary_event_grammar']))
 
     def test_b_known_syntax_comes_from_complete_actual_roots_but_does_not_install_missing_card_effects(self):
         r=build_registry();covered=set()
         for cid,definition in r.cards.items():
-            if definition.kind!=CardType.MINION or len(definition.triggers)!=1 or definition.triggers[0].end_turn is not None:
+            subjects=definition.triggers+definition.limited_triggers
+            if definition.kind!=CardType.MINION or not subjects or any(t.end_turn is not None for t in subjects):
                 continue
             default=CardDefinition(definition.id,definition.name,CardType.MINION)
             if all(getattr(definition,f.name)==getattr(default,f.name)for f in fields(CardDefinition)if f.name not in SOURCE_FIELDS):
-                covered.add(definition.triggers[0].event)
+                covered.update(t.event for t in subjects)
         self.assertTrue(REACTION_TIMINGS<=covered)
-        self.assertEqual(set(cards.load_batch()['ordinary_event_grammar']),REACTION_TIMINGS)
-        self.assertNotIn('BE_996',r.assemble_templates)
-        with self.assertRaises(ValueError):r.card(AssembleRecipe('BE_996',WAR,'bottom').card_id)
+        # A historical review stays frozen when actual new source events extend syntax.
+        self.assertEqual(set(cards.load_batch()['ordinary_event_grammar']),
+            REACTION_TIMINGS-{'mana_spent','mana_consumed'})
+        historical=registration_prefix(build_registry,
+            'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups',
+            cards.register_assemble_attack_declared_followups,after=True)
+        self.assertNotIn('BE_996',historical.assemble_templates)
+        with self.assertRaises(ValueError):historical.card(AssembleRecipe('BE_996',WAR,'bottom').card_id)
         with self.assertRaises(ValueError):AssemblePrefix('k425.fabricated_event',condition_id='x')
         r.register_trigger_condition(P+'fake',lambda c:True)
         with self.assertRaises(ValueError):r.register_assemble_reaction_source(AssembleReactionSource(

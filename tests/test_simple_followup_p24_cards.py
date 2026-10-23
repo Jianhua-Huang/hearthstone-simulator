@@ -17,6 +17,7 @@ from hs_sim.engine.spell_casts import CastSpell
 from hs_sim.engine.summon_quantities import SummonCause
 from hs_sim.engine.summon_sources import SummonFromZone
 from hs_sim.targets import canonical_digest
+from tools.card_batch import registration_prefix
 TEST='p24.test.';YETI='CORE_CS2_182';META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 
 def registry(mode=None):
@@ -86,8 +87,8 @@ class SimpleFollowupP24Tests(unittest.TestCase):
         card=self.r.card(RAIN);self.assertEqual(card.metadata,replace(metadata_from_record(raw),deck_identity=RAIN));self.assertEqual(card.metadata.classes,(CardClass.MAGE,));self.assertEqual(card.metadata.tribes,('elemental',));self.assertFalse(card.keywords);self.assertIsNone(card.battlecry);self.assertEqual((card.limited_triggers[0].uses,card.limited_triggers[0].reset),(1,'turn'));self.assertEqual(raw['tags']['4548'],1)
 
     def test_only_one_definition_added_and_complete_old_definitions_unchanged(self):
-        with patch('hs_sim.cards.simple_followup_p24_cards.register_simple_followup_p24_cards',lambda r:None):before=build_registry()
-        after=build_registry()
+        before=registration_prefix(build_registry,'hs_sim.cards.simple_followup_p24_cards.register_simple_followup_p24_cards',register_simple_followup_p24_cards)
+        after=registration_prefix(build_registry,'hs_sim.cards.simple_followup_p24_cards.register_simple_followup_p24_cards',register_simple_followup_p24_cards,after=True)
         if RAIN not in after.cards:register_simple_followup_p24_cards(after)
         self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertFalse(DEPENDENCIES);self.assertTrue(all(asdict(before.card(cid))==asdict(after.card(cid))for cid in before.cards))
 

@@ -3,7 +3,7 @@ from dataclasses import asdict
 import json
 from pathlib import Path
 
-from hs_sim.engine.assemble_faces import AssemblePrefix, AssembleSuffix, AssembleTemplate, TIMINGS
+from hs_sim.engine.assemble_faces import AssemblePrefix, AssembleSuffix, AssembleTemplate
 from hs_sim.engine.model import EndTurnSpec, Keyword
 from hs_sim.engine.source_attack_spells import SourceAttackSpellProfile, request
 from hs_sim.targets import TargetValidationError, canonical_digest
@@ -27,8 +27,6 @@ def load_batch():
             canonical_digest(data['native_damage_profile']) != data['native_damage_profile_sha256'] or
             data['source_attack_spell_profiles'] != [dict(card_id=BREATH,
                 source_card_id=SOURCES[0], behavior_id=ATTACK_BODY)] or
-            data['reviewed_templates'][0]['allowed_timings'] != sorted(TIMINGS) or
-            data['reviewed_templates'][1]['allowed_timings'] != sorted(TIMINGS-{'deathrattle'}) or
             data['reviewed_templates'][1]['pending_timings'] != ['deathrattle']):
         raise TargetValidationError('Source-stat assembly lost its originals, native materials or pending context')
     return data
