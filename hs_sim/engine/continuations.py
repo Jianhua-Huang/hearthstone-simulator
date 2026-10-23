@@ -266,6 +266,17 @@ class FrameCodec:
             value.validate_in_state(self.origin_state,self.registry)
         if type(value)is AssemblePaidBattlecryContinuation:
             validate_paid_material(self.registry,value)
+        from .assemble_health_prefixes import (AssembleHealthContinuation,ApplyAssembledHealthPrefix,
+            AssembledHealthDamageBatch,ResolveAssembledHealthResult,RecheckAssembledHealthResult,
+            validate_material as validate_health_material)
+        if type(value)is AssembleHealthContinuation:validate_health_material(self.registry,value)
+        if type(value)in(ApplyAssembledHealthPrefix,AssembledHealthDamageBatch,ResolveAssembledHealthResult,
+                RecheckAssembledHealthResult)and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+            if type(value)in(ResolveAssembledHealthResult,RecheckAssembledHealthResult)and self.origin_events is not None:
+                event=value.context.event if type(value)is ResolveAssembledHealthResult else value.event
+                if event.sequence>len(self.origin_events)or self.origin_events[event.sequence-1]!=event:
+                    raise ValueError('Assembly health continuation lost its original committed event')
         from .next_spell_bodies import ContinueNextSpellBodies, FinishNextSpellBody, validate_queued as validate_next_spell_body
         if type(value) in (ContinueNextSpellBodies, FinishNextSpellBody) and self.origin_state is not None:
             validate_next_spell_body(self.origin_state, self.registry, value)

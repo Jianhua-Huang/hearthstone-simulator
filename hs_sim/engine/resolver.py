@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v681'
+CORE_EFFECTS_VERSION = 'core-effects-v682'
 
 
 class Mechanics:
@@ -893,7 +893,8 @@ class Resolution:
             from .whole_card_replays import DIAGNOSTIC_CONTROL as WHOLE_CARD_CONTROL
             from .indirect_body_targets import CONTROL as INDIRECT_BODY_CONTROL
             from .historical_body_targets import CONTROL as HISTORICAL_BODY_CONTROL
-            if type(work) in (*RECRUIT_STAT_CONTROL,*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
+            from .assemble_health_prefixes import CONTROL as ASSEMBLE_HEALTH_CONTROL
+            if type(work) in (*ASSEMBLE_HEALTH_CONTROL,*RECRUIT_STAT_CONTROL,*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
                               InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,RequestNaturalTurnEnd,*HERO_CONTROL) or transparent_power_guard:
                 # Diagnostic control work preserves the old callback window.
                 generated = self.game.mechanics.handler(work)(self,work)
@@ -1091,7 +1092,7 @@ def nonnegative(value, name='amount'):
         raise ResolutionError(f'{name} must be a nonnegative integer')
 
 
-def settle_health_batch(r, instructions, combat=None, *, split_link=None, partition_request=None, numeric_limit=None, apply_spell_bonus=True,player_effect=None,player_effect_owner=None):
+def settle_health_batch(r, instructions, combat=None, *, split_link=None, partition_request=None, numeric_limit=None, apply_spell_bonus=True,player_effect=None,player_effect_owner=None,assembled_health=None):
     from .health_loss import replacement_for, commit_loss
     from .model import HealthLossKind
     from .health_outcomes import capture_result
@@ -1275,8 +1276,12 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
             continuations.extend(replacements.get(result['packet_index'],()))
             behavior = callbacks.get(result['packet_index'])
             if behavior is not None:
-                continuations.append(r.call(behavior, result['source_id'], result['source_controller'],
-                    target_id=result['target_id'], event=event))
+                call=r.call(behavior, result['source_id'], result['source_controller'],
+                    target_id=result['target_id'], event=event)
+                if assembled_health is not None:
+                    from .assemble_health_prefixes import bind_result
+                    call=bind_result(r.registry,assembled_health,call)
+                continuations.append(call)
     if combat is not None:
         finish_exchange(r, combat)
     return continuations
@@ -2921,6 +2926,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_health_theft(mechanics)
     from .health_followups import register as register_health_followups
     register_health_followups(mechanics)
+    from .assemble_health_prefixes import register as register_assemble_health_prefixes
+    register_assemble_health_prefixes(mechanics)
     from .spell_sequences import register as register_spell_sequences
     register_spell_sequences(mechanics)
     from .spell_target_sequences import register as register_spell_target_sequences

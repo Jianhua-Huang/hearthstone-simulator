@@ -297,6 +297,8 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     if original_draw is not None:face=replace(face,battlecry=original_draw)
     original_paid=paid_battlecry(registry,prefix_source,suffix)
     if original_paid is not None:face=replace(face,battlecry=original_paid)
+    from .assemble_health_prefixes import source_face as native_health_face
+    face=native_health_face(registry,prefix_source,suffix,face)
     from .assemble_death_programs import native_deathrattle
     original_death=native_deathrattle(registry,prefix_source,suffix)
     if original_death is not None:face=replace(face,deathrattle=original_death)
@@ -470,6 +472,9 @@ def before_behavior(registry,behavior_id):
             from .assemble_corpse_prefixes import selected_request as selected_paid_request
             selected=selected_paid_request(registry,context,row['before_behavior_id'],row['behavior_id'])
             if selected is not None:return selected
+            from .assemble_health_prefixes import selected_request as selected_health_request
+            selected=selected_health_request(registry,context,row['before_behavior_id'],row['behavior_id'])
+            if selected is not None:return selected
             prefix_effects=first(context)
             # The native draw-before-buff sequence plans its suffix after Draw
             # and its reactions, so newly drawn cards enter the actual query.
@@ -630,6 +635,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_health_prefixes import validate_sources as validate_health_prefixes
+    validate_health_prefixes(registry)
     from .assemble_corpse_prefixes import validate_sources as validate_corpse_prefixes
     validate_corpse_prefixes(registry)
     from .assemble_death_programs import validate_sources as validate_deferred_death_sources

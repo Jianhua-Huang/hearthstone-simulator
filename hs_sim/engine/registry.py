@@ -178,6 +178,7 @@ class Registry:
         self._assemble_deferred_death_sources = {}
         self._assemble_corpse_gain_sources = {}
         self._assemble_paid_battlecry_sources = {}
+        self._assemble_health_prefix_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -401,6 +402,17 @@ class Registry:
                 s.original_battlecry_id==source.original_battlecry_id for s in self._assemble_paid_battlecry_sources.values()):
             raise ValueError('Duplicate native paid Battlecry source')
         self._assemble_paid_battlecry_sources[source.card_id]=source
+
+    @property
+    def assemble_health_prefix_sources(self):return MappingProxyType(self._assemble_health_prefix_sources)
+
+    def register_assemble_health_prefix_source(self,source):
+        from .assemble_health_prefixes import validate_source
+        self._require_mutable();validate_source(self,source)
+        if source.card_id in self._assemble_health_prefix_sources or any(
+                p.original_battlecry_id==source.original_battlecry_id for p in self._assemble_health_prefix_sources.values()):
+            raise ValueError('Duplicate native health prefix source')
+        self._assemble_health_prefix_sources[source.card_id]=source
 
     def register_assemble_native_end_condition(self, source):
         from .assemble_end_conditions import validate_source
@@ -2924,6 +2936,8 @@ class Registry:
             payload['assemble_corpse_gain_sources']=[asdict(self._assemble_corpse_gain_sources[k])for k in sorted(self._assemble_corpse_gain_sources)]
         if self._assemble_paid_battlecry_sources:
             payload['assemble_paid_battlecry_sources']=[asdict(self._assemble_paid_battlecry_sources[k])for k in sorted(self._assemble_paid_battlecry_sources)]
+        if self._assemble_health_prefix_sources:
+            payload['assemble_health_prefix_sources']=[asdict(self._assemble_health_prefix_sources[k])for k in sorted(self._assemble_health_prefix_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:
