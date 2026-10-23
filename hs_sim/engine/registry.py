@@ -189,6 +189,7 @@ class Registry:
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
         self._spell_value_profiles = {}
+        self._source_attack_spell_profiles = {}
         self._spell_source_cost_profiles = {}
         self._spell_source_cost_observers = {}
         self._spell_target_group_profiles = {}
@@ -663,6 +664,9 @@ class Registry:
     def spell_value_profiles(self):return MappingProxyType(self._spell_value_profiles)
 
     @property
+    def source_attack_spell_profiles(self):return MappingProxyType(self._source_attack_spell_profiles)
+
+    @property
     def spell_source_cost_profiles(self):return MappingProxyType(self._spell_source_cost_profiles)
 
     @property
@@ -880,6 +884,14 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._spell_value_profiles:raise ValueError('Duplicate native spell value profile')
         self._spell_value_profiles[profile.card_id]=profile
+
+    def register_source_attack_spell_profile(self, profile):
+        self._require_mutable()
+        from .source_attack_spells import validate_profile
+        validate_profile(self, profile)
+        if profile.card_id in self._source_attack_spell_profiles:
+            raise ValueError('Duplicate source Attack spell declaration')
+        self._source_attack_spell_profiles[profile.card_id] = profile
 
     def register_spell_source_cost_profile(self, profile):
         self._require_mutable()
@@ -2343,6 +2355,8 @@ class Registry:
         for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
         for profile in self._spell_value_profiles.values():validate_spell_value_profile(self,profile)
+        from .source_attack_spells import validate_profile as validate_source_attack_spell_profile
+        for profile in self._source_attack_spell_profiles.values():validate_source_attack_spell_profile(self, profile)
         from .spell_source_costs import validate_profile as validate_spell_source_cost
         for profile in self._spell_source_cost_profiles.values():validate_spell_source_cost(self,profile)
         from .spell_source_costs import validate_observer as validate_spell_cost_observer
@@ -2748,6 +2762,9 @@ class Registry:
             payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:
             payload['spell_value_profiles']=[asdict(self._spell_value_profiles[k])for k in sorted(self._spell_value_profiles)]
+        if self._source_attack_spell_profiles:
+            payload['source_attack_spell_profiles'] = [asdict(self._source_attack_spell_profiles[k])
+                for k in sorted(self._source_attack_spell_profiles)]
         if self._spell_source_cost_profiles:
             payload['spell_source_cost_profiles'] = [asdict(self._spell_source_cost_profiles[k])
                 for k in sorted(self._spell_source_cost_profiles)]

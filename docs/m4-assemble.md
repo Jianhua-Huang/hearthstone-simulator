@@ -466,3 +466,16 @@ AssembleFixedBattlecrySource(card_id, battlecry_id)是独立不可变物料声�
 BE_550的完整原战吼沿原BoardPresenceReference和SummonCause复制当前实际新卡面两次，复制品带有该新定义的亡语，普通复制/召唤不重新发动战吼。DINO_434的固定原战吼与独立亡语分别保留原完整一费可收藏随从/法术查询，不拼成一个共享主体。真正出牌的接受、一次支付、重复计划、容量、来源离场、沉默、当前/基础复制、回手和恢复均交给既有内核；没有新Effect、解释器或状态字段。core675/schema540区分新的完整面语义，旧core674恢复明确拒绝。
 
 测试工具registration_prefix(builder, target, registration, after=False)从真实中央构建流程截取同一次注册的前或后状态，用于批次增量断言。它不跳过注册后继续执行依赖该批卡的所有后续模块，也不创建伪造卡或放宽原断言。M0正式候选域与M6国服时序仍单独核定，具体执行与下一项只在两份原台账维护。
+
+
+### 来源攻击力法术材料与未审核死亡身材
+
+`source_attack_spells.SourceAttackSpellProfile(card_id, source_card_id, behavior_id)`为同一原生伤害法术登记另一个明确的来源攻击力生成入口。它须匹配原SpellBaseDamageProfile的原始父卡及已注册主体；注册表只读、冻结、唯一约束和非空指纹配置沿原生命周期。原父卡的真实亡语仍使用原CreateDeathrattleSpell与SpellBaseDamageValue，不把战吼、结束或普通触发伪装成一次亡语。
+
+`SourceAttackSpellValue(card_id, amount, source, turn, action)`的source运行时必须是完整不可变SourceAllocationFact且为随从；amount允许0。CreateSourceAttackSpell只接受原控制者作为初始接收者，在原回调接受视图中捕获一次实际派生攻击值和分配事实，再委托原create_hand_card。原生法术参数在首次生成/入手通知前安装，后来的属性、区域、控制或卡面变化不重新报价该物理法术。
+
+三类旧原生材料保持原字段与验证；新值复用spell_base_value附件、原实际CAST捕获、当前复制的附件重分配、物理洗入再抽回、施法历史与整卡历史安装入口。原法术卡面/费用、法强、伤害、反制、容量、爆牌和回滚不另写执行器。基础复制不捏造参数。保存以source字段选择严格新值编码，并重建精确分配类型；完整原分配、原随从种类、来源身份和非未来时序必须一致。此材料证明内部结构一致，不能认证未签名存档的攻击值来源；不声称从当前已变形/离场实体重算历史攻击力。
+
+新变体需要schema541/core676，旧schema或只改schema头的旧机制存档仍拒绝。没有新GameState账本、动作或玩家可见字段；可见卡面继续只显示既有base_damage，对手未知手牌及分配/原生附件不公开。保留回溯若移除了原分配身份，参数来源退休政策仍待实际来源证据，不以普通复制或历史重施通过认证该轴。
+
+青铜救赎者的非亡语主体直接复用原SummonBySourceStats及完整CATA_478t。原结束主体、引用有效时的当前身材和失效后的接受时材料保持；该既有当前/接受窗口仍待国服校准。其后半改到亡语时，死亡来源的剩余/最大生命或LKI取值尚未确立，明确列入pending_timings=('deathrattle',)。不猜测0生命、不补满血、不裁掉实际合格候选；完整配方/候选检查遇到该上下文即拒绝并由原事务回滚。source声明数量不能当作所有上下文已支持。

@@ -42,6 +42,10 @@ def validate_ability(state,registry,ability):
     if type(ability.spell_base_value) is SpellRemainderDamageValue:
         from .retained_spell_damage import validate_ability as validate_returning
         return validate_returning(state,registry,ability)
+    from .model import SourceAttackSpellValue
+    if type(ability.spell_base_value) is SourceAttackSpellValue:
+        from .source_attack_spells import validate_ability as validate_source_attack
+        return validate_source_attack(state, registry, ability)
     if ability.kind!='spell_base_value':raise ValueError('Expected native physical spell value')
     value=ability.spell_base_value;profile=registry.spell_value_profiles.get(value.card_id)
     if profile is None:raise ValueError('Native spell value lost its complete registered declaration')
@@ -88,6 +92,10 @@ def install(state,registry,entity,value):
     if type(value) is SpellRemainderDamageValue:
         from .retained_spell_damage import install as install_returning
         return install_returning(state,registry,entity,value)
+    from .model import SourceAttackSpellValue
+    if type(value) is SourceAttackSpellValue:
+        from .source_attack_spells import install as install_source_attack
+        return install_source_attack(state, registry, entity, value)
     if type(value) is SpellStatGrantValue:
         from .destruction_spell_values import install as install_stat_value
         return install_stat_value(state, registry, entity, value)
@@ -180,6 +188,8 @@ def inherit_play(r,entity,original_state,play_id):
 
 def register(mechanics):
     mechanics.register(CreateDeathrattleSpell,create)
+    from .source_attack_spells import register as register_source_attack
+    register_source_attack(mechanics)
     from .retained_spell_damage import register as register_returning
     register_returning(mechanics)
     from .destruction_spell_values import register as register_stat_values

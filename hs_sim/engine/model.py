@@ -2899,6 +2899,28 @@ class SpellBaseDamageValue:
 
 
 @dataclass(frozen=True)
+class SourceAttackSpellValue:
+    """A native spell's frozen Attack operand and original minion allocation."""
+    card_id: str
+    amount: int
+    source: object
+    turn: int
+    action: int
+
+    def __post_init__(self):
+        from .allocation_facts import SourceAllocationFact
+        _name(self.card_id, 'source Attack spell face')
+        _int(self.amount, 'source Attack spell base damage', 0)
+        _int(self.turn, 'source Attack spell original turn', 1)
+        _int(self.action, 'source Attack spell original action', 0)
+        if type(self.source) is not SourceAllocationFact:
+            raise ValueError('Source Attack spell requires its typed original allocation')
+        self.source.__post_init__()
+        if self.source.kind != CardType.MINION:
+            raise ValueError('Source Attack spell requires an original minion')
+
+
+@dataclass(frozen=True)
 class SpellRemainderDamageValue:
     card_id: str
     amount: int
@@ -3018,7 +3040,7 @@ class AbilityInstance:
     discovery_class: str | None = None
     colossal_reserve_card_id: str | None = None
     colossal_remaining: int | None = None
-    spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | None = None
+    spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | SourceAttackSpellValue | None = None
     spell_stat_value: SpellStatGrantValue | None = None
     spell_resummon_value: object | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
@@ -3137,7 +3159,7 @@ class AbilityInstance:
         elif self.native_producer_quantity_card_id is not None:
             raise ValueError('Only native quantity sources carry their declaration')
         if self.kind=='spell_base_value':
-            if type(self.spell_base_value) not in (SpellBaseDamageValue, SpellRemainderDamageValue):raise ValueError('Native spell requires its complete typed base value')
+            if type(self.spell_base_value) not in (SpellBaseDamageValue, SpellRemainderDamageValue, SourceAttackSpellValue):raise ValueError('Native spell requires its complete typed base value')
             self.spell_base_value.__post_init__()
             from dataclasses import fields
             allowed={'id','kind','source_id','origin','spell_base_value'}
