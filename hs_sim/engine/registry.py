@@ -158,6 +158,7 @@ class Registry:
         self._assemble_on_play_death_sources = {}
         self._assemble_static_material_sources = {}
         self._assemble_native_end_conditions = {}
+        self._assemble_fixed_battlecry_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -321,6 +322,18 @@ class Registry:
     @property
     def assemble_native_end_conditions(self):
         return MappingProxyType(self._assemble_native_end_conditions)
+
+    @property
+    def assemble_fixed_battlecry_sources(self):
+        return MappingProxyType(self._assemble_fixed_battlecry_sources)
+
+    def register_assemble_fixed_battlecry_source(self, source):
+        from .assemble_fixed_battlecry import validate_source
+        self._require_mutable()
+        validate_source(self, source)
+        if source.card_id in self._assemble_fixed_battlecry_sources:
+            raise ValueError('Duplicate assembly fixed Battlecry source')
+        self._assemble_fixed_battlecry_sources[source.card_id] = source
 
     def register_assemble_native_end_condition(self, source):
         from .assemble_end_conditions import validate_source
@@ -2815,6 +2828,9 @@ class Registry:
         if self._assemble_native_end_conditions:
             payload['assemble_native_end_conditions'] = [asdict(self._assemble_native_end_conditions[k])
                 for k in sorted(self._assemble_native_end_conditions)]
+        if self._assemble_fixed_battlecry_sources:
+            payload['assemble_fixed_battlecry_sources'] = [asdict(self._assemble_fixed_battlecry_sources[k])
+                for k in sorted(self._assemble_fixed_battlecry_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

@@ -13,6 +13,7 @@ from hs_sim.engine.model import LimitedTriggerSpec,Rarity,TriggerSpec
 from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMember,resolve_candidates,sample_candidates
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.targets import canonical_digest
+from tools.card_batch import registration_prefix
 TEST='p27.test.';YETI='CORE_CS2_182';MAGE1='EX1_277';MAGE4='CS2_029';ROGUE1='CORE_CS2_075';WEAPON='CS2_106';DUAL='END_025';DUAL_WEAPON='END_001';TOKEN='DREAM_01';UNKNOWN=TEST+'unknown'
 MEMBERS=(*ROOTS,MAGE1,MAGE4,ROGUE1,WEAPON,YETI,DUAL,DUAL_WEAPON,TOKEN);CONTEXT=GenerationContext('p27-explicit-experiment','experimental');META=CardMetadata(False,(CardClass.NEUTRAL,),None,tribes=())
 
@@ -75,8 +76,9 @@ class SimpleFollowupP27Tests(unittest.TestCase):
         self.assertEqual(r.card(PIRATE).metadata.tribes,('pirate',));self.assertEqual(r.card(CAKE).metadata.tribes,('mech',));self.assertFalse(r.card(CAKE).keywords);self.assertNotEqual(d['cards'][0]['record']['name'],d['evidence_only'][0]['record']['name'])
 
     def test_only_four_defs_added_aliases_and_production_pools_unchanged(self):
-        with patch('hs_sim.cards.simple_followup_p27_cards.register_simple_followup_p27_cards',lambda r:None):before=build_registry()
-        after=build_registry()
+        target='hs_sim.cards.simple_followup_p27_cards.register_simple_followup_p27_cards'
+        before=registration_prefix(build_registry,target,register_simple_followup_p27_cards)
+        after=registration_prefix(build_registry,target,register_simple_followup_p27_cards,after=True)
         if not all(cid in after.cards for cid in ROOTS):register_simple_followup_p27_cards(after)
         self.assertEqual(set(after.cards)-set(before.cards),set(ROOTS));self.assertFalse(DEPENDENCIES);self.assertTrue(all(asdict(before.card(cid))==asdict(after.card(cid))for cid in before.cards));self.assertEqual(dict(before.pools),dict(after.pools));self.assertFalse(any(p.id==POOL_ID or p.mode=='standard'for p in after.pools.values()))
         for cid in('EDR_001','KAR_069'):self.assertEqual(cid in before.cards,cid in after.cards)

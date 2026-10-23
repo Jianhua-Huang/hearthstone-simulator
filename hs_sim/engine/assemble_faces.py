@@ -238,8 +238,11 @@ def compatible(prefix,suffix):
     return all(t in suffix.allowed_timings for t in timings)
 
 
-def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None,keyword_auras=(),minion_death_cost=None):
+def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None,keyword_auras=(),minion_death_cost=None,fixed_battlecry=None):
     prefix.__post_init__();suffix.__post_init__()
+    if fixed_battlecry is not None:
+        _name(fixed_battlecry,'assembled fixed prefix Battlecry')
+        if prefix.timing!='deathrattle':raise ValueError('Fixed Battlecry requires its actual death prefix')
     if type(keyword_auras)is not tuple or any(type(spec)is not KeywordAuraSpec for spec in keyword_auras):
         raise ValueError('Assembly static keyword material requires native ordered aura declarations')
     for spec in keyword_auras:spec.__post_init__()
@@ -255,6 +258,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=
     timings=prefix_timings(prefix)
     battlecry=(condition_behavior_id(prefix.condition_id,suffix.behavior_id)if prefix.condition_id is not None
         else suffix.behavior_id)if 'battlecry'in timings else None
+    if fixed_battlecry is not None:battlecry=fixed_battlecry
     deathrattle=suffix.deathrattle_behavior_id or suffix.behavior_id
     if prefix.before_behavior_id is not None:
         if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
@@ -279,11 +283,13 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     from .assemble_colossal import prefix_appendages
     from .assemble_on_play import prefix_deathrattle
     from .assemble_static_materials import prefix_materials
+    from .assemble_fixed_battlecry import prefix_battlecry
     auras,death_price=prefix_materials(registry,prefix_source)
     return printed_face(primary,prefix_source.prefix,suffix,card_id,
         colossal=prefix_appendages(registry,prefix_source),
         prefix_deathrattle=prefix_deathrattle(registry,prefix_source),
-        keyword_auras=auras,minion_death_cost=death_price)
+        keyword_auras=auras,minion_death_cost=death_price,
+        fixed_battlecry=prefix_battlecry(registry,prefix_source))
 
 
 def validate_template(registry,template):
@@ -602,6 +608,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_fixed_battlecry import validate_sources as validate_fixed_battlecries
+    validate_fixed_battlecries(registry)
     from .assemble_end_conditions import validate_sources as validate_end_condition_sources
     validate_end_condition_sources(registry)
     from .assemble_static_materials import validate_sources as validate_static_materials

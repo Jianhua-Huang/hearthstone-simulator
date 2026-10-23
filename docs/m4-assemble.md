@@ -455,3 +455,14 @@ AssembleNativeEndConditionSource(card_id, original_behavior_id, condition_id)仅
 此类条件在原生结束解释器交给该回调的RuleContext上求值，不额外制造一次新的内部读取。首次排队保留原回调接受视图，额外调用仍沿用原解释器为该次提供的视图；不全局冻结额外结算，也不增加用途或检查点。水晶商人以该视图中的实际mana>0决定是否运行独立后半。原有未声明此政策的条件前半继续使用CheckAssembledEndCondition原有的后续实时读取，二者不能互换。未知保留命名空间条件缺来源证明时明确失败，不能退回另一窗口。
 
 没有新Effect、状态字段、支付或结束解释器，core674/schema540绑定该声明与编译语义，旧core673恢复明确拒绝。这里只证明原内部来源行为与拼装适配一致，精确国服条件时序仍属M6；执行与下一项仅在两份原台账维护。
+
+
+### 固定原战吼属于前半，亡语主体独立移动
+
+AssembleFixedBattlecrySource(card_id, battlecry_id)是独立不可变物料声明，只绑定原静态随从完整、无显式目标的战吼，原卡还必须有亡语。注册和冻结时核对原行为身份、唯一来源及实际deathrattle前半；非随从、choice-only、有目标的原战吼、重复、孤立或投影来源均拒绝。AssemblePrefix、AssembleSuffix、AssembleTemplate及旧来源结构不增加字段。只读assemble_fixed_battlecry_sources保存该绑定，仅非空配置进入注册指纹。
+
+统一source_face在模板整卡重建、原整面候选比较和实际配方中读取所选前半的原战吼。printed_face的fixed_battlecry仅接受实际亡语前半的显式命名主体；保留或借入该前半就带入原完整战吼，换为普通前半则清空旧物料。只借该来源的亡语后半不会带来固定战吼。原随从同时有战吼且声明为这种亡语前半时，缺失审核物料明确失败，不从primary偷偷继承，也不静默删掉原战吼。
+
+BE_550的完整原战吼沿原BoardPresenceReference和SummonCause复制当前实际新卡面两次，复制品带有该新定义的亡语，普通复制/召唤不重新发动战吼。DINO_434的固定原战吼与独立亡语分别保留原完整一费可收藏随从/法术查询，不拼成一个共享主体。真正出牌的接受、一次支付、重复计划、容量、来源离场、沉默、当前/基础复制、回手和恢复均交给既有内核；没有新Effect、解释器或状态字段。core675/schema540区分新的完整面语义，旧core674恢复明确拒绝。
+
+测试工具registration_prefix(builder, target, registration, after=False)从真实中央构建流程截取同一次注册的前或后状态，用于批次增量断言。它不跳过注册后继续执行依赖该批卡的所有后续模块，也不创建伪造卡或放宽原断言。M0正式候选域与M6国服时序仍单独核定，具体执行与下一项只在两份原台账维护。

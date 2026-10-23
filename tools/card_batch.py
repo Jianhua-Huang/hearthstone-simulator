@@ -32,6 +32,34 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def registration_prefix(builder, target, registration, *, after=False):
+    """Capture one actual registration boundary without running later dependents.
+
+    Incremental source tests need the same real builder immediately before and
+    after their batch. Skipping registration but completing the modern builder
+    is invalid once later batches legitimately depend on those original cards.
+    """
+    from unittest.mock import patch
+    require(callable(builder) and callable(registration) and type(target) is str and
+            bool(target) and type(after) is bool, 'Invalid registration boundary request')
+
+    class PrefixReady(Exception):
+        def __init__(self, registry):
+            self.registry = registry
+
+    def capture(registry):
+        if after:
+            registration(registry)
+        raise PrefixReady(registry)
+
+    with patch(target, capture):
+        try:
+            builder()
+        except PrefixReady as found:
+            return found.registry
+    raise ValueError('Requested original registration boundary was not reached')
+
+
 def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 
