@@ -1,0 +1,2659 @@
+{
+  "schema": 1,
+  "batch": "past-one-cost-awakening-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BAR_843",
+        "dbf_id": 63117,
+        "name": "战歌大使",
+        "name_en": "Warsong Envoy",
+        "text": "<b>暴怒：</b>每有一个受伤的角色，便获得+1攻击力。",
+        "text_en": "[x]<b>Frenzy:</b> Gain +1 Attack\nfor each damaged\n character.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1525,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "FRENZY": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "854f75ec9743f0a992c6dc532134f3d478778370d38172e9a9d97e3395670ebc"
+    },
+    {
+      "record": {
+        "id": "BRM_022",
+        "dbf_id": 2278,
+        "name": "龙蛋",
+        "name_en": "Dragon Egg",
+        "text": "每当本随从受到\n伤害，召唤一条2/1的雏龙。",
+        "text_en": "Whenever this minion takes damage, summon a 2/1 Whelp.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 14,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 2436
+        },
+        "card_set_id": 14,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "77f50faf668b5ca7fd17d63de6c5ed0d945eff9e725a5ff46603805efc40c8c2"
+    },
+    {
+      "record": {
+        "id": "BT_009",
+        "dbf_id": 56392,
+        "name": "被禁锢的阳鳃鱼人",
+        "name_en": "Imprisoned Sungill",
+        "text": "<b>休眠</b>2回合。唤醒时，召唤两个1/1的\n鱼人。",
+        "text_en": "<b>Dormant</b> for 2 turns.\nWhen this awakens, summon two 1/1\nMurlocs.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57920,
+          "1652": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Nielson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b77bed4e3ee9df6475c5ede9b6cf660de6852a6f0b56533256e062d52e737f67"
+    },
+    {
+      "record": {
+        "id": "BT_121",
+        "dbf_id": 56508,
+        "name": "被禁锢的甘尔葛",
+        "name_en": "Imprisoned Gan'arg",
+        "text": "<b>休眠</b>2回合。\n唤醒时，装备一把3/2的斧子。",
+        "text_en": "<b>Dormant</b> for 2 turns.\nWhen this awakens,\nequip a 3/2 Axe.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 10,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 401,
+          "1652": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "39e7d59e7a900a612166540ed38f4cc3d5730f4f3d7b985e6090273bf56adc67"
+    },
+    {
+      "record": {
+        "id": "CFM_691",
+        "dbf_id": 40697,
+        "name": "青玉游荡者",
+        "name_en": "Jade Swarmer",
+        "text": "<b>潜行，亡语：</b>召唤一个{0}的<b>青玉魔像</b>。@<b>潜行，亡语：</b>召唤一个<b>青玉魔像</b>。",
+        "text_en": "<b>Stealth</b>\n<b>Deathrattle:</b> Summon a{1} {0} <b>Jade Golem</b>.@<b>Stealth</b>\n<b>Deathrattle:</b> Summon a <b>Jade Golem</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "STEALTH": 1,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5767a40eb13001a89dbfb9f238caf43d9575d5c961414cd7384a282af441227a"
+    },
+    {
+      "record": {
+        "id": "GIL_816",
+        "dbf_id": 48106,
+        "name": "沼泽龙蛋",
+        "name_en": "Swamp Dragon Egg",
+        "text": "<b>亡语：</b>随机将一张龙牌置入你的手牌。",
+        "text_en": "<b>Deathrattle:</b> Add a random Dragon to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "COST": 1,
+          "CARD_SET": 1125,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "bf950bc8979b297f7e39a5286a52d8cb8e599ba3e7ad72765f063c577678765f"
+    },
+    {
+      "record": {
+        "id": "ULD_186",
+        "dbf_id": 54261,
+        "name": "法老御猫",
+        "name_en": "Pharaoh Cat",
+        "text": "<b>战吼：\n</b>随机将一张<b>复生</b>随从牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b> Add a random <b>Reborn</b> minion to your_hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1158,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1,
+          "2534": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d7d649d797a592b9f1baa4a4ee06893c959e1e2ee0ff9cf422674a1389c63f12"
+    },
+    {
+      "record": {
+        "id": "SW_451",
+        "dbf_id": 64629,
+        "name": "魔变鱼人",
+        "name_en": "Metamorfin",
+        "text": "<b>嘲讽</b>，<b>战吼：</b>如果你在本回合中施放过邪能法术，获得+2/+2。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> If you've cast a Fel spell this turn, gain +2/+2.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2537": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nicola Saviori"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2537",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2537"
+          }
+        ]
+      },
+      "record_sha256": "1e4c2ea91590ded441a5dcbcdb490e5fe474a00a3bf079dfbd0afca8143b8e91"
+    },
+    {
+      "record": {
+        "id": "DRG_024",
+        "dbf_id": 55005,
+        "name": "空中悍匪",
+        "name_en": "Sky Raider",
+        "text": "<b>战吼：</b>&随机将一张海盗牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add a random Pirate to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "391aeeee803d14dda76e1a209db4fe7c258fca7536f8f6d69516996be5b52209"
+    },
+    {
+      "record": {
+        "id": "UNG_912",
+        "dbf_id": 41353,
+        "name": "宝石鹦鹉",
+        "name_en": "Jeweled Macaw",
+        "text": "<b>战吼：</b>&随机将一张野兽牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add a random Beast to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "f372179bb48f352e9f4bd12c155cb904de0742f95b0ac6825868d0101d7e5941"
+    },
+    {
+      "record": {
+        "id": "GIL_580",
+        "dbf_id": 47133,
+        "name": "城镇公告员",
+        "name_en": "Town Crier",
+        "text": "<b>战吼：</b>从你的牌库中抽一张具有<b>突袭</b>的随从牌。",
+        "text_en": "<b>Battlecry:</b> Draw a <b>Rush</b> minion from your deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1125,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4e760d095af08df7ee675b1ce6309b2110a5b07bb89a5fb62cf5660e2586fd10"
+    },
+    {
+      "record": {
+        "id": "ULD_282",
+        "dbf_id": 54013,
+        "name": "陶罐商人",
+        "name_en": "Jar Dealer",
+        "text": "<b>亡语：</b>随机将一张法力值消耗为（1）的随从牌置入你的手牌。",
+        "text_en": "[x]<b>Deathrattle:</b> Add a random\n1-Cost minion to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1158,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "b7652022ac1f7e4fa0952809ee77e272344f46a00a4adce4d463e45d50fb9979"
+    },
+    {
+      "record": {
+        "id": "BRM_022t",
+        "dbf_id": 2436,
+        "name": "黑色雏龙",
+        "name_en": "Black Whelp",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 14,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "WHELP": 1
+        },
+        "card_set_id": 14,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "4e08237d7ad678c1112404c98cc08bcb141df4d2bbe85130da3303aba01ce4da"
+    },
+    {
+      "record": {
+        "id": "BT_009t",
+        "dbf_id": 57920,
+        "name": "阳鳃士兵",
+        "name_en": "Sungill Streamrunner",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 5,
+          "CARDRACE": 14,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Nielson"
+          }
+        ]
+      },
+      "record_sha256": "56cd422944fa86951389d3250910ec124cdb4061ea4be22a281c039291f3cea1"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_106",
+        "dbf_id": 401,
+        "name": "炽炎战斧",
+        "name_en": "Fiery War Axe",
+        "text": "",
+        "text_en": "",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 2,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Lucas Graciano"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "a3b936e3c5df5cd0277f3673c6396ccd9b76b2293c2f11778e6a280375bc3cd5",
+      "definition_sha256": "27086dfc00bd2141dbe524ce364fc7122f3d8ab397cb44a08bf58f1343b0b44a"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t01",
+        "dbf_id": 42098,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "78c8443f33c9c8ba15220b9db1c7881483a2db8f8bc959acaa5a75ddf44ab757",
+      "definition_sha256": "99ec6aea6f3102d66f22beae70d0602473351539f2f08290e2a585541c51373c"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t04",
+        "dbf_id": 42101,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "925d15129f419325f6ee58aa284d41b710c77a7cf7a1ee0d66163799e98942bd",
+      "definition_sha256": "70412b34681220dd528148d141152c9a67ed0ef27858a3e68cb43d1df4f510fc"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t07",
+        "dbf_id": 42104,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f0aa23e5c37caac6e277f5263e52cb403d3bed1502ce0cd50018e885d5c73644",
+      "definition_sha256": "2921cfd56307ad161f100e1f911f0dd752c528cd7c3a8bfba74d17f1c192ece3"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t20",
+        "dbf_id": 42128,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 10,
+        "attack": 20,
+        "health": 20,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 20,
+          "ATK": 20,
+          "COST": 10,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4d04bea823cb0299600870ef858f9dda7a21d2c165002eb695337b005ae63be1",
+      "definition_sha256": "b3b676eec9e5701d125a107c02d63848defdf476d40eb90f196fe084306c1833"
+    }
+  ],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {
+    "BRM_022": {
+      "attack": 0
+    },
+    "GIL_816": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {
+    "CFM_691": {
+      "zh_CN": {
+        "{0}": ""
+      },
+      "en_US": {}
+    }
+  },
+  "collectible_leaf_ids": [
+    "BAR_843",
+    "BRM_022",
+    "BT_009",
+    "BT_121",
+    "CFM_691",
+    "GIL_816",
+    "ULD_186",
+    "SW_451",
+    "DRG_024",
+    "UNG_912",
+    "GIL_580",
+    "ULD_282"
+  ],
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "past_scope": "Historical one-cost candidates for real Standard past sources; exact membership and duplicate weights remain unverified. No production past domain.",
+  "official_observations": [
+    {
+      "card_id": "BAR_843",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 63117,
+        "collectible": 1,
+        "slug": "63117-warsong-envoy",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Hideaki Takamura",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "战歌大使",
+        "text": "<b>暴怒：</b>每有一个受伤的角色，便获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/192c5306f7edaa19377b0364c474ebddc607c0d904f415d95ec6e733f12f4008.png",
+        "imageGold": "",
+        "flavorText": "“不让小德扛旗是什么意思？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48bc00ec3fe7697b980da9dbf459838896bcc7253b24d3b9960f64822e920e97.png",
+        "keywordIds": [
+          99
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_843",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 63117,
+        "collectible": 1,
+        "slug": "63117-warsong-envoy",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Hideaki Takamura",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Warsong Envoy",
+        "text": "<b>Frenzy:</b> Gain +1 Attack for each damaged character.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/678e56b5da070aa7034e95d6873cfc41ffbb6a9efe844a0fce9eb2467a03c70c.png",
+        "imageGold": "",
+        "flavorText": "\"What do you mean we didn’t give the flag to the Druid?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48bc00ec3fe7697b980da9dbf459838896bcc7253b24d3b9960f64822e920e97.png",
+        "keywordIds": [
+          99
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BRM_022",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 2278,
+        "collectible": 1,
+        "slug": "2278-dragon-egg",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 14,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "龙蛋",
+        "text": "每当本随从受到 伤害，召唤一条2/1的雏龙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d8b56b9128e85198f2d287eb4e9407097820c4adec3ef91914b5a4eb3778872.png",
+        "imageGold": "",
+        "flavorText": "究竟是先有龙，还是先有龙蛋？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c5d4599327c7f2c83aa54290703b0be71377bdcb18139ebfdebfa49f421ae25.jpg",
+        "childIds": [
+          2436
+        ],
+        "copyOfCardId": [
+          75914
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BRM_022",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 2278,
+        "collectible": 1,
+        "slug": "2278-dragon-egg",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 14,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Dragon Egg",
+        "text": "Whenever this minion takes damage, summon a 2/1 Whelp.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ad2e57b280f0244603c9111ee1bcf62a5884dba0cb378973af07227f677e6f33.png",
+        "imageGold": "",
+        "flavorText": "Think of them as bullets for your dragon gun.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c5d4599327c7f2c83aa54290703b0be71377bdcb18139ebfdebfa49f421ae25.jpg",
+        "childIds": [
+          2436
+        ],
+        "copyOfCardId": [
+          75914
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_009",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 56392,
+        "collectible": 1,
+        "slug": "56392-imprisoned-sungill",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Sam Nielson",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "被禁锢的阳鳃鱼人",
+        "text": "<b>休眠</b>2回合。唤醒时，召唤两个1/1的 鱼人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e688ea94bea85daf6b655fe997d2bd97913274990272b053c01e1ac72c059112.png",
+        "imageGold": "",
+        "flavorText": "它也被囚禁了一万年！可并非因为它是恶魔，而是因为它的鱼人舞蹈。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fea8c65338432ac164e8901a456c0c1dbd237a65f5aa8a1f225ec0ccac4cf05f.png",
+        "childIds": [
+          57920
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_009",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 56392,
+        "collectible": 1,
+        "slug": "56392-imprisoned-sungill",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Sam Nielson",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Imprisoned Sungill",
+        "text": "<b>Dormant</b> for 2 turns. When this awakens, summon two 1/1 Murlocs.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b233cbd3a69bc1a0977ff055001dba6947375c4913f1b2af0f0dfe8331535531.png",
+        "imageGold": "",
+        "flavorText": "Imprisoned for ten thousand years! Not because it's a demon. Because of the dancing.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fea8c65338432ac164e8901a456c0c1dbd237a65f5aa8a1f225ec0ccac4cf05f.png",
+        "childIds": [
+          57920
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_121",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 56508,
+        "collectible": 1,
+        "slug": "56508-imprisoned-ganarg",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "被禁锢的甘尔葛",
+        "text": "<b>休眠</b>2回合。 唤醒时，装备一把3/2的斧子。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf07624d0aee252f5ec86e9b6c5f13560b7082ae849d76e1c313bbb6e545afda.png",
+        "imageGold": "",
+        "flavorText": "厂家直销炽炎战斧。预计两回合送达。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee9d45430f9eae76add2e7b81ff6146156899aa1b0d291232d58d5a9dcc4bd28.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_121",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 56508,
+        "collectible": 1,
+        "slug": "56508-imprisoned-ganarg",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Imprisoned Gan'arg",
+        "text": "<b>Dormant</b> for 2 turns. When this awakens, equip a 3/2 Axe.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d689ae8f4a4ab7bde4f6882633533a2dc4451bb79c8616780f3f33e20e192488.png",
+        "imageGold": "",
+        "flavorText": "Factory Direct Fiery War Axe. Please allow two turns for delivery.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee9d45430f9eae76add2e7b81ff6146156899aa1b0d291232d58d5a9dcc4bd28.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_691",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 40697,
+        "collectible": 1,
+        "slug": "40697-jade-swarmer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Slawomir Maniak",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "青玉游荡者",
+        "text": "<b>潜行，亡语：</b>召唤一个 的<b>青玉魔像</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffe84c4a8a610d178344e5b90185ec489c3c568f6ada24488d6ec40ab43eecfc.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d1681014e8d8d8e2ae35cdf1ad327068ebce2554a6dc685a4aab6c7a6d090b31.png",
+        "flavorText": "所到之处，寸草不生。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a2cb04f8c4f64bba2c5f53f5afc5516f7256e89d5887456bad39242136b9850.png",
+        "keywordIds": [
+          6,
+          12,
+          26
+        ],
+        "copyOfCardId": [
+          102602
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_691",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 40697,
+        "collectible": 1,
+        "slug": "40697-jade-swarmer",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Slawomir Maniak",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jade Swarmer",
+        "text": "<b>Stealth</b> <b>Deathrattle:</b> Summon a <b>Jade Golem</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6cb71428faf9d7a9314e06bdfbc0db1eb1cf782779edf2377c068ca0577667d1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f99a7ac2120e3c2953197c209861b4f3cb05ce04dba18e6f896af4c6415ffa0.png",
+        "flavorText": "He's so good at swarming, he can swarm all by himself!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a2cb04f8c4f64bba2c5f53f5afc5516f7256e89d5887456bad39242136b9850.png",
+        "keywordIds": [
+          6,
+          12,
+          26
+        ],
+        "copyOfCardId": [
+          102602
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_816",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 48106,
+        "collectible": 1,
+        "slug": "48106-swamp-dragon-egg",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "沼泽龙蛋",
+        "text": "<b>亡语：</b>随机将一张龙牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/718d0693c97c687ef1b531a74d66fa9fe40b535e2f7396dbe83126cd56794610.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf777c40bd96b25cbc8a1012b5fa3c1a050d1b01d2759f86352549f765b8b9a6.png",
+        "flavorText": "据说这种时候的蛋营养价值特别高，但很多人还是难以接受。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f616d61a2047cfba34cbcf374781b420e009e4620deccda3ebcb939c8f1de67f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_816",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 48106,
+        "collectible": 1,
+        "slug": "48106-swamp-dragon-egg",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Swamp Dragon Egg",
+        "text": "<b>Deathrattle:</b> Add a random Dragon to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58e814724116ce40b422388d1ee1e29e8e66a079fad6784b53cc20b406044971.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a14de87f599a260a8f3272a0efed0c7b35efb1dd2056a4246ead9ccbc96b538e.png",
+        "flavorText": "Would you eat them in a ditch? Would you eat them with a witch?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f616d61a2047cfba34cbcf374781b420e009e4620deccda3ebcb939c8f1de67f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_186",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 54261,
+        "collectible": 1,
+        "slug": "54261-pharaoh-cat",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 1,
+        "artistName": "Eva Widermann",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "法老御猫",
+        "text": "<b>战吼： </b>随机将一张<b>复生</b>随从牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d18842bd6b5d0add6e7f8f2d684d41cf2d68d1844d6618710ee7ada95a499ed.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8843b49194d432f4a68253f3ff35a3bad03c06b82bfbc4980550f503f2c5ba4e.png",
+        "flavorText": "最强的捕鼠能手，上猫窝与下猫窝之王，红色光斑的征服者，全知全能的喵特谢普苏特。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a50939630718a77d7af9f682581c65619de55c444227b5dad7848c637b39071b.png",
+        "keywordIds": [
+          8,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_186",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 54261,
+        "collectible": 1,
+        "slug": "54261-pharaoh-cat",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 1,
+        "artistName": "Eva Widermann",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Pharaoh Cat",
+        "text": "<b>Battlecry:</b> Add a random <b>Reborn</b> minion to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74fe7fdfc6004689ef05ffac653726c7c3267fde6461f42a6bb228a3bef288c8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c71f7df1b0df6de275213fe4344ce5797586ea2f9e413b55c206b7270f9bd03.png",
+        "flavorText": "Mightiest of mousers, enduring in kingship of the upper and lower cat tree, conqueror of the red dot, the all-wise Catshepsut.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a50939630718a77d7af9f682581c65619de55c444227b5dad7848c637b39071b.png",
+        "keywordIds": [
+          8,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_451",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 64629,
+        "collectible": 1,
+        "slug": "64629-metamorfin",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Nicola Saviori",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "魔变鱼人",
+        "text": "<b>嘲讽</b>，<b>战吼：</b>如果你在本回合中施放过邪能法术，获得+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e78896a900ca09267c0c04cea512548afd4c6a22ea9bf477e5b4c868172812c3.png",
+        "imageGold": "",
+        "flavorText": "梦想是加入恐龙战队，成为绿衣战士。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54205c30adf4fa304160a727e0c9af1c37264bcc01d253e54987d1cbcce33324.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_451",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 64629,
+        "collectible": 1,
+        "slug": "64629-metamorfin",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "multiTypeIds": [
+          15
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Nicola Saviori",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Metamorfin",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> If you've cast a Fel spell this turn, gain +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d8c99c22a2774f17d7917030420b6c857be8bc341b502ba4db466ac83a9f9e7.png",
+        "imageGold": "",
+        "flavorText": "Always wanted to be the green ranger.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54205c30adf4fa304160a727e0c9af1c37264bcc01d253e54987d1cbcce33324.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 55005,
+        "collectible": 1,
+        "slug": "55005-sky-raider",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "空中悍匪",
+        "text": "<b>战吼：</b>&随机将一张海盗牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78169e2eb831872d45aef4a6260901a8c9b5a686a79a00dd551ccf902733eae6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0fdda24348f550a937d36af49af550c2215e4fc5f8867bf7fa81860b46bfd75b.png",
+        "flavorText": "或许他应该构思一个能把战利品也一块带回来的飞行方案。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/71969a87b497d0940cb8c14e0ef8356073655878932ead3c40857f445bfbe53b.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          127088
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 55005,
+        "collectible": 1,
+        "slug": "55005-sky-raider",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sky Raider",
+        "text": "<b>Battlecry:</b>& Add a random Pirate to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c789d96026d50a62049ffe0ecf4d9a73703be95745606cf464e363c83e19deb8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0fdda24348f550a937d36af49af550c2215e4fc5f8867bf7fa81860b46bfd75b.png",
+        "flavorText": "Maybe he should've hatched a plan that could actually carry booty back too.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/71969a87b497d0940cb8c14e0ef8356073655878932ead3c40857f445bfbe53b.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          127088
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_912",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 41353,
+        "collectible": 1,
+        "slug": "41353-jeweled-macaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "宝石鹦鹉",
+        "text": "<b>战吼：</b>随机将一张野兽牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07c165e0d3256a3ed4dc2d81bcfe6baf9c67872f0311c68a97261c959ec9d2a2.png",
+        "imageGold": "",
+        "flavorText": "地精珠宝商慕名而来，失望而归…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48c52b072e283762c0507b0ee2d8eb940ba5d3adbcd23512b125a07ba3fb671.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          97376
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_912",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 41353,
+        "collectible": 1,
+        "slug": "41353-jeweled-macaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jeweled Macaw",
+        "text": "<b>Battlecry:</b> Add a random Beast to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c154d5fd7d8931bb8634b27438ecca64faf4f230aa82a9e2f39999e2d2bf9040.png",
+        "imageGold": "",
+        "flavorText": "It’s not LITERALLY jeweled. The goblins were terribly disappointed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48c52b072e283762c0507b0ee2d8eb940ba5d3adbcd23512b125a07ba3fb671.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          97376
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_580",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 47133,
+        "collectible": 1,
+        "slug": "47133-town-crier",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 4,
+        "artistName": "Arthur Gimaldinov",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "城镇公告员",
+        "text": "<b>战吼：</b>从你的牌库中抽一张具有<b>突袭</b>的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef37ab560603f657580b64579c8da2d8aa6137284dbd9ebbfc333aa9e2fffc09.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af09d621cdc6060cb2d2af2089626a5cddcb542a586cdd4c8ffcb3228323eb79.png",
+        "flavorText": "他小时候是镇子里出了名的爱哭鬼。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b952fbaee79742f5d79691474614c8894942c9b1b73c71401febd103763614d6.png",
+        "keywordIds": [
+          8,
+          53
+        ],
+        "copyOfCardId": [
+          111460
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_580",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 47133,
+        "collectible": 1,
+        "slug": "47133-town-crier",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 4,
+        "artistName": "Arthur Gimaldinov",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Town Crier",
+        "text": "<b>Battlecry:</b> Draw a <b>Rush</b> minion from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc9915103616d0a7a85ca1624ae4ac5894c6df58f3d42e2bacc86f0d1fb75a52.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97b556065db15aa81bc54da5e9efaa83cc61cdd778ae92909e34daa495059161.png",
+        "flavorText": "When he was younger, he was the town crybaby.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b952fbaee79742f5d79691474614c8894942c9b1b73c71401febd103763614d6.png",
+        "keywordIds": [
+          8,
+          53
+        ],
+        "copyOfCardId": [
+          111460
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_282",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 54013,
+        "collectible": 1,
+        "slug": "54013-jar-dealer",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 1,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "陶罐商人",
+        "text": "<b>亡语：</b>随机将一张法力值消耗为（1）的随从牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de614b88b98f5351e457328cf2213411d6ba0594f330cc08e16f202793345f25.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d8ff7ab25075c165655648793319197fb5a6c38fc68821b51ddd90a30e6fc96.png",
+        "flavorText": "要不要来开个盲罐试试手气？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3a69caae9b39c098d3fcd6e3b22d79920bce15700c30a057f330fa6583380874.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_282",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 54013,
+        "collectible": 1,
+        "slug": "54013-jar-dealer",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 1,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jar Dealer",
+        "text": "<b>Deathrattle:</b> Add a random 1-Cost minion to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c6f35f3cb6494242ebc56a56e3777a323171ad4b3227599f67e39ab7a709485.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfe5b4ed488f14007c6a4942e3a62255af2520f7259c61628e4884605f6986d2.png",
+        "flavorText": "What's in the jar? It could be anyone!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3a69caae9b39c098d3fcd6e3b22d79920bce15700c30a057f330fa6583380874.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BRM_022t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\2436-zh_CN.json",
+      "response_sha256": "c4eb86f514ee23b06f3f75d96f4cdf6f646158ea439b1aed3d7adc08c07de415",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=2436&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 2436,
+        "collectible": 0,
+        "slug": "2436-black-whelp",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 14,
+        "rarityId": null,
+        "artistName": "Jaemin Kim",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "黑色雏龙",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7263ab4818b39c577ec0037e51f384f1a135047f11a2c4bbde64de81a652bc7d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 2278,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=2436&locale=zh_CN&collectible=0",
+        "sha256": "c4eb86f514ee23b06f3f75d96f4cdf6f646158ea439b1aed3d7adc08c07de415",
+        "bytes": 550,
+        "observed_at": "2026-10-23T10:49:38.603910+00:00"
+      }
+    },
+    {
+      "card_id": "BRM_022t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\2436-en_US.json",
+      "response_sha256": "d310ef3afc9b6dabfe9d21802ca36dc8c6a82765588046c428ce93534d669ec4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=2436&locale=en_US&collectible=0",
+      "face": {
+        "id": 2436,
+        "collectible": 0,
+        "slug": "2436-black-whelp",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 14,
+        "rarityId": null,
+        "artistName": "Jaemin Kim",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Black Whelp",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4e49cf80af9908ca2b0723d37d3a78ef7c36fe17dc259823113f1b0ef3c0dc8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 2278,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=2436&locale=en_US&collectible=0",
+        "sha256": "d310ef3afc9b6dabfe9d21802ca36dc8c6a82765588046c428ce93534d669ec4",
+        "bytes": 549,
+        "observed_at": "2026-10-23T10:49:38.367334+00:00"
+      }
+    },
+    {
+      "card_id": "BT_009t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\57920-zh_CN.json",
+      "response_sha256": "16011d93b1b4a618d750c92121eff85d442fd2dea94fabc2ac105c047216542b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=57920&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 57920,
+        "collectible": 0,
+        "slug": "57920-sungill-streamrunner",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": null,
+        "artistName": "Sam Nielson",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "阳鳃士兵",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5003a8b6a1ae389fe2befebfb2ee987920642c0db678050143fc4dc3383857da.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e893cdd4cab767424abc074f251f60e38246e8330627a34a3b10274ea97eac64.jpg",
+        "parentId": 56392,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=57920&locale=zh_CN&collectible=0",
+        "sha256": "16011d93b1b4a618d750c92121eff85d442fd2dea94fabc2ac105c047216542b",
+        "bytes": 680,
+        "observed_at": "2026-10-23T10:49:38.646821+00:00"
+      }
+    },
+    {
+      "card_id": "BT_009t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\57920-en_US.json",
+      "response_sha256": "ecc54deaf3e4407fcaef00bef0b07e7c14fdc863200713e283dd0b6b7b02c8f6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=57920&locale=en_US&collectible=0",
+      "face": {
+        "id": 57920,
+        "collectible": 0,
+        "slug": "57920-sungill-streamrunner",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": null,
+        "artistName": "Sam Nielson",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sungill Streamrunner",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f98c88df3d7001feb0d0c70be62eb596bbf09fa7686eb4cfd86a17c5959aefe.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e893cdd4cab767424abc074f251f60e38246e8330627a34a3b10274ea97eac64.jpg",
+        "parentId": 56392,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=57920&locale=en_US&collectible=0",
+        "sha256": "ecc54deaf3e4407fcaef00bef0b07e7c14fdc863200713e283dd0b6b7b02c8f6",
+        "bytes": 688,
+        "observed_at": "2026-10-23T10:49:38.375133+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_106",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 401,
+        "collectible": 1,
+        "slug": "401-fiery-war-axe",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Lucas Graciano",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "炽炎战斧",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44c491f430fdb7b56834537b83f3a620897fd3c4bb55e33d6e364358d66c7985.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f4ff6bf255ceaea527b18e8dc871d2bdf1099b728d0c7dbcbd9f041dfe5b685.png",
+        "flavorText": "在安宁祥和的年代，人们用另一个不太流行的名字称呼这把武器，寒冰静谧战斧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da86bc49c7a4f2225b98860d11763433b14b4f81cde0d59b094afb1bef362414.png",
+        "copyOfCardId": [
+          68375,
+          69534
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_106",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 401,
+        "collectible": 1,
+        "slug": "401-fiery-war-axe",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Lucas Graciano",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Fiery War Axe",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69fe8b0a3e6cc826aa92639682cbaca0b11fa81d5cb156bc12ab3c1f6f0cee7f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f4ff6bf255ceaea527b18e8dc871d2bdf1099b728d0c7dbcbd9f041dfe5b685.png",
+        "flavorText": "During times of tranquility and harmony, this weapon was called by its less popular name, Chilly Peace Axe.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da86bc49c7a4f2225b98860d11763433b14b4f81cde0d59b094afb1bef362414.png",
+        "copyOfCardId": [
+          68375,
+          69534
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_712_t01",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42098-zh_CN.json",
+      "response_sha256": "6f8153340eecab3ec1727ce80b2be20ea5414e11ebcf6b7045f6c21095de6457",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42098,
+        "collectible": 0,
+        "slug": "42098-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/872ff7ae21abd570e90a43e7c54afb18be8881f34c9ca9ba90443e727fc38b88.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=zh_CN&collectible=0",
+        "sha256": "6f8153340eecab3ec1727ce80b2be20ea5414e11ebcf6b7045f6c21095de6457",
+        "bytes": 543,
+        "observed_at": "2026-10-23T10:49:40.015297+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t01",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42098-en_US.json",
+      "response_sha256": "e9384c6279ec4e34a9d83437233d65177030e1c010c931c278839790e5166fd3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=en_US&collectible=0",
+      "face": {
+        "id": 42098,
+        "collectible": 0,
+        "slug": "42098-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b15b33fa8a69d0c69da614885b42c6e200298ca9de6dc765177ffab3be140ccb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=en_US&collectible=0",
+        "sha256": "e9384c6279ec4e34a9d83437233d65177030e1c010c931c278839790e5166fd3",
+        "bytes": 541,
+        "observed_at": "2026-10-23T10:49:40.055440+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t04",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42101-zh_CN.json",
+      "response_sha256": "51ebb1d4d5e73418f398eb111b3490ea2f76e5bb19bf616b02fcb3d6923d03d6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42101,
+        "collectible": 0,
+        "slug": "42101-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee2406a5fa01789643111ad591c84a003deccaeaf6270deb94a3bb31513e6002.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=zh_CN&collectible=0",
+        "sha256": "51ebb1d4d5e73418f398eb111b3490ea2f76e5bb19bf616b02fcb3d6923d03d6",
+        "bytes": 543,
+        "observed_at": "2026-10-23T10:49:40.409345+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t04",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42101-en_US.json",
+      "response_sha256": "dad65fc6d17cfc19c19d91be177cc924d0977ab7e4c9e97e3e6f3b4ed62e6487",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=en_US&collectible=0",
+      "face": {
+        "id": 42101,
+        "collectible": 0,
+        "slug": "42101-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a05b5f949d354bb31a99cac3535ded033df3a57dc31dd62fbb3392c6917036a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=en_US&collectible=0",
+        "sha256": "dad65fc6d17cfc19c19d91be177cc924d0977ab7e4c9e97e3e6f3b4ed62e6487",
+        "bytes": 541,
+        "observed_at": "2026-10-23T10:49:40.294413+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t07",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42104-zh_CN.json",
+      "response_sha256": "3e69f9d2705fa4e32f90ff9bd13551cb32031d62754d4c41bb83a037dde185d3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42104,
+        "collectible": 0,
+        "slug": "42104-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d0af8583222bb2355f1b2bd5b42bebef4add3dff70e831df03d593cce1bbd7c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=zh_CN&collectible=0",
+        "sha256": "3e69f9d2705fa4e32f90ff9bd13551cb32031d62754d4c41bb83a037dde185d3",
+        "bytes": 543,
+        "observed_at": "2026-10-23T10:49:41.513314+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t07",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42104-en_US.json",
+      "response_sha256": "fda06475539d03c9c3b88a852f6fb4485e69c3dc000750ccc47f92eb3c512c36",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=en_US&collectible=0",
+      "face": {
+        "id": 42104,
+        "collectible": 0,
+        "slug": "42104-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e01e85cf990ca4b2ee46907bcde91159f6137954440344d14c20d34854bc46b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=en_US&collectible=0",
+        "sha256": "fda06475539d03c9c3b88a852f6fb4485e69c3dc000750ccc47f92eb3c512c36",
+        "bytes": 541,
+        "observed_at": "2026-10-23T10:49:41.565228+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t20",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42128-zh_CN.json",
+      "response_sha256": "bf19432a03c75bb9a3652f1ec20a3c256f91c17a7a2d0ee248302cf5e898ce57",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42128,
+        "collectible": 0,
+        "slug": "42128-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/517672df5d20d186075f019c3d24cfe0fc6893fef6251bc416091be739d7b67f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=zh_CN&collectible=0",
+        "sha256": "bf19432a03c75bb9a3652f1ec20a3c256f91c17a7a2d0ee248302cf5e898ce57",
+        "bytes": 546,
+        "observed_at": "2026-10-23T10:49:41.926866+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t20",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k458-past-one-cost-awakening\\official-cache-01\\42128-en_US.json",
+      "response_sha256": "1d950e043624aa9f7c793b66d169e32192a3314d2a25ff64b11151c28fc7e262",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=en_US&collectible=0",
+      "face": {
+        "id": 42128,
+        "collectible": 0,
+        "slug": "42128-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b71c236abf92c0e09891e995ecc13545d7c9ce6b1b7cfaa8cfb38542d3606c8c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=en_US&collectible=0",
+        "sha256": "1d950e043624aa9f7c793b66d169e32192a3314d2a25ff64b11151c28fc7e262",
+        "bytes": 544,
+        "observed_at": "2026-10-23T10:49:42.077479+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -223,6 +223,17 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     require(face['name'] == row['name_en' if trial_english_fallback or not chinese else 'name'], 'Official card name drift')
     raw_text = row['text_en' if trial_english_fallback or not chinese else 'text']
     states = raw_text.split('@')
+    # Swarmer's two complete client displays express the same native rule.
+    # The Chinese gallery uses the live-stat form; English uses the plain form.
+    # Pin both original bodies, rather than dropping an arbitrary @ branch.
+    jade_swarmer_display = (row.get('id') == 'CFM_691' and
+        canonical(row) == '5767a40eb13001a89dbfb9f238caf43d9575d5c961414cd7384a282af441227a' and
+        display_normalizations == ({'{0}': ''} if chinese else {}))
+    if jade_swarmer_display:
+        require(len(states) == 2 and display(states[0].replace('{0}的', '') if chinese else
+            states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
+            'Swarmer lost its equivalent complete live and plain rule bodies')
+        raw_text = states[0 if chinese else 1]
     # This exact source repeats one rule in initial/ready/plain UI forms.
     # The gallery shows the initial form with its explicit printed threshold.
     # Check all complete bodies; never discard a different alternate effect.
@@ -376,7 +387,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
+                    (jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
