@@ -165,3 +165,10 @@ ETC_375原抽取按本人真实牌库、野兽/全部类型匹配，无匹配跳
 TSC_642用Dredge(..., on_select=...)接受原选中卡，机械/全部类型匹配后捕获新的CardReference，用MoveCard(..., HAND, draw=True)抽该物理对象；不重新读取牌库顶或按同名查找。反应移走原卡后引用跳过，不能借下一张牌继续抽取；当前改费、满手烧毁和独立重复菜单继续交原区域/抽牌解释器。来源离场不撤销已接受探底。具体候选顺序、原材料、反应和生成资格仍受[原探底契约](m5-dredge.md)及M0/M6独立核定。
 
 [固定数据包](../data/cards/past-choice-dredge-healing-v1.json)同时保存三份暂未返回主面的客户端记录DED_001c和ETC_375a/b；未将其写作已观察官网卡面。影触克瓦迪尔的独立跨回合玩家程序见[下一治疗契约](m3-next-healing-conversion.md#跨回合保留至实际消费的有限种类)，不能用旧本回合到期政策替代其原卡文。
+
+
+## 怪异奇物的两个原生入口
+
+GDB_116按[固定完整原行及双语主面](../data/cards/past-hand-shuffle-v1.json)声明1费1/3、OUTCAST和SPELLBURST。on_play读取原冻结spell_conditions.outcast，源离手后只洗当前剩余手牌；没有原接受条件时明确拒绝，不从后来牌序猜边缘。LimitedTriggerSpec.spellburst独立调用同一ShuffleHand，流放不消费迸发用途，普通召唤也保留固有迸发而不执行流放。
+
+物理顺序和隐藏追踪交[公共单手洗混](m3-zones.md#单个物理手牌的随机洗混)，能力消费、当前控制者、沉默/死亡和已接受主体沿有限触发。手动反制不消费迸发、自动CAST不假造手动候选，依据和当前国服未校准范围见[迸发追加契约](m5-limited-triggers.md#k468-法术迸发反制资格修正)。本适配不提供正式过去池，也不为其他卡穷举流放和关键词组合。

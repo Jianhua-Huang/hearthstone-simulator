@@ -91,9 +91,12 @@ class LimitedTriggerTests(unittest.TestCase):
         g=self.game(hand=('noop',),board=('SCH_242',)+('plain',)*6);self.play(g,'noop')
         self.assertEqual(len(g.state.players[1].board),7);self.assertEqual(self.uses(g),[0]);self.check(g)
 
-    def test_countered_spell_still_triggers_burst(self):
-        g=self.game(hand=('EX1_287',),enemy_hand=('noop',),enemy_board=('SCH_231',));self.play(g,'EX1_287');g.apply(EndTurn(1));self.play(g,'noop')
-        self.assertTrue(g.state.play_history[-1].countered);self.assertEqual(self.body(g,2).attack,3);self.check(g)
+    def test_countered_spell_preserves_burst_for_next_successful_manual_spell(self):
+        g=self.game(hand=('EX1_287',),enemy_hand=('noop','noop'),enemy_board=('SCH_231',));self.play(g,'EX1_287');g.apply(EndTurn(1));self.play(g,'noop')
+        self.assertTrue(g.state.play_history[-1].countered);self.assertEqual(self.body(g,2).attack,1)
+        self.assertEqual(self.uses(g,self.body(g,2).id),[1]);self.check(g)
+        self.play(g,'noop');self.assertEqual(self.body(g,2).attack,3)
+        self.assertEqual(self.uses(g,self.body(g,2).id),[0]);self.check(g)
 
     def test_spell_killed_source_does_not_trigger(self):
         g=self.game(hand=('hit',),board=('SCH_242',));i=self.body(g).id;self.play(g,'hit',i)

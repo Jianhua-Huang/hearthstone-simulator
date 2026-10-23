@@ -135,7 +135,7 @@ def capture(r, entity, ability, event, spell_candidates):
         play=play_record(r.state,play_id)
     if spec.keyword==Keyword.SPELLBURST:
         if (identity not in spell_candidates or play is None or play.kind!=CardType.SPELL or
-                play.player_id!=entity.controller):return None
+                play.player_id!=entity.controller or play.countered):return None
     elif spec.keyword==Keyword.FRENZY:
         if event.target_id!=entity.id or event.amount<=0:return None
     context=RuleContext(deepcopy(r.state),entity.id,entity.controller,event.target_id,event,play=play,trigger=ability)
@@ -161,6 +161,11 @@ def check(r, effect):
         # Another accepted end-turn root may have spent this exact attachment.
         # The old queued guard cannot borrow its newer consumption window.
         return rejected()
+    if ability.limited_trigger.keyword == Keyword.SPELLBURST:
+        from .play_history import play_record
+        play_id = dict(effect.event.data).get('play_id')
+        if play_id is None or play_record(r.state, play_id).countered:
+            return rejected()
     updated=replace(ability,uses_remaining=ability.uses_remaining-1,consumed=ability.uses_remaining==1)
     entity.abilities[entity.abilities.index(ability)]=updated
     refresh_entity(entity)

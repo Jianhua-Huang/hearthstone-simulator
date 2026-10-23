@@ -1119,12 +1119,12 @@ def shuffle_deck(r, effect):
     r.emit('deck_shuffled', player_id=player.id)
 
 
-def reorder_zone(r, effect):
+def reorder_zone(r, effect, *, source_id=None):
     zone = getattr(r.player(effect.player_id), effect.zone.value)
     if set(zone) != set(effect.entity_ids) or len(zone) != len(effect.entity_ids):
         raise ResolutionError('Reordering must be a permutation of the current zone')
     zone[:] = effect.entity_ids
-    r.emit('deck_reordered' if effect.zone == Zone.DECK else 'hand_reordered', player_id=effect.player_id)
+    r.emit('deck_reordered' if effect.zone == Zone.DECK else 'hand_reordered', player_id=effect.player_id, source_id=source_id)
 
 
 def zone_candidates(r, owner_id, zone, query, player_id, source_id=None):

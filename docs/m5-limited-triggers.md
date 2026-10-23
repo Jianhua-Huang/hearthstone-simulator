@@ -93,3 +93,12 @@ v76复验说明：上文原批次契约和验收数字保留为历史；当前�
 原随机强制攻击受击范围现沿原角色战斗接受英雄；仅调整候选筛选，原强制窗口与暴怒一次生命周期保持，见[独立范围契约](m2-random-forced-attacks.md)。精确CN仍待校准，上述历史阶段版本与证据保留。
 
 原生每实际回合的普通事件预算见[回合预算契约](m5-turn-scoped-limited-triggers.md)；既有实例预算和关键词语义保持。实际执行与下一项仅在两台账。
+
+
+## K468 法术迸发反制资格修正
+
+上文第4项“被反制仍保留迸发资格”及原测试保留为历史审计记录，当前实现不再采用该政策。[2017通用反制公告](https://hearthstone.blizzard.com/en-gb/news/21098848)早于法术迸发，不能单独证明较晚关键词的完整资格；后续[2020讨论观察](https://us.forums.blizzard.com/en/hearthstone/t/consistency-with-casting-spells/39311)和[2025报告/回复](https://us.forums.blizzard.com/en/hearthstone/t/counterspell-not-working-properly-with-escape-the-underfel/151142)明确区分反制后的计数与迸发。这些是玩家观察，不能标作官方当前国服裁定。
+
+当前内部修正：仍在原手动法术提交窗捕获候选，沿原支付、反制窗口、完成事件和不可变PlayRecord执行；有限触发capture在play.countered时不制作迸发检查，延迟check也复核原记录，防止已排队旧请求消费该用途。原手动反制历史与费用保留，后来的成功手动法术可正常消费。自动/effect来源仍不伪造手动候选，未扩大来源政策；普通keyword=None有限触发、暴怒、其他施法消费者和已接受迸发主体生命周期不自动套用此条件。
+
+完整真实反制后的未消费用途、下一次成功消费、等待恢复/clone/回放及新GDB_116消费者均在当前机制版本验证。core692/schema551拒绝旧1～550，当前国服37.0资格和精确窗口仍须M6独立复核；不能据本次修正认证全部反制或全部“施放”文案。
