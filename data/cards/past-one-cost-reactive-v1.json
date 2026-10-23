@@ -1,0 +1,1511 @@
+{
+  "schema": 1,
+  "batch": "past-one-cost-reactive-v1",
+  "source": {
+    "path": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "KAR_036",
+        "dbf_id": 39215,
+        "name": "奥术畸体",
+        "name_en": "Arcane Anomaly",
+        "text": "在你施放一个法术后，使本随从获得+1生命值。",
+        "text_en": "After you cast a spell, give this minion +1 Health.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 23,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Alexandrov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "5247c5a479703cf5b6d1a089254a3de4598820e6599b8f41768620ebd262a60f"
+    },
+    {
+      "record": {
+        "id": "ICC_468",
+        "dbf_id": 42398,
+        "name": "失心农夫",
+        "name_en": "Wretched Tiller",
+        "text": "每当本随从攻击时，对敌方英雄造成2点伤害。",
+        "text_en": "Whenever this minion attacks, deal 2 damage to_the enemy hero.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1001,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Axer"
+          }
+        ]
+      },
+      "record_sha256": "943093459234484f621c673d828f5b45f0fcd938cf60b8f6f3e98687a7a989cd"
+    },
+    {
+      "record": {
+        "id": "OG_221",
+        "dbf_id": 38740,
+        "name": "无私的英雄",
+        "name_en": "Selfless Hero",
+        "text": "<b>亡语：</b>随机使一个友方随从获得<b>圣盾</b>。",
+        "text_en": "<b>Deathrattle:</b> Give a random friendly minion <b>Divine Shield</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 21,
+          "CLASS": 5,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "209400b9677ced8c6bfe45bd9e5fbbddfa24756ee2aa650bc1d22ca8e7046956"
+    },
+    {
+      "record": {
+        "id": "OG_312",
+        "dbf_id": 38914,
+        "name": "恩佐斯的副官",
+        "name_en": "N'Zoth's First Mate",
+        "text": "<b>战吼：</b>装备一把1/3的锈蚀铁钩。",
+        "text_en": "<b>Battlecry:</b> Equip a 1/3 Rusty Hook.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 21,
+          "CLASS": 10,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 38363,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          }
+        ]
+      },
+      "record_sha256": "47153885f386d9492e42c8c8382784ae7b2360b305b433bc51097ccb215e3bec"
+    },
+    {
+      "record": {
+        "id": "EX1_508",
+        "dbf_id": 510,
+        "name": "暗鳞先知",
+        "name_en": "Grimscale Oracle",
+        "text": "你的其他鱼人拥有+1攻击力。",
+        "text_en": "Your other Murlocs have +1 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "e1b5413113b59fed0187c6185a0851a264d0c9c8b24b3f2d93b8958078a948fd"
+    },
+    {
+      "record": {
+        "id": "EX1_509",
+        "dbf_id": 475,
+        "name": "鱼人招潮者",
+        "name_en": "Murloc Tidecaller",
+        "text": "每当你召唤一个鱼人，便获得\n+1攻击力。",
+        "text_en": "Whenever you summon a Murloc, gain +1 Attack.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "BACON_TRIPLE_UPGRADE_MINION_ID": 58138,
+          "TECH_LEVEL": 1,
+          "BACON_SUBSET_MURLOC": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "a3ba944f49020acc40de80a583cfb647a35ef8db815008d03ae29300eda1e3c0"
+    },
+    {
+      "record": {
+        "id": "CFM_325",
+        "dbf_id": 40608,
+        "name": "蹩脚海盗",
+        "name_en": "Small-Time Buccaneer",
+        "text": "如果你装备着武器，本随从拥有\n+2攻击力。",
+        "text_en": "Has +2 Attack while you have a weapon equipped.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDRACE": 23,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          }
+        ]
+      },
+      "record_sha256": "f377ecdca49d2cdf64c597f808fc67262d46416d56fb468511b7e8d2a7f30ee9"
+    },
+    {
+      "record": {
+        "id": "GVG_013",
+        "dbf_id": 1932,
+        "name": "齿轮大师",
+        "name_en": "Cogmaster",
+        "text": "如果你控制任何机械，便拥有\n+2攻击力。",
+        "text_en": "Has +2 Attack while you have a Mech.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 13,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trent Kaniuga"
+          }
+        ]
+      },
+      "record_sha256": "b4eb6d315797ec1d3140c56a62da3b2a7778914b32028208ffde69b81f28c308"
+    },
+    {
+      "record": {
+        "id": "TRL_516",
+        "dbf_id": 50396,
+        "name": "古拉巴什供品",
+        "name_en": "Gurubashi Offering",
+        "text": "在你的回合开始时，消灭本随从，并获得\n8点护甲值。",
+        "text_en": "At the start of your turn, destroy this and gain 8_Armor.",
+        "cost": 1,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "COST": 1,
+          "CARD_SET": 1129,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "886": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Izzy Hoover"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "886",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "886"
+          }
+        ]
+      },
+      "record_sha256": "05bfe4c28d453034e2f63f60694bbfa1a0c7717afc8029e3dab9dfdf312ce259"
+    },
+    {
+      "record": {
+        "id": "BOT_059",
+        "dbf_id": 48691,
+        "name": "恒金巡游者",
+        "name_en": "Eternium Rover",
+        "text": "每当本随从受到伤害，获得2点护甲值。",
+        "text_en": "Whenever this minion takes damage, gain 2_Armor.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 10,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "1f14b756651f4336c887e6fb0c9b51d91a3101b9543cb09ac95b7e410262277e"
+    },
+    {
+      "record": {
+        "id": "OG_058",
+        "dbf_id": 38363,
+        "name": "锈蚀铁钩",
+        "name_en": "Rusty Hook",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 21,
+          "CLASS": 10,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          }
+        ]
+      },
+      "record_sha256": "bf40b54a9b60ee53e9b37715b322397f1fafbdfb527fa015db9adb9fdc57355d"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "KAR_036",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 39215,
+        "collectible": 1,
+        "slug": "39215-arcane-anomaly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 23,
+        "rarityId": 1,
+        "artistName": "Alex Alexandrov",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "奥术畸体",
+        "text": "在你施放一个法术后，使本随从获得+1生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51391fc40294db494cfb5a004417dc3c8d1185c831d95c8fdb81395a56017a9f.png",
+        "imageGold": "",
+        "flavorText": "他原本是一个时空畸体，在厌倦了两极颠倒的生活后变成了现在这个模样。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d04ddae9313a1d450af998ffe08689ecf12ec49ee9b435aac896fe9aec6d1fb.png",
+        "copyOfCardId": [
+          71844,
+          69722
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "KAR_036",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 39215,
+        "collectible": 1,
+        "slug": "39215-arcane-anomaly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 23,
+        "rarityId": 1,
+        "artistName": "Alex Alexandrov",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Arcane Anomaly",
+        "text": "After you cast a spell, give this minion +1 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30dfca1a58ce34928aed4f3c1eec57aa5d92a6c331bd6506e5c4c15f291e740c.png",
+        "imageGold": "",
+        "flavorText": "He used to get work as a Spatial Anomaly, but he got tired of having his polarity reversed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d04ddae9313a1d450af998ffe08689ecf12ec49ee9b435aac896fe9aec6d1fb.png",
+        "copyOfCardId": [
+          71844,
+          69722
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_468",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 42398,
+        "collectible": 1,
+        "slug": "42398-wretched-tiller",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "J. Axer",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "失心农夫",
+        "text": "每当本随从攻击时，对敌方英雄造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/68103e115c1a84c526b6f297176e1289ef966ab5921278be3979cb28fd6998da.png",
+        "imageGold": "",
+        "flavorText": "要是让你去永久冻土层上耕地，你也会失心疯的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc597d257924418a730022b47f7bcfa841b4d52c6d264786d3789fca4670d40b.png",
+        "copyOfCardId": [
+          95783
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_468",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 42398,
+        "collectible": 1,
+        "slug": "42398-wretched-tiller",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "J. Axer",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Wretched Tiller",
+        "text": "Whenever this minion attacks, deal 2 damage to the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/392a48cceae4bbf29d79cffc052bdbf534491891937d85d0c522a85849c9fea6.png",
+        "imageGold": "",
+        "flavorText": "If you ever tried to plow permafrost, you’d be wretched, too.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc597d257924418a730022b47f7bcfa841b4d52c6d264786d3789fca4670d40b.png",
+        "copyOfCardId": [
+          95783
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_221",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 38740,
+        "collectible": 1,
+        "slug": "38740-selfless-hero",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 3,
+        "artistName": "Rafael Zanchetin",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "无私的英雄",
+        "text": "<b>亡语：</b>随机使一个友方随从获得<b>圣盾</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5efa692bda309cebda40a2943d59a465135417064d7558e19de3660786bce9c1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ee08641a9527f0e8c35258e0b85500c1082464a242dad123af22f47e10ac754.png",
+        "flavorText": "“别担心，即便我倒下了，也会祝福你们。向着胜利……前进！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3f69b41a7a4aa9639428809b76b44f9598d16f98c5f041c8d11c5f5767abee1.png",
+        "keywordIds": [
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_221",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 38740,
+        "collectible": 1,
+        "slug": "38740-selfless-hero",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 3,
+        "artistName": "Rafael Zanchetin",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Selfless Hero",
+        "text": "<b>Deathrattle:</b> Give a random friendly minion <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1031db94105710cfb1fe097ef64945feda7ff68202b3a4e70899bd50d6808ee2.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ee08641a9527f0e8c35258e0b85500c1082464a242dad123af22f47e10ac754.png",
+        "flavorText": "\"Don't worry about me… I'll just be here... under these tentacles.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3f69b41a7a4aa9639428809b76b44f9598d16f98c5f041c8d11c5f5767abee1.png",
+        "keywordIds": [
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_312",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 38914,
+        "collectible": 1,
+        "slug": "38914-nzoths-first-mate",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "恩佐斯的副官",
+        "text": "<b>战吼：</b>装备一把1/3的锈蚀铁钩。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d17062d85502736a3de530c050c5c4f51b100da2ce4a029f161fe778c3ef0f3f.png",
+        "imageGold": "",
+        "flavorText": "作为副官成天被呼来喝去真是不胜其烦，可谁让恩佐斯是他的老板呢。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a108c9d1c4b70991aad7ea8e3a9d6b2842dbafa2de2a8053e3cff28809fda76d.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_312",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 38914,
+        "collectible": 1,
+        "slug": "38914-nzoths-first-mate",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 21,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "N'Zoth's First Mate",
+        "text": "<b>Battlecry:</b> Equip a 1/3 Rusty Hook.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/625bc83bee7faebaa14d32d9f09ae2182104b07985c4065f593052e96421176f.png",
+        "imageGold": "",
+        "flavorText": "Hates when N'Zoth yells \"Ahoy Matey!!\", but there's not really much he can do about it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a108c9d1c4b70991aad7ea8e3a9d6b2842dbafa2de2a8053e3cff28809fda76d.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_508",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 510,
+        "collectible": 1,
+        "slug": "510-grimscale-oracle",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Phil Saunders",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "暗鳞先知",
+        "text": "你的其他鱼人拥有+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5724ca1d161e699deb8ff3532698964f384eee7ffde41a5f79e4e8f23d10d239.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7138e0e14fe0b91ff11f21a5f0577ab2bbed0b05d129528e3670cfb964180560.png",
+        "flavorText": "这些算是有头脑的鱼人。但仍然有些名不副实。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6c61e6fe18f8dba1a78f075c00cea3f2e7a19148d4ed361cb72a93e30802c75.png",
+        "copyOfCardId": [
+          68470
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_508",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 510,
+        "collectible": 1,
+        "slug": "510-grimscale-oracle",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Phil Saunders",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Grimscale Oracle",
+        "text": "Your other Murlocs have +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/066f7c6fbffb2f030e5798220702e4a8a05eddddadd4442423a4b1bf65aae634.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7138e0e14fe0b91ff11f21a5f0577ab2bbed0b05d129528e3670cfb964180560.png",
+        "flavorText": "These are the brainy murlocs. It turns out that doesn’t mean much.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6c61e6fe18f8dba1a78f075c00cea3f2e7a19148d4ed361cb72a93e30802c75.png",
+        "copyOfCardId": [
+          68470
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_509",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 475,
+        "collectible": 1,
+        "slug": "475-murloc-tidecaller",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "鱼人招潮者",
+        "text": "每当你召唤一个鱼人，便获得 +1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bff3f05a9f1e131f444d3778ac5f0f4a94e74cd861e9722122e76e95936a8c3b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7292b7e4b0f367a7cebc772f1e29f2432096451eb04e5b9dc864d5e4a6bb92fb.png",
+        "flavorText": "每当他和他的家人团聚时，这个家伙会变得特别厉害。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1807fbda8c0390c3f6371b32e3111f855a78ff5116e03b241697c2db2e374fff.png",
+        "copyOfCardId": [
+          69675,
+          69960
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_509",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 475,
+        "collectible": 1,
+        "slug": "475-murloc-tidecaller",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Murloc Tidecaller",
+        "text": "Whenever you summon a Murloc, gain +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6895beb3d331bd5f6568be7d6bd6da5c6dc1663bdf56950acd7a81fa086f55b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7292b7e4b0f367a7cebc772f1e29f2432096451eb04e5b9dc864d5e4a6bb92fb.png",
+        "flavorText": "This guy gets crazy strong at family reunions.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1807fbda8c0390c3f6371b32e3111f855a78ff5116e03b241697c2db2e374fff.png",
+        "copyOfCardId": [
+          69675,
+          69960
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_325",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 40608,
+        "collectible": 1,
+        "slug": "40608-small-time-buccaneer",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Paul Mafayon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "蹩脚海盗",
+        "text": "如果你装备着武器，本随从拥有 +2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5ce0891fb5edf28b0c88b0c8e8fe04ca35ee31298fb05b8f700c97c61508bda.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c1e92e1bc507c12d49a08f3f748640cd60f31dba1ea4e302deb00b62492b6da.png",
+        "flavorText": "看在你块头比我大的份上，今天暂且放过你！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c281dd69c558318ed75e7ece3b46094aceb5804bf9782c140b5482cd578daae.png",
+        "copyOfCardId": [
+          106467,
+          127089
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_325",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 40608,
+        "collectible": 1,
+        "slug": "40608-small-time-buccaneer",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Paul Mafayon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Small-Time Buccaneer",
+        "text": "Has +2 Attack while you have a weapon equipped.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ec91845ae926a3d42b933d8edab7a3596990214ba4eab81503e47abb3686145.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c8df698d547d181815d79499b4d43b860b3ffc476fc3cdaf89e1d5ca853b998.png",
+        "flavorText": "\"Oh, I'm not serious about it. I only pirate on the weekends.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c281dd69c558318ed75e7ece3b46094aceb5804bf9782c140b5482cd578daae.png",
+        "copyOfCardId": [
+          106467,
+          127089
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 1932,
+        "collectible": 1,
+        "slug": "1932-cogmaster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Trent Kaniuga",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "齿轮大师",
+        "text": "如果你控制任何机械，便拥有 +2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/460d8e0662d9ce516b4c91ac1921cd0ec7eb54dc1dcf5199f422e6d84e18490a.png",
+        "imageGold": "",
+        "flavorText": "片刻之后，你看到的不再是齿轮和链条，它们可能变成了机器人、蜘蛛坦克、射线发射器和其他各种各样的装置……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f8ad90a6f4148c0ba6f5ea6c7057ec73127607bbe332e470ef78d5a903baf44.png",
+        "copyOfCardId": [
+          69715
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 1932,
+        "collectible": 1,
+        "slug": "1932-cogmaster",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Trent Kaniuga",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Cogmaster",
+        "text": "Has +2 Attack while you have a Mech.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5dc1a0826f1da92361819047379055e99b19b53691e2eb19b23e3cf179d2042.png",
+        "imageGold": "",
+        "flavorText": "After a while, you don't see the cogs and sprockets. All you see is a robot, a spider tank, a deathray...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f8ad90a6f4148c0ba6f5ea6c7057ec73127607bbe332e470ef78d5a903baf44.png",
+        "copyOfCardId": [
+          69715
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_516",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 50396,
+        "collectible": 1,
+        "slug": "50396-gurubashi-offering",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 4,
+        "artistName": "Izzy Hoover",
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "古拉巴什供品",
+        "text": "在你的回合开始时，消灭本随从，并获得 8点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b2a1d940056ed9e5f80202ba03ba0dfef640b19eb9f641b42499cebbb6f81ce2.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cae2d4f8911bdefa24321e97882a1ec892bcee40c9f9c63221a1401bcd032c35.png",
+        "flavorText": "供品限时特惠，一次献祭，双倍祝福（受益人仅限祭品本人）！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03d1f40c73cc1f0ee338e40c80343d2ad10f59c25a41bc54c936e8550978fcbd.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_516",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 50396,
+        "collectible": 1,
+        "slug": "50396-gurubashi-offering",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1129,
+        "rarityId": 4,
+        "artistName": "Izzy Hoover",
+        "health": 2,
+        "attack": 0,
+        "manaCost": 1,
+        "name": "Gurubashi Offering",
+        "text": "At the start of your turn, destroy this and gain 8 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e03a25b816c783d7ff7418f41969128694b09355b0fd6b5993e44258d8bcb7d1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6314437801e57d86580c4a51cc6185a99457af71e776de0c10e23d1a4049d8a8.png",
+        "flavorText": "For a limited time, loa blessings are on a pray-one-get-two deal (on selected sacrifices only).",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03d1f40c73cc1f0ee338e40c80343d2ad10f59c25a41bc54c936e8550978fcbd.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_059",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 48691,
+        "collectible": 1,
+        "slug": "48691-eternium-rover",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Vladimir Kafanov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "恒金巡游者",
+        "text": "每当本随从受到伤害，获得2点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/622a38c725b632053b6c3ff5c18c286602c3352cb4fa1d967380d956a1cf1b79.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab6fed40317e5eb11f27f2dcde2a36cbe9808c6c35fb20ac2eb80eb081968a55.png",
+        "flavorText": "你以为他在对你点头微笑？你在他眼里不过是一堆人形废铁罢了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4dca81680bb3e34e4d4019431e27c47594a9deda9476e1e33099da6db921ef1c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_059",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 48691,
+        "collectible": 1,
+        "slug": "48691-eternium-rover",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Vladimir Kafanov",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Eternium Rover",
+        "text": "Whenever this minion takes damage, gain 2 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c2bfe3408fdf7466455077f93d1d5799401549561d264973a7ec63f7de103cd.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fbcc196167d011615fe99a7206ec1222dd50fe3647e0ef11aef78b98ce377be.png",
+        "flavorText": "He's all beeps and smiles but you're just a walking pile of armor to him.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4dca81680bb3e34e4d4019431e27c47594a9deda9476e1e33099da6db921ef1c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_058",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\38363-zh_CN.json",
+      "response_sha256": "94c2db714189e9caeb4ca1cee02970a40e96cdd00c325c2de1f4f1bcdce171b6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=38363&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 38363,
+        "collectible": 0,
+        "slug": "38363-rusty-hook",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 21,
+        "rarityId": null,
+        "artistName": "Grace Liu",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "锈蚀铁钩",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09f2038e4af4ae712153e3923c72ff88447e4df9f8fcda88e5c19ea6081696af.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=38363&locale=zh_CN&collectible=0",
+        "sha256": "94c2db714189e9caeb4ca1cee02970a40e96cdd00c325c2de1f4f1bcdce171b6",
+        "bytes": 516,
+        "observed_at": "2026-10-23T08:58:34.791649+00:00"
+      }
+    },
+    {
+      "card_id": "OG_058",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\38363-en_US.json",
+      "response_sha256": "fa5e707fde3593bc6e1e049dc8f5cc97275cc33c57b9cf32235e7d995e5d6f3e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=38363&locale=en_US&collectible=0",
+      "face": {
+        "id": 38363,
+        "collectible": 0,
+        "slug": "38363-rusty-hook",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 21,
+        "rarityId": null,
+        "artistName": "Grace Liu",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Rusty Hook",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a782328d85a616f020c27b6ac001798c6cc20d0e325846ab65ca15772f1c743e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=38363&locale=en_US&collectible=0",
+        "sha256": "fa5e707fde3593bc6e1e049dc8f5cc97275cc33c57b9cf32235e7d995e5d6f3e",
+        "bytes": 514,
+        "observed_at": "2026-10-23T08:58:34.374299+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "TRL_516": {
+      "attack": 0
+    }
+  },
+  "collectible_leaf_ids": [
+    "KAR_036",
+    "ICC_468",
+    "OG_221",
+    "OG_312",
+    "EX1_508",
+    "EX1_509",
+    "CFM_325",
+    "GVG_013",
+    "TRL_516",
+    "BOT_059"
+  ],
+  "native_stat_relations": {
+    "CFM_325": {
+      "target": "attack",
+      "operand": "controller_has_weapon",
+      "layer": "conditional_attack",
+      "amount": 2,
+      "card_count": null,
+      "comparison": null,
+      "count_tribe": null
+    },
+    "GVG_013": {
+      "target": "attack",
+      "operand": "controller_has_mech",
+      "layer": "conditional_attack",
+      "amount": 2,
+      "card_count": null,
+      "comparison": null,
+      "count_tribe": null
+    }
+  },
+  "past_scope": "Historical one-cost candidates for real Standard past sources; membership and duplicate print weights remain unverified. No production past domain is bound.",
+  "standard_past_producers": [
+    "TIME_711"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "selfless_constructed_policy": "Use the existing random keyword producer on all live friendly minions, including a currently shielded recipient. This is an explicit internal Constructed policy, not a CN-certified selector. The official 16.0.8 exclusion is explicitly Battlegrounds and is not transferred to Constructed.",
+  "selfless_official_scope_reference": "https://us.forums.blizzard.com/en/hearthstone/t/1608-balance-update-coming-this-week/22295"
+}

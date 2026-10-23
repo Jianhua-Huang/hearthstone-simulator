@@ -56,3 +56,12 @@ while_equipped = StatRelationSpec(
 原生当前种族的持续属性筛选见[独立属性光环契约](m2-tribal-stat-aura.md)。本页既有条件和生命周期政策保持，未扩展授予或条件组合。
 
 原生当前种族的持续费用筛选见[独立费用光环契约](m2-tribal-cost-aura.md)。本页既有数值/关键词和生命周期政策保持，未扩展授予或条件组合。
+
+
+## 控制机械时自身持续加攻
+
+真实GVG_013使用原StatRelationSpec，新增闭合CONTROLLER_HAS_MECH操作数，配合CONDITIONAL_ATTACK和正整数amount。原MinionScope的BOARD/current纯查询检查当前控制方活跃存活的当前机械；当前变为机械的自身可满足，多机械只给一次声明量，敌方/休眠不满足，未知当前种族明拒。没有任意条件/种族表达式或新的Buff执行器。
+
+只开放普通非融合随从的原生声明，原面、数量、重复附件和缓存校验沿旧路径；GrantStatRelation不开放这项授予。沉默、变形、休眠/唤醒、复制/转控与攻击待选后的准备窗口共用原生命周期/属性刷新；复制按接收者机械状态重算，普通数值设值不消除条件层。
+
+无新State/Entity/Spec字段或帧类型，conditional_attack和完整StatRelationSpec原布局保持schema547；新语义由core-effects-v686与注册表/机制签名保护。玩家只见最终攻击，不返回公式、缓存或私有帧。旧关系保持，精确国服存在/接受窗口继续M6核定；实际验证与下一项只在原两台账维护。

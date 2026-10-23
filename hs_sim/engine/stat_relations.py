@@ -57,6 +57,7 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                 ability.source_id is None or ability.expires_turn is not None or ability.consumed):
             raise ValueError('Printed stat relation differs from its native declaration')
         if ability.stat_relation.operand in (StatRelationOperand.CONTROLLER_HAS_WEAPON,
+                                            StatRelationOperand.CONTROLLER_HAS_MECH,
                                             StatRelationOperand.CONTROLLER_DISCARD_COUNT,
                                             StatRelationOperand.CONTROLLER_DECK_COUNT,
                                             StatRelationOperand.CONTROLLER_ARMOR,
@@ -68,6 +69,8 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
             if installed[ability.stat_relation] > card.stat_relations.count(ability.stat_relation):
                 profile = ('weapon-presence' if ability.stat_relation.operand ==
                            StatRelationOperand.CONTROLLER_HAS_WEAPON else
+                           'mech-presence' if ability.stat_relation.operand ==
+                           StatRelationOperand.CONTROLLER_HAS_MECH else
                            'deck-count' if ability.stat_relation.operand ==
                            StatRelationOperand.CONTROLLER_DECK_COUNT else
                            'controller-armor' if ability.stat_relation.operand ==
@@ -105,6 +108,16 @@ def conditional_attack(state, entity, registry=None):
     weapon = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_HAS_WEAPON)
     bonus = (sum(s.amount for s in weapon) if weapon and
              equipped_weapon(state, state.players[entity.controller]) is not None else 0)
+    mech = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_HAS_MECH)
+    if mech:
+        if registry is None:
+            raise ValueError('Mech-presence Attack requires its fixed registry')
+        from .cross_zone import MinionScope, minion_references
+        from .pools import PoolQuery
+        present = minion_references(state, registry, entity.controller,
+            MinionScope(zones=(Zone.BOARD,), query=PoolQuery(tribes_any=('mech',)), tribe_basis='current'))
+        if present:
+            bonus += sum(s.amount for s in mech)
     if entity.zone == Zone.BOARD and state.active_player != entity.controller:
         bonus += sum(s.amount for s in specs if s.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN)
     discarded = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_DISCARD_COUNT)

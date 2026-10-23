@@ -352,6 +352,7 @@ class StatRelationOperand(StrEnum):
     SELF_CURRENT_HEALTH = "self_current_health"
     SELF_DAMAGED = "self_damaged"
     CONTROLLER_HAS_WEAPON = "controller_has_weapon"
+    CONTROLLER_HAS_MECH = "controller_has_mech"
     CONTROLLER_DISCARD_COUNT = "controller_discard_count"
     CONTROLLER_DECK_COUNT = "controller_deck_count"
     CONTROLLER_ARMOR = "controller_armor"
@@ -404,6 +405,9 @@ class StatRelationSpec:
         elif self.operand == StatRelationOperand.CONTROLLER_HAS_WEAPON:
             if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
                 raise ValueError('Weapon-presence relation requires its conditional layer and positive amount')
+        elif self.operand == StatRelationOperand.CONTROLLER_HAS_MECH:
+            if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
+                raise ValueError('Mech-presence relation requires its conditional layer and positive amount')
         elif self.operand == StatRelationOperand.CONTROLLER_DISCARD_COUNT:
             expected = StatRelationLayer.CONDITIONAL_HEALTH if self.target == StatReference.HEALTH else StatRelationLayer.CONDITIONAL_ATTACK
             if self.layer != expected or self.amount <= 0:
