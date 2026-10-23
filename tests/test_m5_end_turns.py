@@ -757,8 +757,11 @@ class EndTurnTests(unittest.TestCase):
     def test_no_new_end_turn_gameplay_events_or_additional_draws(self):
         game = self.game(board=('end', 'end'))
         self.end(game)
-        self.assertEqual([e.kind for e in game.events],
-            ['turn_ended', 'armor_gained', 'armor_gained', 'turn_started', 'card_drawn'])
+        # Host-only armor/hand-entry receipts are not additional gameplay.
+        expected = ['turn_ended', 'armor_gained', 'armor_gained', 'turn_started', 'card_drawn']
+        for viewer in (1, 2):
+            self.assertEqual([event['kind'] for event in game.player_events(viewer)], expected)
+        self.assertEqual(sum(e.kind == 'card_drawn' for e in game.events), 1)
         self.check(game)
 
     def test_player_observation_hides_history_captures_and_pending_controls(self):
