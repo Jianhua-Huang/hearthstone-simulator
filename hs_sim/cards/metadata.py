@@ -55,4 +55,7 @@ def metadata_from_record(raw):
             raise TargetValidationError('Printed race flag must be an explicit zero or one')
         if value and RACES[race] not in tribes:
             tribes.append(RACES[race])
-    return replace(meta, tribes=tuple(tribes))
+    lackey = tags.get('MARK_OF_EVIL', 0)
+    if type(lackey) is not int or lackey not in (0, 1) or lackey and raw['type'] != 'MINION':
+        raise TargetValidationError('Printed Lackey identity requires a reviewed minion boolean')
+    return replace(meta, tribes=tuple(tribes), subtypes=meta.subtypes + (('lackey',) if lackey else ()))

@@ -33,3 +33,18 @@ KeywordAuraSpec(Keyword.IMMUNE, condition='controller_turn')
 只隔离适配 KAR_712，完整本地原行为3费4/3和本人回合英雄免疫，见[完整来源及 pin](../data/support/controller-turn-keyword-aura-basics.json)。没有批量扩充生产卡池。
 
 本项发现来自[六域代码索引](../outputs/controller-turn-keyword-aura-basics-20261012/foundation-domain-index.json)和[原表达诊断](../outputs/controller-turn-keyword-aura-basics-20261012/baseline-probes.json)。索引仅绑定文件与公共声明，不能证明全部机制穷尽或所有行为完整；46个关键词枚举也不能作为完成率。其他回合条件、周期法术起源、完整正式池和精确国服窗口继续开放。
+
+
+## K480 对手回合的本体扰魔
+
+BT_197t终极魂匣的完整37.0原行和独立中英文官网完整面均明确在对手回合扰魔，见[完整配方](../data/cards/past-lackey-prime-v1.json)。真实需求仅增加下面这一有限原生形状：
+
+```python
+KeywordAuraSpec(Keyword.ELUSIVE, 'self', condition='controller_opponent_turn')
+```
+
+它只能是普通非融合随从的独立印刷本体条件；不接受其他关键词、英雄/群体目标、包含自身、相邻、种族或卡牌ID过滤，也不能任意GrantKeywordAura。原能力附件和native载体验证继续约束来源、沉默、消费、复制及恢复；没有新字段或条件表达式系统。
+
+仅活跃BOARD本体在当前controller不等于active_player时贡献原ELUSIVE。原refresh_turn_keywords同时识别此条件和旧controller_turn，在实际新回合捕获前重建贡献；自然结束待选保持旧回合，额外/跳过按实际行动方判断。转控、休眠、唤醒、回手、变形和当前复制由同一纯查询重核，不保留旧回合缓存。独立授予的同名扰魔仍在原关键词并集里，不因原生条件消失而删除。
+
+法术/英雄技能目标保护、战吼的非施法目标、非指向效果、嘲讽、吸血、支付及普通攻击继续共用原执行器。原卡ELUSIVE标签不能变成无条件运行时关键词；PoolCard仍沿既有定义投影，条件印刷关键词的完整生成查询政策待M0/M6确认。没有改动玩家DTO，也不向玩家返回原条件附件、全知牌库/洗牌历史或RNG。精确CN时序尚未校准；实际结果及下一项只在原两份台账维护。

@@ -63,6 +63,10 @@ def conditional_keywords(state, entity):
         others=any(i!=entity.id and(e:=state.entities[i]).kind==CardType.MINION and not e.starship_building and not e.interactable_object
             for i in state.players[entity.controller].board)
         if not others:result.update(spec.keyword for spec in alone)
+    if (entity.kind == CardType.MINION and entity.zone == Zone.BOARD and entity.active and
+            entity.controller != state.active_player):
+        result.update(a.keyword_aura.keyword for a in active_abilities(entity, 'keyword_aura')
+                      if a.keyword_aura.condition == 'controller_opponent_turn')
     return result
 
 
@@ -176,7 +180,7 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
 
 def refresh_turn_keywords(state, registry):
     """Update existing keyword caches before the new actual turn captures work."""
-    if not any(a.kind == 'keyword_aura' and a.keyword_aura.condition == 'controller_turn'
+    if not any(a.kind == 'keyword_aura' and a.keyword_aura.condition in ('controller_turn','controller_opponent_turn')
                for player in state.players.values() for source_id in player.board
                for a in state.entities[source_id].abilities):
         return

@@ -116,9 +116,9 @@ class CardMetadata:
 def validate_minion_subtypes(values):
     """Reviewed printed subtypes have no ordinary all-tribe wildcard."""
     if (type(values) is not tuple or
-            any(type(value) is not str or value not in ('imp', 'whelp') for value in values) or
+            any(type(value) is not str or value not in ('imp', 'whelp', 'lackey') for value in values) or
             len(set(values)) != len(values)):
-        raise ValueError('Minion subtypes require unique imp/whelp strings in a tuple')
+        raise ValueError('Minion subtypes require unique reviewed strings in a tuple')
 
 
 @dataclass(frozen=True)
@@ -1423,9 +1423,9 @@ class KeywordAuraSpec:
         if self.tribes_any and (self.keyword != Keyword.CHARGE or
                 self.target != 'friendly_minions' or self.condition != 'always' or self.adjacent_only):
             raise ValueError('Tribal keyword aura currently requires ordinary board Charge')
-        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions'):
+        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions','controller_opponent_turn'):
             raise ValueError('Unsupported continuous keyword condition')
-        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions')):
+        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_opponent_turn')):
             raise ValueError('Conditional keyword requires its own self target')
         if self.condition == 'controller_turn' and (self.target != 'friendly_hero' or
                 self.keyword != Keyword.IMMUNE or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):
@@ -1438,6 +1438,9 @@ class KeywordAuraSpec:
             raise ValueError('Weapon-presence keyword currently supports the known Charge profile')
         if self.condition=='controller_no_other_minions' and self.keyword!=Keyword.IMMUNE:
             raise ValueError('No-other-minion keyword requires the native self Immune profile')
+        if self.condition == 'controller_opponent_turn' and (self.keyword != Keyword.ELUSIVE or
+                self.tribes_any or self.card_ids):
+            raise ValueError('Opponent-turn keyword requires independent native self Elusive')
         if hand and (self.include_self or self.adjacent_only or
                      self.target != 'friendly_hand_minions' and self.keyword != Keyword.ECHO):
             raise ValueError('Hand aura scope cannot use board positions or minion-only spell keywords')

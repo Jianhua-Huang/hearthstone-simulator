@@ -1,0 +1,1796 @@
+{
+  "schema": 1,
+  "batch": "K480-past-lackey-prime",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "DAL_433",
+    "BT_197"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DAL_433",
+        "dbf_id": 52422,
+        "name": "淤泥吞食者",
+        "name_en": "Sludge Slurper",
+        "text": "<b>战吼：</b>将一张<b>跟班</b>牌置入你的手牌。\n<b>过载：</b>（1）",
+        "text_en": "<b>Battlecry:</b> Add a <b>Lackey</b> to your hand. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1359": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rudy Siswanto"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1359",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1359"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "994",
+              "name": "MARK_OF_EVIL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bc6c450075fcacde19a3b54583c012cc37e0049084399cc94c568dd6e9e31635",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DAL_433",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_197",
+        "dbf_id": 57166,
+        "name": "灵魂之匣",
+        "name_en": "Reliquary of Souls",
+        "text": "<b>吸血</b>\n<b>亡语：</b>将“终极魂匣”洗入你的牌库。",
+        "text_en": "[x]<b>Lifesteal</b>\n<b>Deathrattle:</b> Shuffle\n'Reliquary Prime'\ninto your deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1414,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57172
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "0bfd4f4870ed2aec99a2c467af1872c7528596ad7cf5505dc363f863e07532df",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BT_197",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DAL_613",
+        "dbf_id": 53160,
+        "name": "无面跟班",
+        "name_en": "Faceless Lackey",
+        "text": "<b>战吼：</b>随机召唤一个法力值消耗为（2）的随从。",
+        "text_en": "<b>Battlecry:</b> Summon a random 2-Cost minion.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "MARK_OF_EVIL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "f70196131fc7d12095efe4364c80682996091dfda0304479d3995e5f9e13c807",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DAL_613",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DAL_614",
+        "dbf_id": 53161,
+        "name": "狗头人跟班",
+        "name_en": "Kobold Lackey",
+        "text": "<b>战吼：</b>造成2点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 2 damage.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "MARK_OF_EVIL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "654b34073daf53ac01ceb5578cdd74c1772de9932a2c856b2b3c80914f497b7c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DAL_614",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DAL_615",
+        "dbf_id": 53162,
+        "name": "女巫跟班",
+        "name_en": "Witchy Lackey",
+        "text": "<b>战吼：</b>将一个友方随从变形成为一个法力值消耗增加（1）点的随从。",
+        "text_en": "<b>Battlecry:</b> Transform a friendly minion into one that costs (1) more.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "MARK_OF_EVIL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jeremy Cranford"
+          }
+        ]
+      },
+      "record_sha256": "b1925c4d04e1cadd70fd75440706d1f7ccc414bedae77bb18cfdff6bbc625e1c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DAL_615",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DAL_739",
+        "dbf_id": 52897,
+        "name": "地精跟班",
+        "name_en": "Goblin Lackey",
+        "text": "<b>战吼：</b>\n使一个友方随从获得+1攻击力和<b>突袭</b>。",
+        "text_en": "<b>Battlecry:</b> Give a friendly minion +1 Attack and_<b>Rush</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "MARK_OF_EVIL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a4d59d4f4d73c3f168f144119f70086e70ea7e0b11b5eee12a7a85819082f3be",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DAL_739",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DAL_741",
+        "dbf_id": 52900,
+        "name": "虚灵跟班",
+        "name_en": "Ethereal Lackey",
+        "text": "<b>战吼：</b>\n<b>发现</b>一张法术牌。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a spell.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "DISCOVER": 1,
+          "MARK_OF_EVIL": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "0db55ac0f2eff6b701855c4294e37f2660b65b8c5272f20523168397c36046d7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DAL_741",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ULD_616",
+        "dbf_id": 53163,
+        "name": "泰坦造物跟班",
+        "name_en": "Titanic Lackey",
+        "text": "<b>战吼：</b>使一个友方随从获得+2生命值和\n<b>嘲讽</b>。",
+        "text_en": "<b>Battlecry:</b> Give a friendly minion +2 Health and_<b>Taunt</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1158,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "MARK_OF_EVIL": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "MAR Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cf04da2b62621ab0ca21492030b0f66c9898051089edfdb67da20ce0cbb6233f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "ULD_616",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DRG_052",
+        "dbf_id": 55378,
+        "name": "龙族跟班",
+        "name_en": "Draconic Lackey",
+        "text": "<b>战吼：</b>\n<b>发现</b>一张龙牌。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a Dragon.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "DISCOVER": 1,
+          "MARK_OF_EVIL": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Allsop"
+          }
+        ]
+      },
+      "record_sha256": "8c95115cfc936351331faf5e5fc7227021ac426c39dd0b063f51a568c5bc189e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "DRG_052",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": [
+          "lackey"
+        ]
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_197t",
+        "dbf_id": 57172,
+        "name": "终极魂匣",
+        "name_en": "Reliquary Prime",
+        "text": "<b>嘲讽</b>。<b>吸血</b>\n在你对手的回合<b>扰魔</b>。",
+        "text_en": "<b>Taunt</b>, <b>Lifesteal</b>\n<b>Elusive</b> on your\nopponent's turn.",
+        "cost": 7,
+        "attack": 6,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1414,
+          "TAUNT": 1,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "fa8df3c820321dd23eb0a51ab73225c4cad625f2f42ca4bf18ccc129278b1520",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "BT_197t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "DRG_303",
+        "dbf_id": 54874,
+        "name": "迦拉克隆的信徒",
+        "name_en": "Disciple of Galakrond",
+        "text": "<b>战吼：</b>\n<b>祈求</b>迦拉克隆。",
+        "text_en": "<b>Battlecry:</b> <b>Invoke</b> Galakrond.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "EMPOWER": 1,
+          "3623": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3623"
+          }
+        ]
+      },
+      "record_sha256": "fc3d11a4418bec92e494e991db96c4dac6048dba66e4cbea2d7aee4fc730489d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "DRG_303",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SCH_199t19",
+        "dbf_id": 60588,
+        "name": "转校生",
+        "name_en": "Transfer Student",
+        "text": "<b>战吼：</b>将一张<b>跟班</b>牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b> Add a <b>Lackey</b> to_your hand.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "1359": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1359",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1359"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "994",
+              "name": "MARK_OF_EVIL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6e6c871ec070fbb46f5083b0820e85b594861ea95bc68f1c19b983f37e6681b3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "SCH_199t19",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "DAL_433",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 52422,
+        "collectible": 1,
+        "slug": "52422-sludge-slurper",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": 3,
+        "artistName": "Rudy Siswanto",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "淤泥吞食者",
+        "text": "<b>战吼：</b>将一张<b>跟班</b>牌置入你的手牌。 <b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5846d1a557b81e35b427a3c080c11c3cfd21eb4aec327b6ecc34606d6f5348a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3e3833bdeaa554934052bf7cdc4b09c6a29fe06c0cd76c945f43e3955a7de78a.png",
+        "flavorText": "好吃到停不下来！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d27958d3817ea4ea7d6571d242a7a96d1f505a71bc6e1b2f5fff39ba8edb483.png",
+        "childIds": [
+          53160,
+          53161,
+          53162,
+          52897,
+          52900,
+          53163,
+          55378,
+          60588
+        ],
+        "keywordIds": [
+          8,
+          14,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_433",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 52422,
+        "collectible": 1,
+        "slug": "52422-sludge-slurper",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": 3,
+        "artistName": "Rudy Siswanto",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Sludge Slurper",
+        "text": "<b>Battlecry:</b> Add a <b>Lackey</b> to your hand. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a341aa80c767f4b4886a50cb8d86a17a05237815d3b342130aba8305a76e7271.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4c3647124e32ccff2039ab43d70d23d750a57ff76a72812b8a6cdf33192fafe.png",
+        "flavorText": "You can't stop slurping this delicious sludge!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d27958d3817ea4ea7d6571d242a7a96d1f505a71bc6e1b2f5fff39ba8edb483.png",
+        "childIds": [
+          53160,
+          53161,
+          53162,
+          52897,
+          52900,
+          53163,
+          55378,
+          60588
+        ],
+        "keywordIds": [
+          8,
+          14,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_197",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 57166,
+        "collectible": 1,
+        "slug": "57166-reliquary-of-souls",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 5,
+        "artistName": "Jaemin Kim",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "灵魂之匣",
+        "text": "<b>吸血</b> <b>亡语：</b>将“终极魂匣”洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8db747da63400282d8819dcd4bad54faf75f3145b511420eea0f527a66bb8c92.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b7ac4d57be08bdc1d72f3f06a354081233713faa388295687c21fad8b6a9ca29.png",
+        "flavorText": "三张脸分别代表愤怒，欲望和苦难。恰似午夜公会团。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d241d077722340a6d90155888c60e8f95101a08b9dd58d64893e09b11cbda7a7.png",
+        "childIds": [
+          57172
+        ],
+        "keywordIds": [
+          12,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_197",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 57166,
+        "collectible": 1,
+        "slug": "57166-reliquary-of-souls",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": 5,
+        "artistName": "Jaemin Kim",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Reliquary of Souls",
+        "text": "<b>Lifesteal</b> <b>Deathrattle:</b> Shuffle 'Reliquary Prime' into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6c0fb1c3251790c609fa2266c207609c5492d7e77ee9317a791880f61a7736da.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9dba866e81290c9cb78b7fdcf80ba26875c84bb8b3f74ffde973903ae4a8289.png",
+        "flavorText": "These three represent Anger, Desire, and Suffering. Much like raid night guild chat.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d241d077722340a6d90155888c60e8f95101a08b9dd58d64893e09b11cbda7a7.png",
+        "childIds": [
+          57172
+        ],
+        "keywordIds": [
+          12,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_613",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53160-zh_CN.json",
+      "response_sha256": "e830b2938ea880f91b0316056411e643f9b8f68f23ff0356340089e2a462458d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53160&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 53160,
+        "collectible": 0,
+        "slug": "53160-faceless-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "无面跟班",
+        "text": "<b>战吼：</b>随机召唤一个法力值消耗为（2）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/878f8d5ccdad39d6ba759b80591154165c19db80fb4aa226d51465d8477acd2d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53160&locale=zh_CN&collectible=0",
+        "sha256": "e830b2938ea880f91b0316056411e643f9b8f68f23ff0356340089e2a462458d",
+        "bytes": 620,
+        "observed_at": "2026-10-23T21:15:36.509899+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_613",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53160-en_US.json",
+      "response_sha256": "aa1834b0a1405d81a12f88f97076a4ea727ffb51abf61274c60e29a105b96eba",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53160&locale=en_US&collectible=0",
+      "face": {
+        "id": 53160,
+        "collectible": 0,
+        "slug": "53160-faceless-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Slawomir Maniak",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Faceless Lackey",
+        "text": "<b>Battlecry:</b> Summon a random 2-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b61a98a350e73ce07fa6faa3261aec151686430c9fd45030cf6f3bf703db2a4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53160&locale=en_US&collectible=0",
+        "sha256": "aa1834b0a1405d81a12f88f97076a4ea727ffb51abf61274c60e29a105b96eba",
+        "bytes": 600,
+        "observed_at": "2026-10-23T21:15:36.929421+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_614",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53161-zh_CN.json",
+      "response_sha256": "c6b008262a77aa6a057902da87ba10ce7da40c5e3e5024b8303394ad6bd75941",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53161&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 53161,
+        "collectible": 0,
+        "slug": "53161-kobold-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "狗头人跟班",
+        "text": "<b>战吼：</b>造成2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/869a6537813fc59af27655662ec80905cecbe78c40aa15a047380ca3f5832606.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53161&locale=zh_CN&collectible=0",
+        "sha256": "c6b008262a77aa6a057902da87ba10ce7da40c5e3e5024b8303394ad6bd75941",
+        "bytes": 580,
+        "observed_at": "2026-10-23T21:15:36.583113+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_614",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53161-en_US.json",
+      "response_sha256": "50bf3830f0b0faf7ac55a40d2f59b1f4780a761bd6c97f4fb16de82b95765114",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53161&locale=en_US&collectible=0",
+      "face": {
+        "id": 53161,
+        "collectible": 0,
+        "slug": "53161-kobold-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Kobold Lackey",
+        "text": "<b>Battlecry:</b> Deal 2 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a47f1aab22b115d5855482926679ce55e1682b36b206a7a6fe135ce6209c34d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53161&locale=en_US&collectible=0",
+        "sha256": "50bf3830f0b0faf7ac55a40d2f59b1f4780a761bd6c97f4fb16de82b95765114",
+        "bytes": 575,
+        "observed_at": "2026-10-23T21:15:36.580554+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_615",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53162-zh_CN.json",
+      "response_sha256": "102617beff5458d89fb891936e45af138f9798833adc79fdcb6670799be92ca5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53162&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 53162,
+        "collectible": 0,
+        "slug": "53162-witchy-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Jeremy Cranford",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "女巫跟班",
+        "text": "<b>战吼：</b>将一个友方随从变形成为一个法力值消耗增加（1）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebd87aa9878e7db8b292ecc9b74745e87dd28fdadb28478f915be33ad99e082a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53162&locale=zh_CN&collectible=0",
+        "sha256": "102617beff5458d89fb891936e45af138f9798833adc79fdcb6670799be92ca5",
+        "bytes": 645,
+        "observed_at": "2026-10-23T21:15:38.496435+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_615",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53162-en_US.json",
+      "response_sha256": "bb044530c2a91ac8c790153d90db9e40e2bdb9591cf86b38014b1c675f5ad8bc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53162&locale=en_US&collectible=0",
+      "face": {
+        "id": 53162,
+        "collectible": 0,
+        "slug": "53162-witchy-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Jeremy Cranford",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Witchy Lackey",
+        "text": "<b>Battlecry:</b> Transform a friendly minion into one that costs (1) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4eda6eefbe88879509b6662d3b3a00bdad1c604546c3a6926de8ebb47713f89f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53162&locale=en_US&collectible=0",
+        "sha256": "bb044530c2a91ac8c790153d90db9e40e2bdb9591cf86b38014b1c675f5ad8bc",
+        "bytes": 623,
+        "observed_at": "2026-10-23T21:15:38.389544+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_739",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\52897-zh_CN.json",
+      "response_sha256": "987f32f7c7ac2f9319fbee44ce5ddd9b58911499472cf6c864e68d72aca48984",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=52897&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 52897,
+        "collectible": 0,
+        "slug": "52897-goblin-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "地精跟班",
+        "text": "<b>战吼：</b> 使一个友方随从获得+1攻击力和<b>突袭</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48965cceeada0574c9424d9e0cd47b7ba71ac4493087116617cbab05f51cf906.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          53,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=52897&locale=zh_CN&collectible=0",
+        "sha256": "987f32f7c7ac2f9319fbee44ce5ddd9b58911499472cf6c864e68d72aca48984",
+        "bytes": 619,
+        "observed_at": "2026-10-23T21:15:38.533088+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_739",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\52897-en_US.json",
+      "response_sha256": "99d114a4ff19bed36633df7606085e2b89850d2ff11dff087ceb9a3c291f3cfc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=52897&locale=en_US&collectible=0",
+      "face": {
+        "id": 52897,
+        "collectible": 0,
+        "slug": "52897-goblin-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Goblin Lackey",
+        "text": "<b>Battlecry:</b> Give a friendly minion +1 Attack and <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/047d124b9f80d8d08b6cb6758dc68145cf7797843b7a2fb436084a14c7e1fc42.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          53,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=52897&locale=en_US&collectible=0",
+        "sha256": "99d114a4ff19bed36633df7606085e2b89850d2ff11dff087ceb9a3c291f3cfc",
+        "bytes": 613,
+        "observed_at": "2026-10-23T21:15:38.426629+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_741",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\52900-zh_CN.json",
+      "response_sha256": "7180d255fa87da30e8114b1f42cd292d04c8cb50b384ab06db69d9ea103f8574",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=52900&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 52900,
+        "collectible": 0,
+        "slug": "52900-ethereal-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Rafael Zanchetin",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "虚灵跟班",
+        "text": "<b>战吼：</b> <b>发现</b>一张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3f8af554da222ed8beb4b6e6b238d94a4ae1b3dd8eb59a55c86e6f06248b751.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=52900&locale=zh_CN&collectible=0",
+        "sha256": "7180d255fa87da30e8114b1f42cd292d04c8cb50b384ab06db69d9ea103f8574",
+        "bytes": 601,
+        "observed_at": "2026-10-23T21:15:40.427757+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_741",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\52900-en_US.json",
+      "response_sha256": "d070ffcf59a8ddb9123d6d10c9693c7265c10405ff55bae2a72a726c7d788a37",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=52900&locale=en_US&collectible=0",
+      "face": {
+        "id": 52900,
+        "collectible": 0,
+        "slug": "52900-ethereal-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1130,
+        "rarityId": null,
+        "artistName": "Rafael Zanchetin",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Ethereal Lackey",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f1db7d70f2dc45ea923d9527d3673d44216ac03df8392fa8e1e27c4a67586aa.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          8,
+          21,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=52900&locale=en_US&collectible=0",
+        "sha256": "d070ffcf59a8ddb9123d6d10c9693c7265c10405ff55bae2a72a726c7d788a37",
+        "bytes": 598,
+        "observed_at": "2026-10-23T21:15:40.226587+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_616",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53163-zh_CN.json",
+      "response_sha256": "21ec64f0a2159b74f4f57439acad8795155acd02e3dd74797cd7ff81433b877f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53163&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 53163,
+        "collectible": 0,
+        "slug": "53163-titanic-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": null,
+        "artistName": "MAR Studio",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "泰坦造物跟班",
+        "text": "<b>战吼：</b>使一个友方随从获得+2生命值和 <b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f8557db94affc03f1cfcb3754c22cde9b326e27ee81677f0a4ffd8483674086.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53163&locale=zh_CN&collectible=0",
+        "sha256": "21ec64f0a2159b74f4f57439acad8795155acd02e3dd74797cd7ff81433b877f",
+        "bytes": 625,
+        "observed_at": "2026-10-23T21:15:40.673171+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_616",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\53163-en_US.json",
+      "response_sha256": "e8e18a877344e98c2970348d695c9573910358979dcfd4f1108d53219a9cfddd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53163&locale=en_US&collectible=0",
+      "face": {
+        "id": 53163,
+        "collectible": 0,
+        "slug": "53163-titanic-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": null,
+        "artistName": "MAR Studio",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Titanic Lackey",
+        "text": "<b>Battlecry:</b> Give a friendly minion +2 Health and <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa46c68b3558ccb1d6029381a7686e1be13efd6f9d4bd98addf587cd72ac53c0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          1,
+          8,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53163&locale=en_US&collectible=0",
+        "sha256": "e8e18a877344e98c2970348d695c9573910358979dcfd4f1108d53219a9cfddd",
+        "bytes": 615,
+        "observed_at": "2026-10-23T21:15:40.305625+00:00"
+      }
+    },
+    {
+      "card_id": "DRG_052",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\55378-zh_CN.json",
+      "response_sha256": "aba9b54d1653d067b78a9039dabb280ab61aff6d5fb816dca7fd4042ac9a70ae",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=55378&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 55378,
+        "collectible": 0,
+        "slug": "55378-draconic-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": null,
+        "artistName": "Dave Allsop",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "龙族跟班",
+        "text": "<b>战吼：</b> <b>发现</b>一张龙牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6b429a9fb32b28f4472edfcfe7cecc613a50d8821e7f727ef08329bd59bca553.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a977dfe9f650ea0ac412d6c0c196caf48d22f930827c683d3f98a47729043c5.jpg",
+        "keywordIds": [
+          8,
+          21,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=55378&locale=zh_CN&collectible=0",
+        "sha256": "aba9b54d1653d067b78a9039dabb280ab61aff6d5fb816dca7fd4042ac9a70ae",
+        "bytes": 709,
+        "observed_at": "2026-10-23T21:15:42.025508+00:00"
+      }
+    },
+    {
+      "card_id": "DRG_052",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\55378-en_US.json",
+      "response_sha256": "7ebb7e4e3d20ccadf75a413157dc489765ed4b12a40d61c14015d3570645583e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=55378&locale=en_US&collectible=0",
+      "face": {
+        "id": 55378,
+        "collectible": 0,
+        "slug": "55378-draconic-lackey",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": null,
+        "artistName": "Dave Allsop",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Draconic Lackey",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a Dragon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d74efbea7f3f4b09f8f088a0fcb7683ac92ada9c95bd16acd8eb6e657ade0f23.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a977dfe9f650ea0ac412d6c0c196caf48d22f930827c683d3f98a47729043c5.jpg",
+        "keywordIds": [
+          8,
+          21,
+          71
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=55378&locale=en_US&collectible=0",
+        "sha256": "7ebb7e4e3d20ccadf75a413157dc489765ed4b12a40d61c14015d3570645583e",
+        "bytes": 710,
+        "observed_at": "2026-10-23T21:15:42.504904+00:00"
+      }
+    },
+    {
+      "card_id": "BT_197t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\57172-zh_CN.json",
+      "response_sha256": "bd72c7a6cf717c5841c04ad65ebbc42649b510e2d4ba383717fd747abc256120",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=57172&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 57172,
+        "collectible": 0,
+        "slug": "57172-reliquary-prime",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": null,
+        "artistName": "Jaemin Kim",
+        "health": 8,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "终极魂匣",
+        "text": "<b>嘲讽</b>。<b>吸血</b> 在你对手的回合<b>扰魔</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7dd8c0b03fc19dc627a74fa711691bfc6fa618dcc3425e38ebc750141e37ba07.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/999961afed4b3334361306e48af495daaf69a38481682f1ad704b5032c40c2d0.jpg",
+        "parentId": 57166,
+        "keywordIds": [
+          1,
+          38,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=57172&locale=zh_CN&collectible=0",
+        "sha256": "bd72c7a6cf717c5841c04ad65ebbc42649b510e2d4ba383717fd747abc256120",
+        "bytes": 747,
+        "observed_at": "2026-10-23T21:15:42.378049+00:00"
+      }
+    },
+    {
+      "card_id": "BT_197t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k480-past-lackey-prime\\primary-children\\57172-en_US.json",
+      "response_sha256": "9a879e50f0f00922b2d40bc51f249905f176e7f162e8434a690df1c9fde89cca",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=57172&locale=en_US&collectible=0",
+      "face": {
+        "id": 57172,
+        "collectible": 0,
+        "slug": "57172-reliquary-prime",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1414,
+        "rarityId": null,
+        "artistName": "Jaemin Kim",
+        "health": 8,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Reliquary Prime",
+        "text": "<b>Taunt</b>, <b>Lifesteal</b> <b>Elusive</b> on your opponent's turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d2eb953a253e0997216c30bd4ebe9546c2794d5d80c84d10456b5f7913c47a2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/999961afed4b3334361306e48af495daaf69a38481682f1ad704b5032c40c2d0.jpg",
+        "parentId": 57166,
+        "keywordIds": [
+          1,
+          38,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=57172&locale=en_US&collectible=0",
+        "sha256": "9a879e50f0f00922b2d40bc51f249905f176e7f162e8434a690df1c9fde89cca",
+        "bytes": 753,
+        "observed_at": "2026-10-23T21:15:42.459238+00:00"
+      }
+    },
+    {
+      "card_id": "DRG_303",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 54874,
+        "collectible": 1,
+        "slug": "54874-disciple-of-galakrond",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Eva Widermann",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "迦拉克隆的信徒",
+        "text": "<b>战吼：</b> <b>祈求</b>迦拉克隆。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd6471860cab27845f97d4eb7f9bd4213ea4633f53f45f0b87a30e427c463a4e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/782b90b9d4883b1173f53762051bcc2bc9ae845209aa452a7da725192b03fe60.png",
+        "flavorText": "复活迦拉克隆会导致成吨、成吨的伤害。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c6373f78043f25b8411f90edaba31bc77f04b48a6bb18c575db7012e42003d2.png",
+        "childIds": [
+          55810,
+          57416,
+          57417,
+          57418,
+          55819
+        ],
+        "keywordIds": [
+          8,
+          79
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_303",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 54874,
+        "collectible": 1,
+        "slug": "54874-disciple-of-galakrond",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Eva Widermann",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Disciple of Galakrond",
+        "text": "<b>Battlecry:</b> <b>Invoke</b> Galakrond.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/847d4cc90804adae3004e5dd8cb8e6522ba4e956866180863bd9bd87408b0649.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/782b90b9d4883b1173f53762051bcc2bc9ae845209aa452a7da725192b03fe60.png",
+        "flavorText": "Raising Galakrond will cause thurible, thurible damage.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c6373f78043f25b8411f90edaba31bc77f04b48a6bb18c575db7012e42003d2.png",
+        "childIds": [
+          55810,
+          57416,
+          57417,
+          57418,
+          55819
+        ],
+        "keywordIds": [
+          8,
+          79
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "lackey_ids": [
+    "DAL_613",
+    "DAL_614",
+    "DAL_615",
+    "DAL_739",
+    "DAL_741",
+    "ULD_616",
+    "DRG_052"
+  ],
+  "provider_child_id": "SCH_199t19",
+  "prime_id": "BT_197t",
+  "policy": "Fixed seven native MARK_OF_EVIL Lackeys; ordinary versioned constructed pool for secondary effects; native opponent-turn self Elusive; semantic named shuffle. Invoke scope separate.",
+  "uncalibrated": [
+    "CN37 exact timing and distributions",
+    "Full ordinary/constructed/past generation domains",
+    "Explicit named Invoke reachability beyond current root/ordinary policy audit"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
