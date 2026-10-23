@@ -7553,8 +7553,11 @@ class PlayRecord:
     hand_cost_rank: HandCostRankFact | None = None
     spell_target_group: object | None = None
     spell_target_receipt: object | None = None
+    minion_copy_material: object | None = None
 
     def __post_init__(self):
+        from .played_minion_copies import validate_play as validate_minion_copy
+        validate_minion_copy(self)
         if self.spell_target_receipt is not None:
             from .spell_group_targets import validate_material
             validate_material(self)

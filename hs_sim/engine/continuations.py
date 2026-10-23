@@ -347,6 +347,9 @@ class FrameCodec:
         from .copy_materials import CapturedCardCopyMaterial,validate_captured_card_copy
         if type(value)is CapturedCardCopyMaterial and self.origin_state is not None:
             validate_captured_card_copy(self.origin_state,self.registry,value)
+        from .played_minion_copies import PlayedMinionCopyMaterial, validate_material as validate_played_minion_copy
+        if type(value) is PlayedMinionCopyMaterial and self.origin_state is not None:
+            validate_played_minion_copy(self.origin_state, self.registry, value)
         from .deathrattle_memory import DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy
         if type(value) in (DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)

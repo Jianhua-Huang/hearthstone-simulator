@@ -193,6 +193,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     from .after_play_grants import capture as capture_after_play
     from .owner_turns import freeze_played_face
     from .hand_cost_rank import capture as capture_hand_rank
+    from .played_minion_copies import PlayedMinionCopyMaterial
     player=state.players[source.controller]
     from .disguised import destination
     destination(registry.card(source.card_id), player.id, board_player_id)
@@ -220,7 +221,8 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         battlecries=capture_battlecries(source),combos=capture_combos(source),
         played_face=freeze_played_face(state,registry,source,len(state.play_history)+1),
         copy_origin=source.copy_origin,next_spell_bonus_effects=capture_native_spell_bonus(state,registry,source),
-        hand_cost_rank=capture_hand_rank(state,registry,source),spell_target_group=spell_target_group)
+        hand_cost_rank=capture_hand_rank(state,registry,source),spell_target_group=spell_target_group,
+        minion_copy_material=PlayedMinionCopyMaterial.capture(state,source,len(state.play_history)+1))
 
 
 def commit_play(state, record):
@@ -313,6 +315,9 @@ def validate_history(state, registry):
         if type(record) is not PlayRecord:
             raise ValueError('History requires immutable play records')
         record.__post_init__()
+        if record.minion_copy_material is not None:
+            from .played_minion_copies import validate_material as validate_minion_copy
+            validate_minion_copy(state, registry, record.minion_copy_material)
         from .held_opponent_copies import validate_origin
         validate_origin(state, registry, record.copy_origin, record.source_id)
         if record.source_id not in state.entities or record.copy_origin != state.entities[record.source_id].copy_origin:

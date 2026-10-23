@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 556
+SNAPSHOT_SCHEMA_VERSION = 557
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1375,6 +1375,9 @@ def state_from_dict(value: dict) -> GameState:
     plays=[]
     for item in _list(value['play_history'], 'play history'):
         row=_row(item, PlayRecord)
+        from .played_minion_copies import from_dict as played_minion_copy_from_dict
+        if row['minion_copy_material'] is not None:
+            row['minion_copy_material'] = played_minion_copy_from_dict(row['minion_copy_material'])
         from .spell_target_groups import selection_from_dict as spell_group_from_dict
         row['spell_target_group'] = spell_group_from_dict(row['spell_target_group'])
         from .spell_group_targets import receipt_from_dict as actual_spell_targets_from_dict

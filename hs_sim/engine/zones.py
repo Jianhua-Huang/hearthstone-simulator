@@ -18,6 +18,7 @@ from .sacrifice import MinionReference, live_minion
 from .pools import PoolQuery, matches_metadata
 from .card_conditions import has_battlecry
 from .copy_materials import CopyEntryMaterial,CapturedCardCopyMaterial,validate_captured_card_copy
+from .played_minion_copies import PlayedMinionCopyMaterial
 from .allocation_facts import SourceAllocationFact, allocation_from_payload, validate_allocation
 from .discard_history import DiscardRecord, validate_base_copy as validate_discard_base_copy
 
@@ -212,7 +213,7 @@ class MoveCard(Effect):
 
 @dataclass(frozen=True)
 class CopyCard(Effect):
-    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord
+    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord | PlayedMinionCopyMaterial
     player_id: int
     destination: Zone = Zone.HAND
     mode: str = 'current'
@@ -231,7 +232,10 @@ class CopyCard(Effect):
                 self.card.origin.controller != self.player_id or self.mode != 'current' or
                 self.destination != Zone.DECK or self.position != 'random' or self.source_id is None):
             raise ValueError('Draw-cast copies require original current own-deck spell material and random insertion')
-        if type(self.card)is DiscardRecord:
+        if type(self.card) is PlayedMinionCopyMaterial:
+            self.card.__post_init__()
+            if self.mode != 'base': raise ValueError('Played minion history permits only its printed base copy')
+        elif type(self.card)is DiscardRecord:
             self.card.__post_init__()
             if self.mode!='base':raise ValueError('Discard occurrence copies require the original printed recipe')
         elif type(self.card)is DeathRecord:
@@ -927,7 +931,10 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
     if type(notify_hand_entry) is not bool:raise ValueError('Hand notification deferral must be boolean')
     source_exists(r, effect.source_id)
     material=effect.card if type(effect.card)is CopyEntryMaterial else None
-    if type(effect.card)is CapturedCardCopyMaterial:
+    if type(effect.card) is PlayedMinionCopyMaterial:
+        from .played_minion_copies import original_entity
+        source = original_entity(r.state, r.registry, effect.card)
+    elif type(effect.card)is CapturedCardCopyMaterial:
         validate_captured_card_copy(r.state,r.registry,effect.card)
         source=effect.card.entity()
     elif type(effect.card)is DiscardRecord:
