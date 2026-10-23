@@ -13,3 +13,14 @@
 扒窃机按实际牌库数量至少25抽牌；笼中颅骨按执行时剩余物理手牌加生命。克洛纳捕获原牌库底最多五张CardReference并ModifyStoredCost(set_to=1)，不重排或改绑。青铜龙士兵用原DoubleStats(health=True)，增加当前剩余生命至最大值，保留原伤害，不按印刷生命倍增或重置受伤。后世之嗣按当前双方受伤普通随从数量给本体+2/+2，英雄不参与。
 
 `python -B -X utf8 -m examples.card_conditional_battlecries`用玩家命令运行全部根卡，逐稳定位置独立恢复/clone/回放。场景为混合职业40法力实验，部分牌库含实验衍生物或重复卡，不认证正式标准套牌。条件的原接受/主体复查、当前与印刷攻击、剩余生命、手牌价格、人工/效果技能归属、到期和分段顺序是内部契约；正式卡池、热修与精确国服证据仍待M0/M6。
+
+
+## K478 历史条件战吼与实际承伤资格
+
+BT_711、DED_503和TOY_386是标准可达历史依赖，完整源包在[past-conditional-battlecries](../data/cards/past-conditional-battlecries-v1.json)。钉棍终结者的PlayerTargetRuleSpec只读本人公开奥秘槽，原主体复查当前奥秘并用ReturnCapturedMinion(to_owner=True,cost=+2)，失效目标不换另一个同名体。原回手器负责重置、owner/控制迁移、费用、入手与满手死亡。
+
+有限HeroDamageTakenTargetProfile声明唯一actual_received_damage_current_turn依据，与原HeroHealthChangedTargetProfile分开；注册指纹包含明确条件。沿同一原生健康目标入口读取原hero_damage_taken>0，护甲吸收仍是实际承伤，零/阻止/敌方/以前回合不代替本回合本人正量。现有effective_target_spec把无条件时的目标域关闭，付款前目标接受、玩家命令与自动入口保持同一规则。没有新增玩家可见历史、全知玩家谓词或累计账户。飞刀手在主体实际执行时再读原承伤数，已提交空目标不会因等待期间新承伤而补选。
+
+礼盒雏龙遍历完整当前本人手牌，用现有种族求值匹配龙/all，未知明确报错。空候选保持白板、单候选直接奖励；多候选复用原RequestChoice(sample_size=1,min/max=0)及完整物理引用自动抽样，无玩家菜单或发现信用。原手牌Buff后再给原来源Buff；普通召唤不调用战吼，额外战吼各自重新接受当前条件。精确分布、这项顺序及原目标/条件窗口尚未CN校准，普通卡面和第一手反馈不认证全族规则。
+
+core701/schema560保护新有限资格，内容v568新增三依赖；无新Effect、payload、模型或玩家DTO字段，既有生命变化资格及普通回手/伤害/属性写入器保持。实际执行和下一项仍仅在[项目状态](project-status.md)及[机制清单](mechanism-backlog.md)维护。

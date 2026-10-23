@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v567"
+CONTENT_VERSION = "constructed-cn37-preview-v568"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1165,6 +1165,8 @@ def build_registry():
     register_past_played_draenei_copy_card(registry)
     from .past_discovery_copy_card import register_past_discovery_copy_card
     register_past_discovery_copy_card(registry)
+    from .past_conditional_battlecry_cards import register_past_conditional_battlecry_cards
+    register_past_conditional_battlecry_cards(registry)
     register_reviewed_pool_metadata(registry)
     from .candidate_generation_catalog import register_candidate_pool_metadata
     register_candidate_pool_metadata(registry)
