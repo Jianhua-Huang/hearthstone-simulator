@@ -49,6 +49,7 @@ class RuleContext:
     discard: object | None = None
     kindred: KindredActivation | None = None
     draw_group: object | None = None
+    deathrattle_followup: object | None = None
 
     @property
     def destruction(self):
@@ -92,6 +93,12 @@ class RuleContext:
 
     @property
     def source(self) -> Entity:
+        if self.deathrattle_followup is not None:
+            from .assemble_death_programs import AssembleDeathContinuation
+            if type(self.deathrattle_followup) is not AssembleDeathContinuation:
+                raise ValueError('Unknown Deathrattle continuation material')
+            self.deathrattle_followup.__post_init__()
+            return self.deathrattle_followup.accepted.source
         return self.state.entities[self.source_id]
 
 
@@ -161,6 +168,7 @@ class Registry:
         self._assemble_native_end_conditions = {}
         self._assemble_fixed_battlecry_sources = {}
         self._assemble_draw_group_sources = {}
+        self._assemble_deferred_death_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -351,6 +359,19 @@ class Registry:
                 for p in self._assemble_draw_group_sources.values())):
             raise ValueError('Duplicate original draw-group assembly source')
         self._assemble_draw_group_sources[source.card_id] = source
+
+    @property
+    def assemble_deferred_death_sources(self):
+        return MappingProxyType(self._assemble_deferred_death_sources)
+
+    def register_assemble_deferred_death_source(self, source):
+        from .assemble_death_programs import validate_source
+        self._require_mutable();validate_source(self,source)
+        if source.card_id in self._assemble_deferred_death_sources or any(
+                p.original_deathrattle_id==source.original_deathrattle_id
+                for p in self._assemble_deferred_death_sources.values()):
+            raise ValueError('Duplicate original deferred Deathrattle source')
+        self._assemble_deferred_death_sources[source.card_id]=source
 
     def register_assemble_native_end_condition(self, source):
         from .assemble_end_conditions import validate_source
@@ -2867,6 +2888,9 @@ class Registry:
         if self._assemble_draw_group_sources:
             payload['assemble_draw_group_sources'] = [asdict(self._assemble_draw_group_sources[k])
                 for k in sorted(self._assemble_draw_group_sources)]
+        if self._assemble_deferred_death_sources:
+            payload['assemble_deferred_death_sources'] = [asdict(self._assemble_deferred_death_sources[k])
+                for k in sorted(self._assemble_deferred_death_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

@@ -256,6 +256,11 @@ class FrameCodec:
         from .physical_draw_groups import ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup, validate_material as validate_draw_group
         if type(value) in (ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup) and self.origin_state is not None:
             validate_draw_group(self.origin_state, self.registry, value)
+        from .assemble_death_programs import ContinueAssembledDeathrattle,AssembleDeathContinuation,validate_material as validate_death_program
+        if type(value) is ContinueAssembledDeathrattle and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
+        if type(value) is AssembleDeathContinuation:
+            validate_death_program(self.registry,value)
         from .next_spell_bodies import ContinueNextSpellBodies, FinishNextSpellBody, validate_queued as validate_next_spell_body
         if type(value) in (ContinueNextSpellBodies, FinishNextSpellBody) and self.origin_state is not None:
             validate_next_spell_body(self.origin_state, self.registry, value)
@@ -351,6 +356,8 @@ class FrameCodec:
             validate_destroyed_call(value, self.registry)
             from .physical_draw_groups import validate_qualified_call
             validate_qualified_call(value, self.registry)
+            from .assemble_death_programs import validate_call as validate_death_followup
+            validate_death_followup(value,self.registry)
         if type(value) is effects.RequestChoice:
             from .choose_policies import reject_choice_control as reject_choose_policy_control
             reject_choose_policy_control(value.options)

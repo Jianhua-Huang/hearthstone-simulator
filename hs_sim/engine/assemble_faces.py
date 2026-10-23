@@ -293,6 +293,9 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     from .assemble_draw_groups import native_battlecry
     original_draw=native_battlecry(registry,prefix_source,suffix)
     if original_draw is not None:face=replace(face,battlecry=original_draw)
+    from .assemble_death_programs import native_deathrattle
+    original_death=native_deathrattle(registry,prefix_source,suffix)
+    if original_death is not None:face=replace(face,deathrattle=original_death)
     from .assemble_reactions import native_subject
     native=native_subject(registry,prefix_source,suffix)
     return replace(face,**native) if native is not None else face
@@ -470,6 +473,9 @@ def before_behavior(registry,behavior_id):
                 context.deathrattle.ability.behavior_id==behavior_id):
             from .deathrattles import validate_context
             validate_context(context,registry)
+            from .assemble_death_programs import selected_request as selected_death_request
+            selected=selected_death_request(registry,context,row['before_behavior_id'],row['behavior_id'])
+            if selected is not None:return selected
             prefix_effects=first(context);suffix_effects=second(context)
             return (*(()if prefix_effects is None else prefix_effects),*(()if suffix_effects is None else suffix_effects))
         native='Battlecry'if timings=={'battlecry'}else'Deathrattle'if timings=={'deathrattle'}else'Battlecry or Deathrattle'
@@ -617,6 +623,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_death_programs import validate_sources as validate_deferred_death_sources
+    validate_deferred_death_sources(registry)
     from .assemble_draw_groups import validate_sources as validate_draw_group_sources
     validate_draw_group_sources(registry)
     from .assemble_fixed_battlecry import validate_sources as validate_fixed_battlecries

@@ -129,6 +129,10 @@ def validate_capture(state, registry, capture):
 
 
 def validate_context(context, registry):
+    if context.deathrattle_followup is not None:
+        from .assemble_death_programs import validate_context as validate_followup
+        validate_followup(context,registry)
+        return
     capture=context.deathrattle
     if capture is None: return
     validate_capture(context.state,registry,capture)
