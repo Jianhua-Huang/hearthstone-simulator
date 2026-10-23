@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v696'
+CORE_EFFECTS_VERSION = 'core-effects-v697'
 
 
 class Mechanics:
@@ -3029,5 +3029,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hero_power_discovery(mechanics)
     from .hero_power_values import register as register_hero_power_values
     register_hero_power_values(mechanics)
+    from .hand_deck_movement import register as register_hand_deck_movement
+    register_hand_deck_movement(mechanics)
     return mechanics
 

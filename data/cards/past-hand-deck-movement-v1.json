@@ -1,0 +1,329 @@
+{
+  "schema": 1,
+  "batch": "past-hand-deck-movement-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "DMF_125",
+    "TSC_908"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DMF_125",
+        "dbf_id": 62049,
+        "name": "安全检查员",
+        "name_en": "Safety Inspector",
+        "text": "<b>战吼：</b>把你手牌中法力值消耗最低的牌洗入牌库。抽一张牌。",
+        "text_en": "[x]<b>Battlecry:</b> Shuffle the\n_lowest-Cost card from\n your hand into your\n deck. Draw a card.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "f45d0927f0e6597c90f2d81dd5cbc2c6bde2931a5879a918bead47686bb62e78",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DMF_125",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_908",
+        "dbf_id": 71781,
+        "name": "海中向导芬利爵士",
+        "name_en": "Sir Finley, Sea Guide",
+        "text": "<b>战吼：</b>将你的手牌和牌库底的牌交换。",
+        "text_en": "[x]<b>Battlecry:</b> Swap your\nhand with the bottom of\nyour deck.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anzka Nguyen"
+          }
+        ]
+      },
+      "record_sha256": "c3fe36475929c24bfa953904a52372df776247960f20aac94edbd570a3e83e43",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_908",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "DMF_125",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 62049,
+        "collectible": 1,
+        "slug": "62049-safety-inspector",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "安全检查员",
+        "text": "<b>战吼：</b>把你手牌中法力值消耗最低的牌洗入牌库。抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/216dccfbd5bf603482c76712993145560c3147b29909006731724f046d900ef1.png",
+        "imageGold": "",
+        "flavorText": "“检查完了，你这里搞得不错。没发现任何安全因素。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/619990647d3e36aaff52a57ab01fcf3f68071fe2b5233875888809a847c61acc.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_125",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 62049,
+        "collectible": 1,
+        "slug": "62049-safety-inspector",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Safety Inspector",
+        "text": "<b>Battlecry:</b> Shuffle the lowest-Cost card from your hand into your deck. Draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01d46a2b29b34694ed53cb48c441092144c2016c8ae464ffcf1f0a91ce12b574.png",
+        "imageGold": "",
+        "flavorText": "\"All right, you're good. No sign of safety anywhere.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/619990647d3e36aaff52a57ab01fcf3f68071fe2b5233875888809a847c61acc.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_908",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 71781,
+        "collectible": 1,
+        "slug": "71781-sir-finley-sea-guide",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Anzka Nguyen",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "海中向导芬利爵士",
+        "text": "<b>战吼：</b>将你的手牌和牌库底的牌交换。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab569d23e07799dc798607b267aaa064f31bac5ca92c455c65ac1dd124ba9302.png",
+        "imageGold": "",
+        "flavorText": "“别担心，朋友们，我这有地图。地图上都写着呢，一直向下！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6c6009b5bbe815f3e7dd497ba4928248a44ceccb9b798026f3af322c77bc059.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_908",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 71781,
+        "collectible": 1,
+        "slug": "71781-sir-finley-sea-guide",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Anzka Nguyen",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sir Finley, Sea Guide",
+        "text": "<b>Battlecry:</b> Swap your hand with the bottom of your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/308bd81cf61260f6990e38d51b55eae1a07a5fafd25b48038f1e42372ae432ba.png",
+        "imageGold": "",
+        "flavorText": "\"No need to worry, ol' chums, I have the map right here. It says to continue going straight down!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6c6009b5bbe815f3e7dd497ba4928248a44ceccb9b798026f3af322c77bc059.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": {
+    "inspector": "Compare all current remaining physical hand costs without payment or consumption; uniformly select a tied minimum, then semantic shuffle and ordinary Draw(1), including empty hand.",
+    "finley": "Capture original current hand order and original bottom group together; reverse held order into deck and deepest-bottom-first into hand, using existing MoveCard(reset=False, draw=False).",
+    "capacity": "Retain existing per-move 99-card deck admission and normal hand admission; special exchange-capacity semantics are not certified."
+  },
+  "uncalibrated": [
+    "exact lowest-cost tie RNG and event window",
+    "bottom depth direction and current material preservation",
+    "per-card reaction windows",
+    "99-card exchange capacity behavior"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
