@@ -211,6 +211,7 @@ class Registry:
         self._hero_power_discovery_profiles = {}
         self._hero_power_value_profiles = {}
         self._hero_power_target_profiles = {}
+        self._discovery_trigger_profiles = {}
         self._hand_parity_profiles = {}
         self._historical_deathrattle_spells = set()
         self._consumption_profiles = {}
@@ -774,6 +775,9 @@ class Registry:
     def hero_power_target_profiles(self):return MappingProxyType(self._hero_power_target_profiles)
 
     @property
+    def discovery_trigger_profiles(self):return MappingProxyType(self._discovery_trigger_profiles)
+
+    @property
     def hand_parity_profiles(self):return MappingProxyType(self._hand_parity_profiles)
 
     @property
@@ -1003,6 +1007,14 @@ class Registry:
         if profile.card_id in self._hero_power_discovery_profiles:
             raise ValueError('Duplicate basic skill discovery profile')
         self._hero_power_discovery_profiles[profile.card_id] = profile
+
+    def register_discovery_trigger_profile(self, profile):
+        self._require_mutable()
+        from .discovery_trigger_sources import validate_profile
+        validate_profile(self, profile)
+        if profile.behavior_id in self._discovery_trigger_profiles:
+            raise ValueError('Duplicate native discovery observer behavior')
+        self._discovery_trigger_profiles[profile.behavior_id] = profile
 
     def register_hero_power_value_profile(self, profile):
         self._require_mutable()
@@ -2508,6 +2520,8 @@ class Registry:
         validate_power_values(self)
         from .hero_power_targets import validate_profile as validate_power_targets
         for profile in self._hero_power_target_profiles.values(): validate_power_targets(self, profile)
+        from .discovery_trigger_sources import validate_profile as validate_discovery_trigger_profile
+        for profile in self._discovery_trigger_profiles.values(): validate_discovery_trigger_profile(self, profile)
         from .hand_parity import validate_profile as validate_hand_parity_profile
         for profile in self._hand_parity_profiles.values():validate_hand_parity_profile(self,profile)
         from .native_spell_values import validate_profile as validate_spell_value_profile
@@ -2924,6 +2938,9 @@ class Registry:
         if self._hero_power_target_profiles:
             payload['hero_power_target_profiles'] = [asdict(self._hero_power_target_profiles[k])
                 for k in sorted(self._hero_power_target_profiles)]
+        if self._discovery_trigger_profiles:
+            payload['discovery_trigger_profiles'] = [asdict(self._discovery_trigger_profiles[k])
+                for k in sorted(self._discovery_trigger_profiles)]
         if self._hand_parity_profiles:
             payload['hand_parity_profiles']=[asdict(self._hand_parity_profiles[k])for k in sorted(self._hand_parity_profiles)]
         if self._spell_value_profiles:

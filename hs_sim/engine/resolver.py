@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v698'
+CORE_EFFECTS_VERSION = 'core-effects-v699'
 
 
 class Mechanics:
@@ -452,6 +452,9 @@ class Resolution:
                         self._captured.append(work)
                     continue
                 if trigger.event == kind:
+                    from .discovery_trigger_sources import eligible as discovery_observer_eligible
+                    if not discovery_observer_eligible(self.state, self.registry, event, entity, trigger):
+                        continue
                     capture=end_captures.get(('ability',entity_id,trigger.id))
                     if trigger.end_turn_spec is not None:
                         if not _end_turn: raise ResolutionError('Classified end-turn body requires a natural boundary')
@@ -3033,5 +3036,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_hand_deck_movement(mechanics)
     from .played_minion_copies import register as register_played_minion_copies
     register_played_minion_copies(mechanics)
+    from .discovery_trigger_sources import register as register_discovery_trigger_sources
+    register_discovery_trigger_sources(mechanics)
     return mechanics
 

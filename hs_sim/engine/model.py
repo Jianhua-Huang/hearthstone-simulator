@@ -10512,6 +10512,7 @@ class CardDiscoveryRecord:
     result: ChoiceResult
     original_offer: str
     control_roll: int | None = None
+    trigger_sources: tuple[object, ...] = ()
 
     @property
     def is_control(self):return self.control_roll is not None
@@ -10528,6 +10529,8 @@ class CardDiscoveryRecord:
             raise ValueError('An ordinary choice is not a card discovery')
         if len(self.result.selected_ids) != 1 or self.selection_event >= self.publication_event:
             raise ValueError('Card discovery lost its original selection or publication')
+        from .discovery_trigger_sources import validate_record as validate_discovery_observers
+        validate_discovery_observers(self)
         if self.control_roll is not None:
             _int(self.control_roll,'discovery refresh roll',0)
             if self.control_roll>=5 or self.result.selected_ids!=('refresh',) or self.result.choice.purpose!=ChoicePurpose.POOL_DISCOVERY:

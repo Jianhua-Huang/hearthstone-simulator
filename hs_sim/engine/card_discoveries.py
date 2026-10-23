@@ -49,9 +49,11 @@ def commit(r, result, selection_event, options, on_select):
     is_control = any(o.id in result.selected_ids for o in controls)
     control_roll = r.game._rng.randrange(5) if is_control else None
     offered_work = encode_offer(r.game, original)
+    from .discovery_trigger_sources import capture as capture_observers
+    observers = () if is_control else capture_observers(r.state, r.registry, result.choice.player_id)
     row = CardDiscoveryRecord(len(r.state.card_discovery_history) + 1, r.state.turn,
         r.state.action_number, current_owner_turn(r.state).id,
-        selection_event.sequence, len(r.game._events) + 1, result, offered_work, control_roll)
+        selection_event.sequence, len(r.game._events) + 1, result, offered_work, control_roll, observers)
     r.state.card_discovery_history.append(row)
     from .serialization import canonical_hash
     # This is a private consistency publication. Gameplay reads the typed state
@@ -140,6 +142,8 @@ def validate_history(state, registry):
         if type(row) is not CardDiscoveryRecord:
             raise ValueError('Card discovery history requires immutable actual receipts')
         row.__post_init__()
+        from .discovery_trigger_sources import validate_history as validate_observers
+        validate_observers(state, registry, row)
         choice = row.result.choice
         if (row.id != index or not last_turn <= row.turn <= state.turn or
                 not last_action <= row.action <= state.action_number or
@@ -214,6 +218,8 @@ def validate_boundary(game):
 def record_from_dict(value):
     from .serialization import _row, _list, choice_from_dict
     row = _row(value, CardDiscoveryRecord)
+    from .discovery_trigger_sources import from_dict as observer_from_dict
+    row['trigger_sources'] = tuple(observer_from_dict(s) for s in _list(row['trigger_sources'], 'original discovery observers'))
     result = _row(row['result'], ChoiceResult)
     result['choice'] = choice_from_dict(result['choice'])
     result['selected_ids'] = tuple(_list(result['selected_ids'], 'discovered card selection'))

@@ -11,3 +11,14 @@
 `card_discovery_delivery_queued` 是不捕获游戏触发的私有一致性证据。恢复时，原选择与不可变历史对照，同步交付与原操作窗口的创建/移动事件对照，场上交付与原召唤记录对照，完成事件与原接受工作对照；等待帧及原支付续接证明必须保留全部欠付完成工作，拒绝丢失、重复、换玩家、换来源或换收件对象。异常回滚、真正回溯、自动施法、clone 和回放继续使用公共事务与解释器。该检查不提供未签名存档的外部来源认证。
 
 本契约的完成工作及语义事件在 core461/schema378 引入；后续原完整选项保存及 core462/schema379 见[配方契约](m3-original-discovery-offers.md)。观察93、命令12、replay1保持；两个事件未加入玩家事件白名单，完整选择、分配事实和完成收据不得进入玩家投影。仅登记 TLC_483 的完整真实适配，TLC_460 及奖励仍待独立实现。正式标准池、全部实际可达内容和国服校准继续独立开放。
+
+
+## K476 交付前的有限普通触发来源资格
+
+真实游侠斥候的后续接入需要排除同次发现才召唤出的新来源；[官方31.6修复](https://news.blizzard.com/en-gb/article/24179332/31-6-patch-notes)直接指出发现召唤斥候立即复制自身的问题。有限DiscoveryTriggerProfile将一个已注册原生普通随从的card_discovered行为声明为交付前资格来源；注册表验证真实TriggerSpec、普通随从载体及行为身份，重复行为声明拒绝。空表不进入注册表指纹，未声明的来源继续使用原完成时捕获政策。本入口不自动认证所有after-Discover来源都采用同一窗口。
+
+原card_discoveries.commit在真实选择已经接受、原交付尚未执行时，只读同玩家当前普通触发能力并冻结有序DiscoveryTriggerSource；保存在CardDiscoveryRecord.trigger_sources。材料仅含完整SourceAllocationFact、原ability_id/behavior_id及原附件分配上界，不保存完整90字段AbilityInstance、整份历史场面或新主体队列。真正刷新控制保存空资格，不改变原刷新随机；普通捕获不消耗随机、不调用行为、不移动或分配实体。
+
+实际交付完成后，原resolver在原listener位置筛选声明过的普通能力：实体/卡面/owner/controller/区域代数/在场身份和能力身份须仍属于原资格。新召唤或复活的来源、后来重进场或换面的原实体不能承接旧资格；已经由原解释器捕获的主体保持原接受语义，后续来源移除不重新撤销。支付、死亡、交付、普通触发排序和续接写入器均不另建。资格进入原完整私有选择收据与哈希，JSON恢复重核原字段、顺序、分配界限和有限注册行为，沿原等待/回滚/回放及信息隔离执行；一致性证明不提供未签名存档的外部来源认证。
+
+本能力在core699/schema558接入，仅新增一个私有历史字段及一个payload，无新Effect或GameState/Entity/Player字段。构筑注册表尚无此profile，也尚未注册GDB_841，完整复制材料及英雄技能等非手牌对象仍待接入；源记录见[完整原行及两完整主面](../outputs/card-integration-20261014/k476-discovery-trigger-sources/prepared-01/source-review.json)。精确资格接受窗及国服37.0仍待M6校准，实际执行和下一项只在原两份台账维护。
