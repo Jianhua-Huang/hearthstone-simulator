@@ -6,7 +6,7 @@ from pathlib import Path
 import unittest
 
 from hs_sim.engine import (Attack,CardDefinition,CardType,EndTurn,EquippedWeaponReference,
-    Game,PlayCard,PlayerSetup,Registry,ResolutionError,Scenario,SelectChoice,SnapshotError,
+    Game,Keyword,PlayCard,PlayerSetup,Registry,ResolutionError,Scenario,SelectChoice,SnapshotError,
     StatRelationLayer,StatRelationOperand,StatRelationSpec,TriggerSpec,Zone)
 from hs_sim.engine.continuations import FrameCodec
 from hs_sim.engine.effects import (AddToHand,Buff,ChoiceOption,Destroy,EquipWeapon,GainArmor,
@@ -127,7 +127,8 @@ class OverloadWeaponAttackBasicsTests(unittest.TestCase):
             with self.subTest(changes=changes),self.assertRaises(ValueError):replace(REL,**changes)
         with self.assertRaises(ValueError):GrantStatRelation(1,REL,1)
         with self.assertRaises(ValueError):Registry('bad').register_card(CardDefinition('bad','Bad',CardType.MINION,
-            health=3,stat_relations=(REL,),metadata=metadata(tribes=())))
+            health=3,keywords=(Keyword.MAGNETIC,),magnetic_tribes=('mech',),
+            stat_relations=(REL,),metadata=metadata(tribes=('mech',))))
         with self.assertRaises(ValueError):Registry('mixed').register_card(CardDefinition('bad','Bad',CardType.WEAPON,
             durability=2,stat_relations=(REL,StatRelationSpec()),metadata=metadata(tribes=())))
 

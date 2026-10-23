@@ -17,6 +17,10 @@ def validate_ordinary_face(card):
 
 
 def _validate_relation_face(card, specs):
+    if (card.kind == CardType.MINION and len(specs) == 1 and
+            specs[0].operand == StatRelationOperand.CONTROLLER_OVERLOADED_MANA):
+        validate_ordinary_face(card)
+        return
     weapon = tuple(s for s in specs if s.operand in (
         StatRelationOperand.CONTROLLER_ARMOR,StatRelationOperand.CONTROLLER_OVERLOADED_MANA,
         StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE))

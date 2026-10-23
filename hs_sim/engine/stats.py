@@ -35,6 +35,11 @@ def derived_attack(entity, ordinary):
         if entity.kind != CardType.WEAPON or len(relations) != 1 or entity.components or entity.weapon_attack:
             raise ValueError('Unsupported controller-armor weapon Attack carrier')
         return max(0, entity.conditional_attack)
+    if entity.kind == CardType.MINION and any(
+            a.stat_relation.operand == StatRelationOperand.CONTROLLER_OVERLOADED_MANA for a in relations):
+        if len(relations) != 1 or entity.components or entity.weapon_attack:
+            raise ValueError('Overload minion Attack requires one ordinary native relation')
+        return max(0, ordinary + entity.conditional_attack)
     additive_weapon = tuple(a for a in relations if a.stat_relation.operand in (
         StatRelationOperand.CONTROLLER_OVERLOADED_MANA,StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE))
     if additive_weapon:

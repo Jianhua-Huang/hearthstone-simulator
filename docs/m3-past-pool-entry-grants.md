@@ -113,3 +113,8 @@ CardAbilityCondition('secret', basis='printed')只匹配印刷原生奥秘声明
 消灭并获得固定身材使用DestroyForBuff和两份原MinionReference，当前鱼人目标使用已有current_tribes_any谓词；死亡反应、原受益者离场/重入及回滚交原公共管线。两份具名入手分别AddToHand，让原容量逐个接收或烧毁；自然死亡召唤保留原死亡槽，存活主动亡语使用载体右侧。具名依赖需保全完整旧定义，未列来源关系不得仅以同数值宣称精确发行身份。
 
 攻击奖励从原CharacterAttackRecord的完成事件读取实际攻击，限定源类型/原玩家以及自身原驻留；普通伤害与尚未完成/取消的攻击不能替代。固定自伤使用MINION_ABILITY，两英雄同时受伤使用一个DamageBatch。关键词战斗、实际死亡、等待与私有交付仍共用原引擎，不在卡牌层另造战斗结算器。
+
+
+## 原手牌与成功召唤事件消费者
+
+奥秘使用资格来自原完成手牌PlayRecord及原付款能力输入，需按真实卡文区分双方/本方与反制、自动CAST；不能将成功CAST当所有“使用”。召唤资格读取原SuccessfulSummonRecord冻结的能力，不在回调时按后来卡面重算。原出牌接收者沿played_minion和原play_id续接，原连续驻留与当前全场伤害是两种实际范围，不能用同一当前entity_id猜测；未核定磁力合并接收者仍显式拒绝。分类结束检索使用印刷Secret事实和物理DrawMatching，原当前费用、容量和私有通知不重写。上述精确接受政策仍须国服校准。
