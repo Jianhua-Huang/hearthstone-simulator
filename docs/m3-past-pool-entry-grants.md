@@ -118,3 +118,12 @@ CardAbilityCondition('secret', basis='printed')只匹配印刷原生奥秘声明
 ## 原手牌与成功召唤事件消费者
 
 奥秘使用资格来自原完成手牌PlayRecord及原付款能力输入，需按真实卡文区分双方/本方与反制、自动CAST；不能将成功CAST当所有“使用”。召唤资格读取原SuccessfulSummonRecord冻结的能力，不在回调时按后来卡面重算。原出牌接收者沿played_minion和原play_id续接，原连续驻留与当前全场伤害是两种实际范围，不能用同一当前entity_id猜测；未核定磁力合并接收者仍显式拒绝。分类结束检索使用印刷Secret事实和物理DrawMatching，原当前费用、容量和私有通知不重写。上述精确接受政策仍须国服校准。
+
+
+## 成功入场奖励、有限施法与对方牌库复制
+
+召唤监听先绑定原SuccessfulSummonRecord，种族取原当前入场事实；原接收者使用BuffSummonedMinion，不能给同ID后来重入的载体重复领取旧奖励。已知肯定/未知必需种族分别保留匹配或显式错误。自身成长仍用原捕获引用，普通效果召唤与手动出牌不混为一类事件。
+
+Spellburst使用原LimitedTriggerSpec.spellburst及原候选/消费，不另造一次性状态。实际FIRE完成读取原CastRecord；反制/自动来源与Spellburst不同的接受政策保持明确。监听damage_dealt时实际量直接来自原事件amount；RuleContext.health_result只解析health_resolved，不能在普通伤害通知强求该对象或按当前生命差反推伤害。原目标驻留由MinionReference及捕获消灭效果守卫。
+
+当前亡灵随机增益使用RandomBuff并只抽一次物理对象，空域不消耗随机；自然尸体与存活主动载体范围分别处理。对方牌库复制使用CopyMatching的原物理槽权重及CopyCard当前材料，新实体入手不移走原牌；完整材料、满手、私有交付、恢复和RNG继续交原公共模块。以上是内部执行契约，完整生成资格和精确国服时序仍独立校准。
