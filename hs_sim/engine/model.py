@@ -362,6 +362,7 @@ class StatRelationOperand(StrEnum):
     CONTROLLER_OPPONENT_TURN = "controller_opponent_turn"
     CONTROLLER_HERO_ATTACK = "controller_hero_attack"
     CONTROLLER_IMP_COUNT = "controller_imp_count"
+    CONTROLLER_OTHER_SELF_SUMMON_COUNT = "controller_other_self_summon_count"
 
 
 class StatRelationLayer(StrEnum):
@@ -388,9 +389,10 @@ class StatRelationSpec:
                 type(self.layer) is not StatRelationLayer or type(self.amount) is not int):
             raise ValueError('Unsupported continuous stat relation')
         if self.target == StatReference.HEALTH:
-            if (self.operand != StatRelationOperand.CONTROLLER_DISCARD_COUNT or
+            if (self.operand not in (StatRelationOperand.CONTROLLER_DISCARD_COUNT,
+                    StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT) or
                     self.layer != StatRelationLayer.CONDITIONAL_HEALTH or self.amount <= 0):
-                raise ValueError('Conditional Health currently requires native positive discard count')
+                raise ValueError('Conditional Health requires a declared native positive history count')
         elif self.layer == StatRelationLayer.CONDITIONAL_HEALTH:
             raise ValueError('Conditional Health layer requires a Health target')
         if self.operand != StatRelationOperand.CONTROLLER_DECK_COUNT and (
@@ -438,6 +440,11 @@ class StatRelationSpec:
         elif self.operand == StatRelationOperand.CONTROLLER_OPPONENT_TURN:
             if self.layer != StatRelationLayer.CONDITIONAL_ATTACK or self.amount <= 0:
                 raise ValueError('Opponent-turn Attack requires its conditional layer and positive amount')
+        elif self.operand == StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT:
+            expected = (StatRelationLayer.CONDITIONAL_HEALTH if self.target == StatReference.HEALTH
+                else StatRelationLayer.CONDITIONAL_ATTACK)
+            if self.layer != expected or self.amount != 1:
+                raise ValueError('Other named summons require one native contribution per original entry')
         else:
             raise ValueError('Unsupported continuous stat relation')
 
@@ -3337,6 +3344,9 @@ class AbilityInstance:
             if self.stat_relation.operand in (StatRelationOperand.CONTROLLER_HERO_ATTACK, StatRelationOperand.CONTROLLER_IMP_COUNT) and (
                     self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
                 raise ValueError('Native hero/Imp Attack requires an active printed declaration')
+            if self.stat_relation.operand == StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT and (
+                    self.origin != 'printed' or self.source_id is None or self.expires_turn is not None or self.consumed):
+                raise ValueError('Named summon attributes require an active native printed declaration')
         elif self.stat_relation is not None:
             raise ValueError('Only stat relation abilities carry StatRelationSpec')
         if self.attack_policy_declaration is not None:
@@ -10193,12 +10203,14 @@ class DormancyState:
     started_turn: int
     permanent: bool = False
     first_cast_id: int = 1
+    first_death_id: int = 1
 
     def __post_init__(self):
         _int(self.id, 'dormancy ID', 1)
         _int(self.started_turn, 'dormancy started_turn', 1)
         _bool(self.permanent, 'permanent dormancy')
         _int(self.first_cast_id, 'first post-installation CAST', 1)
+        _int(self.first_death_id, 'first post-installation death', 1)
         if self.permanent and self.remaining_turns is not None:
             raise ValueError('Permanent dormancy cannot have a countdown')
         if self.remaining_turns is not None:
@@ -11737,6 +11749,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             dormant_bonus = controlled_card_bonus(state, registry, entity)
             if (entity.kind != CardType.MINION or entity.zone != Zone.BOARD or entity.starship_building or
                     entity.dormancy.started_turn > state.turn or
+                    entity.dormancy.first_death_id > state.next_death_id or
                     entity.dormancy.first_cast_id > len(state.cast_history) + 1 or entity.keywords or
                     (entity.aura_attack, entity.aura_health) != dormant_bonus):
                 raise ValueError('Dormancy requires an inactive board minion')

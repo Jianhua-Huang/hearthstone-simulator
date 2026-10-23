@@ -282,6 +282,15 @@ def successful_reborns(state, player_id):
     return tuple(row for row in summoned_minions(state, player_id) if row.reborn_death_id is not None)
 
 
+def other_self_summon_count(state, entity):
+    """Original same-face occurrences, excluding only this current own entry."""
+    if state.entities.get(entity.id) is not entity or entity.kind != CardType.MINION:
+        raise ValueError('Named summon query requires its actual physical minion')
+    if entity.zone != Zone.BOARD:return 0
+    return sum(not (row.entity_id == entity.id and row.minion.entered_order == entity.board_presence_id)
+        for row in summoned_minions(state,entity.controller)if row.card_id == entity.card_id)
+
+
 def _validate_event(row, event):
     if type(event) is not Event:
         raise ValueError('Successful summon requires its original event')
@@ -347,6 +356,8 @@ by their original executors.
         raise ValueError('A physical entry cannot publish two successful summons')
     state.successful_summon_history.append(row)
     state.next_successful_summon_id += 1
+    from .stat_relations import refresh_named_summon_relations
+    refresh_named_summon_relations(state,r.registry)
 
 
 def validate_boundary(game):

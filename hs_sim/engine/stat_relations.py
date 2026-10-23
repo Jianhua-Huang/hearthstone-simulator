@@ -20,6 +20,13 @@ NATIVE_COUNT_ATTACK = (StatRelationOperand.CONTROLLER_HERO_ATTACK, StatRelationO
 
 
 def _validate_relation_face(card, specs):
+    named = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT)
+    if named:
+        if (len(specs) != 2 or len(named) != 2 or
+                {s.target for s in named} != {StatReference.ATTACK,StatReference.HEALTH}):
+            raise ValueError('Named summon attributes require their two native Attack/Health declarations')
+        validate_ordinary_face(card)
+        return
     if any(s.operand in NATIVE_COUNT_ATTACK for s in specs):
         if len(specs) != 1:
             raise ValueError('Native hero/Imp Attack requires one independent declaration')
@@ -78,6 +85,7 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
                                             StatRelationOperand.CONTROLLER_OPPONENT_TURN,
                                             StatRelationOperand.CONTROLLER_HERO_ATTACK,
                                             StatRelationOperand.CONTROLLER_IMP_COUNT,
+                                            StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT,
                                             StatRelationOperand.CONTROLLER_HAS_SPELL_DAMAGE):
             installed[ability.stat_relation] += 1
             if installed[ability.stat_relation] > card.stat_relations.count(ability.stat_relation):
@@ -154,6 +162,9 @@ def conditional_attack(state, entity, registry=None):
     if discarded:
         from .discard_history import discarded_cards
         bonus += len(discarded_cards(state, entity.controller)) * sum(s.amount for s in discarded)
+    if any(s.operand == StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT for s in specs):
+        from .successful_summons import other_self_summon_count
+        bonus += other_self_summon_count(state,entity)
     counted = tuple(s for s in specs if s.operand == StatRelationOperand.CONTROLLER_DECK_COUNT)
     if counted:
         from .deck_conditions import DeckCountCondition, matches_deck_condition
@@ -220,7 +231,20 @@ def conditional_health(state, entity):
     for spec in specs:
         spec.__post_init__()
     from .discard_history import discarded_cards
-    return len(discarded_cards(state, entity.controller)) * sum(spec.amount for spec in specs)
+    result = len(discarded_cards(state, entity.controller)) * sum(spec.amount for spec in specs
+        if spec.operand == StatRelationOperand.CONTROLLER_DISCARD_COUNT)
+    if any(s.operand == StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT for s in specs):
+        from .successful_summons import other_self_summon_count
+        result += other_self_summon_count(state,entity)
+    return result
+
+
+def refresh_named_summon_relations(state, registry):
+    """Commit the new history fact before original entry observers read stats."""
+    if any(entity.active and any(a.kind=='stat_relation' and
+            a.stat_relation.operand==StatRelationOperand.CONTROLLER_OTHER_SELF_SUMMON_COUNT
+            for a in entity.abilities)for entity in state.entities.values()):
+        refresh_conditional_attacks(state,registry)
 
 
 def refresh_conditional_health(state, *, clamp=True):

@@ -121,7 +121,8 @@ def make_dormant(r, effect, *, deathrattle_memory=None):
     if entity is None:
         return
     entity.dormancy = DormancyState(attachment_id(r.state), effect.turns, r.state.turn,
-                                   first_cast_id=len(r.state.cast_history) + 1)
+                                   first_cast_id=len(r.state.cast_history) + 1,
+                                   first_death_id=r.state.next_death_id)
     if deathrattle_memory is not None:
         from .deathrattle_memory import remember_dormancy
         remember_dormancy(r,deathrattle_memory,entity)
@@ -145,6 +146,18 @@ def awaken(r, effect):
                    player_id=entity.controller)
     return [r.call(a.behavior_id, entity.id, entity.controller, event=event)
             for a in active_abilities(entity, 'on_awaken')]
+
+
+def deaths_since_installation(state, registry, entity):
+    """Actual minion deaths after this original dormancy, across both players."""
+    if state.entities.get(entity.id) is not entity or entity.kind != CardType.MINION:
+        raise ValueError('Dormant death query requires its actual physical minion')
+    if entity.zone != Zone.BOARD or entity.dormancy is None:return 0
+    entity.dormancy.__post_init__()
+    if entity.dormancy.first_death_id > state.next_death_id:
+        raise ValueError('Dormant death query borrowed a future installation')
+    return sum(row.zone == Zone.BOARD and registry.card(row.card_id).kind == CardType.MINION
+        for row in state.death_history if row.id >= entity.dormancy.first_death_id)
 
 
 def awaken_captured(r,effect):

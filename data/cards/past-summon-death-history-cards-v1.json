@@ -1,0 +1,500 @@
+{
+  "schema": 1,
+  "batch": "K485-past-summon-death-history",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "GDB_469",
+    "TOY_866",
+    "TTN_401"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "GDB_469",
+        "dbf_id": 111680,
+        "name": "奥金尼亡语者",
+        "name_en": "Auchenai Death-Speaker",
+        "text": "在另一个友方随从\n<b>复生</b>后，召唤一个它的复制。",
+        "text_en": "[x]After another friendly\nminion is <b>Reborn</b>,\nsummon a copy of it.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CLASS": 1,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1085",
+              "name": "REBORN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f743f8195d0290d12783d178fedf072d80561dd42d13974fbda03423c8565e8c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "epic",
+        "deck_identity": "GDB_469",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TOY_866",
+        "dbf_id": 105100,
+        "name": "通道沉眠者",
+        "name_en": "Corridor Sleeper",
+        "text": "起始<b>休眠</b>状态。在7个随从死亡后唤醒。",
+        "text_en": "Starts <b>Dormant</b>. After 7 minions die, awaken.",
+        "cost": 1,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "1652": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7399a80a5264f11b894a13fec6554c4ad93a3cf4c4d392d21e0f3304582b1789",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TOY_866",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_401",
+        "dbf_id": 96422,
+        "name": "星界自动机",
+        "name_en": "Astral Automaton",
+        "text": "在本局对战中，你每召唤过一个其他星界自动机，便拥有+1/+1。",
+        "text_en": "[x]Has +1/+1 for each other\nAstral Automaton you've\nsummoned this game.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "AURA": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "22c83811c9485009ba8d21c5efe9053bac3c018a1f202d9a5499a9bd408598cb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TTN_401",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "GDB_469",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 111680,
+        "collectible": 1,
+        "slug": "111680-auchenai-death-speaker",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 4,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "奥金尼亡语者",
+        "text": "在另一个友方随从 <b>复生</b>后，召唤一个它的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cea377b3ca5d402e86c022b40e7de83ac6d823a86a943ca51fed11b238a208bb.png",
+        "imageGold": "",
+        "flavorText": "他做到了非礼勿视，非礼勿听，但在言的方面稍有欠缺。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d801154170c1968a4f0d3913b4bc5225c20c33f2089932b145a3815e8cb34982.png",
+        "keywordIds": [
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_469",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 111680,
+        "collectible": 1,
+        "slug": "111680-auchenai-death-speaker",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 4,
+        "artistName": "A. J. Nazzaro",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Auchenai Death-Speaker",
+        "text": "After another friendly minion is <b>Reborn</b>, summon a copy of it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64784a42fa92b01fd38497b4a3069038464f6b34d6c14ff988e7a2ebce67b594.png",
+        "imageGold": "",
+        "flavorText": "He sees no evil. He hears no evil. Eh, he speaks a little evil.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d801154170c1968a4f0d3913b4bc5225c20c33f2089932b145a3815e8cb34982.png",
+        "keywordIds": [
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_866",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 105100,
+        "collectible": 1,
+        "slug": "105100-corridor-sleeper",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Slawomir Maniak",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "通道沉眠者",
+        "text": "起始<b>休眠</b>状态。在7个随从死亡后唤醒。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a0da38db8d3907568c7c92d69d8adcf3ead616b15b0ce784530fab15b096fd8.png",
+        "imageGold": "",
+        "flavorText": "工坊之中我深潜，换牌之际我流连。而今身价更轻贱。你猜对了，通道之内我沉眠。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd14dc0ae9c9efb7dc6e9139b4b5381e091fe944e12f26be5405319e107f4a74.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_866",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 105100,
+        "collectible": 1,
+        "slug": "105100-corridor-sleeper",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Slawomir Maniak",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Corridor Sleeper",
+        "text": "Starts <b>Dormant</b>. After 7 minions die, awaken.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b86e41b9c5de467be518d65483bd6f858327b070d8e1bbe5cfcc8f959637cb55.png",
+        "imageGold": "",
+        "flavorText": "In the workshop, I go deeper. In the mulligan, I'm a keeper. This time, I'm even cheaper. You guessed it right, I'm Corridor Sleeper.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd14dc0ae9c9efb7dc6e9139b4b5381e091fe944e12f26be5405319e107f4a74.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_401",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 96422,
+        "collectible": 1,
+        "slug": "96422-astral-automaton",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "星界自动机",
+        "text": "在本局对战中，你每召唤过一个其他星界自动机，便拥有+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b65d65dfa2ab5365d73b7fef6a8cc734996ded67e0933e8f80b18d22ebd6519.png",
+        "imageGold": "",
+        "flavorText": "你一定会自动积极地召唤大量自动机。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0dc9ae19aec70cf81cda2cb82d33d6376e4bc4748c89f81b570570afb7504ee2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_401",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 96422,
+        "collectible": 1,
+        "slug": "96422-astral-automaton",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Astral Automaton",
+        "text": "Has +1/+1 for each other Astral Automaton you've summoned this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f3f4a9c2da3f2df4d990480018e118824e9d384ea56197ddf3e351f43921533.png",
+        "imageGold": "",
+        "flavorText": "You'll want to summon an automaTON of these.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0dc9ae19aec70cf81cda2cb82d33d6376e4bc4748c89f81b570570afb7504ee2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": "Original successful Reborn recipient is copied by the shared captured-presence writer. Dormancy queries both players actual minion deaths after its original monotonic death cursor. Named native self Attack/Health reads original successful same-face occurrences and excludes only its current own published entry; original controller and current source/printed declaration are distinct. No parallel counters. Exact CN and non-native composite policies remain open.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

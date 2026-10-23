@@ -34,7 +34,8 @@ def initialize_dormancy(state, entity, definition, *, turns_override=None):
     if entity.zone == Zone.BOARD and turns != 0:
         entity.dormancy = DormancyState(attachment_id(state), turns,
                                        state.turn, definition.permanent_dormancy if turns_override is None else False,
-                                       first_cast_id=len(state.cast_history) + 1)
+                                       first_cast_id=len(state.cast_history) + 1,
+                                       first_death_id=state.next_death_id)
     refresh_entity(entity)
 
 
