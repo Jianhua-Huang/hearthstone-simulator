@@ -155,7 +155,8 @@ def recipe_options(registry,primary,secondary,passive_power_template_id=None):
     for half in('top','bottom'):
         prefix=second.prefix if half=='top'else first.prefix
         suffix=second.suffix if half=='bottom'else first.suffix
-        if not compatible(prefix,suffix):continue
+        from .assemble_hand_progress import reviewed_condition
+        if not compatible(prefix,suffix,allow_conditional_targeting=reviewed_condition(registry,prefix.condition_id)):continue
         cid=AssembleRecipe(primary,secondary,half).card_id;card=registry.card(cid)
         if replace(card,id=primary)==original:continue
         if passive_power_template_id is not None:

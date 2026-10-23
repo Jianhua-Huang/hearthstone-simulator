@@ -33,7 +33,7 @@ BASIC_KEYWORDS=frozenset((Keyword.TAUNT,Keyword.DIVINE_SHIELD,Keyword.CHARGE,Key
     Keyword.REBORN,Keyword.COLOSSAL,Keyword.OUTCAST,Keyword.COMBO))
 SOURCE_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords',
     'battlecry','deathrattle','triggers','limited_triggers','requires_target','targeting','target_rule','spell_damage','hand_actions','colossal','on_play','combo',
-    'keyword_auras','minion_death_cost'))
+    'keyword_auras','minion_death_cost','hand_progress'))
 
 @dataclass(frozen=True)
 class AssemblePrefix:
@@ -222,7 +222,7 @@ def prefix_timings(prefix):
     return ('battlecry','deathrattle')if prefix.timing==DUAL_TIMING else(prefix.timing,)
 
 
-def compatible(prefix,suffix):
+def compatible(prefix,suffix,*,allow_conditional_targeting=False):
     suffix.__post_init__()
     timings=prefix_timings(prefix)
     if prefix.timing in REACTION_TIMINGS and prefix.timing not in suffix.allowed_timings:
@@ -233,12 +233,12 @@ def compatible(prefix,suffix):
         raise ValueError('Eligible Combo body context remains explicitly unimplemented: '+','.join(timings))
     if any(t in suffix.pending_timings for t in timings):
         raise ValueError('Eligible assembly timing remains explicitly unimplemented: '+','.join(timings))
-    if prefix.condition_id is not None and(suffix.requires_target or suffix.targeting is not None):
+    if prefix.condition_id is not None and(suffix.requires_target or suffix.targeting is not None)and not allow_conditional_targeting:
         raise ValueError('Eligible conditional assembly arrow requires its explicit targeting acceptance contract')
     return all(t in suffix.allowed_timings for t in timings)
 
 
-def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None,keyword_auras=(),minion_death_cost=None,fixed_battlecry=None):
+def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=None,keyword_auras=(),minion_death_cost=None,fixed_battlecry=None,hand_progress=None,allow_conditional_targeting=False):
     prefix.__post_init__();suffix.__post_init__()
     if fixed_battlecry is not None:
         _name(fixed_battlecry,'assembled fixed prefix Battlecry')
@@ -254,7 +254,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=
     if (prefix_deathrattle is not None)!=(prefix.timing==PLAY_PREFIX_DEATH_TIMING):
         raise ValueError('Assembled independent prefix Deathrattle requires its complete selected material')
     if prefix_deathrattle is not None:_name(prefix_deathrattle,'assembled independent prefix Deathrattle')
-    if not compatible(prefix,suffix):raise ValueError('Unreviewed prefix/suffix compatibility')
+    if not compatible(prefix,suffix,allow_conditional_targeting=allow_conditional_targeting):raise ValueError('Unreviewed prefix/suffix compatibility')
     timings=prefix_timings(prefix)
     battlecry=(condition_behavior_id(prefix.condition_id,suffix.behavior_id)if prefix.condition_id is not None
         else suffix.behavior_id)if 'battlecry'in timings else None
@@ -264,7 +264,7 @@ def printed_face(primary,prefix,suffix,card_id,*,colossal=(),prefix_deathrattle=
         if 'battlecry'in timings:battlecry=before_behavior_id(prefix.before_behavior_id,battlecry)
         if 'deathrattle'in timings:deathrattle=before_behavior_id(prefix.before_behavior_id,deathrattle)
     return replace(primary,id=card_id,keywords=prefix.keywords,spell_damage=prefix.spell_damage,hand_actions=prefix.hand_actions,colossal=colossal,
-        keyword_auras=keyword_auras,minion_death_cost=minion_death_cost,
+        keyword_auras=keyword_auras,minion_death_cost=minion_death_cost,hand_progress=hand_progress,
         on_play=condition_behavior_id(prefix.condition_id,suffix.behavior_id) if 'on_play'in timings else None,
         combo=suffix.behavior_id if 'combo'in timings else None,
         battlecry=battlecry,
@@ -286,12 +286,17 @@ def source_face(registry,primary,prefix_source,suffix,card_id):
     validate_gain_prefix(registry,prefix_source)
     from .assemble_static_materials import prefix_materials
     from .assemble_fixed_battlecry import prefix_battlecry
+    from .assemble_hand_progress import prefix_material as held_material,native_battlecry as held_battlecry
+    held=held_material(registry,prefix_source)
     auras,death_price=prefix_materials(registry,prefix_source)
     face=printed_face(primary,prefix_source.prefix,suffix,card_id,
         colossal=prefix_appendages(registry,prefix_source),
         prefix_deathrattle=prefix_deathrattle(registry,prefix_source),
         keyword_auras=auras,minion_death_cost=death_price,
-        fixed_battlecry=prefix_battlecry(registry,prefix_source))
+        fixed_battlecry=prefix_battlecry(registry,prefix_source),hand_progress=held,
+        allow_conditional_targeting=held is not None)
+    original_held=held_battlecry(registry,prefix_source,suffix)
+    if original_held is not None:face=replace(face,battlecry=original_held)
     from .assemble_draw_groups import native_battlecry
     original_draw=native_battlecry(registry,prefix_source,suffix)
     if original_draw is not None:face=replace(face,battlecry=original_draw)
@@ -635,6 +640,8 @@ def check_end_condition(resolver,effect):
     return [call]if result else []
 
 def validate_templates(registry):
+    from .assemble_hand_progress import validate_sources as validate_held_sources
+    validate_held_sources(registry)
     from .assemble_health_prefixes import validate_sources as validate_health_prefixes
     validate_health_prefixes(registry)
     from .assemble_corpse_prefixes import validate_sources as validate_corpse_prefixes

@@ -179,6 +179,8 @@ class Registry:
         self._assemble_corpse_gain_sources = {}
         self._assemble_paid_battlecry_sources = {}
         self._assemble_health_prefix_sources = {}
+        self._assemble_conditional_death_sources = {}
+        self._assemble_hand_progress_sources = {}
         self._assemble_projections = {}
         self._assembled_power_profiles = {}
         self._crafted_minion_blueprints = {}
@@ -379,9 +381,32 @@ class Registry:
         self._require_mutable();validate_source(self,source)
         if source.card_id in self._assemble_deferred_death_sources or any(
                 p.original_deathrattle_id==source.original_deathrattle_id
-                for p in self._assemble_deferred_death_sources.values()):
+                for p in (*self._assemble_deferred_death_sources.values(),*self._assemble_conditional_death_sources.values())):
             raise ValueError('Duplicate original deferred Deathrattle source')
         self._assemble_deferred_death_sources[source.card_id]=source
+
+    @property
+    def assemble_conditional_death_sources(self):return MappingProxyType(self._assemble_conditional_death_sources)
+
+    def register_assemble_conditional_death_source(self,source):
+        from .assemble_death_programs import validate_conditional_source
+        self._require_mutable();validate_conditional_source(self,source)
+        if source.card_id in self._assemble_conditional_death_sources or source.card_id in self._assemble_deferred_death_sources or any(
+                p.original_deathrattle_id==source.original_deathrattle_id
+                for p in (*self._assemble_deferred_death_sources.values(),*self._assemble_conditional_death_sources.values())):
+            raise ValueError('Duplicate original conditional Deathrattle source')
+        self._assemble_conditional_death_sources[source.card_id]=source
+
+    @property
+    def assemble_hand_progress_sources(self):return MappingProxyType(self._assemble_hand_progress_sources)
+
+    def register_assemble_hand_progress_source(self,source):
+        from .assemble_hand_progress import validate_source
+        self._require_mutable();validate_source(self,source)
+        if source.card_id in self._assemble_hand_progress_sources or any(
+                p.condition_id==source.condition_id for p in self._assemble_hand_progress_sources.values()):
+            raise ValueError('Duplicate original held progress source')
+        self._assemble_hand_progress_sources[source.card_id]=source
 
     @property
     def assemble_corpse_gain_sources(self):return MappingProxyType(self._assemble_corpse_gain_sources)
@@ -2938,6 +2963,10 @@ class Registry:
             payload['assemble_paid_battlecry_sources']=[asdict(self._assemble_paid_battlecry_sources[k])for k in sorted(self._assemble_paid_battlecry_sources)]
         if self._assemble_health_prefix_sources:
             payload['assemble_health_prefix_sources']=[asdict(self._assemble_health_prefix_sources[k])for k in sorted(self._assemble_health_prefix_sources)]
+        if self._assemble_conditional_death_sources:
+            payload['assemble_conditional_death_sources']=[asdict(self._assemble_conditional_death_sources[k])for k in sorted(self._assemble_conditional_death_sources)]
+        if self._assemble_hand_progress_sources:
+            payload['assemble_hand_progress_sources']=[asdict(self._assemble_hand_progress_sources[k])for k in sorted(self._assemble_hand_progress_sources)]
         if self._assemble_projections:
             payload['assemble_projections']=[asdict(self._assemble_projections[k])for k in sorted(self._assemble_projections)]
         if self._crafted_minion_blueprints:

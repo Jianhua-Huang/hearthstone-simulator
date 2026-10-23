@@ -18,9 +18,10 @@ def effective_target_spec(state,registry,source,definition):
     from .spell_target_conditions import effective_spec
     from .hero_health_targets import effective_spec as health_spec
     from .kindred_targets import effective_spec as kindred_spec
-    return kindred_spec(state,registry,source,definition,
+    from .assemble_hand_progress import effective_spec as held_spec
+    return held_spec(state,registry,source,definition,kindred_spec(state,registry,source,definition,
                        health_spec(state,registry,source,definition,
-                       effective_spec(state,registry,source,definition,target_spec(definition))))
+                       effective_spec(state,registry,source,definition,target_spec(definition)))))
 
 
 def accepts_target(state, registry, source, definition, target_id, *, context_factory=None, automatic=False):

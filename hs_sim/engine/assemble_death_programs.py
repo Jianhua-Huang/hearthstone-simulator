@@ -1,5 +1,5 @@
 """A native summon prefix finishes before its selected Deathrattle suffix."""
-from dataclasses import dataclass
+from dataclasses import dataclass,replace
 
 from .effects import Effect, InvokeBehavior
 from .errors import ResolutionError
@@ -7,6 +7,55 @@ from .model import CardType, _name
 from .pools import PoolQuery, SummonFromPool
 from .registry import RuleContext
 from .summon_quantities import SummonCause
+from .deck_conditions import CheckDeckCondition,DeckCondition
+from .model import CardClass,CostSpec
+from .pools import GenerateFromPool
+
+
+@dataclass(frozen=True)
+class AssembleConditionalDeathSource:
+    card_id: str
+    original_deathrattle_id: str
+    original_suffix_id: str
+    condition: DeckCondition
+    pool_id: str
+    query: PoolQuery
+    cost: CostSpec
+
+    def __post_init__(self):
+        for name in('card_id','original_deathrattle_id','original_suffix_id','pool_id'):
+            _name(getattr(self,name),'conditional Deathrattle '+name)
+        if (self.card_id.startswith('assemble:')or type(self.condition)is not DeckCondition or
+                self.condition!=DeckCondition(scope='current',predicate='no_neutral')or
+                type(self.query)is not PoolQuery or self.query!=PoolQuery(collectible=True,class_mode='specified',
+                    classes=(CardClass.PALADIN,),include_neutral=False)or
+                type(self.cost)is not CostSpec or self.cost!=CostSpec(delta=-2)):
+            raise ValueError('Conditional Deathrattle requires its complete original deck branch and reward')
+        self.condition.__post_init__();self.query.__post_init__();self.cost.__post_init__()
+
+
+def validate_conditional_source(registry,source,*,require_template=False):
+    if type(source)is not AssembleConditionalDeathSource:raise ValueError('Expected native conditional Deathrattle')
+    source.__post_init__();original=registry._cards.get(source.card_id)
+    if original is None or original.kind!=CardType.MINION or original.deathrattle!=source.original_deathrattle_id:
+        raise ValueError('Conditional Deathrattle changed its whole original declaration')
+    registry.behavior(source.original_deathrattle_id);registry.behavior(source.original_suffix_id)
+    template=registry._assemble_templates.get(source.card_id)
+    if require_template and template is None:raise ValueError('Conditional Deathrattle lacks its native template')
+    if template is not None:
+        validate_prefix(template,source)
+        if template.suffix.behavior_id!=source.original_suffix_id:raise ValueError('Conditional Deathrattle changed its independent reward')
+
+
+def declared_source(registry,card_id):
+    source=registry._assemble_deferred_death_sources.get(card_id)
+    return source if source is not None else registry._assemble_conditional_death_sources.get(card_id)
+
+
+def validate_declared_source(registry,source,*,require_template=False):
+    if type(source)is AssembleConditionalDeathSource:
+        validate_conditional_source(registry,source,require_template=require_template)
+    else:validate_source(registry,source,require_template=require_template)
 
 
 @dataclass(frozen=True)
@@ -49,13 +98,13 @@ def validate_prefix(template, source):
 
 
 def native_deathrattle(registry, template, suffix):
-    source=registry._assemble_deferred_death_sources.get(template.card_id)
+    source=declared_source(registry,template.card_id)
     if source is None:
         if any(p.original_deathrattle_id==template.prefix.before_behavior_id
-                for p in registry._assemble_deferred_death_sources.values()):
+                for p in (*registry._assemble_deferred_death_sources.values(),*registry._assemble_conditional_death_sources.values())):
             raise ValueError('Deferred prefix borrowed another original source')
         return None
-    validate_source(registry,source);validate_prefix(template,source)
+    validate_declared_source(registry,source);validate_prefix(template,source)
     return source.original_deathrattle_id if suffix==template.suffix else None
 
 
@@ -83,10 +132,10 @@ def validate_material(registry, material):
     declaration_id=origin.deathrattle.ability.deathrattle_card_id
     recipe=recipe_from_id(declaration_id)
     prefix_id=recipe.secondary_card_id if recipe.half=='top' else recipe.primary_card_id
-    source=registry._assemble_deferred_death_sources.get(prefix_id)
+    source=declared_source(registry,prefix_id)
     if source is None or source.original_deathrattle_id!=material.before_behavior_id:
         raise ValueError('Followup changed its actual selected native program')
-    validate_source(registry,source,require_template=True)
+    validate_declared_source(registry,source,require_template=True)
     identity=before_behavior_id(material.before_behavior_id,material.behavior_id)
     if (origin.deathrattle.ability.behavior_id!=identity or
             registry.card(declaration_id).deathrattle!=identity):
@@ -134,7 +183,15 @@ class ContinueAssembledDeathrattle(Effect):
 
 def selected_request(registry,context,before_id,body_id):
     matches=[p for p in registry._assemble_deferred_death_sources.values()if p.original_deathrattle_id==before_id]
-    if not matches:return None
+    if not matches:
+        matches=[p for p in registry._assemble_conditional_death_sources.values()if p.original_deathrattle_id==before_id]
+        if not matches:return None
+        source,=matches;material=AssembleDeathContinuation(context,before_id,body_id);validate_material(registry,material)
+        get=GenerateFromPool(context.player_id,source.pool_id,source.query,source_id=context.source_id,cost=source.cost)
+        expected=CheckDeckCondition(context.player_id,source.condition,(get,))
+        planned=registry.behavior(before_id)(context)
+        if planned!=(expected,):raise ResolutionError('Conditional Deathrattle changed its complete original deck request')
+        return (replace(expected,on_match=(ContinueAssembledDeathrattle(material),)),)
     source,=matches
     material=AssembleDeathContinuation(context,before_id,body_id);validate_material(registry,material)
     planned=registry.behavior(before_id)(context)
@@ -158,6 +215,10 @@ def validate_sources(registry):
     for cid,source in registry._assemble_deferred_death_sources.items():
         validate_source(registry,source,require_template=True)
         if cid!=source.card_id or source.original_deathrattle_id in seen:raise ValueError('Duplicate deferred native prefix')
+        seen.add(source.original_deathrattle_id)
+    for cid,source in registry._assemble_conditional_death_sources.items():
+        validate_conditional_source(registry,source,require_template=True)
+        if cid!=source.card_id or source.original_deathrattle_id in seen:raise ValueError('Duplicate conditional Deathrattle program')
         seen.add(source.original_deathrattle_id)
 
 
