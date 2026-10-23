@@ -27,13 +27,18 @@ DEATH_SOURCES=(PORCUPINE,RATTLER,SERVANT)
 REACTIVE_SOURCES=(DEATH_ACOLYTE,VAPOR)
 SOURCE_PIN=hashlib.sha256(Path(__file__).read_bytes()+Path(cards.__file__).read_bytes()+cards.BATCH_PATH.read_bytes()).hexdigest()
 def meta(tribes=()):return CardMetadata(False,(CardClass.MAGE,),Rarity.COMMON,runes=Runes(),tribes=tribes)
-def baseline_registry():
- with patch('hs_sim.cards.simple_followup_p88_cards.register_simple_followup_p88_cards',lambda r:None):return build_registry()
+def baseline_registry(after_batch=False):
+ class OriginalPrefixReady(Exception):
+  def __init__(self,registry):self.registry=registry
+ def capture(registry):
+  if after_batch:register_simple_followup_p88_cards(registry)
+  raise OriginalPrefixReady(registry)
+ with patch('hs_sim.cards.simple_followup_p88_cards.register_simple_followup_p88_cards',capture):
+  try:build_registry()
+  except OriginalPrefixReady as found:return found.registry
+ raise AssertionError('Original P88 registration boundary was not reached')
 def batch_registry():
- with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):r=build_registry()
- present=tuple(i in r.cards for i in ROOTS)
- if not any(present):register_simple_followup_p88_cards(r)
- elif not all(present):raise AssertionError('Complete P88 assembly required')
+ r=baseline_registry(after_batch=True)
  register_candidate_pool_metadata(r);r.validate();return r
 @lru_cache(maxsize=1)
 def original_fixture_sources():
