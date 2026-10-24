@@ -1,0 +1,3200 @@
+{
+  "schema": 1,
+  "batch": "K498-past-real-concoctions",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "RLK_568"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "RLK_568",
+        "dbf_id": 86112,
+        "name": "配药师",
+        "name_en": "Concoctor",
+        "text": "<b>战吼：</b>随机将一份药剂置入你的手牌。",
+        "text_en": "<b>Battlecry:</b> Add a random Concoction to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "d5de4924fcb0124a8e07a6519f08c4b75c742719e1a9b76450124ab7e8f0a408",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "RLK_568",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "kind": "random_single"
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t3",
+        "dbf_id": 86156,
+        "name": "泡泡药剂",
+        "name_en": "Bubbling Concoction",
+        "text": "造成$3点伤害。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "text_en": "Deal $3 damage.\n<i>Add another Concoction to\nyour hand to mix together!</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "f9df49131275fefc73140c318e97e80e7158855f6b29990eaca22feb2d50377a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t3"
+        ],
+        "steps": [
+          [
+            "damage",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t5",
+        "dbf_id": 86162,
+        "name": "闪光药剂",
+        "name_en": "Gleaming Concoction",
+        "text": "抽两张牌。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "text_en": "Draw 2 cards.\n<i>Add another Concoction to\nyour hand to mix together!</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "3738f0adab047a4dd9eae9a5239eca588d4b4b7219e9f1e19b24c2c8fa553204",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t5"
+        ],
+        "steps": [
+          [
+            "draw",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t1",
+        "dbf_id": 86115,
+        "name": "黏稠药剂",
+        "name_en": "Slimy Concoction",
+        "text": "随机召唤一个法力值消耗为（3）的随从。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "text_en": "Summon a random 3-Cost minion.\n<i>Add another Concoction to\nyour hand to mix together!</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "73468dfd5339931deeb8c2b41e016871ed700b6c9e24c0a7278a603688c1566e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t1"
+        ],
+        "steps": [
+          [
+            "summon",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t2",
+        "dbf_id": 86117,
+        "name": "恐怖药剂",
+        "name_en": "Dreadful Concoction",
+        "text": "随机消灭一个敌方随从。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "text_en": "Destroy a random enemy minion.\n<i>Add another Concoction to\nyour hand to mix together!</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "eca692b72f32074dd7afeca5e1ecb6588b47efb165cc62fbf98f09c82bfaaad5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t2"
+        ],
+        "steps": [
+          [
+            "destroy",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t4",
+        "dbf_id": 86157,
+        "name": "缥缈药剂",
+        "name_en": "Hazy Concoction",
+        "text": "将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "text_en": "[x]Add a card to your hand from\nanother class. It costs (3) less.\n<i>Add another Concoction to\nyour hand to mix together!</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "2a277b8637eea22d1b447182b941e722ff287c32bd115e43916b95edd30336ef",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t4"
+        ],
+        "steps": [
+          [
+            "generate",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t1t1",
+        "dbf_id": 86172,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "随机召唤一个法力值消耗为（3）的随从。将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "text_en": "Summon a random 3-Cost minion. Add a card to your hand from another class. It costs (3) less.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "21a7627c6b6b535247883aed7bdc10853c716103de46650294c316edfa680434",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t1t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t1",
+          "RLK_570t4"
+        ],
+        "steps": [
+          [
+            "summon",
+            1
+          ],
+          [
+            "generate",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t1t2",
+        "dbf_id": 86173,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "随机召唤一个法力值消耗为（3）的随从。随机消灭一个敌方随从。",
+        "text_en": "Summon a random\n3-Cost minion. Destroy a\nrandom enemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "8255a732d4fec831b81a9119e23590d26d2c7d22726bcc90df25e38871620b04",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t1t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t1",
+          "RLK_570t2"
+        ],
+        "steps": [
+          [
+            "summon",
+            1
+          ],
+          [
+            "destroy",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t1t3",
+        "dbf_id": 86174,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "造成$3点伤害。随机召唤一个法力值消耗为（3）的随从。",
+        "text_en": "Deal $3 damage.\nSummon a random\n3-Cost minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "c20c7dde440a7a4dccc946ae73ea25d6dc6f40c69bd3a7a323a72da5b74945d6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t1t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t1",
+          "RLK_570t3"
+        ],
+        "steps": [
+          [
+            "damage",
+            1
+          ],
+          [
+            "summon",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t1t4",
+        "dbf_id": 88178,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "随机召唤两个法力值消耗为（3）的随从。",
+        "text_en": "Summon two random 3-Cost minions.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "20a84f69a01169eec0df1684dcd531c47897f8e33d7eea96f2ae8cd46fcacbc1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t1t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t1",
+          "RLK_570t1"
+        ],
+        "steps": [
+          [
+            "summon",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t2t1",
+        "dbf_id": 86182,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "造成$3点伤害。随机消灭一个敌方随从。",
+        "text_en": "Deal $3 damage.\nDestroy a random enemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "499b05ab22aa9da2040319f6d37bd9ac0e2955178694bb5750ff902f2f51f653",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t2t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t2",
+          "RLK_570t3"
+        ],
+        "steps": [
+          [
+            "damage",
+            1
+          ],
+          [
+            "destroy",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t2t2",
+        "dbf_id": 88179,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "随机消灭两个敌方随从。",
+        "text_en": "Destroy two random enemy minions.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "db25c0e8f8badc1e43311a21ee27c3bb3b7415351d63cbaf4423d63001a8650d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t2t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t2",
+          "RLK_570t2"
+        ],
+        "steps": [
+          [
+            "destroy",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t3t",
+        "dbf_id": 88177,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "造成$3点伤害，触发两次。",
+        "text_en": "Deal $3 damage, twice.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "2ec2de5ba581f4a521e6dc41bfbd26c628fc61faebf2899344b6680563988756",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t3t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t3",
+          "RLK_570t3"
+        ],
+        "steps": [
+          [
+            "damage",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t4t1",
+        "dbf_id": 86179,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。随机消灭一个敌方随从。",
+        "text_en": "Add a card to your hand from another class. It costs (3) less. Destroy a random enemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "1bd52c255bbd6bc4ed499e62d0f60be121dd43ce1bbb3119b0ba9cdb2adda187",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t4t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t2",
+          "RLK_570t4"
+        ],
+        "steps": [
+          [
+            "generate",
+            1
+          ],
+          [
+            "destroy",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t4t2",
+        "dbf_id": 86180,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "造成$3点伤害。将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "text_en": "Deal $3 damage. Add a card to your hand from another class.\nIt costs (3) less.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "228ec2dd560a0d8e69109d1bc725ee47db102cbb2e6db82b04029c0aadc2b246",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t4t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t3",
+          "RLK_570t4"
+        ],
+        "steps": [
+          [
+            "damage",
+            1
+          ],
+          [
+            "generate",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570t4t3",
+        "dbf_id": 88180,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "将两张其他职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "text_en": "[x]Add two cards to your\nhand from other classes.\nThey cost (3) less.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "cab0bde3531623630aeb6450a78bbdabff40ef0c365c5ef4e2164f21fd275b0f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570t4t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t4",
+          "RLK_570t4"
+        ],
+        "steps": [
+          [
+            "generate",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570tt1",
+        "dbf_id": 86158,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "抽两张牌。随机召唤一个法力值消耗为（3）的随从。",
+        "text_en": "Draw 2 cards.\nSummon a random\n3-Cost minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "52b2b6ff9d095e73f70e21728a3736b7c685143076b9f862c4362ca9d64ff04a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570tt1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t1",
+          "RLK_570t5"
+        ],
+        "steps": [
+          [
+            "draw",
+            2
+          ],
+          [
+            "summon",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570tt2",
+        "dbf_id": 86159,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "造成$3点伤害。抽两张牌。",
+        "text_en": "Deal $3 damage.\nDraw 2 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "1e797ae0050d91ec3e10f89ae6ec5701e5f807172aa82b96cfc451112927b566",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570tt2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t3",
+          "RLK_570t5"
+        ],
+        "steps": [
+          [
+            "damage",
+            1
+          ],
+          [
+            "draw",
+            2
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570tt3",
+        "dbf_id": 86160,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "抽两张牌。将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "text_en": "Draw 2 cards.\nAdd a card to your hand from another class.\nIt costs (3) less.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "64d6f397cb3b8aedd5490ff5e31331c8bb0948e44e027ea0f31262d7377e18fc",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570tt3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t4",
+          "RLK_570t5"
+        ],
+        "steps": [
+          [
+            "draw",
+            2
+          ],
+          [
+            "generate",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570tt4",
+        "dbf_id": 86161,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "抽两张牌。随机消灭一个敌方随从。",
+        "text_en": "Draw 2 cards.\nDestroy a random enemy minion.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "77149201a12808a45245bb6999c807dc955c59511cf53ba6261d7ffc12bf4ea9",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570tt4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t2",
+          "RLK_570t5"
+        ],
+        "steps": [
+          [
+            "draw",
+            2
+          ],
+          [
+            "destroy",
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "record": {
+        "id": "RLK_570tt5",
+        "dbf_id": 88181,
+        "name": "调好的药剂",
+        "name_en": "Mixed Concoction",
+        "text": "抽四张牌。",
+        "text_en": "Draw 4 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1776,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "2500": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2500",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2500"
+          }
+        ]
+      },
+      "record_sha256": "6aa030173879e5f26d1278a3ac62c22e760f570b794b4339edcb865a68af2f6e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_570tt5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "recipe": {
+        "parts": [
+          "RLK_570t5",
+          "RLK_570t5"
+        ],
+        "steps": [
+          [
+            "draw",
+            4
+          ]
+        ]
+      }
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "RLK_568",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 86112,
+        "collectible": 1,
+        "slug": "86112-concoctor",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "配药师",
+        "text": "<b>战吼：</b>随机将一份药剂置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d0f2f87a8585680c45a94147b0ff8e178344495cfa7405daa93e46924311a89.png",
+        "imageGold": "",
+        "flavorText": "“加一点点死亡，再配一捏捏死亡，然后再加一丢丢……死亡！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0b72ac6703f1640e862b4af41e97b2d514f38d31c419b08405108f16f1511a8.png",
+        "childIds": [
+          86156,
+          86162,
+          86115,
+          86117,
+          86157,
+          86172,
+          86173,
+          86174,
+          88178,
+          86182,
+          88179,
+          88177,
+          86179,
+          86180,
+          88180,
+          86158,
+          86159,
+          86160,
+          86161,
+          88181
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_568",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 86112,
+        "collectible": 1,
+        "slug": "86112-concoctor",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "A. J. Nazzaro",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Concoctor",
+        "text": "<b>Battlecry:</b> Add a random Concoction to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e09e3d47ff88db21706225c567f112e62dd2c55a77f9f4bb093bd0e9c878e04.png",
+        "imageGold": "",
+        "flavorText": "\"A dash of death, with a pinch of death, and a sprinkle of… death!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0b72ac6703f1640e862b4af41e97b2d514f38d31c419b08405108f16f1511a8.png",
+        "childIds": [
+          86156,
+          86162,
+          86115,
+          86117,
+          86157,
+          86172,
+          86173,
+          86174,
+          88178,
+          86182,
+          88179,
+          88177,
+          86179,
+          86180,
+          88180,
+          86158,
+          86159,
+          86160,
+          86161,
+          88181
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_570t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86156-zh_CN.json",
+      "response_sha256": "a74596d073bb3ea3f4dca3e70a45ca1608a891438d691e75973b11578b4b51a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86156&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86156,
+        "collectible": 0,
+        "slug": "86156-bubbling-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "泡泡药剂",
+        "text": "造成 3点伤害。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f892c18d1b6dde7f7bb9cf30c4f96870507c5d859fb15840200aefee87d6550c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86156&locale=zh_CN&collectible=0",
+        "sha256": "a74596d073bb3ea3f4dca3e70a45ca1608a891438d691e75973b11578b4b51a3",
+        "bytes": 612,
+        "observed_at": "2026-10-24T03:16:51.428409+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86156-en_US.json",
+      "response_sha256": "29308d1299c7467766d21975e2c27cb388e5f1b1f43d62ec46c996e6cd954955",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86156&locale=en_US&collectible=0",
+      "face": {
+        "id": 86156,
+        "collectible": 0,
+        "slug": "86156-bubbling-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Bubbling Concoction",
+        "text": "Deal 3 damage. <i>Add another Concoction to your hand to mix together!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b14502f1abeee75e60dcc2e6fe0c9910eb145299f2007533fb40dbaa2bd6af58.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86156&locale=en_US&collectible=0",
+        "sha256": "29308d1299c7467766d21975e2c27cb388e5f1b1f43d62ec46c996e6cd954955",
+        "bytes": 603,
+        "observed_at": "2026-10-24T03:16:51.404183+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86162-zh_CN.json",
+      "response_sha256": "5f25f58ea758852c7757f94ac1075d2fe3ed2f5e39e87d75d3ca0df84979612f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86162&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86162,
+        "collectible": 0,
+        "slug": "86162-gleaming-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "闪光药剂",
+        "text": "抽两张牌。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcd3e053a4f0e96cd7a1d29692c7915644ab25a4fbaab045da5842f6b2fa3b3e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86162&locale=zh_CN&collectible=0",
+        "sha256": "5f25f58ea758852c7757f94ac1075d2fe3ed2f5e39e87d75d3ca0df84979612f",
+        "bytes": 607,
+        "observed_at": "2026-10-24T03:16:51.252943+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86162-en_US.json",
+      "response_sha256": "b4b2f5c8639a759e8005caa3bd8d0f95a31ddca2b1bb01cafa2ad5459ac0f599",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86162&locale=en_US&collectible=0",
+      "face": {
+        "id": 86162,
+        "collectible": 0,
+        "slug": "86162-gleaming-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Gleaming Concoction",
+        "text": "Draw 2 cards. <i>Add another Concoction to your hand to mix together!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d1af496bab7219571e0ca37f98f0d182b9064c9c7c17b14a410521270be4d64.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86162&locale=en_US&collectible=0",
+        "sha256": "b4b2f5c8639a759e8005caa3bd8d0f95a31ddca2b1bb01cafa2ad5459ac0f599",
+        "bytes": 602,
+        "observed_at": "2026-10-24T03:16:51.393271+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86115-zh_CN.json",
+      "response_sha256": "2e067ae9fe177c0caa863a848c53ea2b5e5cdd6b39a6ad35dbd5172da31d4207",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86115&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86115,
+        "collectible": 0,
+        "slug": "86115-slimy-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "黏稠药剂",
+        "text": "随机召唤一个法力值消耗为（3）的随从。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/23fd177f64a4e3a29478a9300bf13621ccd08322df559580a4225aaf52b4ee7f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86115&locale=zh_CN&collectible=0",
+        "sha256": "2e067ae9fe177c0caa863a848c53ea2b5e5cdd6b39a6ad35dbd5172da31d4207",
+        "bytes": 644,
+        "observed_at": "2026-10-24T03:16:53.044925+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86115-en_US.json",
+      "response_sha256": "82d74a4d1ad54800b3fb68d8d76092eb5cb2ac999558c2897dba371cf64376da",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86115&locale=en_US&collectible=0",
+      "face": {
+        "id": 86115,
+        "collectible": 0,
+        "slug": "86115-slimy-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Slimy Concoction",
+        "text": "Summon a random 3-Cost minion. <i>Add another Concoction to your hand to mix together!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77ba705c57bba24062d9b5d664e0619317e6f2b0fd9f20c31e7db771452e4478.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86115&locale=en_US&collectible=0",
+        "sha256": "82d74a4d1ad54800b3fb68d8d76092eb5cb2ac999558c2897dba371cf64376da",
+        "bytes": 613,
+        "observed_at": "2026-10-24T03:16:53.340169+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86117-zh_CN.json",
+      "response_sha256": "0db209f0c5e850ab6e6cd4c480bc86ed33c1db365c487417513e33bd23a63504",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86117&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86117,
+        "collectible": 0,
+        "slug": "86117-dreadful-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "恐怖药剂",
+        "text": "随机消灭一个敌方随从。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09ad6064cc25485dd4cd4251be1baaa70160ab15f5ffac8fcfdbfdef9509e720.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86117&locale=zh_CN&collectible=0",
+        "sha256": "0db209f0c5e850ab6e6cd4c480bc86ed33c1db365c487417513e33bd23a63504",
+        "bytes": 625,
+        "observed_at": "2026-10-24T03:16:53.337163+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86117-en_US.json",
+      "response_sha256": "2ee769c1bef26557233edeef76d7b8cdd8a0c06f14eb422c35b86837b5a42b44",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86117&locale=en_US&collectible=0",
+      "face": {
+        "id": 86117,
+        "collectible": 0,
+        "slug": "86117-dreadful-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Dreadful Concoction",
+        "text": "Destroy a random enemy minion. <i>Add another Concoction to your hand to mix together!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd2910752355fab51a651fa83730d8968b28a5e386c094bd5b2df02a927cafac.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86117&locale=en_US&collectible=0",
+        "sha256": "2ee769c1bef26557233edeef76d7b8cdd8a0c06f14eb422c35b86837b5a42b44",
+        "bytes": 619,
+        "observed_at": "2026-10-24T03:16:53.445826+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86157-zh_CN.json",
+      "response_sha256": "0674b7d356807f3bf2a2aa6ffc786f653338e8ddca3f1f64a41c61cebcba1778",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86157&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86157,
+        "collectible": 0,
+        "slug": "86157-hazy-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "缥缈药剂",
+        "text": "将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。<i>将另一份药剂置入你的手牌，即可混合在一起！</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f58fd43886362f9a2fb12fb0af00fa063bf12d7a82d05fadc85638c746a1c39d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86157&locale=zh_CN&collectible=0",
+        "sha256": "0674b7d356807f3bf2a2aa6ffc786f653338e8ddca3f1f64a41c61cebcba1778",
+        "bytes": 673,
+        "observed_at": "2026-10-24T03:16:54.894291+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86157-en_US.json",
+      "response_sha256": "207d7181c828628d1a2bba02f1a125bc0fc6ada3ad4b621e58f7db4d450dfeae",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86157&locale=en_US&collectible=0",
+      "face": {
+        "id": 86157,
+        "collectible": 0,
+        "slug": "86157-hazy-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Hazy Concoction",
+        "text": "Add a card to your hand from another class. It costs (3) less. <i>Add another Concoction to your hand to mix together!</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30a3ce20a8b79873a0c735ca374694643b2ed4078f9c226d1009bee8633015fa.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86157&locale=en_US&collectible=0",
+        "sha256": "207d7181c828628d1a2bba02f1a125bc0fc6ada3ad4b621e58f7db4d450dfeae",
+        "bytes": 643,
+        "observed_at": "2026-10-24T03:16:54.884145+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86172-zh_CN.json",
+      "response_sha256": "8955fea3fff598f46727fd847779f4336ac456d985dd73baceefe82d5a8c79be",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86172&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86172,
+        "collectible": 0,
+        "slug": "86172-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "随机召唤一个法力值消耗为（3）的随从。将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fdaf743b81c516ad5909a2630c1d1f1bcb898c922e5ce2c9ad8083a5f7af88a6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86172&locale=zh_CN&collectible=0",
+        "sha256": "8955fea3fff598f46727fd847779f4336ac456d985dd73baceefe82d5a8c79be",
+        "bytes": 662,
+        "observed_at": "2026-10-24T03:16:54.885151+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86172-en_US.json",
+      "response_sha256": "4e366a05ca01f1ed0fb21b3922b4cc17ca7bcce5a611645ca56c6d6055e9eb76",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86172&locale=en_US&collectible=0",
+      "face": {
+        "id": 86172,
+        "collectible": 0,
+        "slug": "86172-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Summon a random 3-Cost minion. Add a card to your hand from another class. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5795d44c5ca30eefd137adc51a303e35550d9ce2dd55534b9bef50deb1eafad9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86172&locale=en_US&collectible=0",
+        "sha256": "4e366a05ca01f1ed0fb21b3922b4cc17ca7bcce5a611645ca56c6d6055e9eb76",
+        "bytes": 616,
+        "observed_at": "2026-10-24T03:16:54.980630+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86173-zh_CN.json",
+      "response_sha256": "989f5b59df3b4dc12ad5039b9a4e78dea91eb7105781818066ac5d8511290123",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86173&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86173,
+        "collectible": 0,
+        "slug": "86173-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "随机召唤一个法力值消耗为（3）的随从。随机消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d26101bf1c0c513b5fb4419613549c1d9eb4ea466d7343c907bb8c32f38c6a33.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86173&locale=zh_CN&collectible=0",
+        "sha256": "989f5b59df3b4dc12ad5039b9a4e78dea91eb7105781818066ac5d8511290123",
+        "bytes": 610,
+        "observed_at": "2026-10-24T03:16:56.601016+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86173-en_US.json",
+      "response_sha256": "810322ef905bf3e824032abd086fb5dc86e838e51ea6a3a94ffe05b5f2dd6839",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86173&locale=en_US&collectible=0",
+      "face": {
+        "id": 86173,
+        "collectible": 0,
+        "slug": "86173-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Summon a random 3-Cost minion. Destroy a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ea48018e6e9ed30fcafd6e6d37152d9ab81f1b8e1f9152889dc76984ca3256d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86173&locale=en_US&collectible=0",
+        "sha256": "810322ef905bf3e824032abd086fb5dc86e838e51ea6a3a94ffe05b5f2dd6839",
+        "bytes": 584,
+        "observed_at": "2026-10-24T03:16:56.857594+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86174-zh_CN.json",
+      "response_sha256": "bd02a03809c3194c7bf240be7a9b492b03274d39ee7d50bc061d2116ef7b9a99",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86174&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86174,
+        "collectible": 0,
+        "slug": "86174-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "造成 3点伤害。随机召唤一个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee88af4b2b63734aaa1a5b89668ed629bad62b3d2a3455ced2cc32d751c78138.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86174&locale=zh_CN&collectible=0",
+        "sha256": "bd02a03809c3194c7bf240be7a9b492b03274d39ee7d50bc061d2116ef7b9a99",
+        "bytes": 597,
+        "observed_at": "2026-10-24T03:16:56.664001+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86174-en_US.json",
+      "response_sha256": "0bc4a640b3cc821aa07f6fef3dacd24ce0c803c449d0c879997dc373beec49a4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86174&locale=en_US&collectible=0",
+      "face": {
+        "id": 86174,
+        "collectible": 0,
+        "slug": "86174-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Deal 3 damage. Summon a random 3-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e066d6ddc46b8ee0a8ddd6c4d7908933efc467378afdbfae6bdef101cfcaecc1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86174&locale=en_US&collectible=0",
+        "sha256": "0bc4a640b3cc821aa07f6fef3dacd24ce0c803c449d0c879997dc373beec49a4",
+        "bytes": 568,
+        "observed_at": "2026-10-24T03:16:56.763448+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88178-zh_CN.json",
+      "response_sha256": "22d67ed014dde1a022398113f7dfb0a4d06322c66fb3c1c5f126b38c9a8e6d50",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88178&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 88178,
+        "collectible": 0,
+        "slug": "88178-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "随机召唤两个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1747d1f07f1142f262aceb6119d5e51905416c826cb4c793fee133a017daa204.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88178&locale=zh_CN&collectible=0",
+        "sha256": "22d67ed014dde1a022398113f7dfb0a4d06322c66fb3c1c5f126b38c9a8e6d50",
+        "bytes": 577,
+        "observed_at": "2026-10-24T03:17:09.985949+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t1t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88178-en_US.json",
+      "response_sha256": "090d3068dcb3495aff35d2d6b3472ad24979abb94eca584f2e231018fbf9b8d3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88178&locale=en_US&collectible=0",
+      "face": {
+        "id": 88178,
+        "collectible": 0,
+        "slug": "88178-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Summon two random 3-Cost minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c2779d335e29ef4cc65b8affb682c57fd7cb08913e60109109388ab953497f6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88178&locale=en_US&collectible=0",
+        "sha256": "090d3068dcb3495aff35d2d6b3472ad24979abb94eca584f2e231018fbf9b8d3",
+        "bytes": 556,
+        "observed_at": "2026-10-24T03:16:58.164218+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t2t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86182-zh_CN.json",
+      "response_sha256": "f14b4f81b7fe920365973952af22f32dfdb6fbb7245064f92ea3ffe3cbbaa794",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86182&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86182,
+        "collectible": 0,
+        "slug": "86182-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "造成 3点伤害。随机消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f6b2ee3903e57fd31eaf5ce87a93c757b37328220a17b51eec48bdc3f0aefc35.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86182&locale=zh_CN&collectible=0",
+        "sha256": "f14b4f81b7fe920365973952af22f32dfdb6fbb7245064f92ea3ffe3cbbaa794",
+        "bytes": 575,
+        "observed_at": "2026-10-24T03:16:58.260732+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t2t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86182-en_US.json",
+      "response_sha256": "1b59b9434552051e11db8afa8bb527d225ab15a36d5886e32e2d95468d6fe2fb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86182&locale=en_US&collectible=0",
+      "face": {
+        "id": 86182,
+        "collectible": 0,
+        "slug": "86182-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Deal 3 damage. Destroy a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a88fb70fbe0859989cf48a505f3a36955122a6e582829b28257ed4e8aa4c526.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86182&locale=en_US&collectible=0",
+        "sha256": "1b59b9434552051e11db8afa8bb527d225ab15a36d5886e32e2d95468d6fe2fb",
+        "bytes": 568,
+        "observed_at": "2026-10-24T03:17:10.017840+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t2t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88179-zh_CN.json",
+      "response_sha256": "97d36588b19e532566b4e6ddde59633ee74ab849656512f5740ae2de21af5298",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88179&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 88179,
+        "collectible": 0,
+        "slug": "88179-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "随机消灭两个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/664cda4548b2457c66b8494dac5f8db326d394c48e416873b94211633b2a7c31.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88179&locale=zh_CN&collectible=0",
+        "sha256": "97d36588b19e532566b4e6ddde59633ee74ab849656512f5740ae2de21af5298",
+        "bytes": 555,
+        "observed_at": "2026-10-24T03:17:10.017840+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t2t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88179-en_US.json",
+      "response_sha256": "c6af73c2d667d6763c1e46aa107976e5d9ce704eb9c5bb6044e9ccd2ee18ce4d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88179&locale=en_US&collectible=0",
+      "face": {
+        "id": 88179,
+        "collectible": 0,
+        "slug": "88179-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Destroy two random enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84e917a57e1816cf1ff32d9b3dab429191247b39795d702e862b759dfe6c8850.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88179&locale=en_US&collectible=0",
+        "sha256": "c6af73c2d667d6763c1e46aa107976e5d9ce704eb9c5bb6044e9ccd2ee18ce4d",
+        "bytes": 556,
+        "observed_at": "2026-10-24T03:17:09.999668+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t3t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88177-zh_CN.json",
+      "response_sha256": "a709e407f4e384dc716700b3f5522d67cfcecf658d7157288efd592006a3ee32",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88177&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 88177,
+        "collectible": 0,
+        "slug": "88177-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "造成 3点伤害，触发两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9782a518369fec13b6e9a18e6d160d92e05792dc359ea55862e9d43a65657c90.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88177&locale=zh_CN&collectible=0",
+        "sha256": "a709e407f4e384dc716700b3f5522d67cfcecf658d7157288efd592006a3ee32",
+        "bytes": 557,
+        "observed_at": "2026-10-24T03:17:12.039094+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t3t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88177-en_US.json",
+      "response_sha256": "582591b9b32424660298c95abd41abf818061a99e3e4dd537e8471eea6852455",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88177&locale=en_US&collectible=0",
+      "face": {
+        "id": 88177,
+        "collectible": 0,
+        "slug": "88177-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Deal 3 damage, twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/543e512388a2b348a93ac9b41037d48da4b72f7c1287d1cfc2d12a1fc0c164ae.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88177&locale=en_US&collectible=0",
+        "sha256": "582591b9b32424660298c95abd41abf818061a99e3e4dd537e8471eea6852455",
+        "bytes": 544,
+        "observed_at": "2026-10-24T03:17:11.861972+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86179-zh_CN.json",
+      "response_sha256": "f112afac7ae5a678c190964685522c6850d22e3bbcf22386e9ec08ad8f586bab",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86179&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86179,
+        "collectible": 0,
+        "slug": "86179-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。随机消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cfe1d5aaaecf9255ee089c1012d6365065a5b62e027e91595ee258482f9d0bd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86179&locale=zh_CN&collectible=0",
+        "sha256": "f112afac7ae5a678c190964685522c6850d22e3bbcf22386e9ec08ad8f586bab",
+        "bytes": 640,
+        "observed_at": "2026-10-24T03:17:11.669989+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86179-en_US.json",
+      "response_sha256": "2eeacb48f5220ab574714dd6f4a908bfefd27f1464b989cce3cd8879bb330905",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86179&locale=en_US&collectible=0",
+      "face": {
+        "id": 86179,
+        "collectible": 0,
+        "slug": "86179-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Add a card to your hand from another class. It costs (3) less. Destroy a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b4f01a8d25e1155a6f7251c79f8ca74a9972cc82cac8602265c503e06d279eb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86179&locale=en_US&collectible=0",
+        "sha256": "2eeacb48f5220ab574714dd6f4a908bfefd27f1464b989cce3cd8879bb330905",
+        "bytes": 616,
+        "observed_at": "2026-10-24T03:17:11.930128+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86180-zh_CN.json",
+      "response_sha256": "33006c169a5bf2b616685653d0d7f02f87c7b88fc63c1fcc14727e19e77a7368",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86180&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86180,
+        "collectible": 0,
+        "slug": "86180-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "造成 3点伤害。将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a4294049e4e7edebddcb4513e679bae40f9a1a65410792b051a577edda22378.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86180&locale=zh_CN&collectible=0",
+        "sha256": "33006c169a5bf2b616685653d0d7f02f87c7b88fc63c1fcc14727e19e77a7368",
+        "bytes": 627,
+        "observed_at": "2026-10-24T03:17:13.476253+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86180-en_US.json",
+      "response_sha256": "89f2fcbb8bfd59c54dbe3cad49f046220e6878992d1966d54df55a1d8848bcb0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86180&locale=en_US&collectible=0",
+      "face": {
+        "id": 86180,
+        "collectible": 0,
+        "slug": "86180-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Deal 3 damage. Add a card to your hand from another class. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/793fd2c7b085a0010678e9d99442a474d8e877e2b4e092b5978e44f9c88069de.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86180&locale=en_US&collectible=0",
+        "sha256": "89f2fcbb8bfd59c54dbe3cad49f046220e6878992d1966d54df55a1d8848bcb0",
+        "bytes": 600,
+        "observed_at": "2026-10-24T03:17:13.656618+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88180-zh_CN.json",
+      "response_sha256": "9d3997547786cda422a33d4b13e955b49825e48f7bf6a9c8533fef1330275630",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88180&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 88180,
+        "collectible": 0,
+        "slug": "88180-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "将两张其他职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/55ebe6bd57cf94be41f95d8f2560a90932a31aa3c1b43e696805d41d410614f0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88180&locale=zh_CN&collectible=0",
+        "sha256": "9d3997547786cda422a33d4b13e955b49825e48f7bf6a9c8533fef1330275630",
+        "bytes": 607,
+        "observed_at": "2026-10-24T03:17:13.853218+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570t4t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88180-en_US.json",
+      "response_sha256": "ef139a1cf57e27eb702cfb1ab504ccf7dc965625e0389ede19172bf11dcdbbad",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88180&locale=en_US&collectible=0",
+      "face": {
+        "id": 88180,
+        "collectible": 0,
+        "slug": "88180-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Add two cards to your hand from other classes. They cost (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a767db9ec1131682ffae13cd632aea57673e6f0795d76b0b45d58f965657166.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88180&locale=en_US&collectible=0",
+        "sha256": "ef139a1cf57e27eb702cfb1ab504ccf7dc965625e0389ede19172bf11dcdbbad",
+        "bytes": 589,
+        "observed_at": "2026-10-24T03:17:13.858159+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86158-zh_CN.json",
+      "response_sha256": "3c2a6136884f38bc6960a8ead8ea15b395b82f1381ca42f30b6c7662bfa6fea5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86158&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86158,
+        "collectible": 0,
+        "slug": "86158-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "抽两张牌。随机召唤一个法力值消耗为（3）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f6972c4c6aa1be56d96ba49a69760a23554dab26cf3aefa8191af5804e72901.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86158&locale=zh_CN&collectible=0",
+        "sha256": "3c2a6136884f38bc6960a8ead8ea15b395b82f1381ca42f30b6c7662bfa6fea5",
+        "bytes": 592,
+        "observed_at": "2026-10-24T03:17:15.258567+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86158-en_US.json",
+      "response_sha256": "ee9680a2dd89f544360ca0ec629179aac6f2d7592ff0b67f53760c953d3e63bd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86158&locale=en_US&collectible=0",
+      "face": {
+        "id": 86158,
+        "collectible": 0,
+        "slug": "86158-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Draw 2 cards. Summon a random 3-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd61c1b53b01b16defa031a3a80dcc33890eb3ec7271ff327bb175ecc5458582.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86158&locale=en_US&collectible=0",
+        "sha256": "ee9680a2dd89f544360ca0ec629179aac6f2d7592ff0b67f53760c953d3e63bd",
+        "bytes": 567,
+        "observed_at": "2026-10-24T03:17:15.157336+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86159-zh_CN.json",
+      "response_sha256": "8a4f5b7563bf20b2fa9c9066f3c95bf2eb2097972afc1162407ccc831a89c23c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86159&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86159,
+        "collectible": 0,
+        "slug": "86159-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "造成 3点伤害。抽两张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28163d57e39813eedcf4babe15a889344ca29cebd2d9763805fdf50da6dc5398.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86159&locale=zh_CN&collectible=0",
+        "sha256": "8a4f5b7563bf20b2fa9c9066f3c95bf2eb2097972afc1162407ccc831a89c23c",
+        "bytes": 557,
+        "observed_at": "2026-10-24T03:17:15.349947+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86159-en_US.json",
+      "response_sha256": "fe68df2405be6a3181d001e6697dc909c126053f8a552fc00f48a19eefee1e55",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86159&locale=en_US&collectible=0",
+      "face": {
+        "id": 86159,
+        "collectible": 0,
+        "slug": "86159-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Deal 3 damage. Draw 2 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e2c06a0cd5b47c236fb151ec4c455ffb87b007b9f881763b91be199bf619bf2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86159&locale=en_US&collectible=0",
+        "sha256": "fe68df2405be6a3181d001e6697dc909c126053f8a552fc00f48a19eefee1e55",
+        "bytes": 551,
+        "observed_at": "2026-10-24T03:17:15.484812+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86160-zh_CN.json",
+      "response_sha256": "2021aeb1a6d099ec170bc419bd05faf77d5fa983f31facfaae4d7644c3bceec0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86160&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86160,
+        "collectible": 0,
+        "slug": "86160-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "抽两张牌。将一张另一职业的牌置入你的手牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/379fd75317d37c9a08c5fb135449e2775b9793f42c5b6b87c1d977aa46b2e819.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86160&locale=zh_CN&collectible=0",
+        "sha256": "2021aeb1a6d099ec170bc419bd05faf77d5fa983f31facfaae4d7644c3bceec0",
+        "bytes": 622,
+        "observed_at": "2026-10-24T03:17:16.652615+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86160-en_US.json",
+      "response_sha256": "02e3708a345a2e87c7bbe52afbac9eef73d419462b3fdaec59f7d5dd6325a25b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86160&locale=en_US&collectible=0",
+      "face": {
+        "id": 86160,
+        "collectible": 0,
+        "slug": "86160-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Draw 2 cards. Add a card to your hand from another class. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57dd1b9d7f6168fdfaf6c0eeee12f37438731efa5de50ef19562a90ac15bd2e2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86160&locale=en_US&collectible=0",
+        "sha256": "02e3708a345a2e87c7bbe52afbac9eef73d419462b3fdaec59f7d5dd6325a25b",
+        "bytes": 599,
+        "observed_at": "2026-10-24T03:17:17.073914+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86161-zh_CN.json",
+      "response_sha256": "9b397628ea81dbbd4399d5fb94b6415ccf09d15f5081a43cb31d565eb24e4ec5",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86161&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 86161,
+        "collectible": 0,
+        "slug": "86161-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "抽两张牌。随机消灭一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0095f7ec7d26c20869ca39259920f3ce9d1b6dc84c216ec9aec45b4b0897a089.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86161&locale=zh_CN&collectible=0",
+        "sha256": "9b397628ea81dbbd4399d5fb94b6415ccf09d15f5081a43cb31d565eb24e4ec5",
+        "bytes": 562,
+        "observed_at": "2026-10-24T03:17:16.872529+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\86161-en_US.json",
+      "response_sha256": "938fb56fb1a6ef6439f687912c322a1a6b625e4149e2ee23e7ea1417f51a6e1d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=86161&locale=en_US&collectible=0",
+      "face": {
+        "id": 86161,
+        "collectible": 0,
+        "slug": "86161-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Draw 2 cards. Destroy a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64efd47a938f36caf102f1fa879ba3390b2c64ad7c74d9a15c512868707b387b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=86161&locale=en_US&collectible=0",
+        "sha256": "938fb56fb1a6ef6439f687912c322a1a6b625e4149e2ee23e7ea1417f51a6e1d",
+        "bytes": 559,
+        "observed_at": "2026-10-24T03:17:17.787774+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt5",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88181-zh_CN.json",
+      "response_sha256": "5af8f1c2833cf40758e2448671edcf9560d5526f5b490d57c0aedbb9f5cea49f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88181&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 88181,
+        "collectible": 0,
+        "slug": "88181-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "调好的药剂",
+        "text": "抽四张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fea139d7c8340f4726a166a8027893fa000862346b5bb0632c522a75c2a33af8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88181&locale=zh_CN&collectible=0",
+        "sha256": "5af8f1c2833cf40758e2448671edcf9560d5526f5b490d57c0aedbb9f5cea49f",
+        "bytes": 537,
+        "observed_at": "2026-10-24T03:17:18.762302+00:00"
+      }
+    },
+    {
+      "card_id": "RLK_570tt5",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k497-past-parachute-draws\\next-official-01\\88181-en_US.json",
+      "response_sha256": "d6366a804d5cdcd6c5ab52eeb185db444e24a4c44cfd8452039a6eefcd27799b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=88181&locale=en_US&collectible=0",
+      "face": {
+        "id": 88181,
+        "collectible": 0,
+        "slug": "88181-mixed-concoction",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Mixed Concoction",
+        "text": "Draw 4 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0fb3259e55ee2b4e2901e0828c403e596852cd378e6eb1050204264643b6871d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 86109,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=88181&locale=en_US&collectible=0",
+        "sha256": "d6366a804d5cdcd6c5ab52eeb185db444e24a4c44cfd8452039a6eefcd27799b",
+        "bytes": 536,
+        "observed_at": "2026-10-24T03:17:18.676936+00:00"
+      }
+    }
+  ],
+  "policy": "Actual five singles and fifteen fixed mixed faces. Merge two physical singles at the common hand checkpoint in physical hand order; retain the oldest held instance modifications through the existing inherit policy. Full-hand admission precedes merging; exact material, opening and timing policies require CN calibration. Spell bodies retain their printed ordered steps; two random destruction targets share one captured group.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

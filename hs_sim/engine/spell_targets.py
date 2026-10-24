@@ -4,6 +4,7 @@ from .effects import Damage, Destroy, Effect, Silence, _integer
 from .errors import ResolutionError
 from .model import BoardPresenceReference, CardType, DamageKind, Zone
 from .sacrifice import MinionReference, live_minion, reference_value
+from .spell_sequences import SpellSequence
 
 
 def reference_id(reference):
@@ -183,5 +184,78 @@ def choose(r, request):
 def register(mechanics):
     mechanics.register(ApplyResidentSpellTarget,apply_resident)
     mechanics.register(DamageResidentSpellTarget, damage_resident)
+    mechanics.register(RandomDestroyEnemySpellGroup, random_destroy_enemy_group)
+    mechanics.register(DestroySelectedSpellGroup, destroy_selected_group)
     mechanics.register(ApplySpellTarget, deliver)
     mechanics.register(RandomSpellTarget, choose)
+
+
+def validate_group_cast(state, registry, request):
+    from .spell_casts import cast_record
+    request.__post_init__()
+    cast = cast_record(state, request.cast_id)
+    if ((cast.source_id, cast.player_id) != (request.source_id, request.player_id) or
+            not cast.payload_started or cast.completed or cast.interrupted or cast.failure is not None or
+            registry.card(cast.card_id).kind != CardType.SPELL):
+        raise ValueError('Random destruction requires its original active physical spell')
+    return cast
+
+
+@dataclass(frozen=True)
+class RandomDestroyEnemySpellGroup(SpellSequence):
+    count: int
+
+    def __post_init__(self):
+        super().__post_init__()
+        if type(self.count) is not int or self.count not in (1, 2):
+            raise ValueError('This real spell consumer supports one or two random enemies')
+
+    def validate_in_state(self, state, registry):
+        return validate_group_cast(state, registry, self)
+
+
+@dataclass(frozen=True)
+class DestroySelectedSpellGroup(SpellSequence):
+    targets: tuple[BoardPresenceReference, ...]
+
+    def __post_init__(self):
+        super().__post_init__()
+        if (type(self.targets) is not tuple or not 1 <= len(self.targets) <= 2 or
+                any(type(x) is not BoardPresenceReference for x in self.targets)):
+            raise ValueError('Spell destruction requires its complete small original resident group')
+        for target in self.targets: target.__post_init__()
+        if len({x.entity_id for x in self.targets}) != len(self.targets):
+            raise ValueError('A random destruction group cannot repeat one physical minion')
+
+    def validate_in_state(self, state, registry):
+        cast = validate_group_cast(state, registry, self)
+        if any(x.entity_id not in state.entities or x.presence_id >= state.next_order for x in self.targets):
+            raise ValueError('Spell destruction borrowed an unknown or future residence')
+        return cast
+
+
+def random_destroy_enemy_group(r, request):
+    request.validate_in_state(r.state, r.registry)
+    enemies = tuple(r.state.entities[i] for i in sorted(r.player(3-request.player_id).board)
+        if r.state.entities[i].kind == CardType.MINION and r.state.entities[i].active and
+        r.state.entities[i].health > 0 and not r.state.entities[i].doomed)
+    if not enemies:
+        return ()
+    if request.count == 1:
+        return (RandomSpellTarget(tuple(MinionReference.capture(e) for e in enemies),
+            request.source_id, 'destroy'),)
+    selected = r.game._rng.sample(enemies, min(request.count, len(enemies)))
+    refs = tuple(BoardPresenceReference.capture(r.state, e.id) for e in selected)
+    r.emit('random_choice', source_id=request.source_id, player_id=request.player_id,
+        candidates=tuple(e.id for e in enemies), selected=tuple(e.id for e in selected), cast_id=request.cast_id)
+    return (DestroySelectedSpellGroup(request.player_id, request.cast_id, request.source_id, refs),)
+
+
+def destroy_selected_group(r, request):
+    from .board_presence import resolve_board_presence
+    from .effects import DestroyBatch
+    request.validate_in_state(r.state, r.registry)
+    selected = tuple(e.id for ref in request.targets
+        if (e := resolve_board_presence(r.state, ref)) is not None and
+        e.active and e.health > 0 and not e.doomed)
+    return (DestroyBatch(selected, request.source_id),) if selected else ()

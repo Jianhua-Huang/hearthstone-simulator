@@ -194,6 +194,9 @@ class FrameCodec:
         from .spell_targets import DamageResidentSpellTarget,ApplyResidentSpellTarget
         if type(value) in(DamageResidentSpellTarget,ApplyResidentSpellTarget) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
+        from .spell_targets import RandomDestroyEnemySpellGroup, DestroySelectedSpellGroup
+        if type(value) in (RandomDestroyEnemySpellGroup, DestroySelectedSpellGroup) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
         if type(value) is model.AbilityInstance and value.kind == 'corpse_gain':
             from .corpse_gains import validate_ability as validate_corpse_gain_ability
             validate_corpse_gain_ability(self.registry, value)
