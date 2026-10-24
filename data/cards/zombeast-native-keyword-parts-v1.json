@@ -1,0 +1,2380 @@
+{
+  "schema": 1,
+  "purpose": "Native donation declarations only; this is not a curated pool or eligible-member list.",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "native_part_ids": [
+    "BE_193",
+    "CORE_BT_201",
+    "CORE_EX1_028",
+    "CORE_GIL_558",
+    "CS2_125",
+    "CS2_127",
+    "CS2_169",
+    "GIL_562",
+    "ICC_905",
+    "LEG_CS3_037",
+    "LOOT_258",
+    "NX2_050",
+    "TIME_053",
+    "UNG_810"
+  ],
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_193",
+        "dbf_id": 130089,
+        "name": "膨水鳐",
+        "name_en": "Bloatray",
+        "text": "<b>剧毒</b>",
+        "text_en": "<b>Poisonous</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "POISONOUS": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          }
+        ]
+      },
+      "record_sha256": "cb4452ce6146e139388f561354bd4bd1fae75dddc525ed30db407308b8725bdd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_193",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_BT_201",
+        "dbf_id": 130286,
+        "name": "强能箭猪",
+        "name_en": "Augmented Porcupine",
+        "text": "<b>亡语：</b>\n造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]<b>Deathrattle</b>: Deal this\nminion's Attack damage\nrandomly split among\nall enemies.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 56398,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 56398,
+          "2539": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Charlene Le Scanff"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56398",
+              "type": "Int",
+              "value": "56398"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "01d4e5400e38c64a5bc2431201e75683a9c0fab2911750398e51a6b524942f05",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_BT_201",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_028",
+        "dbf_id": 69658,
+        "name": "荆棘谷猛虎",
+        "name_en": "Stranglethorn Tiger",
+        "text": "<b>潜行</b>",
+        "text_en": "<b>Stealth</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 68,
+          "1584": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "68",
+              "type": "Int",
+              "value": "68"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "398f2468940c3c390e1c7fa2f6e8ca7cb3d83258cde9f5ae33fe33f8a2a46556",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_558",
+        "dbf_id": 129175,
+        "name": "沼泽水蛭",
+        "name_en": "Swamp Leech",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 47072,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 47072
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "47072",
+              "type": "Int",
+              "value": "47072"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "275472a59eda5a3488645cd2112c75745fea0e925e1d979d1597de6505828ca1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_GIL_558",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_125",
+        "dbf_id": 1182,
+        "name": "铁鬃灰熊",
+        "name_en": "Ironfur Grizzly",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Lars Grant-West"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "2e298b2cd123fec30b84f4d0a2ba748fa9d9a6402877f12137888f32181dc356",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_125",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_127",
+        "dbf_id": 67,
+        "name": "银背族长",
+        "name_en": "Silverback Patriarch",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daren Bader"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "f10a46c06aef407fc5ce376fb77291e1a7fec15811b0c2fa4c424fd2bb239f29",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_127",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CS2_169",
+        "dbf_id": 641,
+        "name": "幼龙鹰",
+        "name_en": "Young Dragonhawk",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 3,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Greg Hildebrandt"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "8d9cefeb99a5e0577107575dbb166489b56a7f48daeb03a10b662187a84c05e5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CS2_169",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GIL_562",
+        "dbf_id": 47078,
+        "name": "邪巢诱捕蛛",
+        "name_en": "Vilebrood Skitterer",
+        "text": "<b>剧毒，突袭</b>",
+        "text_en": "<b>Poisonous</b>\n<b>Rush</b>",
+        "cost": 5,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 5,
+          "CARD_SET": 1125,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "POISONOUS": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyler West Studio"
+          }
+        ]
+      },
+      "record_sha256": "a8abbfe9b39b300f753ccfd5fed86ac867ab2e67163012929cee05df5273e8b9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "GIL_562",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ICC_905",
+        "dbf_id": 45329,
+        "name": "血虫",
+        "name_en": "Bloodworm",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1001,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "87e0588455938b65ea5a97abc57af57936570f5ae57b64e06edc30d93250c561",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "ICC_905",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "LEG_CS3_037",
+        "dbf_id": 113350,
+        "name": "翡翠天爪枭",
+        "name_en": "Emerald Skytalon",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "858": 72248,
+          "2540": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "72248",
+              "type": "Int",
+              "value": "72248"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          }
+        ]
+      },
+      "record_sha256": "744d4e8cad8dca1313d2ead19779a2ec7ee4180cc00ea2464976f2bb500b59d5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "LEG_CS3_037",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "LOOT_258",
+        "dbf_id": 45707,
+        "name": "厄运鼹鼠",
+        "name_en": "Dire Mole",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daren Bader"
+          }
+        ]
+      },
+      "record_sha256": "dfb51d9281d1cd32183254f564e1c1e9f0ce56a505aeb4c0c35bd313b7960d01",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "LOOT_258",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "NX2_050",
+        "dbf_id": 87317,
+        "name": "错误产物",
+        "name_en": "Mistake",
+        "text": "<i>本随从拥有全部随从类型。</i>",
+        "text_en": "<i>This has all minion types</i>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 12,
+          "CARDRACE": 26,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "3773a193e701521db617aed6e246e25c81a8ce27b26b27a5d32be593d0a3da44",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "NX2_050",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "all"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_053",
+        "dbf_id": 120954,
+        "name": "流沙巨口",
+        "name_en": "Sandmaw",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 7,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 7,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "2540": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2540",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2540"
+          }
+        ]
+      },
+      "record_sha256": "f575a8adf5e3816165a47d15b7aa8f897165dda542dc5602fe3ea8e8384b20a5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_053",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_810",
+        "dbf_id": 41324,
+        "name": "剑龙",
+        "name_en": "Stegodon",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 27,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "84a8a7967a5135fdcec9592de3d27dad6fe8cced49797f4d9a7cf7cab5f1b0d0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "UNG_810",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_201",
+        "dbf_id": 56398,
+        "name": "强能箭猪",
+        "name_en": "Augmented Porcupine",
+        "text": "<b>亡语：</b>\n造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "text_en": "[x]<b>Deathrattle</b>: Deal this\nminion's Attack damage\nrandomly split among\nall enemies.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "2539": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Charlene Le Scanff"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "f058cf9b2aaaf2dfccb81fd23c79e3bbf84c0db20d361160245bb4e2f065951f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BT_201",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "BE_193",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130089-zh_CN.json",
+      "response_sha256": "fc3a2ca5c742ca9ec3b101ccb66543b3a7275c2828e04bbe776b822f28824a0b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130089&locale=zh_CN",
+      "face": {
+        "id": 130089,
+        "collectible": 1,
+        "slug": "130089-bloatray",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Slawomir Maniak",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "膨水鳐",
+        "text": "<b>剧毒</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c023dd37c5390eb469298575c938efa9f7f74cbb0b736458d229ec875fdb5225.png",
+        "imageGold": "",
+        "flavorText": "我觉得还挺苗条的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ff90dfe29fc92cf1772db401ae19c8d12c1e19a92df56a3d120ff6d09e00022.png",
+        "keywordIds": [
+          32
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130089&locale=zh_CN",
+        "sha256": "fc3a2ca5c742ca9ec3b101ccb66543b3a7275c2828e04bbe776b822f28824a0b",
+        "bytes": 710,
+        "observed_at": "2026-10-24T07:25:28.675830+00:00"
+      }
+    },
+    {
+      "card_id": "BE_193",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130089-en_US.json",
+      "response_sha256": "00aeb70255bdc5f4d5be1f62fa08428603fe03e3b762eb8538c6367d2e49cfb3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130089&locale=en_US",
+      "face": {
+        "id": 130089,
+        "collectible": 1,
+        "slug": "130089-bloatray",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Slawomir Maniak",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Bloatray",
+        "text": "<b>Poisonous</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69b4165aa40e12a61ce2339b6555bb83416c8553f12fc70a4611219b89c10cea.png",
+        "imageGold": "",
+        "flavorText": "Looks pretty svelte to me.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ff90dfe29fc92cf1772db401ae19c8d12c1e19a92df56a3d120ff6d09e00022.png",
+        "keywordIds": [
+          32
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130089&locale=en_US",
+        "sha256": "00aeb70255bdc5f4d5be1f62fa08428603fe03e3b762eb8538c6367d2e49cfb3",
+        "bytes": 711,
+        "observed_at": "2026-10-24T07:25:28.477809+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_201",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130286-zh_CN.json",
+      "response_sha256": "233dc3c4a2516d7d1f9af43643390a67f3f763e003a2dff797bd38a490b0d1fa",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130286&locale=zh_CN",
+      "face": {
+        "id": 130286,
+        "collectible": 1,
+        "slug": "130286-augmented-porcupine",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Charlene Le Scanff",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "强能箭猪",
+        "text": "<b>亡语：</b> 造成等同于本随从攻击力的伤害，随机分配到所有敌人身上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d294dab66f32127f915ef870830820cb98dd35109e520ea12971fcc213749947.png",
+        "imageGold": "",
+        "flavorText": "上吧，爆壳猛猪，扎透他们！",
+        "cropImage": null,
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          56398
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130286&locale=zh_CN",
+        "sha256": "233dc3c4a2516d7d1f9af43643390a67f3f763e003a2dff797bd38a490b0d1fa",
+        "bytes": 750,
+        "observed_at": "2026-10-24T07:25:28.199939+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_BT_201",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130286-en_US.json",
+      "response_sha256": "0803b90cf9669064fb5e79b5a7074f8ebe6ccb6aaff3d629554a853af40ab020",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130286&locale=en_US",
+      "face": {
+        "id": 130286,
+        "collectible": 1,
+        "slug": "130286-augmented-porcupine",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 4,
+        "artistName": "Charlene Le Scanff",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Augmented Porcupine",
+        "text": "<b>Deathrattle</b>: Deal this minion's Attack damage randomly split among all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/21d041f57f0255c076304258cc66bbe7e933ef0c3acf7e9ee834512384d028ad.png",
+        "imageGold": "",
+        "flavorText": "Pokey-man. Gotta spike 'em all!",
+        "cropImage": null,
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          56398
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130286&locale=en_US",
+        "sha256": "0803b90cf9669064fb5e79b5a7074f8ebe6ccb6aaff3d629554a853af40ab020",
+        "bytes": 737,
+        "observed_at": "2026-10-24T07:25:28.558932+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69658-zh_CN.json",
+      "response_sha256": "a02e1d4341208185c32ac1ef2d35f1143a22c2ad15480980425dc8f286097a75",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=zh_CN",
+      "face": {
+        "id": 69658,
+        "collectible": 1,
+        "slug": "69658-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "荆棘谷猛虎",
+        "text": "<b>潜行</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc8651fe343dd5c9a8fa4e8105741df05c91b7a21afa5415f34ecec548cbc8d1.png",
+        "imageGold": "",
+        "flavorText": "这些美丽的大猫是荆棘谷一道亮丽的风景！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a4d78180af920f1a4b5d838581ac61350a6b4676071add9544c26cd5d09c290.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          68,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=zh_CN",
+        "sha256": "a02e1d4341208185c32ac1ef2d35f1143a22c2ad15480980425dc8f286097a75",
+        "bytes": 787,
+        "observed_at": "2026-10-17T22:07:15.174397+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69658-en_US.json",
+      "response_sha256": "1a201339b6e517a56e9b4d49b94e346e89aec356176f6d974f78ebdd3859b932",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=en_US",
+      "face": {
+        "id": 69658,
+        "collectible": 1,
+        "slug": "69658-stranglethorn-tiger",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stranglethorn Tiger",
+        "text": "<b>Stealth</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03d3846eba11cba5db6578e60928c2b3010c686cf041d8f8ecd5bfd3f9d4192f.png",
+        "imageGold": "",
+        "flavorText": "The wonderful thing about tigers is tigers are wonderful things!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a4d78180af920f1a4b5d838581ac61350a6b4676071add9544c26cd5d09c290.png",
+        "keywordIds": [
+          6
+        ],
+        "copyOfCardId": [
+          68,
+          69820
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=69658&locale=en_US",
+        "sha256": "1a201339b6e517a56e9b4d49b94e346e89aec356176f6d974f78ebdd3859b932",
+        "bytes": 799,
+        "observed_at": "2026-10-17T22:07:15.397897+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_GIL_558",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129175-zh_CN.json",
+      "response_sha256": "90a495661931f1266491774803235c0d1f15b11f3cb53efcddff77ce192f2d81",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129175&locale=zh_CN",
+      "face": {
+        "id": 129175,
+        "collectible": 1,
+        "slug": "129175-swamp-leech",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "沼泽水蛭",
+        "text": "<b>吸血</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd42821011ca796cfdfd9007bcd3ccdeb98ab491dcf9ac2a81ff0f74d80241fb.png",
+        "imageGold": "",
+        "flavorText": "除去四颗牙，都是高蛋白。",
+        "cropImage": null,
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          47072
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129175&locale=zh_CN",
+        "sha256": "90a495661931f1266491774803235c0d1f15b11f3cb53efcddff77ce192f2d81",
+        "bytes": 629,
+        "observed_at": "2026-10-24T07:25:29.937190+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_GIL_558",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129175-en_US.json",
+      "response_sha256": "1b6de6ac2d553eda8d1a079a5a45907e34d089fac1d53ec2fa100f875677d200",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129175&locale=en_US",
+      "face": {
+        "id": 129175,
+        "collectible": 1,
+        "slug": "129175-swamp-leech",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Swamp Leech",
+        "text": "<b>Lifesteal</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/823210fbd661093175549296615c5fd5fc22187f2751b2a87f0626284070695a.png",
+        "imageGold": "",
+        "flavorText": "A face only a druid could love.",
+        "cropImage": null,
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          47072
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129175&locale=en_US",
+        "sha256": "1b6de6ac2d553eda8d1a079a5a45907e34d089fac1d53ec2fa100f875677d200",
+        "bytes": 626,
+        "observed_at": "2026-10-24T07:25:30.215976+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_125",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1182-zh_CN.json",
+      "response_sha256": "d0b75f2a5faf143b0b6f9397c2750cee9518223d3ebc9b33163187b482cadbb6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1182&locale=zh_CN",
+      "face": {
+        "id": 1182,
+        "collectible": 1,
+        "slug": "1182-ironfur-grizzly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Lars Grant-West",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "铁鬃灰熊",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33eb3270aa544999461ec21eea8561f257a7ed608daf9a87791e4253bc6a27f8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/914dd3f799a6bc23121088ee1304b8ae63ab893bf7aaf2b2cf1b0bbd29e5b054.png",
+        "flavorText": "“瘦死的棕熊比兽人大。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/578b1752d3f9325895b03b856b6efadf029603cabac8d1365b2a54cda9727cd3.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68386
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1182&locale=zh_CN",
+        "sha256": "d0b75f2a5faf143b0b6f9397c2750cee9518223d3ebc9b33163187b482cadbb6",
+        "bytes": 865,
+        "observed_at": "2026-10-24T07:25:30.065677+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_125",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1182-en_US.json",
+      "response_sha256": "a706da9000eeb46d6966da2e3e867cc8b5955aef51acd05ea57ab8c0ceeb2667",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1182&locale=en_US",
+      "face": {
+        "id": 1182,
+        "collectible": 1,
+        "slug": "1182-ironfur-grizzly",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Lars Grant-West",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Ironfur Grizzly",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/70addf7f4e09d722a5e975591e161318a4836e750a3ede7c3f5e6dc90c2feccf.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/914dd3f799a6bc23121088ee1304b8ae63ab893bf7aaf2b2cf1b0bbd29e5b054.png",
+        "flavorText": "\"Bear Carcass 1/10\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/578b1752d3f9325895b03b856b6efadf029603cabac8d1365b2a54cda9727cd3.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68386
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1182&locale=en_US",
+        "sha256": "a706da9000eeb46d6966da2e3e867cc8b5955aef51acd05ea57ab8c0ceeb2667",
+        "bytes": 852,
+        "observed_at": "2026-10-24T07:25:30.343396+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_127",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\67-zh_CN.json",
+      "response_sha256": "4d7492bff5e1f84585aa29a37e16956ddd96ee19ae79fe5fc11a4c68d3d8deef",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=67&locale=zh_CN",
+      "face": {
+        "id": 67,
+        "collectible": 1,
+        "slug": "67-silverback-patriarch",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Daren Bader",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "银背族长",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a22df900cfbf33dc44c8faa8fde01eb6ca3c812253b7b594caedd63203cad23d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ee220342dd06b870eea595e49f6de640b309df8f034813fc6299c5ef1aba363.png",
+        "flavorText": "尽管他表现得像个领导者，但实际上银背母猩猩才是真正管事的人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3266b1aeeb07a0106379f4262345cd50c757fb228f74332550b6e868619d07c.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68199,
+          68387
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=67&locale=zh_CN",
+        "sha256": "4d7492bff5e1f84585aa29a37e16956ddd96ee19ae79fe5fc11a4c68d3d8deef",
+        "bytes": 922,
+        "observed_at": "2026-10-24T07:25:31.597442+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_127",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\67-en_US.json",
+      "response_sha256": "7c918a21c43b90ef56028d7f64c0b2b49b36046631d4d6047f9c388a47a755bb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=67&locale=en_US",
+      "face": {
+        "id": 67,
+        "collectible": 1,
+        "slug": "67-silverback-patriarch",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Daren Bader",
+        "health": 4,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "Silverback Patriarch",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/458f52a9e3a1574f24439f57de4df0a5d88f21d201198f7123433ac830b02681.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ee220342dd06b870eea595e49f6de640b309df8f034813fc6299c5ef1aba363.png",
+        "flavorText": "He likes to act like he's in charge, but the silverback matriarch actually runs things.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3266b1aeeb07a0106379f4262345cd50c757fb228f74332550b6e868619d07c.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68199,
+          68387
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=67&locale=en_US",
+        "sha256": "7c918a21c43b90ef56028d7f64c0b2b49b36046631d4d6047f9c388a47a755bb",
+        "bytes": 926,
+        "observed_at": "2026-10-24T07:25:31.730541+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_169",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\641-zh_CN.json",
+      "response_sha256": "7e7f68d6e2cac28144861bfa42b06332eb141df1f35ae711dfd5bed23c584131",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=641&locale=zh_CN",
+      "face": {
+        "id": 641,
+        "collectible": 1,
+        "slug": "641-young-dragonhawk",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Greg Hildebrandt",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "幼龙鹰",
+        "text": "<b>风怒</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ad2c40ea4c7aa87f93359e4fb7e29666ec6404e906c8411eedfef78317f5eeef.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5520d182d388743a055a9a994b5de088e60f95b541ddd526dd4158f76185f2d3.png",
+        "flavorText": "无论是战士还是诗人，都能从美丽的龙鹰身上获取战斗或是写作的灵感。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/518250b123326184f1e282360ec9cd5695bd978788a28e2061103502706fbdab.png",
+        "keywordIds": [
+          11
+        ],
+        "copyOfCardId": [
+          69759
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=641&locale=zh_CN",
+        "sha256": "7e7f68d6e2cac28144861bfa42b06332eb141df1f35ae711dfd5bed23c584131",
+        "bytes": 920,
+        "observed_at": "2026-10-24T07:25:31.947064+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_169",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\641-en_US.json",
+      "response_sha256": "4b9fc7a4ea386abf4aa0df4ff56260ca7492b093ff21ddf5408699d53bd2e80b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=641&locale=en_US",
+      "face": {
+        "id": 641,
+        "collectible": 1,
+        "slug": "641-young-dragonhawk",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Greg Hildebrandt",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Young Dragonhawk",
+        "text": "<b>Windfury</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/064a60867a01bc7ee1cb0b6742712907689b6198224f2e48cfbacb9c0e8b2cee.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5520d182d388743a055a9a994b5de088e60f95b541ddd526dd4158f76185f2d3.png",
+        "flavorText": "They were the inspiration for the championship Taurenball team: The Dragonhawks.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/518250b123326184f1e282360ec9cd5695bd978788a28e2061103502706fbdab.png",
+        "keywordIds": [
+          11
+        ],
+        "copyOfCardId": [
+          69759
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=641&locale=en_US",
+        "sha256": "4b9fc7a4ea386abf4aa0df4ff56260ca7492b093ff21ddf5408699d53bd2e80b",
+        "bytes": 913,
+        "observed_at": "2026-10-24T07:25:32.015202+00:00"
+      }
+    },
+    {
+      "card_id": "GIL_562",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\47078-zh_CN.json",
+      "response_sha256": "bf170ee82713ddace1763eb2ccc722387cb8485bcd344e85ba722d2fefc38c5b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=47078&locale=zh_CN",
+      "face": {
+        "id": 47078,
+        "collectible": 1,
+        "slug": "47078-vilebrood-skitterer",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Tyler West Studio",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 5,
+        "name": "邪巢诱捕蛛",
+        "text": "<b>剧毒，突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/333ffde5745c06dfdf56f81491b344a1a7a8822501f16af6b77a0fa5e0c858ef.png",
+        "imageGold": "",
+        "flavorText": "它本有志成为邪巢舞者的，无奈八条腿总踩到别人脚。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cadc757509c1d49bdc5b730ec16022295f38536d3869ac750c1c6729efd1902e.png",
+        "keywordIds": [
+          32,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=47078&locale=zh_CN",
+        "sha256": "bf170ee82713ddace1763eb2ccc722387cb8485bcd344e85ba722d2fefc38c5b",
+        "bytes": 783,
+        "observed_at": "2026-10-24T07:25:33.397842+00:00"
+      }
+    },
+    {
+      "card_id": "GIL_562",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\47078-en_US.json",
+      "response_sha256": "b623f53feee2de5fc786c4a8f59625ffb69f2b0efb46866cec6b0a80b488780e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=47078&locale=en_US",
+      "face": {
+        "id": 47078,
+        "collectible": 1,
+        "slug": "47078-vilebrood-skitterer",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Tyler West Studio",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 5,
+        "name": "Vilebrood Skitterer",
+        "text": "<b>Poisonous</b> <b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17b7add0c9b4ab754971129e0fce2b6baeeba2c73723c56bb8f67121cf350743.png",
+        "imageGold": "",
+        "flavorText": "It aspires to be a Vilebrood Dancer, but it has eight left feet.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cadc757509c1d49bdc5b730ec16022295f38536d3869ac750c1c6729efd1902e.png",
+        "keywordIds": [
+          32,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=47078&locale=en_US",
+        "sha256": "b623f53feee2de5fc786c4a8f59625ffb69f2b0efb46866cec6b0a80b488780e",
+        "bytes": 785,
+        "observed_at": "2026-10-24T07:25:33.439682+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_905",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\45329-zh_CN.json",
+      "response_sha256": "a997b1f06a8fabf54cb9a159149523daf836e6693b64634d752dbabf926d1fae",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=45329&locale=zh_CN",
+      "face": {
+        "id": 45329,
+        "collectible": 1,
+        "slug": "45329-bloodworm",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "血虫",
+        "text": "<b>吸血</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3899e1c1916ab8a4e52bb0a3595af55256369a80bc509436eb4403933cb6f981.png",
+        "imageGold": "",
+        "flavorText": "兰娜瑟尔女王每天早餐都要吃上一条，必须炸得嘎嘣脆。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96a9b79a4df4d61c783b03f1c8297d75bfdb831ea8a8f88cfb8a2236b7314fc7.png",
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          95645
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=45329&locale=zh_CN",
+        "sha256": "a997b1f06a8fabf54cb9a159149523daf836e6693b64634d752dbabf926d1fae",
+        "bytes": 777,
+        "observed_at": "2026-10-24T07:25:33.615362+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_905",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\45329-en_US.json",
+      "response_sha256": "97719375857c1cc784b0ac3e078fac6e92d0917b1e5cc08b0849e3b773ef8687",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=45329&locale=en_US",
+      "face": {
+        "id": 45329,
+        "collectible": 1,
+        "slug": "45329-bloodworm",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Bloodworm",
+        "text": "<b>Lifesteal</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44e0bfd72ad56fcf7f721351c50d068b4d557ebb0c06494a322a03706bab8604.png",
+        "imageGold": "",
+        "flavorText": "Queen Lana'thel insists on one of these, fried, every morning for breakfast.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96a9b79a4df4d61c783b03f1c8297d75bfdb831ea8a8f88cfb8a2236b7314fc7.png",
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          95645
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=45329&locale=en_US",
+        "sha256": "97719375857c1cc784b0ac3e078fac6e92d0917b1e5cc08b0849e3b773ef8687",
+        "bytes": 784,
+        "observed_at": "2026-10-24T07:25:33.512209+00:00"
+      }
+    },
+    {
+      "card_id": "LEG_CS3_037",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\113350-zh_CN.json",
+      "response_sha256": "a76001a4d218a8b6c4a5e4249c5d0b7a9bd43e47241472704a4f68af66116a8a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=113350&locale=zh_CN",
+      "face": {
+        "id": 113350,
+        "collectible": 1,
+        "slug": "113350-emerald-skytalon",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "翡翠天爪枭",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5ca88ef6d2109cfd5cba17fb655af3377cfc88bfa23c921905e60f1c82370f5e.png",
+        "imageGold": "",
+        "flavorText": "这些勇猛的天爪枭曾在翡翠巨龙圣地宣誓保卫伊瑟拉，被翡翠梦境的力量所触及，呈现出了晶莹剔透的外观。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3310b0fcbeceac91159c3a79eb243e11174899a5411b5be9bcb980ffc5a6c6af.png",
+        "keywordIds": [
+          53
+        ],
+        "copyOfCardId": [
+          72248
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=113350&locale=zh_CN",
+        "sha256": "a76001a4d218a8b6c4a5e4249c5d0b7a9bd43e47241472704a4f68af66116a8a",
+        "bytes": 881,
+        "observed_at": "2026-10-20T15:32:29.984145+00:00"
+      }
+    },
+    {
+      "card_id": "LEG_CS3_037",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\113350-en_US.json",
+      "response_sha256": "08110da6a0241a8f6ceb6cd52732f28ed24d45f77d298804ce38c17e08415b44",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=113350&locale=en_US",
+      "face": {
+        "id": 113350,
+        "collectible": 1,
+        "slug": "113350-emerald-skytalon",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": "Luca Zontini",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Emerald Skytalon",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/98b32d0e7b87da6bcbefa2ecf20c176a6e59dbe08c140b481d3e19171c892e09.png",
+        "imageGold": "",
+        "flavorText": "Sworn protectors of Ysera at the Emerald Dragonshrine, these majestic owls have been touched by the powers of the Emerald Dream, taking on an almost crystalline appearance.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3310b0fcbeceac91159c3a79eb243e11174899a5411b5be9bcb980ffc5a6c6af.png",
+        "keywordIds": [
+          53
+        ],
+        "copyOfCardId": [
+          72248
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=113350&locale=en_US",
+        "sha256": "08110da6a0241a8f6ceb6cd52732f28ed24d45f77d298804ce38c17e08415b44",
+        "bytes": 908,
+        "observed_at": "2026-10-20T15:32:29.952412+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_258",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\45707-zh_CN.json",
+      "response_sha256": "52599178fa41b43fba8d5912b8cd78b0436cd717b202db20064646c7fcf8b7ba",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=45707&locale=zh_CN",
+      "face": {
+        "id": 45707,
+        "collectible": 1,
+        "slug": "45707-dire-mole",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Daren Bader",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "厄运鼹鼠",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a65e1c913f104af8112573bbd2abdd1635c8bc76381e16c2c84741bdc6d577b.png",
+        "imageGold": "",
+        "flavorText": "你肯定不想让厄运鼹鼠把洞穴挖的满山都是吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b080b25a57dfb117ff00743ebd2e526712bff7be299281014d895e1198d7202d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=45707&locale=zh_CN",
+        "sha256": "52599178fa41b43fba8d5912b8cd78b0436cd717b202db20064646c7fcf8b7ba",
+        "bytes": 713,
+        "observed_at": "2026-10-24T07:25:34.953496+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_258",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\45707-en_US.json",
+      "response_sha256": "61b1612b4b80bf9e2e7132e9398998fa280076967891955b710b7189e8061213",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=45707&locale=en_US",
+      "face": {
+        "id": 45707,
+        "collectible": 1,
+        "slug": "45707-dire-mole",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Daren Bader",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Dire Mole",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd2ac1a7d3360dcb93a5bec141998f0db178261ea0924b61f73e7ed2d5cbd6a7.png",
+        "imageGold": "",
+        "flavorText": "You especially don't want to make a dire mountain out of a dire mole hill.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b080b25a57dfb117ff00743ebd2e526712bff7be299281014d895e1198d7202d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=45707&locale=en_US",
+        "sha256": "61b1612b4b80bf9e2e7132e9398998fa280076967891955b710b7189e8061213",
+        "bytes": 721,
+        "observed_at": "2026-10-24T07:25:35.161365+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_050",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\87317-zh_CN.json",
+      "response_sha256": "f919baf69f4f26601257928a016430f238e770412d5f5842f80997a52e22b4fc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=87317&locale=zh_CN",
+      "face": {
+        "id": 87317,
+        "collectible": 1,
+        "slug": "87317-mistake",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 26,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "错误产物",
+        "text": "<i>本随从拥有全部随从类型。</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ecb90b67be144b906e2818294ff0d8ef951f8a90f99658e60c19b7dfdfc96f1.png",
+        "imageGold": "",
+        "flavorText": "一个美丽的意外。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50c9de87f8c063efb220bb382a66ce08fc789188d8558ca14d25927fbad9bf08.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=87317&locale=zh_CN",
+        "sha256": "f919baf69f4f26601257928a016430f238e770412d5f5842f80997a52e22b4fc",
+        "bytes": 714,
+        "observed_at": "2026-10-24T07:25:35.123040+00:00"
+      }
+    },
+    {
+      "card_id": "NX2_050",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\87317-en_US.json",
+      "response_sha256": "42075e282e3cb43311fbe2f0a645430c96914a682dedca14e1c78737ca7e4855",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=87317&locale=en_US",
+      "face": {
+        "id": 87317,
+        "collectible": 1,
+        "slug": "87317-mistake",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 26,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Mistake",
+        "text": "<i>This has all minion types</i>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/718c75f7b639a9e0586986d2610254cba5985e9de749db750d3450490ea695ef.png",
+        "imageGold": "",
+        "flavorText": "We like to think of it as a happy accident.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50c9de87f8c063efb220bb382a66ce08fc789188d8558ca14d25927fbad9bf08.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=87317&locale=en_US",
+        "sha256": "42075e282e3cb43311fbe2f0a645430c96914a682dedca14e1c78737ca7e4855",
+        "bytes": 718,
+        "observed_at": "2026-10-24T07:25:35.492885+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_053",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120954-zh_CN.json",
+      "response_sha256": "5116b1534da99b6d7ed7854ba49c0b7f627895247af42b31ee19ce4fa6455020",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120954&locale=zh_CN",
+      "face": {
+        "id": 120954,
+        "collectible": 1,
+        "slug": "120954-sandmaw",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "health": 2,
+        "attack": 7,
+        "manaCost": 3,
+        "name": "流沙巨口",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3d98907a586b2a4437379c0dedc4123c44d93dcaba57bbd9465c4cc629d6d21.png",
+        "imageGold": "",
+        "flavorText": "最爱的风味：香草。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/751ddf43fbb0b102568ac3a7e6defd20ba27ec3ff50296d89f73c263bfbb97fe.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120954&locale=zh_CN",
+        "sha256": "5116b1534da99b6d7ed7854ba49c0b7f627895247af42b31ee19ce4fa6455020",
+        "bytes": 700,
+        "observed_at": "2026-10-24T07:25:36.699648+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_053",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120954-en_US.json",
+      "response_sha256": "5d44ebc387659f3860e830da5a4aed65cc5453d5889b15065554962fe8c328f1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120954&locale=en_US",
+      "face": {
+        "id": 120954,
+        "collectible": 1,
+        "slug": "120954-sandmaw",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          18
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "health": 2,
+        "attack": 7,
+        "manaCost": 3,
+        "name": "Sandmaw",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0aab4587e4e808c6891f648277b64a92627f0149fd32e2a44f845ec6e9c962ec.png",
+        "imageGold": "",
+        "flavorText": "Its favorite flavor: vanilla.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/751ddf43fbb0b102568ac3a7e6defd20ba27ec3ff50296d89f73c263bfbb97fe.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120954&locale=en_US",
+        "sha256": "5d44ebc387659f3860e830da5a4aed65cc5453d5889b15065554962fe8c328f1",
+        "bytes": 697,
+        "observed_at": "2026-10-24T07:25:36.923403+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_810",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41324-zh_CN.json",
+      "response_sha256": "56d211a59a8ff67b1340c3b434a1a2a610002c5a2169b03fd1beef4c9dc79763",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41324&locale=zh_CN",
+      "face": {
+        "id": 41324,
+        "collectible": 1,
+        "slug": "41324-stegodon",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Jim Nelson",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "剑龙",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e2157451a488c41d47d75db1e0e3f342f47aef4d985ac33c7e785fd56976567.png",
+        "imageGold": "",
+        "flavorText": "升到40级的圣骑士被要求去驯服一头剑龙，所以这世界上并不存在41级的圣骑士。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5073073967163fb04ef4e2dc16b019d3e9741e680a94043c99bc4955ead2becf.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41324&locale=zh_CN",
+        "sha256": "56d211a59a8ff67b1340c3b434a1a2a610002c5a2169b03fd1beef4c9dc79763",
+        "bytes": 776,
+        "observed_at": "2026-10-24T07:25:37.161674+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_810",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41324-en_US.json",
+      "response_sha256": "b88099957078d7d60a65f1b2f179d78c883ddc17e63aad0e5164a3f284009789",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41324&locale=en_US",
+      "face": {
+        "id": 41324,
+        "collectible": 1,
+        "slug": "41324-stegodon",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Jim Nelson",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Stegodon",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f8f6c4f1ab807112d279222efae697c40066a82ade0d546547f65a051a7a546d.png",
+        "imageGold": "",
+        "flavorText": "Level 40 Tortollan Paladins quest to tame a Stegodon. There are no level 41 Tortollan Paladins.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5073073967163fb04ef4e2dc16b019d3e9741e680a94043c99bc4955ead2becf.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41324&locale=en_US",
+        "sha256": "b88099957078d7d60a65f1b2f179d78c883ddc17e63aad0e5164a3f284009789",
+        "bytes": 766,
+        "observed_at": "2026-10-24T07:25:37.138863+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "declaration_profiles": {
+    "BE_193": "plain-printed-keywords",
+    "CORE_BT_201": "core-porcupine-alias",
+    "CORE_EX1_028": "plain-printed-keywords",
+    "CORE_GIL_558": "plain-printed-keywords",
+    "CS2_125": "plain-printed-keywords",
+    "CS2_127": "plain-printed-keywords",
+    "CS2_169": "plain-printed-keywords",
+    "GIL_562": "plain-printed-keywords",
+    "ICC_905": "plain-printed-keywords",
+    "LEG_CS3_037": "plain-printed-keywords",
+    "LOOT_258": "plain-printed-keywords",
+    "NX2_050": "plain-printed-keywords",
+    "TIME_053": "plain-printed-keywords",
+    "UNG_810": "plain-printed-keywords"
+  }
+}

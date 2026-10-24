@@ -42,7 +42,8 @@ def fixture(mode='normal', role='writer'):
             cost=5 if mode == 'unknown' else 6))
         first = (*first, UNKNOWN)
     if mode == 'unreviewed':
-        first = (*first, 'CS2_169')
+        # Young Dragonhawk now has a reviewed native donation declaration.
+        first = (*first, 'CORE_CS2_120')
     if mode == 'wrong_role':
         first = (*first, UNIT)
         registry.register_pool_card(PoolCard.from_definition(registry.card(UNIT)))

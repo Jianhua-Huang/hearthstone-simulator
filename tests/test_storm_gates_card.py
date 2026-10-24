@@ -48,7 +48,8 @@ def fixture(mode='normal'):
     if mode in('unknown','high_unknown'):
         raw=r.pool_card(BOAR);r.register_pool_card(replace(raw,card_id=P+'unknown',cost=5 if mode=='unknown'else 6))
         first=(*first,P+'unknown');second=(*second,P+'unknown')
-    if mode=='unreviewed':first=(*first,'CS2_169')
+    # Young Dragonhawk now has a reviewed native donation declaration.
+    if mode=='unreviewed':first=(*first,'CORE_CS2_120')
     if mode=='wrong_role':first=(*first,UNDEAD)
     if mode=='empty':second=()
     if mode!='missing':
