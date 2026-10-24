@@ -15,6 +15,7 @@ from .sacrifice import MinionReference, reference_value, same_instance
 from .zones import CardReference, CopyCard
 
 EVENT = 'native_card_consumed'
+RETURN_EVENT = 'consumed_weapon_return_claimed'
 
 
 @dataclass(frozen=True)
@@ -24,7 +25,7 @@ class ConsumptionProfile:
 
     def __post_init__(self):
         _behavior(self.card_id)
-        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand', 'fabled_weapon'):
+        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand', 'fabled_weapon', 'equipped_weapon'):
             raise ValueError('Unknown native consumption profile')
 
 
@@ -122,9 +123,10 @@ def validate_record(state, registry, row):
     if (row.turn > state.turn or row.action > state.action_number or row.ability_id >= state.next_attachment_id
             or state.entities[origin.entity_id].zone_epoch < row.after_epoch):
         raise ValueError('Consumption has a future source, attachment or removal')
-    expected_zone = (origin.zone if profile.kind == 'fabled_weapon' else
+    expected_zone = (Zone.WEAPON if profile.kind == 'equipped_weapon' else origin.zone if profile.kind == 'fabled_weapon' else
                      Zone.DECK if profile.kind == 'deck_minion' else Zone.HAND)
-    expected_kind = {'hand_spell': CardType.SPELL, 'deck_minion': CardType.MINION}.get(profile.kind)
+    expected_kind = {'hand_spell': CardType.SPELL, 'deck_minion': CardType.MINION,
+                     'equipped_weapon':CardType.WEAPON}.get(profile.kind)
     expected_player = 3-row.source.controller if profile.kind == 'opponent_hand' else row.source.controller
     if (origin.zone != expected_zone or origin.controller != expected_player
             or expected_kind is not None and origin.kind != expected_kind):
@@ -134,8 +136,8 @@ def validate_record(state, registry, row):
             if ability.consumed_card_id >= row.id:
                 raise ValueError('Consumed material cannot refer to its own or future payload')
             validate_payload(state, registry, ability)
-    if profile.kind == 'fabled_weapon':
-        if (origin.kind != CardType.WEAPON or origin.card_id != fabled_weapon_id(registry, profile)
+    if profile.kind in ('fabled_weapon','equipped_weapon'):
+        if (origin.kind != CardType.WEAPON or profile.kind=='fabled_weapon' and origin.card_id != fabled_weapon_id(registry, profile)
                 or row.candidates or row.rng_before is not None or row.rng_after is not None
                 or row.health_gain != row.card.durability):
             raise ValueError('Fabled weapon material changed its named companion, durability or deterministic removal')
@@ -233,6 +235,29 @@ class ConsumeFabledWeapon(Effect):
         _behavior(self.profile_id)
 
 
+@dataclass(frozen=True)
+class ConsumeEquippedWeapon(Effect):
+    source: MinionReference
+    profile_id: str
+
+    def __post_init__(self):
+        reference_value(self.source);_behavior(self.profile_id)
+
+
+def consume_equipped_weapon(r,effect):
+    effect.__post_init__();profile=r.registry.consumption_profiles[effect.profile_id]
+    validate_profile(r.registry,profile)
+    if profile.kind!='equipped_weapon':
+        raise ValueError('Current equipped weapon consumption borrowed another native profile')
+    source=same_instance(r.state,effect.source)
+    if source is None or not source.active or source.health<=0 or source.doomed:return ()
+    identity=r.player(source.controller).weapon_id
+    target=r.state.entities.get(identity)
+    if target is not None and target.active and target.durability>0 and not target.doomed:
+        _capture_consumption(r,source,profile,target)
+    return ()
+
+
 def consume_fabled_weapon(r, effect):
     effect.__post_init__()
     profile = r.registry.consumption_profiles[effect.profile_id]
@@ -292,7 +317,7 @@ def consume(r, effect):
 def _capture_consumption(r, source, profile, target, candidates=(), before=None, after=None):
     material = CapturedCardCopyMaterial.capture(r.state, target)
     source_fact = SourceAllocationFact.capture(r.state, source)
-    attack, health = ((target.attack, target.durability) if profile.kind == 'fabled_weapon' else
+    attack, health = ((target.attack, target.durability) if profile.kind in ('fabled_weapon','equipped_weapon') else
                       (target.attack, target.max_health) if profile.kind == 'deck_minion' else (0, 0))
     # The existing private storage move retires hand identity and live handles.
     from .temporary_hands import hide
@@ -364,6 +389,17 @@ def resolve(r, effect):
     validate_payload(r.state, r.registry, capture.ability)
     row = record(r.state, capture.ability.consumed_card_id)
     profile = r.registry.consumption_profiles[row.profile_id]
+    if profile.kind=='equipped_weapon':
+        first=first_weapon_activation(r.state,capture)
+        if (capture.group_id,capture.trigger_index)!=(first.group_id,first.trigger_index):return ()
+        if capture.id==first.id:
+            carrier=r.state.entities[capture.carrier_id]
+            carrier.abilities=[replace(a,consumed=True)if a.id==capture.ability.id else a for a in carrier.abilities]
+            r.emit(RETURN_EVENT,source_id=capture.carrier_id,target_id=row.card.origin.entity_id,
+                player_id=capture.player_id,consumed_id=row.id,deathrattle_id=capture.id,
+                group_id=capture.group_id,trigger_index=capture.trigger_index,ability_id=capture.ability.id)
+        from .equipment import EquipWeaponCopy
+        return (EquipWeaponCopy(capture.player_id,row.card,capture.carrier_id),)
     if profile.kind == 'hand_spell':
         from .spell_casts import CastSpell
         return (CastSpell(capture.player_id, row.card.origin.card_id, capture.carrier_id),)
@@ -374,9 +410,18 @@ def resolve(r, effect):
     return (CopyCard(row.card, capture.player_id, mode='base', source_id=capture.carrier_id),)
 
 
+def first_weapon_activation(state,capture):
+    candidates=[row for row in state.deathrattle_history if row.execution_order is not None and
+        (row.capture.carrier_id,row.capture.ability.id,row.capture.ability.consumed_card_id)==
+        (capture.carrier_id,capture.ability.id,capture.ability.consumed_card_id)]
+    if not candidates:raise ValueError('Weapon return lost its actual first invocation')
+    return min(candidates,key=lambda row:row.execution_order).capture
+
+
 def validate_boundary(game):
     from .hero_health_history import effective_events
-    events = tuple(e for e in effective_events(game._events) if e.kind == EVENT)
+    effective=tuple(effective_events(game._events))
+    events = tuple(e for e in effective if e.kind == EVENT)
     rows = game._state.consumed_card_history
     if len(events) != len(rows):
         raise ValueError('Consumption lost its complete actual event inventory')
@@ -385,6 +430,45 @@ def validate_boundary(game):
                 row.event_sequence, row.action, row.source.entity_id, row.card.origin.entity_id,
                 row.source.controller, 0, {'consumed_id': row.id}):
             raise ValueError('Consumption differs from its original physical publication')
+    validate_weapon_returns(game,effective)
+
+
+def validate_weapon_returns(game,events):
+    state=game._state;registry=game.registry;claims={}
+    identities={row.id for row in state.consumed_card_history
+        if registry.consumption_profiles[row.profile_id].kind=='equipped_weapon'}
+    if not identities:return
+    firsts={}
+    for row in state.deathrattle_history:
+        c=row.capture;identity=c.ability.consumed_card_id
+        if identity not in identities or row.execution_order is None:continue
+        key=(c.carrier_id,c.ability.id,identity)
+        if key not in firsts or row.execution_order<firsts[key].execution_order:firsts[key]=row
+    for event in events:
+        if event.kind!=RETURN_EVENT:continue
+        data=dict(event.data)
+        if set(data)!={'consumed_id','deathrattle_id','group_id','trigger_index','ability_id'}:
+            raise ValueError('Weapon return changed its complete first-activation receipt')
+        from .deathrattles import record as activation_record
+        capture=activation_record(state,data['deathrattle_id']).capture
+        row=record(state,data['consumed_id']);key=(capture.carrier_id,capture.ability.id,row.id)
+        if key not in firsts:raise ValueError('Weapon return has no actual first execution')
+        first=firsts[key].capture
+        if (key in claims or registry.consumption_profiles[row.profile_id].kind!='equipped_weapon' or
+                capture.id!=first.id or capture.ability.consumed_card_id!=row.id or
+                (data['group_id'],data['trigger_index'],data['ability_id'])!=
+                    (capture.group_id,capture.trigger_index,capture.ability.id) or
+                (event.source_id,event.target_id,event.player_id,event.amount)!=
+                    (capture.carrier_id,row.card.origin.entity_id,capture.player_id,0) or
+                event.sequence<=row.event_sequence or event.action<capture.action):
+            raise ValueError('Weapon return borrowed another activation, material or first-use receipt')
+        claims[key]=event
+        carrier=state.entities[capture.carrier_id]
+        if any(a.id==capture.ability.id and not a.consumed for a in carrier.abilities):
+            raise ValueError('Returned equipped material restored its consumed live payload')
+    for key,activation in firsts.items():
+        if activation.completed and key not in claims:
+            raise ValueError('Completed weapon return lost its original first-use receipt')
 
 
 def rows_from_dict(value):
@@ -416,3 +500,4 @@ def register(mechanics):
     mechanics.register(ResolveConsumedDeathrattle, resolve)
     mechanics.register(ConsumeOpponentHand, consume_opponent_hand)
     mechanics.register(ConsumeFabledWeapon, consume_fabled_weapon)
+    mechanics.register(ConsumeEquippedWeapon, consume_equipped_weapon)

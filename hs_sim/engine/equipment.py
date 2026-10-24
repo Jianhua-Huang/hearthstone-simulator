@@ -1,6 +1,6 @@
 """Weapon slots, derived hero contribution and intrinsic attack wear."""
 from dataclasses import dataclass
-from .effects import Effect, _integer, _source
+from .effects import Effect, _integer, _source, _player
 from .errors import ResolutionError
 from .lifecycle import attachment_id, refresh_entity
 from .model import CardType, Enchantment, EquippedWeaponReference, Event, Keyword, Zone, _int
@@ -8,6 +8,38 @@ from .model import CardType, Enchantment, EquippedWeaponReference, Event, Keywor
 
 WEAPON_KEYWORDS = {Keyword.WINDFURY, Keyword.MEGA_WINDFURY, Keyword.LIFESTEAL, Keyword.POISONOUS,
                    Keyword.IMMUNE_WHILE_ATTACKING}
+
+
+@dataclass(frozen=True)
+class EquipWeaponCopy(Effect):
+    player_id: int
+    material: object
+    source_id: int | None = None
+
+    def __post_init__(self):
+        from .copy_materials import CapturedCardCopyMaterial
+        _player(self.player_id);_source(self.source_id)
+        if type(self.material) is not CapturedCardCopyMaterial:
+            raise ValueError('Weapon copy requires complete original equipped material')
+        self.material.__post_init__()
+        if (self.material.origin.kind!=CardType.WEAPON or self.material.origin.zone!=Zone.WEAPON
+                or self.material.durability<=0):
+            raise ValueError('Weapon copy requires an originally usable equipped weapon')
+
+
+def equip_weapon_copy(r,effect):
+    from .copy_materials import validate_captured_card_copy
+    from .zones import copy_current_stored_state,source_exists
+    from .held_opponent_copies import copy_origin
+    effect.__post_init__();source_exists(r,effect.source_id)
+    material=effect.material;validate_captured_card_copy(r.state,r.registry,material)
+    entity=r.create_entity(effect.player_id,material.origin.card_id,Zone.GRAVEYARD,
+        components=material.components)
+    copy_current_stored_state(r.state,material.entity(),entity)
+    entity.origin_entity_id=material.origin.entity_id;entity.copy_origin=copy_origin(material.origin)
+    equip_entity(r,entity)
+    r.emit('card_created',source_id=effect.source_id,target_id=entity.id,player_id=effect.player_id,
+        copied_from=material.origin.entity_id,copy_mode='current')
 
 
 @dataclass(frozen=True)
