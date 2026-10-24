@@ -178,7 +178,10 @@ class ZombeastNativeCleavePartsTests(CardBatchTestMixin, unittest.TestCase):
         self.assertIn(CARD, registry.crafted_minion_parts)
         self.assertNotIn(LEGACY, registry.crafted_minion_parts)
         self.assertEqual(registry.card(CARD).metadata.deck_identity, CARD)
-        self.assertEqual(len(registry.crafted_minion_parts), 23)
+        boundary = batch.registration_prefix(build_registry,
+            'hs_sim.cards.zombeast_native_cleave_parts.register_zombeast_native_cleave_parts',
+            register_zombeast_native_cleave_parts, after=True)
+        self.assertEqual(len(boundary.crafted_minion_parts), 23)
         self.assertFalse(any(key[0] in (FIRST, SECOND) for key in registry.pools))
 
     def test_paid_actual_tamer_both_actors_two_choices_and_one_ten_mana_crafted_body(self):

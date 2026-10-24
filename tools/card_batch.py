@@ -646,7 +646,8 @@ def source_guard(root):
             for p in (root / folder).rglob('*.py')}
 
 
-def capture(output, root=ROOT):
+def observe_registry(root=ROOT):
+    """Read actual registry/default state without duplicating a saved baseline."""
     from hs_sim.cards import build_registry
     from hs_sim.engine import Game, PlayerSetup, Scenario
     from hs_sim.engine.representative import build_registry as defaults
@@ -658,8 +659,13 @@ def capture(output, root=ROOT):
                 families=dict(r.generation_families), pools=[asdict(p) for p in r.pools.values()],
                 default_fingerprint=d.fingerprint(), default_snapshot=Game.from_scenario(
                     Scenario((PlayerSetup('HERO_08'), PlayerSetup('HERO_08'))), d).snapshot())
+    return data
+
+
+def capture(output, root=ROOT):
+    data = observe_registry(root)
     save_new(output, data)
-    return dict(definitions=len(r.cards), protected_python=len(data['source_guard']), output=str(output))
+    return dict(definitions=len(data['definitions']), protected_python=len(data['source_guard']), output=str(output))
 
 
 def check_commit(root, commit, task):

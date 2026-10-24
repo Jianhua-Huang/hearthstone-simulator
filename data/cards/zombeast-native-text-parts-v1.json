@@ -1,0 +1,2403 @@
+{
+  "schema": 1,
+  "native_part_ids": [
+    "CORE_EX1_014",
+    "CORE_EX1_162",
+    "CORE_GIL_622",
+    "CORE_LOOT_413",
+    "CORE_UNG_084",
+    "BE_993",
+    "TIME_601",
+    "EDR_492",
+    "BE_255",
+    "BE_734",
+    "TIME_042",
+    "TLC_242"
+  ],
+  "child_ids": [
+    "EX1_014t",
+    "EDR_492t",
+    "TIME_042t"
+  ],
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_EX1_014",
+        "dbf_id": 69656,
+        "name": "穆克拉",
+        "name_en": "King Mukla",
+        "text": "<b>战吼：</b>使你的对手获得两根香蕉。",
+        "text_en": "<b>Battlecry:</b> Give your opponent 2 Bananas.",
+        "cost": 3,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 1693,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1694
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sunny Gho"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1693",
+              "type": "Int",
+              "value": "1693"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "e57b2ae67c05084f5d82e5d6f178bd1f62544089560e8b67d8ec154bf43d5a11",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_EX1_014",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_162",
+        "dbf_id": 69668,
+        "name": "恐狼前锋",
+        "name_en": "Dire Wolf Alpha",
+        "text": "相邻的随从拥有+1攻击力。",
+        "text_en": "Adjacent minions have +1_Attack.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "ADJACENT_BUFF": 1,
+          "AURA": 1,
+          "858": 985
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "John Dickenson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "985",
+              "type": "Int",
+              "value": "985"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "dad66d2d6f444c45c0ef3954b4e6380da5d2dd4d87a7012108f57bfe0a52f865",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_EX1_162",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_622",
+        "dbf_id": 76320,
+        "name": "吸血蚊",
+        "name_en": "Lifedrinker",
+        "text": "<b>战吼：</b>对敌方英雄造成3点伤害。为你的英雄恢复#3点生命值。",
+        "text_en": "[x]<b>Battlecry:</b> Deal 3 damage to\nthe enemy hero. Restore\n#3 Health to your hero.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 47343
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "47343",
+              "type": "Int",
+              "value": "47343"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "62ebf83a6bb35b624c8f325972810fdbe2f937ade7df47ebf5bbdb0d02e505df",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_GIL_622",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_LOOT_413",
+        "dbf_id": 76323,
+        "name": "硬壳甲虫",
+        "name_en": "Plated Beetle",
+        "text": "<b>亡语：</b>&获得3点护甲值。",
+        "text_en": "<b>Deathrattle:</b>& Gain 3 Armor.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 45930,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "45930",
+              "type": "Int",
+              "value": "45930"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "1149315c7b563d35bcaa2a1b6b3a1e095af2797fd1c8726ad6314bd59966b244",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_LOOT_413",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_084",
+        "dbf_id": 120523,
+        "name": "火羽凤凰",
+        "name_en": "Fire Plume Phoenix",
+        "text": "<b>战吼：</b>造成3点伤害。",
+        "text_en": "<b>Battlecry:</b> Deal 3 damage.",
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41260,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 41260,
+          "2542": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41260",
+              "type": "Int",
+              "value": "41260"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "830b03edaeec07bda782742e24666addddbdbaea3abcc4371afefabaf2648304",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_UNG_084",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_993",
+        "dbf_id": 131456,
+        "name": "飞翼影魔",
+        "name_en": "Shadewing",
+        "text": "<b>亡语：</b>随机使你手牌中的一张暗影法术牌的法力值消耗减少（2）点。",
+        "text_en": "[x]<b>Deathrattle:</b> Reduce the\nCost of a random Shadow\n__spell in your hand by (2).",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "eeac9e635b99c0c54e00dd27803def8e8a61d2ed83cc5bfbecdc831f3b1390f7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_993",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_601",
+        "dbf_id": 120788,
+        "name": "拾箭龙鹰",
+        "name_en": "Arrow Retriever",
+        "text": "<b>战吼：</b>&抽牌，直到你拥有三张手牌。",
+        "text_en": "<b>Battlecry:</b>& Draw until you have 3 cards.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "31f77730bf281439747fa4c82f0e5093870f5499165aed54cb8f6abb5f9190ea",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_601",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_492",
+        "dbf_id": 115365,
+        "name": "鸭妈妈",
+        "name_en": "Mother Duck",
+        "text": "<b>战吼：</b>&召唤三只1/1并具有<b>突袭</b>的小鸭子。",
+        "text_en": "<b>Battlecry:</b>& Summon three 1/1 Ducklings with <b>Rush</b>.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fd66ae8dfac50904e914f4b0883db85e3e30dada1d78f89a48386dd9d1f30a05",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_492",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_255",
+        "dbf_id": 129797,
+        "name": "始生浮龙",
+        "name_en": "Primordial Wyrm",
+        "text": "在你使用一张随从牌后，&获得+1生命值。",
+        "text_en": "After you play a minion,& gain +1 Health.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "2b2e4cde503f5122ff810869fb3a595bb213983370632c0b48657e1dca57c8f2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_255",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_734",
+        "dbf_id": 130815,
+        "name": "同化软泥怪",
+        "name_en": "Assimilating Ooze",
+        "text": "<b>战吼：</b>&在本回合结束时，召唤一个本随从的复制。",
+        "text_en": "<b>Battlecry:</b>& Summon a\ncopy of this at the end\nof this turn.",
+        "cost": 4,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDRACE": 26,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4578": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dmitry Bolotov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "b00097c9cb73e3dbedaff4c133079ea3ecb0da47a434e95311744c3ee645fc9f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BE_734",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "all"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_042",
+        "dbf_id": 120795,
+        "name": "穆拉克",
+        "name_en": "King Maluk",
+        "text": "<b>战吼：</b>弃掉你的手牌。获取一张无穷香蕉。",
+        "text_en": "<b>Battlecry:</b> Discard\nyour hand. Get an\nInfinite Banana.",
+        "cost": 4,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          }
+        ]
+      },
+      "record_sha256": "7968c0d3f88ab4de66184974cadb3eac5f9335e8da1c207d5087d1ca47486a1c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TIME_042",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_242",
+        "dbf_id": 118220,
+        "name": "远古剑龙",
+        "name_en": "Ancient Stegodon",
+        "text": "<b>战吼：</b>从<b>嘲讽</b>，<b>剧毒</b>或+1/+1中选择一项并获得。",
+        "text_en": "<b>Battlecry:</b> Choose to\ngain <b>Taunt</b>, <b>Poisonous</b>,\nor +1/+1.",
+        "cost": 3,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "4548": 1,
+          "4578": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "592e08f004cc31932bdc865286cb4561ad3f936b9ca23a19b5fbb66dc18d1158",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_242",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_014t",
+        "dbf_id": 1694,
+        "name": "香蕉",
+        "name_en": "Bananas",
+        "text": "使一个随从获得+1/+1。",
+        "text_en": "Give a minion +1/+1.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8e2d698deea9b7d73956c0508e1e8bbd15d44be9044f582888bdc246ed4905f8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EX1_014t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_492t",
+        "dbf_id": 117208,
+        "name": "小鸭子",
+        "name_en": "Duckling",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "5f87a97d2f3b0a1933ddabda7189c5610dba91f732c78ae0b4269970cd2b5c30",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EDR_492t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_042t",
+        "dbf_id": 120794,
+        "name": "无穷香蕉",
+        "name_en": "Infinite Banana",
+        "text": "使一个随从获得+1/+1。<i>（本牌会保留在你手中。）</i>",
+        "text_en": "[x]Give a minion +1/+1.\n<i>(This stays in your hand.)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 3,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Felideus Bubastis"
+          }
+        ]
+      },
+      "record_sha256": "503bee02cc1a9cd97e3a435c86d63ba007ba37abcb3368a75a5205a890bf4921",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_042t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CORE_EX1_014",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69656-zh_CN.json",
+      "response_sha256": "4f02e22ac02a00eaa6ad589e52ab368186b2604cf42df2d82faababdbe65b1f2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=69656&locale=zh_CN",
+      "face": {
+        "id": 69656,
+        "collectible": 1,
+        "slug": "69656-king-mukla",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Sunny Gho",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 3,
+        "name": "穆克拉",
+        "text": "<b>战吼：</b>使你的对手获得两根香蕉。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/608d20fd45edce994dcc0467bd8cf041a99e84f48e306576645a4ac7c9f4aaf5.png",
+        "imageGold": "",
+        "flavorText": "穆克拉在哈圭罗岛上徘徊，寻找他的真爱。",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          1693,
+          69814
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=69656&locale=zh_CN",
+        "sha256": "4f02e22ac02a00eaa6ad589e52ab368186b2604cf42df2d82faababdbe65b1f2",
+        "bytes": 684,
+        "observed_at": "2026-10-24T08:07:05.647042+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_014",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69656-en_US.json",
+      "response_sha256": "b70a87879c1b497f9eedf953f13e02b857b353f45ab32ba6ba5bfd2e70e09862",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=69656&locale=en_US",
+      "face": {
+        "id": 69656,
+        "collectible": 1,
+        "slug": "69656-king-mukla",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 5,
+        "artistName": "Sunny Gho",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 3,
+        "name": "King Mukla",
+        "text": "<b>Battlecry:</b> Give your opponent 2 Bananas.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cc15f1aaf63518adae8f6041d2c2bd162fb51554ee9a1fb1f1b433e16ff50474.png",
+        "imageGold": "",
+        "flavorText": "King Mukla wanders Jaguero Isle, searching for love.",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          1693,
+          69814
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=69656&locale=en_US",
+        "sha256": "b70a87879c1b497f9eedf953f13e02b857b353f45ab32ba6ba5bfd2e70e09862",
+        "bytes": 675,
+        "observed_at": "2026-10-24T08:07:05.849943+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_162",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69668-zh_CN.json",
+      "response_sha256": "59d20d2d44e50e41c5237a5d7f57b4e7e6323863a41331dbf17a8336a1a9fa3f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=69668&locale=zh_CN",
+      "face": {
+        "id": 69668,
+        "collectible": 1,
+        "slug": "69668-dire-wolf-alpha",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "John Dickenson",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "恐狼前锋",
+        "text": "相邻的随从拥有+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19a93ff0032a7b3a7132e324ec6f149f01bcc6923cfbee86eec26095985b4971.png",
+        "imageGold": "",
+        "flavorText": "这支球队没有后卫。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d588e7b336dc13c9ce468a0dd118d1b01261189b4ad2b046f9b396d4d48f756.png",
+        "copyOfCardId": [
+          75916,
+          985,
+          69870
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=69668&locale=zh_CN",
+        "sha256": "59d20d2d44e50e41c5237a5d7f57b4e7e6323863a41331dbf17a8336a1a9fa3f",
+        "bytes": 754,
+        "observed_at": "2026-10-24T08:07:05.599442+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_EX1_162",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\69668-en_US.json",
+      "response_sha256": "f4c010fcfefcb03807bbd5822db2cc9bcfc54c2c4dcdc699d1fc0959e1b78d34",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=69668&locale=en_US",
+      "face": {
+        "id": 69668,
+        "collectible": 1,
+        "slug": "69668-dire-wolf-alpha",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "John Dickenson",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Dire Wolf Alpha",
+        "text": "Adjacent minions have +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a658a86c4cefd1198bbb560aee1048cf215bab5c4c3e12dad39b1e9a2e1854ff.png",
+        "imageGold": "",
+        "flavorText": "We are pretty excited about the upcoming release of Dire Wolf Beta, just repost this sign for a chance at a key.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d588e7b336dc13c9ce468a0dd118d1b01261189b4ad2b046f9b396d4d48f756.png",
+        "copyOfCardId": [
+          75916,
+          985,
+          69870
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=69668&locale=en_US",
+        "sha256": "f4c010fcfefcb03807bbd5822db2cc9bcfc54c2c4dcdc699d1fc0959e1b78d34",
+        "bytes": 839,
+        "observed_at": "2026-10-24T08:07:06.123899+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_GIL_622",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\76320-zh_CN.json",
+      "response_sha256": "967885ab086ce2686b048836c64b350d3770eb293070273bd6b18c00f13e60de",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=76320&locale=zh_CN",
+      "face": {
+        "id": 76320,
+        "collectible": 1,
+        "slug": "76320-lifedrinker",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Slawomir Maniak",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "吸血蚊",
+        "text": "<b>战吼：</b>对敌方英雄造成3点伤害。为你的英雄恢复 3点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81f183a3a1550a425b38ea644c5dfaa76e21ccc35eb535d84f3757eea8d743c4.png",
+        "imageGold": "",
+        "flavorText": "饿昏头的时候，它也会吸零度圣水。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1550416bbe0494e0267d0bb30958c16fe58f40a686e84eb0e982343b2d13bbd1.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          47343
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=76320&locale=zh_CN",
+        "sha256": "967885ab086ce2686b048836c64b350d3770eb293070273bd6b18c00f13e60de",
+        "bytes": 829,
+        "observed_at": "2026-10-24T08:07:07.341705+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_GIL_622",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\76320-en_US.json",
+      "response_sha256": "d60902e09e976ee603eb6286da1b9e28ef3627c49dd4c06f6d0242ee1e9e4905",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=76320&locale=en_US",
+      "face": {
+        "id": 76320,
+        "collectible": 1,
+        "slug": "76320-lifedrinker",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 3,
+        "artistName": "Slawomir Maniak",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Lifedrinker",
+        "text": "<b>Battlecry:</b> Deal 3 damage to the enemy hero. Restore 3 Health to your hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77fbdea1ea8bdde910a510ee77d2d9500b10d21d44291a363aa82d1479cd63a2.png",
+        "imageGold": "",
+        "flavorText": "In a pinch, he'll also settle for Holy Water: Zero.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1550416bbe0494e0267d0bb30958c16fe58f40a686e84eb0e982343b2d13bbd1.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          47343
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=76320&locale=en_US",
+        "sha256": "d60902e09e976ee603eb6286da1b9e28ef3627c49dd4c06f6d0242ee1e9e4905",
+        "bytes": 827,
+        "observed_at": "2026-10-24T08:07:07.361712+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_413",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\76323-zh_CN.json",
+      "response_sha256": "1b202498652fef211bc698c07f0b7ea0637129f8f680b15f25e2da9abb3f0910",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=76323&locale=zh_CN",
+      "face": {
+        "id": 76323,
+        "collectible": 1,
+        "slug": "76323-plated-beetle",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ian Ameling",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "硬壳甲虫",
+        "text": "<b>亡语：</b>&获得3点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2171e615dbf92f8a6b04a46f82e9f7a70c127336351286ef78ec51735e457423.png",
+        "imageGold": "",
+        "flavorText": "“好了，你的队伍打败了那只甲虫。”“我要把它放在头上。”“什么？”“我要把它戴在头上，像帽子一样。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/573299ecb91e1d7af091e22229e3732fc9ae291f50ff4b664ba41b7e77304996.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          45930
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=76323&locale=zh_CN",
+        "sha256": "1b202498652fef211bc698c07f0b7ea0637129f8f680b15f25e2da9abb3f0910",
+        "bytes": 884,
+        "observed_at": "2026-10-24T08:07:07.823061+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_413",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\76323-en_US.json",
+      "response_sha256": "6b369f8719dc70d71fe88901d082f159258cc75ebd8a0c5f472c4e3796da710f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=76323&locale=en_US",
+      "face": {
+        "id": 76323,
+        "collectible": 1,
+        "slug": "76323-plated-beetle",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Ian Ameling",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Plated Beetle",
+        "text": "<b>Deathrattle:</b>& Gain 3 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/608f5f4826f416d4753108fd8aa39e7f6d01d3312ab7eec8765aae064e98e557.png",
+        "imageGold": "",
+        "flavorText": "\"Ok, your party has defeated the beetle.\" \"I put it on my head.\" \"What?\" \"I put it on my head. Like a hat.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/573299ecb91e1d7af091e22229e3732fc9ae291f50ff4b664ba41b7e77304996.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          45930
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=76323&locale=en_US",
+        "sha256": "6b369f8719dc70d71fe88901d082f159258cc75ebd8a0c5f472c4e3796da710f",
+        "bytes": 845,
+        "observed_at": "2026-10-24T08:07:07.611854+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_UNG_084",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120523-zh_CN.json",
+      "response_sha256": "c1d96d0f790b233f60e10041c038712fe54ba4e1866436feb2361aa696ad797d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120523&locale=zh_CN",
+      "face": {
+        "id": 120523,
+        "collectible": 1,
+        "slug": "120523-fire-plume-phoenix",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Dan Scott",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "火羽凤凰",
+        "text": "<b>战吼：</b>造成3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48b2c263e41e59277748692fd1e00d5eccef50dc7f9f8663a01cc5db11433de1.png",
+        "imageGold": "",
+        "flavorText": "凤凰本非凡俗鸟，浴火重生凌云霄。",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          41260
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120523&locale=zh_CN",
+        "sha256": "c1d96d0f790b233f60e10041c038712fe54ba4e1866436feb2361aa696ad797d",
+        "bytes": 686,
+        "observed_at": "2026-10-24T08:07:08.841359+00:00"
+      }
+    },
+    {
+      "card_id": "CORE_UNG_084",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120523-en_US.json",
+      "response_sha256": "723ae06ae0f95b5f354e5b0723627c9a0e4532623089bc92ee0523ecd5562d72",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120523&locale=en_US",
+      "face": {
+        "id": 120523,
+        "collectible": 1,
+        "slug": "120523-fire-plume-phoenix",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Dan Scott",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Fire Plume Phoenix",
+        "text": "<b>Battlecry:</b> Deal 3 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aeb9dd3f4a56d27751d5c0e5ec6fce40555771d4d68bc48cb248f73d4f76e8e6.png",
+        "imageGold": "",
+        "flavorText": "This is what happens when you use a volcano as a bird bath.",
+        "cropImage": null,
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          41260
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120523&locale=en_US",
+        "sha256": "723ae06ae0f95b5f354e5b0723627c9a0e4532623089bc92ee0523ecd5562d72",
+        "bytes": 700,
+        "observed_at": "2026-10-24T08:07:09.321205+00:00"
+      }
+    },
+    {
+      "card_id": "BE_993",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\131456-zh_CN.json",
+      "response_sha256": "fe58e94371d1a017ddb53bdc00521773f79c256061019a7b46d6ce15b3503217",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131456&locale=zh_CN",
+      "face": {
+        "id": 131456,
+        "collectible": 1,
+        "slug": "131456-shadewing",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "飞翼影魔",
+        "text": "<b>亡语：</b>随机使你手牌中的一张暗影法术牌的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75e838c7edc7ad3ecf8dec0cad03bfcf48f8b1e57869e878e5ff4be765af71f1.png",
+        "imageGold": "",
+        "flavorText": "对付艾泽拉斯的热辣晴天很有用。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46761da03d1343356b22c7a4626f7310ecc17fd03d6894b0d9bd45fd112ea215.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131456&locale=zh_CN",
+        "sha256": "fe58e94371d1a017ddb53bdc00521773f79c256061019a7b46d6ce15b3503217",
+        "bytes": 812,
+        "observed_at": "2026-10-24T08:07:16.642326+00:00"
+      }
+    },
+    {
+      "card_id": "BE_993",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\131456-en_US.json",
+      "response_sha256": "740981d06b5e23859b3363fc83877d3ce0e884ba480ede95d2f13341b636fe63",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=131456&locale=en_US",
+      "face": {
+        "id": 131456,
+        "collectible": 1,
+        "slug": "131456-shadewing",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Shadewing",
+        "text": "<b>Deathrattle:</b> Reduce the Cost of a random Shadow spell in your hand by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c56e27b234f39fa032bb455951ff3f706526b696de21b758d04f177d28860d65.png",
+        "imageGold": "",
+        "flavorText": "Quite useful on hot and sunny days on Azeroth.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46761da03d1343356b22c7a4626f7310ecc17fd03d6894b0d9bd45fd112ea215.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=131456&locale=en_US",
+        "sha256": "740981d06b5e23859b3363fc83877d3ce0e884ba480ede95d2f13341b636fe63",
+        "bytes": 793,
+        "observed_at": "2026-10-24T08:07:09.293504+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_601",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120788-zh_CN.json",
+      "response_sha256": "d3fb2820d3ab69ee7b91853b991fab48aedf65b592fc5d7cfced98bc007e72d2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120788&locale=zh_CN",
+      "face": {
+        "id": 120788,
+        "collectible": 1,
+        "slug": "120788-arrow-retriever",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "拾箭龙鹰",
+        "text": "<b>战吼：</b>&抽牌，直到你拥有三张手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d46e497436a56412f474f984b3c2d4241e87a47510fe0c34fab04f6c00599ad4.png",
+        "imageGold": "",
+        "flavorText": "不会计较你脱靶了多少次。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af205facd2141778f4bd15600e43d9c85f8ac67734c2413af2ce777334d42202.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120788&locale=zh_CN",
+        "sha256": "d3fb2820d3ab69ee7b91853b991fab48aedf65b592fc5d7cfced98bc007e72d2",
+        "bytes": 766,
+        "observed_at": "2026-10-24T08:07:10.326193+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_601",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120788-en_US.json",
+      "response_sha256": "2027977bc9793e92365859d3c540220703dbf008f3db26000df75ee5b3cd4fd6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120788&locale=en_US",
+      "face": {
+        "id": 120788,
+        "collectible": 1,
+        "slug": "120788-arrow-retriever",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Arrow Retriever",
+        "text": "<b>Battlecry:</b>& Draw until you have 3 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c0cd1581c77aa97db5e44af4e14fe484cde6b486c3fdfbb23828ca444825932.png",
+        "imageGold": "",
+        "flavorText": "And he'll never tell how many times you missed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af205facd2141778f4bd15600e43d9c85f8ac67734c2413af2ce777334d42202.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120788&locale=en_US",
+        "sha256": "2027977bc9793e92365859d3c540220703dbf008f3db26000df75ee5b3cd4fd6",
+        "bytes": 771,
+        "observed_at": "2026-10-24T08:07:18.397333+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_492",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115365-zh_CN.json",
+      "response_sha256": "56aa540a3d1493b62e4ca63ac6e24433574fa0a1ba6c122ec93b2dd49afcc7fd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=115365&locale=zh_CN",
+      "face": {
+        "id": 115365,
+        "collectible": 1,
+        "slug": "115365-mother-duck",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Ursula Dorada",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "鸭妈妈",
+        "text": "<b>战吼：</b>&召唤三只1/1并具有<b>突袭</b>的小鸭子。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ca81a82c01a1ff7d6ebad5bc761bcfd7df5f3e78aa0b7c71231227f6d034920.png",
+        "imageGold": "",
+        "flavorText": "还会召唤一只0/0的丑小鸭。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be2fc018c35d045ad2bdf90b667de7e748fce9e30bbf1e69c9f609c375f36bc6.png",
+        "childIds": [
+          117208
+        ],
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=115365&locale=zh_CN",
+        "sha256": "56aa540a3d1493b62e4ca63ac6e24433574fa0a1ba6c122ec93b2dd49afcc7fd",
+        "bytes": 798,
+        "observed_at": "2026-10-24T08:07:10.826653+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_492",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\115365-en_US.json",
+      "response_sha256": "4245e8fc41bc8c8d4e7dfe79f5973085c94358c7edac468d510f428a8fecc359",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=115365&locale=en_US",
+      "face": {
+        "id": 115365,
+        "collectible": 1,
+        "slug": "115365-mother-duck",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Ursula Dorada",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Mother Duck",
+        "text": "<b>Battlecry:</b>& Summon three 1/1 Ducklings with <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3982c6129ef4ec04aac3ce70265d940b795753646440161d483ab80f70bd5ba.png",
+        "imageGold": "",
+        "flavorText": "Also summons a 0/0 Ugly Duckling.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be2fc018c35d045ad2bdf90b667de7e748fce9e30bbf1e69c9f609c375f36bc6.png",
+        "childIds": [
+          117208
+        ],
+        "keywordIds": [
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=115365&locale=en_US",
+        "sha256": "4245e8fc41bc8c8d4e7dfe79f5973085c94358c7edac468d510f428a8fecc359",
+        "bytes": 791,
+        "observed_at": "2026-10-24T08:07:11.963682+00:00"
+      }
+    },
+    {
+      "card_id": "BE_255",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129797-zh_CN.json",
+      "response_sha256": "0977e0f3d1d14034bf932786a4429e5ce08431f8a66412e02b446640dc7ffa06",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129797&locale=zh_CN",
+      "face": {
+        "id": 129797,
+        "collectible": 1,
+        "slug": "129797-primordial-wyrm",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Tee Fuyuan",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "始生浮龙",
+        "text": "在你使用一张随从牌后， 获得+1生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53e3fcff514b10c5c967d15136357294b33fe51afba770cb67ed04aa2076e2ea.png",
+        "imageGold": "",
+        "flavorText": "。源力术法何任近接们它让该应不也你，胁威的正真为成会不鬼蛋捣些这管尽以所。食为量能术奥以龙浮力法些这",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f87bb7e0ab0c714ac4d241df0695cac8bfe235a04842f40ea19e40516f7869c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129797&locale=zh_CN",
+        "sha256": "0977e0f3d1d14034bf932786a4429e5ce08431f8a66412e02b446640dc7ffa06",
+        "bytes": 861,
+        "observed_at": "2026-10-24T08:07:13.060293+00:00"
+      }
+    },
+    {
+      "card_id": "BE_255",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\129797-en_US.json",
+      "response_sha256": "312423341d5297cb4b5f9cc50dd9b90fa4d663a350448fbf0716bb45a6cf4ab2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=129797&locale=en_US",
+      "face": {
+        "id": 129797,
+        "collectible": 1,
+        "slug": "129797-primordial-wyrm",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Tee Fuyuan",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Primordial Wyrm",
+        "text": "After you play a minion, gain +1 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b676521b113c07fd635734f4fd7ef9cbc05f1e21a327c9708564602efc88955b.png",
+        "imageGold": "",
+        "flavorText": ".anam fo tekcub a htiw enola meht evael t'ndluohs uoy ,taerht laer a naht rehtar ecnasiun a deredisnoc yllareneg era yeht elihw dna ,seigrene enacra no deef smryw esehT",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f87bb7e0ab0c714ac4d241df0695cac8bfe235a04842f40ea19e40516f7869c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=129797&locale=en_US",
+        "sha256": "312423341d5297cb4b5f9cc50dd9b90fa4d663a350448fbf0716bb45a6cf4ab2",
+        "bytes": 868,
+        "observed_at": "2026-10-24T08:07:13.577131+00:00"
+      }
+    },
+    {
+      "card_id": "BE_734",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130815-zh_CN.json",
+      "response_sha256": "e6118eb8792a703045287edc82e07002015d3a9cdf5eaee709451120c63e5bfe",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130815&locale=zh_CN",
+      "face": {
+        "id": 130815,
+        "collectible": 1,
+        "slug": "130815-assimilating-ooze",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 26,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Dmitry Bolotov",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "同化软泥怪",
+        "text": "<b>战吼：</b> 在本回合结束时，召唤一个本随从的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15f4e11f349c950c4e53bb5e3c030be26f08a48d9abebcf6c7ccd7e7168aba4a.png",
+        "imageGold": "",
+        "flavorText": "我们黏而为一。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6cf1f8800b69df140e0f66ce38a723ab7af949c31654a17983864a3e834a987.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130815&locale=zh_CN",
+        "sha256": "e6118eb8792a703045287edc82e07002015d3a9cdf5eaee709451120c63e5bfe",
+        "bytes": 778,
+        "observed_at": "2026-10-24T08:07:15.007633+00:00"
+      }
+    },
+    {
+      "card_id": "BE_734",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\130815-en_US.json",
+      "response_sha256": "112c86b3e094f34f6789b6f3cdc2611654270562a7ddc1d6c8d7001ec5c00a40",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=130815&locale=en_US",
+      "face": {
+        "id": 130815,
+        "collectible": 1,
+        "slug": "130815-assimilating-ooze",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 26,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 3,
+        "artistName": "Dmitry Bolotov",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Assimilating Ooze",
+        "text": "<b>Battlecry:</b> Summon a copy of this at the end of this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c98d7f010010ac8f874fb7f0fe4efb925948681f35b3232612db8500fb66d60.png",
+        "imageGold": "",
+        "flavorText": "We are ooze.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6cf1f8800b69df140e0f66ce38a723ab7af949c31654a17983864a3e834a987.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=130815&locale=en_US",
+        "sha256": "112c86b3e094f34f6789b6f3cdc2611654270562a7ddc1d6c8d7001ec5c00a40",
+        "bytes": 761,
+        "observed_at": "2026-10-24T08:07:15.303429+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_042",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120795-zh_CN.json",
+      "response_sha256": "2ab22d5addb4a6f0cd9fcc40657da5b656197890dcb776ad73def41f2911d782",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120795&locale=zh_CN",
+      "face": {
+        "id": 120795,
+        "collectible": 1,
+        "slug": "120795-king-maluk",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "穆拉克",
+        "text": "<b>战吼：</b>弃掉你的手牌。获取一张无穷香蕉。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/307523e7ad1cd6b8f9dd79881a3fbf32218cb17776044a5a11eaab6aaa4507c7.png",
+        "imageGold": "",
+        "flavorText": "抛弃手中的牌，重新追本溯猿。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb05069a81d22c29cb848ab9789c12e884056ec4a3541597c35861938d9d4fa3.png",
+        "childIds": [
+          120794
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120795&locale=zh_CN",
+        "sha256": "2ab22d5addb4a6f0cd9fcc40657da5b656197890dcb776ad73def41f2911d782",
+        "bytes": 791,
+        "observed_at": "2026-10-24T08:07:16.685781+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_042",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120795-en_US.json",
+      "response_sha256": "dddb21d72c924be6d767590c5341957f0845f344ab2fdd711d9b6d1e0d0a2e48",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120795&locale=en_US",
+      "face": {
+        "id": 120795,
+        "collectible": 1,
+        "slug": "120795-king-maluk",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "King Maluk",
+        "text": "<b>Battlecry:</b> Discard your hand. Get an Infinite Banana.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25da7b467a693ab9589637ce6a732425c087350abd5f6f27dadf6d5c05d96f89.png",
+        "imageGold": "",
+        "flavorText": "Discard hand. Return to Monke.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bb05069a81d22c29cb848ab9789c12e884056ec4a3541597c35861938d9d4fa3.png",
+        "childIds": [
+          120794
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120795&locale=en_US",
+        "sha256": "dddb21d72c924be6d767590c5341957f0845f344ab2fdd711d9b6d1e0d0a2e48",
+        "bytes": 776,
+        "observed_at": "2026-10-24T08:07:16.966533+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_242",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118220-zh_CN.json",
+      "response_sha256": "b90ca087e363c2263996dc0f2d8b6e4975fa285db823971a3c0d8f2879cd1386",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=118220&locale=zh_CN",
+      "face": {
+        "id": 118220,
+        "collectible": 1,
+        "slug": "118220-ancient-stegodon",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Gabor Szikszai",
+        "health": 5,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "远古剑龙",
+        "text": "<b>战吼：</b>从<b>嘲讽</b>，<b>剧毒</b>或+1/+1中选择一项并获得。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d752e3e4003ac6879cda924319c9660e6e713723c89377aa0f416d61ccbaae08.png",
+        "imageGold": "",
+        "flavorText": "我才刚满30岁。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb5c20a4c25b197db850927257f6d57965feb78d17c05cf6bccda6dacb6a38f0.png",
+        "childIds": [
+          41061,
+          41211,
+          41691
+        ],
+        "keywordIds": [
+          1,
+          8,
+          32
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=118220&locale=zh_CN",
+        "sha256": "b90ca087e363c2263996dc0f2d8b6e4975fa285db823971a3c0d8f2879cd1386",
+        "bytes": 818,
+        "observed_at": "2026-10-24T08:07:18.355081+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_242",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\118220-en_US.json",
+      "response_sha256": "8fef3de80a40fa8428207355b271a964d8bbb392614cc9ff578efcfb96060b31",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=118220&locale=en_US",
+      "face": {
+        "id": 118220,
+        "collectible": 1,
+        "slug": "118220-ancient-stegodon",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Gabor Szikszai",
+        "health": 5,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "Ancient Stegodon",
+        "text": "<b>Battlecry:</b> Choose to gain <b>Taunt</b>, <b>Poisonous</b>, or +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5fc9f3445fd25ce75e3fb328f9016527bd3b41a4fd253b6f3521c6f0876379d8.png",
+        "imageGold": "",
+        "flavorText": "I'm 30 years old.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb5c20a4c25b197db850927257f6d57965feb78d17c05cf6bccda6dacb6a38f0.png",
+        "childIds": [
+          41061,
+          41211,
+          41691
+        ],
+        "keywordIds": [
+          1,
+          8,
+          32
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=118220&locale=en_US",
+        "sha256": "8fef3de80a40fa8428207355b271a964d8bbb392614cc9ff578efcfb96060b31",
+        "bytes": 810,
+        "observed_at": "2026-10-24T08:07:18.172269+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_014t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1694-zh_CN.json",
+      "response_sha256": "3123460f65e5c420f4c53b145086a4d078592a5ae7a313090e6d446c8f5fd063",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1694&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 1694,
+        "collectible": 0,
+        "slug": "1694-bananas",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "香蕉",
+        "text": "使一个随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a5413aa3b9aefb88fe44bb15eae052afa589ff81765a3c41f2c554bd6f6565c2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 1693,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1694&locale=zh_CN&collectible=0",
+        "sha256": "3123460f65e5c420f4c53b145086a4d078592a5ae7a313090e6d446c8f5fd063",
+        "bytes": 520,
+        "observed_at": "2026-10-24T08:07:18.454209+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_014t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\1694-en_US.json",
+      "response_sha256": "72e670080fe6eb97f1da180e2cc0a2ad8aedb9b594101b78e0fdfc3995ee391f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1694&locale=en_US&collectible=0",
+      "face": {
+        "id": 1694,
+        "collectible": 0,
+        "slug": "1694-bananas",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "Bananas",
+        "text": "Give a minion +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4825166b5483e97486da542db1bc0377222ed6eeb2eadfcf4463965e14b2f353.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 1693,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1694&locale=en_US&collectible=0",
+        "sha256": "72e670080fe6eb97f1da180e2cc0a2ad8aedb9b594101b78e0fdfc3995ee391f",
+        "bytes": 512,
+        "observed_at": "2026-10-24T08:07:19.926230+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_492t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117208-zh_CN.json",
+      "response_sha256": "3e69047c4582bc40a5d024647835296e13eef347b5506f968bc7d02ba974016c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117208&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 117208,
+        "collectible": 0,
+        "slug": "117208-duckling",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Ursula Dorada",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "小鸭子",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf539756fe08e09a08144c194545ddedf5a145f0467431749540334b21bac07a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115365,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117208&locale=zh_CN&collectible=0",
+        "sha256": "3e69047c4582bc40a5d024647835296e13eef347b5506f968bc7d02ba974016c",
+        "bytes": 586,
+        "observed_at": "2026-10-22T08:32:09.908093+00:00"
+      }
+    },
+    {
+      "card_id": "EDR_492t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\117208-en_US.json",
+      "response_sha256": "16c81bcb4bf283b2a2a8f1a628f73f539d3b79ac4f82cdd8c8883dbf0eaca2c6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=117208&locale=en_US&collectible=0",
+      "face": {
+        "id": 117208,
+        "collectible": 0,
+        "slug": "117208-duckling",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": null,
+        "artistName": "Ursula Dorada",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Duckling",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2ccea166fb97fba545e1b20649b9cb3c8421bc6e547c917e83ee5f71c6d205e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 115365,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=117208&locale=en_US&collectible=0",
+        "sha256": "16c81bcb4bf283b2a2a8f1a628f73f539d3b79ac4f82cdd8c8883dbf0eaca2c6",
+        "bytes": 583,
+        "observed_at": "2026-10-22T08:32:10.067832+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_042t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120794-zh_CN.json",
+      "response_sha256": "765a4bffe97c31c6b28887c4d8947507726833c37d54b998478bf89a2371df94",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120794&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 120794,
+        "collectible": 0,
+        "slug": "120794-infinite-banana",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Felideus Bubastis",
+        "manaCost": 1,
+        "name": "无穷香蕉",
+        "text": "使一个随从获得+1/+1。<i>（本牌会保留在你手中。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40921c8f9ae7f2dcbf1887b254d6d123aa9a29fbe15064ad5b38ae1cf0ebccb8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120795,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120794&locale=zh_CN&collectible=0",
+        "sha256": "765a4bffe97c31c6b28887c4d8947507726833c37d54b998478bf89a2371df94",
+        "bytes": 600,
+        "observed_at": "2026-10-24T08:07:20.061845+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_042t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120794-en_US.json",
+      "response_sha256": "19809924ef4576f529e94fac6e6f3a390512dc012be8b21065cca30058c734cc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120794&locale=en_US&collectible=0",
+      "face": {
+        "id": 120794,
+        "collectible": 0,
+        "slug": "120794-infinite-banana",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": null,
+        "artistName": "Felideus Bubastis",
+        "manaCost": 1,
+        "name": "Infinite Banana",
+        "text": "Give a minion +1/+1. <i>(This stays in your hand.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05439ca8315179b3e3e0b9f965e7592d5aec451a1d69077aeecf55333435e0dd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 120795,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120794&locale=en_US&collectible=0",
+        "sha256": "19809924ef4576f529e94fac6e6f3a390512dc012be8b21065cca30058c734cc",
+        "bytes": 585,
+        "observed_at": "2026-10-24T08:07:20.070361+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "declaration_profiles": {
+    "CORE_EX1_014": "opponent-fixed-bananas",
+    "CORE_EX1_162": "adjacent-attack-aura",
+    "CORE_GIL_622": "fixed-hero-damage-and-heal",
+    "CORE_LOOT_413": "death-fixed-armor",
+    "CORE_UNG_084": "fixed-targeted-damage",
+    "BE_993": "death-random-held-shadow-discount",
+    "TIME_601": "draw-until-three",
+    "EDR_492": "three-fixed-rush-ducklings",
+    "BE_255": "after-other-minion-health",
+    "BE_734": "end-current-turn-current-copy",
+    "TIME_042": "discard-original-hand-fixed-infinite-banana",
+    "TLC_242": "native-three-way-keyword-or-stats-choice"
+  },
+  "reviewed_native_definition_sha256": {
+    "CORE_EX1_014": "ffa2e9325e8e7161da30b3fbc7c564c9f66d5565889bec71fcbcc2b9f00c1893",
+    "CORE_EX1_162": "d00f4a0ec6a6f488e213c0480df3ea3784ee19587002e967841f0b921219bb21",
+    "CORE_GIL_622": "1e80d6717047d30a546629dee217d5fa4d10d9f13490600b05773c238c99806a",
+    "CORE_LOOT_413": "96389a848fb8f33344ebee482e865bedbdfd2fecc11608b1cea444f2e47b4681",
+    "CORE_UNG_084": "61d1f11949df835b2aed5147f2108386c1f57f685710833e965b812765ba68ba",
+    "BE_993": "0729377846bfe2c9a6dacf8d57cbc9e6bb6845791fbccc9ba790c8076c9eba8d",
+    "TIME_601": "5de70a81e6872bfb0d08159c5f6dc00a8cafe92267c266a35d68a1a3424ae96e",
+    "EDR_492": "bd016ecc6e42ee991f88972da56bd293d11f9c9ce73a6d0e591d7cb18666f3fa",
+    "BE_255": "39ff804b6668262082cc2ac3c7923e095f67c3fcfae103f73973078d76986751",
+    "BE_734": "baea3965ff25f147501ced3e26d9fbbb328cc01e38606d9a09954bdceff376d2",
+    "TIME_042": "96eba155ffe719f85c9353729cc073d8480a3bc258e4d35efd0fc19b4690c69e",
+    "TLC_242": "238f075257008ee03a1075277595ba54c81b481a5cdaa7f466de86b5f081a8b3",
+    "EX1_014t": "d5329ae6b151d67066d51a49c38408c116722e880b618f0880e8342dbebd8252",
+    "EDR_492t": "5d6caf454cdea444b3dd5a1d8a917fca0a72b079da60aa87f9ded6e71de8da85",
+    "TIME_042t": "bc5a22b6ff981ae36354b86e4e5c3e0355c8b6b47b97cc706c33828ef8b1683f"
+  },
+  "deck_identities": {
+    "CORE_EX1_014": "EX1_014",
+    "CORE_EX1_162": "EX1_162",
+    "CORE_GIL_622": "GIL_622",
+    "CORE_LOOT_413": "LOOT_413",
+    "CORE_UNG_084": "UNG_084",
+    "BE_993": "BE_993",
+    "TIME_601": "TIME_601",
+    "EDR_492": "EDR_492",
+    "BE_255": "BE_255",
+    "BE_734": "BE_734",
+    "TIME_042": "TIME_042",
+    "TLC_242": "TLC_242",
+    "EX1_014t": "EX1_014t",
+    "EDR_492t": "EDR_492t",
+    "TIME_042t": "TIME_042t"
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
