@@ -1,0 +1,499 @@
+{
+  "schema": 1,
+  "batch": "K497-past-parachute-draws",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "VAC_933"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "VAC_933",
+        "dbf_id": 106620,
+        "name": "飞行员帕奇斯",
+        "name_en": "Patches the Pilot",
+        "text": "<b>战吼：</b>将六张降落伞洗入你的牌库。当抽到降落伞时，召唤一个1/1并具有<b>冲锋</b>的海盗。",
+        "text_en": "[x]<b>Battlecry:</b> Shuffle six\nParachutes into your deck\nthat summon a 1/1 Pirate\n_____with <b>Charge</b> when drawn.___",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1905,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2522": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2522",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2522"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d5c40b6ab945a1c48687052c25e4f6d462bd863d8fc6503d7a3565b951473617",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "VAC_933",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon",
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_933t",
+        "dbf_id": 106621,
+        "name": "降落伞",
+        "name_en": "Parachute",
+        "text": "<b>抽到时施放</b>\n召唤一个1/1并具有<b>冲锋</b>的海盗。",
+        "text_en": "<b>Casts When Drawn</b>\nSummon a 1/1 Pirate with <b>Charge</b>.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1905,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "41987aa7e975512f1fb7c3cac7876394d3cdd6658acca7e45678c29fa5b7efe1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "VAC_933t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "VAC_926t",
+        "dbf_id": 107830,
+        "name": "坠落的伊利达雷",
+        "name_en": "Falling Illidari",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CHARGE": 1,
+          "CLASS": 14,
+          "CARDRACE": 23,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "1e073c091aecb654336f22b73336e120737c77405b427363c722a7c2dfa2552d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "VAC_926t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "pirate"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "VAC_933",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 106620,
+        "collectible": 1,
+        "slug": "106620-patches-the-pilot",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "multiTypeIds": [
+          23
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "飞行员帕奇斯",
+        "text": "<b>战吼：</b>将六张降落伞洗入你的牌库。当抽到降落伞时，召唤一个1/1并具有<b>冲锋</b>的海盗。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82a321b0257f511ad931fe91b2ca3426c28baefecb14e18e2467e33129c99918.png",
+        "imageGold": "",
+        "flavorText": "再也不怕第一回合抽到帕奇斯啦！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72b612c2260b0f4ca3060bea0ed863b4ad86bc3e647b615b756fdf68f1670846.png",
+        "childIds": [
+          106621,
+          107830
+        ],
+        "keywordIds": [
+          4,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_933",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 106620,
+        "collectible": 1,
+        "slug": "106620-patches-the-pilot",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "multiTypeIds": [
+          23
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Patches the Pilot",
+        "text": "<b>Battlecry:</b> Shuffle six Parachutes into your deck that summon a 1/1 Pirate with <b>Charge</b> when drawn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a343badd66592ddebfce769da6b3a62bccd1c239be827a7f595f9b859b1d367.png",
+        "imageGold": "",
+        "flavorText": "Finally, a Patches you want to draw on turn 1!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72b612c2260b0f4ca3060bea0ed863b4ad86bc3e647b615b756fdf68f1670846.png",
+        "childIds": [
+          106621,
+          107830
+        ],
+        "keywordIds": [
+          4,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_933t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k496-past-targeted-spell-memory\\next-official-01\\106621-zh_CN.json",
+      "response_sha256": "4cb33e706933ab2b0d6dff474e3c58fb0193a000c3244c4dc3bc3838bbaee4f6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=106621&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 106621,
+        "collectible": 0,
+        "slug": "106621-parachute",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "降落伞",
+        "text": "<b>抽到时施放</b> 召唤一个1/1并具有<b>冲锋</b>的海盗。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/281b664a5b4aaea2fa7b39233915db04445fbe9388a85942f8f01137a95b8fef.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 106620,
+        "keywordIds": [
+          4,
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=106621&locale=zh_CN&collectible=0",
+        "sha256": "4cb33e706933ab2b0d6dff474e3c58fb0193a000c3244c4dc3bc3838bbaee4f6",
+        "bytes": 605,
+        "observed_at": "2026-10-24T03:00:53.248005+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_933t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k496-past-targeted-spell-memory\\next-official-01\\106621-en_US.json",
+      "response_sha256": "970cec81ef7c02a033d2c7fad558e9cf757b0454facb1374637311bbdc4fc53f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=106621&locale=en_US&collectible=0",
+      "face": {
+        "id": 106621,
+        "collectible": 0,
+        "slug": "106621-parachute",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "Parachute",
+        "text": "<b>Casts When Drawn</b> Summon a 1/1 Pirate with <b>Charge</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46bda0c7b12db302a373ce52421f98dc012bccd878f6d523cdafe226c9e2a0a1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 106620,
+        "keywordIds": [
+          4,
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=106621&locale=en_US&collectible=0",
+        "sha256": "970cec81ef7c02a033d2c7fad558e9cf757b0454facb1374637311bbdc4fc53f",
+        "bytes": 596,
+        "observed_at": "2026-10-24T03:00:55.104330+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_926t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k496-past-targeted-spell-memory\\next-official-01\\107830-zh_CN.json",
+      "response_sha256": "94dc037a528c7906ea517d6ea8c6c3c65ac88471d647664e8d1361f35907a83b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=107830&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 107830,
+        "collectible": 0,
+        "slug": "107830-falling-illidari",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "坠落的伊利达雷",
+        "text": "<b>冲锋</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14d85b511a2acfa8130720c3d057cef93f246f8aac2811cff3ddfcbea84a3f7d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 106583,
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=107830&locale=zh_CN&collectible=0",
+        "sha256": "94dc037a528c7906ea517d6ea8c6c3c65ac88471d647664e8d1361f35907a83b",
+        "bytes": 602,
+        "observed_at": "2026-10-24T03:00:56.734899+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_926t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k496-past-targeted-spell-memory\\next-official-01\\107830-en_US.json",
+      "response_sha256": "a0c69d0c90c2ab0445fd29bd90f6ca0c6f9c934e3d6a896571a5f798d3c21136",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=107830&locale=en_US&collectible=0",
+      "face": {
+        "id": 107830,
+        "collectible": 0,
+        "slug": "107830-falling-illidari",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 23,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Falling Illidari",
+        "text": "<b>Charge</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e820b6741244d54bbff0388c530209615931cf3d1e1f120a4a974bffd711f55.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 106583,
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=107830&locale=en_US&collectible=0",
+        "sha256": "a0c69d0c90c2ab0445fd29bd90f6ca0c6f9c934e3d6a896571a5f798d3c21136",
+        "bytes": 597,
+        "observed_at": "2026-10-24T03:00:58.548900+00:00"
+      }
+    }
+  ],
+  "policy": "One semantic six-card shuffle per actual Battlecry. Physical Parachutes use ordinary CastWhenDrawn replacement and ordinary one-Pirate summon; printed Pirate Charge and full multi-tribe root metadata are retained. The exact non-minion script 1/1 fields remain in the full raw source and are not printed spell stats. Exact CN windows remain uncalibrated.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

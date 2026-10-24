@@ -203,6 +203,21 @@ def repeated_mana_forms(row, states, locale):
             all(display(form[1]) == body for form in forms))
 
 
+def reviewed_script_stat_fields(row, face):
+    """This exact spell stores its summoned token's size, not printed spell stats."""
+    if row.get('id') != 'VAC_933t':
+        return ()
+    require(canonical(row) == '41987aa7e975512f1fb7c3cac7876394d3cdd6658acca7e45678c29fa5b7efe1',
+            'Parachute script stats require their complete original row pin')
+    require((row['dbf_id'], row['type'], row['attack'], row['health'],
+                row['tags'].get('ATK'), row['tags'].get('HEALTH')) == (106621, 'SPELL', 1, 1, 1, 1),
+            'Parachute requires its original non-minion summon template')
+    require(face.get('cardTypeId') == 5 and face.get('parentId') == 106620 and
+            all(face.get(name) is None for name in ('attack', 'health')),
+            'Parachute primary must preserve its actual parent and absent spell stats')
+    return ('attack', 'health')
+
+
 def check_face(row, face, locale, display_normalizations=None, *, numeric_normalizations=None):
     chinese = locale == 'zh_CN'
     require(locale in ('zh_CN', 'en_US'), 'Unreviewed face locale')
@@ -428,8 +443,9 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     pairs = [('manaCost', 'cost'), ('attack', 'attack'), ('health', 'health')]
     numeric = {} if numeric_normalizations is None else numeric_normalizations
     validate_numeric_normalizations(numeric)
+    script_stats = reviewed_script_stat_fields(row, face)
     for primary, raw in pairs:
-        expected = row.get(raw)
+        expected = None if raw in script_stats else row.get(raw)
         if raw in numeric:
             tag = 'COST' if raw == 'cost' else 'ATK'
             require(expected is None and tag not in row['tags'],
