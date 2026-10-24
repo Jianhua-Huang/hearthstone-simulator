@@ -93,7 +93,9 @@ class ReportedTechTests(CardBatchTestMixin,unittest.TestCase):
         data=load_batch();rows={v['record']['id']:v for section in ('cards','evidence_only') for v in data[section]}
         self.assertEqual((len(data['cards']),len(rows),len(data['official_observations'])),(7,10,20))
         for o in data['official_observations']:batch.check_face(rows[o['card_id']]['record'],o['face'],o['locale'])
-        r=build_registry()
+        r=batch.registration_prefix(build_registry,
+            'hs_sim.cards.mimiron_reported_tech_cards.register_mimiron_reported_tech_cards',
+            register_mimiron_reported_tech_cards,after=True)
         for v in data['cards']:
             raw=v['record'];d=r.card(raw['id'])
             self.assertEqual((d.cost,d.attack,d.health,d.metadata),(raw['cost'],raw['attack'],raw['health'],metadata_from_record(raw)))
