@@ -395,6 +395,15 @@ class SetManaCap(Effect):
 
 
 @dataclass(frozen=True)
+class DestroyAllManaCrystals(Effect):
+    """Destroy the current permanent account without changing its capacity."""
+    player_id: int
+
+    def __post_init__(self):
+        _player(self.player_id)
+
+
+@dataclass(frozen=True)
 class Overload(Effect):
     player_id: int
     amount: int

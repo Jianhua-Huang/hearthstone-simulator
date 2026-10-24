@@ -1,0 +1,623 @@
+{
+  "schema": 1,
+  "batch": "K491-past-death-count-sacrifice",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "ULD_705",
+    "SW_075"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ULD_705",
+        "dbf_id": 54291,
+        "name": "魔古信徒",
+        "name_en": "Mogu Cultist",
+        "text": "<b>战吼：</b>如果你的场上满是魔古信徒，则将其全部献祭，并召唤“莱，至高守护者”。",
+        "text_en": "<b>Battlecry:</b> If your board is full of Mogu Cultists, sacrifice them all and summon Highkeeper Ra.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1158,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 54292
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "af963f006cbb7595533073ac77fb29e0c33215f0c4279d943b1476dfdbfe8abf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "ULD_705",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SW_075",
+        "dbf_id": 64723,
+        "name": "艾尔文野猪",
+        "name_en": "Elwynn Boar",
+        "text": "<b>亡语：</b>在本局对战中如果有10只你的艾尔文野猪死亡，装备一把15/3的锯齿符文剑。@<i>（@/10）</i>",
+        "text_en": "[x]<b>Deathrattle:</b> If you had 10\nElwynn Boars die this game,\nequip a 15/3 Sword of a\n_____Thousand Truths.@ <i>(@/10)</i>____",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 64772,
+          "1724": 1,
+          "2165": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2165",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2165"
+          }
+        ]
+      },
+      "record_sha256": "1277d6cefa5ee44e85ef9e9f7e7151646324583ff60c953a878fb4026e9a8771",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "SW_075",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ULD_705t",
+        "dbf_id": 54292,
+        "name": "莱，至高守护者",
+        "name_en": "Highkeeper Ra",
+        "text": "在你的回合结束时，对所有敌人造成20点伤害。",
+        "text_en": "At the end of your turn, deal 20 damage to all_enemies.",
+        "cost": 10,
+        "attack": 20,
+        "health": 20,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 20,
+          "ATK": 20,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1158,
+          "CLASS": 12,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "dc6afe5a192b3217c5e017afe52e506d81ec55f676283abd6a8b4edb690931e4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "ULD_705t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SW_075t",
+        "dbf_id": 64772,
+        "name": "锯齿符文剑",
+        "name_en": "Sword of a Thousand Truths",
+        "text": "在你的英雄攻击后，摧毁你对手的法力水晶。",
+        "text_en": "[x]After your hero attacks,\ndestroy your opponent's\nMana Crystals.",
+        "cost": 10,
+        "attack": 15,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 15,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "CLASS": 12,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "SARIYA"
+          }
+        ]
+      },
+      "record_sha256": "87406e05107ab39c23a9f7bffa05ed3084d7807ef3d9c2c8526069772373f697",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "SW_075t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {
+    "SW_075": {
+      "@": ""
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "ULD_705",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 54291,
+        "collectible": 1,
+        "slug": "54291-mogu-cultist",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 4,
+        "artistName": "Arthur Bozonnet",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "魔古信徒",
+        "text": "<b>战吼：</b>如果你的场上满是魔古信徒，则将其全部献祭，并召唤“莱，至高守护者”。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75a28b7b7315d5e2592aeb482be705bedbe3ca1f56457dbf3c89863e3667b6c9.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19ee51848a68d4e311b4c39f5fa34581f426f6bf922c7d728057724af88137a1.png",
+        "flavorText": "魔古信徒的团建活动可太要命了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ea5b95024a37d6eb940ff00463998e428588002d789d2bf0f4a18f88cc6ec4f.png",
+        "childIds": [
+          54292
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_705",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 54291,
+        "collectible": 1,
+        "slug": "54291-mogu-cultist",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 4,
+        "artistName": "Arthur Bozonnet",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Mogu Cultist",
+        "text": "<b>Battlecry:</b> If your board is full of Mogu Cultists, sacrifice them all and summon Highkeeper Ra.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1005d4648fdb86b1bdf3063104cacb713136180aa18cab3697913285cdab93a2.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/50266a726e4ebeb9af504fec485e4a0028628eeac7fdfd7dc2de5acc035ee2ec.png",
+        "flavorText": "Mogu cultists have the worst team-building exercises.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ea5b95024a37d6eb940ff00463998e428588002d789d2bf0f4a18f88cc6ec4f.png",
+        "childIds": [
+          54292
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_075",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 64723,
+        "collectible": 1,
+        "slug": "64723-elwynn-boar",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 4,
+        "artistName": "Todd Harris",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "艾尔文野猪",
+        "text": "<b>亡语：</b>在本局对战中如果有10只你的艾尔文野猪死亡，装备一把15/3的锯齿符文剑。 <i>（ /10）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb05a13a25bd57ab33a22d7b710908c499a41c5e9914b2d125b293ba015ebfcc.png",
+        "imageGold": "",
+        "flavorText": "知足吧，原本需求的数量高多了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97484a759df4fbbc7f8359b9d01f1aec841ca0675f8d569d81399093847686ab.png",
+        "childIds": [
+          64772
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_075",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 64723,
+        "collectible": 1,
+        "slug": "64723-elwynn-boar",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": 4,
+        "artistName": "Todd Harris",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Elwynn Boar",
+        "text": "<b>Deathrattle:</b> If you had 10 Elwynn Boars die this game, equip a 15/3 Sword of a Thousand Truths. <i>( /10)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f848d2dfa21ccbf187a0e3c6038626ddb7eaac55db1a3b7ca1f136a2f736106d.png",
+        "imageGold": "",
+        "flavorText": "Be grateful we lowered the requirement from 65,340,285.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97484a759df4fbbc7f8359b9d01f1aec841ca0675f8d569d81399093847686ab.png",
+        "childIds": [
+          64772
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_705t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\next-official-children\\54292-zh_CN.json",
+      "response_sha256": "de7739003c112f6f37eda496674ee485e7381af1fd5e6d9fb280fbc3fe8d3793",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=54292&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 54292,
+        "collectible": 0,
+        "slug": "54292-highkeeper-ra",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "莱，至高守护者",
+        "text": "在你的回合结束时，对所有敌人造成20点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dda594a22c4cc36c6d8591eea6b0f073203310bcc0a5c66abe6b64649554354.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 54291,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=54292&locale=zh_CN&collectible=0",
+        "sha256": "de7739003c112f6f37eda496674ee485e7381af1fd5e6d9fb280fbc3fe8d3793",
+        "bytes": 614,
+        "observed_at": "2026-10-24T01:09:14.135197+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_705t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\next-official-children\\54292-en_US.json",
+      "response_sha256": "48e0fbf01bfe53fa5142ffe1e011b218a97e289d8708b49e5e3af024dd4133e4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=54292&locale=en_US&collectible=0",
+      "face": {
+        "id": 54292,
+        "collectible": 0,
+        "slug": "54292-highkeeper-ra",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "Highkeeper Ra",
+        "text": "At the end of your turn, deal 20 damage to all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73cfe7d1a3a20a43d892ffc49350207004631fbfe37147a51c191e3775dc2238.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 54291,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=54292&locale=en_US&collectible=0",
+        "sha256": "48e0fbf01bfe53fa5142ffe1e011b218a97e289d8708b49e5e3af024dd4133e4",
+        "bytes": 599,
+        "observed_at": "2026-10-24T01:09:14.785852+00:00"
+      }
+    },
+    {
+      "card_id": "SW_075t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\next-official-children\\64772-zh_CN.json",
+      "response_sha256": "b2f43ee6b825886898982bace1fa98001017011f76eedb9ab5cb7cd6f9f128be",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64772&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 64772,
+        "collectible": 0,
+        "slug": "64772-sword-of-a-thousand-truths",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "SARIYA",
+        "health": 3,
+        "attack": 15,
+        "manaCost": 10,
+        "name": "锯齿符文剑",
+        "text": "在你的英雄攻击后，摧毁你对手的法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c93ff859fe56eff6503e6e1f13be39f6a9576235ccdf0175ee333f7bd4d4ef58.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64723,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64772&locale=zh_CN&collectible=0",
+        "sha256": "b2f43ee6b825886898982bace1fa98001017011f76eedb9ab5cb7cd6f9f128be",
+        "bytes": 613,
+        "observed_at": "2026-10-24T01:09:14.333641+00:00"
+      }
+    },
+    {
+      "card_id": "SW_075t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\next-official-children\\64772-en_US.json",
+      "response_sha256": "46665117902310597e5040b19104eacf15c3dc9c83e20b02d7b6cfc8a63c5dad",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64772&locale=en_US&collectible=0",
+      "face": {
+        "id": 64772,
+        "collectible": 0,
+        "slug": "64772-sword-of-a-thousand-truths",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "SARIYA",
+        "health": 3,
+        "attack": 15,
+        "manaCost": 10,
+        "name": "Sword of a Thousand Truths",
+        "text": "After your hero attacks, destroy your opponent's Mana Crystals.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b10de5b32766358aa2939daadf8d03ae58b190ddac01f050d4b660ebef1d9f4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64723,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64772&locale=en_US&collectible=0",
+        "sha256": "46665117902310597e5040b19104eacf15c3dc9c83e20b02d7b6cfc8a63c5dad",
+        "bytes": 627,
+        "observed_at": "2026-10-24T01:09:16.221756+00:00"
+      }
+    }
+  ],
+  "policy": "Full named active living board at the actual capacity; one captured destruction group and normal attributed reward summon. Original friendly named death history includes the current death and ten-or-more threshold. Original completed hero attack with this exact weapon destroys the current opponent permanent crystal account. Exact CN windows and dormant/protected/full-board policies remain uncalibrated.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

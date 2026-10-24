@@ -286,6 +286,14 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     if (chinese and row.get('id') == 'TSC_828' and
             canonical(row) == 'b2d471ec57b58d5f4bf7ad31d67cdb13db5b3a5f499fea1fbd19a2ccde5f386c'):
         counter_labels += ('（复原@个）',)
+    # This exact ten-death Boar has no printed script-value tag. Preserve the
+    # complete rule and /10 denominator; only its empty live value is absent
+    # from the gallery. English also has source-only trailing layout padding.
+    if (row.get('id') == 'SW_075' and
+            canonical(row) == '1277d6cefa5ee44e85ef9e9f7e7151646324583ff60c953a878fb4026e9a8771' and
+            display_normalizations == {'@': ''}):
+        counter = re.fullmatch(r'([^@]*)@\s*<i>([^<>@]*@[^<>@]*)</i>\s*_*', raw_text, flags=re.S)
+        counter_labels += ('（@/10）',) if chinese else ('(@/10)',)
     counter_display = (display_normalizations == {'@': ''} and counter is not None and
                        bool(display(counter[1])) and display(counter[2]) in counter_labels)
     recruit_bodies = {

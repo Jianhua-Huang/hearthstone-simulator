@@ -63,3 +63,16 @@ python -m examples.herald_sacrifice
 v73复验：herald_sacrifice.py 为 6 动作/42 事件。动作及其余摘要字段相对v72保持；事件增量来自独立战吼的开始/完成宿主记录，玩家过滤日志不新增这些事件。本页原批次的验收数字保留为历史；逐项比较见[示例核对](../outputs/v73-example-count-check.json)。
 
 v76复验说明：上文原批次契约和验收数字保留为历史；当前运行结果为herald_sacrifice.py：6动作/48事件。完整结果及摘要见[59示例日志](../outputs/v76-examples.txt)；随从承诺/入场阶段变化见[反制契约](m5-minion-counters.md)。
+
+
+## K491：具名满场献祭与十次死亡奖励
+
+魔古信徒ULD_705的真实战吼使用有限SacrificeFullNamedBoard(player_id, required_card_id, reward_card_id, cause)。执行时核对实际rules.max_board和完整物理战场，每一位置都必须是活动、存活、未待销毁的指定随从；地标、休眠或其他牌面不满足此内部政策。一次接受完整有序组，委托原DestroyBatch与SummonByCard：普通死亡/亡语/反应先处理，再由实际空位决定奖励召唤，不重复查询后来的组，不以新流程伪造死亡或绕过容量。该召唤不另要求所有原目标都实际死亡，原消灭/保护与后续反应仍由普通执行器决定。原因是原SummonCause，不给卡牌回调开放直接状态写入。
+
+艾尔文野猪SW_075用既有DeathQuery读取本人真实具名随从死亡记录，包含本次自然死亡，达到十次或更多才装备SW_075t。友方按死亡时控制者；普通回手、对方死亡和武器损毁不计。主动亡语不伪造死亡，真实Rewind后稀疏ID和同一物理实体不同死亡按原记录处理，不新增每卡计数器。统一death_history也包含武器，不能用总条数代替野猪数量。
+
+SW_075t通过原completed_attack确认本人英雄的完整攻击和combat.weapon_id，最后耐久仍保留原武器身份。有限DestroyAllManaCrystals(player_id)在执行时将当前永久水晶账户交原change_crystals写入为零，不修改mana_cap；临时法力与待过载沿原账户政策，后续回合仍正常增长。该入口没有冻结一个旧扣减量，排队期间上限/水晶增加也仍全部摧毁。莱，至高守护者ULD_705t沿EndTurnSpec(controller)和普通MINION_ABILITY DamageBatch对敌方英雄及活动存活随从各造成20伤害。
+
+原37.0野猪的完整中英文行保留十次死亡、15/3及/10实时计数，英文还有布局填充。共享源工具只为完整原行SHA 1277d6cefa5ee44e85ef9e9f7e7151646324583ff60c953a878fb4026e9a8771允许显式@空实时显示；不改原数据、效果、数字或分母，不扩成任意宏删减。双语完整响应在[data/support/card-source-boar-counter-display-v1.json](../data/support/card-source-boar-counter-display-v1.json)，原数字/规则/元数据或显示声明变化仍拒绝。
+
+新增两个Effect，无新GameState/实体/玩家字段、显式记忆载荷或独立死亡/资源账本。内容v581/core712/schema571，观察117/命令13/replay1保持。休眠/保护/完整组的精确国服接受、具名归属及反应窗口仍待M6；正式池和完整可达域独立验收，实际验证与下一项仅在原两份台账维护。

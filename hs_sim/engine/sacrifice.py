@@ -564,3 +564,36 @@ def register(mechanics):
     mechanics.register(RemoveCapturedKeyword, remove_captured_keyword)
     mechanics.register(GrantCapturedDeathrattle, grant_captured_deathrattle)
     mechanics.register(GrantDeckSacrificeAura, grant_deck_sacrifice_aura)
+    mechanics.register(SacrificeFullNamedBoard, sacrifice_full_named_board)
+
+
+@dataclass(frozen=True)
+class SacrificeFullNamedBoard(Effect):
+    player_id: int
+    required_card_id: str
+    reward_card_id: str
+    cause: object
+
+    def __post_init__(self):
+        from .summon_quantities import SummonCause
+        _player(self.player_id);_behavior(self.required_card_id);_behavior(self.reward_card_id)
+        if type(self.cause) is not SummonCause or self.cause.player_id!=self.player_id:
+            raise ValueError('Whole-board sacrifice requires its original attributed summon cause')
+        self.cause.__post_init__()
+
+
+def sacrifice_full_named_board(r,effect):
+    from .effects import DestroyBatch
+    from .summon_quantities import SummonByCard,SummonEntryMaterial,validate_cause
+    effect.__post_init__();validate_cause(r.state,r.registry,effect.cause)
+    if any(r.registry.card(cid).kind!=CardType.MINION for cid in
+            (effect.required_card_id,effect.reward_card_id)):
+        raise ResolutionError('Whole-board sacrifice requires real named minion definitions')
+    board=tuple(r.player(effect.player_id).board)
+    if len(board)!=r.rules.max_board:return ()
+    if any((e:=r.state.entities[i]).kind!=CardType.MINION or e.card_id!=effect.required_card_id or
+            not e.active or e.health<=0 or e.doomed for i in board):return ()
+    # One accepted physical group; ordinary destruction, death reactions and
+    # capacity determine the later summon. No second sacrifice/death executor.
+    return(DestroyBatch(board,effect.cause.source.entity_id),
+        SummonByCard(effect.player_id,(SummonEntryMaterial(effect.reward_card_id),),effect.cause))

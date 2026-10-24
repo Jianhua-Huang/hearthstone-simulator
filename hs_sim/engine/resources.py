@@ -1,7 +1,7 @@
 """Player accounts, independent of card definitions and individual behaviors."""
 from dataclasses import dataclass, fields
 
-from .effects import (GainTemporaryMana, RefreshMana, ChangeManaCrystals, SetManaCap,
+from .effects import (GainTemporaryMana, RefreshMana, ChangeManaCrystals, DestroyAllManaCrystals, SetManaCap,
                       Overload, UnlockOverload, GainResource, SpendResource)
 from .errors import ResolutionError
 from .model import ArmorLossResult, CardType, CorpseSpendRecord, Event, ManaConsumptionRecord, Resource, _int
@@ -244,6 +244,8 @@ def mana_effect(r, effect):
         player.mana_spent = max(0, player.mana_spent - effect.amount)
     elif isinstance(effect, ChangeManaCrystals):
         change_crystals(player, max(0, min(player.mana_cap, player.max_mana + effect.amount)), effect.filled)
+    elif isinstance(effect, DestroyAllManaCrystals):
+        change_crystals(player, 0, False)
     elif isinstance(effect, SetManaCap):
         player.mana_cap = effect.amount
         change_crystals(player, min(player.max_mana, player.mana_cap), False)

@@ -16,7 +16,7 @@ from .effects import (Buff, Damage, DamageBatch, Destroy, DestroyBatch, Draw, Ef
                       SetStats, SwapStats, DoubleStats, CombatExchange, EquipWeapon, TransferWeapon, ModifyWeapon,
                       ReplaceHeroPower, RefreshHeroPower, SetHeroPowerUses, ReplaceHero,
                       ModifyCost, AddCostModifier, GrantCostAura, GainTemporaryMana, SpendMana, RefreshMana,
-                      ChangeManaCrystals, SetManaCap, Overload, UnlockOverload, GainResource, SpendResource,
+                      ChangeManaCrystals, DestroyAllManaCrystals, SetManaCap, Overload, UnlockOverload, GainResource, SpendResource,
                       HealBatch, GrantHealthRule, RequestChoice, ChoiceOption, InvokeBehavior, SplitDamage)
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .model import AbilityInstance, Enchantment, DeathRecord, CardType, ChoiceResult, DamageKind, Entity, Event, HealthFlow, HealthOp, Keyword, Resource, StatReference, TriggerCandidate, Zone
@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v711'
+CORE_EFFECTS_VERSION = 'core-effects-v712'
 
 
 class Mechanics:
@@ -2678,6 +2678,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
         (RequestChoice, request_choice), (ResolveChoiceResult, resolve_choice_result),
         (ModifyCost, modify_cost), (AddCostModifier, modify_cost), (GrantCostAura, modify_cost),
         (GainTemporaryMana, mana_effect), (RefreshMana, mana_effect), (ChangeManaCrystals, mana_effect),
+        (DestroyAllManaCrystals, mana_effect),
         (SetManaCap, mana_effect), (SpendMana, consume_mana), (Overload, mana_effect), (UnlockOverload, mana_effect),
         (GainResource, resource_effect), (SpendResource, resource_effect),
         (Damage, damage_single), (DamageBatch, damage_batch), (Heal, heal), (HealBatch, heal_batch),
