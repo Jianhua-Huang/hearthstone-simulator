@@ -87,6 +87,8 @@ def register_bonus_effects(mechanics):
     mechanics.register(GrantRandomBonusEffects, grant_random_bonus_effects)
     mechanics.register(RotatePrintedHandBonuses, rotate_printed_hand_bonuses)
     mechanics.register(StealBonusEffects, steal_bonus_effects)
+    mechanics.register(SpendManaForRandomGrowth,spend_mana_for_random_growth)
+    mechanics.register(GrantManaRandomGrowth,grant_mana_random_growth)
 
 
 @dataclass(frozen=True)
@@ -186,3 +188,81 @@ def steal_bonus_effects(r, effect):
         return ()
     return (*(GrantCapturedKeyword(effect.beneficiary, keyword, effect.source_id) for keyword in selected),
             BuffCapturedMinion(effect.beneficiary, len(selected), len(selected), effect.source_id))
+
+
+MANA_GROWTH_KEYWORDS=(Keyword.RUSH,Keyword.DIVINE_SHIELD,Keyword.TAUNT)
+
+
+@dataclass(frozen=True)
+class SpendManaForRandomGrowth(Effect):
+    player_id:int
+    target:BoardPresenceReference
+
+    @property
+    def source_id(self):return self.target.entity_id
+
+    def __post_init__(self):
+        from .effects import _player
+        _player(self.player_id)
+        if type(self.target)is not BoardPresenceReference:
+            raise ValueError('Mana growth requires its original board residence')
+        self.target.__post_init__()
+
+    def validate_in_state(self,state):
+        from .sacrifice import validate_reward_presence
+        self.__post_init__();validate_reward_presence(state,self.target)
+
+
+@dataclass(frozen=True)
+class GrantManaRandomGrowth(Effect):
+    target:BoardPresenceReference
+    mana_id:int
+    index:int=0
+
+    @property
+    def source_id(self):return self.target.entity_id
+
+    def __post_init__(self):
+        if type(self.target)is not BoardPresenceReference:
+            raise ValueError('Mana growth lost its original board residence')
+        self.target.__post_init__();_integer(self.mana_id,'original mana debit',1)
+        _integer(self.index,'original mana reward index',0)
+
+    def validate_in_state(self,state):
+        from .sacrifice import validate_reward_presence
+        self.__post_init__();validate_reward_presence(state,self.target)
+        if self.mana_id>len(state.mana_consumption_history):raise ValueError('Unknown original mana debit')
+        row=state.mana_consumption_history[self.mana_id-1];row.__post_init__()
+        if (row.id!=self.mana_id or row.source_id!=self.source_id or row.source_kind!=CardType.MINION or
+                row.requested is not None or self.index>row.actual):
+            raise ValueError('Mana growth borrowed another original source, amount or debit')
+
+
+def spend_mana_for_random_growth(r,effect):
+    from .effects import SpendMana
+    from .resources import consume_mana
+    effect.validate_in_state(r.state)
+    if r.player(effect.player_id).mana>r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Mana growth exceeds the original resolution budget')
+    consume_mana(r,SpendMana(effect.player_id,source_id=effect.source_id))
+    return(GrantManaRandomGrowth(effect.target,r.state.mana_consumption_history[-1].id),)
+
+
+def grant_mana_random_growth(r,effect):
+    from .sacrifice import BuffCapturedMinion,GrantCapturedKeyword,live_reward_minion
+    effect.validate_in_state(r.state);row=r.state.mana_consumption_history[effect.mana_id-1]
+    if effect.index==row.actual:return ()
+    if row.actual>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Mana growth exceeds resolution budget')
+    target=live_reward_minion(r.state,effect.target)
+    if target is None:
+        r.stale(effect,effect.source_id);return ()
+    # This named pool always includes Rush, even when general Bonus Effects
+    # would consider it redundant for an old/Charge minion. Stats can repeat.
+    candidates=('stats',*(k.value for k in MANA_GROWTH_KEYWORDS if k not in target.keywords))
+    selected=r.game._rng.choice(candidates)
+    r.emit('random_choice',source_id=effect.source_id,target_id=target.id,
+        mana_id=row.id,unit=effect.index+1,outcome=selected,candidates=candidates)
+    grant=(BuffCapturedMinion(effect.target,2,2,effect.source_id)if selected=='stats'else
+        GrantCapturedKeyword(effect.target,Keyword(selected),effect.source_id))
+    tail=()if effect.index+1==row.actual else(replace(effect,index=effect.index+1),)
+    return(grant,*tail)

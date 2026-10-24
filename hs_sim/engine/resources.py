@@ -184,6 +184,8 @@ def validate_mana_consumption_history(state,registry=None):
 
 
 def validate_mana_consumption_events(state,events):
+    from .hero_health_history import effective_events
+    events=tuple(effective_events(events))
     resolved=[]
     for index,event in enumerate(events):
         row=mana_consumption_result(event)

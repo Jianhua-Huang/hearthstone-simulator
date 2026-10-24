@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "batch": "K495-past-remaining-mana-rewards",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "AV_142t"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "AV_142t",
+        "dbf_id": 70257,
+        "name": "森林之王伊弗斯",
+        "name_en": "Ivus, the Forest Lord",
+        "text": "<b>战吼：</b>消耗你剩余的法力值。每消耗一点法力值，便随机从+2/+2，<b>突袭</b>，<b>圣盾</b>或<b>嘲讽</b>中获得一项。",
+        "text_en": "[x]<b>Battlecry:</b> Spend the rest of\nyour Mana and gain +2/+2,\n<b>Rush</b>, <b>Divine Shield</b>, or <b>Taunt</b>\nat random for each.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1626,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nicola Saviori"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0013773610549b9bdcc6ca12bfebe01b7d9c51b56b2dcb54cb03bb58a9f5129a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "AV_142t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "AV_142t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 70257,
+        "collectible": 1,
+        "slug": "70257-ivus-the-forest-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": 5,
+        "artistName": "Nicola Saviori",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "森林之王伊弗斯",
+        "text": "<b>战吼：</b>消耗你剩余的法力值。每消耗一点法力值，便随机从+2/+2，<b>突袭</b>，<b>圣盾</b>或<b>嘲讽</b>中获得一项。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/240075b591b9b21f9994f984e10307912b4f8bff98ecd0d783e7cf51efc86ecc.png",
+        "imageGold": "",
+        "flavorText": "旅店里备受欢迎的客人，不像<i>某棵</i>古树。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e85f832511b6ee9312c1f805143cc58640653e62b12fb5b36bfaab86e2b54ce.png",
+        "keywordIds": [
+          1,
+          3,
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AV_142t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 70257,
+        "collectible": 1,
+        "slug": "70257-ivus-the-forest-lord",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": 5,
+        "artistName": "Nicola Saviori",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Ivus, the Forest Lord",
+        "text": "<b>Battlecry:</b> Spend the rest of your Mana and gain +2/+2, <b>Rush</b>, <b>Divine Shield</b>, or <b>Taunt</b> at random for each.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/feaada14ff5978698335efa865424e0c14a1284e9efbf0e63e8a7ab87b1f323e.png",
+        "imageGold": "",
+        "flavorText": "He's always welcome at the local tavern, unlike a <i>certain</i> Ancient.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e85f832511b6ee9312c1f805143cc58640653e62b12fb5b36bfaab86e2b54ce.png",
+        "keywordIds": [
+          1,
+          3,
+          8,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": "Debit actual remaining usable mana once through SpendMana. Bind each fixed stat-or-keyword reward to that original consumption record and board residence; normal reactions precede each next pick. Current keyword exclusion and singleton RNG policy need CN calibration.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

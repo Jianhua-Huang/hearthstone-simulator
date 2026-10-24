@@ -203,6 +203,9 @@ class FrameCodec:
         if type(value)is DamageSummonedMinion and self.origin_state is not None:value.validate_in_state(self.origin_state)
         from .costs import DestroyPaidMinion
         if type(value)is DestroyPaidMinion and self.origin_state is not None:value.validate_in_state(self.origin_state)
+        from .bonus_effects import SpendManaForRandomGrowth,GrantManaRandomGrowth
+        if type(value)in(SpendManaForRandomGrowth,GrantManaRandomGrowth)and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         from .corpse_summon_rewards import ResolveCorpseSummons,FinishCorpseSummons,validate_request as validate_corpse_summon_request,validate_finish as validate_corpse_summon_finish
         if type(value)is ResolveCorpseSummons:validate_corpse_summon_request(self.registry,value)
         if type(value)is FinishCorpseSummons:validate_corpse_summon_finish(self.registry,value,self.origin_state)
