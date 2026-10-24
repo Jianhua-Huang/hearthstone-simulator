@@ -1,4 +1,4 @@
-"""One finite intrinsic price from actual received damage on all own turns."""
+"""Finite native prices derived from complete original damage packets."""
 from .damage_history import damage_records, hero_damage_taken, validate_state
 from .model import CardType, DamageRecord, HeroDamageTakenCostFact, HeroDamageTakenCostSpec
 
@@ -8,7 +8,16 @@ def contribution(result, spec, player_id, turn):
         return 0
     if spec.profile_id == 'cost.enemy-hero-current-turn-damage-count-v1':
         return int(result.target_controller == 3 - player_id and result.turn == turn and result.damage_dealt > 0)
+    if spec.profile_id == 'cost.hero-previous-opponent-turn-five-set-one-v1':
+        return result.damage_dealt if (result.target_controller == player_id and
+            result.active_player == 3-player_id and result.turn == turn-1) else 0
     return result.damage_dealt if result.target_controller == player_id and result.active_player == player_id else 0
+
+
+def native_price(spec, before, quantity):
+    if spec.profile_id == 'cost.hero-previous-opponent-turn-five-set-one-v1':
+        return 1 if quantity >= 5 else before
+    return max(0,before-quantity)
 
 
 def validate_definition(definition):
@@ -49,7 +58,7 @@ def validate_operand(fact):
             raise ValueError('Received-damage price borrowed a future physical allocation')
         quantity += contribution(result, fact.spec, fact.player_id, fact.turn)
         last_turn, last_action, last_packet = result.turn, row.action, packet
-    if fact.quantity != quantity or fact.after != max(0, fact.before - quantity):
+    if fact.quantity != quantity or fact.after != native_price(fact.spec,fact.before,quantity):
         raise ValueError('Received-damage price differs from its complete actual hero quantity')
 
 
@@ -62,7 +71,7 @@ def capture(state, registry, player_id, definition, base_cost):
                    for row in records)
     fact = HeroDamageTakenCostFact(definition.hero_damage_taken_cost, player_id, state.turn,
         state.action_number, state.next_entity_id, state.next_order, state.next_damage_id,
-        records, quantity, base_cost, max(0, base_cost - quantity))
+        records, quantity, base_cost, native_price(definition.hero_damage_taken_cost,base_cost,quantity))
     validate_fact(registry, definition, fact)
     return fact
 

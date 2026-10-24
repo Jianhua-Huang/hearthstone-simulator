@@ -5194,7 +5194,8 @@ class HeroDamageTakenCostSpec:
 
     def __post_init__(self):
         if type(self.profile_id) is not str or self.profile_id not in (
-                'cost.hero-own-turns-damage-v1', 'cost.enemy-hero-current-turn-damage-count-v1'):
+                'cost.hero-own-turns-damage-v1', 'cost.enemy-hero-current-turn-damage-count-v1',
+                'cost.hero-previous-opponent-turn-five-set-one-v1'):
             raise ValueError('Unsupported actual received hero damage price policy')
 
 
