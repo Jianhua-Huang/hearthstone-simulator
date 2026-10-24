@@ -37,6 +37,7 @@ def validate_activation(activation,registry):
     activation.__post_init__();c=activation.original;profile=registry.kindred_profiles.get(activation.card_id)
     if profile is None or profile.mode!='body':raise ValueError('Kindred acceptance lost its native body declaration')
     validate_profile(registry,profile)
+    validate_request(ResolveKindred(c,activation.card_id),registry)
     if c.source_id not in c.state.entities or c.player_id not in c.state.players:raise ValueError('Kindred acceptance has an unknown caller')
     expected=query_previous_owner_turn(c.state,c.player_id,query_for_definition(registry.card(profile.card_id)))
     if expected!=activation.condition or activation.sources!=sources(c.state,registry,c.player_id):
@@ -46,6 +47,21 @@ def validate_activation(activation,registry):
     validate_sources(registry,activation.sources)
 
 
+def _same_query_native_composition(context,card_id,registry):
+    """A reviewed printed donor may retain its unchanged complete type query."""
+    from .crafted_faces import PREFIX,recipe_from_id
+    source=context.source
+    if source.kind!=CardType.MINION or not source.card_id.startswith(PREFIX):return False
+    recipe=recipe_from_id(source.card_id)
+    if (source.components!=recipe.parts or card_id not in recipe.parts or
+            card_id not in registry.crafted_minion_parts):return False
+    # Resolving the whole original face validates both native donor approvals,
+    # their exact identities and the registered blueprint. Different condition
+    # subjects remain unsupported; no ordinary grant inherits this exception.
+    face=registry.card(source.card_id)
+    return query_for_definition(face)==query_for_definition(registry.card(card_id))
+
+
 def validate_request(effect,registry):
     effect.__post_init__();c=effect.caller;profile=registry.kindred_profiles.get(effect.card_id)
     if profile is None or profile.mode!='body':raise ValueError('Kindred request has no native body profile')
@@ -53,7 +69,7 @@ def validate_request(effect,registry):
     identities={c.source.card_id}
     for row in(c.play,c.cast):
         if row is not None and(row.source_id,row.player_id)==(c.source_id,c.player_id):identities.add(row.card_id)
-    if effect.card_id not in identities:
+    if effect.card_id not in identities and not _same_query_native_composition(c,effect.card_id,registry):
         from .registry import UnsupportedDefinitionError
         raise UnsupportedDefinitionError('Kindred body grants with another printed subject require an actual reviewed source policy')
 
