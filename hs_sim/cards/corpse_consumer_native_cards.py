@@ -4,11 +4,11 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.corpse_gains import CorpseGainProfile
-from hs_sim.engine.effects import AddToHand, Buff, Damage, SpendResource
+from hs_sim.engine.effects import AddToHand, Buff, Damage, ReplaceHeroPower, SpendResource
 from hs_sim.engine.hero_powers import AddHeroPower
 from hs_sim.engine.locations import PlaceLocation
 from hs_sim.engine.model import (BoardPresenceReference, CardDefinition, CardType, ChooseBranch,
-    ChooseOneSpec, DamageKind, Keyword, PaymentType, QuestSpec, QuestStageSpec, Resource, TargetSpec, Zone)
+    ChooseOneSpec, DamageKind, HeroPowerReference, Keyword, PaymentType, QuestSpec, QuestStageSpec, Resource, TargetSpec, Zone)
 from hs_sim.engine.pools import PoolCard, PoolQuery
 from hs_sim.engine.quests import AdvanceQuest
 from hs_sim.engine.registry import UnsupportedDefinitionError
@@ -70,8 +70,11 @@ def register_corpse_consumer_native_cards(registry):
         return(SummonByCard(c.player_id,(SummonEntryMaterial(TYRAX),),SummonCause.capture(c)),)
     def thalena(c):
         player=c.state.players[c.player_id]
-        if any(i!=player.hero_power_id for i in player.hero_power_ids):
-            raise UnsupportedDefinitionError('Thalena second-slot replacement/refresh with an existing additional Hero Power awaits official evidence')
+        extra=player.additional_hero_power_ids
+        if len(extra)>1:
+            raise UnsupportedDefinitionError('Thalena requires one reviewed physical secondary slot')
+        if extra:
+            return(ReplaceHeroPower(c.player_id,KISS,HeroPowerReference.capture(c.state.entities[extra[0]]),source_id=c.source_id),)
         return(AddHeroPower(c.player_id,KISS,c.source_id),)
     bodies=dict(ants=ants,bites=bites,both=both,draw_spender=draw_spender,quest_progress=quest_progress,reward=reward,
         open_grave=open_grave,resummon=resummon,thalena=thalena,

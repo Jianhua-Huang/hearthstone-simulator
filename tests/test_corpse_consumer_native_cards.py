@@ -298,11 +298,11 @@ class CorpseConsumerNativeTests(unittest.TestCase):
         with self.assertRaises(IllegalAction):g.apply(UseHeroPower(1,power.id,g.state.players[2].hero_id))
         self.play(g,'k73.silence',self.entities(g,THALENA)[0].id)
         g.apply(UseHeroPower(1,power.id,self.entities(g,YETI)[0].id));self.assertEqual(self.bank(g),17)
-    def test_thalena_existing_extra_power_is_explicitly_unsupported_and_rolls_back(self):
-        g=self.game((THALENA,THALENA));self.play(g,THALENA);before=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'second-slot replacement/refresh')as caught:self.play(g,THALENA)
-        self.assertIsInstance(caught.exception.__cause__,UnsupportedDefinitionError)
-        self.assertEqual(g.snapshot(),before);self.assertEqual(len(g.state.players[1].hero_power_ids),2)
+    def test_thalena_existing_extra_power_is_replaced_in_its_original_slot(self):
+        g=self.game((THALENA,THALENA));primary=g.state.players[1].hero_power_id
+        self.play(g,THALENA);old=self.power(g).id;self.play(g,THALENA);new=self.power(g).id
+        self.assertNotEqual(new,old);self.assertEqual(g.state.entities[old].zone,Zone.GRAVEYARD)
+        self.assertEqual(g.state.players[1].hero_power_ids,(primary,new))
     def test_unknown_or_duplicate_native_corpse_gain_attachments_rejected(self):
         g=self.game(board=(FALRIC,));saved=g.snapshot();eid=str(self.entities(g,FALRIC)[0].id)
         for wrong in('missing',YETI):
