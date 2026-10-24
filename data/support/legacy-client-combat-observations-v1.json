@@ -1,0 +1,6105 @@
+{
+  "schema": 1,
+  "source_observation": {
+    "path": "outputs/card-integration-20261014/k530-power-log-observations/client-observation-06.json.gz",
+    "sha256": "bbd90b642f9c6a2e9d0c73adac19a7760cb2869e55e49644b923cd0d9c2639f1",
+    "complete_source_log": {
+      "bytes": 10555031,
+      "sha256": "ed67739006432c757ac657c564ed70cf0ce13a447678515b1319d1c792c5058f"
+    },
+    "parser_files": {
+      "tools/import_power_log.py": "0ca26bea7c541f3fc579935f15098612f3b15e58e89224e487789bba80acff23",
+      "tools/power_log_grammar.py": "b5cf9fd1204cf88dd4f2f0683847d244002a05112d111ea58fd99fe730a38a0a"
+    },
+    "source_game_metadata": [
+      {
+        "id": 1,
+        "start_line": 2,
+        "end_line": 23470,
+        "metadata": {
+          "BuildNumber": 254477,
+          "GameType": "GT_RANKED",
+          "FormatType": "FT_STANDARD",
+          "ScenarioID": 2
+        },
+        "first_observed_turn": 5
+      },
+      {
+        "id": 2,
+        "start_line": 23471,
+        "end_line": 59275,
+        "metadata": {
+          "BuildNumber": 254477,
+          "GameType": "GT_RANKED",
+          "FormatType": "FT_STANDARD",
+          "ScenarioID": 2
+        },
+        "first_observed_turn": 1
+      },
+      {
+        "id": 3,
+        "start_line": 59276,
+        "end_line": 60876,
+        "metadata": {
+          "BuildNumber": 254477,
+          "GameType": "GT_RANKED",
+          "FormatType": "FT_STANDARD",
+          "ScenarioID": 2
+        },
+        "first_observed_turn": 1
+      },
+      {
+        "id": 4,
+        "start_line": 60877,
+        "end_line": 84216,
+        "metadata": {
+          "BuildNumber": 254477,
+          "GameType": "GT_RANKED",
+          "FormatType": "FT_STANDARD",
+          "ScenarioID": 2
+        },
+        "first_observed_turn": 2
+      }
+    ]
+  },
+  "current_target": {
+    "version": "37.0.0.255026",
+    "source_file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "boundary": {
+    "evidence_class": "legacy-client-observation",
+    "source_build": 254477,
+    "cn_region_verified": false,
+    "current_target_behavior_certified": false,
+    "official_calibration_cases_added": 0,
+    "complete_game_reconstruction": false,
+    "server_execution_stack_observed": false,
+    "official_rng_reproduced": false,
+    "zero_omitted_tags_use_explicit_fixture_convention": true,
+    "same_record_version_between_builds_verified": false
+  },
+  "projection_limits": [
+    "Only selected public combat actors, current scalars, active keywords, hero health/armor and the explicitly compared settlement checkpoints are reconstructed.",
+    "Other board actors, objectives, aura/equipment provenance, mana/hand/deck/play history and transient tag-write publication order are not recreated.",
+    "Native card definitions are retained; a fixture setup spell supplies observed scalar/keyword material. It does not claim the native producers of that material were replayed.",
+    "Absent client numeric tags use listed zero conventions. Those assumptions and the older build prevent certification of the fixed CN target.",
+    "The two empty TLC_817t/TLC_817t2 trigger blocks inside the last window remain in source evidence, without manufacturing their absent side effects."
+  ],
+  "source_records": [
+    {
+      "record": {
+        "id": "CAP_803",
+        "dbf_id": 127064,
+        "name": "游荡之魂",
+        "name_en": "Lingering Spirit",
+        "text": "<b>复生</b>。<b>亡语：</b>为你的英雄恢复#3点生命值，超过生命值上限的治疗会对一个随机敌人造成等量伤害。",
+        "text_en": "[x]<b>Reborn</b>\n<b>Deathrattle:</b> Restore #3 Health\nto your hero. Excess healing\n_____damages a random enemy.__",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1988,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "REBORN": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          }
+        ]
+      },
+      "record_sha256": "d9bad82a709f7de2f8e5bb1016e6be53a91bd2c158806ea5cbbe6186c9b755fb"
+    },
+    {
+      "record": {
+        "id": "CATA_565",
+        "dbf_id": 122953,
+        "name": "天空之墙哨兵",
+        "name_en": "Skywall Sentinel",
+        "text": "<b>嘲讽</b>。<b>战吼：</b><b>兆示</b>{0}。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> <b>Herald</b> {0}.",
+        "cost": 2,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "HERALD": 1,
+          "4538": 1,
+          "4632": 2
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4538",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4538"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4632",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "4632"
+          }
+        ]
+      },
+      "record_sha256": "d48b34a2ab26ea7fd134f127709b224e2abb91220049ea6701d8eb2b7844b239"
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_531",
+        "dbf_id": 130790,
+        "name": "女巫的学徒",
+        "name_en": "Witch's Apprentice",
+        "text": "<b>嘲讽，战吼：</b>随机将一张萨满祭司法术牌置入你的手牌。",
+        "text_en": "<b>Taunt</b>\n<b>Battlecry:</b> Add a random Shaman spell to your hand.",
+        "cost": null,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 46998,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 46998
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Hogg"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "46998",
+              "type": "Int",
+              "value": "46998"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "2c9d5109a1f4d2d067fac5228bca3010c5af6dd3418a2e8b8f1212793e080a32"
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_205",
+        "dbf_id": 102227,
+        "name": "冰川裂片",
+        "name_en": "Glacial Shard",
+        "text": "<b>战吼：</b>\n<b>冻结</b>一个敌人。",
+        "text_en": "<b>Battlecry:</b> <b>Freeze</b> an_enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41111
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41111",
+              "type": "Int",
+              "value": "41111"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "300bf1410eb80fb33b47c395683f53c538c039516a83c94ffd6f509785e0859f"
+    },
+    {
+      "record": {
+        "id": "EDR_856",
+        "dbf_id": 115139,
+        "name": "梦魇之王萨维斯",
+        "name_en": "Nightmare Lord Xavius",
+        "text": "<b>战吼：</b>从你的牌库中<b>发现</b>一张随从牌。使其获得<b>黑暗之赐</b>。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a minion from your deck. Give it a <b>Dark Gift</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "4050": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jerry Mascho"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "243253c5366b0d38ba1d4f116b98acdad4f2ef9923e46452d220045d4da99007"
+    },
+    {
+      "record": {
+        "id": "TIME_209",
+        "dbf_id": 119643,
+        "name": "高山之王穆拉丁",
+        "name_en": "Muradin, High King",
+        "text": "<b>奇闻</b>\n<b>突袭</b>。<b>战吼：</b>为本随从装备高山之王的战锤！<b>亡语：</b>将该战锤置入你的手牌。",
+        "text_en": "[x]<b>Fabled</b>, <b>Rush</b>. <b>Battlecry:</b>\nBring the High King's\nHammer to ME! <b>Deathrattle:</b>\nAdd it to your hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "RUSH": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2936": 1,
+          "FABLED": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2936",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2936"
+          }
+        ]
+      },
+      "record_sha256": "9bb226989c1c3b5521ec1387ca81b200bd2c66a2128ccc505e7e14796fa9389b"
+    }
+  ],
+  "cases": [
+    {
+      "id": "mutual_damage_before_deaths",
+      "game": 1,
+      "start_line": 4640,
+      "end_line": 4716,
+      "active_player": 1,
+      "seed": 5311,
+      "heroes": [
+        {
+          "client_entity_id": 64,
+          "owner": 1,
+          "client_portrait_id": "HERO_07ap_MalGanis_hls",
+          "fixture_base_id": "HERO_07",
+          "fixture_card_id": "HERO_07",
+          "max_health": 30,
+          "damage": 4,
+          "armor": 0,
+          "explicit_damage_line": 1549,
+          "default_zero_fields": [
+            "ARMOR"
+          ]
+        },
+        {
+          "client_entity_id": 66,
+          "owner": 2,
+          "client_portrait_id": "HERO_02",
+          "fixture_base_id": "HERO_02",
+          "fixture_card_id": "HERO_02",
+          "max_health": 30,
+          "damage": 0,
+          "armor": 0,
+          "explicit_damage_line": null,
+          "default_zero_fields": [
+            "DAMAGE",
+            "ARMOR"
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "role": "attacker",
+          "client_entity_id": 27,
+          "card_id": "CORE_UNG_205",
+          "owner": 1,
+          "attack": 2,
+          "max_health": 1,
+          "damage": 0,
+          "fixture_extra_keywords": [],
+          "observed_tags": {
+            "ATK": 2,
+            "HEALTH": 1,
+            "CONTROLLER": 1,
+            "ZONE": "PLAY",
+            "EXHAUSTED": 0
+          },
+          "tag_evidence_lines": {
+            "ATK": 2653,
+            "HEALTH": 2654,
+            "CONTROLLER": 2648,
+            "ZONE": 2656,
+            "EXHAUSTED": 3525
+          },
+          "default_zero_fields": [
+            "DAMAGE"
+          ]
+        },
+        {
+          "role": "defender",
+          "client_entity_id": 35,
+          "card_id": "CATA_565",
+          "owner": 2,
+          "attack": 1,
+          "max_health": 2,
+          "damage": 0,
+          "fixture_extra_keywords": [],
+          "observed_tags": {
+            "ATK": 1,
+            "HEALTH": 2,
+            "CONTROLLER": 2,
+            "ZONE": "PLAY",
+            "EXHAUSTED": 1
+          },
+          "tag_evidence_lines": {
+            "ATK": 3186,
+            "HEALTH": 226,
+            "CONTROLLER": 222,
+            "ZONE": 3115,
+            "EXHAUSTED": 3118
+          },
+          "default_zero_fields": [
+            "DAMAGE"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "attacker": "attacker",
+          "target": "defender"
+        }
+      ],
+      "events": [
+        {
+          "line": 4640,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "ATTACK",
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "target": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 4641,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 1715,
+          "value": 27,
+          "definition_change": false
+        },
+        {
+          "line": 4642,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 1715,
+          "value": 27,
+          "definition_change": false
+        },
+        {
+          "line": 4643,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_ATTACKED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4644,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 27,
+          "definition_change": false
+        },
+        {
+          "line": 4645,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 35,
+          "definition_change": false
+        },
+        {
+          "line": 4646,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "ATTACKING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4647,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "metadata",
+          "parent": 4640,
+          "meta": "SLUSH_TIME",
+          "data": 1200,
+          "info_count": 1
+        },
+        {
+          "line": 4648,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "metadata_info",
+          "parent": 4640,
+          "index": 0,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "packet_line": 4647
+        },
+        {
+          "line": 4649,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "DEFENDING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4650,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "NUM_ATTACKS_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4651,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 4163,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4652,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "EXHAUSTED",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4653,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 27,
+          "definition_change": false
+        },
+        {
+          "line": 4654,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4655,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 35,
+          "definition_change": false
+        },
+        {
+          "line": 4656,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4657,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4658,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4659,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4660,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4661,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "metadata",
+          "parent": 4640,
+          "meta": "DAMAGE",
+          "data": 2,
+          "info_count": 1
+        },
+        {
+          "line": 4662,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "metadata_info",
+          "parent": 4640,
+          "index": 0,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "packet_line": 4661
+        },
+        {
+          "line": 4663,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 4741,
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4664,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 27,
+          "definition_change": false
+        },
+        {
+          "line": 4665,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "DAMAGE",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4666,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 35,
+          "definition_change": false
+        },
+        {
+          "line": 4667,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4668,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 27,
+          "definition_change": false
+        },
+        {
+          "line": 4669,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4670,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4671,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4672,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4673,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4674,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "metadata",
+          "parent": 4640,
+          "meta": "DAMAGE",
+          "data": 1,
+          "info_count": 1
+        },
+        {
+          "line": 4675,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "metadata_info",
+          "parent": 4640,
+          "index": 0,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "packet_line": 4674
+        },
+        {
+          "line": 4676,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 4741,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4677,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 35,
+          "definition_change": false
+        },
+        {
+          "line": 4678,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "DAMAGE",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4679,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4680,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4681,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4682,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4683,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4684,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4685,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "ATTACKING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4686,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4640,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "DEFENDING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4687,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 4640
+        },
+        {
+          "line": 4688,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "DEATHS",
+          "entity": {
+            "entity_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 4689,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_MINIONS_PLAYER_KILLED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4690,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "NUM_MINIONS_KILLED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4691,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 1068,
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 4692,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": 1068,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4693,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "EXHAUSTED",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4694,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "ZONE_POSITION",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4695,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "ZONE",
+          "value": "GRAVEYARD",
+          "definition_change": false
+        },
+        {
+          "line": 4696,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4697,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_GAME",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4698,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "CORPSES",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 4699,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 27,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CORE_UNG_205",
+            "player_id": 1
+          },
+          "tag": "DAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4700,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_MINIONS_PLAYER_KILLED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4701,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "NUM_MINIONS_KILLED_THIS_TURN",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 4702,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 1068,
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 4703,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": 1068,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4704,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "EXHAUSTED",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4705,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 109,
+            "zone": "SETASIDE",
+            "zone_position": 0,
+            "card_id": "CATA_210t",
+            "player_id": 2
+          },
+          "tag": "ZONE_POSITION",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 4706,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 96,
+            "zone": "PLAY",
+            "zone_position": 3,
+            "card_id": "CATA_565t",
+            "player_id": 2
+          },
+          "tag": "ZONE_POSITION",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4707,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "ZONE_POSITION",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4708,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "ZONE",
+          "value": "GRAVEYARD",
+          "definition_change": false
+        },
+        {
+          "line": 4709,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4710,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_GAME",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4711,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "CORPSES",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 4712,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 97,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "CATA_153e",
+            "player_id": 2
+          },
+          "tag": 1234,
+          "value": 35,
+          "definition_change": false
+        },
+        {
+          "line": 4713,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "hide_entity",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 97,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "CATA_153e",
+            "player_id": 2
+          },
+          "tag": "ZONE",
+          "value": "PLAY",
+          "definition_change": false
+        },
+        {
+          "line": 4714,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 97,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "CATA_153e",
+            "player_id": 2
+          },
+          "tag": "ZONE",
+          "value": "REMOVEDFROMGAME",
+          "definition_change": false
+        },
+        {
+          "line": 4715,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "tag_change",
+          "parent": 4688,
+          "entity": {
+            "entity_id": 35,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CATA_565",
+            "player_id": 2
+          },
+          "tag": "DAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 4716,
+          "time": "20:47:41.0629737",
+          "game": 1,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 4688
+        }
+      ],
+      "comparison": "Both positive combat damage deliveries precede both graveyard moves; observed pair damage and ordered graveyard identities only. Aura provenance and later cleanup are not reconstructed."
+    },
+    {
+      "id": "shield_blocks_retaliation",
+      "game": 2,
+      "start_line": 32029,
+      "end_line": 32091,
+      "active_player": 1,
+      "seed": 5312,
+      "heroes": [
+        {
+          "client_entity_id": 54,
+          "owner": 1,
+          "client_portrait_id": "HERO_09a",
+          "fixture_base_id": "HERO_09",
+          "fixture_card_id": "fixture.client_combat.priest40",
+          "max_health": 40,
+          "damage": 0,
+          "armor": 0,
+          "explicit_damage_line": null,
+          "default_zero_fields": [
+            "DAMAGE",
+            "ARMOR"
+          ]
+        },
+        {
+          "client_entity_id": 56,
+          "owner": 2,
+          "client_portrait_id": "HERO_02",
+          "fixture_base_id": "HERO_02",
+          "fixture_card_id": "HERO_02",
+          "max_health": 30,
+          "damage": 3,
+          "armor": 0,
+          "explicit_damage_line": 27720,
+          "default_zero_fields": [
+            "ARMOR"
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "role": "attacker",
+          "client_entity_id": 109,
+          "card_id": "CAP_803",
+          "owner": 1,
+          "attack": 3,
+          "max_health": 3,
+          "damage": 0,
+          "fixture_extra_keywords": [
+            "divine_shield"
+          ],
+          "observed_tags": {
+            "ATK": 3,
+            "HEALTH": 3,
+            "CONTROLLER": 1,
+            "ZONE": "PLAY",
+            "EXHAUSTED": 0,
+            "DIVINE_SHIELD": 1,
+            "REBORN": 1
+          },
+          "tag_evidence_lines": {
+            "ATK": 29357,
+            "HEALTH": 29358,
+            "CONTROLLER": 29352,
+            "ZONE": 29361,
+            "EXHAUSTED": 31104,
+            "DIVINE_SHIELD": 31770,
+            "REBORN": 29375
+          },
+          "default_zero_fields": [
+            "DAMAGE"
+          ]
+        },
+        {
+          "role": "defender",
+          "client_entity_id": 33,
+          "card_id": "EDR_856",
+          "owner": 2,
+          "attack": 5,
+          "max_health": 5,
+          "damage": 3,
+          "fixture_extra_keywords": [],
+          "observed_tags": {
+            "ATK": 5,
+            "HEALTH": 5,
+            "DAMAGE": 3,
+            "CONTROLLER": 2,
+            "ZONE": "PLAY",
+            "EXHAUSTED": 1
+          },
+          "tag_evidence_lines": {
+            "ATK": 26915,
+            "HEALTH": 26916,
+            "DAMAGE": 31968,
+            "CONTROLLER": 26910,
+            "ZONE": 30391,
+            "EXHAUSTED": 30394
+          },
+          "default_zero_fields": []
+        }
+      ],
+      "actions": [
+        {
+          "attacker": "attacker",
+          "target": "defender"
+        }
+      ],
+      "events": [
+        {
+          "line": 32029,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "ATTACK",
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "target": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 32030,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1715,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 32031,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 1715,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 32032,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_ATTACKED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 32033,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 32034,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 33,
+          "definition_change": false
+        },
+        {
+          "line": 32035,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "ATTACKING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32036,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 32029,
+          "meta": "SLUSH_TIME",
+          "data": 1200,
+          "info_count": 1
+        },
+        {
+          "line": 32037,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 32029,
+          "index": 0,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "packet_line": 32036
+        },
+        {
+          "line": 32038,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "DEFENDING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32039,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "NUM_ATTACKS_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32040,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 4163,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32041,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "EXHAUSTED",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32042,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 32043,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 32044,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 33,
+          "definition_change": false
+        },
+        {
+          "line": 32045,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32046,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32047,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32048,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 32049,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32050,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 32029,
+          "meta": "DAMAGE",
+          "data": 3,
+          "info_count": 1
+        },
+        {
+          "line": 32051,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 32029,
+          "index": 0,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "packet_line": 32050
+        },
+        {
+          "line": 32052,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 4741,
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 32053,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 32054,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "DAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 32055,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 33,
+          "definition_change": false
+        },
+        {
+          "line": 32056,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 5,
+          "definition_change": false
+        },
+        {
+          "line": 32057,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 32058,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32059,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32060,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32061,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 5,
+          "definition_change": false
+        },
+        {
+          "line": 32062,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32063,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "DIVINE_SHIELD_DAMAGE",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32064,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "DIVINE_SHIELD",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32065,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 2873,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32066,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 32029,
+          "meta": "DAMAGE",
+          "data": 0,
+          "info_count": 1
+        },
+        {
+          "line": 32067,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 32029,
+          "index": 0,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "packet_line": 32066
+        },
+        {
+          "line": 32068,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32069,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32070,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32071,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32072,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "ATTACKING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32073,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32029,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "DEFENDING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32074,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 32029
+        },
+        {
+          "line": 32075,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 3617,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32076,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "DEATHS",
+          "entity": {
+            "entity_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 32077,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_MINIONS_PLAYER_KILLED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32078,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "NUM_MINIONS_KILLED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 32079,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 1068,
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 32080,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": 1068,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32081,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "EXHAUSTED",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32082,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "ZONE_POSITION",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32083,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "ZONE",
+          "value": "GRAVEYARD",
+          "definition_change": false
+        },
+        {
+          "line": 32084,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32085,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_GAME",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 32086,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "CORPSES",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 32087,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 100,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "TLC_222e",
+            "player_id": 2
+          },
+          "tag": 1234,
+          "value": 33,
+          "definition_change": false
+        },
+        {
+          "line": 32088,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "hide_entity",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 100,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "TLC_222e",
+            "player_id": 2
+          },
+          "tag": "ZONE",
+          "value": "PLAY",
+          "definition_change": false
+        },
+        {
+          "line": 32089,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 100,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "TLC_222e",
+            "player_id": 2
+          },
+          "tag": "ZONE",
+          "value": "REMOVEDFROMGAME",
+          "definition_change": false
+        },
+        {
+          "line": 32090,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32076,
+          "entity": {
+            "entity_id": 33,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "EDR_856",
+            "player_id": 2
+          },
+          "tag": "DAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32091,
+          "time": "20:58:13.7477910",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 32076
+        }
+      ],
+      "comparison": "Positive damage to defender, shield consumed on attacker, no positive retaliation damage to attacker, defender dies and attacker survives without rebirth. No claim that client tag-write order equals engine health-event publication order."
+    },
+    {
+      "id": "overheal_deathrattle_before_reborn",
+      "game": 2,
+      "start_line": 32980,
+      "end_line": 33317,
+      "active_player": 2,
+      "seed": 1,
+      "heroes": [
+        {
+          "client_entity_id": 54,
+          "owner": 1,
+          "client_portrait_id": "HERO_09a",
+          "fixture_base_id": "HERO_09",
+          "fixture_card_id": "fixture.client_combat.priest40",
+          "max_health": 40,
+          "damage": 0,
+          "armor": 0,
+          "explicit_damage_line": null,
+          "default_zero_fields": [
+            "DAMAGE",
+            "ARMOR"
+          ]
+        },
+        {
+          "client_entity_id": 56,
+          "owner": 2,
+          "client_portrait_id": "HERO_02",
+          "fixture_base_id": "HERO_02",
+          "fixture_card_id": "HERO_02",
+          "max_health": 30,
+          "damage": 3,
+          "armor": 0,
+          "explicit_damage_line": 27720,
+          "default_zero_fields": [
+            "ARMOR"
+          ]
+        }
+      ],
+      "actors": [
+        {
+          "role": "attacker",
+          "client_entity_id": 36,
+          "card_id": "TIME_209",
+          "owner": 2,
+          "attack": 6,
+          "max_health": 6,
+          "damage": 0,
+          "fixture_extra_keywords": [
+            "windfury"
+          ],
+          "observed_tags": {
+            "ATK": 6,
+            "HEALTH": 6,
+            "CONTROLLER": 2,
+            "ZONE": "PLAY",
+            "WINDFURY": 1
+          },
+          "tag_evidence_lines": {
+            "ATK": 32834,
+            "HEALTH": 32833,
+            "CONTROLLER": 24821,
+            "ZONE": 32774,
+            "WINDFURY": 32821
+          },
+          "default_zero_fields": [
+            "DAMAGE"
+          ]
+        },
+        {
+          "role": "first_defender",
+          "client_entity_id": 77,
+          "card_id": "CORE_GIL_531",
+          "owner": 1,
+          "attack": 0,
+          "max_health": 1,
+          "damage": 0,
+          "fixture_extra_keywords": [],
+          "observed_tags": {
+            "HEALTH": 1,
+            "CONTROLLER": 1,
+            "ZONE": "PLAY",
+            "EXHAUSTED": 0
+          },
+          "tag_evidence_lines": {
+            "HEALTH": 29679,
+            "CONTROLLER": 29677,
+            "ZONE": 29681,
+            "EXHAUSTED": 31105
+          },
+          "default_zero_fields": [
+            "ATK",
+            "DAMAGE"
+          ]
+        },
+        {
+          "role": "defender",
+          "client_entity_id": 109,
+          "card_id": "CAP_803",
+          "owner": 1,
+          "attack": 3,
+          "max_health": 3,
+          "damage": 0,
+          "fixture_extra_keywords": [],
+          "observed_tags": {
+            "ATK": 3,
+            "HEALTH": 3,
+            "CONTROLLER": 1,
+            "ZONE": "PLAY",
+            "EXHAUSTED": 1,
+            "DIVINE_SHIELD": 0,
+            "REBORN": 1,
+            "NUM_ATTACKS_THIS_TURN": 0
+          },
+          "tag_evidence_lines": {
+            "ATK": 29357,
+            "HEALTH": 29358,
+            "CONTROLLER": 29352,
+            "ZONE": 29361,
+            "EXHAUSTED": 32041,
+            "DIVINE_SHIELD": 32064,
+            "REBORN": 29375,
+            "NUM_ATTACKS_THIS_TURN": 32280
+          },
+          "default_zero_fields": [
+            "DAMAGE"
+          ]
+        }
+      ],
+      "actions": [
+        {
+          "attacker": "attacker",
+          "target": "first_defender"
+        },
+        {
+          "attacker": "attacker",
+          "target": "defender"
+        }
+      ],
+      "events": [
+        {
+          "line": 32980,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "ATTACK",
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "target": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 32981,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 1715,
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 32982,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 1715,
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 32983,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_ATTACKED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32984,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 32985,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 77,
+          "definition_change": false
+        },
+        {
+          "line": 32986,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "ATTACKING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32987,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 32980,
+          "meta": "SLUSH_TIME",
+          "data": 1200,
+          "info_count": 1
+        },
+        {
+          "line": 32988,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 32980,
+          "index": 0,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "packet_line": 32987
+        },
+        {
+          "line": 32989,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "DEFENDING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32990,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "NUM_ATTACKS_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32991,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 4163,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 32992,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 32993,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 32994,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 77,
+          "definition_change": false
+        },
+        {
+          "line": 32995,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32996,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32997,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 32998,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 32999,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33000,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 32980,
+          "meta": "DAMAGE",
+          "data": 6,
+          "info_count": 1
+        },
+        {
+          "line": 33001,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 32980,
+          "index": 0,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "packet_line": 33000
+        },
+        {
+          "line": 33002,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 4741,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33003,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 33004,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "DAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 33005,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33006,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33007,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33008,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33009,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "ATTACKING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33010,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 32980,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "DEFENDING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33011,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 32980
+        },
+        {
+          "line": 33012,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "DEATHS",
+          "entity": {
+            "entity_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 33013,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_MINIONS_PLAYER_KILLED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33014,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "NUM_MINIONS_KILLED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33015,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 1068,
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 33016,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": 1068,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33017,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "ZONE_POSITION",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33018,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "ZONE",
+          "value": "GRAVEYARD",
+          "definition_change": false
+        },
+        {
+          "line": 33019,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_TURN",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33020,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_GAME",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33021,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "CORPSES",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33022,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33012,
+          "entity": {
+            "entity_id": 77,
+            "zone": "PLAY",
+            "zone_position": 2,
+            "card_id": "CORE_GIL_531",
+            "player_id": 1
+          },
+          "tag": "DAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33023,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 33012
+        },
+        {
+          "line": 33024,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "TRIGGER",
+          "entity": {
+            "entity_id": 90,
+            "zone": "SECRET",
+            "zone_position": 0,
+            "card_id": "TLC_817t",
+            "player_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": -1,
+          "sub_option": -1,
+          "trigger_keyword": 4297
+        },
+        {
+          "line": 33025,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 33024
+        },
+        {
+          "line": 33026,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "TRIGGER",
+          "entity": {
+            "entity_id": 91,
+            "zone": "SECRET",
+            "zone_position": 0,
+            "card_id": "TLC_817t2",
+            "player_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": -1,
+          "sub_option": -1,
+          "trigger_keyword": 4297
+        },
+        {
+          "line": 33027,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 33026
+        },
+        {
+          "line": 33028,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1323,
+          "value": 21,
+          "definition_change": false
+        },
+        {
+          "line": 33029,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_OPTIONS_PLAYED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33030,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "metadata",
+          "parent": null,
+          "meta": "SLUSH_TIME",
+          "data": 1000,
+          "info_count": 1
+        },
+        {
+          "line": 33031,
+          "time": "20:58:49.8241513",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": null,
+          "index": 0,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "packet_line": 33030
+        },
+        {
+          "line": 33032,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "options",
+          "parent": null,
+          "options_id": 31
+        },
+        {
+          "line": 33033,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 0,
+          "option_type": "END_TURN",
+          "entity": null,
+          "error": "INVALID",
+          "error_param": null
+        },
+        {
+          "line": 33034,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 1,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "error": "NONE",
+          "error_param": null
+        },
+        {
+          "line": 33035,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "target",
+          "parent": null,
+          "options_id": 31,
+          "index": 0,
+          "option_index": 1,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "error": "NONE",
+          "error_param": null
+        },
+        {
+          "line": 33036,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "target",
+          "parent": null,
+          "options_id": 31,
+          "index": 1,
+          "option_index": 1,
+          "entity": {
+            "entity_id": 54,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_09a",
+            "player_id": 1
+          },
+          "error": "REQ_MINION_TARGET",
+          "error_param": null
+        },
+        {
+          "line": 33037,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "target",
+          "parent": null,
+          "options_id": 31,
+          "index": 2,
+          "option_index": 1,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "error": "REQ_MINION_TARGET",
+          "error_param": null
+        },
+        {
+          "line": 33038,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "target",
+          "parent": null,
+          "options_id": 31,
+          "index": 3,
+          "option_index": 1,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "error": "REQ_ENEMY_TARGET",
+          "error_param": null
+        },
+        {
+          "line": 33039,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 2,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 45,
+            "zone": "HAND",
+            "zone_position": 1,
+            "card_id": "TLC_222",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33040,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 3,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 40,
+            "zone": "HAND",
+            "zone_position": 2,
+            "card_id": "CORE_EX1_246",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33041,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 4,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 30,
+            "zone": "HAND",
+            "zone_position": 3,
+            "card_id": "CORE_LOOT_373",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33042,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 5,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 28,
+            "zone": "HAND",
+            "zone_position": 4,
+            "card_id": "CATA_153",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33043,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 6,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 34,
+            "zone": "HAND",
+            "zone_position": 5,
+            "card_id": "CORE_EX1_259",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33044,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 7,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 105,
+            "zone": "HAND",
+            "zone_position": 6,
+            "card_id": "CATA_561t",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33045,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 8,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 53,
+            "zone": "HAND",
+            "zone_position": 7,
+            "card_id": "TIME_213",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33046,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 9,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 49,
+            "zone": "HAND",
+            "zone_position": 8,
+            "card_id": "CORE_LOOT_373",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33047,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 10,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 54,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_09a",
+            "player_id": 1
+          },
+          "error": "REQ_YOUR_TURN",
+          "error_param": null
+        },
+        {
+          "line": 33048,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 11,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "error": "REQ_ATTACK_GREATER_THAN_0",
+          "error_param": null
+        },
+        {
+          "line": 33049,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 12,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 57,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02bp",
+            "player_id": 2
+          },
+          "error": "REQ_ENOUGH_MANA",
+          "error_param": null
+        },
+        {
+          "line": 33050,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 13,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 93,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "EDR_449p",
+            "player_id": 1
+          },
+          "error": "REQ_YOUR_TURN",
+          "error_param": null
+        },
+        {
+          "line": 33051,
+          "time": "20:58:49.9149006",
+          "game": 2,
+          "kind": "option",
+          "parent": null,
+          "options_id": 31,
+          "index": 14,
+          "option_type": "POWER",
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "error": "REQ_YOUR_TURN",
+          "error_param": null
+        },
+        {
+          "line": 33183,
+          "time": "20:58:51.4085882",
+          "game": 2,
+          "kind": "send_option",
+          "parent": null,
+          "option": 1,
+          "sub_option": -1,
+          "target": 109,
+          "position": 0,
+          "options_id": 31
+        },
+        {
+          "line": 33185,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "CARD_TARGET",
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33186,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "ATTACK",
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "target": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 33187,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1715,
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 33188,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_ATTACKED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33189,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 33190,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33191,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "ATTACKING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33192,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 33186,
+          "meta": "SLUSH_TIME",
+          "data": 1200,
+          "info_count": 1
+        },
+        {
+          "line": 33193,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 33186,
+          "index": 0,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "packet_line": 33192
+        },
+        {
+          "line": 33194,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "DEFENDING",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33195,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "NUM_ATTACKS_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33196,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 4163,
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33197,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "EXHAUSTED",
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33198,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 33199,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 33200,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33201,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33202,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33203,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33204,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 33205,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33206,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 33186,
+          "meta": "DAMAGE",
+          "data": 6,
+          "info_count": 1
+        },
+        {
+          "line": 33207,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 33186,
+          "index": 0,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "packet_line": 33206
+        },
+        {
+          "line": 33208,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 4741,
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 33209,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 33210,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "DAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 33211,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33212,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33213,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 36,
+          "definition_change": false
+        },
+        {
+          "line": 33214,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33215,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33216,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33217,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33218,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33219,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 33186,
+          "meta": "DAMAGE",
+          "data": 3,
+          "info_count": 1
+        },
+        {
+          "line": 33220,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 33186,
+          "index": 0,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "packet_line": 33219
+        },
+        {
+          "line": 33221,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": 4741,
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33222,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33223,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "DAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33224,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33225,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33226,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33227,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": 1710,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33228,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_ATTACKER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33229,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "PROPOSED_DEFENDER",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33230,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 36,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "TIME_209",
+            "player_id": 2
+          },
+          "tag": "ATTACKING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33231,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33186,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "DEFENDING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33232,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 33186
+        },
+        {
+          "line": 33233,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "DEATHS",
+          "entity": {
+            "entity_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1
+        },
+        {
+          "line": 33234,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_MINIONS_PLAYER_KILLED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33235,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 1
+          },
+          "tag": "NUM_MINIONS_KILLED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33236,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1068,
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 33237,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": 1068,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33238,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "EXHAUSTED",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33239,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "ZONE_POSITION",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33240,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "ZONE",
+          "value": "GRAVEYARD",
+          "definition_change": false
+        },
+        {
+          "line": 33241,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_TURN",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33242,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "NUM_FRIENDLY_MINIONS_THAT_DIED_THIS_GAME",
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 33243,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": "CORPSES",
+          "value": 4,
+          "definition_change": false
+        },
+        {
+          "line": 33244,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "DAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33245,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33233,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "tag": "REBORN",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33246,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 33233
+        },
+        {
+          "line": 33247,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "block_start",
+          "parent": null,
+          "block_type": "TRIGGER",
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "target": {
+            "entity_id": 0
+          },
+          "effect_card_id": {
+            "unavailable": "client_collection_string"
+          },
+          "effect_index": 0,
+          "sub_option": -1,
+          "trigger_keyword": "DEATHRATTLE"
+        },
+        {
+          "line": 33248,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_start",
+          "parent": 33247,
+          "source": {
+            "entity_id": 109
+          },
+          "target_count": 1
+        },
+        {
+          "line": 33249,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_source",
+          "parent": 33248,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          }
+        },
+        {
+          "line": 33250,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_target",
+          "parent": 33248,
+          "index": 0,
+          "entity": {
+            "entity_id": 54,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_09a",
+            "player_id": 1
+          },
+          "packet_line": 33248
+        },
+        {
+          "line": 33251,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 33248,
+          "meta": "TARGET",
+          "data": 0,
+          "info_count": 1
+        },
+        {
+          "line": 33252,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 33248,
+          "index": 0,
+          "entity": {
+            "entity_id": 54,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_09a",
+            "player_id": 1
+          },
+          "packet_line": 33251
+        },
+        {
+          "line": 33253,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33248,
+          "entity": {
+            "entity_id": 54,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_09a",
+            "player_id": 1
+          },
+          "tag": "PREHEALING",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33254,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33248,
+          "entity": {
+            "entity_id": 54,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_09a",
+            "player_id": 1
+          },
+          "tag": "PREHEALING",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33255,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_end",
+          "parent": 33247,
+          "start_line": 33248
+        },
+        {
+          "line": 33256,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_start",
+          "parent": 33247,
+          "source": {
+            "entity_id": 109
+          },
+          "target_count": 1
+        },
+        {
+          "line": 33257,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_source",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          }
+        },
+        {
+          "line": 33258,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_target",
+          "parent": 33256,
+          "index": 0,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "packet_line": 33256
+        },
+        {
+          "line": 33259,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 33256,
+          "meta": "TARGET",
+          "data": 0,
+          "info_count": 1
+        },
+        {
+          "line": 33260,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 33256,
+          "index": 0,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "packet_line": 33259
+        },
+        {
+          "line": 33261,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33262,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33263,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 56,
+          "definition_change": false
+        },
+        {
+          "line": 33264,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": 2187,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33265,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33266,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": 1173,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33267,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33268,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": "PREDAMAGE",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33269,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": 33256,
+          "meta": "DAMAGE",
+          "data": 3,
+          "info_count": 1
+        },
+        {
+          "line": 33270,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": 33256,
+          "index": 0,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "packet_line": 33269
+        },
+        {
+          "line": 33271,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": 4741,
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33272,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": "LAST_AFFECTED_BY",
+          "value": 109,
+          "definition_change": false
+        },
+        {
+          "line": 33273,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 56,
+            "zone": "PLAY",
+            "zone_position": 0,
+            "card_id": "HERO_02",
+            "player_id": 2
+          },
+          "tag": "DAMAGE",
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 33274,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 464,
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33275,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 1853,
+          "value": 6,
+          "definition_change": false
+        },
+        {
+          "line": 33276,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 4453,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33277,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 3110,
+          "value": 3,
+          "definition_change": false
+        },
+        {
+          "line": 33278,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 3687,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33279,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 1575,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33280,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": 33256,
+          "entity": {
+            "entity_id": 3
+          },
+          "tag": 1573,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33281,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "sub_spell_end",
+          "parent": 33247,
+          "start_line": 33256
+        },
+        {
+          "line": 33282,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "block_end",
+          "parent": null,
+          "start_line": 33247
+        },
+        {
+          "line": 33283,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata",
+          "parent": null,
+          "meta": "SLUSH_TIME",
+          "data": 200,
+          "info_count": 1
+        },
+        {
+          "line": 33284,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "metadata_info",
+          "parent": null,
+          "index": 0,
+          "entity": {
+            "entity_id": 109,
+            "zone": "PLAY",
+            "zone_position": 1,
+            "card_id": "CAP_803",
+            "player_id": 1
+          },
+          "packet_line": 33283
+        },
+        {
+          "line": 33285,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "opaque_ref": 1
+          },
+          "tag": 1420,
+          "value": 1,
+          "definition_change": false
+        },
+        {
+          "line": 33286,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "full_entity",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "card_id": "CAP_803"
+        },
+        {
+          "line": 33287,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "CONTROLLER",
+          "value": 1
+        },
+        {
+          "line": 33288,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "CARDTYPE",
+          "value": "MINION"
+        },
+        {
+          "line": 33289,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": 1196,
+          "value": 1
+        },
+        {
+          "line": 33290,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "TAG_LAST_KNOWN_COST_IN_HAND",
+          "value": 4
+        },
+        {
+          "line": 33291,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": 479,
+          "value": 3
+        },
+        {
+          "line": 33292,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "COST",
+          "value": 4
+        },
+        {
+          "line": 33293,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "ATK",
+          "value": 3
+        },
+        {
+          "line": 33294,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "HEALTH",
+          "value": 3
+        },
+        {
+          "line": 33295,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "EXHAUSTED",
+          "value": 1
+        },
+        {
+          "line": 33296,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "ZONE",
+          "value": "PLAY"
+        },
+        {
+          "line": 33297,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "ENTITY_ID",
+          "value": 146
+        },
+        {
+          "line": 33298,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "CLASS",
+          "value": "PRIEST"
+        },
+        {
+          "line": 33299,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "CARDRACE",
+          "value": "UNDEAD"
+        },
+        {
+          "line": 33300,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "RARITY",
+          "value": "RARE"
+        },
+        {
+          "line": 33301,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "DEATHRATTLE",
+          "value": 1
+        },
+        {
+          "line": 33302,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "ZONE_POSITION",
+          "value": 1
+        },
+        {
+          "line": 33303,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "CREATOR",
+          "value": 109
+        },
+        {
+          "line": 33304,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "START_WITH_1_HEALTH",
+          "value": 1
+        },
+        {
+          "line": 33305,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "REBORN",
+          "value": 1
+        },
+        {
+          "line": 33306,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": 1254,
+          "value": 109
+        },
+        {
+          "line": 33307,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "CREATOR_DBID",
+          "value": 127064
+        },
+        {
+          "line": 33308,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "HAS_BEEN_REBORN",
+          "value": 1
+        },
+        {
+          "line": 33309,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "SPAWN_TIME_COUNT",
+          "value": 1
+        },
+        {
+          "line": 33310,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "MINI_SET",
+          "value": 1
+        },
+        {
+          "line": 33311,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "HAS_ACTIVATE_POWER",
+          "value": 1
+        },
+        {
+          "line": 33312,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": 3085,
+          "value": 3
+        },
+        {
+          "line": 33313,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "initial_tag",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": 4901,
+          "value": 1
+        },
+        {
+          "line": 33314,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "DAMAGE",
+          "value": 2,
+          "definition_change": false
+        },
+        {
+          "line": 33315,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": 4901,
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33316,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "START_WITH_1_HEALTH",
+          "value": 0,
+          "definition_change": false
+        },
+        {
+          "line": 33317,
+          "time": "20:58:51.6372034",
+          "game": 2,
+          "kind": "tag_change",
+          "parent": null,
+          "entity": {
+            "entity_id": 146
+          },
+          "tag": "REBORN",
+          "value": 0,
+          "definition_change": false
+        }
+      ],
+      "comparison": "Two actual Windfury attacks, first through Taunt; second kills native Spirit. Its overheal damages the observed opposing hero before the new 3/1 Spirit is present with Reborn spent. Internal seed reproduces this observed branch, not the official RNG/seed."
+    }
+  ]
+}
