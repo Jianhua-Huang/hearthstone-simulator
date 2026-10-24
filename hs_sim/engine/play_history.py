@@ -173,7 +173,10 @@ def play_definition(state, registry, source, record=None, *, branch_id=None):
     definition=effective(definition, record.branch_id if record is not None else branch_id)
     condition=definition.target_condition
     active=(getattr(record,condition) if record is not None else preplay_conditions(state,source,registry)[condition]) if condition else True
-    if definition.kind == CardType.LOCATION or not active:
+    from .crafted_faces import PREFIX
+    dormant_native_entry=(definition.kind == CardType.MINION and definition.id.startswith(PREFIX)
+        and definition.dormant_turns > 0 and (record is not None or source.zone == Zone.HAND))
+    if definition.kind == CardType.LOCATION or not active or dormant_native_entry:
         return replace(definition,requires_target=False,targeting=None,target_rule='any_entity')
     return definition
 
