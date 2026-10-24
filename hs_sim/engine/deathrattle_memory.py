@@ -55,6 +55,8 @@ def validate_ability(state,registry,ability):
 
 def validate_copy_memory(state, registry, memory, *, closed=False):
     memory.__post_init__()
+    for link in memory.targeted_spells:
+        validate_targeted_spell(state, registry, link, closed=closed)
     if memory.cost_links:
         from .linked_hand_costs import validate_link
         for link in memory.cost_links: validate_link(state, registry, link, closed=closed)
@@ -394,4 +396,110 @@ def register(mechanics):
                         (DiscardForDeathrattle,discard_for_memory),
                         (ImprisonForDeathrattle,imprison),(AwakenRememberedDormancy,awaken_remembered)):
         mechanics.register(typ,handler)
+    mechanics.register(ShuffleRememberedTargetSpell, shuffle_remembered_target_spell)
     for typ in (NativeDeathrattleSpec,RememberedDraw,RememberedDormancy,RememberedDiscovery,DeathrattleMemory):mechanics.register_payload_type(typ)
+
+
+def actual_target_facts(cast):
+    """Every final actual arrow, including secondary targets; never damage victims."""
+    if cast.spell_target_receipt is not None:
+        return tuple(x for x in cast.spell_target_receipt.targets if x is not None)
+    return () if cast.target_origin is None else (cast.target_origin,)
+
+
+def validate_targeted_spell(state, registry, link, *, closed=False):
+    from .model import RememberedTargetSpell
+    from .allocation_facts import validate_allocation
+    from .copy_materials import validate_captured_card_copy
+    from .spell_casts import cast_record
+    if type(link) is not RememberedTargetSpell:
+        raise ValueError('Expected original targeted spell memory')
+    link.__post_init__()
+    validate_allocation(state, registry, link.target, closed=closed)
+    validate_captured_card_copy(state, registry, link.spell)
+    cast = cast_record(state, link.cast_id)
+    origin = link.spell.origin
+    if (not cast.payload_started or cast.failure is not None or
+            link.target not in actual_target_facts(cast) or
+            (origin.entity_id, origin.card_id, origin.controller, link.spell.turn, link.spell.action) !=
+            (cast.source_id, cast.card_id, cast.player_id, cast.turn, cast.action)):
+        raise ValueError('Targeted spell memory borrowed another physical cast or actual arrow')
+    if cast.native_spell_value is not None and cast.native_spell_value not in link.spell.local.abilities:
+        raise ValueError('Targeted spell memory lost its full original native spell value')
+    return cast
+
+
+def remember_targeted_spell(r, cast):
+    """Commit before accepted-cast reactions and before the spell can kill its target."""
+    from .model import BoardPresenceReference, RememberedTargetSpell
+    from .copy_materials import CapturedCardCopyMaterial
+    from .lifecycle import active_abilities
+    seen = set()
+    for fact in actual_target_facts(cast):
+        if (fact.entity_id in seen or (fact.kind, fact.zone, fact.controller) !=
+                (CardType.MINION, Zone.BOARD, cast.player_id)):
+            continue
+        seen.add(fact.entity_id)
+        entity = r.state.entities.get(fact.entity_id)
+        if (entity is None or not entity.active or entity.doomed or entity.health <= 0 or
+                (entity.zone, entity.zone_epoch, entity.entered_order, entity.controller) !=
+                (fact.zone, fact.zone_epoch, fact.entered_order, fact.controller)):
+            continue
+        abilities = tuple(a for a in active_abilities(entity, 'deathrattle')
+            if a.deathrattle_memory is not None and a.deathrattle_memory.spec.kind == 'targeted_spells')
+        if not abilities:
+            continue
+        link = RememberedTargetSpell(cast.id, fact, BoardPresenceReference.capture(r.state, entity.id),
+            CapturedCardCopyMaterial.capture(r.state, r.state.entities[cast.source_id]))
+        validate_targeted_spell(r.state, r.registry, link)
+        updates = {}
+        for ability in abilities:
+            memory = ability.deathrattle_memory
+            if any(x.cast_id == cast.id for x in memory.targeted_spells):
+                continue
+            updates[ability.id] = replace(ability, deathrattle_memory=replace(memory,
+                targeted_spells=(*memory.targeted_spells, link)))
+        entity.abilities = [updates.get(a.id, a) for a in entity.abilities]
+
+
+@dataclass(frozen=True)
+class ShuffleRememberedTargetSpell(Effect):
+    deathrattle_id: int
+    index: int
+
+    def __post_init__(self):
+        _integer(self.deathrattle_id, 'actual targeted-spell Deathrattle', 1)
+        _integer(self.index, 'original targeted-spell position', 0)
+
+    def validate_in_state(self, state, registry):
+        self.__post_init__()
+        from .deathrattles import record
+        row = record(state, self.deathrattle_id)
+        memory = row.capture.ability.deathrattle_memory
+        if (row.execution_order is None or row.completed or row.interrupted or memory is None or
+                memory.spec.kind != 'targeted_spells' or self.index >= len(memory.targeted_spells)):
+            raise ValueError('Spell shuffle lost its complete actual active Deathrattle memory')
+        link = memory.targeted_spells[self.index]
+        validate_targeted_spell(state, registry, link)
+        return row, link
+
+
+def shuffle_remembered_target_spell(r, effect):
+    row, link = effect.validate_in_state(r.state, r.registry)
+    from .zones import CopyCard, copy_physical_card, announce_copied_card
+    request = CopyCard(link.spell, row.capture.player_id, Zone.DECK, mode='base',
+        source_id=row.capture.carrier_id)
+    entity = copy_physical_card(r, request, publish=False)
+    if entity is None:
+        return ()
+    # Intrinsic generated spell recipes precede publication. Ordinary transient
+    # hand costs, prior targets, choices and paid-play facts are not copied.
+    cast = validate_targeted_spell(r.state, r.registry, link)
+    if cast.native_spell_value is not None:
+        from .native_spell_values import ability_value, install
+        install(r.state, r.registry, entity, ability_value(cast.native_spell_value))
+    if cast.spell_aura_id is not None:
+        from .spell_auras import install
+        install(r.state, entity, cast.spell_aura_id, row.capture.carrier_id)
+    announce_copied_card(r, entity, request, link.spell.origin.entity_id)
+    return ()

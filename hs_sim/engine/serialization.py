@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 575
+SNAPSHOT_SCHEMA_VERSION = 576
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -97,6 +97,16 @@ def deathrattle_memory_from_dict(value):
     memory['dormancies'] = tuple(RememberedDormancy(**_row(x, RememberedDormancy)) for x in _list(memory['dormancies'], 'remembered dormancy intervals'))
     memory['discoveries'] = tuple(RememberedDiscovery(**_row(x, RememberedDiscovery)) for x in _list(memory['discoveries'], 'remembered discoveries'))
     memory['cost_links'] = tuple(RememberedCost(**_row(x, RememberedCost)) for x in _list(memory['cost_links'], 'remembered cost attachments'))
+    from .model import RememberedTargetSpell, BoardPresenceReference
+    from .allocation_facts import allocation_from_dict
+    from .copy_materials import CapturedCardCopyMaterial, from_dict
+    def targeted_spell(value):
+        row = _row(value, RememberedTargetSpell)
+        row['target'] = allocation_from_dict(row['target'])
+        row['residence'] = BoardPresenceReference(**_row(row['residence'], BoardPresenceReference))
+        row['spell'] = from_dict(CapturedCardCopyMaterial, row['spell'])
+        return RememberedTargetSpell(**row)
+    memory['targeted_spells'] = tuple(targeted_spell(x) for x in _list(memory['targeted_spells'], 'remembered targeted spells'))
     if memory['summon_copy'] is not None:
         from .copy_materials import CopyEntryMaterial, from_dict
         memory['summon_copy'] = from_dict(CopyEntryMaterial, memory['summon_copy'])

@@ -2812,7 +2812,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2879,6 +2879,30 @@ class RememberedCost:
 
 
 @dataclass(frozen=True)
+class RememberedTargetSpell:
+    cast_id: int
+    target: object
+    residence: BoardPresenceReference
+    spell: object
+
+    def __post_init__(self):
+        from .allocation_facts import SourceAllocationFact
+        from .copy_materials import CapturedCardCopyMaterial
+        _int(self.cast_id, 'remembered actual spell cast', 1)
+        if (type(self.target) is not SourceAllocationFact or
+                type(self.residence) is not BoardPresenceReference or
+                type(self.spell) is not CapturedCardCopyMaterial):
+            raise ValueError('Targeted spell memory requires full original physical material')
+        self.target.__post_init__(); self.residence.__post_init__(); self.spell.__post_init__()
+        if ((self.target.kind, self.target.zone) != (CardType.MINION, Zone.BOARD) or
+                self.residence.entity_id != self.target.entity_id or
+                self.residence.presence_id >= self.target.next_order or
+                self.spell.origin.kind != CardType.SPELL or
+                self.spell.origin.controller != self.target.controller):
+            raise ValueError('Targeted spell memory requires an actual friendly board target')
+
+
+@dataclass(frozen=True)
 class DeathrattleMemory:
     spec: NativeDeathrattleSpec
     growth_steps: int = 0
@@ -2889,9 +2913,22 @@ class DeathrattleMemory:
     hand_entry_ids: tuple[int, ...] = ()
     summon_copy: object | None = None
     cost_links: tuple[RememberedCost, ...] = ()
+    targeted_spells: tuple[RememberedTargetSpell, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        if (type(self.targeted_spells) is not tuple or
+                any(type(x) is not RememberedTargetSpell for x in self.targeted_spells)):
+            raise ValueError('Targeted spell memory requires immutable original cast links')
+        for link in self.targeted_spells: link.__post_init__()
+        spell_ids = tuple(x.cast_id for x in self.targeted_spells)
+        if spell_ids != tuple(sorted(set(spell_ids))):
+            raise ValueError('Targeted spells must retain each actual cast once in original order')
+        if (self.spec.kind != 'targeted_spells' and self.targeted_spells or
+                self.spec.kind == 'targeted_spells' and any((self.growth_steps, self.draws,
+                    self.discard_ids, self.dormancies, self.discoveries, self.hand_entry_ids,
+                    self.summon_copy, self.cost_links))):
+            raise ValueError('Targeted spell memory cannot mix unrelated native payloads')
         if type(self.cost_links) is not tuple or any(type(x) is not RememberedCost for x in self.cost_links):
             raise ValueError('Native cost memory requires immutable original cost links')
         for link in self.cost_links: link.__post_init__()

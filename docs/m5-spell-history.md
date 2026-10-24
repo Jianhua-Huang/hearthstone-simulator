@@ -63,3 +63,20 @@ RecastSpell与RecastFromHistory可显式声明branch_policy='inherit'；default 
 ## 历史发现的预选交付
 
 `DiscoverSpellHistory`现在接受`branch_policy='current'|'inherit'`。current仍生成没有选择配方的基础手牌；inherit在offer形成时使用原分组canonical首个Cast的branch，只授权hand。待选内保存typed AddToHand，不重施法，不重放旧目标/RNG或支付。去重、别名、随机取样和烧牌仍沿本页原政策；配方在card_created前原子设置。见[声明及来源边界](m5-choose-branch-producers.md)，本接口不是所有历史来源或R-090国服认证。
+
+
+## 原随从的施法记忆与亡语洗牌
+
+实验体BOT_558使用固定37.0完整原行和两完整双语主面；原行没有ATK，官网0攻击通过显式零值声明核验，不改原记录。当前卡文是洗入牌库，[25.6官方说明](https://hearthstone.blizzard.com/en-gb/news/23921496/patchnotes-zu-25-6/)已经修改早期返手效果；该历史说明不认证国服37.0的全部时序。
+
+`NativeDeathrattleSpec('targeted_spells')`沿既有亡语附件初始化。`DeathrattleMemory.targeted_spells`只增加一种有限记忆，按实际Cast号保存有序`RememberedTargetSpell`：完整原目标分配、连续战场驻留，以及原物理法术的`CapturedCardCopyMaterial`。它不是按当前实体ID重查整局历史，也没有第二份施法、死亡或牌库账本。
+
+唯一接受入口仍是`spell_casts.note_payload`。完整原施法材料捕获后、`spell_cast_accepted`通知及主体执行前，读取最终实际目标组；仅当前同控制者、仍处于原在场窗口且具活动该亡语附件的随从记录。主目标和次目标平等，一次Cast对同一随从最多一条；每次真实重复或自动施法有自己的Cast号。无目标范围伤害的受害者、其他目标、敌方施法、反制及无目标失败不成为记忆。致死法术在原死亡捕获前已经记录；主体与选择失败跟随原事务一起撤销。
+
+当前复制继承已接受的完整附件记忆，新的后续施法可在各载体继续追加；基础复制、沉默、变形及真正离场后按原生命周期重置。亡语继承继续使用原来源完整材料；新载体的新记忆绑定它自己的实际目标事实。转控保留已积累附件，受益者为当前实际亡语执行者；这些是明确的内部规则，仍需国服校准。
+
+`ShuffleRememberedTargetSpell(deathrattle_id,index)`只读取自己的实际活动亡语冻结材料，拒绝完成/中断根、未来下标和借用其他Cast或箭头。每条调用原`CopyCard(base)`与普通牌库容量/随机插入/通知，不造出牌、抽牌或新施法事实；同一亡语倍增各自交付完整冻结序列。原手牌临时费用、旧指定目标和过去选择不复刻。原生成法术的固有数值与法术光环配方在通知前恢复，避免后续源卡返回/数值变化将原七点配方变为后来的六点或印刷八点；原组件身份仍交共享复制流程。
+
+记忆沿现有实体/死亡材料、复制、快照和FrameCodec保存，待选请求按原活动亡语及完整原Cast/目标校验。没有GameState、玩家、实体或CardDefinition新字段；仅扩展既有亡语记忆字段，新增一个有限Effect和一个冻结模型载荷。schema576拒绝旧版本，core717；观察117、命令13和replay1保持。记忆、材料与内部索引不进入玩家DTO或玩家事件。
+
+完整源见[实验体配方](../data/cards/past-targeted-spell-memory-v1.json)。逐Cast计数、自动施法口径、接受窗口、转控继承和生成配方重置仍列M6未校准；正式根池、全部可达生成/拼装域和其他卡牌上下文不由本接口认证。实际进度、测试证据与下一项只维护在原两份台账。

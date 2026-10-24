@@ -355,8 +355,8 @@ class FrameCodec:
         from .played_minion_copies import PlayedMinionCopyMaterial, validate_material as validate_played_minion_copy
         if type(value) is PlayedMinionCopyMaterial and self.origin_state is not None:
             validate_played_minion_copy(self.origin_state, self.registry, value)
-        from .deathrattle_memory import DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy
-        if type(value) in (DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy) and self.origin_state is not None:
+        from .deathrattle_memory import DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy,ShuffleRememberedTargetSpell
+        if type(value) in (DiscardForDeathrattle,ImprisonForDeathrattle,AwakenRememberedDormancy,ShuffleRememberedTargetSpell) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
         from .retained_spell_damage import DamageReturningSpell
         from .spent_spells import ReturnSpentSpell

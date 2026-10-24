@@ -169,6 +169,8 @@ def note_payload(r, record):
     record = claim_next_spell_bodies(r, record)
     from .held_spells import note_cast
     note_cast(r, record)
+    from .deathrattle_memory import remember_targeted_spell
+    remember_targeted_spell(r, record)
     r.emit('spell_cast_accepted', source_id=record.source_id, target_id=record.target_id,
            player_id=record.player_id, amount=1, cast_id=record.id, _cast_acceptance=True)
     return record
