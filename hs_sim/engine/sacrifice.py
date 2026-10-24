@@ -362,10 +362,13 @@ class DestroyForBuff(Effect):
     attack: int = 0
     health: int = 0
     source_id: int | None = None
+    require_live_beneficiary: bool = True
 
     def __post_init__(self):
         reference_value(self.victim)
         reward_values(self)
+        if type(self.require_live_beneficiary) is not bool:
+            raise ValueError('Destruction beneficiary policy requires an exact boolean')
 
 
 @dataclass(frozen=True)
@@ -455,7 +458,7 @@ def destroy_for_buff(r, effect):
     validate_request(r, effect)
     victim = live_minion(r.state, effect.victim)
     beneficiary = live_minion(r.state, effect.beneficiary)
-    if victim is None or beneficiary is None:
+    if victim is None or effect.require_live_beneficiary and beneficiary is None:
         r.stale(effect, effect.victim.entity_id if victim is None else effect.beneficiary.entity_id)
         return ()
     first_death_id = r.state.next_death_id
