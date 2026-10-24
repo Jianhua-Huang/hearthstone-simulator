@@ -95,9 +95,9 @@ def has_action_remaining(state, attacker, registry=None):
 
 
 def attack_policy_error(state, attacker, defender, registry=None):
-    """Restrictions concern voluntary attack submission, not Titan abilities."""
+    """Attack-only and explicit action restrictions remain distinct."""
     policies = current_policies(state, attacker, registry)
-    if any(p.mode == 'cannot_attack' for p in policies):
+    if any(p.mode in ('cannot_attack', 'cannot_attack_or_use_minion_abilities') for p in policies):
         return 'Current policy prevents attacking'
     if defender.kind == CardType.HERO and any(p.mode == 'cannot_attack_heroes' for p in policies):
         return 'Current policy prevents attacking heroes'
@@ -180,7 +180,7 @@ class GrantAttackPolicy(Effect):
             raise ValueError('Attack grant has an unknown original source')
 
 
-def grant(r, effect):
+def grant(r, effect, *, rebind_frozen_ids=()):
     from .resolver import validate_attachment_source
     effect.validate_in_state(r.state)
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
@@ -204,7 +204,7 @@ def grant(r, effect):
                              attack_source_binding=effect.source_binding,
                              attack_policy_expiry=effect.until_next_turn_end)
     entity.abilities.append(ability)
-    r.refresh_auras()
+    r.refresh_auras(rebind_frozen_ids=rebind_frozen_ids)
     r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
            ability_id=ability.id, ability_kind=ability.kind)
 

@@ -12,6 +12,7 @@ from hs_sim.engine import (CardDefinition, CardType, EndTurn, Game, Keyword,
 from hs_sim.engine.effects import (ChoiceOption, CopyMinion, GrantKeyword,
                                    InvokeBehavior, RequestChoice, Silence)
 from hs_sim.engine.errors import ResolutionError
+from hs_sim.engine.resolver import CORE_EFFECTS_VERSION
 from hs_sim.engine.serialization import canonical_hash, SNAPSHOT_SCHEMA_VERSION
 from hs_sim.targets import canonical_digest
 from card_batch_testkit import CardBatchTestMixin
@@ -273,7 +274,7 @@ class RetainedRebornControlTests(CardBatchTestMixin, unittest.TestCase):
         self.assert_retained(game, original, lease)
         saved = deepcopy(game.snapshot())
         self.assertEqual(saved['schema_version'], SNAPSHOT_SCHEMA_VERSION)
-        self.assertEqual(saved['mechanics_version']['version'], 'core-effects-v730')
+        self.assertEqual(saved['mechanics_version']['version'], CORE_EFFECTS_VERSION)
         saved['mechanics_version']['version'] = 'core-effects-v729'
         with self.assertRaisesRegex(SnapshotError, 'Mechanics version mismatch'):
             Game.from_snapshot(rehash(saved), fixture(None, 'independent-reader'))

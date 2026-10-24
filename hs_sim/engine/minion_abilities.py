@@ -9,7 +9,7 @@ from .lifecycle import active_abilities
 from .model import CardType, Keyword, Zone
 from .registry import RuleContext
 from .targeting import target_error
-from .attack_policies import has_action_remaining
+from .attack_policies import current_policies, has_action_remaining
 
 
 def remaining_abilities(entity):
@@ -32,6 +32,8 @@ def action_opportunity(entity, *, ignore_frozen=False, state=None, registry=None
     return (entity.kind == CardType.MINION and entity.zone == Zone.BOARD and entity.active and
             entity.health > 0 and not entity.doomed and (ignore_frozen or not entity.frozen) and
             bool(remaining_abilities(entity)) and
+            not any(policy.mode == 'cannot_attack_or_use_minion_abilities'
+                    for policy in current_policies(state, entity, registry)) and
             ((Keyword.OLD_GOD in entity.keywords and not entity.old_god_free_used) or
              has_action_remaining(state, entity, registry)))
 

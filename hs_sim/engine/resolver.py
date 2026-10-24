@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v730'
+CORE_EFFECTS_VERSION = 'core-effects-v731'
 
 
 class Mechanics:
@@ -2392,11 +2392,13 @@ def change_control(r, effect):
             expires_turn=r.state.turn if effect.until_end_of_turn else None, label='temporary_control',
             control_return_player_id=previous, control_return_expiry=owner_deadline(r.state, previous, 'turn_ended')
                 if effect.until_previous_controller_turn_end else None))
-    r.refresh_auras(rebind_frozen_ids=(entity.id,))
     if effect.cannot_attack_this_turn:
         from .attack_policies import GrantAttackPolicy, grant
         from .model import AttackPolicySpec
-        grant(r, GrantAttackPolicy(entity.id, AttackPolicySpec('cannot_attack'), effect.source_id, r.state.turn))
+        grant(r, GrantAttackPolicy(entity.id, AttackPolicySpec('cannot_attack_or_use_minion_abilities'),
+            effect.source_id, r.state.turn), rebind_frozen_ids=(entity.id,))
+    else:
+        r.refresh_auras(rebind_frozen_ids=(entity.id,))
     r.emit('control_changed', target_id=entity.id, player_id=effect.player_id, previous_controller=previous)
 
 

@@ -2425,14 +2425,15 @@ class AttackPolicyCondition:
 
 @dataclass(frozen=True)
 class AttackPolicySpec:
-    """A removable current attack restriction or maximum-total policy."""
+    """A removable attack/action restriction or maximum-total policy."""
     mode: str
     attacks_per_turn: int | None = None
     conditions: tuple[AttackPolicyCondition, ...] = ()
 
     def __post_init__(self):
         if type(self.mode) is not str or self.mode not in (
-                'cannot_attack', 'cannot_attack_heroes', 'attacks_per_turn','friendly_ignore_taunt'):
+                'cannot_attack', 'cannot_attack_or_use_minion_abilities',
+                'cannot_attack_heroes', 'attacks_per_turn','friendly_ignore_taunt'):
             raise ValueError('Unsupported attack policy mode')
         if self.mode != 'attacks_per_turn' and self.attacks_per_turn is not None:
             raise ValueError('Only attack maximum policies specify a total')

@@ -71,3 +71,14 @@ python -m hs_sim replay outputs/titan-replay.json --card-set representative
 [艾欧娜尔示例](../examples/use_titan.py) 全程通过玩家命令，完成三能力循环；8 次动作、36 条事件，中途存档恢复与完整重算回放一致。任务/任务线及进度模型已在 [任务契约](m4-quests.md) 内部验收；下一项持续目标和玩家长期效果，之后扩展奥秘；M0 完整池/热修、M5 特例、M6 国服校准和 M7/M8 全量覆盖继续保留。
 
 v76复验说明：上文原批次契约和验收数字保留为历史；当前运行结果为use_titan.py：8动作/38事件。完整结果及摘要见[59示例日志](../outputs/v76-examples.txt)；随从承诺/入场阶段变化见[反制契约](m5-minion-counters.md)。
+
+
+## 2026-10-25 攻击限制与明确的主动技能限制
+
+原 `cannot_attack` 只限制普通攻击，不自动禁用随从主动技能。[官方泰坦开发者完整首帖](https://us.forums.blizzard.com/en/hearthstone/t/dev-talk%E2%80%94totally-titans-all-about-the-new-keyword/109540)末尾问答明确把烦人的粉丝与技能动作区分，不能只读前半“用技能替代攻击”便推导全部禁攻都限制技能。原泰坦一般禁攻、条件场面禁攻及绑定来源失效三项内部测试保持原代码和预期。
+
+增加有限政策模式 `cannot_attack_or_use_minion_abilities`，明确同时禁止主动攻击和 `UseMinionAbility`；与原攻击次数、仅禁英雄目标和攻击禁令分别查询。条件、来源驻留及印刷许可仍交原 `current_policies`，没有另建状态账户或结算器。原印刷禁攻许可只可解除原 `cannot_attack`，不解除这种额外行动禁令。古神首次免费机会在此门禁之后判断；零攻击、嘲讽、召唤失调及攻击目标资格不能被误套到主动技能。
+
+真实当前生产者只有诅咒之链对应的既有 `ChangeControl.cannot_attack_this_turn` 路径：原瞬时控制、归还附件与期限不变，以同一来源/本回合到期的政策表达主动技能限制。先安装该政策，再在原刷新器重绑冻结时钟，然后发出原授予/转控事件；不让冻结机会查询漏看刚安装的禁令。其他控制路径及普通攻击禁令保持。冻结仍沿既有“捕获丢失行动机会”的内部时钟政策；该复杂边界未当前国服校准。
+
+外部 `ChooseFamilyAbilities`/`TriggerFamilyAbility` 不因场上古神不能主动行动而被禁止，也不消耗其物理技能/免费标记/攻击次数；强制攻击执行器未改。真实问题来自[诅咒之链夺取克苏恩后的直接报告](https://www.reddit.com/r/hearthstone/comments/1xbkagb/error_when_stealing_opponents_cthun/)，只保存了解析网页观察（直接HTTP403），不是当前国服37.0实验或官方裁定。完整官方历史首帖及七张完整原行绑定于[来源包](../data/support/minion-action-prohibition-v1.json)。规则签名为 `core-effects-v731`；结构schema587及状态/Effect/命令/观察形状不变，只增加原有限模式的合法值。实际执行及校准状态仅在两份原台账维护。

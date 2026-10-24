@@ -60,7 +60,7 @@ def registry():
             ChoiceOption('fault','Fail',(InvokeBehavior('k70.fail',c.source_id,1),))),c.source_id),)
     def controlled(c):
         e=c.state.entities[c.event.target_id]
-        if not any(a.attack_policy is not None and a.attack_policy.mode=='cannot_attack'for a in e.abilities):
+        if not any(a.attack_policy is not None and a.attack_policy.mode=='cannot_attack_or_use_minion_abilities'for a in e.abilities):
             raise ResolutionError('Control observer did not see the installed attack prohibition')
         return(GainArmor(c.state.players[1].hero_id,1),)
     def ending(c):

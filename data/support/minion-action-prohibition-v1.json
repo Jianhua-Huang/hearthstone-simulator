@@ -1,0 +1,442 @@
+{
+  "schema": 1,
+  "profile": "minion-ability-hard-action-prohibition-v1",
+  "source": {
+    "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+    "sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2"
+  },
+  "records": [
+    {
+      "record": {
+        "id": "CATA_496",
+        "dbf_id": 122720,
+        "name": "诅咒之链",
+        "name_en": "Cursed Chains",
+        "text": "直到敌方回合结束，夺取一个敌方随从的控制权。在本回合中，该随从无法攻击。",
+        "text_en": "[x]Take control of an\nenemy minion until\nthe end of their turn.\n It can't attack this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "70d1d473c6e2928df4cfebae215e35603387d2c6f8d32212a2c3a8a60bf46ef3"
+    },
+    {
+      "record": {
+        "id": "BE_013",
+        "dbf_id": 132339,
+        "name": "克苏恩，帝国之眼",
+        "name_en": "C'Thun, Eye of the Empire",
+        "text": "<b>古神</b>\n如果你在本局对战中触发了克苏恩的全部4个技能，本随从的技能效果变为三倍。",
+        "text_en": "<b>Old God.</b> If you've triggered all 4 C'Thun abilities this game, this minion's abilities are tripled.",
+        "cost": 10,
+        "attack": 12,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 12,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b26b1f0530b59b3048f0c3049ea6d665a2525f732ab0330ed76a009b17efc0bf"
+    },
+    {
+      "record": {
+        "id": "BE_012",
+        "dbf_id": 132348,
+        "name": "黑暗执事",
+        "name_en": "Dark Deacon",
+        "text": "<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。<i>（还剩{0}个！）</i>@<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。<i>（已就绪！）</i>@<b>战吼：</b>如果你在本牌在你手中时施放过2个暗影法术，选择并触发一项克苏恩的技能。",
+        "text_en": "[x]<b>Battlecry:</b> If you've cast 2\nShadow spells while holding\nthis, choose a C'Thun ability\nto trigger. <i>({0} left!)</i>@[x]<b>Battlecry:</b> If you've cast 2\nShadow spells while holding\nthis, choose a C'Thun ability\nto trigger. <i>(Ready)</i>@[x]<b>Battlecry:</b> If you've cast 2\nShadow spells while holding\nthis, choose a C'Thun ability\nto trigger.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "OLD_GOD_CTHUN_TOOLTIP": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivo Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "22c6894c434db42dfb6b147e4a02b37122045d62509835f35a57e69198a88091"
+    },
+    {
+      "record": {
+        "id": "BE_013t1",
+        "dbf_id": 132345,
+        "name": "克苏恩的愤怒",
+        "name_en": "Wrath of C'Thun",
+        "text": "造成7点伤害，随机分配到所有敌人身上。@造成21点伤害，随机分配到所有敌人身上。",
+        "text_en": "Deal 7 damage randomly split among enemies.@Deal 21 damage randomly split among enemies.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "349": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "33ef73ed1c76568661389e6729d42c3e1e324f6fd9ccc636a4a5be5dbdb3606a"
+    },
+    {
+      "record": {
+        "id": "BE_013t2",
+        "dbf_id": 132344,
+        "name": "克苏恩的领域",
+        "name_en": "Domain of C'Thun",
+        "text": "随机使两个其他友方随从获得+2/+3。@随机使两个其他友方随从获得+6/+9。",
+        "text_en": "[x]Give two other random\nfriendly minions +2/+3.@[x]Give two other random\nfriendly minions +6/+9.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "bd6fb0586e178709945fa07303c86f66de331a6007aa25cf1ca4d7baf78ee3ed"
+    },
+    {
+      "record": {
+        "id": "BE_013t3",
+        "dbf_id": 132343,
+        "name": "克苏恩的凝视",
+        "name_en": "Glare of C'Thun",
+        "text": "<b>吸血</b>。对一个敌方随从造成5点伤害。@<b>吸血</b>。对一个敌方随从造成15点伤害。",
+        "text_en": "<b>Lifesteal</b>\nDeal 5 damage to an enemy minion.@<b>Lifesteal</b>\nDeal 15 damage to an enemy minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "349": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "LIFESTEAL": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "14862146e3c818e7b0cefd996c1cac8bca55de8b27bc8c3ab8ebe9f360c8632d"
+    },
+    {
+      "record": {
+        "id": "BE_013t4",
+        "dbf_id": 132342,
+        "name": "克苏恩的仆从",
+        "name_en": "Servants of C'Thun",
+        "text": "召唤两个2/3并具有<b>嘲讽</b>的狂热者。@召唤两个6/9并具有<b>嘲讽</b>的狂热者。",
+        "text_en": "Summon two 2/3 Fanatics with <b>Taunt</b>.@Summon two 6/9 Fanatics with <b>Taunt</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "HIDE_COST": 1,
+          "1544": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e9ade9e0cd3385799020703505159f619e5206f7e13516afe3168b6c032a7838"
+    }
+  ],
+  "evidence": {
+    "cthun_report": {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1xbkagb/error_when_stealing_opponents_cthun/",
+      "observation_file": "outputs/card-integration-20261014/k533-minion-action-prohibition/cthun-parsed-web-01.json",
+      "observation_sha256": "3bbcc5d0d49b9bf70a972690aa708723a78924c9de53364e1fc0ff654ac2b785",
+      "classification": "parsed web-tool observation, not complete raw HTTP",
+      "reported_result": "A Cthun stolen by Cursed Chains cannot use the remaining abilities.",
+      "full_direct_http_attempt_status": 403,
+      "direct_failure_receipt": "outputs/card-integration-20261014/k533-minion-action-prohibition/cthun-report-receipt-01.json",
+      "source_mode_region_build_not_verified": true
+    },
+    "official_titan_explanation": {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/dev-talk%E2%80%94totally-titans-all-about-the-new-keyword/109540",
+      "response_file": "outputs/card-integration-20261014/k533-minion-action-prohibition/titan-dev-talk-01.response",
+      "response_sha256": "3acfa297411e7159e6dd15be7ae2f3f14d4ff6b15905f58bda5e00051328f389",
+      "receipt_file": "outputs/card-integration-20261014/k533-minion-action-prohibition/titan-dev-talk-receipt-01.json",
+      "receipt_sha256": "58fb2b407ac866ae307830af62fbe4e46ae181adbfd2548244e06188e0cffbd3",
+      "first_post_id": 915809,
+      "scope": "First post action/Freeze rules and explicit Annoying Fan counterexample: attack effects do not universally constrain abilities; not a direct CN37 Cursed Chains experiment."
+    }
+  },
+  "policy": {
+    "cannot_attack": "attack-only; does not prevent minion ability actions (official Annoying Fan counterexample)",
+    "explicit_action_lock": "cannot_attack_or_use_minion_abilities prevents both voluntary attacks and minion abilities before free/ordinary budget",
+    "temporary_control_provider": "existing cannot_attack_this_turn flag emits the explicit action lock; Cursed Chains is its sole current real-card producer",
+    "cannot_attack_heroes": "attack-target-specific, does not replace activated ability targeting",
+    "zero_attack": "not an ability restriction",
+    "external_family_triggers": "not voluntary physical minion actions; their original eligibility/budget remains",
+    "ordinary_attack_budget": "unchanged",
+    "frozen": "original capture policy queries the explicit action opportunity; attack-only bans retain their old behavior"
+  },
+  "boundary": {
+    "cn_calibrated": false,
+    "formal_pool_certified": false,
+    "complete_old_god_policy": false,
+    "new_card_definitions": 0,
+    "reported_full_game_reconstructed": false,
+    "cthun_card_scalars_or_cn_text_conflicts_resolved": false,
+    "general_cannot_attack_reinterpretation": false
+  }
+}
