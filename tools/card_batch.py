@@ -668,6 +668,113 @@ def capture(output, root=ROOT):
     return dict(definitions=len(data['definitions']), protected_python=len(data['source_guard']), output=str(output))
 
 
+_RUNTIME_BODY = frozenset(('definitions', 'pool_cards', 'families', 'pools',
+                           'default_fingerprint', 'default_snapshot'))
+_RUNTIME_KEYS = _RUNTIME_BODY | {'schema', 'head', 'source_guard'}
+
+
+def _runtime_path(root, path):
+    root = Path(root).resolve()
+    path = Path(path)
+    path = (path if path.is_absolute() else root/path).resolve()
+    require(path.is_relative_to(root), 'Runtime observation path escaped its root')
+    return path
+
+
+def _runtime_shape(value):
+    require(type(value) is dict and set(value) == _RUNTIME_KEYS and
+            type(value['schema']) is int and value['schema'] == 1,
+            'Malformed full runtime observation')
+    require(all(type(value[k]) is dict for k in
+                ('definitions', 'pool_cards', 'families', 'default_snapshot', 'source_guard')) and
+            type(value['pools']) is list and type(value['default_fingerprint']) is str and
+            type(value['head']) is str, 'Malformed runtime observation sections')
+    require(all(type(k) is str and type(v) is str and re.fullmatch(r'[0-9a-f]{64}', v)
+                for k, v in value['source_guard'].items()), 'Malformed runtime source guard')
+    return value
+
+
+def read_registry_observation(path, *, root=ROOT):
+    """Expand pinned local observations; byte integrity is not source authentication."""
+    root = Path(root).resolve()
+    def expand(path, chain):
+        path = _runtime_path(root, path)
+        require(path not in chain and len(chain) < 16, 'Cyclic or excessive runtime reference chain')
+        data = read(path)
+        if type(data) is dict and 'kind' not in data:
+            return _runtime_shape(data)
+        required = {'schema', 'kind', 'baseline', 'baseline_sha256', 'identical_sections',
+                    'head', 'source_guard', 'actual_full_observation_sha256',
+                    'actual_full_observation_compared'}
+        allowed = required | {'overrides', 'additions', 'native_parts', 'runtime_content_sha256'}
+        require(type(data) is dict and required <= set(data) <= allowed and
+                type(data['schema']) is int and data['schema'] == 1 and data['kind'] in
+                ('verified-identical-runtime-body-reference', 'verified-runtime-body-reference') and
+                data['actual_full_observation_compared'] is True,
+                'Malformed or unverified runtime reference')
+        baseline = _runtime_path(root, root/relative_file(data['baseline']))
+        require(baseline not in (*chain, path), 'Cyclic runtime reference chain')
+        require(sha(baseline) == data['baseline_sha256'], 'Runtime baseline byte identity changed')
+        base = expand(baseline, (*chain, path))
+        additions, overrides = data.get('additions', {}), data.get('overrides', {})
+        require(type(additions) is dict and set(additions) <= {'definitions', 'pool_cards'} and
+                type(overrides) is dict and set(overrides) <= _RUNTIME_BODY-{'definitions', 'pool_cards'},
+                'Runtime reference cannot replace existing card mappings')
+        unchanged = data['identical_sections']
+        require(type(unchanged) is list and len(unchanged) == len(set(unchanged)) and
+                set(unchanged) == _RUNTIME_BODY-set(additions)-set(overrides),
+                'Runtime reference misstates unchanged sections')
+        result = dict(base, **overrides, head=data['head'], source_guard=data['source_guard'])
+        for key, values in additions.items():
+            require(type(values) is dict and all(type(k) is str and type(v) is dict
+                    for k, v in values.items()) and not set(values)&set(base[key]),
+                    'Runtime additions overlap an existing identity')
+            result[key] = {**base[key], **values}
+        _runtime_shape(result)
+        require(canonical(result) == data['actual_full_observation_sha256'],
+                'Expanded runtime observation identity changed')
+        if 'runtime_content_sha256' in data:
+            require(canonical({k: result[k] for k in _RUNTIME_BODY}) == data['runtime_content_sha256'],
+                    'Runtime body identity changed')
+        return result
+    return expand(path, ())
+
+
+def save_registry_reference(output, observation, baseline, *, root=ROOT, native_parts=()):
+    """Save an exact current observation without recopying unchanged card bodies.
+
+    Existing card mutations require a new full capture. This helper does not
+    accept tests, infer preservation, or authenticate the origin of a save.
+    """
+    root = Path(root).resolve()
+    output, baseline = _runtime_path(root, output), _runtime_path(root, baseline)
+    value = _runtime_shape(json.loads(json.dumps(observation, ensure_ascii=False)))
+    require(value['source_guard'] == source_guard(root), 'Runtime observation source changed before saving')
+    base = read_registry_observation(baseline, root=root)
+    additions = {}
+    for key in ('definitions', 'pool_cards'):
+        require(all(value[key].get(cid) == row for cid, row in base[key].items()),
+                'Existing runtime card body changed; use a full capture')
+        extra = {cid: row for cid, row in value[key].items() if cid not in base[key]}
+        if extra:
+            additions[key] = extra
+    overrides = {k: value[k] for k in _RUNTIME_BODY-{'definitions', 'pool_cards'}
+                 if value[k] != base[k]}
+    require(type(native_parts) in (tuple, list) and all(type(x) is str for x in native_parts) and
+            len(native_parts) == len(set(native_parts)), 'Runtime native identities must be unique')
+    record = dict(schema=1, kind='verified-runtime-body-reference',
+        baseline=baseline.relative_to(root).as_posix(), baseline_sha256=sha(baseline),
+        identical_sections=sorted(_RUNTIME_BODY-set(additions)-set(overrides)),
+        additions=additions, overrides=overrides, head=value['head'], source_guard=value['source_guard'],
+        actual_full_observation_sha256=canonical(value), native_parts=list(native_parts),
+        actual_full_observation_compared=True)
+    save_new(output, record)
+    return dict(output=output.relative_to(root).as_posix(), bytes=output.stat().st_size,
+                added_definitions=len(additions.get('definitions', {})),
+                added_pool_cards=len(additions.get('pool_cards', {})),
+                actual_full_observation_sha256=record['actual_full_observation_sha256'])
+
+
 def check_commit(root, commit, task):
     lines = subprocess.check_output(['git', 'diff-tree', '--root', '--no-commit-id', '--name-status', '-r', commit],
                                     cwd=root, text=True).splitlines()
