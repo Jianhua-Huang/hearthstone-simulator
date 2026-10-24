@@ -15,7 +15,7 @@ FAMILY='cthun.empire'
 SKILLS=tuple('BE_013t'+str(n)for n in range(1,5))
 FANATIC='BE_013t5'
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/assemble-discovery-copy-count-fragments-v1.json'
-BATCH_HASH='9be752b94c2ad5ae5a6de749dd2649d2ea1e37df89e2f38f9b56630d0d445ad2'
+BATCH_HASH='2df95f4eed8d1763f83dae6fc607bfd1c2f64d636c82e14e6ea3ccc637836584'
 
 
 def load_batch():

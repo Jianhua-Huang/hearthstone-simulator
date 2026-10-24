@@ -161,7 +161,7 @@ class DeathrattleSelfCopyTests(unittest.TestCase):
         for cid in (SPELLCASTER, STALKER):
             self.assertIn('deathrattle', r.assemble_templates[cid].suffix.allowed_timings)
             self.assertEqual(r.assemble_templates[cid].suffix.pending_timings, ())
-        self.assertEqual(r.assemble_templates['BE_734'].suffix.pending_timings, ('deathrattle', 'end_turn'))
+        self.assertEqual(r.assemble_templates['BE_734'].suffix.pending_timings, ('deathrattle',))
 
     def test_actual_fleshshape_manufacture_both_bodies_both_players_and_single_payment(self):
         for actor in (1, 2):
