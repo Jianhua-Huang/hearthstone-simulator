@@ -173,8 +173,7 @@ def fallback(r, effect, row, completion, offer, option, material):
     return entity, mode
 
 
-def execute(r, effect):
-    row, completion, offer, option, offered = original(r, effect)
+def copy_original_selection(r, effect, row, completion, offer, option, offered):
     card = r.registry.card(option.card_id)
     if not card.hand_playable:
         raise UnsupportedDefinitionError('Copying a discovered non-hand-playable card is not implemented: '+card.id)
@@ -199,6 +198,10 @@ def execute(r, effect):
         from .opening import announce_hand_card
         announce_hand_card(r, AddToHand(effect.player_id, option.card_id, effect.source_id), entity)
     return ()
+
+
+def execute(r, effect):
+    return copy_original_selection(r, effect, *original(r, effect))
 
 
 def register(mechanics):

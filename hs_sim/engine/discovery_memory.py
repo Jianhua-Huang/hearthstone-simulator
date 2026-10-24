@@ -32,6 +32,9 @@ class DeathrattleDiscoveryTarget:
 
 
 def validate_spec(spec):
+    from .discovery_guesses import DiscoveryGuessTarget, validate_spec as validate_guess
+    if type(spec) is DiscoverFromPool and type(spec.memory_target) is DiscoveryGuessTarget:
+        return validate_guess(spec)
     from .student_teaching import StudentTeachingTarget,validate_spec as validate_student
     if type(spec)is DiscoverFromPool and type(spec.memory_target)is StudentTeachingTarget:
         return validate_student(spec)
@@ -47,6 +50,9 @@ def validate_spec(spec):
 
 
 def validate_target(state, registry, spec, *, active=True):
+    from .discovery_guesses import DiscoveryGuessTarget, validate_target as validate_guess
+    if type(spec.memory_target) is DiscoveryGuessTarget:
+        return validate_guess(state, registry, spec, active=active)
     from .student_teaching import StudentTeachingTarget,validate_target as validate_student
     if type(spec.memory_target)is StudentTeachingTarget:
         return validate_student(state,registry,spec,active=active)
@@ -89,6 +95,9 @@ def validate_link(state, registry, link):
 
 def apply_selection(r, effect):
     spec = effect.batch.spec
+    from .discovery_guesses import DiscoveryGuessTarget, apply_selection as apply_guess
+    if type(spec.memory_target) is DiscoveryGuessTarget:
+        return apply_guess(r, effect)
     from .student_teaching import StudentTeachingTarget,apply_selection as teach_student
     if type(spec.memory_target)is StudentTeachingTarget:return teach_student(r,effect)
     validate_target(r.state, r.registry, spec)
@@ -120,6 +129,8 @@ def apply_selection(r, effect):
 
 
 def validate_boundary(game):
+    from .discovery_guesses import validate_boundary as validate_guesses
+    validate_guesses(game)
     state = game._state
     memories = [a.deathrattle_memory for e in state.entities.values() for a in e.abilities]
     memories += [a.deathrattle_memory for death in state.death_history for a in death.abilities]
@@ -143,4 +154,6 @@ def validate_boundary(game):
 
 
 def register(mechanics):
+    from .discovery_guesses import register as register_guesses
+    register_guesses(mechanics)
     mechanics.register_payload_type(DeathrattleDiscoveryTarget)

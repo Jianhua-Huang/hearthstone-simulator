@@ -976,6 +976,23 @@ class MinionBaseStatsOrigin:
 
 
 @dataclass(frozen=True)
+class DiscoveryGuessMemory:
+    battlecry_id: int
+    discovery_id: int
+    recipient: object | None = None
+
+    def __post_init__(self):
+        _int(self.battlecry_id, 'original guess Battlecry', 1)
+        _int(self.discovery_id, 'original guess discovery', 1)
+        from .allocation_facts import SourceAllocationFact
+        if type(self.recipient) is not SourceAllocationFact:
+            raise ValueError('Discovery guess requires its original actual delivered recipient')
+        self.recipient.__post_init__()
+        if self.recipient.zone not in (Zone.HAND, Zone.GRAVEYARD):
+            raise ValueError('Discovery guess remembers ordinary hand creation or overflow')
+
+
+@dataclass(frozen=True)
 class Enchantment:
     """Ordered numeric operation or a separate pure current-tribe identity change."""
 
@@ -1004,8 +1021,19 @@ class Enchantment:
     minion_base_stats: MinionBaseStatsOrigin | None = None
     display_name: str | None = None
     hand_discount_boundary: str = 'turn_started'
+    discovery_guess: DiscoveryGuessMemory | None = None
 
     def __post_init__(self) -> None:
+        if self.discovery_guess is not None:
+            if type(self.discovery_guess) is not DiscoveryGuessMemory or self.label != 'discovery_guess':
+                raise ValueError('Guess memory requires its independent native attachment')
+            self.discovery_guess.__post_init__()
+            allowed = {'id', 'source_id', 'label', 'discovery_guess'}
+            for item in self.__dataclass_fields__.values():
+                if item.name not in allowed and getattr(self, item.name) != item.default:
+                    raise ValueError('Guess memory cannot mix another attachment operation')
+        elif self.label == 'discovery_guess':
+            raise ValueError('Discovery-guess attachment lost its original selection')
         if self.label == 'permanent_minion_stats':
             _int(self.set_attack, 'permanent printed Attack', 0)
             _int(self.set_health, 'permanent printed Health', 1)

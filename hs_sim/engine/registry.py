@@ -222,6 +222,7 @@ class Registry:
         self._spell_source_cost_observers = {}
         self._dormant_spell_mana_profiles = {}
         self._armor_gain_bonus_profiles = {}
+        self._discovery_guess_profiles = {}
         self._spell_target_group_profiles = {}
         self._hand_cost_rank_profiles = {}
         self._summon_entry_stats_profiles = {}
@@ -1102,6 +1103,17 @@ class Registry:
         profile.__post_init__()
         if profile.card_id in self._armor_gain_bonus_profiles:raise ValueError('Duplicate native extra armor source')
         self._armor_gain_bonus_profiles[profile.card_id]=profile
+
+    @property
+    def discovery_guess_profiles(self):return MappingProxyType(self._discovery_guess_profiles)
+
+    def register_discovery_guess_profile(self, profile):
+        self._require_mutable()
+        from .discovery_guesses import DiscoveryGuessProfile
+        if type(profile) is not DiscoveryGuessProfile:raise ValueError('Typed native guess profile required')
+        profile.__post_init__()
+        if profile.card_id in self._discovery_guess_profiles:raise ValueError('Duplicate native guess source')
+        self._discovery_guess_profiles[profile.card_id] = profile
 
     def register_spell_target_group_profile(self, profile):
         self._require_mutable()
@@ -2577,6 +2589,8 @@ class Registry:
         for profile in self._dormant_spell_mana_profiles.values():validate_dormant_spell_mana(self,profile)
         from .armor_gains import validate_profile as validate_armor_gain_bonus
         for profile in self._armor_gain_bonus_profiles.values():validate_armor_gain_bonus(self,profile)
+        from .discovery_guesses import validate_profile as validate_discovery_guess
+        for profile in self._discovery_guess_profiles.values():validate_discovery_guess(self, profile)
         from .spell_target_groups import validate_profile as validate_spell_target_group_profile
         for profile in self._spell_target_group_profiles.values(): validate_spell_target_group_profile(self, profile)
         from .hand_cost_rank import validate_profile as validate_hand_cost_rank
@@ -3007,6 +3021,9 @@ class Registry:
         if self._armor_gain_bonus_profiles:
             payload['armor_gain_bonus_profiles']=[asdict(self._armor_gain_bonus_profiles[k])
                 for k in sorted(self._armor_gain_bonus_profiles)]
+        if self._discovery_guess_profiles:
+            payload['discovery_guess_profiles']=[asdict(self._discovery_guess_profiles[k])
+                for k in sorted(self._discovery_guess_profiles)]
         if self._spell_target_group_profiles:
             payload['spell_target_group_profiles'] = [asdict(self._spell_target_group_profiles[k])
                 for k in sorted(self._spell_target_group_profiles)]

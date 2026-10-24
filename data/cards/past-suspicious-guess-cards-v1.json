@@ -1,0 +1,379 @@
+{
+  "schema": 1,
+  "batch": "K488-past-suspicious-guess",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "REV_000",
+    "REV_002"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "REV_000",
+        "dbf_id": 75866,
+        "name": "可疑的炼金师",
+        "name_en": "Suspicious Alchemist",
+        "text": "<b>战吼：</b><b>发现</b>一张法术牌。你的对手如果猜中了你的选择，即可获取一张复制。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a\nspell. If your opponent\nguesses your choice,\nthey get a copy.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1691,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "e14fc2a9c443d0d2de91244a9d2207a86b60bd26ba687cf3cc4972fa086cacca",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "REV_000",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "REV_002",
+        "dbf_id": 75922,
+        "name": "可疑的侍应",
+        "name_en": "Suspicious Usher",
+        "text": "<b>战吼：</b><b>发现</b>一张<b>传说</b>随从牌。你的对手如果猜中了你的选择，即可获取一张复制。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Discover</b> a\n<b>Legendary</b> minion. If your\nopponent guesses your\n__choice, they get a copy.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1691,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "87e68a21c5de60491d2951c400a8e77cff3a80f5b29e188faf71a67196d22fd5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "REV_002",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "REV_000e",
+        "dbf_id": 75867,
+        "name": "神秘谜题",
+        "name_en": "A Mystery!",
+        "text": "在你的回合开始时，猜测你的对手选择了哪张牌，猜中即可获取复制。",
+        "text_en": "At the start of your turn, guess what card your opponent chose to get a copy of it.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1691,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "e9168b4dd3ee25e0cbc7367bfadbc5e58e7019b827dc827844e717fe2b162111",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "REV_000e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "REV_000",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 75866,
+        "collectible": 1,
+        "slug": "75866-suspicious-alchemist",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Jakub Kasper",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "可疑的炼金师",
+        "text": "<b>战吼：</b><b>发现</b>一张法术牌。你的对手如果猜中了你的选择，即可获取一张复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce8cdae8511cc8e3d65381c09894858e0a054653cd809a44c6907d29dcece340.png",
+        "imageGold": "",
+        "flavorText": "副作用可能包括……感觉一切良好！完全不用担心。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/947c58b0db65836427dff3e0663405dbdc78cf8ed6dd63ec23bdc201d3b856c9.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          118046
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_000",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 75866,
+        "collectible": 1,
+        "slug": "75866-suspicious-alchemist",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Jakub Kasper",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Suspicious Alchemist",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a spell. If your opponent guesses your choice, they get a copy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/224d22b3d25c1ba80c1c74a9ccacc7327a737bf289bebb145190c3e2c9f0d7ba.png",
+        "imageGold": "",
+        "flavorText": "Side effects may include feeling totally fine! Don't even worry about it.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/947c58b0db65836427dff3e0663405dbdc78cf8ed6dd63ec23bdc201d3b856c9.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          118046
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_002",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 75922,
+        "collectible": 1,
+        "slug": "75922-suspicious-usher",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "可疑的侍应",
+        "text": "<b>战吼：</b><b>发现</b>一张<b>传说</b>随从牌。你的对手如果猜中了你的选择，即可获取一张复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62d750c9a14e071d9bfe1b40ef1d860b1426e49d6c85bc08138fc376d9177290.png",
+        "imageGold": "",
+        "flavorText": "“哦，我来帮您拿您的外套，您的行李，还有那个超大号的垫肩。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8fcf9efc18f84616cccdc57fe09f53d7e53bf74f859be24b75ce84fdad8b2ff8.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          118047
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_002",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 75922,
+        "collectible": 1,
+        "slug": "75922-suspicious-usher",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Suspicious Usher",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a <b>Legendary</b> minion. If your opponent guesses your choice, they get a copy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20efc38873c87ed11edf62f74cc036f36ba93fcb51ce71ee0ec347d93ddec8b2.png",
+        "imageGold": "",
+        "flavorText": "\"Oh please, let me take your jacket, luggage, and absurdly large shoulder pads.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8fcf9efc18f84616cccdc57fe09f53d7e53bf74f859be24b75ce84fdad8b2ff8.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          118047
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy": "Source-bound original discovery menu and delayed original opponent guess. Copy current material in the same original hand residence; after departure use the original recipe and original recipient provenance. Exact CN37 timing and material calibration remain open.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

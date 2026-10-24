@@ -267,6 +267,8 @@ def finish(r, effect):
     from .continuations import FrameCodec
     original = require_original_result(r.state, completion.result)
     fact = completion.recipient
+    from .discovery_guesses import completed as complete_guess
+    complete_guess(r, completion)
     r.emit(COMPLETED, source_id=completion.result.choice.source_id,
         target_id=None if fact is None else fact.entity_id, player_id=completion.result.choice.player_id,
         choice_id=completion.result.choice.id, discovery_id=original.id,

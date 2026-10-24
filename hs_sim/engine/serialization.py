@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 568
+SNAPSHOT_SCHEMA_VERSION = 569
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -634,6 +634,12 @@ def _health_rule_from_dict(value):
 
 def _enchantment_from_dict(value):
     row = _row(value, Enchantment)
+    if row['discovery_guess'] is not None:
+        from .model import DiscoveryGuessMemory
+        from .allocation_facts import allocation_from_dict
+        memory = _row(row['discovery_guess'], DiscoveryGuessMemory)
+        memory['recipient'] = allocation_from_dict(memory['recipient'])
+        row['discovery_guess'] = DiscoveryGuessMemory(**memory)
     if row['minion_base_stats'] is not None:
         from .model import MinionBaseStatsOrigin
         row['minion_base_stats']=MinionBaseStatsOrigin(**_row(row['minion_base_stats'],MinionBaseStatsOrigin))
