@@ -700,6 +700,24 @@ class Registry:
         validate_template(self,updated)
         self._assemble_templates[card_id]=updated
 
+    def set_assemble_suffix_deathrattle_body(self, card_id, behavior_id, *, expected_template_sha256):
+        """Add a reviewed death-only body to an exact existing declaration."""
+        from dataclasses import replace
+        from .assemble_faces import validate_template
+        from .serialization import canonical_hash
+        self._require_mutable()
+        _name(card_id, 'assembly death body source')
+        _name(behavior_id, 'assembly death body')
+        _name(expected_template_sha256, 'original assembly declaration pin')
+        original = self._assemble_templates.get(card_id)
+        if original is None or canonical_hash(asdict(original)) != expected_template_sha256:
+            raise ValueError('Assembly death body changed its exact original declaration')
+        if 'deathrattle' not in original.suffix.allowed_timings or original.suffix.deathrattle_behavior_id is not None:
+            raise ValueError('Assembly death body requires one previously unfilled reviewed death window')
+        updated = replace(original, suffix=replace(original.suffix, deathrattle_behavior_id=behavior_id))
+        validate_template(self, updated)
+        self._assemble_templates[card_id] = updated
+
     @property
     def pool_cards(self) -> Mapping[str, PoolCard]:
         return MappingProxyType(self._pool_cards)
