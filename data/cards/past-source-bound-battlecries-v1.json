@@ -1,0 +1,636 @@
+{
+  "schema": 1,
+  "batch": "K490-past-source-bound-battlecries",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "collectible_leaf_ids": [
+    "ETC_109",
+    "MIS_307"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ETC_109",
+        "dbf_id": 92254,
+        "name": "吵吵歌迷",
+        "name_en": "Annoying Fan",
+        "text": "<b>战吼：</b>选择一个随从。当本随从存活时，选中的随从无法攻击。",
+        "text_en": "<b>Battlecry:</b> Choose a minion. It can't attack while this is alive.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "339c30355979e55b77fb383acdd4e11c82ff7e036993dcd5ebabf797372148c7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "ETC_109",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MIS_307",
+        "dbf_id": 108625,
+        "name": "水宝宝鱼人",
+        "name_en": "Murloc Growfin",
+        "text": "<b>扩大</b>\n<b>战吼：</b>召唤一个属性值等同于本随从并具有<b>突袭</b>的鱼人宝宝。",
+        "text_en": "[x]<b>Gigantify</b>\n<b>Battlecry:</b> Summon a\nTinyfin with <b>Rush</b> and stats\nequal to this minion's.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 108627,
+          "MINI_SET": 1,
+          "GIGANTIFY": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d8fdfe835fde1e89bb92cafdd2ce262fb192f649f7f4508ae64243131d0f2cbc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "MIS_307",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MIS_307t",
+        "dbf_id": 108626,
+        "name": "模塑鱼人宝宝",
+        "name_en": "Molded Tinyfin",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "db1e6c89fc41e2910f4dec0c5b4621b3ab05d1be4d97e5088335247f6536ca82",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "none",
+        "deck_identity": "MIS_307t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "MIS_307t1",
+        "dbf_id": 108627,
+        "name": "水宝宝鱼人",
+        "name_en": "Murloc Growfin",
+        "text": "<b>大型</b>\n<b>战吼：</b>召唤一个属性值等同于本随从并具有<b>突袭</b>的鱼人宝宝。",
+        "text_en": "[x]<b>Gigantic</b>\n<b>Battlecry:</b> Summon a\nTinyfin with <b>Rush</b> and stats\nequal to this minion's.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "GIGANTIC": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "ed35ddb3f719940c35199274617a573407111aa4d71bd79dd8e8bd2718e85f99",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "rare",
+        "deck_identity": "MIS_307t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "choice_only": [],
+  "skipped": [],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "official_observations": [
+    {
+      "card_id": "ETC_109",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 92254,
+        "collectible": 1,
+        "slug": "92254-annoying-fan",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "吵吵歌迷",
+        "text": "<b>战吼：</b>选择一个随从。当本随从存活时，选中的随从无法攻击。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8825666f954fbe58b4945e38e134a158acb4807800198d3bb7c651fd760ce03f.png",
+        "imageGold": "",
+        "flavorText": "不不不，吵吵，你的喇叭不是乐器。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f425fd8edd1bb9a783a9684c95c0d0005281ab0bd81a892258c695bcbb8bafbb.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_109",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 92254,
+        "collectible": 1,
+        "slug": "92254-annoying-fan",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Annoying Fan",
+        "text": "<b>Battlecry:</b> Choose a minion. It can't attack while this is alive.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7cd2de083e66ca5aa37943ff27272655c602afe7fb9dbfd31c65cf3cf0ecbae.png",
+        "imageGold": "",
+        "flavorText": "No, Annoy-o-Tron, an air horn is not an instrument.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f425fd8edd1bb9a783a9684c95c0d0005281ab0bd81a892258c695bcbb8bafbb.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_307",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 108625,
+        "collectible": 1,
+        "slug": "108625-murloc-growfin",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "水宝宝鱼人",
+        "text": "<b>扩大</b> <b>战吼：</b>召唤一个属性值等同于本随从并具有<b>突袭</b>的鱼人宝宝。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41091fe0788b18980fb0f09634a77e81a2537a527fc1d83b00176c668016bfcf.png",
+        "imageGold": "",
+        "flavorText": "身材可以变大8倍！只需注水！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29441b43cd4a456405062779705b9eabca2f64abbec26d1ebfac71119b46b42d.png",
+        "childIds": [
+          108626,
+          108627
+        ],
+        "keywordIds": [
+          8,
+          53,
+          301
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_307",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 108625,
+        "collectible": 1,
+        "slug": "108625-murloc-growfin",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Murloc Growfin",
+        "text": "<b>Gigantify</b> <b>Battlecry:</b> Summon a Tinyfin with <b>Rush</b> and stats equal to this minion's.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/210e57941ae5921ba669375366c99675911d9361912d2f174ddd2de056d00343.png",
+        "imageGold": "",
+        "flavorText": "Grows up to 8x its size! Just add water!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29441b43cd4a456405062779705b9eabca2f64abbec26d1ebfac71119b46b42d.png",
+        "childIds": [
+          108626,
+          108627
+        ],
+        "keywordIds": [
+          8,
+          53,
+          301
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_307t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\official-children\\108626-zh_CN.json",
+      "response_sha256": "f709226663c96b712259b54484ed832b62610572bc1a1ab58def3df517af8ab8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=108626&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 108626,
+        "collectible": 0,
+        "slug": "108626-molded-tinyfin",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": null,
+        "artistName": "Vladimir Kafanov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "模塑鱼人宝宝",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8d74a56440d83311db368eeaec82cd14d6787e9012810f99e125d0f19d5b2d1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 108625,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=108626&locale=zh_CN&collectible=0",
+        "sha256": "f709226663c96b712259b54484ed832b62610572bc1a1ab58def3df517af8ab8",
+        "bytes": 603,
+        "observed_at": "2026-10-24T00:59:43.108070+00:00"
+      }
+    },
+    {
+      "card_id": "MIS_307t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\official-children\\108626-en_US.json",
+      "response_sha256": "810ef9c4b4c870091a7ec7749fe243cc5c472117cc89017dbafa6a82a32f42ed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=108626&locale=en_US&collectible=0",
+      "face": {
+        "id": 108626,
+        "collectible": 0,
+        "slug": "108626-molded-tinyfin",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": null,
+        "artistName": "Vladimir Kafanov",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Molded Tinyfin",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d01401e4e00fbb543a02a332fda00c2c6b8ac51213a5752f46de575296a4ba78.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 108625,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=108626&locale=en_US&collectible=0",
+        "sha256": "810ef9c4b4c870091a7ec7749fe243cc5c472117cc89017dbafa6a82a32f42ed",
+        "bytes": 597,
+        "observed_at": "2026-10-24T00:59:44.004106+00:00"
+      }
+    },
+    {
+      "card_id": "MIS_307t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\official-children\\108627-zh_CN.json",
+      "response_sha256": "74f4a88538643525f0e1ebb9e772efb396cafdf75ab99cb08f42f8b40a4c5970",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=108627&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 108627,
+        "collectible": 0,
+        "slug": "108627-murloc-growfin",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "水宝宝鱼人",
+        "text": "<b>大型</b> <b>战吼：</b>召唤一个属性值等同于本随从并具有<b>突袭</b>的鱼人宝宝。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/762995fe445196832e74014abb8cfde8f7942b89445fd5a311efe7842fd679b4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 108625,
+        "keywordIds": [
+          8,
+          302
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=108627&locale=zh_CN&collectible=0",
+        "sha256": "74f4a88538643525f0e1ebb9e772efb396cafdf75ab99cb08f42f8b40a4c5970",
+        "bytes": 696,
+        "observed_at": "2026-10-24T00:59:42.493448+00:00"
+      }
+    },
+    {
+      "card_id": "MIS_307t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k490-past-source-bound-battlecries\\official-children\\108627-en_US.json",
+      "response_sha256": "5f4dc2279d561e03f2cc2ddb967f22fce79afdfdd1eb03d2696b1beb2fdf221f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=108627&locale=en_US&collectible=0",
+      "face": {
+        "id": 108627,
+        "collectible": 0,
+        "slug": "108627-murloc-growfin",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Murloc Growfin",
+        "text": "<b>Gigantic</b> <b>Battlecry:</b> Summon a Tinyfin with <b>Rush</b> and stats equal to this minion's.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2242f0ac8690476a093c0719388281a94805fd13c0d520de33174688503b55bf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 108625,
+        "keywordIds": [
+          8,
+          302
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=108627&locale=en_US&collectible=0",
+        "sha256": "5f4dc2279d561e03f2cc2ddb967f22fce79afdfdd1eb03d2696b1beb2fdf221f",
+        "bytes": 687,
+        "observed_at": "2026-10-24T00:59:44.338563+00:00"
+      }
+    }
+  ],
+  "policy": "Existing live physical source attack binding with preserve-face and ignore-silence policy; existing captured original recipient. Current visible Attack and nonnegative remaining Health feed attributed native Tinyfin summons. Terminal printed Gigantic generation follows existing hand-play derivative rules. Precise CN timing, source transformation/dormancy and stat policies remain uncalibrated.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
