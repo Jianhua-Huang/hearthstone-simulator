@@ -302,7 +302,10 @@ def consume_keyword(entity, keyword):
     refresh_entity(entity)
 
 
-def copy_attachments(state, source, destination, *, rebind_printed=False, retain_ids=False):
+def copy_attachments(state, source, destination, *, rebind_printed=False, retain_ids=False,
+                     preserve_control_returns=False):
+    if type(preserve_control_returns) is not bool:
+        raise ValueError('Control return retention requires bool')
     if type(retain_ids)is not bool or retain_ids and (source.id,source.card_id,source.kind)!=(destination.id,destination.card_id,destination.kind):
         raise ValueError('Retaining attachments requires the same original physical card')
     if any(a.kind == 'defining_hand_source' for a in source.abilities):
@@ -312,8 +315,10 @@ def copy_attachments(state, source, destination, *, rebind_printed=False, retain
     destination.choose_branch = source.choose_branch if source.card_id == destination.card_id else None
     destination.herald_rank = source.herald_rank
     destination.jade_size = source.jade_size if source.card_id == destination.card_id else None
-    # Physical control returns belong to this resident, never to a new copy.
-    copied = tuple(e for e in source.enchantments if e.control_return_player_id is None)
+    # Ordinary copies drop physical returns. Retained-enchantment Reborn is an
+    # explicit exception: keep the captured source/deadline, with fresh IDs.
+    copied = tuple(e for e in source.enchantments
+                   if preserve_control_returns or e.control_return_player_id is None)
     if not any(e.minion_base_stats is not None for e in copied):
         copied=(*tuple(e for e in destination.enchantments if e.minion_base_stats is not None),*copied)
     enchantment_ids = {e.id: e.id if retain_ids else attachment_id(state) for e in copied}
@@ -341,8 +346,9 @@ def copy_attachments(state, source, destination, *, rebind_printed=False, retain
 def restore_reborn_enchantments(state, record, destination):
     """Restore frozen grants on a fresh printed body via the existing copier.
 
-    Native usage starts fresh; granted usage and deadlines stay frozen. A
-    physical control-return attachment never binds to the new board residence.
+    Native usage starts fresh; granted usage and deadlines stay frozen. This
+    retained-enchantment path also keeps the original control-return deadline;
+    ordinary copies continue to drop that physical obligation.
     """
     printed = [replace(a, source_id=record.entity_id if a.source_id == destination.id else a.source_id)
                for a in destination.abilities]
@@ -363,7 +369,8 @@ def restore_reborn_enchantments(state, record, destination):
         grants.append(replace(ability, printed_attack_permit=permit))
     material = replace(destination, id=record.entity_id,
                        abilities=[*printed, *grants], enchantments=list(record.enchantments))
-    copy_attachments(state, material, destination, rebind_printed=True)
+    copy_attachments(state, material, destination, rebind_printed=True,
+                     preserve_control_returns=True)
 
 
 def renew_hand_progress(state, entity, *, previous_zone=None, hand_transfer=False):
