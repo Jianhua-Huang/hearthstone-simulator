@@ -248,10 +248,19 @@ def validate_automatic_usage(game, plans):
                 expected_data.update(play_id=play_id, uses_remaining=0)
                 if cast_id is not None: expected_data[AUTOMATIC_CAST] = cast_id
                 spent.add(mid)
+            elif event.kind == 'spell_modifier_expired':
+                owner = next((row for row in reversed(state.owner_turn_history)
+                    if row.start_event < event.sequence), None)
+                if (mid in expected or m.expires_turn is None or owner is None or
+                        owner.turn != m.expires_turn or owner.end_event is None or
+                        owner.end_event >= event.sequence):
+                    raise ValueError('Automatic spell policy expiry lost its actual original turn end')
             elif event.kind != 'spell_modifier_removed' or mid in expected:
                 raise ValueError('Automatic spell policy cannot expire or replace a consumed original use')
             if event.player_id != pid:
                 raise ValueError('Automatic spell policy changed its original owner')
+        elif event.kind == 'spell_modifier_expired' and mid in added:
+            raise ValueError('Automatic spell policy cannot expire an already retired original use')
         elif AUTOMATIC_CAST in data:
             raise ValueError('Automatic spell policy consumption has no original addition')
         else: continue

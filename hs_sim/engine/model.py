@@ -2196,11 +2196,15 @@ class SpellRepeatSpec:
 
 
 def validate_automatic_spell_budget(spec, source_id, uses, expires_turn, automatic):
-    """The finite all-CAST player policy required by next-spell-per-school cards."""
+    """Finite all-CAST policies: one school, or this turn's next spell of any school."""
     if type(automatic) is not bool:
         raise ValueError('Automatic spell policy scope requires a boolean')
     if not automatic: return
     match = spec.match
+    if (spec.casts == 2 and spec.class_mode == 'any' and source_id is not None and
+            uses == 1 and type(uses) is int and match is None and
+            type(expires_turn) is int and expires_turn >= 1):
+        return
     if (spec.casts != 2 or spec.class_mode != 'any' or source_id is None or uses != 1 or
             expires_turn is not None or match is None or match.source_eligibility is not None or
             match.recipient_cost is not None or match.recipient_metadata is None or
@@ -2232,6 +2236,8 @@ class SpellRepeatModifier:
         if self.uses_remaining is not None: _int(self.uses_remaining, 'Spell modifier uses', 1)
         if self.expires_turn is not None: _int(self.expires_turn, 'Spell modifier expiry', self.created_turn)
         validate_automatic_spell_budget(self.spec, self.source_id, self.uses_remaining, self.expires_turn, self.automatic)
+        if self.automatic and self.spec.match is None and self.expires_turn != self.created_turn:
+            raise ValueError('All-school automatic spell budget lasts only its original creation turn')
 
 
 @dataclass(frozen=True)
