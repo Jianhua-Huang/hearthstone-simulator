@@ -1,9 +1,10 @@
 """Position-selected hand play fusion, expressed as removable attachments."""
-from dataclasses import replace
+from dataclasses import dataclass, replace
 
 from .errors import ResolutionError
 from .lifecycle import attachment_id, refresh_entity
 from .model import AbilityInstance, CardType, Enchantment, Keyword, MagneticRecord, Zone
+from .effects import Effect, _integer
 
 
 # Play/zone-entry mechanics do not become ongoing abilities on the host.
@@ -63,12 +64,15 @@ def merge(r, source, host, play):
     grants=[replace(a,id=attachment_id(r.state),origin='granted',source_id=source.id,
                     remove_on_silence=True,magnetic_id=group,
                     deathrattle_grant_card_id=source.card_id if a.kind=='deathrattle' else None) for a in abilities]
-    record=MagneticRecord(group,play.id,source.id,host.id,source.controller,source.card_id,host.card_id,
-                          source.attack,source.health,enchantment.id,tuple(a.id for a in grants),
-                          tribe_changes(host))
-    r.state.magnetic_history.append(record)
+    host_tribes=tribe_changes(host)
     # This is storage for a consumed hand card, not a death or resurrection fact.
     r.move(source,Zone.GRAVEYARD)
+    from .copy_materials import CapturedCardCopyMaterial
+    material=CapturedCardCopyMaterial.capture(r.state,source)
+    record=MagneticRecord(group,play.id,source.id,host.id,source.controller,source.card_id,host.card_id,
+                          enchantment.attack,enchantment.health,enchantment.id,tuple(a.id for a in grants),
+                          host_tribes,material)
+    r.state.magnetic_history.append(record)
     host.enchantments.append(enchantment);host.abilities.extend(grants)
     from .timed_keywords import arm
     arm(r.state, host)
@@ -87,6 +91,18 @@ def validate_magnetic_history(state, registry):
             raise ValueError('Expected magnetic record')
         record.__post_init__()
         play=play_record(state,record.play_id)
+        material=record.source_material
+        from .copy_materials import validate_captured_card_copy
+        if material is None:
+            raise ValueError('Magnetic history lost its original consumed card material')
+        validate_captured_card_copy(state,registry,material)
+        if ((material.origin.entity_id,material.origin.card_id,material.origin.controller,
+                material.origin.kind,material.origin.zone)!=(record.source_id,record.card_id,
+                    record.player_id,CardType.MINION,Zone.GRAVEYARD) or
+                material.turn!=play.turn or material.action<play.action or
+                any(a.magnetic_id is not None and a.magnetic_id>=record.id
+                    for a in (*material.local.enchantments,*material.local.abilities))):
+            raise ValueError('Magnetic material borrowed another source, future group or acceptance')
         source=registry.card(record.card_id);host=registry.card(record.host_card_id)
         if (record.id!=index or record.play_id<=previous_play or
                 (record.source_id,record.target_id,record.player_id,record.card_id)!=
@@ -111,3 +127,93 @@ def validate_magnetic_history(state, registry):
 def public_magnetic(entity, state):
     groups=sorted({a.magnetic_id for a in (*entity.enchantments,*entity.abilities) if a.magnetic_id is not None})
     return [state.magnetic_history[i-1].card_id for i in groups]
+
+
+def _groups(carrier):
+    return tuple(sorted({a.magnetic_id for a in (*carrier.enchantments,*carrier.abilities)
+        if a.magnetic_id is not None}))
+
+
+def groups_for_context(context):
+    if context.deathrattle is None:
+        raise ResolutionError('Magnetic return requires its actual Deathrattle invocation')
+    carrier=context.death if context.death is not None else context.source
+    return _groups(carrier)
+
+
+@dataclass(frozen=True)
+class ReturnMagnetizedMechs(Effect):
+    deathrattle_id: int
+    groups: tuple[int,...]
+    carrier_material: object | None = None
+
+    def __post_init__(self):
+        _integer(self.deathrattle_id,'Magnetic return invocation',1)
+        if type(self.groups) is not tuple or self.groups!=tuple(sorted(set(self.groups))):
+            raise ValueError('Magnetic return requires the complete ordered original groups')
+        for i in self.groups:_integer(i,'original Magnetic group',1)
+        if self.carrier_material is not None:
+            from .copy_materials import CapturedCardCopyMaterial
+            if type(self.carrier_material) is not CapturedCardCopyMaterial:
+                raise ValueError('Active Magnetic return requires the complete original carrier material')
+            self.carrier_material.__post_init__()
+            if self.groups!=_groups(self.carrier_material.entity()):
+                raise ValueError('Active Magnetic return changed the complete accepted carrier groups')
+
+    @classmethod
+    def capture(cls,context):
+        groups=groups_for_context(context)
+        from .copy_materials import CapturedCardCopyMaterial
+        material=(None if context.death is not None else
+            CapturedCardCopyMaterial.capture(context.state,context.source))
+        return cls(context.deathrattle.id,groups,material)
+
+    def validate_in_state(self,state):
+        self.__post_init__()
+        from .deathrattles import record
+        row=record(state,self.deathrattle_id)
+        if row.execution_order is None or row.completed or row.interrupted or row.capture.kind!=CardType.MINION:
+            raise ValueError('Magnetic return lost its actual running minion Deathrattle')
+        if any(i>len(state.magnetic_history) for i in self.groups):
+            raise ValueError('Magnetic return borrowed an unknown or future group')
+        if row.capture.death_id is not None:
+            death=next((d for d in state.death_history if d.id==row.capture.death_id),None)
+            expected=()if death is None else tuple(sorted({a.magnetic_id for a in(*death.enchantments,*death.abilities)
+                if a.magnetic_id is not None}))
+            if death is None or self.groups!=expected:
+                raise ValueError('Magnetic return changed its original complete death groups')
+            if self.carrier_material is not None:
+                raise ValueError('Natural Magnetic return must use its original DeathRecord')
+        else:
+            material=self.carrier_material;capture=row.capture
+            if material is None or (material.origin.entity_id,material.origin.kind)!=(
+                    capture.carrier_id,CardType.MINION):
+                raise ValueError('Active Magnetic return borrowed another carrier or lost its acceptance')
+            fresh=capture.repeat_index>1 or capture.trigger_index>1
+            if not fresh and (material.origin.card_id,material.origin.controller)!=(capture.card_id,capture.player_id):
+                raise ValueError('First Magnetic return changed its original accepted carrier')
+            if not capture.action<=material.action<=state.action_number or not capture.turn<=material.turn<=state.turn:
+                raise ValueError('Active Magnetic return changed its acceptance clock')
+
+
+def return_magnetized(r,effect):
+    from .deathrattles import record
+    from .copy_materials import validate_captured_card_copy
+    from .tribes import has_any_tribe
+    from .zones import CopyCard
+    effect.validate_in_state(r.state);capture=record(r.state,effect.deathrattle_id).capture
+    if effect.carrier_material is not None:
+        validate_captured_card_copy(r.state,r.registry,effect.carrier_material)
+    materials=[]
+    for i in effect.groups:
+        row=r.state.magnetic_history[i-1];material=row.source_material
+        if material is None:raise ResolutionError('Magnetic return lacks its original full material')
+        validate_captured_card_copy(r.state,r.registry,material)
+        if has_any_tribe(r.registry,material.entity(),('mech',)):materials.append(material)
+    # Complete immutable recipes are accepted before the first delivery. Hand
+    # reset, intrinsic composition, capacity and origin use the shared copier.
+    return tuple(CopyCard(m,capture.player_id,mode='base',source_id=capture.carrier_id)for m in materials)
+
+
+def register(mechanics):
+    mechanics.register(ReturnMagnetizedMechs,return_magnetized)

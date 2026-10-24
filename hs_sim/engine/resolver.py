@@ -149,7 +149,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v712'
+CORE_EFFECTS_VERSION = 'core-effects-v713'
 
 
 class Mechanics:
@@ -2708,6 +2708,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     mechanics.register(RandomForceAttack,random_force_attack)
     from .forced_attack_sequences import register as register_forced_attack_sequences
     register_forced_attack_sequences(mechanics)
+    from .magnetic import register as register_magnetic
+    register_magnetic(mechanics)
     from .stored_spell_damage import register as register_stored_spell_damage
     register_stored_spell_damage(mechanics)
     from .attack_policies import register as register_attack_policies

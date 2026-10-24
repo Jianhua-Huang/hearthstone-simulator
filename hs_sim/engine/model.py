@@ -8598,6 +8598,7 @@ class MagneticRecord:
     enchantment_id: int
     ability_ids: tuple[int, ...]
     host_tribe_changes: tuple[Enchantment, ...]
+    source_material: object | None = None
 
     def __post_init__(self):
         for name in ('id', 'play_id', 'source_id', 'target_id', 'player_id', 'enchantment_id'):
@@ -8617,6 +8618,11 @@ class MagneticRecord:
         _tribe_changes(self.host_tribe_changes)
         if any(c.id >= self.enchantment_id for c in self.host_tribe_changes):
             raise ValueError('Magnetic host tribe changes must precede the merge allocation')
+        if self.source_material is not None:
+            from .copy_materials import CapturedCardCopyMaterial
+            if type(self.source_material) is not CapturedCardCopyMaterial:
+                raise ValueError('Magnetic history requires complete typed original card material')
+            self.source_material.__post_init__()
 
 
 def validate_combat_relation(value):

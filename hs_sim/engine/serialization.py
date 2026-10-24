@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 571
+SNAPSHOT_SCHEMA_VERSION = 572
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1598,6 +1598,9 @@ def state_from_dict(value: dict) -> GameState:
     magnets=[]
     for item in _list(value['magnetic_history'],'magnetic history'):
         row=_row(item,MagneticRecord)
+        if row['source_material'] is not None:
+            from .copy_materials import CapturedCardCopyMaterial, from_dict as copy_material_from_dict
+            row['source_material']=copy_material_from_dict(CapturedCardCopyMaterial,row['source_material'])
         row['ability_ids']=tuple(_list(row['ability_ids'],'magnetic abilities'))
         row['host_tribe_changes']=tuple(_enchantment_from_dict(c) for c in _list(row['host_tribe_changes'],'original magnetic host tribe changes'))
         magnets.append(MagneticRecord(**row))
