@@ -1,7 +1,7 @@
 """Gain complete physical Deathrattles from this turn's friendly minion deaths."""
 from dataclasses import dataclass, replace
 
-from .effects import Effect,_player
+from .effects import Effect,_integer,_player
 from .lifecycle import attachment_id
 from .model import CardType, Zone
 from .sacrifice import MinionReference, live_minion, reference_value
@@ -21,8 +21,8 @@ def validate_ability(state, registry, ability):
     if link is None:return
     ability.__post_init__()
     death_id,original_id=link
-    if death_id>len(state.death_history):raise ValueError('Inherited Deathrattle has no original death')
-    death=state.death_history[death_id-1]
+    death=next((d for d in state.death_history if d.id==death_id),None)
+    if death is None:raise ValueError('Inherited Deathrattle has no original death')
     original=next((a for a in death.abilities if a.id==original_id),None)
     if (death.id!=death_id or death.zone!=Zone.BOARD or registry.card(death.card_id).kind!=CardType.MINION
             or original is None or original.kind!='deathrattle' or original.consumed
@@ -56,6 +56,39 @@ def gain(r,effect):
     # belong to later actual invocations, never to the inheritance query.
     materials=tuple((d,a)for d in deaths for a in d.abilities
         if a.kind=='deathrattle'and not a.consumed)
+    return grant_materials(r,entity,materials)
+
+
+@dataclass(frozen=True)
+class GainDeathrattlesFromDeath(Effect):
+    death_id: int
+    beneficiary: MinionReference
+
+    def __post_init__(self):
+        _integer(self.death_id,'original minion death',1);reference_value(self.beneficiary)
+
+    def validate_in_state(self,state):
+        self.__post_init__()
+        # The same residence checks apply even when a queued recipient is stale.
+        GainDeathrattlesFromDeathsThisTurn(self.beneficiary.player_id,self.beneficiary).validate_in_state(state)
+        death=next((d for d in state.death_history if d.id==self.death_id),None)
+        if death is None or death.zone!=Zone.BOARD or death.controller!=self.beneficiary.player_id:
+            raise ValueError('Deathrattle acquisition requires the exact original friendly death')
+
+
+def gain_one(r,effect):
+    effect.validate_in_state(r.state)
+    death=next(d for d in r.state.death_history if d.id==effect.death_id)
+    if r.registry.card(death.card_id).kind!=CardType.MINION:
+        raise ValueError('Deathrattle acquisition requires a real minion death')
+    entity=live_minion(r.state,effect.beneficiary)
+    if entity is None:r.stale(effect,effect.beneficiary.entity_id);return ()
+    return grant_materials(r,entity,tuple((death,a)for a in death.abilities
+        if a.kind=='deathrattle'and not a.consumed))
+
+
+def grant_materials(r,entity,materials):
+    """Install a frozen complete group before publishing any grant reaction."""
     from .deathrattles import validate_ability as validate_deathrattle
     for _,ability in materials:validate_deathrattle(r.state,r.registry,ability)
     grants=[]
@@ -71,4 +104,6 @@ def gain(r,effect):
     return ()
 
 
-def register(mechanics):mechanics.register(GainDeathrattlesFromDeathsThisTurn,gain)
+def register(mechanics):
+    mechanics.register(GainDeathrattlesFromDeathsThisTurn,gain)
+    mechanics.register(GainDeathrattlesFromDeath,gain_one)
