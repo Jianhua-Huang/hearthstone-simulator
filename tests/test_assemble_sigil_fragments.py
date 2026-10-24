@@ -156,7 +156,8 @@ class AssembleSigilFragmentTests(unittest.TestCase):
     def test_owner_start_wrapper_is_reviewed_bound_and_cannot_be_registered_or_nested(self):
         r = fixture(); p = r.assemble_templates[FLY]
         self.assertTrue(callable(r.behavior(OWNER_START_PREFIX+p.suffix.behavior_id)))
-        for body in ('missing', OWNER_START_PREFIX+p.suffix.behavior_id, r.assemble_templates[LOOT].suffix.behavior_id):
+        self.assertTrue(callable(r.behavior(OWNER_START_PREFIX+r.assemble_templates[LOOT].suffix.behavior_id)))
+        for body in ('missing', OWNER_START_PREFIX+p.suffix.behavior_id, KILL):
             with self.assertRaises(UnsupportedDefinitionError): r.behavior(OWNER_START_PREFIX+body)
         with self.assertRaises(ValueError): r.register_behavior(OWNER_START_PREFIX+'fake', lambda c: ())
         with self.assertRaises(ValueError): AssembleSuffix(OWNER_START_PREFIX+'fake', ('start_turn',))
