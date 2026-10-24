@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v727'
+CORE_EFFECTS_VERSION = 'core-effects-v728'
 
 
 class Mechanics:
@@ -768,6 +768,7 @@ class Resolution:
         pay_cost(self, player, source)
 
     def record_death(self, entity, position, batch=None):
+        from .death_self_copies import DeathCopySource
         from .death_causes import mark
         from .death_neighbors import capture as capture_neighbors
         if entity.death_cause is None:
@@ -784,7 +785,8 @@ class Resolution:
             enchantments=tuple(entity.enchantments), frozen_until_owner_turn=entity.frozen_until_owner_turn,
             zone=entity.zone, durability=entity.durability, corpse_value=entity.corpse_value, components=entity.components,
             herald_rank=entity.herald_rank, jade_size=entity.jade_size,
-            adjacent_minions=capture_neighbors(self.state, entity))
+            adjacent_minions=capture_neighbors(self.state, entity),
+            copy_source=DeathCopySource.capture(self.state, entity))
         self.state.next_death_id += 1
         self.state.death_history.append(record)
         return record
@@ -2897,6 +2899,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_issued_spell_sets(mechanics)
     from .copy_materials import register as register_copy_materials
     register_copy_materials(mechanics)
+    from .death_self_copies import register as register_death_self_copies
+    register_death_self_copies(mechanics)
     from .copy_followups import register as register_copy_followups
     register_copy_followups(mechanics)
     from .hand_identity_shuffle import register as register_hand_identity_shuffle

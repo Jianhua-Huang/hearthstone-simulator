@@ -16,7 +16,7 @@ CARD='CATA_483'
 CONDITION='cards.assemble_conditional.own_spell_damage_turn'
 BODY='cards.assemble_conditional.self_copy'
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/assemble-conditional-spell-damage-fragments-v1.json'
-BATCH_HASH='98ec79dfbb02a9dd4ecb6c8200f79f491703e2935ab3070aed597eab56e63a9a'
+BATCH_HASH='3c1d18419335a8f20bcb10d8e0c6ff3f248ab265b0b57a97fda927154c7e2e1f'
 
 
 def load_batch():
@@ -38,7 +38,8 @@ def register_assemble_conditional_spell_damage_fragments(registry):
         spell_damage_dealt(c.state,registry,c.player_id,turn=c.state.turn)>0)
     def copy_self(c):
         if c.deathrattle is not None:
-            raise ResolutionError('Natural/active Deathrattle self-copy policy remains explicitly unimplemented')
+            from hs_sim.engine.death_self_copies import copy_body
+            return copy_body(c)
         if not living_source(c):return ()
         return (CopyMinion(capture_board_presence(c.state,c.source_id),c.player_id,cause=SummonCause.capture(c)),)
     registry.register_behavior(BODY,copy_self)

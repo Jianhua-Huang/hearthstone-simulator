@@ -181,12 +181,11 @@
     "original_battlecry_id": "cards.simple_followup_p48.CATA_483",
     "allowed_timings": [
       "battlecry",
+      "deathrattle",
       "end_turn",
       "start_turn"
     ],
-    "pending_timings": [
-      "deathrattle"
-    ]
+    "pending_timings": []
   },
   "source": {
     "file": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
@@ -199,7 +198,8 @@
     "original_native_card_unchanged": true,
     "condition_belongs_only_to_prefix": true,
     "deathrattle_copy_policy_unverified": true,
-    "unreviewed_conditional_arrow_not_pruned": true
+    "unreviewed_conditional_arrow_not_pruned": true,
+    "deathrattle_copy_internally_implemented": true
   },
   "rule_evidence": {
     "primary_q_and_a": "https://www.reddit.com/r/hearthstone/comments/1whw4cv/reign_of_the_black_empire_how_does_this_work/",

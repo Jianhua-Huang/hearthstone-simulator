@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 586
+SNAPSHOT_SCHEMA_VERSION = 587
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -801,6 +801,8 @@ def _cost_use_from_dict(value):
 
 def _death_from_dict(value):
     row = _row(value, DeathRecord)
+    from .death_self_copies import source_from_dict
+    row['copy_source'] = source_from_dict(row['copy_source'])
     from .model import BoardPresenceReference
     row['adjacent_minions'] = tuple(BoardPresenceReference(**_row(x, BoardPresenceReference))
         for x in _list(row['adjacent_minions'], 'original death neighbors'))

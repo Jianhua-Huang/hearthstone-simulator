@@ -167,15 +167,21 @@ class CopyEntryMaterial:
     grant_source_id:int|None=None
     stored_components:tuple[str,...]=()
     permanent_stats:SummonStats|None=None
+    self_copy_death:object|None=None
 
     def __post_init__(self):
+        if self.profile == 'death_copy':
+            from .death_self_copies import validate_entry_shape
+            validate_entry_shape(self)
+        elif self.self_copy_death is not None:
+            raise ValueError('Original death belongs only to its full-health self-copy profile')
         from .permanent_minion_stats import validate_value
         validate_value(self.permanent_stats)
         if self.local is not None:
             from .permanent_minion_stats import value
             if value(self.local)!=self.permanent_stats:raise ValueError('Current copy lost its original permanent base')
         if (type(self.stored_components)is not tuple or any(type(x)is not str or not x for x in self.stored_components)
-                or self.stored_components and (self.profile not in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy') or self.mode!='current')):
+                or self.stored_components and (self.profile not in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy','death_copy') or self.mode!='current')):
             raise ValueError('Stored composition requires its current physical minion recipe')
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is None:
@@ -194,16 +200,16 @@ class CopyEntryMaterial:
             if self.profile != 'board_copy': raise ValueError('Copy followup requires original board-copy material')
         if type(self.dormant_entry) is not bool:
             raise ValueError('Copied dormancy entry requires bool')
-        if self.dormant_entry and (self.profile not in ('board_copy','remembered_copy') or self.mode != 'current'):
+        if self.dormant_entry and (self.profile not in ('board_copy','remembered_copy','death_copy') or self.mode != 'current'):
             raise ValueError('Dormant entry belongs to a current board copy')
         if type(self.card_id)is not str or not self.card_id:raise ValueError('Copy material requires a card')
         if type(self.origin)is not SourceAllocationFact:raise ValueError('Copy material requires original physical allocation')
         self.origin.__post_init__()
         if self.origin.card_id!=self.card_id or self.origin.kind!=CardType.MINION:raise ValueError('Copy material differs from its physical minion face')
-        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy','remembered_copy','remembered_hand_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
+        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
         if self.profile in ('remembered_copy','remembered_hand_copy') and (self.mode!='current' or self.stats is not None):
             raise ValueError('Remembered copy requires its full original current minion recipe')
-        zones=(Zone.BOARD,)if self.profile in ('board_copy','remembered_copy')else(Zone.HAND,)if self.profile=='remembered_hand_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
+        zones=(Zone.BOARD,)if self.profile in ('board_copy','remembered_copy','death_copy')else(Zone.HAND,)if self.profile=='remembered_hand_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
         if self.origin.zone not in zones:raise ValueError('Copy recipe has another original zone')
         for n,floor in (('captured_turn',1),('captured_action',0),('next_attachment_id',1)):_integer(getattr(self,n),'copy material '+n,floor)
         if (self.mode=='current')!=(self.local is not None):raise ValueError('Copy local state differs from current/base recipe')
@@ -268,10 +274,10 @@ class CopyEntryMaterial:
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
     material.__post_init__()
-    if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy') or material.profile=='board_copy' and material.mode=='current':
+    if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy','death_copy') or material.profile=='board_copy' and material.mode=='current':
         card=registry.card(material.card_id)
         from .crafted_faces import composition_shape
-        if (card.kind!=CardType.MINION or not card.hand_playable and material.profile!='board_copy' or
+        if (card.kind!=CardType.MINION or not card.hand_playable and material.profile not in ('board_copy','death_copy') or
                 card.choice_only or not composition_shape(card,material.components)):
             raise ValueError('Stored entry lost its complete physical minion or composition')
         for cid in material.components:
@@ -329,6 +335,9 @@ def validate_material(registry,material,*,hand_copy=False):
 
 def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
     validate_material(registry,material,hand_copy=hand_copy);validate_allocation(state,registry,material.origin,closed=closed)
+    if material.profile == 'death_copy':
+        from .death_self_copies import validate_entry_scope
+        validate_entry_scope(state, registry, material, closed=closed)
     if material.profile=='discard_summon_copy':
         from .discard_history import validate_base_copy
         validate_base_copy(state,registry,material.discard)
@@ -389,7 +398,7 @@ def apply(r,material,entity):
     imprint(r.state,entity,material.permanent_stats,material.origin.entity_id)
     if material.mode=='current':
         local=material.local
-        if material.profile in ('board_copy','remembered_copy') and not material.dormant_entry:entity.dormancy=None
+        if material.profile in ('board_copy','remembered_copy','death_copy') and not material.dormant_entry:entity.dormancy=None
         entity.base_attack,entity.base_health,entity.base_cost=local.base_attack,local.base_health,local.base_cost
         entity.damage,entity.corpse_value=local.damage,local.corpse_value
         source=Entity(material.origin.entity_id,material.card_id,material.origin.owner,material.origin.controller,material.origin.zone,
@@ -409,12 +418,12 @@ def apply(r,material,entity):
         from types import SimpleNamespace
         from .card_creation import install
         install(r.state,entity,SimpleNamespace(spell_repeat=None,minion_grant=material.minion_grant,source_id=material.grant_source_id),resolver=r)
-    if material.profile in ('remembered_copy','remembered_hand_copy'):
+    if material.profile in ('remembered_copy','remembered_hand_copy','death_copy'):
         from .lifecycle import remove_attachments
         remove_attachments(entity, enchantment_predicate=lambda a: expired_remembered_attachment(r.state, a),
             ability_predicate=lambda a: expired_remembered_attachment(r.state, a))
     r.refresh_auras()
-    if material.mode=='current'and material.profile in ('board_copy','remembered_copy')and material.local.frozen:
+    if material.mode=='current'and material.profile in ('board_copy','remembered_copy','death_copy')and material.local.frozen:
         from .combat import can_be_frozen,freeze_deadline
         if can_be_frozen(entity):
             entity.frozen_until_owner_turn=freeze_deadline(r.state,entity,ending_turn=r.ending_turn,registry=r.registry)
@@ -460,6 +469,9 @@ def from_dict(cls,value):
         if row['preparation'] is not None:
             row['preparation']=HandPreparation(**_row(row['preparation'],HandPreparation))
     elif cls is CopyEntryMaterial:
+        if row['self_copy_death'] is not None:
+            from .serialization import _death_from_dict
+            row['self_copy_death'] = _death_from_dict(row['self_copy_death'])
         row['stored_components']=tuple(_list(row['stored_components'],'stored original minion components'))
         row['origin']=allocation_from_dict(row['origin'])
         row['local']=None if row['local']is None else from_dict(CopyLocalState,row['local'])

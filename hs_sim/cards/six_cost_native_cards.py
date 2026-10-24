@@ -97,13 +97,19 @@ def register_six_cost_native_cards(registry):
             for i in minions(c,registry,c.player_id)
             if c.state.entities[i].health<c.state.entities[i].max_health)
 
+    def stalker(c):
+        if c.deathrattle is not None:
+            from hs_sim.engine.death_self_copies import copy_body
+            return copy_body(c)
+        return (CopyMinion(c.source_id,c.player_id,cause=SummonCause.capture(c)),)
+
     bodies=dict(marrow=lambda c:(SpendUpToResource(c.player_id,Resource.CORPSES,5,c.source_id,PREFIX+'marrow_result'),),
         marrow_result=marrow_result,
         marrow_hit=lambda c:(RandomDamage(characters(c,registry,3-c.player_id),2,c.source_id,DamageKind.MINION_ABILITY),),
         merithra=lambda c:(invoke(c,'merithra_now'),),merithra_now=merithra,
         flamebinder=lambda c:(invoke(c,'flamebinder_now'),),flamebinder_now=flamebinder,
         gnome=lambda c:(invoke(c,'gnome_now'),),gnome_now=gnome,infinitizer=infinitizer,hourglass=hourglass,
-        stalker=lambda c:(CopyMinion(c.source_id,c.player_id,cause=SummonCause.capture(c)),),
+        stalker=stalker,
         stegodon=lambda c:(RandomDamageBatch(characters(c,registry,3-c.player_id),3,6,c.source_id,DamageKind.MINION_ABILITY),),
         kodo=lambda c:(invoke(c,'kodo_now'),),kodo_now=kodo,
         opu=lambda c:(CastSpell(c.player_id,'EX1_129',c.source_id),),

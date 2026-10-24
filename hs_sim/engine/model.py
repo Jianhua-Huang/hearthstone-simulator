@@ -3853,8 +3853,11 @@ class DeathRecord:
     jade_size: int | None = None
     deathrattles_blocked: bool = False
     adjacent_minions: tuple[BoardPresenceReference, ...] = ()
+    copy_source: object | None = None
 
     def __post_init__(self) -> None:
+        from .death_self_copies import validate_death_source
+        validate_death_source(self)
         _bool(self.deathrattles_blocked, 'death Deathrattle prohibition receipt')
         if (type(self.adjacent_minions) is not tuple or len(self.adjacent_minions) > 2 or
                 any(type(x) is not BoardPresenceReference for x in self.adjacent_minions)):
@@ -12126,6 +12129,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         if not isinstance(record, DeathRecord):
             raise ValueError("death_history must contain DeathRecord values")
         record.__post_init__()
+        from .death_self_copies import validate_death_source
+        validate_death_source(record, state, registry)
         from .death_neighbors import validate_record as validate_death_neighbors
         validate_death_neighbors(state, record)
         from .death_causes import validate_in_state

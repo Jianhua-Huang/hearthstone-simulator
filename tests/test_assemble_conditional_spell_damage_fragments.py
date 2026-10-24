@@ -104,7 +104,8 @@ class AssembleConditionalSpellDamageTests(unittest.TestCase):
         self.assertEqual(t.original_battlecry_id,d.battlecry)
         self.assertEqual(replace(face,battlecry=t.original_battlecry_id),d)
         self.assertTrue(face.battlecry.startswith(CONDITION_PREFIX))
-        self.assertEqual(t.suffix.pending_timings,('deathrattle',))
+        self.assertEqual(t.suffix.pending_timings,())
+        self.assertIn('deathrattle',t.suffix.allowed_timings)
         self.assertEqual(recipe_options(r,CARD,CARD),())
         with self.assertRaises(UnsupportedDefinitionError):r.pool(POOL_ID,CTX)
 
@@ -182,13 +183,13 @@ class AssembleConditionalSpellDamageTests(unittest.TestCase):
         g.apply(EndTurn(2));self.assertEqual(self.count(g,cid),2)
         self.assertEqual(g.registry.card(cid).spell_damage,0)
 
-    def test_unverified_death_and_conditional_arrow_pairs_are_errors_not_silently_removed_candidates(self):
+    def test_unverified_conditional_arrow_pairs_are_errors_not_silently_removed_candidates(self):
         r=build_registry()
-        for cid in(AssembleRecipe('CORE_LOOT_413',CARD,'bottom').card_id,
-                AssembleRecipe(CARD,TARGET,'bottom').card_id):
+        self.assertIsNotNone(r.card(AssembleRecipe('CORE_LOOT_413',CARD,'bottom').card_id).deathrattle)
+        for cid in(AssembleRecipe(CARD,TARGET,'bottom').card_id,):
             with self.subTest(cid=cid),self.assertRaisesRegex(UnsupportedDefinitionError,'Eligible'):
                 r.card(cid)
-        for mode in('pending_death','pending_arrow','missing','no_pool'):
+        for mode in('pending_arrow','missing','no_pool'):
             with self.subTest(mode=mode):
                 g=self.game(hand=(FETCHER,),mode=mode);before=g.snapshot()
                 with self.assertRaises(ResolutionError):self.play(g,FETCHER)

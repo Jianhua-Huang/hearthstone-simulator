@@ -2524,12 +2524,11 @@
       "behavior_id": "cards.six_cost_native.stalker",
       "allowed_timings": [
         "battlecry",
+        "deathrattle",
         "end_turn",
         "start_turn"
       ],
-      "pending_timings": [
-        "deathrattle"
-      ]
+      "pending_timings": []
     },
     {
       "card_id": "TIME_872",
@@ -2604,7 +2603,6 @@
     "cn_calibrated": false
   },
   "pending_contexts": {
-    "BE_734": "Dead source delayed copy and already-ending turn installation require original source material/acceptance policy; unsupported, not silent no-op.",
-    "TIME_605": "Natural Deathrattle self-copy requires complete frozen death copy material; do not copy the cleared graveyard entity or silently no-op."
+    "BE_734": "Dead source delayed copy and already-ending turn installation require original source material/acceptance policy; unsupported, not silent no-op."
   }
 }

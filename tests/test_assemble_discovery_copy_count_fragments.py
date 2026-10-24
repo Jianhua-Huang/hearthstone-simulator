@@ -134,7 +134,8 @@ class AssembleDiscoveryCopyCountTests(unittest.TestCase):
         for cid in SOURCES:
             derived=AssembleRecipe(cid,cid,'top').card_id
             self.assertEqual(asdict(r.card(derived)),asdict(r.card(cid))|{'id':derived})
-        for cid,prefixes in((STALKER,(LOOT,)),(OOZE,(LOOT,END))):
+        self.assertIsNotNone(r.card(face(LOOT,STALKER)).deathrattle)
+        for cid,prefixes in((OOZE,(LOOT,END)),):
             for prefix in prefixes:
                 with self.assertRaisesRegex(UnsupportedDefinitionError,'explicitly unimplemented'):r.card(face(prefix,cid))
         self.assertEqual((r.fingerprint(),len(r.cards)),(fingerprint,size))
