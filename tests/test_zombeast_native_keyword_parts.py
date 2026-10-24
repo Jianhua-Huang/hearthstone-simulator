@@ -151,7 +151,10 @@ class ZombeastNativeKeywordPartsTests(CardBatchTestMixin, unittest.TestCase):
             batch.check_face(rows[face['card_id']], face['face'], face['locale'])
         registry = originals()
         self.assertTrue(set(PARTS) <= set(registry.crafted_minion_parts))
-        self.assertEqual(len(registry.crafted_minion_parts), 22)
+        boundary = batch.registration_prefix(build_registry,
+            'hs_sim.cards.zombeast_native_keyword_parts.register_zombeast_native_keyword_parts',
+            register_zombeast_native_keyword_parts, after=True)
+        self.assertEqual(len(boundary.crafted_minion_parts), 22)
         self.assertEqual(registry.card(CORE_PORCUPINE).metadata.deck_identity, BASE_PORCUPINE)
         self.assertFalse(any(key[0] in (FIRST, SECOND) for key in registry.pools))
 

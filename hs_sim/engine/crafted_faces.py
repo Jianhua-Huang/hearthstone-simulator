@@ -14,7 +14,7 @@ TUPLES=('triggers','auras','cost_auras','keyword_auras','battlecry_repeats','dea
     'end_turn_repeats','intrinsic_costs','attack_policies','stat_relations','timed_keywords')
 PART_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords','on_play',
     'battlecry','deathrattle','combo','requires_target','target_rule','targeting','spell_damage',
-    'spell_damage_schools',*TUPLES))
+    'spell_damage_schools','cleave',*TUPLES))
 
 
 @dataclass(frozen=True)
@@ -114,6 +114,7 @@ def resolve_face(registry,card_id):
         tribes=('all',)if any('all'in p.metadata.tribes for p in parts)else template.metadata.tribes
         face=replace(template,id=card_id,cost=sum(p.cost for p in parts),attack=sum(p.attack for p in parts),
             health=sum(p.health for p in parts),keywords=tuple(sorted({k for p in parts for k in p.keywords})),
+            cleave=any(p.cleave for p in parts),
             spell_damage=sum(p.spell_damage for p in parts),spell_damage_schools=tuple(sorted({s for p in parts for s in p.spell_damage_schools})),
             metadata=replace(template.metadata,tribes=tribes),requires_target=require,target_rule=rule,targeting=target,
             **{key:next((getattr(p,key)for p in parts if getattr(p,key)is not None),None)for key in('battlecry','deathrattle','combo')},

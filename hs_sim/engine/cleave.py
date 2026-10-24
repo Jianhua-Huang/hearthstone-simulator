@@ -17,9 +17,17 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
         return
     card = registry.card(card_id)
     validate_definition(card)
-    if not card.cleave or kind != card.kind or components or len(rows) != 1:
+    from .crafted_faces import PREFIX, recipe_from_id
+    if card_id.startswith(PREFIX):
+        recipe = recipe_from_id(card_id)
+        native_count = sum(registry.card(cid).cleave for cid in recipe.parts)
+        if (not card.cleave or kind != CardType.MINION or type(components) is not tuple or
+                components != recipe.parts or len(rows) > native_count):
+            raise ValueError('Crafted cleave carrier differs from its original native ingredients')
+    elif not card.cleave or kind != card.kind or components or len(rows) != 1:
         raise ValueError('Cleave carrier differs from its single native declaration')
-    rows[0].__post_init__()
+    for row in rows:
+        row.__post_init__()
 
 
 def adjacent_targets(state, attacker, defender):
