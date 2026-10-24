@@ -315,11 +315,11 @@ class AssemblePlayReactionPrefixTests(unittest.TestCase):
             game.registry.register_assemble_reaction_source(profile)
 
     def test_l_wrong_native_bridge_or_non_boolean_predicate_rejects_without_a_partial_success(self):
-        # The later attack adapter amends this predecessor's exact draw template.
-        # Omit that dependent installer only while testing predecessor failure.
+        # Omit later dependent installers while testing predecessor failure.
         with patch.object(cards, 'register_assemble_play_reaction_prefix', lambda r: None), patch(
                 'hs_sim.cards.assemble_attack_finished_followups.register_assemble_attack_finished_followups', lambda r: None), patch(
-                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None):
+                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None), patch(
+                'hs_sim.cards.assemble_hero_attack_weapon_fragments.register_assemble_hero_attack_weapon_fragments', lambda r: None):
             registry = build_registry()
         registry.register_trigger_condition(P+'test_cond', lambda c: True)
         before = registry.fingerprint()

@@ -408,7 +408,8 @@ class AssembleAttackFinishedTests(unittest.TestCase):
 
     def test_t_complete_source_or_reviewed_draw_pin_drift_fails_before_partial_registration(self):
         with patch.object(cards, 'register_assemble_attack_finished_followups', lambda r: None), patch(
-                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None):
+                'hs_sim.cards.assemble_attack_declared_followups.register_assemble_attack_declared_followups', lambda r: None), patch(
+                'hs_sim.cards.assemble_hero_attack_weapon_fragments.register_assemble_hero_attack_weapon_fragments', lambda r: None):
             r = build_registry()
         original_fingerprint = r.fingerprint()
         def registrations():

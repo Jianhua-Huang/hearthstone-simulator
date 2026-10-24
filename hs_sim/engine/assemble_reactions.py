@@ -1,5 +1,5 @@
 """Reviewed ordinary reaction subjects use the existing captured trigger calls."""
-from dataclasses import dataclass, replace
+from dataclasses import asdict, dataclass, replace
 import base64
 import binascii
 import hashlib
@@ -32,6 +32,27 @@ class AssembleReactionSource:
         if (self.event not in REACTION_TIMINGS or
                 self.original_behavior_id.startswith(TIMING_PREFIXES)):
             raise ValueError('Assembled reaction needs its reviewed ordinary native subject')
+
+
+@dataclass(frozen=True)
+class AssembleWeaponReactionSource:
+    """A complete weapon may lend its reviewed owner-hero attack prefix."""
+    card_id: str
+    original_behavior_id: str
+    condition_id: str
+    definition_sha256: str
+    event: str = 'attack_finished'
+    source_kind: CardType = CardType.WEAPON
+
+    def __post_init__(self):
+        from .assemble_faces import TIMING_PREFIXES
+        for field in ('card_id', 'original_behavior_id', 'condition_id'):
+            _name(getattr(self, field), 'weapon assembled reaction '+field)
+        if (self.event != 'attack_finished' or self.source_kind is not CardType.WEAPON or
+                self.original_behavior_id.startswith(TIMING_PREFIXES) or
+                type(self.definition_sha256) is not str or len(self.definition_sha256) != 64 or
+                any(c not in '0123456789abcdef' for c in self.definition_sha256)):
+            raise ValueError('Weapon reaction requires its complete original completed-attack source')
 
 
 @dataclass(frozen=True)
@@ -81,7 +102,41 @@ def subject_specs(profile, behavior_id=None):
         limited_triggers=())
 
 
+def validate_weapon_source(registry, profile, *, require_projection=False):
+    from .serialization import canonical_hash
+    if type(profile) is not AssembleWeaponReactionSource:
+        raise ValueError('Expected a complete native weapon reaction source')
+    profile.__post_init__()
+    original = registry._cards.get(profile.card_id)
+    if (original is None or original.kind != CardType.WEAPON or
+            canonical_hash(asdict(original)) != profile.definition_sha256 or
+            original.triggers != subject_specs(profile)['triggers'] or original.limited_triggers):
+        raise ValueError('Weapon reaction bridge differs from its complete original weapon')
+    registry.behavior(profile.original_behavior_id)
+    registry.trigger_condition(profile.condition_id)
+    if require_projection:
+        projection = registry._assemble_projections.get(profile.card_id)
+        if projection is None:
+            raise ValueError('Weapon reaction bridge requires its actual reviewed projection')
+        from .assemble_faces import validate_projection
+        validate_projection(registry, projection)
+
+
+def validate_weapon_projection(registry, projection):
+    from .assemble_faces import AssemblePrefix, AssembleProjection
+    if type(projection) is not AssembleProjection or projection.source_kind is not CardType.WEAPON:
+        raise ValueError('Reaction prefix requires its actual native minion source')
+    profile = registry._assemble_reaction_sources.get(projection.card_id)
+    if (type(profile) is not AssembleWeaponReactionSource or profile.card_id != projection.card_id or
+            projection.definition_sha256 != profile.definition_sha256 or
+            projection.prefix != AssemblePrefix(profile.event, condition_id=profile.condition_id)):
+        raise ValueError('Reaction prefix requires its actual native minion source or reviewed weapon bridge')
+    validate_weapon_source(registry, profile)
+
+
 def validate_source(registry, profile, *, require_template=False):
+    if type(profile) is AssembleWeaponReactionSource:
+        return validate_weapon_source(registry, profile, require_projection=require_template)
     if type(profile) not in (AssembleReactionSource, AssembleNativeReactionSource):
         raise ValueError('Expected a complete assembly reaction source')
     profile.__post_init__()

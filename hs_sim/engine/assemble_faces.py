@@ -377,7 +377,8 @@ def validate_projection(registry,projection):
     if Keyword.COLOSSAL in projection.prefix.keywords:
         raise ValueError('Assembly Colossal prefix requires an original native minion template')
     if projection.prefix.timing in REACTION_TIMINGS:
-        raise ValueError('Reaction prefix requires its actual native minion source')
+        from .assemble_reactions import validate_weapon_projection
+        validate_weapon_projection(registry,projection)
     projection.__post_init__()
     source=registry._cards.get(projection.card_id)
     if (source is None or source.kind!=projection.source_kind or source.choice_only or not source.hand_playable or
