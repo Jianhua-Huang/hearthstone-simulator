@@ -48,7 +48,13 @@
         "END_024": "cb9b36f8d7653d381b5e44b8f07f772912f2ab9b9c74891045373e2272f6b0ab"
       },
       "test_source_sha256": "6808ef13ad019e7e4afba65c7b9ee355399d2117999dbb4e9768124660a5c518",
-      "complete_card_calibration": false
+      "complete_card_calibration": false,
+      "source_names": {
+        "END_024": {
+          "zh_CN": "无穷烈焰",
+          "en_US": "Flames of Infinity"
+        }
+      }
     },
     {
       "case_id": "CN37-PATCH-TARGET-TAUNT",
@@ -90,21 +96,27 @@
         "CORE_UNG_952": "955bfba22b3354dd7173878ec445bf2599a850622956f25ebbe5ac1b1c9903af"
       },
       "test_source_sha256": "9facc5cb63cc8198aa0b185c5e9e7f011bab27cf783fce013ea7d15bf7f0b119",
-      "complete_card_calibration": false
+      "complete_card_calibration": false,
+      "source_names": {
+        "CORE_UNG_952": {
+          "zh_CN": "剑龙骑术",
+          "en_US": "Spikeridged Steed"
+        }
+      }
     },
     {
       "case_id": "CN37-PATCH-ONE-SHOT-GRANT",
       "card_ids": [
         "CAP_801"
       ],
-      "scoped_rule": "Lasting Spirits uses an ordinary removable grant, rather than continuously restoring its granted stats on the Reborn entity.",
+      "scoped_rule": "Haunt uses an ordinary removable grant, rather than continuously restoring its granted stats on the Reborn entity.",
       "fixture": {
         "test_module": "test_constructed_utility_cards",
         "factory": "ConstructedUtilityCardTests.game",
         "call": "self.game(('CAP_801','k04.test.kill'),board=('CORE_CS2_182',))",
         "seed": 23,
         "actions": [
-          "Play Lasting Spirits targeting the minion",
+          "Play Haunt targeting the minion",
           "Destroy the recipient using the test kill spell"
         ]
       },
@@ -136,7 +148,13 @@
         "CAP_801": "11eafbfde9b62d686d03773eb66ef5ea94b8c63022b1bafefbee65fd55624c62"
       },
       "test_source_sha256": "ce2b594d9d10959b90657321ff8a17f7216e5f1cfca975be73dc5dea2acec785",
-      "complete_card_calibration": false
+      "complete_card_calibration": false,
+      "source_names": {
+        "CAP_801": {
+          "zh_CN": "幽魂不散",
+          "en_US": "Haunt"
+        }
+      }
     },
     {
       "case_id": "CN37-PATCH-COLOSSAL-EXCLUSION",
@@ -172,7 +190,13 @@
         "DINO_430": "da5a266ec43d10c73ea67c9963058684d2815cee0a64a872d67cbadc41598ece"
       },
       "test_source_sha256": "2e8c36760dec6dbfac2dc1f82695c080faafe5dfc32f34d84e30e271247a282b",
-      "complete_card_calibration": false
+      "complete_card_calibration": false,
+      "source_names": {
+        "DINO_430": {
+          "zh_CN": "兽语者塔卡",
+          "en_US": "Beast Speaker Taka"
+        }
+      }
     }
   ],
   "unresolved": [
@@ -181,7 +205,43 @@
         "CORE_RLK_567",
         "TLC_515"
       ],
-      "reason": "The patch confirms an interaction correction without specifying its resulting behavior; no replacement rule is inferred."
+      "reason": "The patch confirms an interaction correction without specifying its resulting behavior; no replacement rule is inferred.",
+      "source_names": {
+        "CORE_RLK_567": {
+          "zh_CN": "殒命暗影",
+          "en_US": "Shadow of Demise"
+        },
+        "TLC_515": {
+          "zh_CN": "异教地图",
+          "en_US": "Cultist Map"
+        }
+      },
+      "source_record_sha256": {
+        "CORE_RLK_567": "e4806cc6eb01dca47c7c2d4424cc18c8db0ba0a4ba1f7da7f429e6c456b285cd",
+        "TLC_515": "be2c6786455314d92f14cac6c378195d14770e024e9c2fb675a84923a7bac6db"
+      },
+      "prior_direct_report": {
+        "url": "https://www.reddit.com/r/hearthstone/comments/1ukvv3r/weird_shadow_of_demise_bug_i_played_it_for_0_mana/",
+        "reported_at": "2026-07-01",
+        "scope": "Firsthand pre-fix report: an unformed Shadow taken by Cultist Map appeared playable at zero cost, did nothing and did not deliver the follow-up.",
+        "not_post_fix_cn_evidence": true
+      },
+      "fixed_client_source_tag": {
+        "card_id": "CORE_RLK_567",
+        "tag": "LITERALLY_UNPLAYABLE",
+        "value": 1
+      },
+      "current_internal_test": "test_shadow_of_demise_card.ShadowOfDemiseTests.test_a13_real_cultist_map_delivers_original_unplayable_shadow_without_late_activation",
+      "post_fix_cn_server_result_verified": false,
+      "current_internal_execution": {
+        "output": "outputs/card-integration-20261014/k528-client-format-rules/selected-01",
+        "result_sha256": "2db979595b413aef2411ae1a11a0d64e5226aa699d1effd89e77a36732afebfa",
+        "inputs_sha256": "b7e509537bad69aafa581bc4696e64914fe20ec848135ec0820ebf20f6d641a4",
+        "source_guard_sha256": "0edc5feb09ca4f5ee6ce8982ca390999d6fd15567544d2f51e6ae6525414e116",
+        "methods": 1,
+        "seconds": 22.149952800013125,
+        "passed": true
+      }
     }
   ],
   "not_in_battle_scope": [
