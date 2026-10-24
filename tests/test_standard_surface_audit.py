@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def row(cid='audit.root', kind='MINION', **overrides):
-    result = dict(id=cid, name=cid, type=kind, collectible=True, cost=3,
+    result = dict(id=cid, dbf_id=1, name=cid, name_en=cid, type=kind, collectible=True, cost=3,
                   attack=2, health=4, text='', tags={'CLASS': 12, 'RARITY': 1})
     result.update(overrides)
     return result
@@ -46,6 +46,34 @@ def definition(raw, **overrides):
 def registry(*cards, **profiles):
     cards = {card.id: card for card in cards}
     return SimpleNamespace(cards=cards, card=cards.__getitem__, version='audit.fixture', **profiles)
+
+
+def primary_index(raw, **numbers):
+    result = {}
+    for locale in ('zh_CN', 'en_US'):
+        face = dict(id=raw['dbf_id'], name=raw['name' if locale == 'zh_CN' else 'name_en'],
+                    cardTypeId=audit.PRIMARY_TYPES[raw['type']], collectible=1,
+                    text='Whole primary rule text may differ; this proof compares numeric scalars only.')
+        face.update(numbers)
+        result[locale, raw['dbf_id']] = dict(face=face, url='https://hearthstone.blizzard.com/en-us/api/cards?locale='+locale,
+            response_file='fixture-'+locale+'.json', response_sha256='0'*64)
+    return result
+
+
+def catalog_manifest(folder, raw, source_sha='a'*64, inventory_sha='b'*64):
+    sources, pins = [], {}
+    for (locale, _), item in primary_index(raw, manaCost=0, attack=0, health=4).items():
+        body, receipt = folder / (locale+'.json'), folder / (locale+'.receipt.json')
+        body.write_text(json.dumps(dict(cards=[item['face']], cardCount=1, pageCount=1, page=1)), encoding='utf-8')
+        digest = hashlib.sha256(body.read_bytes()).hexdigest()
+        receipt.write_text(json.dumps(dict(url=item['url'], sha256=digest, bytes=body.stat().st_size)), encoding='utf-8')
+        sources.append(dict(locale=locale, response_file=body.name, receipt_file=receipt.name))
+        for p in (body, receipt):
+            pins[p.name] = hashlib.sha256(p.read_bytes()).hexdigest()
+    path = folder / 'primary-manifest.json'
+    path.write_text(json.dumps(dict(schema=1, source_sha256=source_sha, inventory_sha256=inventory_sha,
+                                    catalog_sources=sources, files=pins)), encoding='utf-8')
+    return path
 
 
 class StandardSurfaceAuditTests(unittest.TestCase):
@@ -203,6 +231,125 @@ class StandardSurfaceAuditTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, 'Registry sources changed'):
                     audit.main(args)
             self.assertFalse(output.exists())
+
+    def test_primary_numbers_resolve_raw_absence_but_detect_a_nonzero_definition_error(self):
+        raw = row(); raw.pop('cost'); raw.pop('attack')
+        r = registry(definition(raw))
+        result = audit.audit_surface([raw], [raw['id']], r, primary_index=primary_index(raw, manaCost=0, attack=0))
+        self.assertEqual(len(result['source_absences']), 1)  # Original missing fields are not rewritten.
+        self.assertEqual(result['unresolved_source_absences'], [])
+        self.assertEqual(result['primary_confirmed_absent_field_count'], 2)
+        result = audit.audit_surface([raw], [raw['id']], r, primary_index=primary_index(raw, manaCost=2, attack=0))
+        self.assertEqual(result['printed_mismatches'][0]['differences'],
+                         [dict(field='cost', expected=2, actual=0, basis='two_locale_primary_numeric_evidence')])
+        self.assertFalse(result['known_printed_values_match'])
+
+    def test_omitted_primary_values_and_missing_locale_never_become_zero_evidence(self):
+        raw = row('weapon', 'WEAPON'); raw.pop('attack')
+        for index in (primary_index(raw), primary_index(raw, attack=None),
+                      {key:value for key,value in primary_index(raw, attack=0).items() if key[0] == 'zh_CN'}):
+            with self.subTest(index=index):
+                result = audit.audit_surface([raw], [raw['id']], registry(definition(raw)), primary_index=index)
+                self.assertEqual(result['primary_confirmed_absent_field_count'], 0)
+                self.assertEqual(len(result['unresolved_source_absences']), 1)
+                self.assertIsNone(result['source_absences'][0]['fields'][0]['primary_evidence']['value'])
+                self.assertFalse(result['all_registered_surfaces_accounted'])
+
+    def test_primary_locale_conflicts_invalid_numbers_and_wrong_physical_faces_are_rejected(self):
+        raw = row(); raw.pop('cost')
+        for key, value in [('manaCost', 1), ('manaCost', True), ('manaCost', '0'), ('manaCost', -1),
+                           ('name', 'different'), ('cardTypeId', 7), ('id', 2), ('collectible', 0)]:
+            with self.subTest(key=key, value=value):
+                index = primary_index(raw, manaCost=0)
+                index['en_US', raw['dbf_id']]['face'][key] = value
+                with self.assertRaises(ValueError):
+                    audit.audit_surface([raw], [raw['id']], registry(definition(raw)), primary_index=index)
+
+    def test_numeric_primary_proof_pins_complete_faces_without_claiming_rule_equivalence(self):
+        raw = row(text='A {0}/{1} dynamic rule.'); raw.pop('attack')
+        index = primary_index(raw, attack=0)
+        result = audit.audit_surface([raw], [raw['id']], registry(definition(raw)), primary_index=index)
+        proof = result['source_absences'][0]['fields'][0]['primary_evidence']
+        self.assertTrue(proof['confirmed'])
+        self.assertEqual(proof['observations'][0]['full_face_sha256'],
+                         audit.batch.canonical(index['zh_CN', raw['dbf_id']]['face']))
+        self.assertIn('complete rule text is not compared', proof['scope'])
+        self.assertEqual(result['unresolved_text_surfaces'], [raw['id']])
+        self.assertFalse(result['behavior_complete'])
+
+    def test_primary_manifest_requires_both_input_bindings_and_all_unchanged_full_file_pins(self):
+        with TemporaryDirectory() as folder:
+            folder = Path(folder); path = catalog_manifest(folder, row())
+            index, pin = audit.load_primary_catalog(path, 'a'*64, 'b'*64, root=folder)
+            self.assertEqual(len(index), 2)
+            self.assertEqual(len(pin['files']), 4)
+            for source_sha, inventory_sha in [('c'*64, 'b'*64), ('a'*64, 'c'*64)]:
+                with self.assertRaises(ValueError):
+                    audit.load_primary_catalog(path, source_sha, inventory_sha, root=folder)
+            original = json.loads(path.read_text(encoding='utf-8'))
+            for mutate in (lambda m:m['files'].pop('en_US.receipt.json'),
+                           lambda m:m.update(schema=True),
+                           lambda m:m['catalog_sources'][0].update(response_file='../escape.json')):
+                changed = deepcopy(original); mutate(changed)
+                path.write_text(json.dumps(changed), encoding='utf-8')
+                with self.assertRaises(ValueError):
+                    audit.load_primary_catalog(path, 'a'*64, 'b'*64, root=folder)
+            path.write_text(json.dumps(original), encoding='utf-8')
+            body = folder / 'en_US.json'; body.write_bytes(body.read_bytes()+b'\n')
+            with self.assertRaisesRegex(ValueError, 'full file pin changed'):
+                audit.load_primary_catalog(path, 'a'*64, 'b'*64, root=folder)
+
+    def test_cli_primary_catalog_resolves_a_number_without_changing_source_or_definition(self):
+        with TemporaryDirectory() as folder:
+            folder = Path(folder)
+            source, inventory, output, args, _ = self.cli_fixture(folder)
+            raw = row(text='External behavior.'); raw.pop('cost')
+            source.write_text(json.dumps([raw]), encoding='utf-8')
+            source_sha = hashlib.sha256(source.read_bytes()).hexdigest()
+            inventory.write_text(json.dumps(dict(source_sha256=source_sha,candidate_root_ids=[raw['id']])),encoding='utf-8')
+            manifest = catalog_manifest(folder, raw, source_sha, hashlib.sha256(inventory.read_bytes()).hexdigest())
+            r = registry(definition(raw, battlecry='fixture.body'))
+            with patch.object(audit, 'ROOT', folder), patch('hs_sim.cards.build_registry', return_value=r), redirect_stdout(StringIO()):
+                self.assertEqual(audit.main(args+['--primary-catalog', str(manifest)]), 0)
+            result = json.loads(output.read_text(encoding='utf-8'))
+            self.assertEqual(result['primary_confirmed_absent_field_count'], 1)
+            self.assertEqual(len(result['primary_catalog']['files']), 4)
+            self.assertEqual(result['unresolved_source_absences'], [])
+            self.assertNotIn('cost', json.loads(source.read_text(encoding='utf-8'))[0])
+            self.assertEqual(r.card(raw['id']).cost, 0)
+
+    def test_cli_rejects_primary_body_or_receipt_changes_after_catalog_loading(self):
+        for name in ('en_US.json', 'en_US.receipt.json', 'primary-manifest.json'):
+            with self.subTest(file=name), TemporaryDirectory() as folder:
+                folder = Path(folder)
+                source, inventory, output, args, r = self.cli_fixture(folder)
+                manifest = catalog_manifest(folder, row(), hashlib.sha256(source.read_bytes()).hexdigest(),
+                                            hashlib.sha256(inventory.read_bytes()).hexdigest())
+                def mutate():
+                    p = folder / name; p.write_bytes(p.read_bytes()+b'\n'); return r
+                with patch.object(audit, 'ROOT', folder), patch('hs_sim.cards.build_registry', side_effect=mutate):
+                    with self.assertRaisesRegex(RuntimeError, 'Primary catalog changed'):
+                        audit.main(args+['--primary-catalog', str(manifest)])
+                self.assertFalse(output.exists())
+
+    def test_actual_bilingual_catalog_confirms_28_missing_fields_and_keeps_two_weapon_omissions(self):
+        from hs_sim.cards import build_registry
+        base = ROOT / 'outputs/card-integration-20261014'
+        manifest = json.loads((ROOT / 'data/cards/launch-candidate-cn37-v1.json').read_text(encoding='utf-8'))
+        sources = [dict(locale=locale,
+                        response_file=f'outputs/card-integration-20261014/k325-black-empire-first/catalog-{locale}-{page}.json',
+                        receipt_file=f'outputs/card-integration-20261014/k325-black-empire-first/catalog-{locale}-{page}.receipt.json')
+                   for locale in ('zh_CN', 'en_US') for page in (1, 2, 3)]
+        index = audit.batch.catalog_index(sources, ROOT)
+        result = audit.audit_surface(json.loads((base / 'cards-37.0.0.255026.json').read_text(encoding='utf-8')),
+                                     manifest['candidate_root_ids'], build_registry(), primary_index=index)
+        self.assertEqual(len(result['source_absences']), 29)
+        self.assertEqual(result['primary_confirmed_absent_field_count'], 28)
+        self.assertEqual({r['card_id'] for r in result['unresolved_source_absences']}, {'BE_227', 'CORE_LOOT_044'})
+        self.assertEqual(result['printed_mismatches'], [])
+        self.assertEqual(result['unresolved_text_surfaces'], [])
+        self.assertFalse(result['all_registered_surfaces_accounted'])
+        self.assertFalse(result['formal_pool_certified'])
 
     def test_fixed_cn37_inventory_checks_every_root_and_keeps_external_proofs(self):
         from hs_sim.cards import build_registry
