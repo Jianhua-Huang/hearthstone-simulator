@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "target": {
+    "region": "CN",
+    "patch": "37.0",
+    "client_source": "37.0.0.255026"
+  },
+  "source": {
+    "url": "https://hs.blizzard.cn/news/24301454/",
+    "complete_response_file": "outputs\\card-integration-20261014\\k527-cn37-patch-calibration\\cn-37.0.html",
+    "response_sha256": "a3b07a1e8a96584143908dcbb838a32bea002be305a64a8dd3532a38aca2a430",
+    "receipt_file": "outputs/card-integration-20261014/k527-cn37-patch-calibration/cn-37.0.receipt.json",
+    "receipt_sha256": "eb803c0198cd1b8e9046d0b009a7ba66199c17c48ae76f089457e9c2c4459c19"
+  },
+  "cases": [
+    {
+      "case_id": "CN37-PATCH-END-ORDER",
+      "card_ids": [
+        "END_024"
+      ],
+      "scoped_rule": "Flames of Infinity does not override ordinary end-turn ordering with an unconditional secret-first priority.",
+      "fixture": {
+        "test_module": "test_infinite_secret_cards",
+        "factory": "InfiniteSecretCardTests.game",
+        "call": "self.game(('k13d.end',))",
+        "seed": 229,
+        "actions": [
+          "self.trigger(g)"
+        ]
+      },
+      "expected": {
+        "damage_source_order": [
+          "k13d.end",
+          "END_024"
+        ],
+        "fixture_hero_health": 97
+      },
+      "methods": [
+        "test_infinite_secret_cards.InfiniteSecretCardTests.test_shared_end_turn_order_has_no_secret_first_priority"
+      ],
+      "limits": [
+        "This case witnesses ordinary trigger before secret; it does not calibrate every order tie or priority window.",
+        "Infinity numeric representation and official RNG are not calibrated."
+      ],
+      "evidence_status": "official_statement_scoped_current_case_passed",
+      "source_clause": "37.0 patch notes / bug fixes / constructed",
+      "source_record_sha256": {
+        "END_024": "cb9b36f8d7653d381b5e44b8f07f772912f2ab9b9c74891045373e2272f6b0ab"
+      },
+      "test_source_sha256": "6808ef13ad019e7e4afba65c7b9ee355399d2117999dbb4e9768124660a5c518",
+      "complete_card_calibration": false
+    },
+    {
+      "case_id": "CN37-PATCH-TARGET-TAUNT",
+      "card_ids": [
+        "CORE_UNG_952"
+      ],
+      "scoped_rule": "Spikeridged Steed grants Taunt to its actual selected minion.",
+      "fixture": {
+        "test_module": "test_granted_deathrattle_cards",
+        "factory": "GrantedDeathrattleCardTests.game",
+        "call": "self.game((STEED,'k35.kill'),(SQUIRE,YETI,SQUIRE)); enemy-recipient variant separately",
+        "seed": 437,
+        "actions": [
+          "Play Steed targeting the selected minion",
+          "Destroy the recipient using the test kill spell"
+        ]
+      },
+      "expected": {
+        "friendly_target_attack": 6,
+        "friendly_target_max_health": 11,
+        "actual_target_has_taunt": true,
+        "child_stats": [
+          2,
+          6
+        ],
+        "child_has_taunt": true,
+        "death_summon_controller": "actual recipient controller"
+      },
+      "methods": [
+        "test_granted_deathrattle_cards.GrantedDeathrattleCardTests.test_paid_spell_grants_stats_taunt_and_deathrattle_then_complete_replacement_at_death_position",
+        "test_granted_deathrattle_cards.GrantedDeathrattleCardTests.test_enemy_recipient_death_summons_for_its_controller"
+      ],
+      "limits": [
+        "The official corrected target keyword is the calibrated clause; the grant/death assertions are additional internal checks."
+      ],
+      "evidence_status": "official_statement_scoped_current_case_passed",
+      "source_clause": "37.0 patch notes / bug fixes / constructed",
+      "source_record_sha256": {
+        "CORE_UNG_952": "955bfba22b3354dd7173878ec445bf2599a850622956f25ebbe5ac1b1c9903af"
+      },
+      "test_source_sha256": "9facc5cb63cc8198aa0b185c5e9e7f011bab27cf783fce013ea7d15bf7f0b119",
+      "complete_card_calibration": false
+    },
+    {
+      "case_id": "CN37-PATCH-ONE-SHOT-GRANT",
+      "card_ids": [
+        "CAP_801"
+      ],
+      "scoped_rule": "Lasting Spirits uses an ordinary removable grant, rather than continuously restoring its granted stats on the Reborn entity.",
+      "fixture": {
+        "test_module": "test_constructed_utility_cards",
+        "factory": "ConstructedUtilityCardTests.game",
+        "call": "self.game(('CAP_801','k04.test.kill'),board=('CORE_CS2_182',))",
+        "seed": 23,
+        "actions": [
+          "Play Lasting Spirits targeting the minion",
+          "Destroy the recipient using the test kill spell"
+        ]
+      },
+      "expected": {
+        "granted_stats": [
+          6,
+          8
+        ],
+        "granted_keywords": [
+          "reborn",
+          "taunt"
+        ],
+        "reborn_is_new_entity": true,
+        "reborn_stats": [
+          4,
+          1
+        ],
+        "reborn_does_not_keep_reborn": true
+      },
+      "methods": [
+        "test_constructed_utility_cards.ConstructedUtilityCardTests.test_buff_grants_and_reborn_use_existing_keyword_and_silence_lifecycle"
+      ],
+      "limits": [
+        "This witnesses the grant/Reborn lifecycle; other dispel, copy and aura ordering contexts need their own evidence."
+      ],
+      "evidence_status": "official_statement_scoped_current_case_passed",
+      "source_clause": "37.0 patch notes / bug fixes / constructed",
+      "source_record_sha256": {
+        "CAP_801": "11eafbfde9b62d686d03773eb66ef5ea94b8c63022b1bafefbee65fd55624c62"
+      },
+      "test_source_sha256": "ce2b594d9d10959b90657321ff8a17f7216e5f1cfca975be73dc5dea2acec785",
+      "complete_card_calibration": false
+    },
+    {
+      "case_id": "CN37-PATCH-COLOSSAL-EXCLUSION",
+      "card_ids": [
+        "DINO_430"
+      ],
+      "scoped_rule": "Beast Speaker Taka excludes Colossal minions from its discovery query.",
+      "fixture": {
+        "test_module": "test_legendary_beast_discovery_card",
+        "factory": "LegendaryBeastTests.game",
+        "call": "self.game()",
+        "seed": 249430,
+        "actions": [
+          "Play Taka and inspect its actual discovery options"
+        ],
+        "registry_scope": "Unmodified production Taka adapter on the representative registry with an explicit fixture pool"
+      },
+      "expected": {
+        "option_count": 3,
+        "options_subset": "GEN",
+        "excluded_fixture_card": "COLOSSAL",
+        "class_mode": "any"
+      },
+      "methods": [
+        "test_legendary_beast_discovery_card.LegendaryBeastTests.test_b01_any_class_legendary_beasts_and_official_colossal_exclusion"
+      ],
+      "limits": [
+        "This calibrates the exclusion predicate, not the complete official generation pool, hidden selection weights or official RNG."
+      ],
+      "evidence_status": "official_statement_scoped_current_case_passed",
+      "source_clause": "37.0 patch notes / bug fixes / constructed",
+      "source_record_sha256": {
+        "DINO_430": "da5a266ec43d10c73ea67c9963058684d2815cee0a64a872d67cbadc41598ece"
+      },
+      "test_source_sha256": "2e8c36760dec6dbfac2dc1f82695c080faafe5dfc32f34d84e30e271247a282b",
+      "complete_card_calibration": false
+    }
+  ],
+  "unresolved": [
+    {
+      "card_ids": [
+        "CORE_RLK_567",
+        "TLC_515"
+      ],
+      "reason": "The patch confirms an interaction correction without specifying its resulting behavior; no replacement rule is inferred."
+    }
+  ],
+  "not_in_battle_scope": [
+    "Cosmetic deck autocomplete correction"
+  ],
+  "live_client_experiment": false,
+  "complete_cn_calibration": false,
+  "formal_pool_certified": false,
+  "accepted_scoped_case_count": 4,
+  "current_execution": {
+    "output": "outputs/card-integration-20261014/k527-cn37-patch-calibration/selected-01",
+    "result_sha256": "bb4c17bad08211da53720b67c42c13bf505bf2fe2e7a0b623200130994340dae",
+    "inputs_sha256": "d6681add56496d61873742756b979d605aecb280407234a26e8d3a8da101887d",
+    "source_guard_sha256": "0edc5feb09ca4f5ee6ce8982ca390999d6fd15567544d2f51e6ae6525414e116",
+    "methods": 5,
+    "seconds": 22.816592099989066
+  }
+}
