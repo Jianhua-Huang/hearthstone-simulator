@@ -8,13 +8,14 @@ from .model import CardDefinition,CardType,_name
 
 PREFIX='crafted:'
 VERSION='crafted-minion-v1'
+NATIVE_DORMANT_ENTRY='crafted_dormant_entry'
 TUPLES=('triggers','auras','cost_auras','keyword_auras','battlecry_repeats','deathrattle_repeats',
     'combo_repeats','spell_repeats','health_loss_replacements','health_loss_floors','summon_quantities',
     'weapon_wear_policies','health_rules','activated_abilities','limited_triggers','hero_power_repeats',
     'end_turn_repeats','intrinsic_costs','attack_policies','stat_relations','timed_keywords')
 PART_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords','on_play',
     'battlecry','deathrattle','combo','requires_target','target_rule','targeting','spell_damage',
-    'spell_damage_schools','cleave',*TUPLES))
+    'spell_damage_schools','cleave','dormant_turns',*TUPLES))
 
 
 @dataclass(frozen=True)
@@ -88,6 +89,34 @@ def validate_part_shape(registry,card):
     registry._validate_card(card)
 
 
+def native_dormancy(parts):
+    values=tuple(p.dormant_turns for p in parts if p.dormant_turns!=0)
+    if len(values)>1 or values and(type(values[0])is not int or values[0]<=0):
+        raise ValueError('Unreviewed differing or conditional native dormant materials')
+    return values[0]if values else 0
+
+
+def blocks_dormant_entry(entity):
+    return entity.dormancy is not None and any(a.kind==NATIVE_DORMANT_ENTRY for a in entity.abilities)
+
+
+def validate_dormant_carrier(registry,card_id,kind,abilities,components=()):
+    rows=tuple(a for a in abilities if a.kind==NATIVE_DORMANT_ENTRY)
+    if not card_id.startswith(PREFIX):
+        if rows:raise ValueError('Native crafted dormancy requires its original composition')
+        return
+    recipe=recipe_from_id(card_id)
+    turns=native_dormancy(tuple(registry._cards[cid]for cid in recipe.parts))
+    if not rows:
+        if turns and any(a.kind in('on_play','battlecry','combo')for a in abilities):
+            raise ValueError('Native dormant entry bodies lost their printed blocking declaration')
+        return
+    if (not turns or kind!=CardType.MINION or type(components)is not tuple or
+            components!=recipe.parts or len(rows)!=1):
+        raise ValueError('Native crafted dormancy differs from its original timed material')
+    rows[0].__post_init__()
+
+
 def native_domains(parts):
     """Check only actual native donor compatibility; do not enumerate recipes."""
     schools=[p.spell_damage_schools for p in parts if p.spell_damage]
@@ -115,6 +144,7 @@ def resolve_face(registry,card_id):
         face=replace(template,id=card_id,cost=sum(p.cost for p in parts),attack=sum(p.attack for p in parts),
             health=sum(p.health for p in parts),keywords=tuple(sorted({k for p in parts for k in p.keywords})),
             cleave=any(p.cleave for p in parts),
+            dormant_turns=native_dormancy(parts),
             spell_damage=sum(p.spell_damage for p in parts),spell_damage_schools=tuple(sorted({s for p in parts for s in p.spell_damage_schools})),
             metadata=replace(template.metadata,tribes=tribes),requires_target=require,target_rule=rule,targeting=target,
             **{key:next((getattr(p,key)for p in parts if getattr(p,key)is not None),None)for key in('battlecry','deathrattle','combo')},
@@ -135,12 +165,16 @@ def composition_shape(card,components):
 def install(rules_state,entity,definition,registry,components):
     recipe=recipe_from_id(definition.id)
     if components and components!=recipe.parts:raise ValueError('Crafted material changed its original ordered ingredients')
-    from .lifecycle import install_printed,refresh_entity
+    from .lifecycle import install_printed,refresh_entity,attachment_id
     entity.components=recipe.parts;entity.herald_rank=None
     entity.base_attack,entity.base_health=definition.attack,definition.health
     for index,cid in enumerate(recipe.parts):
         excluded=tuple(a.keyword for a in entity.abilities if a.kind=='keyword')if index else ()
         install_printed(rules_state,entity,registry.card(cid),registry,append=bool(index),exclude_keywords=excluded)
+    if definition.dormant_turns:
+        from .model import AbilityInstance
+        entity.abilities.append(AbilityInstance(attachment_id(rules_state),NATIVE_DORMANT_ENTRY,
+            source_id=entity.id,origin='printed'))
     refresh_entity(entity)
 
 

@@ -3377,11 +3377,13 @@ class AbilityInstance:
                 self.remove_on_silence is not True or self.timed_keyword is not None or
                 self.origin == 'printed' and (self.source_id is None or self.expires_turn is not None)):
             raise ValueError('Full-health Reborn requires a removable keyword grant or native declaration')
-        if self.kind == 'cleave':
+        if self.kind in ('cleave', 'crafted_dormant_entry'):
             from dataclasses import fields
             allowed = {'id', 'kind', 'source_id', 'origin'}
             if (self.origin != 'printed' or self.source_id is None or
                     any(getattr(self, f.name) != f.default for f in fields(self) if f.name not in allowed)):
+                if self.kind == 'crafted_dormant_entry':
+                    raise ValueError('Crafted dormancy requires a pure native removable declaration')
                 raise ValueError('Cleave requires a pure native removable declaration')
         if self.cthun_ritual is not None:
             if type(self.cthun_ritual) is not CthunRitualStamp:
@@ -3507,7 +3509,7 @@ class AbilityInstance:
         if self.divine_shield_hits and (self.kind!='keyword' or self.keyword!=Keyword.DIVINE_SHIELD or
                 self.divine_shield_hits>3 or self.divine_shield_hits==3 and not self.consumed):
             raise ValueError('Only a physical Divine Shield carries its bounded hit count')
-        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "spell_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "card_cast_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "on_discard", "on_destroyed"}:
+        if not isinstance(self.kind, str) or self.kind not in {"keyword", "trigger", "limited_trigger", "counter_policy", "hand_progress", "defining_hand_source", "hand_mirror", "spell_mirror", "deathrattle", "aura", "battlecry", "combo", "on_play", "on_use", "on_launch", "on_awaken", "dormant_trigger", "board_full_awaken", "spell_damage", "cost_aura", "health_rule", "activated", "deck_sacrifice", "keyword_aura", "spell_repeat", "card_spell_repeat", "card_cast_repeat", "battlecry_repeat", "deathrattle_repeat", "hero_power_repeat", "end_turn_repeat", "combo_repeat", "health_loss_replacement", "health_loss_floor", "rewind_retention", "choose_both", "attack_policy", "printed_attack_permit", "stat_relation", "weapon_wear_policy", "summon_quantity", "cleave", "crafted_dormant_entry", "on_discard", "on_destroyed"}:
             if self.kind not in ('hero_power_use_aura', 'corpse_gain', 'turn_draw_suppression', 'native_producer_quantity', 'native_stat_gain', 'remaining_mana_numbers', 'class_discovery', 'colossal_reserve', 'spell_base_value', 'spell_stat_value', 'spell_resummon_value', 'prepare', 'aura_duration_bonus', 'after_play', 'spell_aura', 'transform_replacement', 'random_targets', 'hero_power_targets'):
                 raise ValueError("unsupported ability kind")
         if self.kind == 'transform_replacement':
@@ -11984,6 +11986,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_board_full_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .cleave import validate_carrier as validate_cleave_carrier
                 validate_cleave_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
+                from .crafted_faces import validate_dormant_carrier
+                validate_dormant_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .health_floors import validate_carrier as validate_floor_carrier
                 validate_floor_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .health_loss_floors import validate_carrier as validate_loss_floor_carrier
@@ -12191,6 +12195,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_board_full_carrier(registry,record.card_id,kind,record.abilities)
         from .cleave import validate_carrier as validate_cleave_carrier
         validate_cleave_carrier(registry, record.card_id, kind, record.abilities, record.components)
+        from .crafted_faces import validate_dormant_carrier
+        validate_dormant_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .health_floors import validate_carrier as validate_floor_carrier, validate_result
         validate_floor_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .health_loss_floors import validate_carrier as validate_loss_floor_carrier

@@ -17,7 +17,8 @@ def active_abilities(entity, kind):
     if kind in ('dormant_trigger', 'board_full_awaken'):
         eligible = entity.dormancy is not None and not entity.starship_building
     elif kind in ('on_play', 'battlecry', 'combo') and entity.dormancy is not None:
-        eligible = not entity.starship_building
+        from .crafted_faces import blocks_dormant_entry
+        eligible = not entity.starship_building and not blocks_dormant_entry(entity)
     return tuple(a for a in entity.abilities if a.kind == kind and not a.consumed) if eligible else ()
 
 

@@ -137,7 +137,10 @@ class ZombeastNativeTextPartsTests(CardBatchTestMixin, unittest.TestCase):
         for face in data['official_observations']:
             batch.check_face(rows[face['card_id']], face['face'], face['locale'])
         registry = originals()
-        self.assertEqual(len(registry.crafted_minion_parts), 35)
+        boundary = batch.registration_prefix(build_registry,
+            'hs_sim.cards.zombeast_native_text_parts.register_zombeast_native_text_parts',
+            register_zombeast_native_text_parts, after=True)
+        self.assertEqual(len(boundary.crafted_minion_parts), 35)
         self.assertTrue(set(PARTS) <= set(registry.crafted_minion_parts))
         self.assertFalse(any(key[0] in (FIRST, SECOND) for key in registry.pools))
         self.assertFalse(data['formal_pool_complete']); self.assertFalse(data['cn_calibrated'])
