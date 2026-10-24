@@ -41,3 +41,16 @@ CardDefinition(
 实际执行、已知差异和下一项仅在[项目状态](project-status.md)与[机制清单](mechanism-backlog.md)维护。原普通变形和当前物理复制见[存储变形](m3-stored-card-transform.md)与[复制变形](m3-stored-copy-transform.md)。
 
 随机选面复用入口与私有抽样记录见[随机选面契约](m3-native-hand-transform-pools.md)。实际执行与下一项仅在两台账。
+
+
+## K487 对手手牌选面与跨类型原生来源
+
+[卡米洛斯](../data/cards/past-physical-source-passives-v1.json)通过register_defining_hand_copy声明有限原生对手手牌来源。原卡必须为具有既有回合开始HandProgressSpec的普通随从。此注册加入身份指纹，空集合保持默认身份；仅该原始来源允许当前卡面跨越普通手牌五种类型，原三类同类型变形来源的检查保持。
+
+TransformDefiningHandCardFromHand保存当前CardReference、原始defining_card_id和source_ability_id，绑定同一物理实体的已接受本人开始见证。执行时完整枚举当前对手物理手牌，每张实体一个抽选位置，重复卡面不合并；预先拒绝未支持的组成材料，再沿原MT19937 choice抽一次。空手保留当前卡面且不消耗RNG，陈旧接收引用沿旧规则跳过。原生来源和内部物理选择不进入玩家DTO。
+
+选中材料通过原reset_stored_entity及copy_current_stored_state安装：替换接收者旧局部材料，保留原实体、拥有者、控制者、手牌槽和获取身份。被选手牌留在对手手中，没有新实体、抽牌、召唤、施法或Copy获取事件。采样材料中的另一原生变形来源不借给接收者，完成后只恢复接收者自己的原始来源/能力ID/进度；普通当前属性、费用和其他材料仍走既有复制器。
+
+原卡被变为法术、武器、地标或英雄牌后，后续本人开始仍由同一原生来源执行。普通外部换面和离手继续退休原来源；原牌无reset转手沿renew_hand_progress重分配能力ID并清空旧持有者见证，使用新持有者后续开始。真实英雄牌安装同样调用原离手清理，再合入英雄附件，避免将手牌来源留在HERO区域。等待请求的绑定由公共边界校验，解释器保存、回放与事务回滚仍共用。
+
+[12.0官方机制说明](https://news.blizzard.com/en-gb/article/21965466/developer-insights-12-0-game-mechanics-update)给出普通复制/变形方向；[历史玩家材料观察](https://us.forums.blizzard.com/en/hearthstone/t/chameleos-doesnt-work-with-the-harvester-of-envy/92072)不能代替当前CN37完整校准。卡米洛斯当前材料和嵌套原生来源政策、精确接受窗及复合/打造材料仍待M6/M7；已有定义来源的通用当前复制缺口保持明确报错。实际验收与下一项仅维护在两份主台账。

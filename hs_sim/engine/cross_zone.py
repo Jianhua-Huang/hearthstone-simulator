@@ -741,6 +741,7 @@ def transform_pool_target(r, effect):
 
 
 def validate_boundary(game):
+    from .defining_hand_copies import TransformDefiningHandCardFromHand, validate_pending as validate_hand_copy
     from .transform_replacements import validate_events as validate_replacements
     validate_replacements(game)
     from .stored_pool_transforms import TransformStoredFromPool, validate_events, validate_pending
@@ -748,6 +749,8 @@ def validate_boundary(game):
     validate_native_pool_events(game)
     if game._frame is None:return
     def check(work):
+        if type(work) is TransformDefiningHandCardFromHand:
+            validate_hand_copy(game, work)
         grant = getattr(work, 'deathrattle_grant', None)
         if grant is not None:
             from .deathrattle_memory import validate_copy_memory
@@ -809,6 +812,8 @@ def validate_boundary(game):
 
 
 def register(mechanics):
+    from .defining_hand_copies import register as register_defining_hand_copies
+    register_defining_hand_copies(mechanics)
     from .stored_pool_transforms import register as register_stored_pool
     register_stored_pool(mechanics)
     mechanics.register_payload_type(MinionScope)

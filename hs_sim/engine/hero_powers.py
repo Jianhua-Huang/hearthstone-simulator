@@ -582,6 +582,8 @@ def play_hero(r, entity, *, origin=Zone.HAND):
     getattr(player,origin.value).remove(entity.id)
     entity.zone = Zone.HERO
     entity.zone_epoch += 1
+    from .lifecycle import renew_hand_progress
+    renew_hand_progress(r.state, entity, previous_zone=origin)
     entity.entered_order = r.state.next_order
     r.state.next_order += 1
     player.hero_id = entity.id

@@ -38,3 +38,10 @@ TransformDefiningHandCardFromPool(
 原始变形卷轴禁止手动出牌是当前明确本地政策，仍待国服校准；无COST原行原样保留，诊断印刷数值使用零默认值。三类持续来源的离手/外部变形政策继承前一契约。完整随机池、其他定义来源、复制/转手政策及国服精确时序未由受限实验覆盖。
 
 实际执行、差异和下一项只在[项目状态](project-status.md)与[机制清单](mechanism-backlog.md)维护。长期目标及 M0正式池、M6国服校准、M7批量接卡保持开放。
+
+
+## K487 真实泽鲁斯的当前格式入口
+
+[OG_123完整原行及双语主面](../data/cards/past-physical-source-passives-v1.json)接通原defining_hand_source，每个本人开始只返回原TransformDefiningHandCardFromPool。池使用constructed.cards，查询固定collectible=True和MINION，实际GenerationContext继续由宿主格式绑定；不能把“过去的一费随从”调查名单当作泽鲁斯完整随机池。原类型、来源、所有候选预核、整数权重抽样、私有draw证明、自己原始卡面及反复换面生命周期保持。
+
+国服37上线候选宿主仍保留全部源候选；只要符合条件的执行定义缺失，真实回合开始会在抽样前明确失败，原动作和RNG回滚。不会以已接入子集替换全池。完整标准正式池、可达材料和国服规则未据此认证；原实验定义与固定源缓存继续作为独立历史证据保留，实际结果与下一项仅见两份台账。

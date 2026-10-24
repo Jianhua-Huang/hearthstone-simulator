@@ -164,6 +164,7 @@ class Registry:
         self._cards: dict[str, CardDefinition] = {}
         self._hand_mirror_ids = frozenset()
         self._spell_mirror_ids = frozenset()
+        self._defining_hand_copy_ids = frozenset()
         self._assemble_templates = {}
         self._assemble_inner_conditions = set()
         self._assemble_reaction_continuations = {}
@@ -1797,6 +1798,18 @@ class Registry:
         return self._hand_mirror_ids
 
     @property
+    def defining_hand_copy_ids(self):
+        return self._defining_hand_copy_ids
+
+    def register_defining_hand_copy(self, card_id):
+        self._require_mutable()
+        from .defining_hand_copies import validate_declaration
+        validate_declaration(self, card_id)
+        if card_id in self._defining_hand_copy_ids:
+            raise ValueError('Duplicate native opposing-hand shifter')
+        self._defining_hand_copy_ids = self._defining_hand_copy_ids | {card_id}
+
+    @property
     def modular_profiles(self):
         return MappingProxyType(self._modular_profiles)
 
@@ -1902,10 +1915,12 @@ class Registry:
         binding.__post_init__()
         validate_defining_hand_spec(binding.hand_progress)
         original = self.card(binding.defining_card_id)
+        cross_kind = binding.defining_card_id in self._defining_hand_copy_ids
         if (original.defining_hand_source != binding.hand_progress or binding.source_id != entity.id or
-                original.kind != entity.kind or
+                original.kind != entity.kind and not cross_kind or
                 entity.zone not in (Zone.HAND, Zone.DECK) or
-                entity.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON) or entity.components):
+                entity.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON) and not cross_kind or
+                cross_kind and not self.card(entity.card_id).hand_playable or entity.components):
             raise ValueError('Defining source differs from its native declaration or physical carrier')
 
     def card(self, id: str) -> CardDefinition:
@@ -2572,6 +2587,8 @@ class Registry:
         for profile in self._next_spell_body_profiles.values(): validate_next_spell_body(self, profile)
         from .spell_mirrors import validate_declaration as validate_spell_mirror_declaration
         for card_id in self._spell_mirror_ids:validate_spell_mirror_declaration(self,card_id)
+        from .defining_hand_copies import validate_declaration as validate_defining_hand_copy
+        for card_id in self._defining_hand_copy_ids:validate_defining_hand_copy(self,card_id)
         from .carved_spells import validate_profile as validate_carved_profile
         for profile in self._carved_spell_profiles.values():validate_carved_profile(self,profile)
         from .live_hand_spells import validate_profile as validate_live_hand_spell_profile
@@ -3001,6 +3018,8 @@ class Registry:
             payload['next_spell_body_profiles'] = [asdict(self._next_spell_body_profiles[k]) for k in sorted(self._next_spell_body_profiles)]
         if self._spell_mirror_ids:
             payload['spell_mirror_ids']=sorted(self._spell_mirror_ids)
+        if self._defining_hand_copy_ids:
+            payload['defining_hand_copy_ids']=sorted(self._defining_hand_copy_ids)
         if self._carved_spell_profiles:
             payload['carved_spell_profiles']=[asdict(self._carved_spell_profiles[k])for k in sorted(self._carved_spell_profiles)]
         if self._live_hand_spell_profiles:
