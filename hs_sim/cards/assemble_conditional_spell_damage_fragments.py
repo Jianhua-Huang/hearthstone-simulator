@@ -16,7 +16,7 @@ CARD='CATA_483'
 CONDITION='cards.assemble_conditional.own_spell_damage_turn'
 BODY='cards.assemble_conditional.self_copy'
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/assemble-conditional-spell-damage-fragments-v1.json'
-BATCH_HASH='3c1d18419335a8f20bcb10d8e0c6ff3f248ab265b0b57a97fda927154c7e2e1f'
+BATCH_HASH='8d95b51e88277949e9791e0ee25d4e5f4c4cf853ea66f85d2855ccde47e2c0cb'
 
 
 def load_batch():

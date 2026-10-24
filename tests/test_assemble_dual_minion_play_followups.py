@@ -207,9 +207,10 @@ class AssembleDualMinionPlayTests(unittest.TestCase):
         self.assertEqual(len(g.state.battlecry_history), 1)
         self.portable(g)
 
-    def test_j_copy_suffix_death_context_is_explicitly_pending_and_never_an_empty_body(self):
-        with self.assertRaisesRegex(UnsupportedDefinitionError, 'unimplemented'):
-            fixture().card(recipe(LOOT, BOOK))
+    def test_j_copy_suffix_death_context_has_a_real_body_and_no_pending_timing(self):
+        r = fixture()
+        self.assertIsNotNone(r.card(recipe(LOOT, BOOK)).deathrattle)
+        self.assertEqual(r.assemble_templates[BOOK].suffix.pending_timings, ())
 
     def test_k_direct_summon_does_not_copy_but_retains_original_prefix_deathrattle(self):
         g = self.game((SUMMON_BOOK, KILL)); self.play(g, SUMMON_BOOK)

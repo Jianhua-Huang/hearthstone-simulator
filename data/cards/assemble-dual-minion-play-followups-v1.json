@@ -927,6 +927,7 @@
         "card_drawn",
         "card_played",
         "damage_dealt",
+        "deathrattle",
         "end_turn",
         "hand_card_entered",
         "health_resolved",
@@ -941,9 +942,7 @@
         "stealth_lost",
         "turn_started"
       ],
-      "pending_timings": [
-        "deathrattle"
-      ]
+      "pending_timings": []
     }
   ],
   "original_kindred_profiles": {
@@ -1029,6 +1028,6 @@
   "pool_id": "constructed.cards",
   "limits": [
     "Internal source adaptation; formal pool and CN calibration separate.",
-    "TLC_226 copy suffix Deathrattle context explicitly pending genuine current death-copy material; never silently skipped."
+    "TLC_226 borrowed suffix reuses the original natural-death copy profile; full-health material is internal and not CN-calibrated. Original spell-draw Deathrattle and Kindred stay separate."
   ]
 }

@@ -200,7 +200,7 @@ class AssembleOwnerStartBodyTests(unittest.TestCase):
         self.assertIsNone(legacy.pop('original_deathrattle_id'))
         self.assertIsNone(legacy['prefix'].pop('before_behavior_id'))
         self.assertEqual(canonical_digest(legacy),amendment['original_template_sha256'])
-        self.assertEqual(current.suffix.allowed_timings,('battlecry','deathrattle','end_turn','start_turn'))
+        self.assertEqual(current.suffix.allowed_timings,('battlecry','deathrattle','end_turn','start_turn','on_play'))
         saved=r.fingerprint();pin=canonical_digest(asdict(current))
         for timings,expected in((('start_turn',),'0'*64),(('start_turn',),pin),((),pin),([],pin),(('invented',),pin)):
             with self.subTest(timings=timings),self.assertRaises(ValueError):

@@ -5,6 +5,7 @@ from pathlib import Path
 
 from hs_sim.engine.assemble_faces import AssemblePrefix, AssembleSuffix, AssembleTemplate
 from hs_sim.engine.assemble_on_play import AssembleOnPlayDeathSource
+from hs_sim.engine.death_self_copies import copy_body
 from hs_sim.engine.effects import CopyMinion
 from hs_sim.engine.kindred import current_source
 from hs_sim.engine.model import BoardPresenceReference, CardType, Keyword, Zone
@@ -14,7 +15,7 @@ from hs_sim.targets import TargetValidationError, canonical_digest
 SOURCES = ('BE_264', 'END_015', 'TLC_226')
 COPY = 'cards.assemble_dual_minion_play.copy_source'
 BATCH_PATH = Path(__file__).resolve().parents[2] / 'data/cards/assemble-dual-minion-play-followups-v1.json'
-BATCH_HASH = '13a4fcb084d5fd24e26013684dcd7b70962a1b17cc117022e807f7a9d14f6dbd'
+BATCH_HASH = '81bec66f289f8632e3093289854e74bf1002ca5890ed112a762ec98d56352e72'
 
 
 def load_batch():
@@ -41,6 +42,8 @@ def register_assemble_dual_minion_play_followups(registry):
             raise TargetValidationError('Actual play/death assembly changed the complete native Kindred profile')
 
     def copy_source(c):
+        if c.deathrattle is not None:
+            return copy_body(c)
         source = current_source(c) if c.kindred is not None else c.source
         if (source is None or source.kind != CardType.MINION or source.zone != Zone.BOARD or
                 not source.active or source.health <= 0 or source.doomed):

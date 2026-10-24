@@ -10,7 +10,7 @@ from .utility_cards import compile_body
 
 CARD='CORE_NEW1_021'
 BATCH_PATH=Path(__file__).resolve().parents[2]/'data/cards/assemble-owner-start-body-fragments-v1.json'
-BATCH_HASH='66d7152eb29ac3a377a4f1ad20f8318e52ee5a507cbecadb27b41827f599b520'
+BATCH_HASH='55b1006dd0cc24cf580d7d90a846e5eca24751d49375e10fd521d28076127b41'
 
 
 def load_batch():
