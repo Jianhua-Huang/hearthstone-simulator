@@ -20,7 +20,7 @@ from hs_sim.engine.replay import build_replay, replay
 from hs_sim.engine.serialization import canonical_hash
 from hs_sim.engine.zones import CardReference
 from hs_sim.targets import canonical_digest
-from tools.card_batch import check_face, sha
+from tools.card_batch import check_face, sha, registration_prefix
 
 SUMMON, DISCOUNT, SPLIT, GAIN = cards.FORMS
 P = 'k451.'
@@ -151,8 +151,12 @@ class TomeTranslatorTests(unittest.TestCase):
         for cid in cards.FORMS:
             card = registry.card(cid)
             self.assertEqual((card.cost, card.attack, card.health, card.metadata.collectible), (4, 5, 4, False))
+        from hs_sim.cards.tome_translator_root_card import register_tome_translator_root_card
+        original_boundary = registration_prefix(build_registry,
+            'hs_sim.cards.tome_translator_root_card.register_tome_translator_root_card',
+            register_tome_translator_root_card)
         with self.assertRaises(UnsupportedDefinitionError):
-            registry.card('BE_327')
+            original_boundary.card('BE_327')
         self.assertFalse(data['limitations']['root_registered'])
 
     def test_b_exact_complete_twenty_four_member_native_summon_domain(self):

@@ -1,0 +1,539 @@
+{
+  "schema": 1,
+  "batch": "K500-tome-translator-root",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_327",
+        "dbf_id": 129235,
+        "name": "秘典翻译官",
+        "name_en": "Tome Translator",
+        "text": "<b>战吼：</b>？？？<i>（@回合后解译）</i>",
+        "text_en": "<b>Battlecry:</b> ???\n<i>(Deciphers in @ |4(turn, turns).)</i>",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          }
+        ]
+      },
+      "record_sha256": "989371ec4c73019c17fa175d221e0b6cf67c40a2362203080e7769a2ad295461",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_327",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_327t",
+        "dbf_id": 129236,
+        "name": "秘典翻译官",
+        "name_en": "Tome Translator",
+        "text": "<b>战吼：</b>随机召唤两个法力值消耗为（2）的<b>亡语</b>随从。",
+        "text_en": "<b>Battlecry:</b> Summon\ntwo random 2-Cost\n<b>Deathrattle</b> minions.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "95940b9d45ffc76deb4a97d5d0e864f3ad5eba1fd614a927f5bd3facd9ea65db",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_327t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "a9f147fe87ff941dc50f2b090cc529bc700c1556c1fad4b5bf9b552cb3debd27"
+    },
+    {
+      "record": {
+        "id": "BE_327t1",
+        "dbf_id": 131120,
+        "name": "秘典翻译官",
+        "name_en": "Tome Translator",
+        "text": "<b>战吼：</b>在本回合中，你施放的下一个法术的法力值消耗减少（4）点。",
+        "text_en": "<b>Battlecry:</b> The next spell you cast this turn costs\n(4) less.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          }
+        ]
+      },
+      "record_sha256": "0370e03bfa646529877181c8ae4dda8fb4db338a5897bc50080f0c63ca6b7862",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_327t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "74dcb61f2dd853e0bad4346394c94c3594bb8841416a8a029ebb0d2186236f41"
+    },
+    {
+      "record": {
+        "id": "BE_327t2",
+        "dbf_id": 129237,
+        "name": "秘典翻译官",
+        "name_en": "Tome Translator",
+        "text": "<b>战吼：</b>造成6点伤害，随机分配到所有其他随从身上。",
+        "text_en": "<b>Battlecry:</b> Deal 6 damage randomly split among all other minions.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          }
+        ]
+      },
+      "record_sha256": "364af528d63f8d87b9db1c2ce8ccc8714b97d0463900fcda24bdd144fbadf3d1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_327t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3cdee8e88d850d7e41f712b98444c2254301961381fa7b843fe74e4a6d3c8b26"
+    },
+    {
+      "record": {
+        "id": "BE_327t3",
+        "dbf_id": 131121,
+        "name": "秘典翻译官",
+        "name_en": "Tome Translator",
+        "text": "<b>战吼：</b>随机获得一个相邻随从的属性值。",
+        "text_en": "[x]<b>Battlecry:</b> Gain the stats of\na random adjacent minion.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sonderflex"
+          }
+        ]
+      },
+      "record_sha256": "5295c2abd0414191426941492e8617e00058b8a6aeb4c50666cdc9633de9b793",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_327t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "98e3b3f5adcbc4dd47c47e6fa2acafba9938e16eb53cc056a625bd3df1f021d6"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_327te",
+        "dbf_id": 134937,
+        "name": "尤格经文",
+        "name_en": "Yogg Scripture",
+        "text": "在本回合中，你施放的下一个法术的法力值消耗减少（4）点。",
+        "text_en": "The next spell you cast this turn costs (4) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "CANT_BE_SILENCED": 1,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "523beec446edc4ab63a352cdebebc546ff4fbca08f5f65d1ab58f034aad7959d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_327te",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BE_327te2",
+        "dbf_id": 134938,
+        "name": "亚煞极经文",
+        "name_en": "Y'Shaarj Scripture",
+        "text": "属性值提高。",
+        "text_en": "Increased stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "85662fba73432ebe6bcc0ef4ffdc5f792d82e7cdbe95e9919ad194333e3260ad",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_327te2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "choice_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_327",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 129235,
+        "collectible": 1,
+        "slug": "129235-tome-translator",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": " Sonderflex",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "秘典翻译官",
+        "text": "<b>战吼：</b>？？？<i>（ 回合后解译）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97b45a5f400417323292117735406d1361616ebb67f450af3c73bdca08a50a7c.png",
+        "imageGold": "",
+        "flavorText": "?????????<i>（3个扩展包后解译。）</i>",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12916f7739816c9da91441f202e1149e7093a6c3f148f6204dce1cfa0d3a834d.png",
+        "childIds": [
+          131120,
+          129236,
+          131121,
+          129237
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BE_327",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 129235,
+        "collectible": 1,
+        "slug": "129235-tome-translator",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": " Sonderflex",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Tome Translator",
+        "text": "<b>Battlecry:</b> ??? <i>(Deciphers in (turn, turns).)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c86509caf023ee226ef520ebe4b2011360dbf98f295f2ae5c8e70f11384873f.png",
+        "imageGold": "",
+        "flavorText": "??? ??? ??? <i>(Deciphers over the next 3 expansions.)</i>",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12916f7739816c9da91441f202e1149e7093a6c3f148f6204dce1cfa0d3a834d.png",
+        "childIds": [
+          131120,
+          129236,
+          131121,
+          129237
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "display_normalizations": {
+    "BE_327": {
+      "@": ""
+    }
+  },
+  "random_form_order": [
+    "BE_327t1",
+    "BE_327t",
+    "BE_327t3",
+    "BE_327t2"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "internal_policy": "Held progress counts two owner turn-start events. Unknown Battlecry samples one of the four actual source children on each activation; completion samples a real face and uses ordinary held upgrade. These acceptance and repeated/copy timing policies remain explicit M6 work, not official exact sampling claims."
+}

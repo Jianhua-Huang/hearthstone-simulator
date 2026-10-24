@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v718'
+CORE_EFFECTS_VERSION = 'core-effects-v719'
 
 
 class Mechanics:
@@ -3059,5 +3059,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_discovery_trigger_sources(mechanics)
     from .discovered_card_copies import register as register_discovered_card_copies
     register_discovered_card_copies(mechanics)
+    from .random_effect_choices import register as register_random_effect_choices
+    register_random_effect_choices(mechanics)
     return mechanics
 

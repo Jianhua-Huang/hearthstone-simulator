@@ -258,6 +258,9 @@ class FrameCodec:
         from .hand_play_locks import LockHandCard, validate_request as validate_hand_lock
         if type(value) is LockHandCard and self.origin_state is not None:
             validate_hand_lock(self.origin_state,self.registry,value)
+        from .random_effect_choices import ChooseRandomEffects
+        if type(value) is ChooseRandomEffects and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         from .hand_play_locks import TrapRandomHandCards,validate_random_request
         if type(value) is TrapRandomHandCards and self.origin_state is not None:
             validate_random_request(self.origin_state,value)

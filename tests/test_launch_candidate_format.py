@@ -27,7 +27,7 @@ from hs_sim.targets import TargetValidationError, canonical_digest
 
 
 NEW = 'BE_193'
-UNKNOWN = ('BE_009', 'BE_327', 'BE_588')
+UNKNOWN = ('BE_009', 'BE_588')
 
 
 def fillers(fmt, count):
@@ -148,6 +148,19 @@ class LaunchCandidateFormatTests(unittest.TestCase):
                 with self.assertRaises(DeckValidationError):
                     f.new_game((own, deck(f)), seed=453, first_player=1)
 
+    def test_implemented_translator_is_a_real_legal_root_and_uses_paid_battlecry(self):
+        cid = 'BE_327'; f = self.fmt
+        self.assertIn(cid, f.root_card_ids)
+        self.assertNotIn(cid, f.unimplemented_root_card_ids)
+        self.assertTrue(validate_deck(deck(f, (cid, *fillers(f, 29))), f.registry, f.policy).valid)
+        game = self.scenario((cid,)); source = game.state.players[1].hand[0]
+        game.apply(PlayCard(1, source))
+        self.assertIn(source, game.state.players[1].board)
+        self.assertEqual(game.state.players[1].mana, 6)
+        self.assertEqual(game.state.play_history[-1].card_id, cid)
+        self.assertEqual(len([event for event in game.events if event.source_id == source and
+            dict(event.data).get('producer') == 'effect_branch']), 1)
+
     def test_deck_bans_do_not_silently_remove_random_inventory_members(self):
         f = self.fmt
         domain = {m.card_id for m in f.registry.pool('constructed.cards', f.context).members}
@@ -164,7 +177,7 @@ class LaunchCandidateFormatTests(unittest.TestCase):
         f = self.fmt
         with self.assertRaises(UnsupportedDefinitionError):
             resolve_candidates(f.registry, f.context, 'constructed.cards',
-                PoolQuery(kinds=(CardType.MINION,), min_cost=4, max_cost=4, class_mode='any'))
+                PoolQuery(kinds=(CardType.MINION,), min_cost=1, max_cost=1, class_mode='any'))
         game = self.scenario(('CORE_EX1_189',))
         source = game.state.players[1].hand[0]
         before = game.snapshot()
@@ -206,7 +219,7 @@ class LaunchCandidateFormatTests(unittest.TestCase):
         with self.assertRaises(TargetValidationError):
             register_launch_pool_metadata(registry)
         self.assertEqual(dict(registry.pool_cards), before)
-        self.assertNotIn('BE_327', registry.pool_cards)
+        self.assertIn('BE_327', registry.pool_cards)
         self.assertNotIn('BE_588', registry.pool_cards)
 
     def test_changed_frozen_phase_or_source_is_rejected_before_registry_work(self):
