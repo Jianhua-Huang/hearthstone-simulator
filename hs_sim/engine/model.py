@@ -707,6 +707,8 @@ class CostModifier:
     minion_keyword: Keyword | None = None
     minion_keyword_repetitions: int = 1
     player_effect_id: int | None = None
+    deathrattle_only: bool = False
+    destroy_after_play: bool = False
 
     def __post_init__(self):
         _int(self.id, 'cost modifier ID', 1)
@@ -715,7 +717,7 @@ class CostModifier:
                 self.uses_remaining is not None or self.expires_turn is not None or self.scope != CostScope.CARD or
                 self.spec.card_types != (CardType.SPELL,) or self.spec.delta == 0 or self.spec.set_to is not None or
                 self.spec.minimum or self.spec.payment is not None or self.spec.card_ids or self.spec.ability is not None or
-                self.tribes_any or self.combo_only or self.temporary_only or self.maximum_cost is not None or self.minion_keyword is not None):
+                self.tribes_any or self.combo_only or self.temporary_only or self.deathrattle_only or self.destroy_after_play or self.maximum_cost is not None or self.minion_keyword is not None):
             raise ValueError('Linked spell price requires one original nonzero ordinary player-program contribution')
         if type(self.minion_keyword_repetitions)is not int or self.minion_keyword_repetitions not in(1,2)or self.minion_keyword is None and self.minion_keyword_repetitions!=1:
             raise ValueError('Paid keyword repetitions require the actual finite Kindred Shield reward')
@@ -725,10 +727,18 @@ class CostModifier:
         validate_cost_scope(self.scope, self.spec)
         TribeChangeSpec('set',self.tribes_any).__post_init__()
         _bool(self.combo_only,'Combo-only cost');_bool(self.temporary_only,'Temporary-only cost')
-        if sum((bool(self.tribes_any),self.combo_only,self.temporary_only))>1:
+        _bool(self.deathrattle_only,'Deathrattle-only cost');_bool(self.destroy_after_play,'Paid minion destruction')
+        if sum((bool(self.tribes_any),self.combo_only,self.temporary_only,self.deathrattle_only))>1:
             raise ValueError('Player cost modifiers require one independent recipient selector')
         if (self.combo_only or self.temporary_only)and(self.scope!=CostScope.CARD or self.uses_remaining is None):
             raise ValueError('Qualified next-card prices require finite ordinary card uses')
+        if self.deathrattle_only and (self.scope!=CostScope.CARD or self.uses_remaining is None or
+                self.spec.card_types!=(CardType.MINION,) or self.source_id is None):
+            raise ValueError('Deathrattle price requires a sourced finite ordinary minion selector')
+        if self.destroy_after_play and (not self.deathrattle_only or self.uses_remaining!=1 or
+                self.spec.delta>=0 or self.spec.set_to is not None or self.spec.payment is not None or
+                self.minion_keyword is not None):
+            raise ValueError('Paid death requires its actual single next-Deathrattle reduction')
         if self.maximum_cost is not None:
             _int(self.maximum_cost,'complete current cost threshold',0)
             if (self.spec.payment!=PaymentType.OPPONENT_HEALTH and (not self.tribes_any or self.spec.payment!=PaymentType.HEALTH) or self.spec.delta or
@@ -736,7 +746,7 @@ class CostModifier:
                 raise ValueError('Current price threshold requires a finite tribal payment-only Health modifier')
         if self.spec.payment==PaymentType.OPPONENT_HEALTH and (
                 self.maximum_cost is None or self.source_id is None or self.uses_remaining is None or
-                self.scope!=CostScope.CARD or self.tribes_any or self.combo_only or self.temporary_only or
+                self.scope!=CostScope.CARD or self.tribes_any or self.combo_only or self.temporary_only or self.deathrattle_only or
                 self.spec.card_types!=CostSpec().card_types or self.spec.card_ids or self.spec.ability is not None):
             raise ValueError('Opponent Health requires a sourced finite bounded ordinary-card payment modifier')
         if self.tribes_any and (self.scope != CostScope.CARD or self.spec.card_types != (CardType.MINION,)or

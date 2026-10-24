@@ -292,6 +292,8 @@ class AddCostModifier(Effect):
     maximum_cost: int | None = None
     minion_keyword: Keyword | None = None
     minion_keyword_repetitions: int = 1
+    deathrattle_only: bool = False
+    destroy_after_play: bool = False
 
     def __post_init__(self):
         _player(self.player_id)
@@ -299,7 +301,8 @@ class AddCostModifier(Effect):
         validate_cost_scope(self.scope, self.spec)
         from .model import CostModifier
         CostModifier(1,self.spec,self.source_id,self.uses_remaining,self.expires_turn,self.scope,self.tribes_any,
-            self.combo_only,self.temporary_only,self.maximum_cost,self.minion_keyword,self.minion_keyword_repetitions)
+            self.combo_only,self.temporary_only,self.maximum_cost,self.minion_keyword,self.minion_keyword_repetitions,
+            deathrattle_only=self.deathrattle_only,destroy_after_play=self.destroy_after_play)
         if self.uses_remaining is not None:
             _integer(self.uses_remaining, 'uses_remaining', 1)
 

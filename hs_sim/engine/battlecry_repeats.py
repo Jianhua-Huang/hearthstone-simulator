@@ -211,6 +211,8 @@ def finish_acceptance(r, effect):
     if not batches or any(not b.finished for b in batches):
         raise ResolutionError('Battlecry acceptance closed before its complete batches')
     for record in batches: validate_accepted_batch(record, effect)
+    from .costs import defer_paid_minion_root
+    defer_paid_minion_root(r,effect,play.id)
 
 
 @dataclass(frozen=True)

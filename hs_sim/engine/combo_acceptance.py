@@ -468,6 +468,8 @@ def finish(r, work):
     if (len(ends) != 1 or (ends[0].source_id, ends[0].player_id, ends[0].target_id) !=
             (play.source_id, play.player_id, play.target_id)):
         raise ResolutionError('Combo proof lost its exact enclosing paid completion')
+    from .costs import defer_paid_minion_root
+    if defer_paid_minion_root(r,work,play.id):return
     if work.phase == 'play' and any(
             type(value) is FinishComboAcceptance and value.context.play.id == play.id or
             type(value) is FinishBattlecryAcceptance and value.context.play.id == play.id

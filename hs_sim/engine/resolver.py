@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v714'
+CORE_EFFECTS_VERSION = 'core-effects-v715'
 
 
 class Mechanics:
@@ -2675,6 +2675,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .fatigue import register as register_fatigue
     register_fatigue(mechanics)
     mechanics.register(RevealHandCard, reveal_hand_card)
+    from .costs import DestroyPaidMinion,destroy_paid_minion
+    mechanics.register(DestroyPaidMinion,destroy_paid_minion)
     for kind, handler in (
         (RequestChoice, request_choice), (ResolveChoiceResult, resolve_choice_result),
         (ModifyCost, modify_cost), (AddCostModifier, modify_cost), (GrantCostAura, modify_cost),

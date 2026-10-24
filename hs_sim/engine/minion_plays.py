@@ -86,6 +86,8 @@ def resolve(r, effect):
     from .colossal import enter_minion, ColossalBattlecry
     from .summon_completions import paid_tail
     completion=paid_tail(r,record,entity)
+    from .costs import paid_minion_death_tail
+    paid_death=paid_minion_death_tail(r,record,entity)
     result = enter_minion(r, entity, 'play',play_id=record.id)
     if result:
         result.append(ColossalBattlecry(r.state.colossal_history[-1].id, record.id))
@@ -96,7 +98,7 @@ def resolve(r, effect):
         result.extend(payload(r, entity.id, record.player_id, record.target_id,
             tuple(a.behavior_id for a in active_abilities(entity, 'on_play')),
             play=play_record(r.state, record.id), battlecries=capture(entity)))
-    return [*result,*completion]
+    return [*result,*completion,*paid_death]
 
 
 def validate_boundary(game):

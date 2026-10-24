@@ -6,7 +6,7 @@ and official ordering calibration must extend this explicit versioned contract.
 """
 from dataclasses import dataclass, replace
 
-from .effects import AddCostModifier, GrantCostAura
+from .effects import AddCostModifier, GrantCostAura, Effect
 from .errors import ResolutionError
 from .model import (CurrentDeckCountMatch, PermanentManaMatch, AbilityInstance, CardType, CostContribution, CostModifier,
                     CostQuoteFact, CostQuoteInput, CostScope, Enchantment,
@@ -397,6 +397,8 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     if modifier is not None:
         if modifier.combo_only and not (definition.combo is not None if abilities is None else
                 any(a.kind=='combo'and not a.consumed for a in abilities)):return False
+        if modifier.deathrattle_only and not (definition.deathrattle is not None if abilities is None else
+                any(a.kind=='deathrattle'and not a.consumed for a in abilities)):return False
         if modifier.temporary_only and hand_lifetime is None:return False
         if modifier.maximum_cost is not None and not ignore_maximum:
             if type(complete_amount)is not int:raise ValueError('Qualified Health payment lost its complete current price')
@@ -555,6 +557,95 @@ def consume_modifiers(player, ids):
     player.cost_modifiers = updated
 
 
+def paid_death_modifiers(state,play):
+    if play.kind!=CardType.MINION or play.submitted_cost is None:
+        raise ValueError('Paid minion death requires its original minion price')
+    quote=play.submitted_cost.quote
+    modifiers=tuple(c.modifier for c in quote.contributions if
+        c.modifier is not None and c.modifier.destroy_after_play)
+    if not modifiers:return ()
+    receipts=[row for row in state.cost_use_history if
+        (row.origin,row.source_id,row.player_id,row.source_card_id,row.turn,row.action,
+            row.amount,row.payment,row.modifier_ids,row.consumable_ids)==
+        ('payment',play.source_id,play.player_id,play.card_id,play.turn,play.action,
+            quote.amount,quote.payment,quote.modifier_ids,quote.consumable_ids)]
+    if len(receipts)!=1 or any(m.id not in quote.consumable_ids or m not in receipts[0].player_modifiers
+            or m.source_id not in state.entities for m in modifiers):
+        raise ValueError('Paid minion death lost its exact original consumed price sources')
+    return modifiers
+
+
+@dataclass(frozen=True)
+class DestroyPaidMinion(Effect):
+    play_id:int
+    entry:object
+
+    def __post_init__(self):
+        from .effects import _integer
+        from .allocation_facts import SourceAllocationFact
+        _integer(self.play_id,'paid minion death play',1)
+        if type(self.entry)is not SourceAllocationFact:
+            raise ValueError('Paid minion death requires its original full board entry')
+        self.entry.__post_init__()
+        if (self.entry.kind,self.entry.zone)!=(CardType.MINION,Zone.BOARD)or self.entry.entered_order<1:
+            raise ValueError('Paid minion death requires a real original minion entry')
+
+    def validate_in_state(self,state):
+        from .play_history import play_record
+        self.__post_init__();play=play_record(state,self.play_id);entry=self.entry
+        if (play.source_id!=entry.entity_id or play.minion_result!='summoned' or
+                play.completed or play.interrupted or not paid_death_modifiers(state,play)):
+            raise ValueError('Paid minion death substituted its original accepted payment/entry')
+        entity=state.entities.get(entry.entity_id)
+        if (entity is None or entry.owner!=entity.owner or entry.zone_epoch>entity.zone_epoch or
+                entry.next_entity_id>state.next_entity_id or entry.next_order>state.next_order):
+            raise ValueError('Paid minion death borrowed a future or unrelated physical entry')
+
+
+def paid_minion_death_tail(r,play,entity):
+    if not paid_death_modifiers(r.state,play):return ()
+    from .allocation_facts import SourceAllocationFact
+    return(DestroyPaidMinion(play.id,SourceAllocationFact.capture(r.state,entity)),)
+
+
+def destroy_paid_minion(r,effect):
+    from .play_history import play_record
+    from .allocation_facts import validate_allocation
+    from .board_presence import resolve_board_presence
+    from .model import BoardPresenceReference
+    from .resolver import destroy
+    from .effects import Destroy
+    effect.validate_in_state(r.state);validate_allocation(r.state,r.registry,effect.entry)
+    target=resolve_board_presence(r.state,BoardPresenceReference(effect.entry.entity_id,effect.entry.entered_order))
+    if target is None or not target.active or target.doomed or target.health<=0:return ()
+    modifiers=paid_death_modifiers(r.state,play_record(r.state,effect.play_id))
+    destroy(r,Destroy(target.id,modifiers[0].source_id))
+    return ()
+
+
+def defer_paid_minion_root(r,work,play_id):
+    """Keep the original proofs alive through the accepted paid-death tail."""
+    from .battlecry_repeats import FinishBattlecryAcceptance
+    from .combo_acceptance import FinishComboAcceptance
+    from .resolver import FinishPlay
+    queue=r._work_queue
+    tails=[(i,w)for i,w in enumerate(queue)if type(w)is DestroyPaidMinion and w.play_id==play_id]
+    if not tails:return False
+    if len(tails)!=1:raise ValueError('Paid minion death lost its unique original tail')
+    index,tail=tails[0];tail.validate_in_state(r.state)
+    ends=[i for i,w in enumerate(queue)if type(w)is FinishPlay and w.play_id==play_id]
+    if len(ends)!=1 or index>=ends[0]:raise ValueError('Paid death must precede its enclosing hand completion')
+    position=index+1
+    while position<len(queue):
+        closer=queue[position]
+        if (type(closer)is FinishBattlecryAcceptance or
+                type(closer)is FinishComboAcceptance and closer.phase!='play')and closer.context.play.id==play_id:
+            position+=1
+        else:break
+    queue.insert(position,work)
+    return True
+
+
 def install_paid_minion_keywords(r, play, entity):
     """Install only bonuses belonging to this original paid price, before entry.
 
@@ -622,7 +713,7 @@ def modify_cost(r, effect, *, player_effect_id=None, allow_dormant=False):
         modifier = CostModifier(r.state.next_attachment_id, spec, effect.source_id,
                                 effect.uses_remaining, effect.expires_turn, effect.scope,effect.tribes_any,
                                 effect.combo_only,effect.temporary_only,effect.maximum_cost,effect.minion_keyword,effect.minion_keyword_repetitions,
-                                player_effect_id)
+                                player_effect_id,deathrattle_only=effect.deathrattle_only,destroy_after_play=effect.destroy_after_play)
         if player_effect_id is not None:
             from .player_effects import validate_modifier_owner
             validate_modifier_owner(r.state, r.registry, player.id, modifier)
