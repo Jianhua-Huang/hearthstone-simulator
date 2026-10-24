@@ -1,0 +1,361 @@
+{
+  "schema": 1,
+  "target": {
+    "region": "CN",
+    "patch": "37.0",
+    "client_source": "37.0.0.255026"
+  },
+  "source_application": "Earlier CN published rules, with the changed numeric values retained in the fixed 37.0 source; no live-client result or hotfix-set certification.",
+  "sources": {
+    "cn36.6": {
+      "effective_patch": "36.6",
+      "url": "https://hs.blizzard.cn/news/24294373/index.html",
+      "complete_response_file": "outputs\\card-integration-20261014\\k529-cn-balance-contracts\\cn-36.6.html",
+      "response_sha256": "0017289718499efa5c457d8c06de20cf27c3dbf4bbbbe1072517b1d0b73cc2d8",
+      "receipt_file": "outputs\\card-integration-20261014\\k529-cn-balance-contracts\\cn-36.6.receipt.json",
+      "receipt_sha256": "75edcd4549bb33e81e38a80f19c882da605481f544e4cb77c751e3796b681462"
+    },
+    "cn36.6.3": {
+      "effective_patch": "36.6.3",
+      "url": "https://hs.blizzard.cn/news/24303864/index.html",
+      "complete_response_file": "outputs\\card-integration-20261014\\k529-cn-balance-contracts\\cn-36.6.3.html",
+      "response_sha256": "2cc55577f25b3b09a8bb81e529f2c7e3088a096eff1a92859e35ffe2b716711b",
+      "receipt_file": "outputs\\card-integration-20261014\\k529-cn-balance-contracts\\cn-36.6.3.receipt.json",
+      "receipt_sha256": "96c1afc7ecd040d9d8ac1d10da97375ff276fd89d9571a3179ad8fabc63ce458"
+    }
+  },
+  "test_sources": {
+    "test_constructed_recruit_followup_cards": {
+      "file": "tests\\test_constructed_recruit_followup_cards.py",
+      "sha256": "ba8321850048ce005504bc63736241b2814aa05b731a440b6bbb893db718d07c",
+      "seed_expressions": [
+        "83"
+      ]
+    },
+    "test_simple_followup_p49_cards": {
+      "file": "tests\\test_simple_followup_p49_cards.py",
+      "sha256": "4d8754d65cae1f82b63e89b663862acfd20458d8dec57c2d4deb497e846b1bf5",
+      "seed_expressions": [
+        "4949"
+      ]
+    },
+    "test_stored_spell_bonus_cards": {
+      "file": "tests\\test_stored_spell_bonus_cards.py",
+      "sha256": "6c869b327787c6def389b7b23d258473ad801d4f2049951f19a0bff8e347462a",
+      "seed_expressions": [
+        "93"
+      ]
+    },
+    "test_aya_counterfeit_cards": {
+      "file": "tests\\test_aya_counterfeit_cards.py",
+      "sha256": "34fdeef8bc0b0969e8e77d98f9e3ff177ef8427477b28b88ca8c4a1cf6c35697",
+      "seed_expressions": [
+        "309"
+      ]
+    },
+    "test_kazakus_potion_cards": {
+      "file": "tests\\test_kazakus_potion_cards.py",
+      "sha256": "01b7761b8c7b3105d107812a23c77346d46a12293876b0c098c27f3dbd198c79",
+      "seed_expressions": [
+        "308"
+      ]
+    }
+  },
+  "cases": [
+    {
+      "case_id": "CN37-INHERITED-KINDRED-TWO",
+      "source_ref": "cn36.6.3",
+      "card_ids": [
+        "TLC_600"
+      ],
+      "scoped_rule": "A qualified TLC_600 Kindred consumer reduces its printed 8-mana cost by 2, to 6.",
+      "methods": [
+        "test_constructed_recruit_followup_cards.ConstructedRecruitFollowupCardTests.test_kindred_discounts_use_previous_actual_owner_turn_and_payment"
+      ],
+      "arrange_and_input": "The pinned fixture plays qualifying cards, advances to the next actual owner turn, then pays for TLC_600.",
+      "expected": {
+        "before": 8,
+        "qualified": 6,
+        "actual_paid": 6
+      },
+      "limits": [
+        "The published value is 2; exact owner-turn eligibility, other cards in the shared method and all repetition policies remain separately scoped."
+      ],
+      "evidence_status": "inherited_official_statement_scoped_current_case_passed",
+      "source_names": {
+        "TLC_600": {
+          "zh_CN": "乘风浮龙",
+          "en_US": "Windpeak Wyrm"
+        }
+      },
+      "source_record_sha256": {
+        "TLC_600": "e2bf0d0cd31ee82c1fdb6131b193344e4c67362e7044587b025f436d4daa773e"
+      },
+      "complete_card_calibration": false
+    },
+    {
+      "case_id": "CN37-INHERITED-SCULLERY-TWO",
+      "source_ref": "cn36.6.3",
+      "card_ids": [
+        "JAIL_200"
+      ],
+      "scoped_rule": "JAIL_200 starts with two random 2-cost minions when the original hero attack count is zero.",
+      "methods": [
+        "test_simple_followup_p49_cards.SimpleFollowupP49Tests.test_scullery_uses_complete_actual_hero_combat_history_not_minion_attacks_or_other_turn_counters"
+      ],
+      "arrange_and_input": "The existing method contrasts real hero combat carried across turns with a minion-only attack before the actual spell.",
+      "expected": {
+        "source_script_base": 2,
+        "zero_hero_attacks_summoned_costs": [
+          2,
+          2
+        ]
+      },
+      "limits": [
+        "This calibrates the published starting cost. Completed-versus-declared hero attacks and official random weights are not certified by that statement."
+      ],
+      "evidence_status": "inherited_official_statement_scoped_current_case_passed",
+      "source_names": {
+        "JAIL_200": {
+          "zh_CN": "污染厨房",
+          "en_US": "Infest the Scullery"
+        }
+      },
+      "source_record_sha256": {
+        "JAIL_200": "4d610dd65e7bcd0840e253abb7f619ea2ab2aa01761c59a1012b67901ccffc28"
+      },
+      "complete_card_calibration": false
+    },
+    {
+      "case_id": "CN37-INHERITED-EMPTY-HAND-TARGET",
+      "source_ref": "cn36.6",
+      "card_ids": [
+        "CATA_209"
+      ],
+      "scoped_rule": "A minion with an optional hand Battlecry target can be played when no eligible hand card exists.",
+      "methods": [
+        "test_stored_spell_bonus_cards.StoredSpellBonusCardTests.test_bomber_requires_eligible_target_but_allows_no_spell_in_hand"
+      ],
+      "arrange_and_input": "CATA_209 has only a minion companion in hand, so no spell is eligible; the control scenario has an eligible spell and rejects a missing target before payment.",
+      "expected": {
+        "no_eligible_spell_play_succeeds": true,
+        "remaining_mana": 37,
+        "eligible_target_cannot_be_omitted": true
+      },
+      "limits": [
+        "CATA_209 is the actual representative; other targeting domains and mandatory extra costs are not covered."
+      ],
+      "evidence_status": "inherited_official_statement_scoped_current_case_passed",
+      "source_names": {
+        "CATA_209": {
+          "zh_CN": "战场轰炸手",
+          "en_US": "Battlefield Blaster"
+        }
+      },
+      "source_record_sha256": {
+        "CATA_209": "3cf312b2f1f900f575078516dc5787235d2efd06634558a7483646ef0d48b184"
+      },
+      "complete_card_calibration": false
+    },
+    {
+      "case_id": "CN37-INHERITED-AYA-POTION-MIRROR",
+      "source_ref": "cn36.6",
+      "card_ids": [
+        "JAIL_504",
+        "JAIL_504t3",
+        "JAIL_504t3p",
+        "CORE_RLK_567"
+      ],
+      "scoped_rule": "The actual Kabal Coin creates a complete two-component native Potion, and Shadow of Demise copies and executes the whole Potion recipe.",
+      "methods": [
+        "test_aya_counterfeit_cards.AyaCounterfeitTests.test_kabal_coin_delivers_complete_two_component_potion_after_temporary_mana",
+        "test_aya_counterfeit_cards.AyaCounterfeitTests.test_existing_shadow_mirrors_actual_selected_coin_and_keeps_its_complete_body",
+        "test_kazakus_potion_cards.KazakusPotionTests.test_actual_shadow_of_demise_copies_whole_potion_and_both_components"
+      ],
+      "arrange_and_input": "Real Aya selects Kabal and generates a Potion after temporary mana; the native Coin mirror and a legal demon-plus-armor Potion mirror are separately executed through the same unmodified registered factories.",
+      "expected": {
+        "generated_recipe_component_count": 2,
+        "producer_remaining_mana": 5,
+        "coin_mirror_generates_potions": 2,
+        "potion_mirror_same_recipe_id": true,
+        "two_potion_casts_total_armor": 8,
+        "two_potion_casts_summon_demons": 2
+      },
+      "limits": [
+        "Production and consumer paths share the native recipe type but are verified in separate controlled games.",
+        "One legal recipe is the copy representative; the complete source candidate pool, every ingredient interaction and official RNG are not calibrated."
+      ],
+      "evidence_status": "inherited_official_statement_scoped_current_case_passed",
+      "source_names": {
+        "JAIL_504": {
+          "zh_CN": "艾雅，玉莲帮主",
+          "en_US": "Aya, Lotus Kingpin"
+        },
+        "JAIL_504t3": {
+          "zh_CN": "暗金幸运币",
+          "en_US": "Kabal Coin"
+        },
+        "JAIL_504t3p": {
+          "zh_CN": "卡扎库斯药水",
+          "en_US": "Kazakus Potion"
+        },
+        "CORE_RLK_567": {
+          "zh_CN": "殒命暗影",
+          "en_US": "Shadow of Demise"
+        }
+      },
+      "source_record_sha256": {
+        "JAIL_504": "03cd15291425f97e0d2061c7df5c8d3c615885f4550ae4feb473b79eece9d3c9",
+        "JAIL_504t3": "5dcc7ae28c8df5487e1be7b887a01dd0e8064b7628cf7ca31b3a0021bc72126c",
+        "JAIL_504t3p": "b954e2acff4de9a2441e68365fee14cba892b094de8ac7f43fd6b7712759df21",
+        "CORE_RLK_567": "e4806cc6eb01dca47c7c2d4424cc18c8db0ba0a4ba1f7da7f429e6c456b285cd"
+      },
+      "complete_card_calibration": false,
+      "controlled_copy_recipe": {
+        "template": "JAIL_504t3p",
+        "ingredients": [
+          "CFM_621t10",
+          "CFM_621t3"
+        ],
+        "official_random_seed_matched": false
+      }
+    }
+  ],
+  "not_selected": [
+    {
+      "card_id": "END_024",
+      "reason": "Already accepted by K527; not repeated."
+    },
+    {
+      "card_id": "VAC_955",
+      "reason": "Not a current Standard root; Standard reachability of its Cheese has not been established."
+    },
+    {
+      "reason": "Other vague error/cost/hang fixes need a precise expected result before accepting a calibrated case."
+    }
+  ],
+  "live_client_experiment": false,
+  "complete_cn_calibration": false,
+  "formal_pool_certified": false,
+  "execution_method_records": {
+    "test_constructed_recruit_followup_cards.ConstructedRecruitFollowupCardTests.test_kindred_discounts_use_previous_actual_owner_turn_and_payment": {
+      "test_source": "tests\\test_constructed_recruit_followup_cards.py",
+      "test_source_sha256": "ba8321850048ce005504bc63736241b2814aa05b731a440b6bbb893db718d07c",
+      "method_ast_sha256": "46794a4bc668e2b877e223667c6abd26e101092737cdf81b4de09c7f7c3205d9",
+      "seed_expressions": [
+        "83"
+      ],
+      "initial_setup_expressions": [
+        "self.game(cards)"
+      ],
+      "source_order_action_expressions": [
+        "self.play(g, 'k08.body')",
+        "self.play(g, 'k08.other')",
+        "self.play(g, 'k08.holy')",
+        "g.apply(EndTurn(1))",
+        "g.apply(EndTurn(2))",
+        "self.play(g, 'TLC_366')",
+        "self.play(g, 'TLC_600', g.state.players[2].hero_id)",
+        "self.play(g, 'TLC_816')"
+      ],
+      "control_flow": "The exact pinned test method is authoritative; expression lists are not a substitute replay script."
+    },
+    "test_simple_followup_p49_cards.SimpleFollowupP49Tests.test_scullery_uses_complete_actual_hero_combat_history_not_minion_attacks_or_other_turn_counters": {
+      "test_source": "tests\\test_simple_followup_p49_cards.py",
+      "test_source_sha256": "4d8754d65cae1f82b63e89b663862acfd20458d8dec57c2d4deb497e846b1bf5",
+      "method_ast_sha256": "b03d18b1fbb62299242d6290325494a3f573a7cba21beb3f4628869fbcbd08d7",
+      "seed_expressions": [
+        "4949"
+      ],
+      "initial_setup_expressions": [
+        "self.game((TEST + 'hero', SCULLERY))",
+        "self.game((SCULLERY,), board=(YETI,))"
+      ],
+      "source_order_action_expressions": [
+        "self.play(g, TEST + 'hero')",
+        "g.apply(Attack(1, g.state.players[1].hero_id, g.state.players[2].hero_id))",
+        "g.apply(EndTurn(1))",
+        "g.apply(EndTurn(2))",
+        "self.play(g, SCULLERY)",
+        "g.apply(Attack(1, self.first(g, YETI, 'board').id, g.state.players[2].hero_id))",
+        "self.play(g, SCULLERY)"
+      ],
+      "control_flow": "The exact pinned test method is authoritative; expression lists are not a substitute replay script."
+    },
+    "test_stored_spell_bonus_cards.StoredSpellBonusCardTests.test_bomber_requires_eligible_target_but_allows_no_spell_in_hand": {
+      "test_source": "tests\\test_stored_spell_bonus_cards.py",
+      "test_source_sha256": "6c869b327787c6def389b7b23d258473ad801d4f2049951f19a0bff8e347462a",
+      "method_ast_sha256": "2a0e6fd2870629c64530fac7919a4c43e3220a21b31deaec9fed2efa5c107e59",
+      "seed_expressions": [
+        "93"
+      ],
+      "initial_setup_expressions": [
+        "self.game((BOMBER, FIRE))",
+        "self.game((BOMBER, YETI))"
+      ],
+      "source_order_action_expressions": [
+        "self.play(g, BOMBER)",
+        "self.play(g, BOMBER)"
+      ],
+      "control_flow": "The exact pinned test method is authoritative; expression lists are not a substitute replay script."
+    },
+    "test_aya_counterfeit_cards.AyaCounterfeitTests.test_existing_shadow_mirrors_actual_selected_coin_and_keeps_its_complete_body": {
+      "test_source": "tests\\test_aya_counterfeit_cards.py",
+      "test_source_sha256": "34fdeef8bc0b0969e8e77d98f9e3ff177ef8427477b28b88ca8c4a1cf6c35697",
+      "method_ast_sha256": "172555dbdd1c8a5ed985185ed2c729667cdf95d5bdc741a7a20d9e5c8b49e0f5",
+      "seed_expressions": [
+        "309"
+      ],
+      "initial_setup_expressions": [
+        "self.game((CARD, SHADOW, COIN))"
+      ],
+      "source_order_action_expressions": [
+        "self.upgrade(g, KABAL)",
+        "self.play(g, KABAL)",
+        "g.apply(PlayCard(1, shadow))"
+      ],
+      "control_flow": "The exact pinned test method is authoritative; expression lists are not a substitute replay script."
+    },
+    "test_aya_counterfeit_cards.AyaCounterfeitTests.test_kabal_coin_delivers_complete_two_component_potion_after_temporary_mana": {
+      "test_source": "tests\\test_aya_counterfeit_cards.py",
+      "test_source_sha256": "34fdeef8bc0b0969e8e77d98f9e3ff177ef8427477b28b88ca8c4a1cf6c35697",
+      "method_ast_sha256": "e531a1acbbd9093ef982b05918d9a57f94ba74f6d08fa5f832a9161d901851c6",
+      "seed_expressions": [
+        "309"
+      ],
+      "initial_setup_expressions": [
+        "self.game()"
+      ],
+      "source_order_action_expressions": [
+        "self.upgrade(g, KABAL)",
+        "self.play(g, KABAL)"
+      ],
+      "control_flow": "The exact pinned test method is authoritative; expression lists are not a substitute replay script."
+    },
+    "test_kazakus_potion_cards.KazakusPotionTests.test_actual_shadow_of_demise_copies_whole_potion_and_both_components": {
+      "test_source": "tests\\test_kazakus_potion_cards.py",
+      "test_source_sha256": "01b7761b8c7b3105d107812a23c77346d46a12293876b0c098c27f3dbd198c79",
+      "method_ast_sha256": "e2d5850ab459ceed2af24c25f2b773bb9a004a0634b440c7a30144079343b757",
+      "seed_expressions": [
+        "308"
+      ],
+      "initial_setup_expressions": [
+        "self.game((SHADOW, cid))"
+      ],
+      "source_order_action_expressions": [
+        "self.play(g, cid)",
+        "g.apply(PlayCard(1, shadow))"
+      ],
+      "control_flow": "The exact pinned test method is authoritative; expression lists are not a substitute replay script."
+    }
+  },
+  "accepted_scoped_case_count": 4,
+  "current_execution": {
+    "output": "outputs/card-integration-20261014/k529-cn-balance-contracts/selected-01",
+    "result_sha256": "d44aa238642349769c00401bb5079143236e5dfe64955a86c14b84368078dde4",
+    "inputs_sha256": "446f4b828e73c53743e1bfb00c2fab806ef09dfb5f31dc0348d29e25404c5a63",
+    "source_guard_sha256": "0edc5feb09ca4f5ee6ce8982ca390999d6fd15567544d2f51e6ae6525414e116",
+    "methods": 6,
+    "seconds": 46.32471839999198
+  }
+}
