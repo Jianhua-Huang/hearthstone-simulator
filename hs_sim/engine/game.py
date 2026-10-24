@@ -458,6 +458,8 @@ class Game:
     def _assert_stable(self):
         from .natural_turn_end import validate_boundary as validate_natural_turn_end_boundary
         validate_natural_turn_end_boundary(self)
+        from .controlled_turns import validate_boundary as validate_controlled_turn_boundary
+        validate_controlled_turn_boundary(self)
         if self._match_setup is not None and self._match_setup.board_id != self._state.board_id:
             raise ValueError('Game board differs from its fixed constructed match setup')
         from .tourists import validate_boundary as validate_tourist_boundary
@@ -1057,13 +1059,13 @@ class Game:
         result.append(EndTurn(player.id))
         return tuple(result)
 
-    def apply(self, action: Action) -> ActionResult:
-        self.validate(action)
-        working = self.clone()
+    def _resolve_action(self, action: Action):
+        """Execute one already validated input without cloning or external history."""
+        self._require_boundary()
+        working = self
         working._resolving = True
         if type(action) is not AdvanceTurnTime:
             working._state.action_number += 1
-        start = len(working._events)
         if type(action) is AdvanceTurnTime:
             effect = None
         elif isinstance(action, PlayCard):
@@ -1109,6 +1111,19 @@ class Game:
             if isinstance(exc, ResolutionError):
                 raise
             raise ResolutionError(f'Action resolution failed and was rolled back: {exc}') from exc
+
+    def apply(self, action: Action) -> ActionResult:
+        self.validate(action)
+        from .controlled_turns import validate_external,drive
+        validate_external(self,action)
+        working=self.clone()
+        start=len(working._events)
+        working._resolve_action(action)
+        try:
+            drive(working)
+        except Exception as exc:
+            if isinstance(exc,ResolutionError):raise
+            raise ResolutionError(f'Native turn failed and was rolled back: {exc}') from exc
         events = tuple(working._events[start:])
         digest = working.state_hash()
         working._history.append({'action': history_action_to_dict(action), 'state_hash': digest,

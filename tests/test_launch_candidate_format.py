@@ -27,7 +27,7 @@ from hs_sim.targets import TargetValidationError, canonical_digest
 
 
 NEW = 'BE_193'
-UNKNOWN = ('BE_009', 'BE_588')
+UNKNOWN = ('BE_588',)
 
 
 def fillers(fmt, count):

@@ -11156,6 +11156,7 @@ class TurnSchedule:
     pending: tuple[int, ...] = ()
     resume_player_id: int | None = None
     skip_counts: tuple[int, int] = (0, 0)
+    controlled_slots: tuple[tuple[int, int], ...] = ()
 
     def __post_init__(self):
         if type(self.pending) is not tuple or any(type(p) is not int or p not in (1, 2) for p in self.pending):
@@ -11168,6 +11169,16 @@ class TurnSchedule:
             raise ValueError('Skipped turns require two immutable counters')
         for count in self.skip_counts:
             _int(count, 'skipped turn count', 0)
+        if type(self.controlled_slots) is not tuple:
+            raise ValueError('Controlled slots require an immutable ordered tuple')
+        indices=[];identities=[]
+        for value in self.controlled_slots:
+            if type(value) is not tuple or len(value)!=2:raise ValueError('Controlled slot requires its index and request')
+            index,identity=value;_int(index,'controlled slot index',0);_int(identity,'controlled request',1)
+            if index>=len(self.pending):raise ValueError('Controlled slot escaped its original queue')
+            indices.append(index);identities.append(identity)
+        if indices!=sorted(set(indices)) or len(identities)!=len(set(identities)):
+            raise ValueError('Controlled slots cannot duplicate or reorder their original identities')
 
 
 @dataclass
@@ -11289,6 +11300,7 @@ class GameState:
     # Concrete immutable WholeCardReplayLedger; module-owned validation avoids import cycles.
     whole_card_replay_ledger: object = field(default_factory=_empty_whole_card_replay_ledger)
     natural_turn_end_requests: list = field(default_factory=list)
+    controlled_turn_requests: list = field(default_factory=list)
     choose_policy_receipts: list = field(default_factory=list)
     # Actual family uses across independent paid and generated acceptances.
     battlecry_policy_uses: list = field(default_factory=list)
@@ -12248,6 +12260,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_casts(state, registry)
     from .natural_turn_end import validate_history as validate_natural_turn_end_history
     validate_natural_turn_end_history(state, registry)
+    from .controlled_turns import validate_history as validate_controlled_turn_history
+    validate_controlled_turn_history(state, registry)
     from .hero_attack_history import validate_history as validate_hero_attacks
     validate_hero_attacks(state, registry)
     from .character_attacks import validate_history as validate_character_attacks

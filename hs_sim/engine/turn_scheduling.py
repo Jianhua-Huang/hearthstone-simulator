@@ -87,6 +87,7 @@ def take_next_slot(state):
         counts[player - 1] -= 1
     state.turn_schedule = replace(schedule,
         pending=schedule.pending[1:] if queued else (),
+        controlled_slots=tuple((index-1,identity) for index,identity in schedule.controlled_slots if index>0),
         resume_player_id=schedule.resume_player_id if queued else (3 - player if skipped else None),
         skip_counts=tuple(counts))
     return player, skipped

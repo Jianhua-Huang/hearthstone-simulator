@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v720'
+CORE_EFFECTS_VERSION = 'core-effects-v721'
 
 
 class Mechanics:
@@ -873,6 +873,7 @@ class Resolution:
         from .power_payloads import InvokeHeroPowerPayload, FinishHeroPowerPayload
         from .end_turns import InvokeEndTurn, FinishEndTurn, FinishEndTurnBatch, CheckActiveEndTurn
         from .natural_turn_end import RequestNaturalTurnEnd
+        from .controlled_turns import RequestControlledTurn
         queue = deque(effects)
         self._work_queue = queue
         while queue and self.state.status == 'playing':
@@ -907,7 +908,7 @@ class Resolution:
             from .assemble_health_prefixes import CONTROL as ASSEMBLE_HEALTH_CONTROL
             from .assemble_reveals import CONTROL as ASSEMBLE_REVEAL_CONTROL
             if type(work) in (*ASSEMBLE_REVEAL_CONTROL,*ASSEMBLE_HEALTH_CONTROL,*RECRUIT_STAT_CONTROL,*HAND_FOLLOWUP_CONTROL,*HISTORICAL_BODY_CONTROL,*INDIRECT_BODY_CONTROL,*WHOLE_CARD_CONTROL,*DISCOVERY_SUMMON_CONTROL,*POOL_SUMMON_CONTROL,*ORDERED_GROUP_CONTROL,SummonBySourceStats,SummonByCard,FinishCardSummon,InvokeDeathrattle, FinishDeathrattle, FinishDeathrattleBatch, FinishBattlecryAcceptance, FinishSpellAcceptance, FinishComboAcceptance, FinishPaidHandAcceptance, InvokeHeroPowerPayload, FinishHeroPowerPayload,
-                              InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,RequestNaturalTurnEnd,*HERO_CONTROL) or transparent_power_guard:
+                              InvokeEndTurn,FinishEndTurn,FinishEndTurnBatch,InvokeResourcePayload,FinishResourceConsumption,FinishSplitPacket,FinishRandomSplitRoot,RequestNaturalTurnEnd,RequestControlledTurn,*HERO_CONTROL) or transparent_power_guard:
                 # Diagnostic control work preserves the old callback window.
                 generated = self.game.mechanics.handler(work)(self,work)
                 if generated is not None: queue.extendleft(reversed(self.collect(generated)))
@@ -1004,6 +1005,8 @@ class Resolution:
         if self.state.status != 'playing':
             from .natural_turn_end import interrupt as interrupt_natural_turn_end
             interrupt_natural_turn_end(self)
+            from .controlled_turns import interrupt as interrupt_controlled_turns
+            interrupt_controlled_turns(self)
             from .kindred import interrupt as interrupt_kindred
             interrupt_kindred(self,queue)
             from .choose_policies import interrupt as interrupt_choose_policies
@@ -1903,6 +1906,8 @@ def end_turn(r, effect):
     event = r.emit('turn_ended', player_id=effect.player_id,_end_turn=True)
     from .owner_turns import mark_owner_end
     mark_owner_end(r.state, event)
+    from .controlled_turns import interval_ended
+    interval_ended(r.state,event)
     finish=r._end_turn_finish
     r._end_turn_finish=None
     return [finish,*countdowns, *(ExpireHandDeadline(i, event.sequence) for i in hand_expiries),
@@ -1924,12 +1929,16 @@ def start_next_turn(r, effect):
     if r.state.turn >= r.rules.max_turns:
         raise ResolutionLimitExceeded('Engineering turn budget exhausted; action rolled back')
     from .turn_scheduling import take_next_slot
+    from .controlled_turns import slot_identity,slot_skipped,interval_closed,slot_started
+    controlled_id=slot_identity(r.state)
     player_id, skipped = take_next_slot(r.state)
     if skipped:
-        r.emit('turn_skipped', player_id=player_id)
+        event=r.emit('turn_skipped', player_id=player_id)
+        slot_skipped(r,controlled_id,event)
         return [StartNextTurn()]
     r.ending_turn = False
     close_owner_turn(r.state, len(r.game._events))
+    interval_closed(r.state,len(r.game._events))
     ending = r.player(r.state.active_player)
     ending.temporary_mana = 0
     refresh_mana(ending)
@@ -1943,6 +1952,7 @@ def start_next_turn(r, effect):
     refresh_turn_budgets(r.state)
     player = r.player(r.state.active_player)
     start_owner_turn(r.state, len(r.game._events))
+    slot_started(r.state,controlled_id)
     begin_mana_turn(player)
     for participant in r.state.players.values():
         participant.hero_power_uses_this_turn = 0
@@ -2989,6 +2999,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_native_spell_values(mechanics)
     from .natural_turn_end import register as register_natural_turn_end
     register_natural_turn_end(mechanics)
+    from .controlled_turns import register as register_controlled_turns
+    register_controlled_turns(mechanics)
     from .temporary_hero_powers import register as register_temporary_powers
     register_temporary_powers(mechanics)
     from .after_play_grants import register as register_after_play

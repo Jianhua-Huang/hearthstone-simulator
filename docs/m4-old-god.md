@@ -40,3 +40,18 @@ BE_009t1～t4仅作为四个真实技能标签及ActivatedAbilitySpec主体接�
 崛起在首个变形前捕获本人全部原手牌法术、当前报价加三的目标档和本地保留费用，逐一交TransformStoredFromPool，保持物理位置和原通知/恢复流程；不改随从或敌方手牌。当前报价/本地保留值、整批捕获窗口和空档跳过是明确内部政策，未国服校准。领域沿DrawMatching随机检索五个原物理法术，满手仍逐张抽取并烧牌；随机顺序及无匹配跳过沿现有政策，仍待M6。未知合格候选报错，不能通过删池规避。
 
 [HearthstoneTeam开发者说明](https://www.reddit.com/r/hearthstone/comments/1wuibfx/developer_insight_reign_of_black_empire_old_gods/)明确代打采用类似普通难度练习AI的决策，开局先用技能；同时选择领域和崛起时领域先结算，崛起的选取机会与其他技能相同。此说明不提供完整决策排序或国服轨迹。下一项须实现真实整局一次战吼、来源绑定的结束/代打回合以及可恢复的原生动作入口；递归调用Game.apply或把普通手动额外回合当代打都不符合现有边界。实际验证、版本和下一项只记原两份台账。
+
+
+## 尤格真实战吼与受控额外回合
+
+BE_009原根在K502接入，复用K501四技能，不修改原完整raw/主面包；该包的evidence-only和source_root_unimplemented描述其历史交付范围。当前原根9费7/5、古神和四技能由独立适配器注册，战吼只发RequestControlledTurn(original_battlecry_id)。一般代打使用yogg-practice-like-v1本地策略，不等于官方普通练习AI的精确复刻；[来源政策](../outputs/card-integration-20261014/k502-yogg-controlled-turn/source-policy-01.json)分别列出原卡面、开发者明确约束和内部推断。
+
+ControlledTurnRequest绑定原BattlecryRecord、实际玩家/来源、原OwnerTurnRecord及接受游标。相同玩家整局只接受一次，重复战吼、另一物理尤格和原来源离场不重新分配用途。FinishControlledTurnRequest位于原出牌、CAST、重放、死亡屏障和其他主体之后；只有真实完成后才排队，并在仍是原玩家原区间时沿普通end_turn结束。非本人回合的间接战吼只排队，不结束别人的回合，这是待校准政策。与原法术结束尾共用最终尾部约束，不复制正常结束执行器。
+
+TurnSchedule.controlled_slots按原FIFO索引绑定请求，不改变pending玩家序列或自然resume后继；普通插入保持身份，消费后统一移位。跳过仅退役该机会，不创建区间、技能抽样或动作。真实开始后请求绑定新的本人区间；自然结束反应期间维持ending控制身份，直到实际交接才completed。终局沿原中断流程退役，不伪造自然结束。
+
+外部Game.apply仍只创建一个事务副本，成功后写一条外部输入历史。其原完整执行核心抽为私有_resolve_action，原代码和外部历史/状态采用尾经AST核对保持；代打在已完成动作边界用同一核心执行普通合法输入，不递归调用外部apply，不新增付款/出牌解释器。内部动作各自增加实际action_number并保存NativeTurnInput私密证明；原合法玩家菜单、可见状态、命令、实际动作和开局MT19937选择进入可恢复证据。失败丢弃外部整个事务，外层付款、随机、回合与历史一起恢复。
+
+策略只接收玩家DTO和原合法命令。本人选择自动处理，对手选择保留active/ending身份并等待；随后从真实等待恢复继续。开局技能按原可用集合有限抽样并保留顺序，领域先于崛起；普通行动以可见数据确定性排序，平局保持公开菜单顺序。精确分值/选择、联合抽样接受窗、关键词调整机会以及混合队列政策均未国服校准。遇未支持的玩家规则明确报错并回滚，不裁菜单、不静默跳牌。
+
+新增两种Effect、两种payload、一个GameState请求列表和一个TurnSchedule索引元组；schema580/core721拒旧格式，观察117/命令13/replay1保持。内部完整菜单、源身份、控制历史与RNG证明不进入玩家投影。实际验证、版本、已知差异和下一项仍只记原两份台账。

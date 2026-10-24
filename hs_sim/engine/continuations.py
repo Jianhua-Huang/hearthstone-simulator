@@ -124,6 +124,9 @@ class FrameCodec:
         from .natural_turn_end import RequestNaturalTurnEnd,FinishNaturalTurnEnd
         if type(value) in (RequestNaturalTurnEnd,FinishNaturalTurnEnd) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
+        from .controlled_turns import RequestControlledTurn,FinishControlledTurnRequest
+        if type(value) in (RequestControlledTurn,FinishControlledTurnRequest) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .deck_auras import PutStoredAura
         if type(value) is PutStoredAura and self.origin_state is not None:
             value.validate_in_state(self.origin_state, self.registry)

@@ -125,13 +125,14 @@ def finish(r,effect):
     row=effect.validate_in_state(r.state,r.registry);cast,owner=validate_record(r.state,r.registry,row)
     from .owner_turns import current_owner_turn
     current=current_owner_turn(r.state)
+    from .controlled_turns import tail_types
     if current.id!=owner.id or owner.end_event is not None:
         close(r.state,row,'stale',len(r.game._events));return ()
     if (r.ending_turn or r.death_deferrals or r.state.pending_choice is not None or
             r.state.active_hero_lethal_root_id is not None or r.state.whole_card_replay_ledger.stack or
             any(c.payload_started and not c.completed and not c.interrupted for c in r.state.cast_history) or
             any(not p.completed and not p.interrupted for p in r.state.play_history) or
-            any(type(work) is not FinishNaturalTurnEnd for work in r._work_queue)):
+            any(type(work) not in tail_types() for work in r._work_queue)):
         raise ResolutionError('Natural end cannot bypass unfinished original resolution work')
     from .resolver import EndTurnPhase,end_turn
     work=end_turn(r,EndTurnPhase(cast.player_id))
@@ -150,7 +151,8 @@ def validate_queue(state,registry,queue):
     pending=tuple(row.cast_id for row in state.natural_turn_end_requests if row.status=='pending')
     if tuple(w.cast_id for w in tails)!=pending:raise ValueError('Natural end lost or duplicated its complete original tail')
     for tail in tails:tail.validate_in_state(state,registry)
-    if tails and any(type(w) is not FinishNaturalTurnEnd for w in queue[queue.index(tails[0]):]):
+    from .controlled_turns import tail_types
+    if tails and any(type(w) not in tail_types() for w in queue[queue.index(tails[0]):]):
         raise ValueError('Natural end moved ahead of original resolution work')
 
 

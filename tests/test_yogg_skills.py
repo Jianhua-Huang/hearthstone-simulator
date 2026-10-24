@@ -128,7 +128,9 @@ class YoggSkillsTests(CardBatchTestMixin, unittest.TestCase):
             cid = observation['card_id']
             batch.check_face(rows[cid], observation['face'], observation['locale'],
                 numeric_normalizations={'cost': 0} if cid in SKILLS else None)
-        registry = build_registry()
+        from hs_sim.cards.yogg_skills import register_yogg_skills
+        registry = batch.registration_prefix(build_registry,
+            'hs_sim.cards.yogg_skills.register_yogg_skills',register_yogg_skills,after=True)
         for cid in SKILLS:
             self.assertTrue(registry.card(cid).choice_only)
             self.assertFalse(registry.card(cid).hand_playable)

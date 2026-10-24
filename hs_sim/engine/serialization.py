@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 579
+SNAPSHOT_SCHEMA_VERSION = 580
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1270,12 +1270,16 @@ def state_from_dict(value: dict) -> GameState:
     schedule = _row(value['turn_schedule'], TurnSchedule)
     for name in ('pending', 'skip_counts'):
         schedule[name] = tuple(_list(schedule[name], 'turn schedule ' + name))
+    schedule['controlled_slots']=tuple(tuple(_list(v,'controlled slot')) for v in _list(schedule['controlled_slots'],'controlled slots'))
     value['turn_schedule'] = TurnSchedule(**schedule)
     from .whole_card_replay_state import decode as decode_whole_card_replay
     value['whole_card_replay_ledger'] = decode_whole_card_replay(value['whole_card_replay_ledger'])
     from .natural_turn_end import record_from_dict as natural_turn_end_record_from_dict
     value['natural_turn_end_requests'] = [natural_turn_end_record_from_dict(row)
         for row in _list(value['natural_turn_end_requests'],'original natural end requests')]
+    from .controlled_turns import record_from_dict as controlled_turn_record_from_dict
+    value['controlled_turn_requests']=[controlled_turn_record_from_dict(row) for row in
+        _list(value['controlled_turn_requests'],'original controlled turn requests')]
     players, entities = value.pop('players'), value.pop('entities')
     if not isinstance(players, dict) or not isinstance(entities, dict):
         raise ValueError('Players and entities must be objects')
