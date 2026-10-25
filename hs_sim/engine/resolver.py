@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v731'
+CORE_EFFECTS_VERSION = 'core-effects-v732'
 
 
 class Mechanics:
@@ -2381,8 +2381,15 @@ def change_control(r, effect):
     entity = board_minion(r, effect)
     if entity is None or entity.controller == effect.player_id:
         return
-    if temporary and any(e.control_return_player_id is not None for e in entity.enchantments):
-        raise ResolutionError('Overlapping temporary control sources require a separate supported contract')
+    returns = tuple(e for e in entity.enchantments if e.control_return_player_id is not None)
+    # The observed second owner-end lease keeps the first source and deadline.
+    # Other expiry policies and more simultaneous sources remain unsupported.
+    if temporary and returns and not (
+            effect.until_previous_controller_turn_end and len(returns) == 1 and
+            returns[0].control_return_expiry is not None and
+            returns[0].control_return_player_id == effect.player_id and
+            returns[0].source_id != effect.source_id):
+        raise ResolutionError('Overlapping temporary control requires two distinct owner-end sources')
     previous = entity.controller
     if not transfer_control(r, entity, effect.player_id):
         return

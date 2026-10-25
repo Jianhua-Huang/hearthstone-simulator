@@ -36,6 +36,7 @@ def registry():
         'face':lambda c:(Transform(c.target_id,'k70.form'),),
         'copy':lambda c:(CopyMinion(c.target_id,c.player_id),),
         'give':lambda c:(ChangeControl(c.target_id,3-c.player_id),),
+        'global_control':lambda c:(ChangeControl(c.target_id,c.player_id,source_id=c.source_id,until_end_of_turn=True),),
         'sleep':lambda c:(MakeDormant(c.target_id,None),),
         'remove':lambda c:tuple(RemoveEnchantment(c.target_id,e.id)for e in c.state.entities[c.target_id].enchantments if e.control_return_player_id is not None),
         'extra':lambda c:(QueueTurns((1,1,2),c.source_id),),
@@ -47,7 +48,7 @@ def registry():
     }
     for key,body in scripts.items():
         cid='k70.'+key;r.register_behavior(cid,body)
-        r.register_card(CardDefinition(cid,key,CardType.SPELL,on_play=cid,requires_target=key in('silence','destroy','bounce','face','copy','give','sleep','remove','fault_return','fault_control'),metadata=META))
+        r.register_card(CardDefinition(cid,key,CardType.SPELL,on_play=cid,requires_target=key in('silence','destroy','bounce','face','copy','give','global_control','sleep','remove','fault_return','fault_control'),metadata=META))
     r.register_card(CardDefinition('k70.form','Different face',CardType.MINION,attack=1,health=4,metadata=META))
     r.register_card(CardDefinition('k70.dormant','Dormant',CardType.MINION,attack=2,health=4,dormant_turns=None,permanent_dormancy=True,metadata=META))
     r.register_card(CardDefinition('k70.charge','Charger',CardType.MINION,attack=3,health=5,keywords=(Keyword.CHARGE,),metadata=META))
@@ -238,9 +239,9 @@ class TemporalEffectCardTests(unittest.TestCase):
     def test_chains_dormant_resident_still_returns(self):
         g=self.game((CHAINS,'k70.sleep'),enemy=(YETI,));target=self.steal(g);self.play(g,'k70.sleep',target)
         self.end(g);self.end(g);self.assertEqual(g.state.entities[target].controller,2);self.portable(g)
-    def test_chains_overlap_stays_explicitly_unsupported_and_rolls_back(self):
-        g=self.game((CHAINS,),enemy=(YETI,),enemy_hand=(CHAINS,));target=self.steal(g);self.end(g);saved=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'Overlapping temporary control'):self.play(g,CHAINS,target,p=2)
+    def test_chains_mixed_deadline_overlap_stays_unsupported_and_rolls_back(self):
+        g=self.game((CHAINS,),enemy=(YETI,),enemy_hand=('k70.global_control',));target=self.steal(g);self.end(g);saved=g.snapshot()
+        with self.assertRaisesRegex(ResolutionError,'Overlapping temporary control'):self.play(g,'k70.global_control',target,p=2)
         self.assertEqual(g.snapshot(),saved)
     def test_chains_saved_original_clock_rejects_future_wrong_player_or_mixed_deadline(self):
         g=self.game((CHAINS,),enemy=(YETI,));target=self.steal(g);saved=g.snapshot()
