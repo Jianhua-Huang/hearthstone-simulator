@@ -690,9 +690,12 @@ def resolve_face(registry,card_id):
     from .registry import UnsupportedDefinitionError
     try:
         recipe=recipe_from_id(card_id)
+        from .assemble_restrictions import require_recipe
+        require_recipe(registry,recipe)
         first=text_source(registry,recipe.primary_card_id,primary=True);second=text_source(registry,recipe.secondary_card_id)
         prefix_source=second if recipe.half=='top' else first
         prefix=prefix_source.prefix
+        require_recipe(registry,recipe,prefix)
         suffix=second.suffix if recipe.half=='bottom' else first.suffix
         face=source_face(registry,registry._cards[first.card_id],prefix_source,suffix,card_id)
         registry._validate_card(face)

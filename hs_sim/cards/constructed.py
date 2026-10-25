@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v612"
+CONTENT_VERSION = "constructed-cn37-preview-v613"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1252,5 +1252,7 @@ def build_registry():
     register_candidate_pool_metadata(registry)
     from .generation_source_families import register_generation_source_families
     register_generation_source_families(registry)
+    from .assemble_local_restrictions import register_assemble_local_restrictions
+    register_assemble_local_restrictions(registry)
     registry.validate()
     return registry

@@ -8,6 +8,7 @@ from dataclasses import dataclass,replace
 from random import Random
 
 from .assemble_faces import AssembleRecipe,text_source,prefix_timings,compatible,source_face
+from .assemble_restrictions import source_restriction,suffix_restriction
 from .effects import Effect,AddToHand,ChoiceOption,RequestChoice,_player,_source
 from .card_creation import CreatedMinionGrant,validate_minion_grant
 from .errors import ResolutionError
@@ -128,11 +129,13 @@ def candidates(registry,context,state,spec,primary=None):
     rows=resolve_candidates(registry,context,spec.pool_id,query,current_class=hero,source_card_id=source,player_id=spec.player_id)
     result=[]
     for row in rows:
+        if source_restriction(registry,row.card_id) is not None:continue
         card=registry.card(row.card_id)
         if (primary is None and card.kind!=CardType.MINION)or card.choice_only or not card.hand_playable:
             raise ValueError('Assembly pool contains an invalid physical source for its role')
         # Candidate availability is checked before a trait or pairing policy can
-        # omit it. Missing adapters/templates never masquerade as ineligibility.
+        # omit it, except for explicit, versioned local restrictions above.
+        # Other missing adapters/templates never masquerade as ineligibility.
         template=text_source(registry,row.card_id,primary=primary is None)
         if passive:
             from .assembled_powers import passive_minion
@@ -149,12 +152,14 @@ def candidates(registry,context,state,spec,primary=None):
     return tuple(result)
 
 def recipe_options(registry,primary,secondary,passive_power_template_id=None):
+    if any(source_restriction(registry,cid) is not None for cid in(primary,secondary)):return ()
     first=text_source(registry,primary,primary=True);second=text_source(registry,secondary)
     original=source_face(registry,registry.card(primary),first,first.suffix,primary)
     options=[]
     for half in('top','bottom'):
         prefix=second.prefix if half=='top'else first.prefix
         suffix=second.suffix if half=='bottom'else first.suffix
+        if suffix_restriction(registry,prefix,secondary if half=='bottom'else primary) is not None:continue
         from .assemble_hand_progress import reviewed_condition
         if not compatible(prefix,suffix,allow_conditional_targeting=reviewed_condition(registry,prefix.condition_id)):continue
         cid=AssembleRecipe(primary,secondary,half).card_id;card=registry.card(cid)

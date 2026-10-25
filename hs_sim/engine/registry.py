@@ -166,6 +166,7 @@ class Registry:
         self._spell_mirror_ids = frozenset()
         self._defining_hand_copy_ids = frozenset()
         self._assemble_templates = {}
+        self._assemble_local_restrictions = {}
         self._assemble_inner_conditions = set()
         self._assemble_reaction_continuations = {}
         self._assemble_reaction_sources = {}
@@ -326,6 +327,18 @@ class Registry:
     @property
     def assemble_templates(self):
         return MappingProxyType(self._assemble_templates)
+
+    @property
+    def assemble_local_restrictions(self):
+        return MappingProxyType(self._assemble_local_restrictions)
+
+    def register_assemble_local_restriction(self, profile):
+        from .assemble_restrictions import validate_restriction
+        self._require_mutable()
+        validate_restriction(self, profile)
+        if profile.card_id in self._assemble_local_restrictions:
+            raise ValueError('Duplicate local assembly restriction')
+        self._assemble_local_restrictions[profile.card_id] = profile
 
     @property
     def assemble_reaction_sources(self):
@@ -2661,6 +2674,10 @@ class Registry:
         from .assembled_powers import validate_profiles as validate_assembled_power_profiles
         validate_assembled_power_profiles(self)
         validate_templates(self)
+        from .assemble_restrictions import validate_restriction as validate_local_assembly_restriction
+        for key, profile in self._assemble_local_restrictions.items():
+            if key != profile.card_id:raise ValueError('Local assembly restriction changed its source identity')
+            validate_local_assembly_restriction(self, profile)
         from .crafted_faces import validate_blueprint as validate_crafted_blueprint
         for blueprint in self._crafted_minion_blueprints.values():validate_crafted_blueprint(self,blueprint)
         from .crafted_faces import validate_part_shape as validate_crafted_part_shape
@@ -3095,6 +3112,9 @@ class Registry:
             payload['outcast_summon_profiles']=[asdict(self._outcast_summon_profiles[k])for k in sorted(self._outcast_summon_profiles)]
         if self._assemble_templates:
             payload['assemble_templates'] = [asdict(self._assemble_templates[k]) for k in sorted(self._assemble_templates)]
+        if self._assemble_local_restrictions:
+            payload['assemble_local_restrictions'] = [asdict(self._assemble_local_restrictions[k])
+                for k in sorted(self._assemble_local_restrictions)]
         if self._assemble_inner_conditions:
             payload['assemble_inner_conditions'] = sorted(self._assemble_inner_conditions)
         if self._assemble_reaction_continuations:

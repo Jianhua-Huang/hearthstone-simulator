@@ -245,11 +245,13 @@ class AssembleSourceStatTests(unittest.TestCase):
             with self.assertRaises(ValueError): self.play(g, cid)
             self.assertEqual(g.snapshot(), saved)
 
-    def test_p_unreviewed_redeemer_death_stats_are_not_guessed_or_pruned_from_real_offer(self):
+    def test_p_local_policy_excludes_only_unreviewed_redeemer_death_result(self):
         with self.assertRaises(ValueError): fixture().card(recipe(GOLEM, REDEEMER))
-        g = self.game((FLESH,), mode='pending_offer'); saved = g.snapshot()
-        with self.assertRaises(ValueError): self.play(g, FLESH)
-        self.assertEqual(g.snapshot(), saved)
+        g = self.game((FLESH,), mode='pending_offer'); self.play(g, FLESH)
+        options = {o.card_id for o in g.state.pending_choice.options}
+        self.assertNotIn(recipe(GOLEM, REDEEMER), options)
+        self.assertIn(recipe(GOLEM, REDEEMER, 'top'), options)
+        self.portable(g, 'pending_offer')
 
     def test_q_real_flesh_offer_keeps_primary_price_and_native_buffed_attack_spell(self):
         cid = recipe(EXPERIMENT, DRAIN, 'top'); g = self.game((FLESH,), mode='experiment_offer')

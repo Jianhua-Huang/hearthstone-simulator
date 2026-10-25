@@ -155,7 +155,7 @@ class AssembleNativeCopyRevealTests(unittest.TestCase):
     def test_h_dead_copy_is_explicit_pending_dependency_not_a_silent_white_body(self):
         r=fixture();self.assertEqual(r.assemble_templates[COPY_SOURCE].suffix.pending_timings,('deathrattle',))
         with self.assertRaisesRegex(ValueError,'deathrattle'):r.card(recipe('JAIL_328',COPY_SOURCE))
-        with self.assertRaisesRegex(ValueError,'deathrattle'):recipe_options(r,'JAIL_328',COPY_SOURCE)
+        self.assertEqual(tuple(half for half,_ in recipe_options(r,'JAIL_328',COPY_SOURCE)),('top',))
 
     def test_i_raw_self_reveal_only_actual_spells_with_high_low_and_empty_domains(self):
         for cid in(REVEAL,recipe(REVEAL)):
