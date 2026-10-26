@@ -57,6 +57,17 @@ def condition_definition(registry,card_id,source_card_id):
     return registry.card(card_id)
 
 
+def has_native_kindred(registry,card_id):
+    """Printed native qualification, including an exact reviewed composition."""
+    if card_id in registry.kindred_profiles:return True
+    from .crafted_faces import PREFIX,recipe_from_id
+    if not isinstance(card_id,str) or not card_id.startswith(PREFIX):return False
+    # Validate the complete face before checking its original donors. Unknown
+    # or unapproved physical ingredients must fail, not disappear from a tutor.
+    registry.card(card_id)
+    return any(cid in registry.kindred_profiles for cid in recipe_from_id(card_id).parts)
+
+
 def _native_composition(context,card_id,registry):
     """Only the exact physical recipe can execute its original native donor."""
     from .crafted_faces import PREFIX,recipe_from_id

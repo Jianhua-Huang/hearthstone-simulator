@@ -2166,3 +2166,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 接入带延系或原存储成长的合成部件时，保持原 profile 与实际物理来源，以完整合成面核条件并保留冻结来源；条件目标与玩家布尔事实共用原推导。手牌/牌库成长只审一个既有严格 repeat 事件规格，不拓展任意升级或重复安装，见[契约](m3-zombeast-native-kindred-growth.md)。
+
+
+消费者判断原生延系资格时使用has_native_kindred，勿只查静态profile映射或根据正文/临时行为猜资格；合成身份须完整解析，未知部件报错而非裁候选。实际两次物理检索与冻结原首抽验证见[契约](m3-composed-kindred-physical-tutor.md)。

@@ -12,6 +12,7 @@ from .draw_casts import draw_one, draw_record
 from .effects import ChoiceOption, Effect, RequestChoice, _behavior, _integer, _player
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .hand_upgrades import BuffStoredCard, SetStoredMinionStats
+from .kindred import has_native_kindred
 from .model import BoardPresenceReference, CardType, CostSpec, Keyword, Zone
 from .play_history import starting_deck_identity
 from .pools import PoolQuery
@@ -286,7 +287,7 @@ def candidates(r, request, slot):
         entity = r.state.entities[ref.entity_id]
         if request.kindred_pair:
             if request.index == 0:
-                if entity.card_id not in r.registry.kindred_profiles: continue
+                if not has_native_kindred(r.registry,entity.card_id): continue
             elif not activates_original_kindred(r,request,entity): continue
         price=max(0,local_cost(entity)[0]) if slot.current_cost is not None or slot.different_costs or slot.max_current_cost is not None else None
         if slot.current_cost is not None and price != slot.current_cost: continue
@@ -312,7 +313,7 @@ def activates_original_kindred(r,request,entity):
     first=request.arrivals[0]
     if first.draw_id is None:return False
     original=draw_record(r.state,first.draw_id)
-    if original.card_id not in r.registry.kindred_profiles:raise ValueError('Kindred tutor lost its original selected native face')
+    if not has_native_kindred(r.registry,original.card_id):raise ValueError('Kindred tutor lost its original selected native face')
     return kindred_type_matches(r.registry,original.card_id,entity.card_id)
 
 
@@ -330,7 +331,7 @@ def kindred_type_matches(registry,original_card_id,candidate_card_id):
 def validate_kindred_draw(state,registry,request,index,record):
     if not request.kindred_pair:return
     if index==0:
-        if record.card_id not in registry.kindred_profiles:raise ValueError('Kindred tutor root is not its original native Kindred face')
+        if not has_native_kindred(registry,record.card_id):raise ValueError('Kindred tutor root is not its original native Kindred face')
     else:
         first=request.arrivals[0]
         if first.draw_id is None or not kindred_type_matches(registry,draw_record(state,first.draw_id).card_id,record.card_id):
