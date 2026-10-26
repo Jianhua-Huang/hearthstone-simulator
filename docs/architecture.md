@@ -1748,3 +1748,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 实际地标使用费用复用原激活器和固有费用阶段：支付耐久后、主体捕获前保存原LocationUseRecord，完整双方历史与本人选中组进入LocationUseCostMatch；不按location_used完成通知二次计次，也不逐张贴折扣。实际事件、来源驻留、末次使用和冻结生成／付款材料见[海滨巨人契约](m3-seaside-location-cost.md)。
+
+
+真实塔迪乌斯使用有限CostPolarityProfile和原印刷费用光环的实例参数；原本人开始发布同步切换手牌/牌库/活动场上参数，不按全局回合奇偶猜测，不新增回合解释器。原费用来源冻结polarity_basis及原phase；身份守卫仅允许同声明phase变化，其他物理字段仍比较。当前复制/保留移动与基础复制/显式重置区分，最小公开枚举及未校准费用交互见[极性契约](m3-thaddius-polarity.md)。

@@ -645,11 +645,14 @@ class CostAuraSpec:
         if type(self.cost) is not CostSpec:
             raise ValueError('Cost aura requires a CostSpec operation')
         self.cost.__post_init__()
-        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','all_cards_minimum'):
+        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','friendly_polarity','all_cards_minimum'):
             raise ValueError('Invalid cost aura payer relation')
         if self.relation == 'all_cards_minimum' and (self.cost != CostSpec(minimum=2) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
             raise ValueError('Native all-card floor requires the original two-Mana constraint')
+        if self.relation=='friendly_polarity' and (self.cost!=CostSpec(delta=-2) or
+                self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
+            raise ValueError('Native polarity requires an independent friendly two-cost reduction')
         if self.relation=='friendly_arcane_spells' and (self.cost!=CostSpec(delta=-2,card_types=(CardType.SPELL,)) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
             raise ValueError('Native Arcane aura requires the ordinary friendly two-cost spell reduction')
@@ -3083,6 +3086,17 @@ class SpellStatGrantValue:
 
 
 @dataclass(frozen=True)
+class CostPolarityState:
+    card_id: str
+    phase: str = 'odd'
+
+    def __post_init__(self):
+        _name(self.card_id, 'native polarity declaration')
+        if type(self.phase) is not str or self.phase not in ('odd','even'):
+            raise ValueError('Native cost polarity requires its actual odd/even phase')
+
+
+@dataclass(frozen=True)
 class AbilityInstance:
     """A printed or granted ability with serializable identity and usage state."""
 
@@ -3176,8 +3190,20 @@ class AbilityInstance:
     attack_policy_expiry: OwnerTurnExpiry | None = None
     spell_aura_id: int | None = None
     draw_cast: 'CastWhenDrawnSpec | None' = None
+    cost_polarity: CostPolarityState | None = None
 
     def __post_init__(self) -> None:
+        native_polarity=self.kind=='cost_aura' and type(self.cost_aura) is CostAuraSpec and self.cost_aura.relation=='friendly_polarity'
+        if native_polarity != (self.cost_polarity is not None):
+            raise ValueError('Polarity state requires its actual native aura')
+        if self.cost_polarity is not None:
+            if type(self.cost_polarity) is not CostPolarityState or self.origin!='printed' or self.source_id is None:
+                raise ValueError('Native polarity requires an independent removable printed source')
+            self.cost_polarity.__post_init__()
+            from dataclasses import fields
+            allowed={'id','kind','source_id','origin','cost_aura','cost_polarity'}
+            if any(getattr(self,f.name)!=f.default for f in fields(self)if f.name not in allowed):
+                raise ValueError('Native polarity cannot mix another attachment operation')
         _int(self.id, "ability ID", 1)
         if self.draw_cast is not None:
             if (type(self.draw_cast) is not CastWhenDrawnSpec or self.draw_cast != CastWhenDrawnSpec() or
@@ -6850,8 +6876,13 @@ class CostContribution:
     modifier: CostModifier | None = None
     ability: AbilityInstance | None = None
     first_play: FirstPlayCostFact | None = None
+    polarity_basis: int | None = None
 
     def __post_init__(self):
+        polarity=self.kind=='cost_aura' and type(self.ability) is AbilityInstance and type(self.ability.cost_aura) is CostAuraSpec and self.ability.cost_aura.relation=='friendly_polarity'
+        if polarity != (self.polarity_basis is not None):
+            raise ValueError('Polarity contribution requires its actual original price operand')
+        if self.polarity_basis is not None:_int(self.polarity_basis,'polarity pre-external price',0)
         if type(self.kind) is not str or self.kind not in ('local_enchantment', 'player_modifier', 'cost_aura'):
             raise ValueError('Invalid cost contribution family')
         if type(self.player_id) is not int or self.player_id not in (1, 2):

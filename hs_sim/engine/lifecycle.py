@@ -167,8 +167,9 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('aura', attack=aura.attack, health=aura.health, include_self=aura.include_self,
             adjacent_only=aura.adjacent_only, aura_target=aura.target, aura_condition=aura.condition,
             aura_tribes_any=aura.tribes_any, aura_card_ids=aura.card_ids)
+    from .cost_polarities import initial_fields as polarity_fields
     for spec in definition.cost_auras:
-        add('cost_aura', cost_aura=spec,
+        add('cost_aura', cost_aura=spec,**polarity_fields(registry,definition,spec),
             native_condition=definition.native_condition if definition.native_condition is not None and definition.native_condition.kind in('controller_hand_at_most','controller_other_dragon')else None)
     if definition.native_condition is not None and definition.native_condition.kind == 'transform_destination_plus_two':
         add('transform_replacement', native_condition=definition.native_condition)

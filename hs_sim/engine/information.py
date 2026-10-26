@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v117'
+VIEW_VERSION = 'player-view-v118'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -380,6 +380,9 @@ class Information:
                 from .rotating_discovery_classes import public_class
                 discover_class=public_class(entity)
                 if discover_class is not None:result['discover_class']=discover_class
+                from .cost_polarities import public_polarity
+                polarity=public_polarity(entity)
+                if polarity is not None:result['cost_polarity']=polarity
                 from .held_battlecry_forms import public_form
                 battlecry_form=public_form(game.registry,entity)
                 if battlecry_form is not None:result['battlecry_form']=battlecry_form

@@ -431,9 +431,11 @@ def validate_generated_quote_fact(registry, fact):
         else:
             aura = contribution.ability.cost_aura
             if (aura.relation not in ('any', 'all_cards_minimum') and
-                    (contribution.player_id == value.player_id) != (aura.relation == 'friendly')):
+                    (contribution.player_id == value.player_id) != (aura.relation in ('friendly','friendly_arcane_spells','friendly_polarity'))):
                 raise ValueError('Generated aura relation changed its hypothetical payer')
             spec = aura.cost
+        from .cost_polarities import validate_basis as validate_polarity_basis
+        validate_polarity_basis(registry,contribution,fact.local_amount)
         if not matches_cost_contribution(registry, contribution, definition, None,complete_amount=fact.amount):
             raise ValueError('Generated external operation does not match its printed subject')
         if not is_final_floor(contribution):

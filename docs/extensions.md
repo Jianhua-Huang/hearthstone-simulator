@@ -2124,3 +2124,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 真实海滨巨人的每次地标减2使用有限IntrinsicCostSpec条件own_location_use_count和location.activations-game-v1。只让原激活入口提交实际使用，费用查询保持纯函数；放置、刷新、普通打出和完成通知不作第二个计数器。复制、生成与回手按实际付款人本局历史重算，原费用顺序／恢复及未确认窗口见[契约](m3-seaside-location-cost.md)。
+
+
+真实极性减费注册CostPolarityProfile，使用原CostAuraSpec的有限friendly_polarity关系；状态保存于可移除印刷光环，费用/生成/付款共用原管线。不要给每张手牌贴减费，或由全局回合数推导新生成卡的状态。冻结输入为固有/本地之后、外部之前的价格，属于已登记本地政策；复制、移动/重置、原收据身份及公开参数见[塔迪乌斯契约](m3-thaddius-polarity.md)。

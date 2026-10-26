@@ -5,7 +5,7 @@ This module checks complete immutable identities without querying witnesses.
 """
 from dataclasses import dataclass, replace
 from .effects import _integer
-from .model import AbilityInstance, DeathrattlePlayerContributor
+from .model import AbilityInstance, CostPolarityState, DeathrattlePlayerContributor
 
 
 def checked_live_attachments(state):
@@ -181,8 +181,14 @@ full contributor receipts retain their own complete immutable source values.
 
 def _static_compatible(family, old, new):
     if family == 'ability':
-        return (type(new) is AbilityInstance and
-                replace(new, consumed=old.consumed) == old and
+        if type(new) is not AbilityInstance:return False
+        if old.cost_polarity is not None:
+            if (type(old.cost_polarity) is not CostPolarityState or type(new.cost_polarity) is not CostPolarityState or
+                    old.cost_polarity.card_id!=new.cost_polarity.card_id):return False
+            # The phase is mutable. Its declaration and every other physical
+            # attachment field still participate in the original identity check.
+            new=replace(new,cost_polarity=old.cost_polarity)
+        return (replace(new, consumed=old.consumed) == old and
                 not (old.consumed and not new.consumed))
     if family == 'player_effects':
         return (type(new) is type(old) and

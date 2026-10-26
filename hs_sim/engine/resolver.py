@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v744'
+CORE_EFFECTS_VERSION = 'core-effects-v745'
 
 
 class Mechanics:
@@ -363,6 +363,8 @@ class Resolution:
             from .paid_hand_acceptance import capture_choice_boundary
             event = capture_choice_boundary(self, event)
         self.game._events.append(event)
+        from .cost_polarities import started as start_cost_polarities
+        start_cost_polarities(self,event)
         from .hand_choice_followups import note_delivery, note_play, synchronize, ended
         note_delivery(self, event)
         hand_followup_work = note_play(self, event)

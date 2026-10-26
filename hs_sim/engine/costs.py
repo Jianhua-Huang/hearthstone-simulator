@@ -243,6 +243,8 @@ def validate_cost_aura_definition(card):
 
 
 def validate_cost_aura_carrier(registry, card_id, kind, abilities, components=()):
+    from .cost_polarities import validate_carrier as validate_polarity_carrier
+    validate_polarity_carrier(registry,card_id,kind,abilities,components)
     rows = tuple(a for a in abilities if a.kind == 'cost_aura')
     if not rows:
         return
@@ -342,7 +344,7 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
         for ability in source.abilities:
             if (ability.kind != 'cost_aura' or ability.consumed or not (
                     ability.cost_aura.relation in ('any', 'all_cards_minimum') or
-                    (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells')))):
+                    (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells','friendly_polarity')))):
                 continue
             if ability.cost_aura.hand_adjacent != (source.zone == Zone.HAND):
                 continue
@@ -375,7 +377,8 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
                     spells, None if spells is None else len(spells),
                     ability.cost_aura.tribes_any, original_inputs)
             contribution = CostContribution('cost_aura', source.controller, source.id,
-                                            ability=ability, first_play=first)
+                                            ability=ability, first_play=first,
+                                            polarity_basis=amount if ability.cost_aura.relation=='friendly_polarity'else None)
             modifiers.append((ability.id, ability.cost_aura.cost, contribution))
     # A price-bounded account switch has no numeric operation. Compute the
     # complete price once, then match the payment-only switches without cycles.
@@ -407,6 +410,9 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     physical subjects use their original ordered current-tribe changes.
     """
     spec = contribution.modifier.spec if contribution.modifier is not None else contribution.ability.cost_aura.cost
+    if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_polarity':
+        from .cost_polarities import matches as matches_polarity
+        if not matches_polarity(registry,contribution):return False
     if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_arcane_spells':
         from .model import SpellSchool
         if definition.kind!=CardType.SPELL or definition.spell_school!=SpellSchool.ARCANE:return False
