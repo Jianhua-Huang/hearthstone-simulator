@@ -125,6 +125,8 @@ class RecruitBasis:
     next_order:int
     attack_basis:str='printed'
     cost_basis:str='printed'
+    expansion_profile:str|None=None
+    excluded_expansions:tuple[int,...]=()
     def __post_init__(self):
         from .pools import PoolQuery
         _player(self.player_id);_player(self.owner_id)
@@ -153,6 +155,8 @@ class RecruitBasis:
                 raise ValueError('Physical Cost inventory differs from its original selector basis')
             if (a.controller,a.zone,a.next_entity_id,a.next_order)!=(self.owner_id,self.zone,self.next_entity_id,self.next_order):raise ValueError('Original zone inventory borrowed another location/window')
         if len({x.allocation.entity_id for x in self.inventory})!=len(self.inventory):raise ValueError('Duplicate physical zone inventory identity')
+        from .recruit_expansions import basis_value as expansion_basis_value
+        expansion_basis_value(self)
 
 
 def candidates(registry,basis):
@@ -175,11 +179,15 @@ def candidates(registry,basis):
         if a.card_id not in excluded and matches_metadata(query,card_id=a.card_id,kind=card.kind,cost=cost,
             meta=card.metadata,spell_school=card.spell_school,keywords=card.keywords,current_class=basis.hero_class,
             printed_battlecry=card.battlecry is not None,current_battlecry=fact.current_battlecry,
-            printed_attack=fact.permanent_stats.attack if fact.permanent_stats is not None else card.attack if fact.jade_size is None else fact.jade_size):result.append(fact.reference())
+            printed_attack=fact.permanent_stats.attack if fact.permanent_stats is not None else card.attack if fact.jade_size is None else fact.jade_size):
+            if basis.expansion_profile is not None:
+                from .recruit_expansions import edition
+                if edition(registry,basis.expansion_profile,a.card_id) in basis.excluded_expansions:continue
+            result.append(fact.reference())
     return tuple(result)
 
 
-def capture_basis(r,spec):
+def capture_basis(r,spec,excluded_expansions=()):
     from .summon_sources import minion_query
     from .card_conditions import has_battlecry
     from .permanent_minion_stats import value as permanent_value
@@ -191,7 +199,8 @@ def capture_basis(r,spec):
     return RecruitBasis(spec.player_id,spec.owner_id or spec.player_id,spec.zone,minion_query(spec.query),
         None if spec.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[spec.source_id]),
         r.player(spec.player_id).hero_class if spec.query.class_mode in('current','other')else None,
-        inventory,r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order,spec.attack_basis,spec.cost_basis)
+        inventory,r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order,spec.attack_basis,spec.cost_basis,
+        spec.expansion_profile,excluded_expansions)
 
 
 def validate_basis(state,registry,basis,*,closed=False):
@@ -376,7 +385,8 @@ def continue_producer(r,effect):
     from .zones import source_exists
     source_exists(r,root.spec.source_id)
     full=len(r.player(root.spec.player_id).board)>=r.rules.max_board
-    basis=None if full else capture_basis(r,root.spec)
+    from .recruit_expansions import exclusions
+    basis=None if full else capture_basis(r,root.spec,exclusions(r.registry,root.spec,root.rounds))
     available=()if full else validate_basis(r.state,r.registry,basis)
     before=r.game._rng.getstate()
     selected=(r.game._rng.choice(available)if root.spec.selection=='random'else available[0])if available else None
@@ -405,6 +415,9 @@ def validate_effect(state,registry,effect):
     if effect.on_summon is not None:registry.behavior(effect.on_summon)
     if type(effect)is SummonFromZone:
         if effect.source_id is not None and effect.source_id not in state.entities:raise ValueError('Queued recruit has unknown original query source')
+        if effect.expansion_profile is not None and effect.expansion_profile not in registry.recruit_expansion_profiles:
+            from .registry import UnsupportedDefinitionError
+            raise UnsupportedDefinitionError('Unknown queued recruit expansion inventory: '+effect.expansion_profile)
     elif type(effect)is SummonStoredCard:
         registry.card(effect.card.card_id)
         if effect.card.entity_id>=state.next_entity_id:raise ValueError('Queued physical recruit has future source')
@@ -440,6 +453,8 @@ def validate_record(state,registry,root,*,closed=False,children=None):
     from .summon_quantities import validate_cause
     from .summon_sources import minion_query
     root.__post_init__();validate_cause(state,registry,root.spec.cause,closed=closed)
+    if root.spec.expansion_profile is not None and root.spec.expansion_profile not in registry.recruit_expansion_profiles:
+        raise ValueError('Original recruit lost its declared expansion inventory')
     if root.id>=state.next_recruit_summon_id or root.turn>state.turn or root.action>state.action_number or root.spec.cause.turn>root.turn or root.spec.cause.action>root.action:raise ValueError('Future physical recruit acceptance')
     if not closed and root.status=='interrupted'and state.status=='playing':raise ValueError('Playing recruit cannot be interrupted')
     children={x.id:x for x in state.card_summon_history}if children is None else children
@@ -448,6 +463,9 @@ def validate_record(state,registry,root,*,closed=False,children=None):
         if row.basis is not None:
             b=row.basis
             if (b.player_id,b.owner_id,b.zone,b.query,b.attack_basis,b.cost_basis)!=(root.spec.player_id,root.spec.owner_id or root.spec.player_id,root.spec.zone,minion_query(root.spec.query),root.spec.attack_basis,root.spec.cost_basis)or(None if b.source is None else b.source.entity_id)!=root.spec.source_id:raise ValueError('Recruit query basis differs from original request')
+            from .recruit_expansions import exclusions
+            if (b.expansion_profile,b.excluded_expansions)!=(root.spec.expansion_profile,exclusions(registry,root.spec,root.rounds[:row.index])):
+                raise ValueError('Recruit expansion basis lost its original selected-set prefix')
             if b.turn<root.turn or b.action<root.action or validate_basis(state,registry,b,closed=closed)!=row.candidates:raise ValueError('Recruit lost its complete original ordered candidate query')
         if row.entry_root_id is not None:
             child=children.get(row.entry_root_id)
@@ -555,6 +573,7 @@ def from_dict(cls,value):
     elif cls is RecruitBasis:
         row['zone']=Zone(row['zone']);row['query']=query_from_dict(row['query']);row['source']=allocation_from_dict(row['source'])
         row['hero_class']=None if row['hero_class']is None else CardClass(row['hero_class']);row['inventory']=tuple(from_dict(RecruitCandidateFact,x)for x in row['inventory'])
+        row['excluded_expansions']=tuple(row['excluded_expansions'])
     elif cls is RecruitRound:
         def ref(value):
             if value is None:return None

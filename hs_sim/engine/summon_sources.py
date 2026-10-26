@@ -38,6 +38,7 @@ class SummonFromZone(Effect):
     attack_basis: str = 'printed'
     stat_group_id: int | None = None
     cost_basis: str = 'printed'
+    expansion_profile: str | None = None
 
     def __post_init__(self):
         if self.on_summon is not None:
@@ -70,6 +71,8 @@ class SummonFromZone(Effect):
                 self.owner_id not in (None, self.player_id) or self.attack_basis != 'printed' or
                 self.query.min_cost is None and self.query.max_cost is None):
             raise ValueError('Local-cost recruit requires its attributed bounded own-deck query')
+        from .recruit_expansions import request_value as expansion_request_value
+        expansion_request_value(self)
 
 
 def summon_from_zone(r, effect):

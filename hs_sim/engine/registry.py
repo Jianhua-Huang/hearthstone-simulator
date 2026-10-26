@@ -234,6 +234,7 @@ class Registry:
         self._remaining_mana_numbers_profiles = {}
         self._infused_battlecry_profiles = {}
         self._cost_polarity_profiles = {}
+        self._recruit_expansion_profiles = {}
         self._lifesteal_recipient_profiles = {}
         self._ability_family_profiles = {}
         self._rotating_discovery_class_profiles = {}
@@ -909,6 +910,17 @@ class Registry:
         validate_profile(self,profile)
         if profile.program_id in self._minion_base_stats_profiles:raise ValueError('Duplicate minion base program')
         self._minion_base_stats_profiles[profile.program_id]=profile
+
+    @property
+    def recruit_expansion_profiles(self):return MappingProxyType(self._recruit_expansion_profiles)
+
+    def register_recruit_expansion_profile(self,profile):
+        self._require_mutable()
+        from .recruit_expansions import RecruitExpansionProfile
+        if type(profile) is not RecruitExpansionProfile:raise ValueError('Typed printed-expansion recruit inventory required')
+        profile.__post_init__()
+        if profile.id in self._recruit_expansion_profiles:raise ValueError('Duplicate printed-expansion recruit inventory')
+        self._recruit_expansion_profiles[profile.id]=profile
 
     @property
     def cost_polarity_profiles(self):return MappingProxyType(self._cost_polarity_profiles)
@@ -2665,6 +2677,7 @@ class Registry:
         from .native_stat_gains import validate_profile as validate_native_stat_gain_profile
         for profile in self._native_stat_gain_profiles.values():validate_native_stat_gain_profile(self,profile)
         from .cost_polarities import validate_profile as validate_polarity_profile,RELATION as polarity_relation
+        for profile in self._recruit_expansion_profiles.values():profile.__post_init__()
         for profile in self._cost_polarity_profiles.values():validate_polarity_profile(self,profile)
         for card in self._cards.values():
             if any(s.relation==polarity_relation for s in card.cost_auras) != (card.id in self._cost_polarity_profiles):
@@ -3126,6 +3139,9 @@ class Registry:
             payload['adjoining_spell_profiles']=[{'spell_card_ids':ids}for ids in sorted({p.spell_card_ids for p in self._adjoining_spell_profiles.values()})]
         if self._colossal_reserve_profiles:
             payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
+        if self._recruit_expansion_profiles:
+            payload['recruit_expansion_profiles']=[dict(id=p.id,inventory_sha256=p.inventory_sha256)
+                for k in sorted(self._recruit_expansion_profiles)for p in (self._recruit_expansion_profiles[k],)]
         if self._cost_polarity_profiles:
             payload['cost_polarity_profiles']=[asdict(self._cost_polarity_profiles[k])for k in sorted(self._cost_polarity_profiles)]
         if self._infused_battlecry_profiles:

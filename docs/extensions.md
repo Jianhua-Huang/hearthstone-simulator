@@ -2127,3 +2127,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 真实极性减费注册CostPolarityProfile，使用原CostAuraSpec的有限friendly_polarity关系；状态保存于可移除印刷光环，费用/生成/付款共用原管线。不要给每张手牌贴减费，或由全局回合数推导新生成卡的状态。冻结输入为固有/本地之后、外部之前的价格，属于已登记本地政策；复制、移动/重置、原收据身份及公开参数见[塔迪乌斯契约](m3-thaddius-polarity.md)。
+
+
+杜加尔的真实战吼组合SummonFromZone(expansion_profile=...)，原印刷归属由有限RecruitExpansionProfile声明，不在卡牌回调中抽样、移牌或另排入场队列。profile只开放已确认真实所需的三次本人牌库形状；原分组按实际原行，不能按名称或CORE_等前缀合并。原排除前缀、额外副本与明确未知失败及未校准政策见[不同扩展包招募契约](m3-distinct-expansion-recruit.md)。
