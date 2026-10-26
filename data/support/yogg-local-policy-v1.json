@@ -1,0 +1,42 @@
+{
+  "document_kind": "user_accepted_local_policy",
+  "card_id": "BE_009",
+  "policy_id": "yogg-practice-like-v1",
+  "accepted_at": "2026-10-26",
+  "acceptance": "用户明确接受尤格按本地近似版本处理，不要求与官方AI完全一致；具体差异本地记录，继续推进其他内容。",
+  "runtime_algorithm_changed_by_acceptance": false,
+  "exact_official_ai_required_for_local_delivery": false,
+  "official_ranking_verified": false,
+  "cn_calibrated": false,
+  "developer_source": "https://www.reddit.com/r/hearthstone/comments/1wuibfx/developer_insight_reign_of_black_empire_old_gods/",
+  "confirmed_constraints": [
+    "代打决策类似普通难度练习模式AI，普通行动存在决策逻辑。",
+    "自身技能可用时，开局先使用一个自身技能。",
+    "同时选中领域和崛起时，先抽牌，再变牌。",
+    "崛起的入选机会与其他三个技能相同。"
+  ],
+  "local_choices": {
+    "opening": "从原来源当前合法技能中不放回抽取，普通最多两个，风怒最多三个，超级风怒最多五个且不超过可用数；两种关键技能按领域先于崛起排序。通常连续优先执行计划中的可用技能，联合抽样与接受窗口为本地政策。",
+    "ordinary_actions": "逐动作重新读取原玩家可见DTO和合法菜单，按确定性分值取最高项，同分保持合法菜单顺序。",
+    "attack": "单次攻击力达到敌方英雄当前生命加护甲时评分100000；其他攻击基础200，能击杀加50、自身存活加20、打敌方英雄加5。该估算不搜索多步斩杀，也不完整模拟防护、亡语或攻击后反应。",
+    "play_card": "基础400加当前报价金额的十倍，敌方目标加5；不按具体伤害、治疗、增益或控制收益理解牌面。",
+    "ability": "基础700，敌方目标加50，敌方目标当前生命在1至10之间再加20；不完整评估实际伤害收益。",
+    "other": "地标300、星舰发射250、英雄技能100、手牌动作50、交互30、结束回合-1000；有敌方目标时再加5。",
+    "choices": "发现、抉择等合法选择基础10000，同分沿原菜单取第一项，不评估选项收益。",
+    "concede": "策略排除主动投降；普通合法效果仍可能导致己方失败。",
+    "information": "策略只接收本方玩家DTO及原合法菜单，不读取对手隐藏牌、注册表或全知Game状态。",
+    "unsupported": "未知玩家命令、未支持规则或工程预算耗尽仍明确报错并回滚原外部事务，不静默跳牌或视为结束。"
+  },
+  "preserved_execution_contract": {
+    "source_policy": "outputs/card-integration-20261014/k502-yogg-controlled-turn/source-policy-01.json",
+    "scheduling": "原实际玩家整局一次；完成外层结算后排入来源绑定受控FIFO槽。非本人回合间接战吼只排队，不结束对手当前回合。原来源离场不撤销已接受请求。",
+    "resolution": "继续复用正常支付、出牌、攻击、技能、选择、回合开始结束、死亡、回溯、恢复和回放；本人选择自动处理，对手选择保持等待。",
+    "scope": "仅接受这份明确本地策略用于本地交付；不将原推断升级为官方规则，不证明正式卡池、国服热修或全部其他机制一致。"
+  },
+  "implementation": [
+    "hs_sim/engine/native_turn_policy.py",
+    "hs_sim/engine/controlled_turns.py",
+    "hs_sim/cards/yogg_root_card.py",
+    "hs_sim/cards/yogg_skills.py"
+  ]
+}
