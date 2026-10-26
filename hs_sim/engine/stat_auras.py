@@ -119,11 +119,13 @@ def weapon_bonuses(state, *, include_dying=False):
         amount = 0
         for source_id in player.board:
             source = state.entities[source_id]
-            if (source.kind != CardType.MINION or not source.active or source.damage <= 0 or
+            if (source.kind != CardType.MINION or not source.active or
                     not include_dying and (source.health <= 0 or source.doomed)):
                 continue
             amount += sum(a.attack for a in active_abilities(source, 'aura')
-                          if a.aura_target == 'friendly_weapon')
+                          if a.aura_target == 'friendly_weapon' and
+                          (a.aura_condition != 'self_damaged' or source.damage > 0) and
+                          matches_card_identity(weapon, a.aura_card_ids))
         bonuses[weapon.id] = amount
     return bonuses
 

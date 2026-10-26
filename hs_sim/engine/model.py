@@ -4050,7 +4050,7 @@ class AuraSpec:
     def __post_init__(self):
         TribeChangeSpec('set', self.tribes_any).__post_init__()
         _aura_card_ids(self.card_ids)
-        if self.card_ids and (self.target != 'friendly_minions' or self.condition != 'always' or
+        if self.card_ids and (self.target not in ('friendly_minions', 'friendly_weapon') or self.condition != 'always' or
                 self.adjacent_only or self.tribes_any):
             raise ValueError('Card identity stat auras require ordinary board scope and one selector')
         if self.card_ids:
@@ -4067,9 +4067,13 @@ class AuraSpec:
             _bool(self.adjacent_only, 'tribal stat aura adjacent_only')
         if (type(self.target) is not str or type(self.condition) is not str or
                 (self.target, self.condition) not in (
-                    ('friendly_minions', 'always'), ('friendly_weapon', 'self_damaged'),
+                    ('friendly_minions', 'always'), ('friendly_weapon', 'self_damaged'), ('friendly_weapon', 'always'),
                     ('friendly_hero', 'controller_turn'))):
             raise ValueError('Unsupported stat aura target or condition')
+        if self.target == 'friendly_weapon' and self.condition == 'always':
+            _int(self.attack, 'named weapon aura Attack', 1)
+            if (not self.card_ids or self.health != 0 or self.include_self or self.adjacent_only or self.tribes_any):
+                raise ValueError('Named weapon auras require only native identities and positive Attack')
         if self.condition == 'self_damaged':
             _int(self.attack, 'conditional weapon Attack', 1)
             _int(self.health, 'conditional weapon health', 0)

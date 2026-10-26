@@ -1,0 +1,761 @@
+{
+  "schema": 1,
+  "batch": "K580",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "NX2_037",
+        "dbf_id": 87329,
+        "name": "冰霜女王辛达苟萨",
+        "name_en": "Frost Queen Sindragosa",
+        "text": "<b>巨型+2</b>\n在一个敌方随从被<b>冻结</b>后，将其消灭。",
+        "text_en": "<b>Colossal +2</b>\nAfter an enemy minion is <b>Frozen</b>, destroy it.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 94607,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COST_FROST": 1,
+          "COLOSSAL": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fff0901d001db6a64914dca1c20187a169a798b9b416be65b1f68f9ea214440c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "NX2_037",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_937",
+        "dbf_id": 72536,
+        "name": "可拉巴托亚",
+        "name_en": "Crabatoa",
+        "text": "<b>巨型+2</b>\n你的可拉巴托亚的钳子拥有+2攻击力。",
+        "text_en": "<b>Colossal +2</b>\nYour Crabatoa Claws have +2 Attack.",
+        "cost": 6,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85859,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "8343e0563924fb179cd07054c81f0b8734b727d587892373ce54e9fa49c44be6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_937",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "NX2_037t",
+        "dbf_id": 87330,
+        "name": "辛达苟萨之翼",
+        "name_en": "Sindragosa's Wing",
+        "text": "<b>突袭</b>。<b>冻结</b>任何受到本随从伤害的角色。",
+        "text_en": "<b>Rush</b>\n<b>Freeze</b> any character damaged by this minion.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "FREEZE": 1,
+          "RUSH": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "a9962a4b7fe73c4d1174433026a5a211185292d6b8046a0057a5cf5087409f1c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "NX2_037t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "00c21ef2fb006c6ba53f4fbadf1882747782d9a3ebf8072277a131f5f9cda53d",
+      "pool_card_sha256": "20e316a3f4e6372bb50b5a3346bf0c98da0205fa016b0fabd323f6ce15e03e09"
+    },
+    {
+      "record": {
+        "id": "NX2_037t2",
+        "dbf_id": 94607,
+        "name": "辛达苟萨之翼",
+        "name_en": "Sindragosa's Wing",
+        "text": "<b>突袭</b>。<b>冻结</b>任何受到本随从伤害的角色。",
+        "text_en": "<b>Rush</b>\n<b>Freeze</b> any character damaged by this minion.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 1,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "FREEZE": 1,
+          "RUSH": 1,
+          "2534": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "faa89254cde4470343549fac45f5c469f9a144fbb43fc2e14f4f05d5255ee560",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "NX2_037t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "f24a3de6279692d787220b6944a915fe1b2cac97c974b39bc3f20ac323874213",
+      "pool_card_sha256": "64beaf9209c14386085d14383bf4b1f7cb9d38151c76e28f1989d3e5606eb821"
+    },
+    {
+      "record": {
+        "id": "TSC_937t",
+        "dbf_id": 72537,
+        "name": "可拉巴托亚的蟹钳",
+        "name_en": "Crabatoa's Claw",
+        "text": "<b>突袭</b>，<b>亡语：</b>装备一把2/1的蟹钳。",
+        "text_en": "<b>Rush</b>\n<b>Deathrattle:</b>  Equip a 2/1 Claw.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1d0f7ac6cc38a257f81417733e10b937038d1aa9058e925d9ba6d597a2336549",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_937t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "a026927231a10dd7a8a51e34422eed8867383f9e2f4ef145bf75e638e9af420e",
+      "pool_card_sha256": "37318d365a24df2d65a18ad4125021205c3ccb84ed1377a53375217fa3029ab9"
+    },
+    {
+      "record": {
+        "id": "TSC_937t2",
+        "dbf_id": 72580,
+        "name": "可拉巴托亚之钳",
+        "name_en": "Crabatoa Claw",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "c23df20a0ab2d091db147017b74dc4eead731108aebff5860563a85088ecdb9c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_937t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "30066fc8709eb7cf94294af4dbc5ca979eb3bd0437908de69f2d47d4b2506085",
+      "pool_card_sha256": "b215386da9050b2ced3653f13285807b402b8c36859ab8dbb2e5649790f1fb21"
+    },
+    {
+      "record": {
+        "id": "TSC_937t3",
+        "dbf_id": 85859,
+        "name": "可拉巴托亚的蟹钳",
+        "name_en": "Crabatoa's Claw",
+        "text": "<b>突袭</b>，<b>亡语：</b>装备一把2/1的蟹钳。",
+        "text_en": "<b>Rush</b>\n<b>Deathrattle:</b>  Equip a 2/1 Claw.",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 7,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2f473f668130e0ce58bc8b9dbb6dd8c8e6f797911eb9794e2545852d17a4f446",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_937t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "527334ad5e398ac15b461acec5bd0d37bec283ae2ef58f615f4364b61ad51d96",
+      "pool_card_sha256": "e2b9b14a293695046fcd4c0f009514799aeb4778721390542917c3ee3355a355"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "NX2_037",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 87329,
+        "collectible": 1,
+        "slug": "87329-frost-queen-sindragosa",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "冰霜女王辛达苟萨",
+        "text": "<b>巨型+2</b> 在一个敌方随从被<b>冻结</b>后，将其消灭。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc83bb380d1fb4f442857fd142feb346255137035dcf7fa0e59febd5379650ac.png",
+        "imageGold": "",
+        "flavorText": "辛达苟萨用她最后的一丝气息，诅咒她的爱侣，以及所有任由她死在冰冠冰川的生灵。当她在巫妖王的手中重生之时，她吐出了新生的第一口寒气。那是饱含痛苦的寒气。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78a1b6a79f87c5c0b23673509559635f6c076f5eb579b94a3e5faaec0c5480dc.png",
+        "childIds": [
+          87330,
+          94607
+        ],
+        "keywordIds": [
+          10,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_037",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 87329,
+        "collectible": 1,
+        "slug": "87329-frost-queen-sindragosa",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Frost Queen Sindragosa",
+        "text": "<b>Colossal +2</b> After an enemy minion is <b>Frozen</b>, destroy it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7513de1e1c7f0e347aad354df489ca5c84748cfa201c19f0388fd1ce6c63aa9.png",
+        "imageGold": "",
+        "flavorText": "With her final breath, Sindragosa cursed her consort and all who abandoned her to die in Icecrown. When she was reborn by the hands of the Lich King, her first freezing exhale wrought only pain.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/78a1b6a79f87c5c0b23673509559635f6c076f5eb579b94a3e5faaec0c5480dc.png",
+        "childIds": [
+          87330,
+          94607
+        ],
+        "keywordIds": [
+          10,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_937",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 72536,
+        "collectible": 1,
+        "slug": "72536-crabatoa",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "可拉巴托亚",
+        "text": "<b>巨型+2</b> 你的可拉巴托亚的钳子拥有+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29498ed0a56ebb492444aa02082f9ee8156322f8511efab3f02cfe0fa8b1bcaa.png",
+        "imageGold": "",
+        "flavorText": "这只巨蟹喜欢弄沉整支舰队，不过饿极了的时候，一艘小艇也能凑合。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b0474cc7e7c3152fd14053e10c77384c0081ff27e02e4f08251c666a904ea05.png",
+        "childIds": [
+          72537,
+          85859,
+          72580
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_937",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 72536,
+        "collectible": 1,
+        "slug": "72536-crabatoa",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Crabatoa",
+        "text": "<b>Colossal +2</b> Your Crabatoa Claws have +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b11e1403576318a9065ca5aa8599e9c6019388467ac23f1bd90608b9cfbcf3d.png",
+        "imageGold": "",
+        "flavorText": "This giant crab loves to sink entire naval fleets, but it'll settle for a single dinghy in a pinch.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b0474cc7e7c3152fd14053e10c77384c0081ff27e02e4f08251c666a904ea05.png",
+        "childIds": [
+          72537,
+          85859,
+          72580
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "reference_document": "data/cards/past-colossal-local-reference-v1.json",
+  "reference_canonical_sha256": "6f4881cac0e225c31ede9eb6f83e115d942ace6641246e36f1030950eb9c4bdf",
+  "appendages": {
+    "NX2_037": [
+      "NX2_037t",
+      "NX2_037t2"
+    ],
+    "TSC_937": [
+      "TSC_937t",
+      "TSC_937t3"
+    ]
+  },
+  "named_weapon_id": "TSC_937t2",
+  "weapon_aura_policy": "same-controller-current-equipped-native-identity-continuous-plus-two",
+  "freeze_policy": "actual-new-frozen-notification-current-enemy-board-minion-captured-before-shared-destruction",
+  "evidence": [
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Crabatoa",
+      "observed_on": "2026-10-27",
+      "kind": "community-card-notes",
+      "observation": "Ongoing effect covers both named Claw minions and named Claw weapon; no official current-CN interaction calibration claimed."
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -2175,3 +2175,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 绑定僵尸兽参考域时从独立角色名单建立PoolDefinition，不能用可执行覆盖过滤成员；全批原生定义/元数据/许可及蓝图核完后才添加排除项元数据。源参考历史字段不改，宿主版本另增，正式完整性和来源等价性分别保持未确认，见[契约](m3-zombeast-role-pool-bindings.md)。
+
+
+为真实原卡声明具名武器光环时使用friendly_weapon/always/非空card_ids与正攻击、零生命，Registry核引用武器；不要永久修改装备或用受伤条件代替具名匹配。真实冻结反应需实际frozen通知及捕获物理随从，原生两例和完整候选证据见[契约](m3-past-colossal-controls.md)。

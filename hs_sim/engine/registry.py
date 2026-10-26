@@ -2939,8 +2939,9 @@ class Registry:
         for card in (*self._cards.values(), *self._modular_modules.values()):
             for aura in (*card.auras, *card.keyword_auras):
                 for card_id in aura.card_ids:
-                    if self.card(card_id).kind != CardType.MINION:
-                        raise ValueError('Native card identity auras only filter registered minions')
+                    kind = CardType.WEAPON if aura.target == 'friendly_weapon' else CardType.MINION
+                    if self.card(card_id).kind != kind:
+                        raise ValueError('Native card identity auras require registered recipients of their declared kind')
             if card.choose_one is not None:
                 for selected in (*card.choose_one.branches,card.choose_one.combined):
                     self.behavior(selected.behavior_id)

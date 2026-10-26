@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v645"
+CONTENT_VERSION = "constructed-cn37-preview-v646"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1320,5 +1320,7 @@ def build_registry():
     register_zombeast_native_kindred_growth(registry)
     from .frozen_mammoth_card import register_frozen_mammoth_card
     register_frozen_mammoth_card(registry)
+    from .past_colossal_controls import register_past_colossal_controls
+    register_past_colossal_controls(registry)
     registry.validate()
     return registry
