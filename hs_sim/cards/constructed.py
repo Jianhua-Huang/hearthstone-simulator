@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v649"
+CONTENT_VERSION = "constructed-cn37-preview-v650"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1328,5 +1328,7 @@ def build_registry():
     register_xhilag_trigger_upgrades(registry)
     from .nellie_ship_crew import register_nellie_ship_crew
     register_nellie_ship_crew(registry)
+    from .gigafin_devour import register_gigafin_devour
+    register_gigafin_devour(registry)
     registry.validate()
     return registry

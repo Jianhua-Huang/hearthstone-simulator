@@ -134,6 +134,8 @@ def create_appendage(r,body,spec,previous=()):
     player=r.player(body.controller);position=player.board.index(body.id)
     if spec.side=='right':position=max([position]+[player.board.index(i)for i in previous if i in player.board])+1
     limb=r.create_entity(player.id,spec.card_id,Zone.BOARD,position)
+    from .devoured_minions import bind_maw
+    bind_maw(r,body,limb)
     r.refresh_auras()
     return limb
 

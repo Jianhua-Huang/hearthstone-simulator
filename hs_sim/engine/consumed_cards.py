@@ -10,7 +10,7 @@ from random import Random
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
 from .copy_materials import CapturedCardCopyMaterial, from_dict as copy_from_dict, validate_captured_card_copy
 from .effects import Buff, Effect, GrantDeathrattle, GrantKeyword, _behavior, _integer, _player
-from .model import CardType, Keyword, Zone, validate_end_turn_rng
+from .model import CardType, DeathCause, Keyword, Zone, validate_end_turn_rng
 from .sacrifice import MinionReference, reference_value, same_instance
 from .zones import CardReference, CopyCard
 
@@ -25,7 +25,7 @@ class ConsumptionProfile:
 
     def __post_init__(self):
         _behavior(self.card_id)
-        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand', 'fabled_weapon', 'equipped_weapon'):
+        if self.kind not in ('hand_spell', 'deck_minion', 'opponent_hand', 'fabled_weapon', 'equipped_weapon', 'board_minions'):
             raise ValueError('Unknown native consumption profile')
 
 
@@ -39,6 +39,12 @@ def validate_profile(registry, profile):
     registry.behavior(card.deathrattle)
     if profile.kind == 'fabled_weapon':
         fabled_weapon_id(registry, profile)
+    if profile.kind == 'board_minions':
+        if len(card.colossal) != 1 or card.battlecry is None:
+            raise ValueError('Devoured minions require their original single-Maw Colossal Battlecry')
+        maw = registry.card(card.colossal[0].card_id)
+        if maw.kind != CardType.MINION or maw.deathrattle is None or maw.metadata is None or maw.metadata.collectible is not False:
+            raise ValueError('Devoured minions require their original noncollectible Maw')
 
 
 def fabled_weapon_id(registry, profile):
@@ -67,6 +73,7 @@ class ConsumedCardRecord:
     candidates: tuple[CardReference, ...] = ()
     rng_before: tuple | None = None
     rng_after: tuple | None = None
+    destruction: DeathCause | None = None
 
     def __post_init__(self):
         for name in ('id', 'ability_id', 'turn', 'event_sequence'):
@@ -80,10 +87,16 @@ class ConsumedCardRecord:
         self.card.__post_init__()
         origin = self.card.origin
         if (self.source.kind != CardType.MINION or self.source.zone != Zone.BOARD
-                or origin.zone not in (Zone.HAND, Zone.DECK, Zone.WEAPON) or origin.entity_id == self.source.entity_id
+                or origin.zone not in (Zone.HAND, Zone.DECK, Zone.WEAPON, Zone.BOARD) or origin.entity_id == self.source.entity_id
                 or origin.zone == Zone.WEAPON and origin.kind != CardType.WEAPON
                 or self.after_epoch != origin.zone_epoch + 1):
             raise ValueError('Consumption changed its original physical source or removal')
+        if self.destruction is not None:
+            if type(self.destruction) is not DeathCause or origin.zone != Zone.BOARD or origin.kind != CardType.MINION:
+                raise ValueError('Devoured minions require their original board destruction material')
+            self.destruction.__post_init__()
+        elif origin.zone == Zone.BOARD:
+            raise ValueError('Board consumption cannot substitute a silent storage removal')
         if type(self.candidates) is not tuple or any(type(ref) is not CardReference for ref in self.candidates):
             raise ValueError('Consumption candidates require their complete frozen references')
         for ref in self.candidates:
@@ -103,6 +116,9 @@ def record(state, identity):
 
 
 def validate_payload(state, registry, ability):
+    if ability.devour_parent is not None:
+        from .devoured_minions import validate_maw_link
+        validate_maw_link(state, registry, ability)
     if ability.consumed_card_id is None:
         return
     row = record(state, ability.consumed_card_id)
@@ -120,17 +136,24 @@ def validate_record(state, registry, row):
     validate_allocation(state, registry, row.source)
     validate_captured_card_copy(state, registry, row.card)
     origin = row.card.origin
+    pending_devour = (profile.kind == 'board_minions' and state.entities[origin.entity_id].zone == Zone.BOARD
+        and state.entities[origin.entity_id].doomed and state.entities[origin.entity_id].death_cause == row.destruction)
     if (row.turn > state.turn or row.action > state.action_number or row.ability_id >= state.next_attachment_id
-            or state.entities[origin.entity_id].zone_epoch < row.after_epoch):
+            or state.entities[origin.entity_id].zone_epoch < row.after_epoch and not pending_devour):
         raise ValueError('Consumption has a future source, attachment or removal')
-    expected_zone = (Zone.WEAPON if profile.kind == 'equipped_weapon' else origin.zone if profile.kind == 'fabled_weapon' else
+    expected_zone = (Zone.BOARD if profile.kind == 'board_minions' else Zone.WEAPON if profile.kind == 'equipped_weapon' else origin.zone if profile.kind == 'fabled_weapon' else
                      Zone.DECK if profile.kind == 'deck_minion' else Zone.HAND)
     expected_kind = {'hand_spell': CardType.SPELL, 'deck_minion': CardType.MINION,
-                     'equipped_weapon':CardType.WEAPON}.get(profile.kind)
-    expected_player = 3-row.source.controller if profile.kind == 'opponent_hand' else row.source.controller
+                     'equipped_weapon':CardType.WEAPON, 'board_minions':CardType.MINION}.get(profile.kind)
+    expected_player = 3-row.source.controller if profile.kind in ('opponent_hand', 'board_minions') else row.source.controller
     if (origin.zone != expected_zone or origin.controller != expected_player
             or expected_kind is not None and origin.kind != expected_kind):
         raise ValueError('Consumption does not match its declared original card kind')
+    if profile.kind == 'board_minions':
+        from .devoured_minions import validate_destruction
+        validate_destruction(state, registry, row)
+    elif row.destruction is not None:
+        raise ValueError('Stored consumption cannot borrow board destruction material')
     for ability in row.card.local.abilities:
         if ability.consumed_card_id is not None:
             if ability.consumed_card_id >= row.id:
@@ -141,7 +164,7 @@ def validate_record(state, registry, row):
                 or row.candidates or row.rng_before is not None or row.rng_after is not None
                 or row.health_gain != row.card.durability):
             raise ValueError('Fabled weapon material changed its named companion, durability or deterministic removal')
-    elif profile.kind == 'hand_spell':
+    elif profile.kind in ('hand_spell', 'board_minions'):
         if row.candidates or row.rng_before is not None or row.rng_after is not None or row.attack_gain or row.health_gain:
             raise ValueError('Targeted absorption cannot invent a random draw or minion stats')
     else:
@@ -389,6 +412,8 @@ def resolve(r, effect):
     validate_payload(r.state, r.registry, capture.ability)
     row = record(r.state, capture.ability.consumed_card_id)
     profile = r.registry.consumption_profiles[row.profile_id]
+    if profile.kind == 'board_minions':
+        raise ValueError('Devoured minions require their original attributed resurrection request')
     if profile.kind=='equipped_weapon':
         first=first_weapon_activation(r.state,capture)
         if (capture.group_id,capture.trigger_index)!=(first.group_id,first.trigger_index):return ()
@@ -486,6 +511,9 @@ def rows_from_dict(value):
         if material['preparation'] is not None:
             material['preparation'] = HandPreparation(**_row(material['preparation'], HandPreparation))
         row['card'] = CapturedCardCopyMaterial(**material)
+        if row['destruction'] is not None:
+            from .serialization import _death_cause_from_dict
+            row['destruction'] = _death_cause_from_dict(row['destruction'])
         row['candidates'] = tuple(CardReference(**dict(x, zone=Zone(x['zone']))) for x in row['candidates'])
         for name in ('rng_before', 'rng_after'):
             if row[name] is not None:

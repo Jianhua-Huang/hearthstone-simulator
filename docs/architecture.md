@@ -1811,3 +1811,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 奈利以有限ColossalCrewProfile和原附肢驻留连接三次公共发现，将真实选择存在既有亡语记忆；每次先记忆再通知，亡语沿普通入手/1费设值与爆牌执行。同ID重入、复制和私有信息边界见[契约](m3-nellie-ship-crew.md)，不新增全局船员账户或裁剪完整来源域。
+
+
+老巨鳍把实际整组DestroyBatch及原DeathCause接到既有消费记录和授予亡语，吐回继续交原带归因复活；原口部用BoardPresenceReference退役活体的匹配吐回能力，不改已接受死亡。普通生命周期、保存和本地证据边界见[契约](m3-gigafin-devour.md)。

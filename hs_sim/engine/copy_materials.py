@@ -365,6 +365,9 @@ def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
         validate_native_condition(registry, material.card_id, material.origin.kind, material.local.abilities, material.components)
         from .timed_keywords import validate_deadline
         for ability in material.local.abilities:
+            if ability.devour_parent is not None:
+                from .devoured_minions import validate_maw_link
+                validate_maw_link(state,registry,ability)
             if ability.limited_trigger_deadline is not None:
                 if ability.limited_trigger_deadline.created_turn > material.captured_turn:
                     raise ValueError('Copied finite start deadline is newer than its original material')

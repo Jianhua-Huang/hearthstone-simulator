@@ -1,0 +1,302 @@
+{
+  "schema": 1,
+  "batch": "K584",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TSC_962",
+        "dbf_id": 74741,
+        "name": "老巨鳍",
+        "name_en": "Gigafin",
+        "text": "<b>巨型+1</b>\n<b>战吼：</b>吞食所有敌方随从。<b>亡语：</b>吐出来。",
+        "text_en": "[x]<b>Colossal +1</b>. <b>Battlecry:</b>\nDevour all enemy minions.\n<b>Deathrattle:</b> Spit them\nback out.",
+        "cost": 8,
+        "attack": 7,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1544": 1,
+          "HEALTH": 4,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 9,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 74742,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 74742,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "84fee5690f9a22c088d419ee0f4700c5ca84629164e40bb9d5f94613c478859d"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TSC_962t",
+        "dbf_id": 74742,
+        "name": "老巨鳍之口",
+        "name_en": "Gigafin's Maw",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>永久消灭老巨鳍体内的所有随从。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b> Permanently destroy all minions inside Gigafin.",
+        "cost": 6,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 9,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "d7f57226ebd735fb3fe7e5225c83c2107890a8ff0b1a1dd7276a5cdef7d5ca71"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TSC_962e",
+        "dbf_id": 74743,
+        "name": "整个吞下",
+        "name_en": "Swallowed Whole",
+        "text": "含着随从",
+        "text_en": "Storing a Minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2e8759443b745ef3b5d6c55665df874acd8e83d58c08df3144473a7cc8b2fd4c"
+    },
+    {
+      "record": {
+        "id": "TSC_962e2",
+        "dbf_id": 79114,
+        "name": "鼓胀",
+        "name_en": "Bloated",
+        "text": "老巨鳍吞食了所有敌方随从！",
+        "text_en": "Gigafin has eaten all enemy minions!",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "2b7c62c11c8401152d0ed260f46de3da3340cc332faad015a8b2ba34a1002550"
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TSC_962",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 74741,
+        "collectible": 1,
+        "slug": "74741-gigafin",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Slawomir Maniak",
+        "health": 4,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "Gigafin",
+        "text": "<b>Colossal +1</b>. <b>Battlecry:</b> Devour all enemy minions. <b>Deathrattle:</b> Spit them back out.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e71b9d5efc46c811a1cb7bf2ed5ec6340ab0cf10c5a9b9fa9e0f5512cd471e68.png",
+        "imageGold": "",
+        "flavorText": "How much storage does Gigafin's Maw have? About a giga bite.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c6f4946eb797e061f45a58c3188c7d60743260b33e44330293e3d1229d4497b.png",
+        "childIds": [
+          74742
+        ],
+        "keywordIds": [
+          8,
+          12,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_962",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 74741,
+        "collectible": 1,
+        "slug": "74741-gigafin",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 14,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Slawomir Maniak",
+        "health": 4,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "老巨鳍",
+        "text": "<b>巨型+1</b> <b>战吼：</b>吞食所有敌方随从。<b>亡语：</b>吐出来。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ee5add461ec5e3c6d4a86e44c7ca3f03b381cf46a209730a7988ed228e06cf4.png",
+        "imageGold": "",
+        "flavorText": "老巨鳍体内的存储空间有多大？大概有一鲸。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c6f4946eb797e061f45a58c3188c7d60743260b33e44330293e3d1229d4497b.png",
+        "childIds": [
+          74742
+        ],
+        "keywordIds": [
+          8,
+          12,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "reference_document": "data/cards/past-colossal-local-reference-v1.json",
+  "reference_canonical_sha256": "6f4881cac0e225c31ede9eb6f83e115d942ace6641246e36f1030950eb9c4bdf",
+  "consumption_kind": "board_minions",
+  "producer_behavior_id": "cards.gigafin_devour.consume",
+  "deathrattle_behavior_id": "cards.gigafin_devour.return",
+  "maw_behavior_id": "cards.gigafin_devour.digest",
+  "policy": [
+    "Devour uses ordinary DestroyBatch; genuine minion Deathrattles and deaths continue normally.",
+    "Capture each original accepted destruction and grant its return payload before death reactions.",
+    "Return fresh base minions through existing attributed resurrection, including its existing dynamic-material handling and capacity rules.",
+    "Return to the side opposite the current Deathrattle controller, supported by a primary player report; exact current CN policy remains uncalibrated.",
+    "Original Maw binds the parent board residence; current copies retain the original binding, base/reset/silence do not.",
+    "Maw invalidates matching live parent return payloads, never already accepted death captures.",
+    "Per-victim granted payload granularity, copied Battlecries and deferred destruction remain explicit local policies pending CN verification."
+  ],
+  "evidence": [
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/is-gigafin-working-as-intended/88218",
+      "kind": "primary player report",
+      "supports": "Destruction triggers victim Deathrattles."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/gigafin-triggers-death-rattles-of-spooky-skeletons/92577",
+      "kind": "primary player report",
+      "supports": "Victim Deathrattles may kill Gigafin and release stored minions during the same sequence."
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/107xhdj",
+      "kind": "primary player report",
+      "supports": "Stolen Gigafin returns victims opposite its current side."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/gigafin-interaction/87079",
+      "kind": "primary player report",
+      "supports": "Returned/replayed Maw does not digest old parent inventory."
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

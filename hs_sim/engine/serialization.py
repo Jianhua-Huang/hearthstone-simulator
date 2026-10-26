@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 599
+SNAPSHOT_SCHEMA_VERSION = 600
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -327,6 +327,9 @@ def _hand_progress_spec(value):
 
 def _ability_from_dict(value):
     row = _row(value, AbilityInstance)
+    if row['devour_parent'] is not None:
+        from .model import BoardPresenceReference
+        row['devour_parent'] = BoardPresenceReference(**_row(row['devour_parent'], BoardPresenceReference))
     if row['cost_polarity'] is not None:
         from .model import CostPolarityState
         row['cost_polarity']=CostPolarityState(**_row(row['cost_polarity'],CostPolarityState))

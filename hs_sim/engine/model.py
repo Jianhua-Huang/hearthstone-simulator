@@ -3161,6 +3161,7 @@ class AbilityInstance:
     deathrattle_card_id: str | None = None
     deathrattle_grant_card_id: str | None = None
     consumed_card_id: int | None = None
+    devour_parent: BoardPresenceReference | None = None
     hero_power_repeat: HeroPowerRepeatSpec | None = None
     end_turn: EndTurnSpec | None = None
     end_turn_repeat: EndTurnRepeatSpec | None = None
@@ -3532,6 +3533,11 @@ class AbilityInstance:
         if self.kind=='deathrattle' and self.origin=='granted' and self.source_id is not None and self.deathrattle_grant_card_id is None:
             raise ValueError('Identified Deathrattle grant requires its captured source card')
         _optional_id(self.consumed_card_id, 'consumed native card')
+        if self.devour_parent is not None:
+            if (self.kind != 'deathrattle' or type(self.devour_parent) is not BoardPresenceReference or
+                    self.deathrattle_card_id is None or self.consumed_card_id is not None):
+                raise ValueError('Devoured Maw requires its original pure parent residence binding')
+            self.devour_parent.__post_init__()
         if self.consumed_card_id is not None and (self.kind != 'deathrattle' or self.origin != 'granted' or self.deathrattle_card_id is None):
             raise ValueError('Consumed card parameters require an identified granted Deathrattle')
         if self.timed_keyword is not None:
@@ -11728,6 +11734,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         if isinstance(attachment, AbilityInstance) and attachment.attack_source_binding is not None:
             from .board_presence import validate_attack_source_binding
             validate_attack_source_binding(state, attachment.attack_source_binding)
+        if isinstance(attachment, AbilityInstance) and attachment.devour_parent is not None:
+            from .devoured_minions import validate_maw_link
+            validate_maw_link(state, registry, attachment)
         if isinstance(attachment, AbilityInstance) and attachment.spell_repeat is not None:
             from .repeat_source_conditions import validate_source_declaration
             validate_source_declaration(registry, attachment.spell_repeat,
