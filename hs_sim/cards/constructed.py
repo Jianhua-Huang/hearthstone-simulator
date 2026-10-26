@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v641"
+CONTENT_VERSION = "constructed-cn37-preview-v642"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1312,5 +1312,7 @@ def build_registry():
     register_zombeast_native_followup_parts(registry)
     from .zombeast_native_draw_memory import register_zombeast_native_draw_memory
     register_zombeast_native_draw_memory(registry)
+    from .zombeast_secondary_reference_cards import register_zombeast_secondary_reference_cards
+    register_zombeast_secondary_reference_cards(registry)
     registry.validate()
     return registry
