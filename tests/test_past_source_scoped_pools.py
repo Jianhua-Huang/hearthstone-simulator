@@ -199,7 +199,8 @@ class PastSourceScopedPoolTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_remaining_special_domains_and_unknown_past_views_are_explicitly_recorded(self):
         manifest=load_bindings();self.assertEqual(set(manifest['partially_scoped_pool_ids']),{'constructed.past.cards','constructed.past.spells'})
-        self.assertEqual(set(manifest['unresolved_pool_ids']),{'crafted.zombeast.first','crafted.zombeast.second'})
+        self.assertEqual(manifest['unresolved_pool_ids'],[])
+        self.assertEqual(set(manifest['zombeast_binding']['pool_ids']),{'crafted.zombeast.first','crafted.zombeast.second'})
         self.assertEqual(manifest['partial_inventory_pool_ids'],['constructed.assemble.rajh'])
         self.assertEqual(manifest['pack_binding']['pool_id'],'constructed.standard_pack')
         self.assertFalse(manifest['pack_binding']['formal_pool_complete'])

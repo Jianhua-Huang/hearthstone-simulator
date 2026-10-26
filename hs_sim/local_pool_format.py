@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v8.json'
-MANIFEST_HASH = '641f299ca3b8c6e5042dbda32d6ddd5be894b5db4cde4d50e7e4c5fa9c202f17'
-FORMAT_VERSION = 'cn37-local-special-pools-v8'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v9.json'
+MANIFEST_HASH = '94957f4a59242ad7eec3a8d9c5b52c8a9bfa792a735bc920f6532f795abcba4e'
+FORMAT_VERSION = 'cn37-local-special-pools-v9'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -47,6 +47,13 @@ def load_bindings():
             (rajh['reported_total'], rajh['known_member_count'], rajh['missing_member_count']) != (15, 14, 1) or
             rajh['complete_for_declared_inventory'] is not True or rajh['formal_pool_complete'] is not False):
         raise TargetValidationError('Rajh known inventory lost its separate domain or explicitly missing member')
+    zombeast = value['zombeast_binding']
+    if (zombeast['pool_ids'] != ['crafted.zombeast.first', 'crafted.zombeast.second'] or
+            set(zombeast['pool_ids']) & (set(names) | set(scoped) | set(ORDINARY_POOLS) |
+                set(value['unresolved_pool_ids']) | {pack['pool_id'], rajh['pool_id']}) or
+            zombeast['member_counts'] != [34, 38] or zombeast['eligible_counts'] != [34, 37] or
+            zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
+        raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     return value
 
 
@@ -84,6 +91,7 @@ def build_cn37_local_pool_format():
     from .cards.one_cost_past_pool import local_pool,register_scope,BATCH_PATH as ONE_COST_PATH
     from .cards.standard_pack_inventory import local_pool as standard_pack_pool,BATCH_PATH as PACK_PATH
     from .cards.rajh_known_passive_pool import local_pool as rajh_pool,BATCH_PATH as RAJH_PATH
+    from .cards.zombeast_reference_pools import local_pools as zombeast_pools,BATCH_PATH as ZOMBEAST_PATH
     paths=(BATCH_PATH,ONE_COST_PATH)
     if len(manifest['scoped_bindings'])!=len(paths):raise TargetValidationError('Scoped past source documents missing or duplicated')
     for item,path in zip(manifest['scoped_bindings'],paths):
@@ -98,8 +106,13 @@ def build_cn37_local_pool_format():
     if (rajh['source_document'] != RAJH_PATH.relative_to(ROOT).as_posix() or
             rajh['source_document_sha256'] != hashlib.sha256(RAJH_PATH.read_bytes()).hexdigest()):
         raise TargetValidationError('Local Rajh source document changed')
+    zombeast = manifest['zombeast_binding']
+    if (zombeast['source_document'] != ZOMBEAST_PATH.relative_to(ROOT).as_posix() or
+            zombeast['source_document_canonical_sha256'] != canonical_digest(
+                json.loads(ZOMBEAST_PATH.read_text(encoding='utf8')))):
+        raise TargetValidationError('Local Zombeast source document changed')
     pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context) + (
-        local_pool(registry,original.context),standard_pack_pool(registry,original.context),rajh_pool(registry,original.context))
+        local_pool(registry,original.context),standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))

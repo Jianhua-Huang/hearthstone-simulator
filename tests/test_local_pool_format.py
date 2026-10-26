@@ -120,8 +120,11 @@ class LocalPoolFormatTests(CardBatchTestMixin, unittest.TestCase):
         self.assertEqual(game._rng.getstate(), probe.getstate())
         self.portable(game)
 
-    def test_unresolved_role_domains_stay_explicit_and_known_rajh_is_marked_partial(self):
+    def test_local_role_domains_are_bound_and_known_rajh_is_marked_partial(self):
         fmt = format_for()
+        self.assertEqual(load_bindings()['unresolved_pool_ids'], [])
+        for pool_id, count in zip(load_bindings()['zombeast_binding']['pool_ids'], (34, 38)):
+            self.assertEqual(len(fmt.registry.pool(pool_id, fmt.context).members), count)
         for pool_id in load_bindings()['unresolved_pool_ids']:
             self.assertNotIn((pool_id, fmt.target_id, fmt.context.mode), fmt.registry.pools)
             with self.assertRaises(UnsupportedDefinitionError):
