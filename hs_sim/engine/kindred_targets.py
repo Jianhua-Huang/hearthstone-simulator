@@ -35,19 +35,40 @@ def validate_profile(registry, profile):
     query_for_definition(card).__post_init__()
 
 
-def matched(state, registry, source, definition):
+def profile_for_definition(registry, definition):
+    """Derive one original targeted donor; never invent a native profile."""
     profile = registry.kindred_target_profiles.get(definition.id)
+    if profile is not None:
+        return profile
+    from .crafted_faces import PREFIX, recipe_from_id
+    if not definition.id.startswith(PREFIX):
+        return None
+    face = registry.card(definition.id)
+    if face != definition:
+        raise ValueError('Targeted Kindred changed its complete composed definition')
+    parts = tuple(registry.card(cid) for cid in recipe_from_id(definition.id).parts)
+    donors = tuple(p for p in parts if p.id in registry.kindred_target_profiles)
+    if not donors:
+        return None
+    if len(donors) != 1 or any(p is not donors[0] and (
+            p.requires_target or p.targeting is not None) for p in parts):
+        raise ValueError('Unreviewed multiple native targets with conditional Kindred')
+    return registry.kindred_target_profiles[donors[0].id]
+
+
+def matched(state, registry, source, definition):
+    profile = profile_for_definition(registry, definition)
     if profile is None:
         raise ValueError('Missing native targeted Kindred profile')
     validate_profile(registry, profile)
     if not state.owner_turn_history and state.opening is not None and state.opening.stage != 'complete':
         return False
     return query_previous_owner_turn(state, source.controller,
-        query_for_definition(registry.card(profile.card_id))).matched
+        query_for_definition(definition)).matched
 
 
 def effective_spec(state, registry, source, definition, spec):
-    if definition.id not in registry.kindred_target_profiles or spec is None:
+    if spec is None or profile_for_definition(registry, definition) is None:
         return spec
     return spec if matched(state, registry, source, definition) else None
 
@@ -58,7 +79,7 @@ def restore_original_history(original, current, registry, play):
     This stays inside the host; no history is added to the player observation.
     Later closure of the play's own interval cannot make it its prior turn.
     """
-    if play.card_id not in registry.kindred_target_profiles:
+    if profile_for_definition(registry, registry.card(play.card_id)) is None:
         return
     face = play.played_face
     if face is None or face.owner_turn_id is None:

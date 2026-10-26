@@ -460,10 +460,11 @@ class Information:
                     result['magnetic_tribes']=list(game.registry.card(entity.card_id).magnetic_tribes)
                     from .play_history import preplay_conditions
                     result['play_conditions'] = preplay_conditions(state, entity, game.registry)
-                    if entity.controller == viewer and entity.card_id in game.registry.kindred_target_profiles:
-                        from .kindred_targets import matched
-                        result['play_conditions']['kindred'] = matched(state, game.registry, entity,
-                            game.registry.card(entity.card_id))
+                    if entity.controller == viewer:
+                        from .kindred_targets import matched, profile_for_definition
+                        native_face = game.registry.card(entity.card_id)
+                        if profile_for_definition(game.registry, native_face) is not None:
+                            result['play_conditions']['kindred'] = matched(state, game.registry, entity, native_face)
                     from .hand_actions import quote_hand_action, specifications
                     result['hand_actions'] = [
                         {'id': spec.id, 'kind': spec.kind, 'cost': {

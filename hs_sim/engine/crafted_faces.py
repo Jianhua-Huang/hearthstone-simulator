@@ -15,7 +15,7 @@ TUPLES=('triggers','auras','cost_auras','keyword_auras','battlecry_repeats','dea
     'end_turn_repeats','intrinsic_costs','attack_policies','stat_relations','timed_keywords')
 PART_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords','on_play',
     'battlecry','deathrattle','combo','requires_target','target_rule','targeting','spell_damage',
-    'spell_damage_schools','cleave','dormant_turns','native_condition','minion_death_cost','native_deathrattle',*TUPLES))
+    'spell_damage_schools','cleave','dormant_turns','native_condition','minion_death_cost','native_deathrattle','hand_progress',*TUPLES))
 
 
 @dataclass(frozen=True)
@@ -90,6 +90,13 @@ def validate_part_shape(registry,card):
         raise ValueError('Unreviewed crafted conditional provider domain')
     if card.native_deathrattle is not None and card.native_deathrattle.kind != 'draw_link':
         raise ValueError('Unreviewed crafted native Deathrattle memory domain')
+    if card.hand_progress is not None:
+        from .model import HandProgressSpec,Zone
+        spec=card.hand_progress
+        if (spec.on_complete is None or spec.condition_id is None or spec!=HandProgressSpec(
+                'event',1,on_complete=spec.on_complete,repeat=True,event='turn_ended',
+                condition_id=spec.condition_id,zone=(Zone.HAND,Zone.DECK))):
+            raise ValueError('Unreviewed crafted native stored-growth domain')
     registry._validate_card(card)
 
 
@@ -127,6 +134,8 @@ def native_domains(parts):
         raise ValueError('Unreviewed multiple native Deathrattle memory donors')
     if sum(p.minion_death_cost is not None for p in parts)>1:
         raise ValueError('Unreviewed duplicate native death quantity prices')
+    if sum(p.hand_progress is not None for p in parts)>1:
+        raise ValueError('Unreviewed multiple native stored-growth donors')
     schools=[p.spell_damage_schools for p in parts if p.spell_damage]
     if schools and any(s!=schools[0]for s in schools):raise ValueError('Crafted spell damage has unreviewed differing school domains')
     targets=[(p.requires_target,p.target_rule,p.targeting)for p in parts if p.requires_target or p.targeting is not None]
@@ -172,6 +181,7 @@ def resolve_face(registry,card_id):
             cleave=any(p.cleave for p in parts),
             dormant_turns=native_dormancy(parts),
             minion_death_cost=next((p.minion_death_cost for p in parts if p.minion_death_cost is not None),None),
+            hand_progress=next((p.hand_progress for p in parts if p.hand_progress is not None),None),
             # This aggregate describes the printed potential. Installation keeps
             # each donor's conditional and unconditional providers separate.
             spell_damage=sum(p.spell_damage for p in parts),spell_damage_schools=tuple(sorted({s for p in parts for s in p.spell_damage_schools})),

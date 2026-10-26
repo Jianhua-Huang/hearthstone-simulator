@@ -39,7 +39,8 @@ def validate_activation(activation,registry):
     validate_profile(registry,profile)
     validate_request(ResolveKindred(c,activation.card_id),registry)
     if c.source_id not in c.state.entities or c.player_id not in c.state.players:raise ValueError('Kindred acceptance has an unknown caller')
-    expected=query_previous_owner_turn(c.state,c.player_id,query_for_definition(registry.card(profile.card_id)))
+    expected=query_previous_owner_turn(c.state,c.player_id,query_for_definition(
+        condition_definition(registry,profile.card_id,c.source.card_id)))
     if expected!=activation.condition or activation.sources!=sources(c.state,registry,c.player_id):
         raise ValueError('Kindred acceptance changed its complete original condition or source inventory')
     if activation.record_id!=len(c.state.kindred_history)+1:
@@ -47,19 +48,25 @@ def validate_activation(activation,registry):
     validate_sources(registry,activation.sources)
 
 
-def _same_query_native_composition(context,card_id,registry):
-    """A reviewed printed donor may retain its unchanged complete type query."""
+def condition_definition(registry,card_id,source_card_id):
+    """Keep the original native body, query its actual complete composed face."""
+    from .crafted_faces import PREFIX,recipe_from_id
+    if source_card_id.startswith(PREFIX) and card_id in recipe_from_id(source_card_id).parts:
+        # Resolving validates both donor approvals, identities and blueprint.
+        return registry.card(source_card_id)
+    return registry.card(card_id)
+
+
+def _native_composition(context,card_id,registry):
+    """Only the exact physical recipe can execute its original native donor."""
     from .crafted_faces import PREFIX,recipe_from_id
     source=context.source
     if source.kind!=CardType.MINION or not source.card_id.startswith(PREFIX):return False
     recipe=recipe_from_id(source.card_id)
     if (source.components!=recipe.parts or card_id not in recipe.parts or
             card_id not in registry.crafted_minion_parts):return False
-    # Resolving the whole original face validates both native donor approvals,
-    # their exact identities and the registered blueprint. Different condition
-    # subjects remain unsupported; no ordinary grant inherits this exception.
-    face=registry.card(source.card_id)
-    return query_for_definition(face)==query_for_definition(registry.card(card_id))
+    condition_definition(registry,card_id,source.card_id)
+    return True
 
 
 def validate_request(effect,registry):
@@ -69,7 +76,7 @@ def validate_request(effect,registry):
     identities={c.source.card_id}
     for row in(c.play,c.cast):
         if row is not None and(row.source_id,row.player_id)==(c.source_id,c.player_id):identities.add(row.card_id)
-    if effect.card_id not in identities and not _same_query_native_composition(c,effect.card_id,registry):
+    if effect.card_id not in identities and not _native_composition(c,effect.card_id,registry):
         from .registry import UnsupportedDefinitionError
         raise UnsupportedDefinitionError('Kindred body grants with another printed subject require an actual reviewed source policy')
 
@@ -190,7 +197,8 @@ def resolve(r,effect):
     # The body window is real and current; its roots retain original provenance.
     key=profile.prepare or profile.active
     accepted=r.call(key,c.source_id,c.player_id,c.target_id,**context_kwargs(c)).context
-    condition=query_previous_owner_turn(accepted.state,c.player_id,query_for_definition(r.registry.card(effect.card_id)))
+    condition=query_previous_owner_turn(accepted.state,c.player_id,query_for_definition(
+        condition_definition(r.registry,effect.card_id,accepted.source.card_id)))
     original_sources=sources(accepted.state,r.registry,c.player_id)
     activation=KindredActivation(effect.card_id,accepted,condition,original_sources,2 if original_sources else 1,len(r.state.kindred_history)+1)
     validate_activation(activation,r.registry)
@@ -254,7 +262,8 @@ def condition_prefix(state,registry,value):
         before.opening=replace(before.opening,stage=boundary.opening_stage,
             starting_hands=before.opening.starting_hands if boundary.opening_stage=='complete'else None)
     validate_accepted_prefix(before,state,registry)
-    if query_previous_owner_turn(before,value.player_id,query_for_definition(registry.card(value.card_id)))!=value.condition:
+    if query_previous_owner_turn(before,value.player_id,query_for_definition(
+            condition_definition(registry,value.card_id,value.source.card_id)))!=value.condition:
         raise ValueError('Kindred changed its complete frozen true/false relation')
 
 

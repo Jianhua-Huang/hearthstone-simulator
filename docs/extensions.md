@@ -2163,3 +2163,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 合成部件调用已有发现、拼装或抽牌时，先审完整原声明和辅助域，再只声明捐赠；保留实际合成体 source_id、原 profile 身份和本次付款/物理检索事实。不要复制消费者管线或按适配数量裁池，六个有限原生例见[契约](m3-zombeast-native-first-consumers.md)。
+
+
+接入带延系或原存储成长的合成部件时，保持原 profile 与实际物理来源，以完整合成面核条件并保留冻结来源；条件目标与玩家布尔事实共用原推导。手牌/牌库成长只审一个既有严格 repeat 事件规格，不拓展任意升级或重复安装，见[契约](m3-zombeast-native-kindred-growth.md)。
