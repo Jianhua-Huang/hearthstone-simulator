@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v2.json'
-MANIFEST_HASH = '2db88a6c2d13156b41bbfa9e09e145497c42a05ed644b6128f4b71d255f2e8f2'
-FORMAT_VERSION = 'cn37-local-special-pools-v2'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v3.json'
+MANIFEST_HASH = 'bcc7f3458815235f8f4fc86b77bdddf5a69196a349e09d3c596f3b45a3923513'
+FORMAT_VERSION = 'cn37-local-special-pools-v3'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 

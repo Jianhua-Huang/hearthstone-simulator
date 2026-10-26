@@ -72,7 +72,7 @@ def register_black_empire_stat_cards(registry):
             c.state.entities[ref.entity_id].health, c.source_id) for ref in refs)
 
     def fox(c):
-        amount = c.death.attack if c.death is not None else c.source.attack
+        amount = c.death.attack if c.death is not None and c.death.entity_id==c.source_id else c.source.attack
         return (Draw(c.player_id, amount, c.source_id),) if amount else ()
 
     def imp(c):

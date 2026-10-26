@@ -120,14 +120,14 @@ class LocalPoolFormatTests(CardBatchTestMixin, unittest.TestCase):
         self.assertEqual(game._rng.getstate(), probe.getstate())
         self.portable(game)
 
-    def test_unresolved_assemble_domain_does_not_fall_back_to_normal_cards(self):
+    def test_unresolved_rajh_domain_does_not_fall_back_to_normal_cards(self):
         fmt = format_for()
         for pool_id in load_bindings()['unresolved_pool_ids']:
             self.assertNotIn((pool_id, fmt.target_id, fmt.context.mode), fmt.registry.pools)
-        game = self.game(hand=('BE_044',))
+        game = self.game(hand=('BE_004',))
         saved = game.snapshot()
-        with self.assertRaisesRegex((ResolutionError, UnsupportedDefinitionError), 'constructed.assemble'):
-            self.play(game, 'BE_044')
+        with self.assertRaisesRegex((ResolutionError, UnsupportedDefinitionError), 'constructed.assemble.rajh'):
+            self.play(game, 'BE_004')
         self.assertEqual(game.snapshot(), saved)
 
     def test_full_constructed_start_mulligan_and_restore_keep_new_context(self):

@@ -62,6 +62,12 @@ def fixture(mode='normal',role='writer'):
     r.register_card(CardDefinition(WATCH,WATCH,CardType.MINION,health=40,metadata=META,
         triggers=(TriggerSpec('card_drawn',WATCH),)))
     if mode in ('assemble','unsupported'):
+        if mode=='unsupported':
+            # This negative fixture deliberately withholds the reaction-body
+            # review. Production CURATOR now has that reviewed capability.
+            template=r._assemble_templates[CURATOR]
+            r._assemble_templates[CURATOR]=replace(template,suffix=replace(template.suffix,
+                allowed_timings=('battlecry','deathrattle','end_turn')))
         ids=(PAIN,WASP,PREY if mode=='assemble' else CURATOR)
         r.register_pool(PoolDefinition(POOL_ID,'k427-low-neutral-primary-two-high-donors',
             CTX.target_id,CTX.mode,tuple(PoolMember(cid)for cid in ids),complete=True))

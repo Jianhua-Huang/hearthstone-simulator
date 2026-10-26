@@ -699,19 +699,21 @@ class Registry:
     def extend_assemble_suffix_timings(self, card_id, timings, *, expected_template_sha256):
         """Review more windows for an exact existing body, preserving every other field."""
         from dataclasses import replace
-        from .assemble_faces import validate_template
+        from .assemble_faces import validate_template, validate_projection
         from .serialization import canonical_hash
         self._require_mutable()
         _name(card_id,'assembly timing source');_name(expected_template_sha256,'original assembly declaration pin')
         original=self._assemble_templates.get(card_id)
+        projection=original is None
+        if projection:original=self._assemble_projections.get(card_id)
         if original is None or canonical_hash(asdict(original))!=expected_template_sha256:
             raise ValueError('Assembly timing amendment changed its exact original declaration')
         if type(timings)is not tuple or not timings:
             raise ValueError('Assembly timing amendment requires immutable explicit additions')
         updated=replace(original,suffix=replace(original.suffix,
             allowed_timings=(*original.suffix.allowed_timings,*timings)))
-        validate_template(self,updated)
-        self._assemble_templates[card_id]=updated
+        (validate_projection if projection else validate_template)(self,updated)
+        (self._assemble_projections if projection else self._assemble_templates)[card_id]=updated
 
     def set_assemble_suffix_deathrattle_body(self, card_id, behavior_id, *, expected_template_sha256):
         """Add a reviewed death-only body to an exact existing declaration."""

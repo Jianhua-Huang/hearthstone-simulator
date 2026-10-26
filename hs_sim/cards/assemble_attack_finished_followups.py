@@ -101,7 +101,7 @@ def register_assemble_attack_finished_followups(registry):
             actor.health > 0 and not actor.doomed)
 
     def split_attack(c):
-        amount = c.death.attack if c.death is not None else c.source.attack
+        amount = c.death.attack if c.death is not None and c.death.entity_id==c.source_id else c.source.attack
         return (RandomSplitDamage(c.player_id, None, c.source_id, amount,
             profile=NON_SPELL_PROFILE, kind=DamageKind.MINION_ABILITY),)
 

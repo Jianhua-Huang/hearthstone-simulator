@@ -69,7 +69,7 @@ def register_entry_native_cards(registry):
     registry.register_behavior(PREFIX+'parasite',parasite)
     def maw(c):
         board=c.state.players[c.player_id].board
-        position=c.death.position if c.death is not None else board.index(c.source_id)+1 if c.source_id in board else None
+        position=c.death.position if c.death is not None and c.death.entity_id==c.source_id else board.index(c.source_id)+1 if c.source_id in board else None
         return(SummonByCard(c.player_id,tuple(SummonEntryMaterial(cid)for cid in FEL_BEASTS),SummonCause.capture(c),selection='random',position=position),)
     registry.register_behavior(PREFIX+'maw',maw)
     for cid,row in rows.items():
