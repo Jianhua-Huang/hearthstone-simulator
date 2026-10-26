@@ -21,6 +21,7 @@ from test_current_deck_empty_basics import rehash
 from tools.card_batch import check_face
 
 P = 'fixture.standard_pack.'
+UNKNOWN = P + 'unimplemented'
 UNIT, SPELL, WEAPON, LOCATION, HERO, POWER, MOVE, KILL, LETHAL, TARGET, WATCH, TRIGGER = (
     P+x for x in ('unit','spell','weapon','location','hero','power','move','kill','lethal','target','watch','trigger'))
 CTX = GenerationContext('avatar-complete-explicit-pack-experiment','experimental')
@@ -66,9 +67,11 @@ def fixture(mode='normal', pool='mixed'):
     r.register_behavior(P+'trigger',trigger)
     r.register_card(CardDefinition(TRIGGER,'Explicit Battlecry trigger',CardType.MINION,health=1,battlecry=P+'trigger'))
     for cid in (*MIXED,MOVE,KILL,LETHAL,TARGET):r.register_pool_card(PoolCard.from_definition(r.card(cid)))
+    # Keep this a genuinely missing definition as real card coverage expands.
+    r.register_pool_card(PoolCard(UNKNOWN,CardType.MINION,3,metadata()))
     members={'mixed':MIXED,'minion':(UNIT,),'spell':(SPELL,),'weapon':(WEAPON,),'location':(LOCATION,),
         'hero':(HERO,),'move':(MOVE,UNIT),'kill':(KILL,UNIT),'lethal':(LETHAL,),'target':(TARGET,),
-        'unknown':('TIME_005',),'empty':(),'incomplete':(UNIT,)}[pool]
+        'unknown':(UNKNOWN,),'empty':(),'incomplete':(UNIT,)}[pool]
     r.register_pool(PoolDefinition('constructed.standard_pack','explicit-pack-v1',CTX.target_id,CTX.mode,
         tuple(PoolMember(cid)for cid in members),complete=pool!='incomplete'))
     r.validate()

@@ -2145,3 +2145,6 @@ TID_712声明AttackSubstitutionProfile与一个原印刷attack_declared监听，
 
 
 TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_class=None仅用于原class_mode=any且无职业分支的查询；来源/原查询/策略与摘要仍核对，不能按已实现卡裁池。DRG_303复用原Invoke，已有宿主profile保留；真实家族声明不是英雄/技能/收益的执行适配。原起始牌组限制和不分职业来源见[契约](m3-one-cost-past-pool.md)。
+
+
+为专用标准包增加印刷清单时，保留全部原行和显式资格决定，不按定义覆盖裁池；普通赠送与金色/异画赠品分开，构筑身份与生成身份分别沿原映射。可复用的本地绑定及不确定性要求见[标准包印刷契约](m3-standard-pack-printings.md)。

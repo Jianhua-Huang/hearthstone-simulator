@@ -199,7 +199,9 @@ class PastSourceScopedPoolTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_remaining_special_domains_and_unknown_past_views_are_explicitly_recorded(self):
         manifest=load_bindings();self.assertEqual(set(manifest['partially_scoped_pool_ids']),{'constructed.past.cards','constructed.past.spells'})
-        self.assertEqual(set(manifest['unresolved_pool_ids']),{'constructed.assemble.rajh','crafted.zombeast.first','crafted.zombeast.second','constructed.standard_pack'})
+        self.assertEqual(set(manifest['unresolved_pool_ids']),{'constructed.assemble.rajh','crafted.zombeast.first','crafted.zombeast.second'})
+        self.assertEqual(manifest['pack_binding']['pool_id'],'constructed.standard_pack')
+        self.assertFalse(manifest['pack_binding']['formal_pool_complete'])
         self.assertTrue(load_batch()['version_alignment_deferred']);self.assertTrue(load_batch()['rule_boundaries_deferred'])
         self.assertTrue(any('arena' in u for u in load_batch()['uncertainties']))
 

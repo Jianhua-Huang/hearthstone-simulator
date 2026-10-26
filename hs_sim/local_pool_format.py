@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v6.json'
-MANIFEST_HASH = '6ce0acd10f6d7eee07a70cd4a02b570056dddc247c98383188b6087d3e1d53e0'
-FORMAT_VERSION = 'cn37-local-special-pools-v6'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v7.json'
+MANIFEST_HASH = '61dd615ab06e7db349447b36f6258c06090d7c8ae2d26a98bfd997cb2591a3c6'
+FORMAT_VERSION = 'cn37-local-special-pools-v7'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -35,6 +35,11 @@ def load_bindings():
             not set(value['partially_scoped_pool_ids'])<=set(scoped) or
             set(scoped)&(set(names)|set(ORDINARY_POOLS)|set(value['unresolved_pool_ids']))):
         raise TargetValidationError('Scoped past views overlap an existing or unresolved pool domain')
+    pack = value['pack_binding']
+    if (pack['pool_id'] != 'constructed.standard_pack' or
+            pack['pool_id'] in set(names) | set(scoped) | set(ORDINARY_POOLS) | set(value['unresolved_pool_ids']) or
+            pack['complete_for_declared_inventory'] is not True or pack['formal_pool_complete'] is not False):
+        raise TargetValidationError('Local pack inventory overlaps another domain or claims official completeness')
     return value
 
 
@@ -70,13 +75,19 @@ def build_cn37_local_pool_format():
     ordinary = tuple(registry.pool(pool_id, original.context) for pool_id in ORDINARY_POOLS)
     from .cards.past_source_scoped_pools import local_pools,register_scopes,BATCH_PATH
     from .cards.one_cost_past_pool import local_pool,register_scope,BATCH_PATH as ONE_COST_PATH
+    from .cards.standard_pack_inventory import local_pool as standard_pack_pool,BATCH_PATH as PACK_PATH
     paths=(BATCH_PATH,ONE_COST_PATH)
     if len(manifest['scoped_bindings'])!=len(paths):raise TargetValidationError('Scoped past source documents missing or duplicated')
     for item,path in zip(manifest['scoped_bindings'],paths):
         if (item['source_document']!=path.relative_to(ROOT).as_posix() or
                 item['source_document_sha256']!=hashlib.sha256(path.read_bytes()).hexdigest()):
             raise TargetValidationError('Scoped past source document changed')
-    pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context) + (local_pool(registry,original.context),)
+    pack = manifest['pack_binding']
+    if (pack['source_document'] != PACK_PATH.relative_to(ROOT).as_posix() or
+            pack['source_document_sha256'] != hashlib.sha256(PACK_PATH.read_bytes()).hexdigest()):
+        raise TargetValidationError('Local pack source document changed')
+    pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context) + (
+        local_pool(registry,original.context),standard_pack_pool(registry,original.context))
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))
