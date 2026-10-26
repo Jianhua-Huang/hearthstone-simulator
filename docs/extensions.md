@@ -2070,3 +2070,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 实际单次检索失败后执行其他效果使用 DrawMatching(count=1, empty_deck='skip', on_empty=(...))；只在真实候选为空时执行，不按后来手牌结果重查。德雷阿佳丝的完整候选和未实现尤格依赖须保留，见[契约](m3-matching-draw-empty-branch.md)。
 
 真实法术发现转武器使用 DiscoverFromPool 的 spell_weapon_card_id，并为实际模板声明 CarvedSpellProfile(weapon_attack=True)；触发交给 spell_weapons.cast_after_attack。原费用、保存、复制和可见字段见[契约](m3-native-spell-weapons.md)，不要把 caster_id 与施法实体 source_id 混用。
+
+
+需要运行已审核的本地专用池时，使用`hs_sim.local_pool_format.build_cn37_local_pool_format()`，由返回对象的`new_game()`委托正常构筑开局。新增池先保存完整来源和本地适用范围，再经manifest源摘要与完整成员核验统一绑定；不要在卡牌回调中换目标、重建池或删除未实现候选。接口见[专用池宿主契约](m3-source-bound-candidate-format.md#已知专用池的本地宿主入口)，原上线/预上线工厂保持。

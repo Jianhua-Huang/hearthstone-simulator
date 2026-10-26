@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-special-pool-bindings-v1",
+  "accepted_on": "2026-10-26",
+  "scope": "Explicit known/local-reference inventories for the frozen CN37 launch candidate; no official completeness claim.",
+  "formal_pool_complete": false,
+  "version_alignment_deferred": true,
+  "rule_boundary_calibration_deferred": true,
+  "bindings": [
+    {
+      "pool_id": "cards.drestagath.native-old-gods",
+      "source_target_id": "local-2026-09-23",
+      "source_mode": "experimental",
+      "source_pool_sha256": "5cde5ea58907a478c870264a2506df4c1a26626e50242480f34eca0cf61a305d",
+      "source_document": "data/cards/drestagath-v1.json",
+      "source_document_sha256": "1f71ccab9a58c0142306082c9aa64ddf7d265784b1723fd637821ce820cf790c",
+      "member_ids": [
+        "BE_009",
+        "BE_013",
+        "BE_017",
+        "BE_784"
+      ],
+      "complete_for_declared_inventory": true,
+      "provenance": "named four native Old Gods in the original Drestagath source inventory",
+      "uncertainties": [
+        "Current CN runtime calibration and hotfix alignment remain deferred."
+      ]
+    }
+  ],
+  "unresolved_pool_ids": [
+    "constructed.assemble",
+    "constructed.assemble.rajh",
+    "crafted.zombeast.first",
+    "crafted.zombeast.second",
+    "crafted.nefarian.dragons",
+    "crafted.nefarian.undead",
+    "constructed.past.cards",
+    "constructed.past.spells",
+    "constructed.standard_pack"
+  ]
+}

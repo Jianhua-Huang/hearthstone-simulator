@@ -57,3 +57,25 @@ player = game.for_player(1)
 ```
 
 本入口只绑定普通卡牌和随从域。过去卡牌、过去法术、标准卡包等域必须分别确定成员、年代/身份与适用权重，不能从这两个普通域或组牌禁用列表推导。缺失域继续明确报错；标准卡实际需要的跨系列内容仍属于目标内依赖，不能因所属狂野系列略去。
+
+
+## 已知专用池的本地宿主入口
+
+`hs_sim.local_pool_format.build_cn37_local_pool_format()`复用上线候选工厂及原DeckPolicy，读取已审核的`data/cards/local-special-pool-bindings-v1.json`。每条绑定核原源文档SHA、原PoolDefinition完整规范摘要、全部有序成员及执行定义，保留原权重/排除；未知成员或源变化在创建游戏前拒绝，不能按可执行覆盖裁减。
+
+该入口以原候选绑定、完整本地manifest和所安装池内容共同计算新target_id及池版本。constructed.cards、constructed.minions及已接专用池均绑定同一新目标；旧池仍保留原上下文，原上线/预上线工厂和默认注册表不变。MatchSetup、正常构筑/换牌、GenerationContext.starting_decks、选择、支付、死亡、恢复及回放共用原内核。不同注册表指纹的存档不能交叉恢复。
+
+第一份manifest仅将德雷阿佳丝的四古神具名域接入新目标，完整保留BE_009、BE_013、BE_017、BE_784的一身份一权重。原物理抽取成功保持原实体及检索RNG；实际空匹配才按原生成器随机获取，满手烧牌不触发替代分支。PoolDefinition.complete在新目标下表示这份明确本地库存完整，旧来源池的false和formal_pool_complete/cn_bans_verified=false保持；没有据此宣称全部专用池已接或国服完整一致。
+
+manifest列出的未确认域不安装，也不回退到普通牌池。未来名单按完整适用范围加入；仅某职业或某查询的参考结果不能冒充宽域。此工厂仅需已提交项目文件，不读outputs、原客户端、网络或墙钟。
+
+```python
+from hs_sim.local_pool_format import build_cn37_local_pool_format
+
+local = build_cn37_local_pool_format()
+# decks为两个正常DeckSpec，仍由原构筑校验检查职业、数量等。
+game = local.new_game(decks, seed=1, first_player=1)
+player = game.for_player(1)
+```
+
+具体执行结果、版本与下一项仅登记原两份台账。
