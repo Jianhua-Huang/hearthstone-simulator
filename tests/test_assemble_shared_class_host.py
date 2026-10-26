@@ -8,10 +8,11 @@ from card_batch_testkit import CardBatchTestMixin
 from test_nefarian_native_dependencies import fixture, P, FILLER
 from hs_sim.cards import build_registry
 from hs_sim.cards.assemble_shared_class_pool import load_batch, register_assemble_shared_class_pool
+from hs_sim.cards.assemble_extended_reference_pool import load_batch as extended_batch
 from hs_sim.engine import CardClass, Game, PlayerSetup, Scenario, SelectChoice
 from hs_sim.engine.assemble_faces import AssembleRecipe, PREFIX, text_source, prefix_timings
 from hs_sim.engine.assemble_offers import Assemble, candidates, ResolveAssemble
-from hs_sim.engine.pools import PoolQuery, sample_candidates
+from hs_sim.engine.pools import GenerationContext, PoolQuery, sample_candidates
 from hs_sim.engine.registry import RuleContext
 from hs_sim.targets import TargetValidationError
 from tools import card_batch as batch
@@ -49,9 +50,12 @@ class AssembleSharedClassHostTests(CardBatchTestMixin, unittest.TestCase):
             [16, 23, 15, 18, 14, 17, 14, 7, 10, 12, 15, 57])
         self.assertEqual(sum(len(g['member_ids']) for g in data['classes']), 218)
         self.assertEqual(len(data['member_ids']), 214)
-        pool = r.pool('constructed.assemble', fmt.context)
-        self.assertTrue(pool.complete)
+        pool = r.pool('constructed.assemble', GenerationContext(data['source_target'], 'experimental'))
+        self.assertFalse(pool.complete)
         self.assertEqual(tuple(m.card_id for m in pool.members), tuple(data['member_ids']))
+        current = r.pool('constructed.assemble', fmt.context)
+        self.assertTrue(current.complete)
+        self.assertTrue(set(data['member_ids']) <= {m.card_id for m in current.members})
         self.assertEqual({m.weight for m in pool.members}, {1})
         self.assertFalse(data['formal_pool_complete']); self.assertFalse(data['cn_calibrated'])
         for row in data['cards']:
@@ -61,7 +65,7 @@ class AssembleSharedClassHostTests(CardBatchTestMixin, unittest.TestCase):
         self.assertIn('TLC_EVENT_402', data['member_ids'])
 
     def test_all_twelve_paid_native_sources_offer_and_deliver_from_full_pool(self):
-        inventory = set(load_batch()['member_ids'])
+        inventory = set(extended_batch()['member_ids'])
         for source in SOURCES:
             with self.subTest(source=source):
                 game = self.game(source, (P+'noop',) if source=='BE_702' else ())
