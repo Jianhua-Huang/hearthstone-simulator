@@ -2073,3 +2073,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 需要运行已审核的本地专用池时，使用`hs_sim.local_pool_format.build_cn37_local_pool_format()`，由返回对象的`new_game()`委托正常构筑开局。新增池先保存完整来源和本地适用范围，再经manifest源摘要与完整成员核验统一绑定；不要在卡牌回调中换目标、重建池或删除未实现候选。接口见[专用池宿主契约](m3-source-bound-candidate-format.md#已知专用池的本地宿主入口)，原上线/预上线工厂保持。
+
+
+原生锋鳞的双方法力值下限使用all_cards_minimum费用光环，完整报价最后取约束最大值，保留原有来源顺序与收据；物理付款和生成预览共用，见[费用下限契约](m3-final-card-cost-floor.md)。

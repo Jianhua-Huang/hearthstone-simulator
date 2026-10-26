@@ -645,8 +645,11 @@ class CostAuraSpec:
         if type(self.cost) is not CostSpec:
             raise ValueError('Cost aura requires a CostSpec operation')
         self.cost.__post_init__()
-        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells'):
+        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','all_cards_minimum'):
             raise ValueError('Invalid cost aura payer relation')
+        if self.relation == 'all_cards_minimum' and (self.cost != CostSpec(minimum=2) or
+                self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
+            raise ValueError('Native all-card floor requires the original two-Mana constraint')
         if self.relation=='friendly_arcane_spells' and (self.cost!=CostSpec(delta=-2,card_types=(CardType.SPELL,)) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
             raise ValueError('Native Arcane aura requires the ordinary friendly two-cost spell reduction')
@@ -3729,7 +3732,7 @@ class AbilityInstance:
             if type(self.cost_aura) is not CostAuraSpec:
                 raise ValueError('Cost aura requires CostAuraSpec')
             self.cost_aura.__post_init__()
-            if (self.cost_aura.tribes_any or self.cost_aura.first_per_turn or self.cost_aura.every_nth_per_turn is not None or self.cost_aura.hand_adjacent) and (
+            if (self.cost_aura.relation == 'all_cards_minimum' or self.cost_aura.tribes_any or self.cost_aura.first_per_turn or self.cost_aura.every_nth_per_turn is not None or self.cost_aura.hand_adjacent) and (
                     self.origin != 'printed' or self.source_id is None or self.consumed or
                     self.expires_turn is not None or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Native filtered cost auras require removable unconsumed printed provenance')

@@ -169,6 +169,16 @@ def apply_cost(amount, delta, set_to, minimum):
     return max(floor, amount + delta)
 
 
+def is_final_floor(contribution):
+    return (contribution.kind == 'cost_aura' and
+        contribution.ability.cost_aura.relation == 'all_cards_minimum')
+
+
+def final_floor(contributions):
+    """Native continuous constraints apply after all numeric price changes."""
+    return max((c.ability.cost_aura.cost.minimum for c in contributions if is_final_floor(c)), default=0)
+
+
 def local_cost(entity):
     return local_cost_values(entity.base_cost, entity.enchantments)
 
@@ -247,6 +257,13 @@ def validate_cost_aura_carrier(registry, card_id, kind, abilities, components=()
     for ability in rows:
         ability.__post_init__()
     card = registry.card(card_id)
+    floor_rows = tuple(a for a in rows if a.cost_aura.relation == 'all_cards_minimum')
+    if floor_rows:
+        from collections import Counter
+        declared = Counter(s for s in card.cost_auras if s.relation == 'all_cards_minimum')
+        installed = Counter(a.cost_aura for a in floor_rows)
+        if kind != CardType.MINION or any(n > declared[s] for s, n in installed.items()):
+            raise ValueError('Native final price floor lost its original minion declaration')
     held = tuple(a for a in rows if a.cost_aura.hand_adjacent)
     if held or any(s.hand_adjacent for s in card.cost_auras):
         validate_cost_aura_definition(card)
@@ -324,7 +341,7 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
             continue
         for ability in source.abilities:
             if (ability.kind != 'cost_aura' or ability.consumed or not (
-                    ability.cost_aura.relation == 'any' or
+                    ability.cost_aura.relation in ('any', 'all_cards_minimum') or
                     (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells')))):
                 continue
             if ability.cost_aura.hand_adjacent != (source.zone == Zone.HAND):
@@ -367,17 +384,19 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
         if matches_cost_contribution(registry,contribution,definition,current_battlecry,enchantments,
                 abilities=abilities,hand_lifetime=hand_lifetime,ignore_maximum=True):
             candidates.append((modifier_id,spec,contribution))
-            complete_amount=apply_cost(complete_amount,spec.delta,spec.set_to,spec.minimum)
-    complete_amount=max(complete_amount,minimum_cost)
+            if not is_final_floor(contribution):
+                complete_amount=apply_cost(complete_amount,spec.delta,spec.set_to,spec.minimum)
+    complete_amount=max(complete_amount,minimum_cost,final_floor(c for _,_,c in candidates))
     applied = []
     for modifier_id,spec,contribution in candidates:
         if (contribution.modifier is not None and contribution.modifier.maximum_cost is not None and
                 complete_amount>contribution.modifier.maximum_cost and spec.payment!=PaymentType.OPPONENT_HEALTH):continue
-        amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
+        if not is_final_floor(contribution):
+            amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
         if spec.payment is not None:
             payment = spec.payment
         applied.append(contribution)
-    return amount, payment, tuple(applied)
+    return max(amount, final_floor(applied)), payment, tuple(applied)
 
 
 def matches_cost_contribution(registry, contribution, definition, current_battlecry, enchantments=(),

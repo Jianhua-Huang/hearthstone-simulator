@@ -390,7 +390,7 @@ def validate_intrinsic_origin(fact, state, registry):
 
 def validate_generated_quote_fact(registry, fact):
     from .model import GeneratedCostQuoteFact
-    from .costs import apply_cost, matches_cost, matches_cost_contribution
+    from .costs import apply_cost, matches_cost, matches_cost_contribution, is_final_floor, final_floor
     if type(fact) is not GeneratedCostQuoteFact:
         raise ValueError('Expected a complete generated quote fact')
     fact.__post_init__()
@@ -417,15 +417,16 @@ def validate_generated_quote_fact(registry, fact):
             spec = contribution.modifier.spec
         else:
             aura = contribution.ability.cost_aura
-            if (aura.relation != 'any' and
+            if (aura.relation not in ('any', 'all_cards_minimum') and
                     (contribution.player_id == value.player_id) != (aura.relation == 'friendly')):
                 raise ValueError('Generated aura relation changed its hypothetical payer')
             spec = aura.cost
         if not matches_cost_contribution(registry, contribution, definition, None,complete_amount=fact.amount):
             raise ValueError('Generated external operation does not match its printed subject')
-        amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
+        if not is_final_floor(contribution):
+            amount = apply_cost(amount, spec.delta, spec.set_to, spec.minimum)
         if spec.payment is not None: payment = spec.payment
-    if (max(amount, value.minimum_cost), payment) != (fact.amount, fact.payment):
+    if (max(amount, value.minimum_cost, final_floor(fact.contributions)), payment) != (fact.amount, fact.payment):
         raise ValueError('Generated result differs from its complete ordered operations')
 
 
