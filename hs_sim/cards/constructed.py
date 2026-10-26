@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v639"
+CONTENT_VERSION = "constructed-cn37-preview-v640"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1308,5 +1308,7 @@ def build_registry():
     register_neptulon_substitution(registry)
     from .one_cost_past_pool import register_one_cost_past_card
     register_one_cost_past_card(registry)
+    from .zombeast_native_followup_parts import register_zombeast_native_followup_parts
+    register_zombeast_native_followup_parts(registry)
     registry.validate()
     return registry

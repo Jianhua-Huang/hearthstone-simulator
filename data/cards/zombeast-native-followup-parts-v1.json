@@ -1,0 +1,1840 @@
+{
+  "schema": 1,
+  "native_part_ids": [
+    "BE_731",
+    "CORE_UNG_912",
+    "EDR_849",
+    "TLC_245",
+    "TLC_246",
+    "TLC_250",
+    "TLC_256",
+    "JAIL_878",
+    "TIME_058"
+  ],
+  "child_ids": [
+    "UNG_999t2t1",
+    "UNG_999t10",
+    "UNG_999t5",
+    "UNG_999t7"
+  ],
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_731",
+        "dbf_id": 130764,
+        "name": "原始石牙兽",
+        "name_en": "Primal Rockfang",
+        "text": "<b>战吼：</b>&获得相邻随从的<b>亡语</b>。",
+        "text_en": "<b>Battlecry</b>:& Gain\nthe <b>Deathrattles</b> of adjacent minions.",
+        "cost": 3,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0651a5c768ca6b5c62a395b5de79cac5c662b14c3e68a2b3c0c013ebdeffa8f4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_731",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_UNG_912",
+        "dbf_id": 97376,
+        "name": "宝石鹦鹉",
+        "name_en": "Jeweled Macaw",
+        "text": "<b>战吼：</b>&随机将一张野兽牌置入你的手牌。",
+        "text_en": "<b>Battlecry:</b>& Add a random Beast to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 41353,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "41353",
+              "type": "Int",
+              "value": "41353"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5abfb5103c1d029a338243b652dc88e2718c92413e84e70077bf529ae432c775",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_UNG_912",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_849",
+        "dbf_id": 114933,
+        "name": "梦缚迅猛龙",
+        "name_en": "Dreambound Raptor",
+        "text": "在你使用一张随从牌后，随机使其获得一项<b>额外效果</b>。",
+        "text_en": "After you play a minion, give it a random\n<b>Bonus Effect</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2d12fd02432a3e5a429a923a17842b4bbcfc07ea601fdade8b00615e70bf0cdf",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "EDR_849",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_245",
+        "dbf_id": 118224,
+        "name": "远古迅猛龙",
+        "name_en": "Ancient Raptor",
+        "text": "<b>战吼：</b>从+3攻击力，<b>圣盾</b>或“<b>亡语：</b>召唤两个1/1的植物”中选择一项并获得。",
+        "text_en": "[x]<b>Battlecry:</b> Choose to gain\n+3 Attack, <b>Divine Shield</b>,\nor \"<b>Deathrattle:</b> Summon\ntwo 1/1 Plants.\"",
+        "cost": 2,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f30cc90fda1fbb760033caf4e40f354a84f000dadff586b1256149c96a6e77cb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_245",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_246",
+        "dbf_id": 118232,
+        "name": "远古翼手龙",
+        "name_en": "Ancient Pterrordax",
+        "text": "<b>战吼：</b>从<b>扰魔</b>，<b>风怒</b>或直到下回合<b>潜行</b>中选择一项获得。",
+        "text_en": "[x]<b>Battlecry:</b> Choose to gain\n<b>Stealth</b> until your next turn,\n<b>Elusive</b>, or <b>Windfury</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "191",
+              "name": "STEALTH",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "753664d03c32289df1a4978aa017ffc0681a3807754762cf8ef8d545f8036ae9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_246",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_250",
+        "dbf_id": 118247,
+        "name": "环形山鳄鱼",
+        "name_en": "Crater Gator",
+        "text": "<b>战吼：</b>直到你的下个回合开始，敌方英雄无法被治疗。",
+        "text_en": "[x]<b>Battlecry:</b> Until the start of\nyour next turn, the enemy\nhero can't be healed.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "3da179ed846dbbf43e395d3d4bf5652599aff40bd0302d54f59facbb0c9ca031",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_250",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_256",
+        "dbf_id": 118260,
+        "name": "沼地蛇颈龙",
+        "name_en": "Marshland Thresher",
+        "text": "在你施放一个法术后，&获得<b>圣盾</b>。",
+        "text_en": "After you cast a spell,&\ngain <b>Divine Shield</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1,
+          "4930": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f859c40eb25a87e1639087d94d7d9da14d522fcdbe23f275eaf15d295c2684af",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TLC_256",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_878",
+        "dbf_id": 126299,
+        "name": "警卫犬",
+        "name_en": "Guard Dog",
+        "text": "<b>亡语：</b>&随机召唤一个法力值消耗为（1）的<b>亡语</b>随从。",
+        "text_en": "[x]<b>Deathrattle:</b>& Summon\na random 1-Cost\n_<b>Deathrattle</b> minion.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1988,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          }
+        ]
+      },
+      "record_sha256": "0133bc8db06a71350ff8539d1d23e2b50a64fc7d1cc6ecfc638e5ff23b98a5fc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "JAIL_878",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TIME_058",
+        "dbf_id": 120964,
+        "name": "渺小的振翅蝶",
+        "name_en": "Paltry Flutterwing",
+        "text": "<b>亡语：</b>随机召唤一个\n法力值消耗为（2）并<b>休眠</b>2回合的随从。",
+        "text_en": "[x]<b>Deathrattle:</b> Summon a\nrandom 2-Cost minion that\nis <b>Dormant</b> for 2 turns.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "732645d1d91a30e61e3826a7fa2b10b934c178598ab7312374eb1af27efc3c5f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TIME_058",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t2t1",
+        "dbf_id": 41067,
+        "name": "植物",
+        "name_en": "Plant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "TECH_LEVEL": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "768f8e463590b138bbf12324a4900ca0aa9e3f7e15cb0b82ffe4c993aa53171d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_999t2t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t10",
+        "dbf_id": 41054,
+        "name": "氤氲迷雾",
+        "name_en": "Shrouding Mist",
+        "text": "获得<b>潜行</b>直到你的下个回合。",
+        "text_en": "<b>Stealth</b> until your next turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "87b2f0226952ef114ef5966369697bbab9f93b033fa50af18df37d98911f97eb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_999t10",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t5",
+        "dbf_id": 41060,
+        "name": "液态外膜",
+        "name_en": "Liquid Membrane",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "a6e63c395597d87fd70ee2fa3c58c9786ec22ad72dbbb92bb8f81274cb30ff9c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_999t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t7",
+        "dbf_id": 41062,
+        "name": "闪电之速",
+        "name_en": "Lightning Speed",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "e0894b44c29309c2dcf2abe1fb3e91305de238bcdc3cfdc5ae1c9bfcf339f923",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_999t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_731",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 130764,
+        "collectible": 1,
+        "slug": "130764-primal-rockfang",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "原始石牙兽",
+        "text": "<b>战吼：</b> 获得相邻随从的<b>亡语</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/236c1c520acec59ef630473e147d0a0f7637408dd5742c80b201cd7c7698a905.png",
+        "imageGold": "",
+        "flavorText": "别怕，她和你玩呢！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6435bfaa15a5c68a4133e2e9918de7748dde742b7cd49c3cb4289c765c06b7f6.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BE_731",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 130764,
+        "collectible": 1,
+        "slug": "130764-primal-rockfang",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 4,
+        "artistName": "Gabor Szikszai",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Primal Rockfang",
+        "text": "<b>Battlecry</b>: Gain the <b>Deathrattles</b> of adjacent minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/afb5f8743abc58aff969fc0db339b06ecc0f986afe872ca0fe457837ef6a54a3.png",
+        "imageGold": "",
+        "flavorText": "Don't worry she's just playing!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6435bfaa15a5c68a4133e2e9918de7748dde742b7cd49c3cb4289c765c06b7f6.png",
+        "keywordIds": [
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CORE_UNG_912",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 97376,
+        "collectible": 1,
+        "slug": "97376-jeweled-macaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "宝石鹦鹉",
+        "text": "<b>战吼：</b>&随机将一张野兽牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6bc3efe195dc59a7d6f046bb3886a918ceb70b4ff5957a9b62e3ac05c514e75.png",
+        "imageGold": "",
+        "flavorText": "地精珠宝商慕名而来，失望而归…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48c52b072e283762c0507b0ee2d8eb940ba5d3adbcd23512b125a07ba3fb671.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          41353
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CORE_UNG_912",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 97376,
+        "collectible": 1,
+        "slug": "97376-jeweled-macaw",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jeweled Macaw",
+        "text": "<b>Battlecry:</b>& Add a random Beast to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7b8bbf00925eb2a2861e3b6cc172b417cd4a04a9b532ef0a6a705dd24909745.png",
+        "imageGold": "",
+        "flavorText": "It’s not LITERALLY jeweled. The goblins were terribly disappointed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48c52b072e283762c0507b0ee2d8eb940ba5d3adbcd23512b125a07ba3fb671.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          41353
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EDR_849",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 114933,
+        "collectible": 1,
+        "slug": "114933-dreambound-raptor",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Timur Shevtsov",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "梦缚迅猛龙",
+        "text": "在你使用一张随从牌后，随机使其获得一项<b>额外效果</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e44fdc869bfe21d4ae0764f47f2e74cf98c05b7aaa2cd7e07102824302f77e0b.png",
+        "imageGold": "",
+        "flavorText": "梦啊，梦，梦，梦……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e7926eb38766faab26a693cb589b2ff93d43b60240284d10b76c92759df6beb1.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EDR_849",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 114933,
+        "collectible": 1,
+        "slug": "114933-dreambound-raptor",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 1,
+        "artistName": "Timur Shevtsov",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Dreambound Raptor",
+        "text": "After you play a minion, give it a random <b>Bonus Effect</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fac961a9175b0c342252f44d3bf74793886bf94e568657155724708ad5f4fd57.png",
+        "imageGold": "",
+        "flavorText": "Dream, dream, dream, dream, dream, dreeeeeeeeam.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e7926eb38766faab26a693cb589b2ff93d43b60240284d10b76c92759df6beb1.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_245",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 118224,
+        "collectible": 1,
+        "slug": "118224-ancient-raptor",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "远古迅猛龙",
+        "text": "<b>战吼：</b>从+3攻击力，<b>圣盾</b>或“<b>亡语：</b>召唤两个1/1的植物”中选择一项并获得。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe9082a27246aacdc3a2a84ecf4dd09b81342f36a33b758d14737194f690f445.png",
+        "imageGold": "",
+        "flavorText": "它更喜欢“资深”这个词。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d895579183828e962a5798d93554edf11352b19d8ff1d3412c7d51777ddf05b7.png",
+        "childIds": [
+          41058,
+          41063,
+          41057,
+          41067
+        ],
+        "keywordIds": [
+          3,
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_245",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 118224,
+        "collectible": 1,
+        "slug": "118224-ancient-raptor",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "health": 1,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Ancient Raptor",
+        "text": "<b>Battlecry:</b> Choose to gain +3 Attack, <b>Divine Shield</b>, or \"<b>Deathrattle:</b> Summon two 1/1 Plants.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc29dc8a6102bd4d15d0467e1e8a42f74ad0aa53f7ebd7e6c44f81ecfa77baa3.png",
+        "imageGold": "",
+        "flavorText": "It prefers \"Experienced.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d895579183828e962a5798d93554edf11352b19d8ff1d3412c7d51777ddf05b7.png",
+        "childIds": [
+          41058,
+          41063,
+          41057,
+          41067
+        ],
+        "keywordIds": [
+          3,
+          8,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_246",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 118232,
+        "collectible": 1,
+        "slug": "118232-ancient-pterrordax",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "远古翼手龙",
+        "text": "<b>战吼：</b>从<b>扰魔</b>，<b>风怒</b>或直到下回合<b>潜行</b>中选择一项获得。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00bdd73c2f3fa708eb595e5753d3b30fdb18c30eea00efcf2951d498c1a7e2b8.png",
+        "imageGold": "",
+        "flavorText": "那是什么动静？请他导览太可怕了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2200ac1ff2229336056c9273a4d92e3f040a51aef59fbb068f1a2351088a8324.png",
+        "childIds": [
+          41054,
+          41060,
+          41062
+        ],
+        "keywordIds": [
+          6,
+          8,
+          11,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_246",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 118232,
+        "collectible": 1,
+        "slug": "118232-ancient-pterrordax",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Ancient Pterrordax",
+        "text": "<b>Battlecry:</b> Choose to gain <b>Stealth</b> until your next turn, <b>Elusive</b>, or <b>Windfury</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d215b257b3efc3b10cec35df85ae4ea6a0723a87d89829ddd374282a3d399ef.png",
+        "imageGold": "",
+        "flavorText": "What's that sound? He's a terrible conductor.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2200ac1ff2229336056c9273a4d92e3f040a51aef59fbb068f1a2351088a8324.png",
+        "childIds": [
+          41054,
+          41060,
+          41062
+        ],
+        "keywordIds": [
+          6,
+          8,
+          11,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_250",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 118247,
+        "collectible": 1,
+        "slug": "118247-crater-gator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Gabor Szikszai",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "环形山鳄鱼",
+        "text": "<b>战吼：</b>直到你的下个回合开始，敌方英雄无法被治疗。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f3772497e4f76a0cca6110e2ae8dfa420f4c4837b960d294692c4301cf1c8d0.png",
+        "imageGold": "",
+        "flavorText": "山鳄鱼为什么是环形的？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aa4dda362152a5d3962c01d48f8be20b7b79404d2026a4ae1d28c91519cb7db.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_250",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 118247,
+        "collectible": 1,
+        "slug": "118247-crater-gator",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "Gabor Szikszai",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Crater Gator",
+        "text": "<b>Battlecry:</b> Until the start of your next turn, the enemy hero can't be healed.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f170e8c0b60fe4f179bd5995ff0c7b7d7b1fafe774d647cec55dff28e7c8b49.png",
+        "imageGold": "",
+        "flavorText": "See ya later Crater Gator!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aa4dda362152a5d3962c01d48f8be20b7b79404d2026a4ae1d28c91519cb7db.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_256",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 118260,
+        "collectible": 1,
+        "slug": "118260-marshland-thresher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "沼地蛇颈龙",
+        "text": "在你施放一个法术后，&获得<b>圣盾</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c703a7fb06e63e24ae205d0386295bc30a0a6e67a5de790f2196d507f7ec2f61.png",
+        "imageGold": "",
+        "flavorText": "“记好了，被拍到的时候，一定要注意光影和虚化感。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63fdafa18cb50f22e5463fd0850eb6a2e86a94589d035a2422c3bd24773f60ab.png",
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_256",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 118260,
+        "collectible": 1,
+        "slug": "118260-marshland-thresher",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 1,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Marshland Thresher",
+        "text": "After you cast a spell,& gain <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17715a5a007a70793f64771207562f79e2d7586a5476b9d708e4479e6bf038e0.png",
+        "imageGold": "",
+        "flavorText": "\"Just remember, when we pose for pictures, look very shadowy and grainy.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63fdafa18cb50f22e5463fd0850eb6a2e86a94589d035a2422c3bd24773f60ab.png",
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAIL_878",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 126299,
+        "collectible": 1,
+        "slug": "126299-guard-dog",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Gabor Szikszai",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "警卫犬",
+        "text": "<b>亡语：</b>&随机召唤一个法力值消耗为（1）的<b>亡语</b>随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37946c4d97146f8bdbc9b213544c3a3c0609b652950c9d9982500a0583bd13d4.png",
+        "imageGold": "",
+        "flavorText": "挡道好狗。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aca15f50016530bb6ae134cd273893026b7a31a8abf4371d6cbe5112efc6318f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAIL_878",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 126299,
+        "collectible": 1,
+        "slug": "126299-guard-dog",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1988,
+        "rarityId": 1,
+        "artistName": "Gabor Szikszai",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Guard Dog",
+        "text": "<b>Deathrattle:</b>& Summon a random 1-Cost <b>Deathrattle</b> minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e4c4b0e93e1cf0cd4416250cdd60a1cf9179920cb235f046eb7366c7d84d4db.png",
+        "imageGold": "",
+        "flavorText": "Updog",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aca15f50016530bb6ae134cd273893026b7a31a8abf4371d6cbe5112efc6318f.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_058",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 120964,
+        "collectible": 1,
+        "slug": "120964-paltry-flutterwing",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "渺小的振翅蝶",
+        "text": "<b>亡语：</b>随机召唤一个 法力值消耗为（2）并<b>休眠</b>2回合的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13ac264f8dd88e597cb42609a7205ed9796bce53d4b3ab7435ec22c4339af87b.png",
+        "imageGold": "",
+        "flavorText": "当心，振翅蝶效应的后果更危险！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e69db93b9ca1a663a3778fd5ba658143a1b256be9c035856e45aa3cf417d76fc.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_058",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 120964,
+        "collectible": 1,
+        "slug": "120964-paltry-flutterwing",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Tanamaes Leejierasaes",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Paltry Flutterwing",
+        "text": "<b>Deathrattle:</b> Summon a random 2-Cost minion that is <b>Dormant</b> for 2 turns.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3d889b5b602c04d56a2eea7d168b0f2359a3b2505342b43242eb0f2989b2877.png",
+        "imageGold": "",
+        "flavorText": "Beware! The Flutterwing Effect is even more dangerous.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e69db93b9ca1a663a3778fd5ba658143a1b256be9c035856e45aa3cf417d76fc.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "reviewed_native_definition_sha256": {
+    "BE_731": "2bf6ddf6576110f2115d644b326fd1c2fb97fc0a2811ee22ec3bd9940563ddac",
+    "CORE_UNG_912": "834fc24865f066d1d6a205131dd000dd4d99f6a5186c488542e08ab530729a20",
+    "EDR_849": "c9a761bc916a3f0c8e7477b6655f0635998c28117366e679a5509d87fffad0aa",
+    "TLC_245": "5c4b5631ce56ba8a55fb886bc902db2482c0260e5241a3f4538a29328dcf063e",
+    "TLC_246": "f01ea288b68101e204f93205cf67d0e69f281bd92470dd861b42eb8b2fbbf842",
+    "TLC_250": "f52eb131fad5b5f8100178d5d55aba1e9d04eea2223b183f23c2116cc996b8f3",
+    "TLC_256": "5b327e027e5539051f8f335bdc60b829775604ea428b3f874f26ca1aebff1ee0",
+    "JAIL_878": "cacfea6790b749b2eb0d3d0b25fe59c7a4f9f840f1957d4a6341db9f7c47d7fd",
+    "TIME_058": "64f428d72432d6ae2a8809f29f596e872aafa96cc59f22646a9bcba7b37c1d3d",
+    "UNG_999t2t1": "46ce9802e2a995e4e4ec6992d9118ec7c765d43474038c37de80f09b2365c843",
+    "UNG_999t10": "d69da69eeb7caa2552a419ff65fa559255d5eff2ac63a6b67993ee9b18244ae9",
+    "UNG_999t5": "2a901f151cd823ce3ad715104006085bd46232654cd314fc053c0b2f176ba476",
+    "UNG_999t7": "8e5a03cb9ba634fa409737588ea02ce7bc58ff46201ec77947fe9d0e7584a56c"
+  },
+  "deck_identities": {
+    "BE_731": "BE_731",
+    "CORE_UNG_912": "UNG_912",
+    "EDR_849": "EDR_849",
+    "TLC_245": "TLC_245",
+    "TLC_246": "TLC_246",
+    "TLC_250": "TLC_250",
+    "TLC_256": "TLC_256",
+    "JAIL_878": "JAIL_878",
+    "TIME_058": "TIME_058",
+    "UNG_999t2t1": "UNG_999t2t1",
+    "UNG_999t10": "UNG_999t10",
+    "UNG_999t5": "UNG_999t5",
+    "UNG_999t7": "UNG_999t7"
+  },
+  "declaration_profiles": {
+    "BE_731": "complete-existing-native-followup-v1",
+    "CORE_UNG_912": "complete-existing-native-followup-v1",
+    "EDR_849": "complete-existing-native-followup-v1",
+    "TLC_245": "complete-existing-native-followup-v1",
+    "TLC_246": "complete-existing-native-followup-v1",
+    "TLC_250": "complete-existing-native-followup-v1",
+    "TLC_256": "complete-existing-native-followup-v1",
+    "JAIL_878": "complete-existing-native-followup-v1",
+    "TIME_058": "complete-existing-native-followup-v1"
+  },
+  "membership_policy": "Donation capability only. No formal role/membership inferred from adaptation, class, text length or tested coverage.",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

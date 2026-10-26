@@ -2151,3 +2151,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 扩展拼装被动技能时，通过单调AssembledPowerProfile声明真实来源和次件投影，保留完整原卡及模板摘要；不要把技能当场上随从或丢掉不兼容成员。原健康/监听执行与有限关键词政策、partial库存和费用窗口边界见[契约](m3-rajh-known-passive-pool.md)。
+
+
+追加既有僵尸兽部件时，先核完整原定义/元数据/衍生物并整组预验证，再声明捐赠能力；正文使用原实体和公共效果，不用已实现数量推断角色或裁掉未知合格候选。九个真实后续例与剩余名单边界见[契约](m3-zombeast-native-followups.md)。
