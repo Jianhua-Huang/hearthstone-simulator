@@ -79,6 +79,7 @@ def capture(r, option):
     from .temporary_cards import CreateTemporaryCard
     from .discovery import ResolvePoolDiscovery
     from .stored_gift_discovery import SelectGiftedDeckCard
+    from .deck_discovery_actions import SelectDeckCardAction
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer
     from .hand_choice_followups import ResolveHandFollowupChoice, record
     from .summon_sources import ResurrectMinion
@@ -116,7 +117,7 @@ def capture(r, option):
         return OfferedCardMaterial(option.id, option.card_id, 'printed')
     if type(work) in (CopyCard, MoveCard, DiscardCard):
         return _physical(r, option, work.card)
-    if type(work) in (SelectGiftedDeckCard, SelectDeckTake):
+    if type(work) in (SelectGiftedDeckCard, SelectDeckTake, SelectDeckCardAction):
         return _physical(r, option, work.offered[work.index].card)
     if type(work)is CopyOpponentDeckOffer:
         return _physical(r,option,work.offered[work.index].material)

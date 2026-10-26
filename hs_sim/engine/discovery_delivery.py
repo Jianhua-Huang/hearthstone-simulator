@@ -23,7 +23,8 @@ def recipe_types():
     from .sideboards import _TakeSideboardCard
     from .spell_weapons import DeliverDiscoveredSpellWeapon
     from .hero_power_discovery import InstallDiscoveredHeroPower
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower)
+    from .spell_casts import CastStoredSpell
+    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower,CastStoredSpell)
 
 
 def recipe_face(request):
@@ -57,6 +58,12 @@ def validate_recipe(result, request):
     if type(request) is _TakeSideboardCard:validate_discovery_recipe(result,request)
     from .hero_power_discovery import validate_recipe as validate_skill_recipe
     validate_skill_recipe(result, request)
+    from .spell_casts import CastStoredSpell
+    if type(request) is CastStoredSpell and (request.card.zone != Zone.DECK or
+            request.card.player_id != result.choice.player_id or request.target_id is not None or
+            request.targeting != 'random' or request.choices != 'random' or request.branch_id is not None or
+            request.target_preference is not None or request.target_ids):
+        raise ValueError('Discovered direct CAST requires its plain original own-deck spell')
 
 
 @dataclass(frozen=True)
@@ -176,6 +183,7 @@ def materialize(r, effect):
     from .sideboards import _TakeSideboardCard, materialize_discovery
     from .spell_weapons import DeliverDiscoveredSpellWeapon,materialize as materialize_weapon
     from .hero_power_discovery import InstallDiscoveredHeroPower, materialize as materialize_skill
+    from .spell_casts import CastStoredSpell, cast_stored
     if type(request) is AddToHand:
         from .opening import create_hand_card
         entity = create_hand_card(r, request)
@@ -209,6 +217,10 @@ def materialize(r, effect):
         entity=materialize_weapon(r,request)
     elif type(request) is InstallDiscoveredHeroPower:
         entity = materialize_skill(r, effect.result, request)
+    elif type(request) is CastStoredSpell:
+        from .zones import reference_entity
+        entity = reference_entity(r, request.card)
+        work = () if entity is None else tuple(cast_stored(r, request))
     return (*work, finish_for_entity(r, effect.result, entity, request, cursor))
 
 
@@ -339,7 +351,8 @@ def validate_boundary(game):
                               if e.sequence in effective_sequences]
                     fact = completion.recipient
                     from .zones import CopyCard, MoveCard, DiscardCard
-                    created = type(completion.recipe) not in (MoveCard, DiscardCard)
+                    from .spell_casts import CastStoredSpell, cast_record
+                    created = type(completion.recipe) not in (MoveCard, DiscardCard, CastStoredSpell)
                     witnesses = [e for e in window if e.kind == ('card_created' if created else 'card_discarded')]
                     if type(completion.recipe) is MoveCard:
                         witnesses = [e for e in window if e.kind in ('card_moved_to_hand', 'card_moved_to_deck', 'card_drawn', 'card_burned')]
@@ -349,9 +362,23 @@ def validate_boundary(game):
                     if type(completion.recipe) is InstallDiscoveredHeroPower:
                         witnesses = [e for e in window if e.kind == 'hero_power_replaced' and
                             e.action == event.action and e.player_id == completion.recipe.player_id]
+                    cast_recipe = type(completion.recipe) is CastStoredSpell
+                    if cast_recipe:
+                        recipe = completion.recipe
+                        witnesses = [e for e in window if e.kind == 'spell_cast_started' and
+                            e.action == event.action and e.source_id == recipe.card.entity_id and
+                            (cast_record(game._state, dict(e.data)['cast_id']).card_id,
+                             cast_record(game._state, dict(e.data)['cast_id']).caster_id,
+                             cast_record(game._state, dict(e.data)['cast_id']).from_zone,
+                             cast_record(game._state, dict(e.data)['cast_id']).player_id) ==
+                            (recipe.card.card_id, recipe.source_id, recipe.card.zone, recipe.player_id)]
+                        if fact is not None and len(witnesses) != 1:
+                            raise ValueError('Discovered spell lost its original physical CAST acceptance')
+                        if fact is None and witnesses:
+                            raise ValueError('Discovered spell discarded its original physical recipient')
                     if created and fact is not None and len(witnesses) != 1:
                         raise ValueError('Discovery creation lost its one original synchronous allocation')
-                    if fact is not None and not any(e.target_id == fact.entity_id for e in witnesses):
+                    if fact is not None and not any((e.source_id if cast_recipe else e.target_id) == fact.entity_id for e in witnesses):
                         raise ValueError('Discovery recipient has no actual original physical operation')
                     if fact is None and created and witnesses:
                         raise ValueError('Discovery discarded its actual created recipient')
