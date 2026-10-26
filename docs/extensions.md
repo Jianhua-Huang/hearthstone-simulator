@@ -2130,3 +2130,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 杜加尔的真实战吼组合SummonFromZone(expansion_profile=...)，原印刷归属由有限RecruitExpansionProfile声明，不在卡牌回调中抽样、移牌或另排入场队列。profile只开放已确认真实所需的三次本人牌库形状；原分组按实际原行，不能按名称或CORE_等前缀合并。原排除前缀、额外副本与明确未知失败及未校准政策见[不同扩展包招募契约](m3-distinct-expansion-recruit.md)。
+
+
+OG_134复用spell_history_candidates与CastFromPool。按本人已接受未失败的hand根计数并冻结本次战吼次数，原自动CAST继续负责目标、随机选择、资源、等待和终局；不要把尤格自动施法当手动出牌回灌个人计数。30次/特殊窗口/控制转交与正式池差异见[原版尤格契约](m3-original-yogg-native.md)。
