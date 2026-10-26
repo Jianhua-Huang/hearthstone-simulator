@@ -5668,7 +5668,7 @@ class IntrinsicCostSpec:
         if type(self.condition) is not str or self.condition not in (
                 'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
                 'hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
-                'hand_edge', 'controlled_legendary', 'controlled_card', 'own_deck_shuffle_count', 'card_discovered_this_turn', 'held_opponent_copy'):
+                'hand_edge', 'controlled_legendary', 'controlled_card', 'own_deck_shuffle_count', 'own_location_use_count', 'card_discovered_this_turn', 'held_opponent_copy'):
             raise ValueError('Unsupported intrinsic cost declaration policy')
         if (type(self.card_ids) is not tuple or any(type(cid) is not str or not cid.strip() for cid in self.card_ids)
                 or len(set(self.card_ids)) != len(self.card_ids)):
@@ -5701,11 +5701,14 @@ class IntrinsicCostSpec:
         if self.condition in ('turn_holy_and_shadow', 'board_no_minions', 'hand_edge', 'controlled_legendary') and (
                 self.delta != 0 or self.set_to is None or self.minimum != 0):
             raise ValueError('Finite conditional price requires one fixed assignment')
+        if self.condition == 'own_location_use_count' and (self.delta != -2 or self.set_to is not None or self.minimum != 0):
+            raise ValueError('Location use count requires the finite two-per-activation discount')
         if self.condition == 'own_deck_shuffle_count' and (self.delta != -1 or self.set_to is not None or self.minimum != 0):
             raise ValueError('Shuffle count requires the finite one-per-operation discount')
         if self.condition == 'card_discovered_this_turn' and (self.delta != 0 or self.set_to != 0 or self.minimum != 0):
             raise ValueError('Discovery price supports the real conditional zero-cost assignment')
         history = ('hand.held-opponent-copy-play-v1' if self.condition == 'held_opponent_copy' else
+                   'location.activations-game-v1' if self.condition == 'own_location_use_count' else
                    'deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
                    'deck.current-count-v1' if self.condition == 'current_deck_count' else
                    'mana.permanent-crystals-v1' if self.condition == 'permanent_mana_at_least' else
@@ -6185,6 +6188,22 @@ class DeckShuffleCostMatch:
 
 
 @dataclass(frozen=True)
+class LocationUseCostMatch:
+    player_id: int
+    turn: int
+    action: int
+    next_entity_id: int
+    records: tuple
+    selected_ids: tuple[int, ...]
+    quantity: int
+    matched: bool
+
+    def __post_init__(self):
+        from .location_uses import validate_cost_match
+        validate_cost_match(self)
+
+
+@dataclass(frozen=True)
 class IntrinsicCostStageFact:
     profile_id: str
     player_id: int
@@ -6195,7 +6214,7 @@ class IntrinsicCostStageFact:
     amount: int
     boundary: OwnerTurnQueryBoundaryFact
     rules: tuple[IntrinsicCostSpec, ...]
-    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch | HeldOpponentCopyMatch, ...]
+    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch | LocationUseCostMatch | HeldOpponentCopyMatch, ...]
     operations: tuple[IntrinsicCostOperationFact, ...]
     board_minions: BoardMinionCostFact | None = None
     hand_cards: HandCountCostFact | CoinHandCountCostFact | None = None
@@ -6467,6 +6486,7 @@ class IntrinsicCostStageFact:
         if type(self.rules) is not tuple or any(type(rule) is not IntrinsicCostSpec for rule in self.rules):
             raise ValueError('Intrinsic stage requires complete immutable rules')
         condition_cls = (HeldOpponentCopyMatch if self.rules and self.rules[0].condition == 'held_opponent_copy' else
+                         LocationUseCostMatch if self.rules and self.rules[0].condition == 'own_location_use_count' else
                          DeckShuffleCostMatch if self.rules and self.rules[0].condition == 'own_deck_shuffle_count' else
                          CardDiscoveredTurnMatch if self.rules and self.rules[0].condition == 'card_discovered_this_turn' else
                          CurrentDeckCountMatch if self.rules and self.rules[0].condition == 'current_deck_count' else
@@ -6563,6 +6583,10 @@ class IntrinsicCostStageFact:
                                 'player_armor', 'player_summons', 'player_elemental_streak', 'player_corpses',
                                 'hero_damage_taken', 'player_spell_damage', 'player_character_attacks'))):
                     raise ValueError('Discovery price changed its sole Spell rule or original window')
+                continue
+            if type(condition) is LocationUseCostMatch:
+                if self.kind != CardType.MINION or len(self.rules) != 1 or (condition.turn,condition.action) != (self.boundary.turn,self.boundary.action):
+                    raise ValueError('Location-use pricing changed its original physical Minion window')
                 continue
             if type(condition) is DeckShuffleCostMatch:
                 if self.kind != CardType.MINION or len(self.rules) != 1 or (condition.turn,condition.action) != (self.boundary.turn,self.boundary.action):
@@ -11325,6 +11349,7 @@ class GameState:
     draw_history: list[DrawRecord] = field(default_factory=list)
     hand_entries: list[HandEntryRecord] = field(default_factory=list)
     deck_shuffle_history: list = field(default_factory=list)
+    location_use_history: list = field(default_factory=list)
     discard_history: list = field(default_factory=list)
     consumed_card_history: list = field(default_factory=list)
     spell_aura_history: list = field(default_factory=list)
@@ -11451,6 +11476,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_damage_history(state, registry)
     from .deck_shuffles import validate_state as validate_shuffle_state
     validate_shuffle_state(state, registry)
+    from .location_uses import validate_state as validate_location_uses
+    validate_location_uses(state, registry)
     from .discard_history import validate_state as validate_discard_state
     validate_discard_state(state, registry)
     from .successful_summons import validate_state as validate_successful_summons

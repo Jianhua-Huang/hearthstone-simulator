@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 593
+SNAPSHOT_SCHEMA_VERSION = 594
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -967,6 +967,9 @@ def _intrinsic_stage_from_dict(value):
         from .model import PermanentManaMatch
         row['condition_facts'] = tuple(PermanentManaMatch(**_row(v,PermanentManaMatch))
             for v in _list(row['condition_facts'],'intrinsic permanent mana conditions'))
+    elif row['rules'] and row['rules'][0].condition == 'own_location_use_count':
+        from .location_uses import match_from_dict
+        row['condition_facts']=tuple(match_from_dict(v)for v in _list(row['condition_facts'],'original location-use conditions'))
     elif row['rules'] and row['rules'][0].condition == 'own_deck_shuffle_count':
         from .model import DeckShuffleCostMatch
         from .deck_shuffles import row_from_dict
@@ -1319,6 +1322,8 @@ def state_from_dict(value: dict) -> GameState:
         for item in _list(value['corpse_spend_history'], 'original corpse debit history')]
     from .deck_shuffles import row_from_dict as shuffle_from_dict
     value['deck_shuffle_history']=[shuffle_from_dict(r) for r in _list(value['deck_shuffle_history'],'original shuffle operations')]
+    from .location_uses import row_from_dict as location_use_from_dict
+    value['location_use_history']=[location_use_from_dict(r)for r in _list(value['location_use_history'],'original location activations')]
     from .discard_history import rows_from_dict as discard_rows_from_dict
     discard_rows_from_dict(value)
     from .successful_summons import rows_from_dict as successful_summon_rows_from_dict

@@ -207,7 +207,7 @@ def validate_cost_prefix(value,state,registry):
 
 def intrinsic_amount(amount,rule,condition):
     from .costs import apply_cost
-    quantity=condition.quantity if rule.condition==CONDITION else 1
+    quantity=condition.quantity if rule.condition in (CONDITION,'own_location_use_count') else 1
     return apply_cost(amount,rule.delta*quantity,rule.set_to,rule.minimum)
 
 

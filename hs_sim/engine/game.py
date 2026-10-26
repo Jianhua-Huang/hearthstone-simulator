@@ -607,6 +607,8 @@ class Game:
         validate_health_boundary(self)
         from .deck_shuffles import validate_boundary as validate_shuffle_boundary
         validate_shuffle_boundary(self)
+        from .location_uses import validate_boundary as validate_location_use_boundary
+        validate_location_use_boundary(self)
         from .discard_history import validate_boundary as validate_discard_boundary
         validate_discard_boundary(self)
         from .successful_summons import validate_boundary as validate_successful_summon_boundary

@@ -1745,3 +1745,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 真实无限注能的战吼伤害由有限 `InfusedBattlecryProfile` 和独立固有参数表达，原 hand_progress 负责真实死亡 witness/部分进度，完成钩子只推进数值；原升级器、复制/弃牌/出牌材料和 BattlecryPayload 保留所得值及原接受窗口。更新原附加槽位，避免改变后来费用设置的顺序。分配伤害与吸血继续交原 RandomSplitDamage/健康管线；不从可重置进度反推伤害，不另建死亡或治疗执行器，见[德纳修斯契约](m3-endless-infuse-damage.md)。
+
+
+实际地标使用费用复用原激活器和固有费用阶段：支付耐久后、主体捕获前保存原LocationUseRecord，完整双方历史与本人选中组进入LocationUseCostMatch；不按location_used完成通知二次计次，也不逐张贴折扣。实际事件、来源驻留、末次使用和冻结生成／付款材料见[海滨巨人契约](m3-seaside-location-cost.md)。

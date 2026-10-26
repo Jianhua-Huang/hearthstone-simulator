@@ -136,6 +136,8 @@ def activate_location(r, effect):
     if dying(source): mark(r, source, 'durability', 'location_use', source.id)
     source.location_cooldown = 2
     source.uses_this_turn += 1
+    from .location_uses import accept as accept_location_use
+    accept_location_use(r,source,a.player_id,target_id)
     # Capture before a last-use destruction moves the source out of play.
     work = [r.call(behavior, source.id, a.player_id, target_id) for behavior in bodies
             if native is None or native.selection.failure is None]

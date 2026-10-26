@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v743'
+CORE_EFFECTS_VERSION = 'core-effects-v744'
 
 
 class Mechanics:
@@ -2924,6 +2924,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_minion_hand_swaps(mechanics)
     from .deck_shuffles import register as register_deck_shuffles
     register_deck_shuffles(mechanics)
+    from .location_uses import register as register_location_uses
+    register_location_uses(mechanics)
     from .hidden_damage_pairs import register as register_hidden_damage_pairs
     register_hidden_damage_pairs(mechanics)
     from .recruit_summons import register as register_recruit_summons

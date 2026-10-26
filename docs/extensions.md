@@ -2121,3 +2121,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 真实无限注能数值使用注册的 `InfusedBattlecryProfile`；卡牌主体读实际 `c.battlecry.payload.infused_damage` 并组合原非施法 RandomSplitDamage。不要在卡牌回调里重复数友方死亡、拿攻击/费用存伤害、按当前完成次数重算，或在复制/回手时丢掉所得值。有限声明、首升级/基础复制、等待恢复与保留边缘差异见[德纳修斯契约](m3-endless-infuse-damage.md)。
+
+
+真实海滨巨人的每次地标减2使用有限IntrinsicCostSpec条件own_location_use_count和location.activations-game-v1。只让原激活入口提交实际使用，费用查询保持纯函数；放置、刷新、普通打出和完成通知不作第二个计数器。复制、生成与回手按实际付款人本局历史重算，原费用顺序／恢复及未确认窗口见[契约](m3-seaside-location-cost.md)。
