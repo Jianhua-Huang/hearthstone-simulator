@@ -1,0 +1,1192 @@
+{
+  "schema": 1,
+  "native_part_ids": [
+    "BE_044",
+    "CORE_LOE_039",
+    "EDR_014",
+    "END_013",
+    "JAIL_EVENT_100",
+    "TLC_102"
+  ],
+  "child_ids": [
+    "JAIL_EVENT_100t"
+  ],
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BE_044",
+        "dbf_id": 128892,
+        "name": "F3TCH3R寻回机",
+        "name_en": "F3TCH3R",
+        "text": "<b>战吼：</b><b>拼装</b>一张法力值消耗为（4）的随从牌。",
+        "text_en": "<b>Battlecry:</b> <b>Assemble</b> a\n4-Cost minion.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2539": 1,
+          "4578": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4556",
+              "name": "CRAFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a9f6923fc2f4c890cd24b29fcf4d6a8bd4726eb356342cc8a4966083dd2c8601",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_044",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "CORE_LOE_039",
+        "dbf_id": 86548,
+        "name": "A3型机械金刚",
+        "name_en": "Gorillabot A-3",
+        "text": "<b>战吼：</b>如果你控制着其他机械，&<b>发现</b>一张机械牌。",
+        "text_en": "<b>Battlecry:</b> If you control another Mech,& <b>Discover</b> a Mech.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "858": 2911,
+          "USE_DISCOVER_VISUALS": 1,
+          "2542": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Skan Srisuwan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2911",
+              "type": "Int",
+              "value": "2911"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "372048c1d446b1a91ff4cab0f689c0d6a6dc2c27a5470f4cc84cadc2b118c2b7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_LOE_039",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EDR_014",
+        "dbf_id": 113371,
+        "name": "茏葱梦刃豹",
+        "name_en": "Verdant Dreamsaber",
+        "text": "<b>战吼：</b>如果本牌的法力值消耗小于或等于（3）点，&随机攻击两个敌方随从。",
+        "text_en": "<b>Battlecry:</b> If this costs (3)\nor less,& attack two random enemy minions.",
+        "cost": 5,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "03e538f9bdbccc34940dee8529620bec9ee60fa8f582152adc49a163302df692",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EDR_014",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "END_013",
+        "dbf_id": 121153,
+        "name": "戮屠末日巨口",
+        "name_en": "Brutish Endmaw",
+        "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的法力值消耗为（1）的随从牌。",
+        "text_en": "<b>Battlecry:</b>& <b>Discover</b> a\n1-Cost minion with a <b>Dark_Gift</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "MULTIPLE_CLASSES": 20,
+          "MINI_SET": 1,
+          "4050": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trent Kaniuga"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4050",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4050"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3627",
+              "name": "DARK_GIFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "930f67044bf3f28b977342ba2bb39a31724e63fd379fa38f8a0f72baadab038a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter",
+          "paladin"
+        ],
+        "rarity": "rare",
+        "deck_identity": "END_013",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_EVENT_100",
+        "dbf_id": 129959,
+        "name": "蛙生",
+        "name_en": "Watfin",
+        "text": "<b>战吼：</b><b>发现</b>一张随从牌。选中<i>可疑</i>的随从，即可获得+1/+1。",
+        "text_en": "<b>Battlecry:</b> <b>Discover</b> a minion. Pick the <i>suspicious</i> one to gain +1/+1.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Caroline Gariba"
+          }
+        ]
+      },
+      "record_sha256": "ee6150fcb0add59975987567d365a5ceb6312fae2086f713461369692b64e7c4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "JAIL_EVENT_100",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_102",
+        "dbf_id": 117848,
+        "name": "托加",
+        "name_en": "Torga",
+        "text": "<b>战吼：</b>抽一张<b>延系</b>牌以及另一张可以激活其效果的牌。",
+        "text_en": "<b>Battlecry:</b> Draw a <b>Kindred</b> card and another card that activates it.",
+        "cost": 4,
+        "attack": 2,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2534": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4028",
+              "name": "KINDRED",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "af70ca112c07202837812936d30785bb8279abd27db36729c267f2cdd3dbeb2a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_102",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast",
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "JAIL_EVENT_100t",
+        "dbf_id": 133446,
+        "name": "姆咯啦……？",
+        "name_en": "Mrgl...?",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "695f4ed4b538a7cacdaed5a3f923a50d6c21043a8e0420c4547db4540f675a65",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAIL_EVENT_100t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BE_044",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 128892,
+        "collectible": 1,
+        "slug": "128892-ftchr",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "F3TCH3R寻回机",
+        "text": "<b>战吼：</b><b>拼装</b>一张法力值消耗为（4）的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d19425c0d47ceac20cccdf7fc1c74b9880f6346b1c0a4b01c826753c1c67798a.png",
+        "imageGold": "",
+        "flavorText": "手手最好的朋友。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b245f36761816bd780dda8f1fe377cd5b03339d988441696b04635772e0733ea.png",
+        "keywordIds": [
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BE_044",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 128892,
+        "collectible": 1,
+        "slug": "128892-ftchr",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "F3TCH3R",
+        "text": "<b>Battlecry:</b> <b>Assemble</b> a 4-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13c6ee8e38913b23579111a5893ece59ff7f03f525cee35658c00686aa15a84b.png",
+        "imageGold": "",
+        "flavorText": "Hand's best friend.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b245f36761816bd780dda8f1fe377cd5b03339d988441696b04635772e0733ea.png",
+        "keywordIds": [
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CORE_LOE_039",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 86548,
+        "collectible": 1,
+        "slug": "86548-gorillabot-a-",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Skan Srisuwan",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "A3型机械金刚",
+        "text": "<b>战吼：</b>如果你控制着其他机械，&<b>发现</b>一张机械牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f18f4ce2730610f769134c05f0c4d030271cfe4acfe81a1bab5576feab2a5b7.png",
+        "imageGold": "",
+        "flavorText": "A1和A2型机械金刚都发疯了，早知道不给它们喂香蕉了……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b34e251529c69dd99f63cecc48bec9714ca5b1e51b4c2a013b358a79b692e6e2.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          2911
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CORE_LOE_039",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 86548,
+        "collectible": 1,
+        "slug": "86548-gorillabot-a-",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Skan Srisuwan",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Gorillabot A-3",
+        "text": "<b>Battlecry:</b> If you control another Mech,& <b>Discover</b> a Mech.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a94448bc44383e244f117d768f7707dfbe698f2cce2edc4bd3c9e2f99687022a.png",
+        "imageGold": "",
+        "flavorText": "A-1 and A-2 went nuts, when they should have gone bolts.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b34e251529c69dd99f63cecc48bec9714ca5b1e51b4c2a013b358a79b692e6e2.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "copyOfCardId": [
+          2911
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EDR_014",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 113371,
+        "collectible": 1,
+        "slug": "113371-verdant-dreamsaber",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Jason Kang",
+        "health": 7,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "茏葱梦刃豹",
+        "text": "<b>战吼：</b>如果本牌的法力值消耗小于或等于（3）点，&随机攻击两个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeb65cf0b374f4999515dbab9c16a33f1171b723123affee5acaa3db18a28d05.png",
+        "imageGold": "",
+        "flavorText": "至少卡牌边框是茏葱的绿色。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0ac70f1796d5b18908d4bee3097badcc4f98cd811fa0432a3bd53174483637.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EDR_014",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 113371,
+        "collectible": 1,
+        "slug": "113371-verdant-dreamsaber",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1946,
+        "rarityId": 4,
+        "artistName": "Jason Kang",
+        "health": 7,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Verdant Dreamsaber",
+        "text": "<b>Battlecry:</b> If this costs (3) or less,& attack two random enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c905af399b5699d05147ea82bd61e1039cd2faa408fe1996ca4a846e63eb157.png",
+        "imageGold": "",
+        "flavorText": "Hey, at least the card frame is verdant.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0ac70f1796d5b18908d4bee3097badcc4f98cd811fa0432a3bd53174483637.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "END_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 121153,
+        "collectible": 1,
+        "slug": "121153-brutish-endmaw",
+        "classId": null,
+        "multiClassIds": [
+          3,
+          5
+        ],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Trent Kaniuga",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "戮屠末日巨口",
+        "text": "<b>战吼：</b>&<b>发现</b>一张具有<b>黑暗之赐</b>的法力值消耗为（1）的随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37644b4cf67ed09e985c78b6f293cbbe80d8e46409cd70df21df0574517666f7.png",
+        "imageGold": "",
+        "flavorText": "不，戮屠，你也在内吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3af198893e1f676d14258b382a47ee41ede07b5ef9f24e7c47a622bb2e49539.png",
+        "keywordIds": [
+          8,
+          21,
+          319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "END_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 121153,
+        "collectible": 1,
+        "slug": "121153-brutish-endmaw",
+        "classId": null,
+        "multiClassIds": [
+          3,
+          5
+        ],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Trent Kaniuga",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Brutish Endmaw",
+        "text": "<b>Battlecry:</b>& <b>Discover</b> a 1-Cost minion with a <b>Dark Gift</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4796fa9f2c28bbd7c03e19c428de0ac1d105629c3af9baa8c70386e4825ff1a.png",
+        "imageGold": "",
+        "flavorText": "Et tu, Brute?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3af198893e1f676d14258b382a47ee41ede07b5ef9f24e7c47a622bb2e49539.png",
+        "keywordIds": [
+          8,
+          21,
+          319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_100",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 129959,
+        "collectible": 1,
+        "slug": "129959-watfin",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 5,
+        "artistName": "Caroline Gariba",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "蛙生",
+        "text": "<b>战吼：</b><b>发现</b>一张随从牌。选中<i>可疑</i>的随从，即可获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ccbe05c8101351923d092b99969836e7afed14674f7c49dfc060fce1dbffddb.png",
+        "imageGold": "",
+        "flavorText": "欢迎来到真假卡牌竞猜问答！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecadbbce7856358dee9118530312ba85fa6dbde7130264885fb369b92360fac4.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAIL_EVENT_100",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 129959,
+        "collectible": 1,
+        "slug": "129959-watfin",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1941,
+        "rarityId": 5,
+        "artistName": "Caroline Gariba",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Watfin",
+        "text": "<b>Battlecry:</b> <b>Discover</b> a minion. Pick the <i>suspicious</i> one to gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48e81f2a2030a36423190cc398db4a7ca32dc70c4533501a7ea27cf7ecbaa4ce.png",
+        "imageGold": "",
+        "flavorText": "Welcome to \"Do You Know Hearthstone?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecadbbce7856358dee9118530312ba85fa6dbde7130264885fb369b92360fac4.png",
+        "keywordIds": [
+          8,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_102",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 117848,
+        "collectible": 1,
+        "slug": "117848-torga",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Ramzy Kamen",
+        "health": 7,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "托加",
+        "text": "<b>战吼：</b>抽一张<b>延系</b>牌以及另一张可以激活其效果的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a38324e7b2af441c2f16941defe37baf27c3b47c5e6934493788de67ba07e6e.png",
+        "imageGold": "",
+        "flavorText": "托加被杀害，被分食，被用来召唤亡灵，甚至被当作灵体的传声筒。但至少他收获了许多故事。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8da7739974293f0a5df3c701373f8ba754c7a685c6b232f665894520a67ea4b0.png",
+        "keywordIds": [
+          8,
+          351
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TLC_102",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 117848,
+        "collectible": 1,
+        "slug": "117848-torga",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": "Ramzy Kamen",
+        "health": 7,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Torga",
+        "text": "<b>Battlecry:</b> Draw a <b>Kindred</b> card and another card that activates it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/820431ab6444db108151e7ddcfba4a780f3212fc2f358350a91be3f5fbe5905a.png",
+        "imageGold": "",
+        "flavorText": "Torga was killed, eaten, used to summon the undead and then used as a loudspeaker for spirits. But at least he's got a hell of a story to tell.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8da7739974293f0a5df3c701373f8ba754c7a685c6b232f665894520a67ea4b0.png",
+        "keywordIds": [
+          8,
+          351
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "reviewed_definition_sha256": {
+    "BE_044": "4772dcb42b9926b40edc9dfc486c9c86d762ce7a2437687812c11e73740b475d",
+    "CORE_LOE_039": "9e3a3d7d47df318370ab18c105682ff131db0a41d2f13da607b16a114acd25ac",
+    "EDR_014": "08b3874befa26b1cb7ed18440590d2eadca83a201311f5c630b260873e30896b",
+    "END_013": "ad49e712580cb1ca89a13b7a1ceccea24e9d09ceb941059e6784ab321ebfe016",
+    "JAIL_EVENT_100": "861412e1b1f53e7ccc77626c5934cea0d95e6bb10f8e11c25020e26e589b3d51",
+    "TLC_102": "321e1a1caba23e4996d0f7eeb799a64891c5d235554323411d09ef040818dbc4",
+    "JAIL_EVENT_100t": "4f6a8e2ffb8887bbc7379a1615d20b1345ca395021d6e9f7ae5f9fc6b19703e3"
+  },
+  "deck_identities": {
+    "BE_044": "BE_044",
+    "CORE_LOE_039": "LOE_039",
+    "EDR_014": "EDR_014",
+    "END_013": "END_013",
+    "JAIL_EVENT_100": "JAIL_EVENT_100",
+    "TLC_102": "TLC_102",
+    "JAIL_EVENT_100t": "JAIL_EVENT_100t"
+  },
+  "watfin_profile_sha256": "9d990164a19268ce3588b78c1757a0df74cde47b0fbbfa9d22466e0030339b0a",
+  "gift_version": "constructed-dark-gifts-32.2-v1",
+  "gift_recipes_sha256": "d38026afb5e74d345f28238c65b26c2b028adb6b1d984bf55ded7127f67a68dc",
+  "reference": "data/cards/zombeast-local-reference-v1.json",
+  "reference_canonical_sha256": "6fa31f30bbe48a8297b45d182117fa2f5b9df95902d92dfe39979a6de6aea3e1",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
