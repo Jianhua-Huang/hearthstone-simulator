@@ -1,0 +1,282 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "ONY_004",
+        "dbf_id": 71333,
+        "name": "团本首领奥妮克希亚",
+        "name_en": "Raid Boss Onyxia",
+        "text": "<b>突袭</b>。当你控制着雏龙时<b>免疫</b>。<b>战吼：</b>召唤六条2/1并具有<b>突袭</b>的雏龙。",
+        "text_en": "[x]<b>Rush</b>. <b>Immune</b> while\nyou control a Whelp.\n<b>Battlecry:</b> Summon six\n_2/1 Whelps with <b>Rush</b>.",
+        "cost": 10,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1626,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71299,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "dc7db0169f26a747e84b8d56aaabbd6d5df40d908e1af38dd297f0e79bc73698"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "ONY_001t",
+        "dbf_id": 71299,
+        "name": "奥妮克希亚雏龙",
+        "name_en": "Onyxian Whelp",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1626,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "WHELP": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a909f66c39f134dfd5f18411db4ba37d9430b4773305958911dd593fcbb2d26e"
+    }
+  ],
+  "official_faces": [
+    {
+      "card_id": "ONY_004",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 71333,
+        "collectible": 1,
+        "slug": "71333-raid-boss-onyxia",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": 5,
+        "artistName": "Alex Stone",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 10,
+        "name": "团本首领奥妮克希亚",
+        "text": "<b>突袭</b>。当你控制着雏龙时<b>免疫</b>。<b>战吼：</b>召唤六条2/1并具有<b>突袭</b>的雏龙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c4ed66018c0018ca526a4a32d3e389f649323ef9e0da910b58c16327d14b4b8.png",
+        "imageGold": "",
+        "flavorText": "奥妮克希亚用她的伪装来操纵凡人。你问她的真正形态？她用它抹杀凡人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44a67b7d71265048864eff7123793dc293d93d05e55714ad3ca32a545e756fe1.png",
+        "keywordIds": [
+          8,
+          17,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ONY_004",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 71333,
+        "collectible": 1,
+        "slug": "71333-raid-boss-onyxia",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": 5,
+        "artistName": "Alex Stone",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 10,
+        "name": "Raid Boss Onyxia",
+        "text": "<b>Rush</b>. <b>Immune</b> while you control a Whelp. <b>Battlecry:</b> Summon six 2/1 Whelps with <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39600422ceb5b1272f9a33561af4c2974d39d173b24800d342884af5127bdf65.png",
+        "imageGold": "",
+        "flavorText": "Onyxia chose her guises to manipulate mortals, but her true form? That was reserved for ending them.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44a67b7d71265048864eff7123793dc293d93d05e55714ad3ca32a545e756fe1.png",
+        "keywordIds": [
+          8,
+          17,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ONY_001t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k549-past-mentor-common-bodies\\official-children\\71299-zh_CN.json",
+      "response_sha256": "ea3e01f54c43052cd03c422a662e7a718e62d525580212e4ae0740eb80594ce4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=71299&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 71299,
+        "collectible": 0,
+        "slug": "71299-onyxian-whelp",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "奥妮克希亚雏龙",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f510b5bf7acc6990b2ee9757dd006ea5471f5c7637f7bf1b13da0528bf733bd6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71226,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=71299&locale=zh_CN&collectible=0",
+        "sha256": "ea3e01f54c43052cd03c422a662e7a718e62d525580212e4ae0740eb80594ce4",
+        "bytes": 589,
+        "observed_at": "2026-10-26T05:41:31.428888+00:00"
+      }
+    },
+    {
+      "card_id": "ONY_001t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k549-past-mentor-common-bodies\\official-children\\71299-en_US.json",
+      "response_sha256": "4c8afaeb19bb503a8288c47fae97b16952779315296cd73c0493ab27cbac398e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=71299&locale=en_US&collectible=0",
+      "face": {
+        "id": 71299,
+        "collectible": 0,
+        "slug": "71299-onyxian-whelp",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1626,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Onyxian Whelp",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/654f3b53cea1dc90f7815206ca266d6abd6115ac24bf0e64ca86ae44df690935.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 71226,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=71299&locale=en_US&collectible=0",
+        "sha256": "4c8afaeb19bb503a8288c47fae97b16952779315296cd73c0493ab27cbac398e",
+        "bytes": 579,
+        "observed_at": "2026-10-26T05:41:31.544633+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "version_alignment_deferred": true,
+  "rule_boundaries_deferred": true,
+  "local_rules": {
+    "condition": "While its printed aura is active on board, native source is Immune if any current friendly active living ordinary minion has printed WHELP subtype. Validate the entire eligible inventory; unknown subtypes are errors, not negatives. No name/race substitution.",
+    "presence": "Whelp may be silenced or have changed ordinary tribes; transform reads the new printed subtype. Dormant, dying, enemy, hand/deck, interactable/building objects do not qualify. Exact doomed/death-checkpoint timing remains local policy.",
+    "summons": "Six ordinary fixed Onyxian Whelp materials, through original card-attributed SummonByCard; real capacity and quantities stay shared.",
+    "scope": "Preserve full34 source reference and mode/version conflicts; production past domain remains unbound."
+  }
+}

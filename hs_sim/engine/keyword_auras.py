@@ -128,6 +128,14 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                 if spec.condition == 'controller_turn' and source.controller != state.active_player:
                     continue
                 if spec.target == 'self':
+                    if spec.condition == 'controller_controls_whelp':
+                        from .tribes import has_any_subtype
+                        # A true early row must not mask a later unknown subtype.
+                        matches = tuple(has_any_subtype(registry, target, ('whelp',))
+                            for target_id in player.board for target in (state.entities[target_id],)
+                            if target.kind == CardType.MINION and target.active and target.health > 0 and
+                            not target.doomed and not target.interactable_object and not target.starship_building)
+                        if any(matches): contributions[source_id].add(spec.keyword)
                     # Self contributions use local/state-dependent keyword unions.
                     continue
                 if spec.target.startswith('friendly_hand'):

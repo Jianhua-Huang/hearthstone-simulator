@@ -2112,3 +2112,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 机械克苏恩在实际亡语窗查当前本人完整区域，再提交原Destroy给敌方英雄；污染之源亚煞极按原Corrupted出牌发生创建基础副本并附本回合0费。完整来源、容量、时序和未确认复制材料见[契约](m3-frontier-old-god-conditions.md)，实际验收与下一项只在两份原台账。
+
+
+雏龙条件自身免疫只扩展有限原生KeywordAuraSpec，完整在场候选复用印刷WHELP分类，实际战斗与六次召唤仍交原执行器。分类/种族区别、未知错误、生命周期和未校准待死窗口见[契约](m3-native-onyxia-whelp.md)，实际验收与下一项只在两份原台账。

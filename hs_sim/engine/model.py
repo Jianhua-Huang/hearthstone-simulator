@@ -1480,13 +1480,13 @@ class KeywordAuraSpec:
         if self.tribes_any and (self.keyword != Keyword.CHARGE or
                 self.target != 'friendly_minions' or self.condition != 'always' or self.adjacent_only):
             raise ValueError('Tribal keyword aura currently requires ordinary board Charge')
-        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions','controller_opponent_turn','rush_summon_turn'):
+        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','rush_summon_turn'):
             raise ValueError('Unsupported continuous keyword condition')
         if self.condition=='rush_summon_turn' and (self.keyword!=Keyword.IMMUNE or
                 self.target!='friendly_minions' or not self.include_self or self.adjacent_only or
                 self.tribes_any or self.card_ids):
             raise ValueError('Summon-turn Rush immunity requires its independent native friendly scope')
-        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_opponent_turn')):
+        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn')):
             raise ValueError('Conditional keyword requires its own self target')
         if self.condition == 'controller_turn' and (self.target != 'friendly_hero' or
                 self.keyword != Keyword.IMMUNE or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):
@@ -1497,8 +1497,8 @@ class KeywordAuraSpec:
             raise ValueError('Self-damaged keyword currently supports the known Windfury profile')
         if self.condition == 'controller_has_weapon' and self.keyword != Keyword.CHARGE:
             raise ValueError('Weapon-presence keyword currently supports the known Charge profile')
-        if self.condition=='controller_no_other_minions' and self.keyword!=Keyword.IMMUNE:
-            raise ValueError('No-other-minion keyword requires the native self Immune profile')
+        if self.condition in ('controller_no_other_minions','controller_controls_whelp') and self.keyword!=Keyword.IMMUNE:
+            raise ValueError('Native minion-presence keyword requires its self Immune profile')
         if self.condition == 'controller_opponent_turn' and (self.keyword != Keyword.ELUSIVE or
                 self.tribes_any or self.card_ids):
             raise ValueError('Opponent-turn keyword requires independent native self Elusive')
