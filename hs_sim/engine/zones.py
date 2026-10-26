@@ -1000,7 +1000,9 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
         apply(r,material,entity)
     else:
         from .permanent_minion_stats import value as permanent_value
-        inherit_printed(source, entity, state=r.state, permanent_stats=permanent_value(effect.card))
+        from .infused_battlecries import value as infused_value
+        inherit_printed(source, entity, state=r.state, permanent_stats=permanent_value(effect.card),
+            infused_damage=infused_value(effect.card))
     if material is None and effect.mode == 'current':
         copy_current_stored_state(r.state,source,entity)
         if type(effect.card) is MinionReference:
@@ -1117,9 +1119,10 @@ def discard_card(r, effect, *, deathrattle_memory=None):
         return
     from .allocation_facts import SourceAllocationFact
     from .permanent_minion_stats import value as permanent_value
+    from .infused_battlecries import value as infused_value
     capture=(SourceAllocationFact.capture(r.state,entity),entity.hand_entry_id,
         SourceAllocationFact.capture(r.state,r.state.entities.get(effect.source_id)),effect.reveal,
-        entity.components,entity.jade_size,deathrattle_memory,permanent_value(entity))
+        entity.components,entity.jade_size,deathrattle_memory,permanent_value(entity),infused_value(entity))
     r.move(entity, Zone.GRAVEYARD)
     viewers = (1, 2) if effect.reveal else (entity.controller,)
     for viewer in viewers:

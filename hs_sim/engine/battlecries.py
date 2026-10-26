@@ -14,7 +14,8 @@ from .model import BattlecryPayload, BattlecryRecord, CardType
 def capture(entity):
     from .remaining_mana_numbers import battlecry_number
     from .rotating_discovery_classes import payload_value
-    return tuple(BattlecryPayload(a.id, a.behavior_id, a.battlecry_card_id,a.carved_spell_id,battlecry_number(entity,a),payload_value(entity,a))
+    from .infused_battlecries import payload_value as infused_value
+    return tuple(BattlecryPayload(a.id, a.behavior_id, a.battlecry_card_id,a.carved_spell_id,battlecry_number(entity,a),payload_value(entity,a),infused_value(entity,a))
                  for a in active_abilities(entity, 'battlecry'))
 
 

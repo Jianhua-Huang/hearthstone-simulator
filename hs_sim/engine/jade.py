@@ -85,13 +85,15 @@ def initialize_instance(entity, registry):
         imprint(entity, STARTS[family.forms.index(entity.card_id)])
 
 
-def inherit_printed(source, destination, *, state=None, permanent_stats=None):
+def inherit_printed(source, destination, *, state=None, permanent_stats=None, infused_damage=None):
     """A normal copy/revival inherits its original physical size, not current growth."""
     if source.card_id == destination.card_id and source.jade_size is not None:
         imprint(destination, source.jade_size)
     from .permanent_minion_stats import inherit
     if source.card_id == destination.card_id:
         inherit(state,source,destination,permanent_stats)
+    from .infused_battlecries import inherit as inherit_infused
+    inherit_infused(state,source,destination,infused_damage)
     from .carved_spells import inherit_weapon_material
     inherit_weapon_material(source,destination)
 

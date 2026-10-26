@@ -110,6 +110,8 @@ class CapturedCardCopyMaterial:
 def validate_captured_card_copy(state,registry,material):
     if type(material)is not CapturedCardCopyMaterial:raise ValueError('Expected captured card copy material')
     material.__post_init__();validate_allocation(state,registry,material.origin)
+    from .infused_battlecries import validate_recipe,value as infused_value
+    validate_recipe(registry,material.origin.card_id,infused_value(material.local))
     from .native_conditions import validate_carrier as validate_native_condition
     validate_native_condition(registry, material.origin.card_id, material.origin.kind,
         material.local.abilities, material.components)
@@ -168,6 +170,7 @@ class CopyEntryMaterial:
     stored_components:tuple[str,...]=()
     permanent_stats:SummonStats|None=None
     self_copy_death:object|None=None
+    infused_damage:int|None=None
 
     def __post_init__(self):
         if self.profile == 'death_copy':
@@ -175,6 +178,10 @@ class CopyEntryMaterial:
             validate_entry_shape(self)
         elif self.self_copy_death is not None:
             raise ValueError('Original death belongs only to its full-health self-copy profile')
+        from .infused_battlecries import validate_value as validate_infused,value as infused_value
+        validate_infused(self.infused_damage)
+        if self.local is not None and infused_value(self.local)!=self.infused_damage:
+            raise ValueError('Current copy lost its original Infuse damage')
         from .permanent_minion_stats import validate_value
         validate_value(self.permanent_stats)
         if self.local is not None:
@@ -260,10 +267,11 @@ class CopyEntryMaterial:
         local=CopyLocalState.capture(source)if mode=='current'else None
         if profile in ('discard_copy','discard_summon_copy')and local is not None:local=replace(local,hand_lifetime=None)
         from .permanent_minion_stats import value as permanent_value
+        from .infused_battlecries import value as infused_value
         result=cls(source.card_id,SourceAllocationFact.capture(state,source),profile,mode,state.turn,state.action_number,
             state.next_attachment_id,local,stats,entry_count,source.jade_size,discard,
             source.dormancy is not None and profile in ('board_copy','remembered_copy') and mode == 'current',
-            permanent_stats=permanent_value(source))
+            permanent_stats=permanent_value(source),infused_damage=infused_value(source))
         if on_summon is not None:result=replace(result,on_summon=on_summon)
         if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
         if profile in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy')and mode=='current':result=replace(result,stored_components=source.components)
@@ -274,6 +282,8 @@ class CopyEntryMaterial:
 def validate_material(registry,material,*,hand_copy=False):
     from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain_material
     material.__post_init__()
+    from .infused_battlecries import validate_recipe
+    validate_recipe(registry,material.card_id,material.infused_damage)
     if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy','death_copy') or material.profile=='board_copy' and material.mode=='current':
         card=registry.card(material.card_id)
         from .crafted_faces import composition_shape
@@ -396,6 +406,8 @@ def apply(r,material,entity):
         imprint(entity, material.jade_size)
     from .permanent_minion_stats import imprint
     imprint(r.state,entity,material.permanent_stats,material.origin.entity_id)
+    from .infused_battlecries import imprint as imprint_infused
+    imprint_infused(r.state,entity,material.infused_damage,material.origin.entity_id)
     if material.mode=='current':
         local=material.local
         if material.profile in ('board_copy','remembered_copy','death_copy') and not material.dormant_entry:entity.dormancy=None

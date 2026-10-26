@@ -109,9 +109,11 @@ def apply_material(r, selection, slot_id, entity):
             row.controller if material.death is not None else row.player_id)
         from .jade import inherit_printed
         from .model import Entity, Zone
+        from .infused_battlecries import value as infused_value
         inherit_printed(Entity(row.entity_id, row.card_id, row.owner if material.death else row.card.owner,
             row.controller if material.death else row.player_id, Zone.GRAVEYARD,
-            kind=entity.kind, components=row.components, jade_size=row.jade_size), entity, state=r.state, permanent_stats=permanent_value(row))
+            kind=entity.kind, components=row.components, jade_size=row.jade_size), entity, state=r.state, permanent_stats=permanent_value(row),
+            infused_damage=infused_value(row))
     apply_discovery_intrinsics(r, option, entity, selection.discovery.result.choice.source_id)
 
 

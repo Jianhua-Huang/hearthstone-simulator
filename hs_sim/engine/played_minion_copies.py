@@ -19,6 +19,7 @@ class PlayedMinionCopyMaterial:
     turn: int
     action: int
     permanent_stats: SummonStats | None = None
+    infused_damage: int | None = None
 
     def __post_init__(self):
         for key in ('play_id', 'turn'): _int(getattr(self, key), 'played copy '+key, 1)
@@ -31,6 +32,8 @@ class PlayedMinionCopyMaterial:
         _components(self.components)
         from .permanent_minion_stats import validate_value
         validate_value(self.permanent_stats)
+        from .infused_battlecries import validate_value as validate_infused
+        validate_infused(self.infused_damage)
         if self.jade_size is not None:
             _int(self.jade_size, 'played innate Jade size', 1)
             if self.jade_size > 30 or self.components:
@@ -40,8 +43,9 @@ class PlayedMinionCopyMaterial:
     def capture(cls, state, source, play_id):
         if source.kind != CardType.MINION: return None
         from .permanent_minion_stats import value
+        from .infused_battlecries import value as infused_value
         return cls(play_id, SourceAllocationFact.capture(state, source),
-            source.components, source.jade_size, state.turn, state.action_number,value(source))
+            source.components, source.jade_size, state.turn, state.action_number,value(source),infused_value(source))
 
     def entity(self):
         s = self.source
@@ -70,6 +74,8 @@ def validate_material(state, registry, value):
     if value.turn > state.turn or value.action > state.action_number:
         raise ValueError('Played minion copy has future submission clocks')
     definition = registry.card(value.source.card_id)
+    from .infused_battlecries import validate_recipe
+    validate_recipe(registry,value.source.card_id,value.infused_damage)
     from .crafted_faces import composition_shape, PREFIX
     if not definition.hand_playable or not composition_shape(definition, value.components):
         raise ValueError('Played minion lost its original complete composition')

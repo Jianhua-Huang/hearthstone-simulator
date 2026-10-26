@@ -115,6 +115,9 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('colossal_reserve',colossal_reserve_card_id=definition.id,colossal_remaining=len(definition.colossal))
     if registry is not None and definition.id in registry.remaining_mana_numbers_profiles:
         add('remaining_mana_numbers',remaining_mana_card_id=definition.id)
+    if registry is not None:
+        from .infused_battlecries import initialize as initialize_infused
+        initialize_infused(state,registry,entity)
     if definition.cleave:
         add('cleave')
     if definition.on_play:
@@ -244,6 +247,7 @@ def install_base(state, entity, definition, registry, components=(), *, entry_he
 
 def reset_to_definition(state, entity, definition, registry=None, *, components=None, preserve_jade=False, preserve_cthun=False, preserve_weapon_spell=False):
     bases=[e for e in entity.enchantments if e.minion_base_stats is not None or
+           e.label=='infused_battlecry_damage' or
            preserve_jade and e.label=='permanent_minion_stats'] if entity.card_id==definition.id else []
     jade_size = entity.jade_size if preserve_jade and entity.card_id == definition.id else None
     from .carved_spells import weapon_material,restore_weapon_material

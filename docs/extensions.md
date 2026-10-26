@@ -2118,3 +2118,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 实际摧毁数量弃牌复用原批次死亡原因与CompleteDestroyedResources，新增请求绑定真实战吼和原玩家，在执行时捕获双方原物理组；最终数量交原DiscardMatching。完整来源关联、死亡/反应窗口与未校准政策见[契约](m3-deathwing-destroyed-discard.md)，实际结果与下一项仍只在原两份台账。
+
+
+真实无限注能数值使用注册的 `InfusedBattlecryProfile`；卡牌主体读实际 `c.battlecry.payload.infused_damage` 并组合原非施法 RandomSplitDamage。不要在卡牌回调里重复数友方死亡、拿攻击/费用存伤害、按当前完成次数重算，或在复制/回手时丢掉所得值。有限声明、首升级/基础复制、等待恢复与保留边缘差异见[德纳修斯契约](m3-endless-infuse-damage.md)。

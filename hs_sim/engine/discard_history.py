@@ -24,6 +24,7 @@ class DiscardRecord:
     components: tuple[str, ...] = ()
     jade_size: int | None = None
     permanent_stats: SummonStats | None = None
+    infused_damage: int | None = None
 
     def __post_init__(self):
         for name in ('id','player_id','turn','event_sequence','hand_entry_id'):
@@ -44,7 +45,9 @@ class DiscardRecord:
         if self.jade_size is not None:_int(self.jade_size,'discard innate Jade size',0)
         from .permanent_minion_stats import validate_value
         validate_value(self.permanent_stats)
-        if self.kind != CardType.MINION and (self.components or self.jade_size is not None or self.permanent_stats is not None):
+        from .infused_battlecries import validate_value as validate_infused
+        validate_infused(self.infused_damage)
+        if self.kind != CardType.MINION and (self.components or self.jade_size is not None or self.permanent_stats is not None or self.infused_damage is not None):
             raise ValueError('Only discarded minions carry innate minion material')
 
     @property
@@ -111,6 +114,8 @@ def _validate_event(row,event):
 def validate_base_recipe(registry,row):
     """The small printed recovery recipe, independent of later entity movement."""
     definition=registry.card(row.card_id)
+    from .infused_battlecries import validate_recipe
+    validate_recipe(registry,row.card_id,row.infused_damage)
     from .crafted_faces import composition_shape
     if not composition_shape(definition,row.components):
         raise ValueError('Discarded composite material differs from its original body kind')
@@ -138,11 +143,11 @@ def validate_base_copy(state,registry,row):
 
 def commit(r,event,capture):
     """Publish once after actual HAND -> GRAVEYARD, before listeners capture."""
-    if type(capture) is not tuple or len(capture)!=8:raise ValueError('Discard publication needs its complete original capture')
-    card,entry_id,source,reveal,components,jade_size,memory,permanent_stats=capture
+    if type(capture) is not tuple or len(capture)!=9:raise ValueError('Discard publication needs its complete original capture')
+    card,entry_id,source,reveal,components,jade_size,memory,permanent_stats,infused_damage=capture
     validate_state(r.state,r.registry)
     row=DiscardRecord(r.state.next_discard_id,event.player_id,r.state.turn,r.state.action_number,
-        event.sequence,card,entry_id,source,reveal,components,jade_size,permanent_stats)
+        event.sequence,card,entry_id,source,reveal,components,jade_size,permanent_stats,infused_damage)
     _validate_event(row,event);entity=r.state.entities.get(row.entity_id)
     if (event.sequence!=len(r.game._events)+1 or entity is None or
             (entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch)!=

@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "CORE_REV_906",
+        "dbf_id": 118143,
+        "name": "德纳修斯大帝",
+        "name_en": "Sire Denathrius",
+        "text": "<b>吸血</b>，<b>战吼：</b>对所有敌人造成总计5点伤害。<b>无限注能（@）：</b>伤害增加1点。",
+        "text_en": "<b><b>Lifesteal</b>.</b> <b>Battlecry:</b> Deal 5 damage amongst enemies. <b>Endlessly Infuse (@):</b> Deal 1 more.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 5,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1810,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "858": 75881,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 75881,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 77222,
+          "INFUSE": 1
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "75881",
+              "type": "Int",
+              "value": "75881"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5ef573af325d84ae59c65ec5c5ea08d5b920e30ccd35527757f02992aff3e35f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_REV_906",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "REV_906t",
+        "dbf_id": 77222,
+        "name": "德纳修斯大帝",
+        "name_en": "Sire Denathrius",
+        "text": "<b>吸血</b>，<b>战吼：</b>对所有敌人造成总计{1}点伤害。<b>无限注能（{0}）：</b>伤害增加1点。",
+        "text_en": "[x]<b>Lifesteal</b>. <b>Battlecry:</b> Deal {1}\ndamage amongst enemies.\n<b>Endlessly Infuse ({0}):</b>\nDeal 1 more.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 6,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1691,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "LIFESTEAL": 1,
+          "1304": 6,
+          "INFUSE": 1,
+          "INFUSED": 1,
+          "3169": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1304",
+              "name": "6",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "1304"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3169",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3169"
+          }
+        ]
+      },
+      "record_sha256": "9e0f4021cf47f317ea4a6c085e01cee29a22dc765c88f7cb6c66c47d854a05f3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "REV_906t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "REV_906",
+        "dbf_id": 75881,
+        "name": "德纳修斯大帝",
+        "name_en": "Sire Denathrius",
+        "text": "<b>吸血</b>，<b>战吼：</b>对所有敌人造成总计5点伤害。<b>无限注能（@）：</b>伤害增加1点。",
+        "text_en": "<b><b>Lifesteal</b>.</b> <b>Battlecry:</b> Deal 5 damage amongst enemies. <b>Endlessly Infuse (@):</b> Deal 1 more.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TAG_SCRIPT_DATA_NUM_2": 5,
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1691,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 77222,
+          "INFUSE": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "b373bdac84e7dbc47a8da9163dc30a24ce859e57bfbf551befafad88a07d66f2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "REV_906",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_faces": [
+    {
+      "card_id": "REV_906",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 75881,
+        "collectible": 1,
+        "slug": "75881-sire-denathrius",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "德纳修斯大帝",
+        "text": "<b>吸血</b>，<b>战吼：</b>对所有敌人造成总计5点伤害。<b>无限注能（ ）：</b>伤害增加1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2591eb4639569d4f8a73fca9edb80f90b6ef0c4f9434c4315177394be0f77d3.png",
+        "imageGold": "",
+        "flavorText": "历史可以帮助人们避免走上反派的老路。不幸的是，温西尔个个都和大帝差不多。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30f6c76f3d7b42db0f58233bd55e0d36584ea2f0bb16dfebe304323a8e1e2cc9.png",
+        "childIds": [
+          77222
+        ],
+        "keywordIds": [
+          8,
+          38,
+          238
+        ],
+        "copyOfCardId": [
+          118143
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_906",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k454-past-one-cost-source/wild-primary-catalog/en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 75881,
+        "collectible": 1,
+        "slug": "75881-sire-denathrius",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "Sire Denathrius",
+        "text": "<b><b>Lifesteal</b>.</b> <b>Battlecry:</b> Deal 5 damage amongst enemies. <b>Endlessly Infuse ( ):</b> Deal 1 more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f0957fb164b8c2070fe675b780d13be5e78b4c63a1bee63569f262738672a164.png",
+        "imageGold": "",
+        "flavorText": "History has a way of altering villains so that we can no longer see ourselves in them. Unfortunately for the Venthyr, they all look like Sire Denathrius.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30f6c76f3d7b42db0f58233bd55e0d36584ea2f0bb16dfebe304323a8e1e2cc9.png",
+        "childIds": [
+          77222
+        ],
+        "keywordIds": [
+          8,
+          38,
+          238
+        ],
+        "copyOfCardId": [
+          118143
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_906t",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k561-endless-infused-damage/official/77222-zh_CN.json",
+      "response_sha256": "8e2750ebc96cc1cccd783255e21e73a91f53778aa1a8e6984ae79e2ba8794e69",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=77222&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 77222,
+        "collectible": 0,
+        "slug": "77222-sire-denathrius",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "德纳修斯大帝",
+        "text": "<b>吸血</b>，<b>战吼：</b>对所有敌人造成总计 点伤害。<b>无限注能（ ）：</b>伤害增加1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0bb73baca79d250f0906c46e2df7c32c33b768ae10038592660f7e61d2fb2ac6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75881,
+        "keywordIds": [
+          8,
+          38,
+          238,
+          239
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=77222&locale=zh_CN&collectible=0",
+        "sha256": "8e2750ebc96cc1cccd783255e21e73a91f53778aa1a8e6984ae79e2ba8794e69",
+        "bytes": 696,
+        "observed_at": "2026-10-26T11:10:02.595124+00:00"
+      }
+    },
+    {
+      "card_id": "REV_906t",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k561-endless-infused-damage/official/77222-en_US.json",
+      "response_sha256": "389889f0501530d5b723dceb974b57e8e010198a8a922b3227d38ef7ff57d86c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=77222&locale=en_US&collectible=0",
+      "face": {
+        "id": 77222,
+        "collectible": 0,
+        "slug": "77222-sire-denathrius",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "Sire Denathrius",
+        "text": "<b>Lifesteal</b>. <b>Battlecry:</b> Deal damage amongst enemies. <b>Endlessly Infuse ( ):</b> Deal 1 more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17fbfc6d9875ceba59ded31e4fc7ddb78212a5411b88111f8b3b2cd28c2c1f88.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75881,
+        "keywordIds": [
+          8,
+          38,
+          238,
+          239
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=77222&locale=en_US&collectible=0",
+        "sha256": "389889f0501530d5b723dceb974b57e8e010198a8a922b3227d38ef7ff57d86c",
+        "bytes": 679,
+        "observed_at": "2026-10-26T11:07:15.673094+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "REV_906": {
+      "@": ""
+    },
+    "REV_906t": {
+      "{0}": "",
+      "{1}": ""
+    }
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "core_primary_association": "REV_906 full primary copyOfCardId includes CORE_REV_906 dbf118143; childIds includes REV_906t dbf77222",
+  "accepted_local_policies": [
+    "Earned damage is intrinsic copyable printed material; unfinished hand progress resets on ordinary bounce/base copy.",
+    "The snapshot period is 2. Older player observations establish retained damage only, not current period or CN timing.",
+    "Ordinary unit split damage and current source Lifesteal use existing shared execution policy."
+  ]
+}

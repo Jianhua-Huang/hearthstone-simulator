@@ -1035,8 +1035,19 @@ class Enchantment:
     display_name: str | None = None
     hand_discount_boundary: str = 'turn_started'
     discovery_guess: DiscoveryGuessMemory | None = None
+    infused_damage: int | None = None
 
     def __post_init__(self) -> None:
+        if self.infused_damage is not None:
+            _int(self.infused_damage, 'intrinsic infused damage', 1)
+            if self.label != 'infused_battlecry_damage' or self.remove_on_silence:
+                raise ValueError('Infused damage requires its permanent independent native parameter')
+            allowed = {'id','source_id','label','remove_on_silence','infused_damage'}
+            for item in self.__dataclass_fields__.values():
+                if item.name not in allowed and getattr(self,item.name) != item.default:
+                    raise ValueError('Infused damage cannot mix another attachment operation')
+        elif self.label == 'infused_battlecry_damage':
+            raise ValueError('Native Infuse parameter lost its actual damage')
         if self.discovery_guess is not None:
             if type(self.discovery_guess) is not DiscoveryGuessMemory or self.label != 'discovery_guess':
                 raise ValueError('Guess memory requires its independent native attachment')
@@ -9823,8 +9834,10 @@ class BattlecryPayload:
     carved_spell_id: str | None = None
     remaining_mana_number: int | None = None
     discovery_class: str | None = None
+    infused_damage: int | None = None
 
     def __post_init__(self):
+        if self.infused_damage is not None:_int(self.infused_damage,'captured infused damage',1)
         _int(self.ability_id, 'Battlecry ability', 1)
         _name(self.behavior_id, 'Battlecry behavior')
         _name(self.card_id, 'Battlecry declaration card')

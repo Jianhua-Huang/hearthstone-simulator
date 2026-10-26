@@ -106,6 +106,7 @@ def validate_entry_shape(material):
     death.__post_init__()
     local = local_from_death(death)
     source = death.copy_source
+    from .infused_battlecries import value as infused_value
     if (material.card_id != death.card_id or material.origin != source.origin or
             material.profile != 'death_copy' or material.mode != 'current' or
             (material.captured_turn, material.captured_action, material.next_attachment_id) !=
@@ -115,19 +116,21 @@ def validate_entry_shape(material):
             material.discard is not None or material.dormant_entry != source.dormant_entry or
             material.on_summon is not None or material.minion_grant is not None or
             material.grant_source_id is not None or material.stored_components != death.components or
-            material.permanent_stats != value(local)):
+            material.permanent_stats != value(local) or material.infused_damage != infused_value(local)):
         raise ValueError('Death self-copy changed the full original material or full-health policy')
 
 
 def entry_from_death(death):
     from .copy_materials import CopyEntryMaterial
     from .permanent_minion_stats import value
+    from .infused_battlecries import value as infused_value
     source = death.copy_source
     local = local_from_death(death)
     return CopyEntryMaterial(death.card_id, source.origin, 'death_copy', 'current',
         source.turn, source.action, source.next_attachment_id, local,
         jade_size=death.jade_size, dormant_entry=source.dormant_entry,
-        stored_components=death.components, permanent_stats=value(local), self_copy_death=death)
+        stored_components=death.components, permanent_stats=value(local), self_copy_death=death,
+        infused_damage=infused_value(local))
 
 
 def validate_entry_scope(state, registry, material, *, closed=False):

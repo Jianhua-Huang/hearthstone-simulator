@@ -152,6 +152,8 @@ def advance(r, effect):
     if units <= 0:
         return
     completed = ability.progress_value + units >= spec.goal
+    from .infused_battlecries import completed_number,imprint as imprint_infused
+    infused_damage = completed_number(r.registry,entity,ability,completed)
     updated = advance_value(ability,key,units)
     entity.abilities[entity.abilities.index(ability)] = updated
     if completed and spec.upgrade_card_id is not None:
@@ -172,6 +174,8 @@ def advance(r, effect):
                               progress_keys=updated.progress_keys,progress_units=updated.progress_units)
             entity.abilities[entity.abilities.index(following)] = updated
         r.emit('hand_card_upgraded', target_id=entity.id, player_id=entity.controller)
+    if infused_damage is not None:
+        imprint_infused(r.state,entity,infused_damage,entity.id)
     refresh_entity(entity)
     if entity.zone == Zone.HAND and ability.kind == 'hand_progress':
         r.emit('hand_progressed', target_id=entity.id, player_id=entity.controller,

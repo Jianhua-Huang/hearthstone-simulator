@@ -526,6 +526,8 @@ class Game:
         validate_spell_mirrors(self)
         from .remaining_mana_numbers import validate_game as validate_remaining_numbers
         validate_remaining_numbers(self)
+        from .infused_battlecries import validate_game as validate_infused_battlecries
+        validate_infused_battlecries(self)
         from .rotating_discovery_classes import validate_game as validate_discovery_classes
         validate_discovery_classes(self)
         from .next_spell_bonuses import validate_game as validate_native_spell_bonuses

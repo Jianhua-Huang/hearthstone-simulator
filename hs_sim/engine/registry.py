@@ -232,6 +232,7 @@ class Registry:
         self._live_hand_spell_profiles = {}
         self._native_stat_gain_profiles = {}
         self._remaining_mana_numbers_profiles = {}
+        self._infused_battlecry_profiles = {}
         self._lifesteal_recipient_profiles = {}
         self._ability_family_profiles = {}
         self._rotating_discovery_class_profiles = {}
@@ -907,6 +908,16 @@ class Registry:
         validate_profile(self,profile)
         if profile.program_id in self._minion_base_stats_profiles:raise ValueError('Duplicate minion base program')
         self._minion_base_stats_profiles[profile.program_id]=profile
+
+    @property
+    def infused_battlecry_profiles(self):return MappingProxyType(self._infused_battlecry_profiles)
+
+    def register_infused_battlecry_profile(self,profile):
+        self._require_mutable()
+        from .infused_battlecries import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._infused_battlecry_profiles:raise ValueError('Duplicate native Infuse declaration')
+        self._infused_battlecry_profiles[profile.card_id]=profile
 
     @property
     def remaining_mana_numbers_profiles(self):return MappingProxyType(self._remaining_mana_numbers_profiles)
@@ -2642,6 +2653,13 @@ class Registry:
         for profile in self._live_hand_spell_profiles.values():validate_live_hand_spell_profile(self, profile)
         from .native_stat_gains import validate_profile as validate_native_stat_gain_profile
         for profile in self._native_stat_gain_profiles.values():validate_native_stat_gain_profile(self,profile)
+        from .infused_battlecries import validate_profile as validate_infused_profile
+        for profile in self._infused_battlecry_profiles.values():
+            validate_infused_profile(self,profile)
+            if profile.upgrade_card_id is not None:
+                next_profile=self._infused_battlecry_profiles.get(profile.upgrade_card_id)
+                if next_profile is None or (next_profile.initial_damage,next_profile.period)!=(profile.initial_damage+1,profile.period):
+                    raise ValueError('Native Infuse upgrade lost its next damage declaration')
         from .remaining_mana_numbers import validate_profile as validate_remaining_numbers_profile
         for profile in self._remaining_mana_numbers_profiles.values():validate_remaining_numbers_profile(self,profile)
         from .ability_families import validate_profile as validate_ability_family_profile
@@ -3092,6 +3110,8 @@ class Registry:
             payload['adjoining_spell_profiles']=[{'spell_card_ids':ids}for ids in sorted({p.spell_card_ids for p in self._adjoining_spell_profiles.values()})]
         if self._colossal_reserve_profiles:
             payload['colossal_reserve_profiles']=[asdict(self._colossal_reserve_profiles[k])for k in sorted(self._colossal_reserve_profiles)]
+        if self._infused_battlecry_profiles:
+            payload['infused_battlecry_profiles']=[asdict(self._infused_battlecry_profiles[k])for k in sorted(self._infused_battlecry_profiles)]
         if self._remaining_mana_numbers_profiles:
             payload['remaining_mana_numbers_profiles']=[asdict(self._remaining_mana_numbers_profiles[k])for k in sorted(self._remaining_mana_numbers_profiles)]
         if self._ability_family_profiles:

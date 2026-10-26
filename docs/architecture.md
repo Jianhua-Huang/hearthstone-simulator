@@ -1742,3 +1742,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 实际摧毁数量弃牌复用原批次死亡原因与CompleteDestroyedResources，新增请求绑定真实战吼和原玩家，在执行时捕获双方原物理组；最终数量交原DiscardMatching。完整来源关联、死亡/反应窗口与未校准政策见[契约](m3-deathwing-destroyed-discard.md)，实际结果与下一项仍只在原两份台账。
+
+
+真实无限注能的战吼伤害由有限 `InfusedBattlecryProfile` 和独立固有参数表达，原 hand_progress 负责真实死亡 witness/部分进度，完成钩子只推进数值；原升级器、复制/弃牌/出牌材料和 BattlecryPayload 保留所得值及原接受窗口。更新原附加槽位，避免改变后来费用设置的顺序。分配伤害与吸血继续交原 RandomSplitDamage/健康管线；不从可重置进度反推伤害，不另建死亡或治疗执行器，见[德纳修斯契约](m3-endless-infuse-damage.md)。
