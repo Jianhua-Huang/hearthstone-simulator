@@ -108,7 +108,15 @@ def validate_definition_intrinsics(definition):
             definition.player_played_class_cost, definition.hero_health_change_cost,
             definition.player_draw_count_cost, definition.player_weapon_attack_cost,
             definition.player_armor_cost, definition.player_summon_count_cost, definition.player_elemental_streak_cost)):
-        raise ValueError('Multiple intrinsic formulas require a real reviewed source')
+        from .crafted_faces import native_death_heal_price
+        from dataclasses import fields
+        # The actual Nefarius pool can pair a death-count Dragon with a
+        # hero-healed Undead. Keep the existing death stage followed by the
+        # ordinary zero assignment; neither formula is folded into a cache.
+        if (not native_death_heal_price(definition.id,definition.kind,rules,definition.minion_death_cost) or
+                any(getattr(definition,f.name) is not None for f in fields(definition)
+                    if f.name.endswith('_cost') and f.name!='minion_death_cost')):
+            raise ValueError('Multiple intrinsic formulas require a real reviewed source')
 
 
 def _capture_current_deck_match(state, registry, player_id, rule):

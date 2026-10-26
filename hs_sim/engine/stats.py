@@ -49,7 +49,11 @@ def derived_attack(entity, ordinary):
         if entity.kind != CardType.WEAPON or len(relations) != 1 or entity.components or entity.weapon_attack:
             raise ValueError('Unsupported conditional weapon Attack carrier')
         return max(0, ordinary + entity.conditional_attack)
-    if entity.kind != CardType.MINION or entity.components or entity.weapon_attack:
+    from .crafted_faces import PREFIX, recipe_from_id
+    native_crafted = (entity.card_id.startswith(PREFIX) and
+        entity.components==recipe_from_id(entity.card_id).parts and
+        all(a.stat_relation.operand==StatRelationOperand.SELF_DAMAGED for a in relations))
+    if entity.kind != CardType.MINION or entity.components and not native_crafted or entity.weapon_attack:
         raise ValueError('Unsupported continuous stat relation carrier')
     if any(a.stat_relation.layer == StatRelationLayer.FINAL_ATTACK for a in relations):
         return max(0, entity.health)

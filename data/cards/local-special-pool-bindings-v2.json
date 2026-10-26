@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-special-pool-bindings-v2",
+  "accepted_on": "2026-10-26",
+  "scope": "Explicit known/local-reference inventories for the frozen CN37 launch candidate; no official completeness claim.",
+  "formal_pool_complete": false,
+  "version_alignment_deferred": true,
+  "rule_boundary_calibration_deferred": true,
+  "bindings": [
+    {
+      "pool_id": "cards.drestagath.native-old-gods",
+      "source_target_id": "local-2026-09-23",
+      "source_mode": "experimental",
+      "source_pool_sha256": "5cde5ea58907a478c870264a2506df4c1a26626e50242480f34eca0cf61a305d",
+      "source_document": "data/cards/drestagath-v1.json",
+      "source_document_sha256": "1f71ccab9a58c0142306082c9aa64ddf7d265784b1723fd637821ce820cf790c",
+      "member_ids": [
+        "BE_009",
+        "BE_013",
+        "BE_017",
+        "BE_784"
+      ],
+      "complete_for_declared_inventory": true,
+      "provenance": "named four native Old Gods in the original Drestagath source inventory",
+      "uncertainties": [
+        "Current CN runtime calibration and hotfix alignment remain deferred."
+      ]
+    },
+    {
+      "pool_id": "crafted.nefarian.dragons",
+      "source_target_id": "local-nefarian-community-v1",
+      "source_mode": "experimental",
+      "source_pool_sha256": "312522eff80209c2528af052fe819c72000553b85f7d243477e48503c4cc2302",
+      "source_document": "data/cards/nefarian-community-pools-v1.json",
+      "source_document_sha256": "3830defc4d5fca09528c1c42645fdcb58e63aa7b1d759b97a234c536e76b673b",
+      "member_ids": [
+        "BRM_025",
+        "BOT_066",
+        "TRL_526",
+        "DRG_211",
+        "SCH_711",
+        "CORE_EX1_043",
+        "CORE_NEW1_023",
+        "TTN_924",
+        "DEEP_006",
+        "EDR_571",
+        "TIME_856",
+        "TIME_720",
+        "TIME_045",
+        "TIME_051",
+        "TIME_056",
+        "END_022",
+        "CATA_723",
+        "CATA_305",
+        "CATA_898"
+      ],
+      "complete_for_declared_inventory": true,
+      "provenance": "Full saved community inventory; local unit weights; original printed role qualification retained",
+      "unconfirmed": [
+        "Official exhaustive membership and hotfix identity",
+        "Non-uniform offer weights, if any; local each physical donor has weight one",
+        "CATA_898 is reported in the Undead list but fixed data says Dragon only; local stage-two qualification yields nineteen eligible identities."
+      ]
+    },
+    {
+      "pool_id": "crafted.nefarian.undead",
+      "source_target_id": "local-nefarian-community-v1",
+      "source_mode": "experimental",
+      "source_pool_sha256": "f246e88ad3c57c550992ead31601ba70b0d90a33b87756d34ccd9a69cd64c2d9",
+      "source_document": "data/cards/nefarian-community-pools-v1.json",
+      "source_document_sha256": "3830defc4d5fca09528c1c42645fdcb58e63aa7b1d759b97a234c536e76b673b",
+      "member_ids": [
+        "ICC_700",
+        "ICC_820",
+        "ICC_913",
+        "ULD_205",
+        "ULD_275",
+        "ULD_185",
+        "CORE_EX1_012",
+        "CORE_NEW1_020",
+        "RLK_503",
+        "RLK_511",
+        "RLK_538",
+        "RLK_958",
+        "JAM_007",
+        "JAM_021",
+        "CORE_WON_096",
+        "CORE_OG_149",
+        "TIME_617",
+        "END_031",
+        "CATA_898",
+        "DINO_435"
+      ],
+      "complete_for_declared_inventory": true,
+      "provenance": "Full saved community inventory; local unit weights; original printed role qualification retained",
+      "unconfirmed": [
+        "Official exhaustive membership and hotfix identity",
+        "Non-uniform offer weights, if any; local each physical donor has weight one",
+        "CATA_898 is reported in the Undead list but fixed data says Dragon only; local stage-two qualification yields nineteen eligible identities."
+      ]
+    }
+  ],
+  "unresolved_pool_ids": [
+    "constructed.assemble",
+    "constructed.assemble.rajh",
+    "crafted.zombeast.first",
+    "crafted.zombeast.second",
+    "constructed.past.cards",
+    "constructed.past.spells",
+    "constructed.standard_pack"
+  ]
+}

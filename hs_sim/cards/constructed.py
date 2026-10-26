@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v615"
+CONTENT_VERSION = "constructed-cn37-preview-v616"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1258,5 +1258,7 @@ def build_registry():
     register_mimiron_community_card(registry)
     from .nefarian_native_dependencies import register_nefarian_native_dependencies
     register_nefarian_native_dependencies(registry)
+    from .nefarian_community_pools import register_nefarian_community_pools
+    register_nefarian_community_pools(registry)
     registry.validate()
     return registry

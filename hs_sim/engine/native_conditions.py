@@ -39,6 +39,30 @@ def validate_carrier(registry,card_id,kind,abilities,components=()):
     from .native_stat_gains import validate_carrier as validate_stat_gain_carrier
     validate_stat_gain_carrier(registry,card_id,kind,abilities,components)
     card=registry.card(card_id);rows=tuple(a for a in abilities if a.native_condition is not None)
+    from .crafted_faces import PREFIX, recipe_from_id
+    if card_id.startswith(PREFIX):
+        from collections import Counter
+        recipe=recipe_from_id(card_id)
+        if kind!=CardType.MINION or components!=recipe.parts:
+            raise ValueError('Crafted conditional provider lost its original ordered parts')
+        parts=tuple(registry.card(cid) for cid in recipe.parts)
+        if not rows and not any(p.native_condition is not None for p in parts):return
+        for part in parts:
+            validate_definition(part)
+            if part.native_condition is not None and part.native_condition.kind!='self_damaged':
+                raise ValueError('Crafted provider has an unreviewed native condition')
+        declared=Counter((p.native_condition,p.spell_damage,p.spell_damage_schools) for p in parts if p.spell_damage)
+        installed=Counter()
+        for ability in abilities:
+            if ability.native_condition is not None or ability.kind=='spell_damage' and ability.origin=='printed':
+                ability.__post_init__()
+                key=(ability.native_condition,ability.spell_damage,ability.spell_damage_schools)
+                if ability.kind!='spell_damage' or ability.origin!='printed':
+                    raise ValueError('Crafted condition borrowed a foreign provider kind')
+                installed[key]+=1
+                if installed[key]>declared[key]:
+                    raise ValueError('Crafted Spell Damage changed its native conditional material')
+        return
     if not rows and card.native_condition is None:return
     validate_definition(card)
     if kind!=CardType.MINION or components:raise ValueError('Native conditional providers require non-composite minions')

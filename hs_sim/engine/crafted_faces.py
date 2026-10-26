@@ -15,7 +15,7 @@ TUPLES=('triggers','auras','cost_auras','keyword_auras','battlecry_repeats','dea
     'end_turn_repeats','intrinsic_costs','attack_policies','stat_relations','timed_keywords')
 PART_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords','on_play',
     'battlecry','deathrattle','combo','requires_target','target_rule','targeting','spell_damage',
-    'spell_damage_schools','cleave','dormant_turns',*TUPLES))
+    'spell_damage_schools','cleave','dormant_turns','native_condition','minion_death_cost',*TUPLES))
 
 
 @dataclass(frozen=True)
@@ -86,6 +86,8 @@ def validate_part_shape(registry,card):
     default=CardDefinition(card.id,card.name,card.kind)
     changed=[f.name for f in fields(card)if f.name not in PART_FIELDS and getattr(card,f.name)!=getattr(default,f.name)]
     if changed:raise ValueError('Unreviewed crafted ingredient declarations: '+','.join(changed))
+    if card.native_condition is not None and card.native_condition.kind != 'self_damaged':
+        raise ValueError('Unreviewed crafted conditional provider domain')
     registry._validate_card(card)
 
 
@@ -119,6 +121,8 @@ def validate_dormant_carrier(registry,card_id,kind,abilities,components=()):
 
 def native_domains(parts):
     """Check only actual native donor compatibility; do not enumerate recipes."""
+    if sum(p.minion_death_cost is not None for p in parts)>1:
+        raise ValueError('Unreviewed duplicate native death quantity prices')
     schools=[p.spell_damage_schools for p in parts if p.spell_damage]
     if schools and any(s!=schools[0]for s in schools):raise ValueError('Crafted spell damage has unreviewed differing school domains')
     targets=[(p.requires_target,p.target_rule,p.targeting)for p in parts if p.requires_target or p.targeting is not None]
@@ -145,6 +149,9 @@ def resolve_face(registry,card_id):
             health=sum(p.health for p in parts),keywords=tuple(sorted({k for p in parts for k in p.keywords})),
             cleave=any(p.cleave for p in parts),
             dormant_turns=native_dormancy(parts),
+            minion_death_cost=next((p.minion_death_cost for p in parts if p.minion_death_cost is not None),None),
+            # This aggregate describes the printed potential. Installation keeps
+            # each donor's conditional and unconditional providers separate.
             spell_damage=sum(p.spell_damage for p in parts),spell_damage_schools=tuple(sorted({s for p in parts for s in p.spell_damage_schools})),
             metadata=replace(template.metadata,tribes=tribes),requires_target=require,target_rule=rule,targeting=target,
             **{key:next((getattr(p,key)for p in parts if getattr(p,key)is not None),None)for key in('battlecry','deathrattle','combo')},
@@ -160,6 +167,16 @@ def resolve_face(registry,card_id):
 def composition_shape(card,components):
     if card.id.startswith(PREFIX):return type(components)is tuple and components==recipe_from_id(card.id).parts
     return bool(card.starship_for)==bool(components)
+
+
+def native_death_heal_price(card_id, kind, rules, death_spec):
+    """The actual death-count/hero-healed native ingredient price contract."""
+    from .model import IntrinsicCostSpec, MinionDeathCostSpec
+    if not card_id.startswith(PREFIX):return False
+    recipe_from_id(card_id)
+    return (kind==CardType.MINION and
+        rules==(IntrinsicCostSpec(set_to=0,condition='hero_healed_this_turn',history_profile_id='healing.hero-this-turn-v1'),) and
+        death_spec==MinionDeathCostSpec('cost.minion-deaths-both-turn-v1'))
 
 
 def install(rules_state,entity,definition,registry,components):

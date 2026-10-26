@@ -6491,7 +6491,16 @@ class IntrinsicCostStageFact:
                     self.minion_deaths, self.player_overload, self.player_played_class, self.hero_health_changes,
                     self.player_draws, self.weapon_attack, self.player_armor, self.player_summons,
                     self.player_elemental_streak)):
-                raise ValueError('Multiple intrinsic formulas require a real reviewed source')
+                from .crafted_faces import native_death_heal_price
+                if (not native_death_heal_price(self.card_id,self.kind,self.rules,
+                        None if self.minion_deaths is None else self.minion_deaths.spec) or
+                        any(value is not None for value in (self.board_minions,self.hand_cards,
+                            self.hero_missing_health,self.player_spells,self.player_hero_powers,
+                            self.player_spell_mana,self.player_overload,self.player_played_class,
+                            self.hero_health_changes,self.player_draws,self.weapon_attack,self.player_armor,
+                            self.player_summons,self.player_elemental_streak,self.player_corpses,
+                            self.hero_damage_taken,self.player_spell_damage,self.player_character_attacks))):
+                    raise ValueError('Multiple intrinsic formulas require a real reviewed source')
         if self.rules and self.rules[0].condition == 'permanent_mana_at_least':
             if self.kind != CardType.SPELL or len(self.rules) != 1 or any(value is not None for value in (
                     self.board_minions,self.hand_cards,self.hero_missing_health,self.player_spells,self.player_hero_powers,

@@ -2076,3 +2076,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 原生锋鳞的双方法力值下限使用all_cards_minimum费用光环，完整报价最后取约束最大值，保留原有来源顺序与收据；物理付款和生成预览共用，见[费用下限契约](m3-final-card-cost-floor.md)。
+
+
+捐赠原生受伤法伤时保留单个材料的native_condition；不要把合成体的潜在法伤总和套上一个条件。受伤属性携带原stat_relation，组件必须与原recipe一致；实际死亡计价加英雄治疗归零使用同一冻结阶段规则。完整原料及宿主约定见[奈法里奥斯本地池](m3-nefarian-community-pools.md)。

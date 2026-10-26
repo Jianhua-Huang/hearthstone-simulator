@@ -62,7 +62,12 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
     rows = tuple(a for a in abilities if a.kind == 'stat_relation')
     if not rows:
         return
-    if kind not in (CardType.MINION, CardType.WEAPON) or components:
+    from .crafted_faces import PREFIX, recipe_from_id
+    crafted=card_id.startswith(PREFIX)
+    if crafted and (kind!=CardType.MINION or components!=recipe_from_id(card_id).parts):
+        raise ValueError('Crafted stat relation lost its original ordered parts')
+    if (kind not in (CardType.MINION, CardType.WEAPON) or
+            components and not (crafted and kind==CardType.MINION and components==recipe_from_id(card_id).parts)):
         raise ValueError('Stat relations require a non-composite minion or native weapon carrier')
     card = registry.card(card_id)
     validate_definition(card)
@@ -70,6 +75,11 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
     if kind != card.kind:
         raise ValueError('Stat relation carrier differs from its native card type')
     installed = Counter()
+    if crafted:
+        declared=Counter(card.stat_relations)
+        native=Counter(a.stat_relation for a in rows if a.origin=='printed')
+        if any(n>declared[s] for s,n in native.items()):
+            raise ValueError('Crafted stat relation duplicated its native donor declaration')
     for ability in rows:
         ability.__post_init__()
         if ability.origin == 'printed' and (ability.stat_relation not in card.stat_relations or
