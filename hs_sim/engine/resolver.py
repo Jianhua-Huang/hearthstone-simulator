@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v747'
+CORE_EFFECTS_VERSION = 'core-effects-v748'
 
 
 class Mechanics:
@@ -1798,6 +1798,9 @@ def force_attack(r, effect):
     if (attacker is None or defender is None or attacker.doomed or defender.doomed or
             not attacker.active or not defender.active or attacker.health <= 0 or defender.health <= 0 or
             not combat_relation_matches(attacker, defender, effect.combat_relation)):
+        if effect.producer_link is not None:
+            from .attack_substitution import bind_attempt
+            bind_attempt(r, effect, None)
         r.stale(effect, defender_id)
         return
     if attacker.kind != CardType.MINION:
@@ -1808,12 +1811,19 @@ def force_attack(r, effect):
     from .interrupts import open_window, ResolveAttack
     window = open_window(r, 'attack', attacker.controller, attacker.id, defender.id, forced=True,
                          combat_relation=effect.combat_relation, excess_to_hero=effect.excess_to_hero)
+    if effect.producer_link is not None:
+        from .attack_substitution import bind_attempt
+        bind_attempt(r, effect, window)
     from .character_attacks import declare as declare_character_attack
     declare_character_attack(r, window)
     r.emit('attack_declared', source_id=attacker.id, target_id=defender.id,
            player_id=attacker.controller, forced=True, window_id=window.id,
             target_presence_id=None if window.attack_target_presence is None else window.attack_target_presence.presence_id,
             **({'excess_to_hero': True} if effect.excess_to_hero else {}))
+    if effect.producer_link is not None:
+        from .attack_substitution import emit_attempt, plan_record
+        _, plan = plan_record(r.state, effect.producer_link.window_id)
+        emit_attempt(r, plan.window.id, plan.attempts[-1])
     return [ResolveAttack(window.id)]
 
 
@@ -2605,6 +2615,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .effects import RevealHandCard
     from .information import reveal_hand_card
     mechanics = Mechanics(version)
+    from .attack_substitution import register as register_attack_substitution
+    register_attack_substitution(mechanics)
     from .summon_deathrattle_qualifications import register as register_entry_qualifications
     register_entry_qualifications(mechanics)
     from .spell_mana_freeze import register as register_spell_mana_freeze

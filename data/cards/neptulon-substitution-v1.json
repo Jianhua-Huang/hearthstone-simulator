@@ -1,0 +1,368 @@
+{
+  "schema": 1,
+  "batch": "K567",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TID_712",
+        "dbf_id": 75583,
+        "name": "猎潮者耐普图隆",
+        "name_en": "Neptulon the Tidehunter",
+        "text": "<b>巨型+2</b>\n<b>突袭</b>，<b>风怒</b>，每当耐普图隆攻击时，如果你控制着任意耐普图隆之手，改为由手攻击。",
+        "text_en": "[x]<b>Colossal +2</b>, <b>Rush</b>, <b>Windfury</b>\nWhenever Neptulon attacks,\nif you control any Hands,\nthey attack instead.",
+        "cost": 10,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 80016,
+          "1544": 1,
+          "MINI_SET": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "60550a19f662d59f8bcf9dbcf2b2967b6fe43d5307890967aba62a902400ee0c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TID_712",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TID_712t",
+        "dbf_id": 75584,
+        "name": "耐普图隆之手",
+        "name_en": "Neptulon's Hand",
+        "text": "攻击时<b>免疫</b>。",
+        "text_en": "<b>Immune</b> while attacking.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "IMMUNE_WHILE_ATTACKING": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "78ae4482d2190331ceb7c8c7ee2a5166fc724e660eabbf943ac3ec56f4d37df6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_712t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "557558ece22b946380518525bba59a0c54e03c8f5e96ceda446f97c3052d1383"
+    },
+    {
+      "record": {
+        "id": "TID_712t2",
+        "dbf_id": 80016,
+        "name": "耐普图隆之手",
+        "name_en": "Neptulon's Hand",
+        "text": "攻击时<b>免疫</b>。",
+        "text_en": "<b>Immune</b> while attacking.",
+        "cost": 4,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "IMMUNE_WHILE_ATTACKING": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e7f2694a6b7ee7a192c901a930a47cc73151129365b71021e7ef57003c3f7a67",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "TID_712t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "d55eeea450ede25f86b4eeb0de3f52b23a7e3508ae7ceec22e79c3162bbf995c"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_faces": [
+    {
+      "card_id": "TID_712",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 75583,
+        "collectible": 1,
+        "slug": "75583-neptulon-the-tidehunter",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "猎潮者耐普图隆",
+        "text": "<b>巨型+2</b> <b>突袭</b>，<b>风怒</b>，每当耐普图隆攻击时，如果你控制着任意耐普图隆之手，改为由手攻击。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/443565fe21ad98bba228c908298e90446e30e923383e096ac09822b4d7b76d36.png",
+        "imageGold": "",
+        "flavorText": "耐普图隆不愿再把手塞得满满当当。他学会了放手。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c885956699830431b644b67fc5744f87b92ddd7897ee1323fd9b8b5e3ce944e.png",
+        "childIds": [
+          75584,
+          80016
+        ],
+        "keywordIds": [
+          11,
+          53,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_712",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 75583,
+        "collectible": 1,
+        "slug": "75583-neptulon-the-tidehunter",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "Neptulon the Tidehunter",
+        "text": "<b>Colossal +2</b>, <b>Rush</b>, <b>Windfury</b> Whenever Neptulon attacks, if you control any Hands, they attack instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec87e0db531412dbb8e449e19a9312e057b549c26814b149105211da2ba7b59d.png",
+        "imageGold": "",
+        "flavorText": "Neptulon, tired of filling hands, is now throwing hands.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c885956699830431b644b67fc5744f87b92ddd7897ee1323fd9b8b5e3ce944e.png",
+        "childIds": [
+          75584,
+          80016
+        ],
+        "keywordIds": [
+          11,
+          53,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "policy_id": "native-neptulon-attack-substitution-cn37-local-v1",
+  "policy": {
+    "appendages": [
+      {
+        "card_id": "TID_712t",
+        "side": "left"
+      },
+      {
+        "card_id": "TID_712t2",
+        "side": "right"
+      }
+    ],
+    "acceptance": "Actual printed attack listener checks original source and live trigger; no hands means ordinary original combat.",
+    "members": "All current live active friendly Hands in board order, irrespective of original parent; frozen, exhausted and newborn members may be forced.",
+    "sequence": "Freeze physical references and original selected target at acceptance; sequential ordinary forced attacks, no manual hand-attack payment.",
+    "stale": "Stale transformed/departed hands and missing original target are skipped without replacement; accepted source departure does not revoke the plan.",
+    "parent": "Original voluntary declaration consumes one attack; accepted substitution has no parent damage/retaliation or completed-combat event.",
+    "silence": "Silenced parent loses printed listener; silenced hand retains hand identity but loses printed immunity normally."
+  },
+  "evidence": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/75583-neptulon-the-tidehunter/",
+      "kind": "complete primary bilingual face cached",
+      "fact": "Colossal +2, Rush, Windfury; own Hands attack instead."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/theres-a-bug-with-neptulon-the-tidehunter/93353",
+      "kind": "player report, not developer ruling",
+      "fact": "Reports multiple friendly hands, beyond one original pair."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/multiple-neptulon-fix/102479",
+      "kind": "player report, not developer ruling",
+      "fact": "Reports hand attacks both individually and through substitution."
+    }
+  ],
+  "uncertainties": [
+    "Exact CN acceptance window, left/right identities and ordering are not certified by the primary face.",
+    "Secret redirection, forced friendly/self-hand targets and historical silence bug reports remain rule edges; no bug is invented as a new mechanic.",
+    "Physical member capture and stale/no-retarget policy are explicit local policies pending calibration."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

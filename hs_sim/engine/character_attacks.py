@@ -25,6 +25,13 @@ def validate_record(row):
         raise ValueError('Character attack requires its original typed declaration')
     w = row.declaration
     w.__post_init__()
+    if row.substitution is not None:
+        from .attack_substitution import AttackSubstitutionPlan
+        if type(row.substitution) is not AttackSubstitutionPlan:
+            raise ValueError('Character attack requires its typed original substitution')
+        row.substitution.__post_init__()
+        if row.substitution.window.id != w.id or row.combat is not None:
+            raise ValueError('Substituted original attack cannot also deal ordinary combat damage')
     if row.native_target is not None:
         from .native_random_targets import NativeTargetSelection
         value = row.native_target
@@ -80,7 +87,8 @@ def validate_record(row):
         if row.terminal.action < action or row.terminal.event_cursor < cursor:
             raise ValueError('Character attack terminal predates its original phase')
         if (row.terminal.status == 'completed' and row.combat is None or
-                row.terminal.status == 'cancelled' and (row.delivery is None or row.combat is not None)):
+                row.terminal.status == 'cancelled' and (row.delivery is None or row.combat is not None) or
+                row.terminal.status == 'replaced' and (row.delivery is None or row.substitution is None or row.substitution.status != 'completed')):
             raise ValueError('Character attack terminal differs from its actual reached phase')
 
 
@@ -205,6 +213,8 @@ def validate_history(state, registry=None, event_limit=None):
         if registry is not None:
             if registry.card(row.source_card_id).kind is not row.source_kind:
                 raise ValueError('Character declaration changed its original card kind')
+            from .attack_substitution import validate_plan
+            validate_plan(state, registry, row)
         if row.delivery is not None and row.delivery.target_id not in state.entities:
             raise ValueError('Character delivery lost its original target')
         for window in (w, *(() if row.delivery is None else (row.delivery,))):
@@ -255,6 +265,8 @@ def validate_tails(state, work):
             raise ValueError('Character attack original window lifecycle mismatch')
         if windows and selected_window(row, windows[0]) != windows[0]:
             raise ValueError('Character window changed its original source or policy')
+    from .attack_substitution import validate_queue as validate_substitution_queue
+    validate_substitution_queue(state, work)
 
 
 def validate_boundary(game):
@@ -312,7 +324,7 @@ def validate_boundary(game):
             raise ValueError('Character attack changed its selected target without an original redirect')
         if row.terminal is not None and row.terminal.status != 'interrupted':
             event = by_sequence.get(row.terminal.event_cursor+1)
-            kind = 'attack_finished' if row.terminal.status == 'completed' else 'attack_cancelled'
+            kind = {'completed':'attack_finished','cancelled':'attack_cancelled','replaced':'attack_replaced'}[row.terminal.status]
             if (event is None or event.kind != kind or
                     (event.source_id, event.target_id, event.action) != (w.source_id, row.delivery.target_id, row.terminal.action)):
                 raise ValueError('Character attack lost its original terminal event')
@@ -357,6 +369,8 @@ def validate_boundary(game):
 
 def interrupt(r, queue):
     validate_tails(r.state, tuple(queue))
+    from .attack_substitution import interrupt as interrupt_substitution
+    interrupt_substitution(r, queue)
     for row in tuple(r.state.character_attack_history):
         if row.terminal is None:
             update(r.state, row, terminal=CharacterAttackTerminalFact('interrupted', 'game_terminal',
@@ -366,7 +380,7 @@ def interrupt(r, queue):
 def character_attacks(state, player_id, *, phase='completed', turn=None, forced=None, before_window_id=None):
     if type(player_id) is not int or player_id not in (1, 2):
         raise ValueError('Character attack query requires an actual original player')
-    if type(phase) is not str or phase not in ('declared', 'combat_accepted', 'completed', 'cancelled', 'interrupted'):
+    if type(phase) is not str or phase not in ('declared', 'combat_accepted', 'completed', 'cancelled', 'interrupted', 'replaced'):
         raise ValueError('Unsupported character attack query phase')
     for name, value in (('turn', turn), ('before window', before_window_id)):
         if value is not None:
@@ -400,6 +414,8 @@ def record_from_dict(value):
     row = _row(value, CharacterAttackRecord)
     from .native_target_acceptance import selection_from_dict
     row['native_target'] = selection_from_dict(row['native_target'])
+    from .attack_substitution import plan_from_dict
+    row['substitution'] = plan_from_dict(row['substitution'])
     row['declaration'] = window(row['declaration'])
     row['source_kind'] = CardType(row['source_kind'])
     if row['delivery'] is not None:

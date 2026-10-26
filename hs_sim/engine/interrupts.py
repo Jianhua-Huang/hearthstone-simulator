@@ -206,6 +206,11 @@ def resolve_attack(r, effect):
     link = delivery(r, window)
     from .character_attacks import delivery as deliver_character_attack
     character_window = deliver_character_attack(r, window)
+    from .character_attacks import record as character_attack_record
+    if character_attack_record(r.state, window.id).substitution is not None:
+        from .attack_substitution import replace_combat
+        replace_combat(r, window)
+        return []
     work = CombatDamage(window.source_id, window.target_id, window.forced,
                         combat_relation=window.combat_relation, hero_attack=link,
                         attack_window_id=character_window, excess_to_hero=window.excess_to_hero)

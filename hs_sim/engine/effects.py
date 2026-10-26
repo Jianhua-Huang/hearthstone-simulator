@@ -26,9 +26,15 @@ class ForceAttack(Effect):
     defender_id: int | BoardPresenceReference
     combat_relation: str = 'opponent'
     excess_to_hero: bool = False
+    producer_link: object | None = None
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
+        if self.producer_link is not None:
+            from .attack_substitution import SubstituteAttackLink
+            if type(self.producer_link) is not SubstituteAttackLink or type(self.attacker_id) is not BoardPresenceReference:
+                raise ValueError('Substitute force attack requires its typed producer and original member residence')
+            self.producer_link.__post_init__()
         if type(self.excess_to_hero) is not bool or self.excess_to_hero and self.combat_relation != 'opponent':
             raise ValueError('Combat excess requires its explicit enemy attack policy')
         for label, value in (('attacker_id', self.attacker_id), ('defender_id', self.defender_id)):
@@ -40,6 +46,9 @@ class ForceAttack(Effect):
     def validate_in_state(self, state):
         """Old residence may be stale; unknown or future residence is invalid."""
         self.__post_init__()
+        if self.producer_link is not None:
+            from .attack_substitution import validate_link
+            validate_link(state, self)
         for value in (self.attacker_id, self.defender_id):
             if type(value) is BoardPresenceReference and (
                     value.entity_id not in state.entities or value.presence_id >= state.next_order):

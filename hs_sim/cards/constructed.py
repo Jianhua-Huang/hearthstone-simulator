@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v636"
+CONTENT_VERSION = "constructed-cn37-preview-v637"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1304,5 +1304,7 @@ def build_registry():
     register_original_yogg_native(registry)
     from .yogg_wheel_card import register_yogg_wheel_card
     register_yogg_wheel_card(registry)
+    from .neptulon_substitution import register_neptulon_substitution
+    register_neptulon_substitution(registry)
     registry.validate()
     return registry

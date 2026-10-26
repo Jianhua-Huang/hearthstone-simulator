@@ -587,6 +587,8 @@ class Game:
         validate_hero_attack_boundary(self)
         from .character_attacks import validate_boundary as validate_character_attack_boundary
         validate_character_attack_boundary(self)
+        from .attack_substitution import validate_boundary as validate_attack_substitution_boundary
+        validate_attack_substitution_boundary(self)
         from .resource_operations import validate_boundary as validate_resource_boundary
         validate_resource_boundary(self)
         from .resources import validate_corpse_boundary

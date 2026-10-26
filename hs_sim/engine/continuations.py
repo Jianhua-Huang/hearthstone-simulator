@@ -70,6 +70,12 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .attack_substitution import CheckAttackSubstitutes
+        if type(value) is CheckAttackSubstitutes and self.origin_state is not None:
+            from .allocation_facts import validate_allocation
+            from .native_attack_targets import original_event
+            validate_allocation(self.origin_state,self.registry,value.source)
+            original_event(self.origin_state,value.event)
         from .death_self_copies import SummonDeathrattleSelfCopy
         if type(value) is SummonDeathrattleSelfCopy and self.origin_state is not None:
             value.validate_in_state(self.origin_state, self.registry)
@@ -429,6 +435,8 @@ class FrameCodec:
             reject_split_choice_control(value.options)
             from .resource_operations import reject_choice_control
             reject_choice_control(value.options)
+            from .attack_substitution import reject_choice_control as reject_attack_substitution_control
+            reject_attack_substitution_control(value.options)
             from .hero_lethal_windows import reject_choice_control as reject_hero_choice_control
             reject_hero_choice_control(value.options)
         if type(value) is model.PrintedAttackPolicyDeclaration:

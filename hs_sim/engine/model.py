@@ -11057,7 +11057,7 @@ class CharacterAttackTerminalFact:
     event_cursor: int
 
     def __post_init__(self):
-        if type(self.status) is not str or self.status not in ('completed', 'cancelled', 'interrupted'):
+        if type(self.status) is not str or self.status not in ('completed', 'cancelled', 'interrupted', 'replaced'):
             raise ValueError('Unsupported original character attack terminal')
         _name(self.reason, 'character attack terminal reason')
         _int(self.action, 'character attack terminal action', 0)
@@ -11082,6 +11082,7 @@ class CharacterAttackRecord:
     combat: CharacterAttackCombatFact | None = None
     terminal: CharacterAttackTerminalFact | None = None
     native_target: object | None = None
+    substitution: object | None = None
 
     def __post_init__(self):
         from .character_attacks import validate_record

@@ -235,6 +235,7 @@ class Registry:
         self._infused_battlecry_profiles = {}
         self._cost_polarity_profiles = {}
         self._recruit_expansion_profiles = {}
+        self._attack_substitution_profiles = {}
         self._lifesteal_recipient_profiles = {}
         self._ability_family_profiles = {}
         self._rotating_discovery_class_profiles = {}
@@ -913,6 +914,17 @@ class Registry:
 
     @property
     def recruit_expansion_profiles(self):return MappingProxyType(self._recruit_expansion_profiles)
+
+    @property
+    def attack_substitution_profiles(self):return MappingProxyType(self._attack_substitution_profiles)
+
+    def register_attack_substitution_profile(self,profile):
+        self._require_mutable()
+        from .attack_substitution import validate_profile
+        validate_profile(self,profile)
+        if profile.id in self._attack_substitution_profiles:raise ValueError('Duplicate native attack substitution policy')
+        if any(p.card_id==profile.card_id for p in self._attack_substitution_profiles.values()):raise ValueError('An attacker cannot have two native substitution policies')
+        self._attack_substitution_profiles[profile.id]=profile
 
     def register_recruit_expansion_profile(self,profile):
         self._require_mutable()
@@ -2678,6 +2690,8 @@ class Registry:
         for profile in self._native_stat_gain_profiles.values():validate_native_stat_gain_profile(self,profile)
         from .cost_polarities import validate_profile as validate_polarity_profile,RELATION as polarity_relation
         for profile in self._recruit_expansion_profiles.values():profile.__post_init__()
+        from .attack_substitution import validate_profile as validate_attack_substitution_profile
+        for profile in self._attack_substitution_profiles.values():validate_attack_substitution_profile(self,profile)
         for profile in self._cost_polarity_profiles.values():validate_polarity_profile(self,profile)
         for card in self._cards.values():
             if any(s.relation==polarity_relation for s in card.cost_auras) != (card.id in self._cost_polarity_profiles):
@@ -3142,6 +3156,8 @@ class Registry:
         if self._recruit_expansion_profiles:
             payload['recruit_expansion_profiles']=[dict(id=p.id,inventory_sha256=p.inventory_sha256)
                 for k in sorted(self._recruit_expansion_profiles)for p in (self._recruit_expansion_profiles[k],)]
+        if self._attack_substitution_profiles:
+            payload['attack_substitution_profiles']=[asdict(self._attack_substitution_profiles[k])for k in sorted(self._attack_substitution_profiles)]
         if self._cost_polarity_profiles:
             payload['cost_polarity_profiles']=[asdict(self._cost_polarity_profiles[k])for k in sorted(self._cost_polarity_profiles)]
         if self._infused_battlecry_profiles:

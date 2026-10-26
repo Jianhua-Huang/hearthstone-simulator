@@ -2136,3 +2136,6 @@ OG_134复用spell_history_candidates与CastFromPool。按本人已接受未失�
 
 
 DMF_004通过完整六分支ChooseRandomEffects及明确权重分发原公共效果。个人计数共用personal_hand_spell_count；控制用原一次选中引用组，属性奖励绑定原摧毁原因和来源驻留，直到终局的法术循环逐次交CastSpell。不要把隐藏费用结果标签当生成池成员，也不要在卡牌回调复制随机、控制、死亡或施法执行器；概率和检查点差异见[命运之轮契约](m3-yogg-wheel.md)。
+
+
+TID_712声明AttackSubstitutionProfile与一个原印刷attack_declared监听，由original_listener交公共CheckAttackSubstitutes。不要在卡牌回调直接改血量、补攻击次数或复制战斗器；所有接受成员用原ForceAttack，原目标/身体失效跳过且不重选，本体replaced记录区别于真实子攻击completed。有限形状、恢复/私有边界和未校准政策见[契约](m3-neptulon-substitution.md)。
