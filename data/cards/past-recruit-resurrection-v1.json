@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "scope": "Two acquired past-teacher spells: native own-deck bounded Beast recruit and three descending different-card Taunt resurrections.",
+  "cards": [
+    {
+      "record": {
+        "id": "SCH_610",
+        "dbf_id": 59539,
+        "name": "动物保镖",
+        "name_en": "Guardian Animals",
+        "text": "从你的牌库中召唤两只法力值消耗小于或等于（5）点的野兽，并使其获得<b>突袭</b>。",
+        "text_en": "Summon two Beasts that cost (5) or less from your deck. Give_them <b>Rush</b>.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1443,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 6
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "83b01e124f38c7dc6d030427ac963a0a2e7f7fa88dfa868ca281e78eb64dae77"
+    },
+    {
+      "record": {
+        "id": "VAC_948",
+        "dbf_id": 107856,
+        "name": "补水区",
+        "name_en": "Hydration Station",
+        "text": "复活你法力值消耗最高的三个不同的<b>嘲讽</b>随从。",
+        "text_en": "Resurrect three of your different highest Cost <b>Taunt</b> minions.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 8,
+          "CARD_SET": 1905,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e1b38380c5832900df6641d9b613ca50e6831fde6ee8be4826e04703b0c9ab3d"
+    }
+  ],
+  "dependencies": [],
+  "official_faces": [
+    {
+      "card_id": "SCH_610",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 59539,
+        "collectible": 1,
+        "slug": "59539-guardian-animals",
+        "classId": 3,
+        "multiClassIds": [
+          2,
+          3
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 4,
+        "artistName": "Peter Stapleton",
+        "manaCost": 7,
+        "name": "动物保镖",
+        "text": "从你的牌库中召唤两只法力值消耗小于或等于（5）点的野兽，并使其获得<b>突袭</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15b33e6b1a4e5755d9ddd390be53ae450c1312f58292b4e9e16a53c65295c47d.png",
+        "imageGold": "",
+        "flavorText": "入学须知中明确指出：“学生可携带一只铁喙猫头鹰，一只猫或一只蟾蜍。”但他们可没说是多大的动物。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9edd6a87b86cf55cb0e0a66d49a1d97a7d2102a7985864d06fd18235aaae7c1a.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_610",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 59539,
+        "collectible": 1,
+        "slug": "59539-guardian-animals",
+        "classId": 3,
+        "multiClassIds": [
+          2,
+          3
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 4,
+        "artistName": "Peter Stapleton",
+        "manaCost": 7,
+        "name": "Guardian Animals",
+        "text": "Summon two Beasts that cost (5) or less from your deck. Give them <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4746708142d291ce46073d1344457c1b82f41aa7947f958fdf03ca108881fa2c.png",
+        "imageGold": "",
+        "flavorText": "The guidelines specifically state: \"Students may also bring an ironbeak owl OR an alleycat OR a toad.\" They never said how big.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9edd6a87b86cf55cb0e0a66d49a1d97a7d2102a7985864d06fd18235aaae7c1a.png",
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_948",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 107856,
+        "collectible": 1,
+        "slug": "107856-hydration-station",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 8,
+        "name": "补水区",
+        "text": "复活你法力值消耗最高的三个不同的<b>嘲讽</b>随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b0262d2d9c0d6662c88593e6f9c857c9fa18d2466fa6ee880bef00b09bccc17.png",
+        "imageGold": "",
+        "flavorText": "它们这是聚众群饮……不过动物就该群饮啊。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/467136c75d809f09d0b1c7de205091a772ae21fc0fcf74502b637eaeaccd190c.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_948",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 107856,
+        "collectible": 1,
+        "slug": "107856-hydration-station",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 8,
+        "name": "Hydration Station",
+        "text": "Resurrect three of your different highest Cost <b>Taunt</b> minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0b793826d7814f9975c0e5a58c71914527c95cde938b2fe5b793298ab47e2e39.png",
+        "imageGold": "",
+        "flavorText": "They're drinking in herds... they do drink in herds.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/467136c75d809f09d0b1c7de205091a772ae21fc0fcf74502b637eaeaccd190c.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_rules": {
+    "guardian_deck_cost_basis": "Original current physical deck local cost; hand-only intrinsic/player discounts do not apply.",
+    "hydration_taunt_basis": "Current Taunt at original actual death.",
+    "hydration_cost_basis": "Printed definition cost; local-cost-at-death comparison not CN calibrated.",
+    "hydration_distinctness": "Distinct physical card IDs, not normalized cross-print aliases; alias boundary uncalibrated.",
+    "hydration_ranking": "From the complete original eligible deaths, pick a highest-cost remaining card identity, then remove that entire identity and repeat up to three.",
+    "hydration_ties": "Uniform card identities within the highest tier, then uniform original deaths of that identity. Forced singleton selections use no RNG."
+  },
+  "rule_boundaries_deferred": true,
+  "version_alignment_deferred": true
+}

@@ -357,8 +357,17 @@ def remaining(root):
     return tuple(available)
 
 
-def choose(rng,root,available):
+def choose(rng,root,available,registry):
     records={x.id:x for x in root.basis.inventory}
+    if root.spec.selection=='highest_cost':
+        from .summon_sources import death_query_candidates
+        selected=death_query_candidates(registry,root.spec.player_id,
+            replace(root.spec.query,cost_extreme='highest'),tuple(records[i]for i in available),
+            root.basis.hero_class,None if root.basis.source is None else root.basis.source.card_id)
+        groups={}
+        for row in selected:groups.setdefault(row.card_id,[]).append(row.id)
+        values=tuple(groups.values());group=values[0]if len(values)==1 else rng.choice(values)
+        return group[0]if len(group)==1 else rng.choice(group)
     if root.spec.distinct=='card':
         groups={}
         for i in available:groups.setdefault(records[i].card_id,[]).append(i)
@@ -379,7 +388,7 @@ def continue_batch(r,effect):
     if len(root.picks)==root.spec.count:return close(r,root,'completed')
     if not available:return close(r,root,'empty')
     if len(r.player(root.spec.player_id).board)>=r.rules.max_board:return close(r,root,'board_full')
-    before=r.game._rng.getstate();selected=choose(r.game._rng,root,available)
+    before=r.game._rng.getstate();selected=choose(r.game._rng,root,available,r.registry)
     pick=ResurrectionPick(len(root.picks),available,selected,before,r.game._rng.getstate());root=update(r.state,root,picks=(*root.picks,pick))
     r.emit('resurrection_pick_accepted',resurrection_batch_id=root.id,pick=encoded(pick),_capture=False)
     from .summon_sources import ResurrectMinion
@@ -440,7 +449,7 @@ def validate_record(state,registry,root,*,closed=False,children=None):
     prior=replace(root,picks=(),status='active',attacks=None)if root.basis is not None else None
     for pick in root.picks:
         available=remaining(prior);local=Random();local.setstate(pick.rng_before)
-        if pick.available!=available or choose(local,root,available)!=pick.selected or local.getstate()!=pick.rng_after:raise ValueError('Death selection/RNG differs from original candidate and grouping policy')
+        if pick.available!=available or choose(local,root,available,registry)!=pick.selected or local.getstate()!=pick.rng_after:raise ValueError('Death selection/RNG differs from original candidate and grouping policy')
         if pick.entry_root_id is not None:
             child=children.get(pick.entry_root_id)
             if child is None:raise ValueError('Death batch lost original entry root')

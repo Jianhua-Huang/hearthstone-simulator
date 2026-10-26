@@ -37,6 +37,7 @@ class SummonFromZone(Effect):
     on_summon: str | None = None
     attack_basis: str = 'printed'
     stat_group_id: int | None = None
+    cost_basis: str = 'printed'
 
     def __post_init__(self):
         if self.on_summon is not None:
@@ -63,6 +64,12 @@ class SummonFromZone(Effect):
             _integer(self.stat_group_id, 'original recruit stat group', 1)
             if self.cause is None or self.count != 1 or self.attack_basis != 'current':
                 raise ValueError('Recruit stat group needs its attributed single current-Attack slot')
+        if type(self.cost_basis) is not str or self.cost_basis not in ('printed', 'local'):
+            raise ValueError('Unknown physical recruit Cost basis')
+        if self.cost_basis == 'local' and (self.cause is None or self.zone != Zone.DECK or
+                self.owner_id not in (None, self.player_id) or self.attack_basis != 'printed' or
+                self.query.min_cost is None and self.query.max_cost is None):
+            raise ValueError('Local-cost recruit requires its attributed bounded own-deck query')
 
 
 def summon_from_zone(r, effect):
@@ -377,8 +384,11 @@ class Resurrect(Effect):
         if self.on_summon is not None: _behavior(self.on_summon)
         if type(self.query) is not DeathQuery: raise ValueError('Expected DeathQuery')
         self.query.__post_init__()
-        if self.distinct not in ('death', 'card') or self.selection not in ('random', 'first'):
+        if self.distinct not in ('death', 'card') or self.selection not in ('random', 'first', 'highest_cost'):
             raise ValueError('Invalid resurrection selection policy')
+        if self.selection == 'highest_cost' and (self.cause is None or self.distinct != 'card' or
+                self.query.cost_extreme is not None or self.death_ids is not None):
+            raise ValueError('Ranked resurrection requires its attributed different-card death inventory')
 
 
 @dataclass(frozen=True)
