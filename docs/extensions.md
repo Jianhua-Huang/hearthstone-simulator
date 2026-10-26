@@ -2178,3 +2178,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 为真实原卡声明具名武器光环时使用friendly_weapon/always/非空card_ids与正攻击、零生命，Registry核引用武器；不要永久修改装备或用受伤条件代替具名匹配。真实冻结反应需实际frozen通知及捕获物理随从，原生两例和完整候选证据见[契约](m3-past-colossal-controls.md)。
+
+
+真实具名存在条件仅允许self/Immune和一个真实随从ID，不能把条件身份当施加对象或用临时授予替代。完成攻击的种族消费者共用completed_minion_types，以原战斗驻留匹配当前/死亡材料，不靠印刷面或后来同ID重入；原生两例与本地边缘见[契约](m3-past-colaque-gaia.md)。

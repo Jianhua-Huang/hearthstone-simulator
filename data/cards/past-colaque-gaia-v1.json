@@ -1,0 +1,553 @@
+{
+  "schema": 1,
+  "batch": "K581",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TSC_026",
+        "dbf_id": 71712,
+        "name": "可拉克",
+        "name_en": "Colaque",
+        "text": "<b>巨型+1</b>\n当你控制可拉克的壳时<b>免疫</b>。",
+        "text_en": "[x]<b>Colossal +1</b>\n <b>Immune</b> while you control\nColaque's Shell.",
+        "cost": 7,
+        "attack": 6,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 71828,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71828,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c0d49c58ee43885f07d0d95f41bf5d3e9ed1993c088e6538dbe0a3487d612b6f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_026",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TSC_029",
+        "dbf_id": 71841,
+        "name": "盖亚，巨力机甲",
+        "name_en": "Gaia, the Techtonic",
+        "text": "<b>巨型+2</b>\n在一个友方机械攻击后，对所有敌人造成1点伤害。",
+        "text_en": "[x]<b>Colossal +2</b>\nAfter a friendly Mech\nattacks, deal 1 damage\nto all enemies.",
+        "cost": 8,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 85858,
+          "1544": 1,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "f9613dc924db4b79b9bbe886715699b9e2e697f7438032367fada897e5e53990",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TSC_029",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TSC_026t",
+        "dbf_id": 71828,
+        "name": "可拉克的壳",
+        "name_en": "Colaque's Shell",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>获得8点护甲值。",
+        "text_en": "<b>Taunt</b>\n<b>Deathrattle:</b> Gain 8 Armor.",
+        "cost": 5,
+        "attack": null,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "cadd7591ad6b79a200ba1ab83cfc02ea5b44f71be7c1f5da86569e06e72f16da",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_026t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3e828546db875050cd2c758efd26c7cdadee473d1c006728bcb53ebdc987ece0",
+      "pool_card_sha256": "a9ec710e5ef9e7b0004061dd4dbb8e2a589818841f8badbb18aa661bbf2d21eb"
+    },
+    {
+      "record": {
+        "id": "TSC_029t",
+        "dbf_id": 80793,
+        "name": "盖亚的钻头",
+        "name_en": "Gaia's Drill",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ac000817a08a5855aa8692d6b4472851da71f5c69dd0d06326b971921d6a54ee",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_029t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "9c6b7fe428ac015ff2d0437efebedeec1ea17e3f51cd0a00cd2513f384d411dd",
+      "pool_card_sha256": "bf4438252fcb16acea3dd15cf8d56ca7d9ab9624e73c3d0c04576e9cf4670d23"
+    },
+    {
+      "record": {
+        "id": "TSC_029t2",
+        "dbf_id": 85858,
+        "name": "盖亚的钻头",
+        "name_en": "Gaia's Drill",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "14e3868f32b99925897a308c4ab617a2385e34e9f44730d2a24a29cda4a45b0f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TSC_029t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "5cf6cc2c4d164eb665ffbaa1584c18b0df4ffad265fea2c38993cbe719e3eab5",
+      "pool_card_sha256": "d87553d13ba7a6fd0b40ddbf4ae46a8e2913d9188f5887e65e27f55c860cc619"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TSC_026",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 71712,
+        "collectible": 1,
+        "slug": "71712-colaque",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "可拉克",
+        "text": "<b>巨型+1</b> 当你控制可拉克的壳时<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a93a0b7268433feeaa849d16f17a10ac48ae41d99562341b044672bb5a0e3a85.png",
+        "imageGold": "",
+        "flavorText": "一万年前，辛艾萨莉落入了海底……有一部分落到了可拉克的壳上。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd0dc37d387e9a661f29236f9897dbedf7f351977abb11925fee24f699d95f59.png",
+        "childIds": [
+          71828
+        ],
+        "keywordIds": [
+          17,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_026",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 71712,
+        "collectible": 1,
+        "slug": "71712-colaque",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 5,
+        "attack": 6,
+        "manaCost": 7,
+        "name": "Colaque",
+        "text": "<b>Colossal +1</b> <b>Immune</b> while you control Colaque's Shell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92d8832d36df47e922237ccef1f41d9141e2514e9419647b7645268cb8038e43.png",
+        "imageGold": "",
+        "flavorText": "Ten thousand years ago, the city of Zin-Azshari fell to the bottom of the sea... and partially onto Colaque's shell.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd0dc37d387e9a661f29236f9897dbedf7f351977abb11925fee24f699d95f59.png",
+        "childIds": [
+          71828
+        ],
+        "keywordIds": [
+          17,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_029",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 71841,
+        "collectible": 1,
+        "slug": "71841-gaia-the-techtonic",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "盖亚，巨力机甲",
+        "text": "<b>巨型+2</b> 在一个友方机械攻击后，对所有敌人造成1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c641955d8af25c830bab4193d6cbaae18371543ce84d5a5e99b7c987a69dd54.png",
+        "imageGold": "",
+        "flavorText": "伊妮总能计划在先。她料到自己会用这项发明来保护她的其他发明。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38dc59b0d89184f0afbad655599cf6d14c9e3e0b3318eb89c3f4cc6aac30f834.png",
+        "childIds": [
+          80793,
+          85858
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_029",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 71841,
+        "collectible": 1,
+        "slug": "71841-gaia-the-techtonic",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 8,
+        "name": "Gaia, the Techtonic",
+        "text": "<b>Colossal +2</b> After a friendly Mech attacks, deal 1 damage to all enemies.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2b1ec6b5a755ac36b988967f05016e9bb89ee8007f26baed0b0837bde4ff109.png",
+        "imageGold": "",
+        "flavorText": "Always planning ahead, Ini knew she'd need this invention to protect all her other inventions.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38dc59b0d89184f0afbad655599cf6d14c9e3e0b3318eb89c3f4cc6aac30f834.png",
+        "childIds": [
+          80793,
+          85858
+        ],
+        "keywordIds": [
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "reference_document": "data/cards/past-colossal-local-reference-v1.json",
+  "reference_canonical_sha256": "6f4881cac0e225c31ede9eb6f83e115d942ace6641246e36f1030950eb9c4bdf",
+  "appendages": {
+    "TSC_026": [
+      "TSC_026t"
+    ],
+    "TSC_029": [
+      "TSC_029t",
+      "TSC_029t2"
+    ]
+  },
+  "named_presence_policy": "current-controller-living-board-physical-card-identity; dormant real minions count; locations/building objects do not",
+  "attack_type_policy": "original completed actual minion combat controller; current same-residence material or exact-residence frozen death material; unreviewed lost residence fails explicitly",
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

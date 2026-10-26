@@ -1488,19 +1488,23 @@ class KeywordAuraSpec:
         if self.target == 'enemy_minions' and (self.keyword != Keyword.TAUNT or self.include_self or
                 self.adjacent_only or self.condition != 'always' or self.tribes_any or self.card_ids):
             raise ValueError('Native enemy keyword aura requires ordinary board Taunt')
-        if self.card_ids and (self.target != 'friendly_minions' or self.condition != 'always' or
+        named_presence = self.condition == 'controller_controls_named_minion'
+        if self.card_ids and not named_presence and (self.target != 'friendly_minions' or self.condition != 'always' or
                 self.adjacent_only or self.tribes_any):
             raise ValueError('Card identity keyword auras require ordinary board scope and one selector')
+        if named_presence and (self.target != 'self' or self.keyword != Keyword.IMMUNE or
+                len(self.card_ids) != 1 or self.include_self or self.adjacent_only or self.tribes_any):
+            raise ValueError('Named presence requires native self Immune and one physical minion identity')
         if self.tribes_any and (self.keyword != Keyword.CHARGE or
                 self.target != 'friendly_minions' or self.condition != 'always' or self.adjacent_only):
             raise ValueError('Tribal keyword aura currently requires ordinary board Charge')
-        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','rush_summon_turn'):
+        if type(self.condition) is not str or self.condition not in ('always', 'self_damaged', 'controller_has_weapon', 'controller_turn','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','rush_summon_turn','controller_controls_named_minion'):
             raise ValueError('Unsupported continuous keyword condition')
         if self.condition=='rush_summon_turn' and (self.keyword!=Keyword.IMMUNE or
                 self.target!='friendly_minions' or not self.include_self or self.adjacent_only or
                 self.tribes_any or self.card_ids):
             raise ValueError('Summon-turn Rush immunity requires its independent native friendly scope')
-        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn')):
+        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','controller_controls_named_minion')):
             raise ValueError('Conditional keyword requires its own self target')
         if self.condition == 'controller_turn' and (self.target != 'friendly_hero' or
                 self.keyword != Keyword.IMMUNE or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):

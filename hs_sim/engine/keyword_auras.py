@@ -67,6 +67,15 @@ def conditional_keywords(state, entity):
             entity.controller != state.active_player):
         result.update(a.keyword_aura.keyword for a in active_abilities(entity, 'keyword_aura')
                       if a.keyword_aura.condition == 'controller_opponent_turn')
+    named = tuple(a.keyword_aura for a in active_abilities(entity, 'keyword_aura')
+                  if a.keyword_aura.condition == 'controller_controls_named_minion')
+    if named and entity.kind == CardType.MINION and entity.zone == Zone.BOARD and entity.active:
+        # Control counts a dormant physical minion too. The selector is its
+        # current card identity, independent of the original appendage owner.
+        controlled = tuple(state.entities[i].card_id for i in state.players[entity.controller].board
+            if (target := state.entities[i]).kind == CardType.MINION and target.health > 0 and
+            not target.doomed and not target.interactable_object and not target.starship_building)
+        result.update(spec.keyword for spec in named if spec.card_ids[0] in controlled)
     return result
 
 

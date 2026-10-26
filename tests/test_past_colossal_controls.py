@@ -48,7 +48,7 @@ def host(mode='crab', role='writer'):
         if row.card_id not in r.pool_cards: r.register_pool_card(row)
     # Two explicit single-card native fixtures test adapters. The full source
     # retains all thirteen and must reject before RNG while five bodies lack.
-    ids = reference()['candidate_ids'] if mode == 'full-reference' else (
+    ids = reference()['candidate_ids'] if mode.startswith('full-reference') else (
         SINDRAGOSA if mode in ('sind', 'wait-freeze') else CRABATOA,)
     r.register_pool(PoolDefinition('constructed.past.cards', P+'explicit-fixture:'+mode,
         CONTEXT.target_id, CONTEXT.mode, tuple(PoolMember(cid) for cid in ids), complete=True))
@@ -82,7 +82,9 @@ def host(mode='crab', role='writer'):
         targeting = None if cid in (ADD_CRAB, EQUIP, WRONG) else TargetSpec(TargetMode.REQUIRED,
             zones=(Zone.BOARD, Zone.HERO), kinds=(CardType.MINION, CardType.HERO))
         r.register_card(CardDefinition(cid, cid, CardType.SPELL, on_play=cid, targeting=targeting, metadata=META))
-    r.validate(); return r
+    r.validate()
+    if mode == 'full-reference-missing': del r._cards[SINDRAGOSA]
+    return r
 
 
 def fixture(mode='crab', role='writer'): return host(mode, role)
@@ -126,7 +128,7 @@ class PastColossalControlsTests(CardBatchTestMixin, unittest.TestCase):
             for face in [x for x in data['official_observations'] if x['card_id'] == row['record']['id']]:
                 batch.check_face(row['record'], face['face'], face['locale'])
         self.assertEqual(tuple(m.card_id for m in r.pool('constructed.past.cards', CONTEXT).members), tuple(ref['candidate_ids']))
-        self.assertEqual(len([cid for cid in ref['candidate_ids'] if cid not in r.cards]), 5)
+        self.assertTrue(all(cid in r.cards for cid in (SINDRAGOSA, CRABATOA)))
         self.assertTrue(all(Keyword.COLOSSAL in r.pool_card(cid).keywords for cid in ref['candidate_ids']))
 
     def test_both_native_rewards_real_paid_source_explicit_single_card_fixtures_and_ordered_entry_in_both_seats(self):
@@ -230,8 +232,8 @@ class PastColossalControlsTests(CardBatchTestMixin, unittest.TestCase):
         self.choose(g, 'ok'); self.choose(restored, 'ok'); self.assertEqual(g.snapshot(), restored.snapshot())
 
     def test_full_thirteen_source_rejects_before_rng_even_for_known_selected_seed_and_rolls_back(self):
-        g = self.game(SINDRAGOSA, mode='full-reference'); before = g.snapshot(); rng = g._rng.getstate()
-        with self.assertRaises(ResolutionError): self.play(g, SOURCE)
+        g = self.game(SINDRAGOSA, mode='full-reference-missing'); before = g.snapshot(); rng = g._rng.getstate()
+        with self.assertRaisesRegex(ResolutionError, SINDRAGOSA): self.play(g, SOURCE)
         self.assertEqual(g.snapshot(), before)
         self.assertEqual(g._rng.getstate(), rng)
         self.assertEqual(len(g.registry.pool('constructed.past.cards', CONTEXT).members), 13)
