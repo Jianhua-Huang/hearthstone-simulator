@@ -58,3 +58,10 @@ CardDefinition(
 历史共享费用API为prototype-v190/core-effects-v184/schema179，拒旧1～178。后续[本人本局技能次数费用](m3-player-hero-power-count-costs.md)复用原完整hero_power_history，不改变原技能生命周期/其他卡文资格；精确CN仍待校准。
 
 历史共享费用API为prototype-v190/core-effects-v184/schema179，拒旧1～178。新增[本局实际法术法力费用](m3-player-spell-mana-costs.md)复用原物理出牌/付款，不改变本契约自身资格；精确CN仍待校准。
+
+
+## 真实过去依赖的原生身份接线
+
+AV_141t的上述有限profile原先只在隔离机制夹具中适配；现以[完整固定原行及两份双语官网主面](../data/cards/native-lokholar-v1.json)接入构筑执行注册表，作为标准实际可达过去内容的依赖，并补PoolCard生成元数据。保留真实10费8/8元素、突袭/风怒及HeroMissingHealthCostSpec('cost.hero-health-at-most-fifteen-v1')；没有重复实现阈值、数量计价、战斗或冻结付款。
+
+原型历史描述和原完整raw/pin保留；该身份的原生接线不把旧隔离机制证据冒充完整专用池。究极边境有限验证通过原发现/生成设费和正常手牌付款，生成设费1沿原附件阶段在固有减费后应用；当前英雄高低生命都不会被新造永久折扣覆盖。生产过去域仍未绑定，34参考的模式/版本疑点和国服边界仍单独记录。实际验收及下一项只在原两份台账维护。
