@@ -2109,3 +2109,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 原驻留随机敌方角色攻击仅新增有限候选请求，实际战斗仍走原ForceAttack；工厂装配机/终结迷你沿原派生与具名交付，暗月兔子复用原生cleave与剧毒。完整四面、恢复校验及未校准窗口见[契约](m3-frontier-combat-and-mini.md)，实际结果与下一项仍只在两份原台账。
+
+
+机械克苏恩在实际亡语窗查当前本人完整区域，再提交原Destroy给敌方英雄；污染之源亚煞极按原Corrupted出牌发生创建基础副本并附本回合0费。完整来源、容量、时序和未确认复制材料见[契约](m3-frontier-old-god-conditions.md)，实际验收与下一项只在两份原台账。

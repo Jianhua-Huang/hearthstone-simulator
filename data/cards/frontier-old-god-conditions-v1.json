@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "scope": "Actual Mecha thun, Y Shaarj the Defiler and exact old native Corrupt dependency; not a formal complete past pool.",
+  "cards": [
+    {
+      "record": {
+        "id": "BOT_424",
+        "dbf_id": 48625,
+        "name": "机械克苏恩",
+        "name_en": "Mecha'thun",
+        "text": "<b>亡语：</b>\n如果你的牌库、手牌和战场没有任何牌，消灭敌方英雄。",
+        "text_en": "[x]<b>Deathrattle:</b> If you have no\ncards in your deck, hand,\nand battlefield, destroy\nthe enemy hero.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1127,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "43851aa61e464d8c60e6e7d057f7cbfda113bd4c80a710e1f67a9d0b22223363"
+    },
+    {
+      "record": {
+        "id": "DMF_188",
+        "dbf_id": 61308,
+        "name": "亚煞极，污染之源",
+        "name_en": "Y'Shaarj, the Defiler",
+        "text": "<b>战吼：</b>将你在本局对战中使用过的每张<b>已腐蚀</b>牌的复制置入你的手牌。在本回合中，这些<b>已腐蚀</b>牌的法力值消耗为（0）点。",
+        "text_en": "[x]<b>Battlecry:</b> Add a copy of each\n<b>Corrupted</b> card you've played\nthis game to your hand.\nThey cost (0) this turn.",
+        "cost": 10,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1551",
+              "name": "CORRUPTED_CARD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8192cb7650b8bb7931af759e2ea32bb4fd844c1721e833cbe180dd04d864c886"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "DMF_064",
+        "dbf_id": 61581,
+        "name": "旋转木马",
+        "name_en": "Carousel Gryphon",
+        "text": "<b>圣盾</b>，<b>腐蚀：</b>获得+3/+3和<b>嘲讽</b>。",
+        "text_en": "<b>Divine Shield</b>\n<b>Corrupt:</b> Gain +3/+3 and_<b>Taunt</b>.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1466,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 62076,
+          "CORRUPT": 1,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1,
+          "2542": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0e0b5574d3998c5f9f840c5b043ae34d23ba57055865cdc7ad706e03b061783a"
+    },
+    {
+      "record": {
+        "id": "DMF_064t",
+        "dbf_id": 62076,
+        "name": "旋转木马",
+        "name_en": "Carousel Gryphon",
+        "text": "<b>已腐蚀</b>\n<b>圣盾，</b><b>嘲讽</b>",
+        "text_en": "<b>Corrupted</b>\n<b>Divine Shield,</b> <b>Taunt</b>",
+        "cost": 5,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 5,
+          "CARD_SET": 1466,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "CORRUPTED_CARD": 1,
+          "2542": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "d01d9a3cd179d4e694efb947387c973e2c7d94aed8a267d93376668f5dbbc6c1"
+    }
+  ],
+  "official_faces": [
+    {
+      "card_id": "BOT_424",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 48625,
+        "collectible": 1,
+        "slug": "48625-mechathun",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "机械克苏恩",
+        "text": "<b>亡语：</b> 如果你的牌库、手牌和战场没有任何牌，消灭敌方英雄。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a519d6e9ac5d9849fd5e82620a011245c045937f98d803475ce149f6d4d43429.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73381190f7101f111cc0d6698b8d964dccd8f6b70d07112c7a5ea37e0bdaf794.png",
+        "flavorText": "“所有用户都将弃你而去……连你的软件都背叛了你……我苏醒之日，便是你过气之时。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dedb4d8001fd9793e00cbc4240ae617876ed51e0dfd79625906cc81a096741c9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_424",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 48625,
+        "collectible": 1,
+        "slug": "48625-mechathun",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "Mecha'thun",
+        "text": "<b>Deathrattle:</b> If you have no cards in your deck, hand, and battlefield, destroy the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/891780008b525429031ada4153dcce8b648507d33638bad651a1d4de1bfba8e0.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3017a4a79259c9ef7403f6797cc21f2ecab8d1131b4d4e5317a1cd7db6512b1.png",
+        "flavorText": "\"Your software will fail. Your users will abandon you. You are already obsolete.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dedb4d8001fd9793e00cbc4240ae617876ed51e0dfd79625906cc81a096741c9.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_188",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 61308,
+        "collectible": 1,
+        "slug": "61308-yshaarj-the-defiler",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "亚煞极，污染之源",
+        "text": "<b>战吼：</b>将你在本局对战中使用过的每张<b>已腐蚀</b>牌的复制置入你的手牌。在本回合中，这些<b>已腐蚀</b>牌的法力值消耗为（0）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2960735f31a8059078b963439331feff33074d2ab3fd30fda8488e1b43e398e3.png",
+        "imageGold": "",
+        "flavorText": "亚煞极，典型的职场实习生：复制粘贴，污染一切。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/987c8a6fddccb7cb78ffbfe9d51cd854a25dde026d8655318745d9e0c9426e4c.png",
+        "childIds": [
+          61296
+        ],
+        "keywordIds": [
+          8,
+          98
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_188",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 61308,
+        "collectible": 1,
+        "slug": "61308-yshaarj-the-defiler",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 5,
+        "artistName": "Alex Horley Orlandelli",
+        "health": 10,
+        "attack": 10,
+        "manaCost": 10,
+        "name": "Y'Shaarj, the Defiler",
+        "text": "<b>Battlecry:</b> Add a copy of each <b>Corrupted</b> card you've played this game to your hand. They cost (0) this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73a94f35ea63dd9d828f06a3fc589c57279666470d2de179561780bf6d6d9cfe.png",
+        "imageGold": "",
+        "flavorText": "Y'Shaarj made an excellent office intern, doing the copying AND defiling.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/987c8a6fddccb7cb78ffbfe9d51cd854a25dde026d8655318745d9e0c9426e4c.png",
+        "childIds": [
+          61296
+        ],
+        "keywordIds": [
+          8,
+          98
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "version_alignment_deferred": true,
+  "rule_boundaries_deferred": true,
+  "local_rules": {
+    "mechathun": "Check current own physical deck, hand and all board occupants at each actual Deathrattle body; separate weapon/secret/quest/power zones do not block. Use real Destroy on enemy hero, never damage.",
+    "yshaarj": "Freeze each original own play occurrence whose pinned card has the Corrupted keyword; create a base copy of that actual Corrupted face, with an ordinary set-to-zero attachment through the current turn. Same-name occurrences are not deduplicated; name-only Corrupted Dreams do not qualify.",
+    "unconfirmed": "Order among history returns, countered plays, unusual native stat/copy materials and exact destruction-rescue windows remain recorded local policies; no CN certification."
+  }
+}
