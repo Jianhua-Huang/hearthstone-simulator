@@ -15,7 +15,7 @@ TUPLES=('triggers','auras','cost_auras','keyword_auras','battlecry_repeats','dea
     'end_turn_repeats','intrinsic_costs','attack_policies','stat_relations','timed_keywords')
 PART_FIELDS=frozenset(('id','name','kind','cost','attack','health','metadata','keywords','on_play',
     'battlecry','deathrattle','combo','requires_target','target_rule','targeting','spell_damage',
-    'spell_damage_schools','cleave','dormant_turns','native_condition','minion_death_cost',*TUPLES))
+    'spell_damage_schools','cleave','dormant_turns','native_condition','minion_death_cost','native_deathrattle',*TUPLES))
 
 
 @dataclass(frozen=True)
@@ -88,6 +88,8 @@ def validate_part_shape(registry,card):
     if changed:raise ValueError('Unreviewed crafted ingredient declarations: '+','.join(changed))
     if card.native_condition is not None and card.native_condition.kind != 'self_damaged':
         raise ValueError('Unreviewed crafted conditional provider domain')
+    if card.native_deathrattle is not None and card.native_deathrattle.kind != 'draw_link':
+        raise ValueError('Unreviewed crafted native Deathrattle memory domain')
     registry._validate_card(card)
 
 
@@ -121,6 +123,8 @@ def validate_dormant_carrier(registry,card_id,kind,abilities,components=()):
 
 def native_domains(parts):
     """Check only actual native donor compatibility; do not enumerate recipes."""
+    if sum(p.native_deathrattle is not None for p in parts)>1:
+        raise ValueError('Unreviewed multiple native Deathrattle memory donors')
     if sum(p.minion_death_cost is not None for p in parts)>1:
         raise ValueError('Unreviewed duplicate native death quantity prices')
     schools=[p.spell_damage_schools for p in parts if p.spell_damage]
@@ -128,6 +132,24 @@ def native_domains(parts):
     targets=[(p.requires_target,p.target_rule,p.targeting)for p in parts if p.requires_target or p.targeting is not None]
     if targets and any(t!=targets[0]for t in targets):raise ValueError('Crafted minion has unreviewed differing native target domains')
     return targets[0]if targets else(False,'any_entity',None)
+
+
+def native_draw_memory_carrier(registry,card_id,kind,ability,components):
+    """A composed body retains its one original printed draw-link declaration."""
+    if not card_id.startswith(PREFIX):return False
+    memory=ability.deathrattle_memory
+    if (kind!=CardType.MINION or memory is None or memory.spec.kind!='draw_link' or
+            ability.origin!='printed' or ability.deathrattle_inherited_from is not None or
+            ability.deathrattle_copied_from is not None):return False
+    recipe=recipe_from_id(card_id)
+    if (components!=recipe.parts or ability.deathrattle_card_id not in recipe.parts or
+            ability.deathrattle_card_id not in registry.crafted_minion_parts):return False
+    donor=registry.card(ability.deathrattle_card_id)
+    if donor.native_deathrattle!=memory.spec or donor.deathrattle!=ability.behavior_id:return False
+    # Resolve the whole canonical face: both donor approvals, their tribes, the
+    # blueprint, and the single-memory domain must still be valid. Memory stays
+    # on the original ability, never in a second aggregate field on the face.
+    return registry.card(card_id).kind==CardType.MINION
 
 
 def resolve_face(registry,card_id):
