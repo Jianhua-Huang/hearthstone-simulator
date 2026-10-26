@@ -2843,7 +2843,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -3015,12 +3015,16 @@ class DeathrattleMemory:
         if type(self.discoveries) is not tuple or any(type(x) is not RememberedDiscovery for x in self.discoveries):
             raise ValueError('Native discovery memory requires immutable original selections')
         for link in self.discoveries: link.__post_init__()
-        for key in ('battlecry_id', 'discovery_id'):
+        for key in (('discovery_id',) if self.spec.kind == 'colossal_crew' else ('battlecry_id', 'discovery_id')):
             values = tuple(getattr(x, key) for x in self.discoveries)
             if values != tuple(sorted(set(values))):
                 raise ValueError('Native discoveries changed their unique original order')
-        if (self.spec.kind != 'discovery_summon' and self.discoveries or
-                self.spec.kind == 'discovery_summon' and
+        if self.spec.kind == 'colossal_crew':
+            battlecries = tuple(x.battlecry_id for x in self.discoveries)
+            if battlecries != tuple(sorted(battlecries)) or any(battlecries.count(i) > 3 for i in set(battlecries)):
+                raise ValueError('Each original crew Battlecry permits at most three ordered selections')
+        if (self.spec.kind not in ('discovery_summon', 'colossal_crew') and self.discoveries or
+                self.spec.kind in ('discovery_summon', 'colossal_crew') and
                 (self.draws or self.discard_ids or self.dormancies or self.growth_steps)):
             raise ValueError('Native discovery memory cannot mix unrelated payloads')
 

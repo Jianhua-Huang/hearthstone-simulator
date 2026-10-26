@@ -42,7 +42,11 @@ def validate_ability(state,registry,ability):
                 raise ValueError('Native hand memory borrowed an unsupported acquisition')
     for link in memory.dormancies:validate_dormancy_link(state,registry,link)
     from .discovery_memory import validate_link as validate_discovery_link
-    for link in memory.discoveries:validate_discovery_link(state,registry,link)
+    for link in memory.discoveries:
+        if memory.spec.kind == 'colossal_crew':
+            from .colossal_crew import validate_link as validate_crew_link
+            validate_crew_link(state,registry,link,ship_card_id=ability.deathrattle_card_id)
+        else:validate_discovery_link(state,registry,link)
     for discard_id in memory.discard_ids:
         if discard_id > len(state.discard_history):raise ValueError('Remembered discard exceeds original history')
         row=state.discard_history[discard_id-1]

@@ -32,6 +32,9 @@ class DeathrattleDiscoveryTarget:
 
 
 def validate_spec(spec):
+    from .colossal_crew import ColossalCrewTarget, validate_spec as validate_crew
+    if type(spec) is DiscoverFromPool and type(spec.memory_target) is ColossalCrewTarget:
+        return validate_crew(spec)
     from .discovery_guesses import DiscoveryGuessTarget, validate_spec as validate_guess
     if type(spec) is DiscoverFromPool and type(spec.memory_target) is DiscoveryGuessTarget:
         return validate_guess(spec)
@@ -50,6 +53,9 @@ def validate_spec(spec):
 
 
 def validate_target(state, registry, spec, *, active=True):
+    from .colossal_crew import ColossalCrewTarget, validate_target as validate_crew
+    if type(spec.memory_target) is ColossalCrewTarget:
+        return validate_crew(state, registry, spec, active=active)
     from .discovery_guesses import DiscoveryGuessTarget, validate_target as validate_guess
     if type(spec.memory_target) is DiscoveryGuessTarget:
         return validate_guess(state, registry, spec, active=active)
@@ -95,6 +101,9 @@ def validate_link(state, registry, link):
 
 def apply_selection(r, effect):
     spec = effect.batch.spec
+    from .colossal_crew import ColossalCrewTarget, apply_selection as apply_crew
+    if type(spec.memory_target) is ColossalCrewTarget:
+        return apply_crew(r, effect)
     from .discovery_guesses import DiscoveryGuessTarget, apply_selection as apply_guess
     if type(spec.memory_target) is DiscoveryGuessTarget:
         return apply_guess(r, effect)
@@ -140,7 +149,9 @@ def validate_boundary(game):
     from .discovery import ResolvePoolDiscovery, validate_selection
     from .discovery_offers import offer_for_result
     for link in links:
-        _, original = validate_link(state, game.registry, link)
+        from .colossal_crew import is_crew_link, validate_link as validate_crew_link
+        validator = validate_crew_link if is_crew_link(state, game.registry, link) else validate_link
+        _, original = validator(state, game.registry, link)
         offer = offer_for_result(game, original.result)
         option = next(o for o in offer.options if o.id == original.result.selected_ids[0])
         if len(option.effects) != 1 or type(option.effects[0]) is not ResolvePoolDiscovery:
@@ -157,3 +168,5 @@ def register(mechanics):
     from .discovery_guesses import register as register_guesses
     register_guesses(mechanics)
     mechanics.register_payload_type(DeathrattleDiscoveryTarget)
+    from .colossal_crew import ColossalCrewTarget
+    mechanics.register_payload_type(ColossalCrewTarget)

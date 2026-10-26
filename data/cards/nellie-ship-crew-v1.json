@@ -1,0 +1,283 @@
+{
+  "schema": 1,
+  "batch": "K583",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TSC_660",
+        "dbf_id": 74894,
+        "name": "奈利，超巨蛇颈龙",
+        "name_en": "Nellie, the Great Thresher",
+        "text": "<b>巨型+1</b>\n<b>战吼：</b><b>发现</b>三个海盗来构成奈利的船员团队！",
+        "text_en": "[x]<b>Colossal +1</b>\n<b>Battlecry:</b> <b>Discover</b> 3 Pirates\nto crew Nellie's Ship!",
+        "cost": 7,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1544": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 74895,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 74895,
+          "COLOSSAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "b716746b0ef3a3cc8cb1970b761e0089d531037a8b86c62c7d0e469110147350"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TSC_660t",
+        "dbf_id": 74895,
+        "name": "奈利的海盗船",
+        "name_en": "Nellie's Pirate Ship",
+        "text": "<b>嘲讽</b>，<b>亡语：</b>将奈利的船员团队置入你的手牌。他们的法力值消耗为（1）点。",
+        "text_en": "[x]<b><b>Taunt</b>.</b> <b>Deathrattle:</b> Add\nNellie's Pirate crew to your\nhand. They cost (1).",
+        "cost": 5,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "TAUNT": 1,
+          "CLASS": 10,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "COLOSSAL_LIMB": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f3998a459e1f4361c7888f742aff6cb4e68920e7ee698966c372ad5f0fcce115"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TSC_660e",
+        "dbf_id": 76901,
+        "name": "佣金",
+        "name_en": "Mercenary's Fee",
+        "text": "法力值消耗为（1）点。",
+        "text_en": "Costs (1).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 10,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3e696cc950ff6e5dbdae5d487f2319ea3fa90f6b530f9a92c3fc9ad8afcae117"
+    },
+    {
+      "record": {
+        "id": "TSC_660e2",
+        "dbf_id": 79606,
+        "name": "海盗船员",
+        "name_en": "Pirate Crew",
+        "text": "承载奈利的海盗船员。",
+        "text_en": "Holding Nellie's Pirate Crew.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 10,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "790bff461d4adff043a91ea23d82f202613a4051319f4682defa2dfe4c9b6ec6"
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "TSC_660",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 74894,
+        "collectible": 1,
+        "slug": "74894-nellie-the-great-thresher",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "Nellie, the Great Thresher",
+        "text": "<b>Colossal +1</b> <b>Battlecry:</b> <b>Discover</b> 3 Pirates to crew Nellie's Ship!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01ef9c03eee925ad515d21f9e17da930f00741edd8f6bd6ca7fb82a2b88ef834.png",
+        "imageGold": "",
+        "flavorText": "Not to be mistaken for her freshwater cousin, Nessie, this massive creature was harnessed to carry Hooktusk's favorite ship.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e73a2d9a509357a75a9400c27618a40c0a4b398f0531c35e93e82579ccb8763.png",
+        "childIds": [
+          74895
+        ],
+        "keywordIds": [
+          8,
+          21,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_660",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 74894,
+        "collectible": 1,
+        "slug": "74894-nellie-the-great-thresher",
+        "classId": 10,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "奈利，超巨蛇颈龙",
+        "text": "<b>巨型+1</b> <b>战吼：</b><b>发现</b>三个海盗来构成奈利的船员团队！",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cf003243eea92699c74dda6075214901ecb57ec969087143f47dbeb78f5be2f2.png",
+        "imageGold": "",
+        "flavorText": "这头巨兽身披鞍辔，驮载着钩牙船长最爱的船。别把她和她的淡水远亲尼斯搞混了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e73a2d9a509357a75a9400c27618a40c0a4b398f0531c35e93e82579ccb8763.png",
+        "childIds": [
+          74895
+        ],
+        "keywordIds": [
+          8,
+          21,
+          231
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "reference_document": "data/cards/past-colossal-local-reference-v1.json",
+  "reference_canonical_sha256": "6f4881cac0e225c31ede9eb6f83e115d942ace6641246e36f1030950eb9c4bdf",
+  "profile_id": "native-nellie-original-ship-crew-v1",
+  "producer_behavior_id": "cards.nellie_crew.discover",
+  "deathrattle_behavior_id": "cards.nellie_crew.deliver",
+  "discoveries": 3,
+  "crew_cost": 1,
+  "pool_id": "constructed.cards",
+  "policy": [
+    "Use the complete host collectible current-class-and-neutral Pirate minion query, including All tribes.",
+    "Record each of three real selections on the original fresh Colossal Ship, before discovery completion notification.",
+    "Original minted appendages have zone_epoch zero; a returned or transformed same-ID ship never borrows this original link.",
+    "Current ship copies retain the ordered selections; base/reset/silence use ordinary native memory lifetime.",
+    "Repeated native Battlecries append their own three selections; no available original Ship still completes the three discoveries without hand delivery.",
+    "Exact before-Battlecry control/transform/inheritance edges are explicit local policies pending CN calibration."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

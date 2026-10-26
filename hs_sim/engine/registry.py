@@ -210,6 +210,7 @@ class Registry:
         self._spell_mana_freeze_profiles = {}
         self._school_freeze_profiles = {}
         self._trigger_value_profiles = {}
+        self._colossal_crew_profiles = {}
         self._native_producer_quantity_profiles = {}
         self._temporary_hero_power_profiles = {}
         self._hero_power_discovery_profiles = {}
@@ -819,6 +820,9 @@ class Registry:
     def trigger_value_profiles(self):return MappingProxyType(self._trigger_value_profiles)
 
     @property
+    def colossal_crew_profiles(self):return MappingProxyType(self._colossal_crew_profiles)
+
+    @property
     def native_producer_quantity_profiles(self):return MappingProxyType(self._native_producer_quantity_profiles)
 
     @property
@@ -1120,6 +1124,16 @@ class Registry:
                 set(p.recipient_ids) & set(profile.recipient_ids) for p in self._trigger_value_profiles.values())):
             raise ValueError('Native trigger values require independent nonoverlapping recipients')
         self._trigger_value_profiles[profile.id] = profile
+
+    def register_colossal_crew_profile(self, profile):
+        self._require_mutable()
+        from .colossal_crew import validate_profile
+        validate_profile(self, profile)
+        if (profile.id in self._colossal_crew_profiles or any(
+                p.root_card_id == profile.root_card_id or p.ship_card_id == profile.ship_card_id
+                for p in self._colossal_crew_profiles.values())):
+            raise ValueError('Colossal crew requires one independent native producer and Ship')
+        self._colossal_crew_profiles[profile.id] = profile
 
     def register_native_producer_quantity_profile(self,profile):
         self._require_mutable()
@@ -2695,6 +2709,12 @@ class Registry:
         for profile in self._school_freeze_profiles.values():validate_school_freeze_profile(self,profile)
         from .native_trigger_values import validate_profile as validate_trigger_value_profile
         for profile in self._trigger_value_profiles.values():validate_trigger_value_profile(self,profile)
+        from .colossal_crew import validate_profile as validate_crew_profile
+        for profile in self._colossal_crew_profiles.values():validate_crew_profile(self,profile)
+        for card in self._cards.values():
+            if card.native_deathrattle is not None and card.native_deathrattle.kind == 'colossal_crew' and not any(
+                    p.ship_card_id == card.id for p in self._colossal_crew_profiles.values()):
+                raise ValueError('Native crew Ship has no complete original producer declaration')
         from .native_producer_quantities import validate_profile as validate_native_quantity_profile
         for profile in self._native_producer_quantity_profiles.values():validate_native_quantity_profile(self,profile)
         from .temporary_hero_powers import validate_profile as validate_temporary_power_profile
@@ -3145,6 +3165,9 @@ class Registry:
         if self._trigger_value_profiles:
             payload['trigger_value_profiles'] = [asdict(self._trigger_value_profiles[k])
                 for k in sorted(self._trigger_value_profiles)]
+        if self._colossal_crew_profiles:
+            payload['colossal_crew_profiles'] = [asdict(self._colossal_crew_profiles[k])
+                for k in sorted(self._colossal_crew_profiles)]
         if self._native_producer_quantity_profiles:
             payload['native_producer_quantity_profiles']=[asdict(self._native_producer_quantity_profiles[k])
                 for k in sorted(self._native_producer_quantity_profiles)]
