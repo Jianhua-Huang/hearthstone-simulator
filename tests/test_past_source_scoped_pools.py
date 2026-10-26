@@ -94,7 +94,7 @@ class PastSourceScopedPoolTests(CardBatchTestMixin,unittest.TestCase):
             self.assertEqual([m.card_id for m in pool.members],item['member_ids'])
             self.assertTrue(all(m.weight==1 for m in pool.members));self.assertTrue(pool.complete)
             self.assertEqual({m.card_id for m in members(fmt,item['source_card_id'])},set(item['member_ids']))
-        self.assertEqual(len(fmt.registry.generation_scopes),2)
+        self.assertTrue({TEACHER,FRONTIER}<={s.source_card_id for s in fmt.registry.generation_scopes.values()})
 
     def test_old_ordinary_inventory_and_every_member_native_remain_unchanged(self):
         fmt=fixture();old=build_cn37_launch_candidate_format()

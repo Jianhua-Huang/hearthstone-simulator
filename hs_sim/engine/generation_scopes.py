@@ -23,7 +23,7 @@ class GenerationScope:
     target_id: str
     mode: str
     source_card_id: str
-    current_class: CardClass
+    current_class: CardClass | None
     query: PoolQuery
     inventory_sha256: str
     policy: GenerationPolicy = GenerationPolicy()
@@ -32,11 +32,14 @@ class GenerationScope:
         from .construction import name
         for n in ('id','pool_id','source_card_id'):name(getattr(self,n),'generation scope '+n)
         GenerationContext(self.target_id,self.mode)
-        if type(self.current_class)is not CardClass or self.current_class==CardClass.NEUTRAL:
-            raise ValueError('Generation coverage requires its actual playable class view')
         if type(self.query)is not PoolQuery or type(self.policy)is not GenerationPolicy:
             raise ValueError('Generation coverage requires its exact original query and policy')
         self.query.__post_init__();self.policy.__post_init__()
+        if self.current_class is None:
+            if self.query.class_mode!='any' or self.query.any_of:
+                raise ValueError('Any-recipient generation scope requires its original class-independent query')
+        elif type(self.current_class)is not CardClass or self.current_class==CardClass.NEUTRAL:
+            raise ValueError('Generation coverage requires its actual playable class view')
         if (type(self.inventory_sha256)is not str or len(self.inventory_sha256)!=64 or
                 any(c not in '0123456789abcdef'for c in self.inventory_sha256)):
             raise ValueError('Generation scope requires its full original inventory digest')
@@ -60,7 +63,7 @@ def require_scope(registry,pool,query,*,current_class,source_card_id,policy,excl
     # Trusted pure inventory inspection may omit a source; actual generation
     # always sets exclude_source_by_rule=True and requires its native producer.
     for scope in scopes:
-        if (scope.query==query and scope.current_class==current_class and scope.policy==policy and
+        if (scope.query==query and (scope.current_class is None or scope.current_class==current_class) and scope.policy==policy and
                 (scope.source_card_id==source_card_id or source_card_id is None and not exclude_source_by_rule)):
             return
     from .registry import UnsupportedDefinitionError

@@ -13,7 +13,7 @@ BATCH_PATH = Path(__file__).resolve().parents[2] / 'data/cards/native-past-entry
 BATCH_HASH = '942c3c0839b67552417afb500a352d804209e7c64db265cf631421e35bb73803'
 FLASHBACK = 'TIME_711'
 PREFIX = 'cards.native_past_entry_grant.'
-POOL_ID = 'constructed.past.cards'
+POOL_ID = 'constructed.past.one_cost_minions'
 QUERY = PoolQuery(kinds=(CardType.MINION,), collectible=True, min_cost=1, max_cost=1)
 ENTRY_POLICY = 'original-combo-relative-attack-before-pool-entry-v1'
 

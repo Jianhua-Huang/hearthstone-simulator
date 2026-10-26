@@ -2142,3 +2142,6 @@ TID_712声明AttackSubstitutionProfile与一个原印刷attack_declared监听，
 
 
 接入有限专用参考时，保留所有原成员及权重，给本地池登记GenerationScope的真实来源、职业、原查询/策略与完整库存摘要；不要将某来源名单绑定成任意职业/任意来源的全局域。普通未声明scope的池保持原路径，实际生成缺来源或超范围必须明确失败；受信纯审计查询与实际生成区分。两已知过去视图和保存/未知边界见[契约](m3-source-scoped-past-pools.md)。
+
+
+TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_class=None仅用于原class_mode=any且无职业分支的查询；来源/原查询/策略与摘要仍核对，不能按已实现卡裁池。DRG_303复用原Invoke，已有宿主profile保留；真实家族声明不是英雄/技能/收益的执行适配。原起始牌组限制和不分职业来源见[契约](m3-one-cost-past-pool.md)。

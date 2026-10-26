@@ -1766,3 +1766,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 来源有限的过去卡池用GenerationScope声明完整库存摘要、原pool/target/mode、来源卡、当前职业及原query/policy；公共候选入口在筛选与随机前拒绝未知范围。旧池没有scope时保持原流程；本地v5仅开放已取得的两个德鲁伊来源视图，原发现/学生自动CAST/支付与生成执行器复用。保存身份、完整名单和未确认范围见[契约](m3-source-scoped-past-pools.md)，实际进度仍只在原两份台账。
+
+
+闪回使用独立一费过去域及原class-independent GenerationScope，允许任意收受职业而不放开当前职业查询。原282名单、起始牌组资格和完整元数据独立于可执行覆盖；真实信徒只发Invoke，真实五族声明与未接英雄/收益分开。范围、原资格/保存和真实入口见[契约](m3-one-cost-past-pool.md)，实际进度仍只在原两份台账。

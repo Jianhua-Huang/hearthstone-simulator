@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v5.json'
-MANIFEST_HASH = 'bb3d94d277c7500bbda618f7e8b7fb8d1c7fcd0300bb33db06d44a00d5181ee3'
-FORMAT_VERSION = 'cn37-local-special-pools-v5'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v6.json'
+MANIFEST_HASH = '6ce0acd10f6d7eee07a70cd4a02b570056dddc247c98383188b6087d3e1d53e0'
+FORMAT_VERSION = 'cn37-local-special-pools-v6'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -31,7 +31,8 @@ def load_bindings():
             set(names) & set(value['unresolved_pool_ids'])):
         raise TargetValidationError('Local special pool bindings overlap or replace an unresolved inventory')
     scoped=[p for item in value['scoped_bindings']for p in item['pool_ids']]
-    if (len(scoped)!=len(set(scoped)) or set(scoped)!=set(value['partially_scoped_pool_ids']) or
+    if (len(scoped)!=len(set(scoped)) or set(scoped)!=set(value['scoped_pool_ids']) or
+            not set(value['partially_scoped_pool_ids'])<=set(scoped) or
             set(scoped)&(set(names)|set(ORDINARY_POOLS)|set(value['unresolved_pool_ids']))):
         raise TargetValidationError('Scoped past views overlap an existing or unresolved pool domain')
     return value
@@ -68,11 +69,14 @@ def build_cn37_local_pool_format():
     registry = original.registry
     ordinary = tuple(registry.pool(pool_id, original.context) for pool_id in ORDINARY_POOLS)
     from .cards.past_source_scoped_pools import local_pools,register_scopes,BATCH_PATH
-    if (len(manifest['scoped_bindings'])!=1 or
-            manifest['scoped_bindings'][0]['source_document']!=BATCH_PATH.relative_to(ROOT).as_posix() or
-            manifest['scoped_bindings'][0]['source_document_sha256']!=hashlib.sha256(BATCH_PATH.read_bytes()).hexdigest()):
-        raise TargetValidationError('Scoped past source document changed')
-    pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context)
+    from .cards.one_cost_past_pool import local_pool,register_scope,BATCH_PATH as ONE_COST_PATH
+    paths=(BATCH_PATH,ONE_COST_PATH)
+    if len(manifest['scoped_bindings'])!=len(paths):raise TargetValidationError('Scoped past source documents missing or duplicated')
+    for item,path in zip(manifest['scoped_bindings'],paths):
+        if (item['source_document']!=path.relative_to(ROOT).as_posix() or
+                item['source_document_sha256']!=hashlib.sha256(path.read_bytes()).hexdigest()):
+            raise TargetValidationError('Scoped past source document changed')
+    pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context) + (local_pool(registry,original.context),)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))
@@ -82,6 +86,7 @@ def build_cn37_local_pool_format():
         registry.register_pool(replace(pool, target_id=target_id, mode=context.mode,
             version=manifest['policy_id'] + '-' + binding[:16] + ':' + pool.version))
     register_scopes(registry,context)
+    register_scope(registry,context)
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
     return replace(original, target_id=target_id, binding_digest=binding,
