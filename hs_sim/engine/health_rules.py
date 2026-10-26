@@ -263,6 +263,13 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         definition = registry.card(split_quote.source.card_id)
     if flow == HealthFlow.DAMAGE:
         damage_kind = instruction.kind
+        if (damage_kind == DamageKind.MINION_ABILITY and definition is not None and
+                definition.kind == CardType.HERO_POWER and definition.passive_hero_power):
+            from .assembled_powers import PREFIX as ASSEMBLED_POWER_PREFIX
+            if definition.id.startswith(ASSEMBLED_POWER_PREFIX):
+                # The native borrowed body keeps its numbers and targets. Its
+                # actual immutable passive issuer supplies the damage family.
+                damage_kind = DamageKind.HERO_POWER
         healing_kind = (HealingKind.SPELL if damage_kind == DamageKind.SPELL else
                         HealingKind.HERO_POWER if damage_kind == DamageKind.HERO_POWER else HealingKind.EFFECT)
         if damage_kind == DamageKind.COMBAT and definition.kind not in (CardType.HERO, CardType.MINION):

@@ -138,10 +138,8 @@ def candidates(registry,context,state,spec,primary=None):
         # Other missing adapters/templates never masquerade as ineligibility.
         template=text_source(registry,row.card_id,primary=primary is None)
         if passive:
-            from .assembled_powers import passive_minion
-            if row.card_id not in passive_profile.reviewed_fragment_ids:
-                raise ValueError('Eligible passive assembly minion lacks reviewed power-context compatibility: '+row.card_id)
-            passive_minion(card)
+            from .assembled_powers import validate_fragment
+            validate_fragment(registry,passive_profile,row.card_id)
         if primary is None:
             if spec.primary_trait!='any':
                 match=(Keyword.TAUNT in card.keywords)if spec.primary_trait=='taunt'else spec.primary_trait in prefix_timings(template.prefix)
@@ -166,6 +164,11 @@ def recipe_options(registry,primary,secondary,passive_power_template_id=None):
         if replace(card,id=primary)==original:continue
         if passive_power_template_id is not None:
             from .assembled_powers import power_id
+            policy=registry.assembled_power_profiles[passive_power_template_id]
+            if (set(card.keywords)<=set(policy.ignored_prefix_keywords) and
+                    set(original.keywords)<=set(policy.ignored_prefix_keywords) and
+                    replace(card,id=primary,keywords=())==replace(original,keywords=())):
+                continue
             cid=power_id(registry,passive_power_template_id,cid)
         options.append((half,cid))
     return tuple(options)

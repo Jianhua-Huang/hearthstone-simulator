@@ -27,6 +27,9 @@ def load_batch():
 
 
 def living_source(c):
+    if c.source.kind == CardType.HERO_POWER:
+        from hs_sim.engine.assembled_powers import active_power_source
+        return active_power_source(c)
     return (c.source.kind == CardType.MINION and c.source.zone == Zone.BOARD and c.source.active
             and c.source.health > 0 and not c.source.doomed)
 

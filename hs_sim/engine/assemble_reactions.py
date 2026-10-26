@@ -240,7 +240,16 @@ def reaction_behavior(registry, behavior_id):
         if context.event is None or context.event.kind != row['event']:
             raise ResolutionError('Reaction requires its original captured event')
         try:
-            recipe = recipe_from_id(context.source.card_id)
+            source_kind = CardType.MINION
+            source_card_id = context.source.card_id
+            from .assembled_powers import PREFIX as POWER_PREFIX, power_recipe_from_id
+            if source_card_id.startswith(POWER_PREFIX):
+                # The ordinary face resolver checks the full template, both
+                # source roles and keyword policy before lending its trigger.
+                registry.card(source_card_id)
+                source_card_id = power_recipe_from_id(source_card_id).minion_card_id
+                source_kind = CardType.HERO_POWER
+            recipe = recipe_from_id(source_card_id)
             face = registry.card(context.source.card_id)
             prefix_id = recipe.secondary_card_id if recipe.half == 'top' else recipe.primary_card_id
             profile = registry._assemble_reaction_sources[prefix_id]
@@ -251,7 +260,7 @@ def reaction_behavior(registry, behavior_id):
                 subject_specs(profile, row['behavior_id']))
         except (ValueError, KeyError) as exc:
             raise ResolutionError('Reaction requires its actual immutable assembled source') from exc
-        if (context.source.kind != CardType.MINION or context.source.controller != context.player_id or
+        if (context.source.kind != source_kind or context.source.controller != context.player_id or
                 face.triggers != expected['triggers'] or face.limited_triggers != expected['limited_triggers']):
             raise ResolutionError('Reaction differs from its captured source declaration')
         if type(profile) is AssembleNativeReactionSource and profile.limited is not None:

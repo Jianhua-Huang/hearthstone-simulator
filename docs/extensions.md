@@ -2148,3 +2148,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 为专用标准包增加印刷清单时，保留全部原行和显式资格决定，不按定义覆盖裁池；普通赠送与金色/异画赠品分开，构筑身份与生成身份分别沿原映射。可复用的本地绑定及不确定性要求见[标准包印刷契约](m3-standard-pack-printings.md)。
+
+
+扩展拼装被动技能时，通过单调AssembledPowerProfile声明真实来源和次件投影，保留完整原卡及模板摘要；不要把技能当场上随从或丢掉不兼容成员。原健康/监听执行与有限关键词政策、partial库存和费用窗口边界见[契约](m3-rajh-known-passive-pool.md)。

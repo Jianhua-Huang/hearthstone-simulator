@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v7.json'
-MANIFEST_HASH = '61dd615ab06e7db349447b36f6258c06090d7c8ae2d26a98bfd997cb2591a3c6'
-FORMAT_VERSION = 'cn37-local-special-pools-v7'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v8.json'
+MANIFEST_HASH = '641f299ca3b8c6e5042dbda32d6ddd5be894b5db4cde4d50e7e4c5fa9c202f17'
+FORMAT_VERSION = 'cn37-local-special-pools-v8'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -40,6 +40,13 @@ def load_bindings():
             pack['pool_id'] in set(names) | set(scoped) | set(ORDINARY_POOLS) | set(value['unresolved_pool_ids']) or
             pack['complete_for_declared_inventory'] is not True or pack['formal_pool_complete'] is not False):
         raise TargetValidationError('Local pack inventory overlaps another domain or claims official completeness')
+    rajh = value['rajh_binding']
+    if (rajh['pool_id'] != 'constructed.assemble.rajh' or
+            rajh['pool_id'] in set(names) | set(scoped) | set(ORDINARY_POOLS) | set(value['unresolved_pool_ids']) | {pack['pool_id']} or
+            value['partial_inventory_pool_ids'] != [rajh['pool_id']] or
+            (rajh['reported_total'], rajh['known_member_count'], rajh['missing_member_count']) != (15, 14, 1) or
+            rajh['complete_for_declared_inventory'] is not True or rajh['formal_pool_complete'] is not False):
+        raise TargetValidationError('Rajh known inventory lost its separate domain or explicitly missing member')
     return value
 
 
@@ -76,6 +83,7 @@ def build_cn37_local_pool_format():
     from .cards.past_source_scoped_pools import local_pools,register_scopes,BATCH_PATH
     from .cards.one_cost_past_pool import local_pool,register_scope,BATCH_PATH as ONE_COST_PATH
     from .cards.standard_pack_inventory import local_pool as standard_pack_pool,BATCH_PATH as PACK_PATH
+    from .cards.rajh_known_passive_pool import local_pool as rajh_pool,BATCH_PATH as RAJH_PATH
     paths=(BATCH_PATH,ONE_COST_PATH)
     if len(manifest['scoped_bindings'])!=len(paths):raise TargetValidationError('Scoped past source documents missing or duplicated')
     for item,path in zip(manifest['scoped_bindings'],paths):
@@ -86,8 +94,12 @@ def build_cn37_local_pool_format():
     if (pack['source_document'] != PACK_PATH.relative_to(ROOT).as_posix() or
             pack['source_document_sha256'] != hashlib.sha256(PACK_PATH.read_bytes()).hexdigest()):
         raise TargetValidationError('Local pack source document changed')
+    rajh = manifest['rajh_binding']
+    if (rajh['source_document'] != RAJH_PATH.relative_to(ROOT).as_posix() or
+            rajh['source_document_sha256'] != hashlib.sha256(RAJH_PATH.read_bytes()).hexdigest()):
+        raise TargetValidationError('Local Rajh source document changed')
     pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context) + (
-        local_pool(registry,original.context),standard_pack_pool(registry,original.context))
+        local_pool(registry,original.context),standard_pack_pool(registry,original.context),rajh_pool(registry,original.context))
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))

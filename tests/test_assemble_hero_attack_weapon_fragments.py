@@ -50,8 +50,9 @@ def parts(donor, mode):
 
 
 def unadapted():
-    with patch.object(cards, 'register_assemble_hero_attack_weapon_fragments', lambda r: None):
-        return build_registry()
+    return batch.registration_prefix(build_registry,
+        'hs_sim.cards.assemble_hero_attack_weapon_fragments.register_assemble_hero_attack_weapon_fragments',
+        cards.register_assemble_hero_attack_weapon_fragments)
 
 
 @lru_cache(maxsize=None)

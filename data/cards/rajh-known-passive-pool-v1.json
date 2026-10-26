@@ -1,0 +1,3239 @@
+{
+  "schema": 1,
+  "batch": "K571",
+  "policy_id": "cn37-local-rajh-known-passive-inventory-v1",
+  "pool_id": "constructed.assemble.rajh",
+  "source_card_id": "BE_004",
+  "power_template_id": "BE_004p",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BE_004",
+        "dbf_id": 132353,
+        "name": "拉夏",
+        "name_en": "Rajh",
+        "text": "<b>战吼：</b><b>拼装</b>一个任意职业的随从，将其变形成为一项<b>被动</b>英雄技能。",
+        "text_en": "<b>Battlecry:</b> <b>Assemble</b> a minion from any class. Transform it into a <b>Passive</b> Hero Power.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4556",
+              "name": "CRAFT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ec83dc17f3f44862eb8983e233caa12d62f99c88790e419e6607e7110a355a95",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BE_004",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_RLK_083",
+        "dbf_id": 117027,
+        "name": "死亡寒冰",
+        "name_en": "Deathchiller",
+        "text": "在你施放一个法术后，&随机对两个敌人造成1点伤害。",
+        "text_en": "[x]After you cast a spell,&\ndeal 1 damage to two\nrandom enemies.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 1,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 78649,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 78649,
+          "COST_FROST": 2,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78649",
+              "type": "Int",
+              "value": "78649"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "2d854d53974b1e395eabe15ae51a8654091490258c900e5e339be8f3f85ed12a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "rare",
+        "deck_identity": "CORE_RLK_083",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 2,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "bc00793146cf7fce29f1e9f5f7b8cadf84fda8368d554ecd5817aaa5963820dc",
+      "pool_card_sha256": "faef4928173dadb3bf4cdcdd529e6e06b189408f59f1ca1f1c754961084e8dd7",
+      "fragment_sha256": "e276bcf362478de5e3802ce3845277831fb7ddaf765f340e9c3554e69d408285"
+    },
+    {
+      "record": {
+        "id": "TLC_623",
+        "dbf_id": 117918,
+        "name": "石雕工匠",
+        "name_en": "Stonecarver",
+        "text": "在你的回合结束时，&使一个受伤的其他友方随从获得+2/+2。",
+        "text_en": "At the end of your turn,& give another friendly damaged minion +2/+2.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "710390e9c35bf2994cc85d0e77ced565e23f544bfe7d39b3a74061360a6b1f05",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_623",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "ba9a0c73fb01deb36d6768045b36557a042f7c3fbb8b96dbeff9630cf4c9415d",
+      "pool_card_sha256": "868c364634ec6e45f852e41e6158036e9860e9a0ff3fdecc70c8eca955d4acbf",
+      "fragment_sha256": "5c8ecaa6990a6b7ae6a4ba024d4c17ea883f6850db344af579f6731677a52e86"
+    },
+    {
+      "record": {
+        "id": "BE_997",
+        "dbf_id": 132135,
+        "name": "原始熊猫人",
+        "name_en": "Proto-Pandaren",
+        "text": "在一张卡牌进入你的手牌后<i>（通过本随从进入的除外）</i>，&使双方玩家各获得一张随机法术牌。~GAMEPLAY_ASPROXY_BE_997",
+        "text_en": "After a card enters your hand <i>except from this</i>,&\ngive both players a random spell.~GAMEPLAY_ASPROXY_BE_997",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "087590bb3f2de08f1c6a1e1a66c56f0a630d6e4244d08f5aec9ec732327f3d64",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BE_997",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "049da0606c984bd9b1a32b5f54bcb8ac1e096a4fa304dcebf6cae9cf17ad7753",
+      "pool_card_sha256": "473c8961b3cbd44cb269d16d1a1113696798a308145669c8d7008f9ca814b56d",
+      "fragment_sha256": "97c2d18c3d5efdc05ea371151622826d93702c83bd4464ebbbe497f159c7bb54"
+    },
+    {
+      "record": {
+        "id": "TLC_254",
+        "dbf_id": 118257,
+        "name": "讲故事的始祖龟",
+        "name_en": "Tortollan Storyteller",
+        "text": "在你的回合结束时，&使每个不同类型的各一个友方随从获得+1/+1。",
+        "text_en": "[x]At the end of your turn,&\ngive +1/+1 to each friendly\nminion of a different type.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1952,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "b9d6e39b98009afd1e4d2052d7f6b3c072a2dd3cb6fc6090dfbe3acfcbf63762",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TLC_254",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "fd35255a7066e5cceac2ce11539f26f030aadc3c5d1620b2535022453761d70d",
+      "pool_card_sha256": "d7c9a249b255b1bc86bf951ec3b101de0c817aeca8080dbd6fc2408b81e23053",
+      "fragment_sha256": "798fb00a3dbae72c84ad2f51222033c6b428c104f04f7066f69135690a5bb189"
+    },
+    {
+      "record": {
+        "id": "TLC_833",
+        "dbf_id": 117813,
+        "name": "昆虫利爪",
+        "name_en": "Insect Claw",
+        "text": "在你的英雄攻击后，&召唤一只2/1并具有<b>突袭</b>的异种虫幼体。",
+        "text_en": "After your hero attacks,& summon a 2/1 Grub with <b>Rush</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 14,
+          "CARDTYPE": 7,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 117689,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4546": 1,
+          "4932": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4546",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4546"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4932",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4932"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "733f62d5834e019bd85c9331d703d4a9800edc9bdb7a7ff97690dd71743ed20f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "rare",
+        "deck_identity": "TLC_833",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "cd257fe5bda5ae4375d8f01b49be8ce102a13032df377fece73c5ecac1f168b6",
+      "pool_card_sha256": "c7d2a9bcee4d42728dc54172b985105ced01ec161a48645d8c0a814fe4902e33",
+      "fragment_sha256": "616dac09b9134530e598c136ef9f41e31d50bcb59bdc153f6c801d6a3a1f9fad"
+    },
+    {
+      "record": {
+        "id": "FIR_955",
+        "dbf_id": 115754,
+        "name": "烬根毁灭者",
+        "name_en": "Emberroot Destroyer",
+        "text": "每当你的英雄在你的回合受到伤害，&随机对一个敌方随从造成3点伤害。",
+        "text_en": "[x]Whenever your hero takes\ndamage on your turn,&\ndeal 3 damage to a random\nenemy minion.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1946,
+          "CLASS": 9,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "d444f969e870dbae6e73dc3ed843ef59742ac2fcdd1f3e7e29f80ea9785c4dd6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "common",
+        "deck_identity": "FIR_955",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "8595d0cd4dbf1c343e854b10dd5ee5f87e662ab31fcca20eb16073821eac04f3",
+      "pool_card_sha256": "669bdb9d7d1334342eeeefa3ada185edc02d58de2448dc00f9b2b6ea82d9ada7",
+      "fragment_sha256": "3f254ecbdf9c9cd75475785f4143c393b212f8805a518d3977a61002b81aaaf3"
+    },
+    {
+      "record": {
+        "id": "CORE_TTN_843",
+        "dbf_id": 127589,
+        "name": "艾瑞达欺诈者",
+        "name_en": "Eredar Deceptor",
+        "text": "每当你抽一张牌，&召唤一个1/1并具有<b>突袭</b>的恶魔。",
+        "text_en": "Whenever you draw a card,& summon a 1/1 Demon with <b>Rush</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 14,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 97479,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 97479,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 101499,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "97479",
+              "type": "Int",
+              "value": "97479"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a1270541d29bd22658a0a6df6dbce25f524baf6e5002ce92cc0efd8766738b69",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_TTN_843",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "cf5eb4e6d91a0dac2183952e22a53e2896e256924d9f546db4b64c03f0ec9094",
+      "pool_card_sha256": "4632be442a86ac6dd5d298e3b5f46acdbeda19a9a11baefac435add130a0d629",
+      "fragment_sha256": "df1ed86e75306bf9e03cae4b636321331056ed2f36a3cd8d7ca3d8646ecdbb7e"
+    },
+    {
+      "record": {
+        "id": "EDR_462",
+        "dbf_id": 114308,
+        "name": "逐月幼龙",
+        "name_en": "Selenic Drake",
+        "text": "<b>扰魔</b>。在你的回合结束时，&随机获取一张龙牌。~GAMEPLAY_ASPROXY_EDR_462",
+        "text_en": "[x]<b>Elusive</b>\nAt the end of your turn,&\nget a random Dragon.~GAMEPLAY_ASPROXY_EDR_462",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1946,
+          "CLASS": 6,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "feceb636a6a7f07131a6e2754b46dc38cd8598ee0309e91e4052253cda8de1ef",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "EDR_462",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "2627cb4c0390a2226e184a3c4ed87de85efd226fe5db32078b122c5eaa36481d",
+      "pool_card_sha256": "f7acc7d8642d012bd26151674712b9d8f0c456b5191758fcd7c3f4be4fc5dec3",
+      "fragment_sha256": "2d400d28fab99ce24630ee457a83bb21e2f9c7f2363342a547002ba597ce5766"
+    },
+    {
+      "record": {
+        "id": "CORE_BAR_878",
+        "dbf_id": 130580,
+        "name": "战地医师老兵",
+        "name_en": "Veteran Warmedic",
+        "text": "在你施放一个神圣法术后，&召唤一个2/2并具有<b>吸血</b>的医师。",
+        "text_en": "[x]After you cast a Holy spell,&\n summon a 2/2 Medic\nwith <b>Lifesteal</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1637,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 62933,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62933,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 63321,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Wu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62933",
+              "type": "Int",
+              "value": "62933"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "85e9d8cfcd3df7f815a68724c94e9e22524ea456dd2be7de640ab0ef634d9756",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "epic",
+        "deck_identity": "CORE_BAR_878",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "8e70d2f6370ee695a8eb4cb6670aa81364dd197293911e5ebf9235e4811316ca",
+      "pool_card_sha256": "2bed40f5b4d73038dab98ad7b290e32cba4b474c7644bcc7f8352c30b9dd090d",
+      "fragment_sha256": "6a12c00661bf130e37448d6598653582ee4837ed225d4aa8f96d0b397c01be53"
+    },
+    {
+      "record": {
+        "id": "TIME_100",
+        "dbf_id": 121051,
+        "name": "沙漏侍者",
+        "name_en": "Hourglass Attendant",
+        "text": "<b>圣盾</b>。在你的回合结束时，&使你手牌中的所有随从牌获得+1/+1。",
+        "text_en": "[x]<b>Divine Shield</b>\nAt the end of your turn,&\ngive all minions in your\nhand +1/+1.",
+        "cost": 4,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1957,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "141988d3f51e79cc85950824123b0a4016100026b5654f22b54da90a2db64b98",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_100",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "141bb0323a6fc11a842508a019b102c8666eddc4aa611579168b833fec548d1c",
+      "pool_card_sha256": "0fb37a85797e61ac853dbe3c22449d1297ebd136b7f6766698ceba1fef2658ac",
+      "fragment_sha256": "1fdbbb4c14d290020a94db2bb7433441a1af9f7ce0fa37554aa8fa2102fab735"
+    },
+    {
+      "record": {
+        "id": "CATA_133",
+        "dbf_id": 122970,
+        "name": "彩翼灵龙",
+        "name_en": "Iridescent Flitterwing",
+        "text": "<b>扰魔</b>。在你的回合结束时，&使你的其他随从获得+1/+1。",
+        "text_en": "<b>Elusive</b>\nAt the end of your\nturn,& give your other\nminions +1/+1.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "ELUSIVE": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kati Sarin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "72434e5e92a318d653ae56367e9e61e57f099a8465ae728e96faec7f31d57e27",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "CATA_133",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "89f97b62a9e6ce9518d77dc3e4e375b1f891c72b51f2e1cc0860b091211704a6",
+      "pool_card_sha256": "6c1422dad0855467e34377e06e08911d7388fec2a32c5364dc26e9992221b2b6",
+      "fragment_sha256": "20063210a51890c7f4daa40e8c59338d0738801cd337ca7dd145eb1fd1c5d469"
+    },
+    {
+      "record": {
+        "id": "EDR_853",
+        "dbf_id": 114857,
+        "name": "布罗尔·熊皮",
+        "name_en": "Broll Bearmantle",
+        "text": "在你施放一个法术后，&随机召唤一个动物伙伴。",
+        "text_en": "After you cast a spell,& summon a random\nAnimal Companion.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1946,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "89cb21145ee4f438435860fa3e7d30bcc72e7f59fff690a59a5b697563154506",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EDR_853",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "29fb2e9e163b7e11b938dcf8030e1a53c6b18870ebb81d95b19675b3e41ec270",
+      "pool_card_sha256": "62508dbe0b59fbfd2a7bd22b2c4b587ff6efac4b5654c20ceacc5af0151c71e8",
+      "fragment_sha256": "ee143ca8684098c7e766f9096ef7178616d54bce6cc10dd41f254560331cfeeb"
+    },
+    {
+      "record": {
+        "id": "BE_701",
+        "dbf_id": 129943,
+        "name": "OC91战车",
+        "name_en": "OC91 Chariot",
+        "text": "在你使用一张随从牌后，&抽一张牌。",
+        "text_en": "After you play a minion,& draw a card.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "baa704d184120b46ac38d61bd4a592420398f7d761a7a483238891399bf6646e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_701",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "96857efb48164e3d0498821b18517830edb5d7b4f16224cb764df0461aa43872",
+      "pool_card_sha256": "bd401d84a5c75578aaa4fc6c610257390cbcf181a0bf209fde296fa7da31eca7",
+      "fragment_sha256": "f3ee7e191ac11938c55673b97e167df12bb19ba5139bafa4e934844c79d55062"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_559",
+        "dbf_id": 120426,
+        "name": "大法师安东尼达斯",
+        "name_en": "Archmage Antonidas",
+        "text": "每当你施放一个法术，&将一张“火球术”法术牌置入你的手牌。",
+        "text_en": "Whenever you cast a spell,& add a 'Fireball' spell to_your hand.",
+        "cost": 7,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 3,
+          "COLLECTIBLE": 1,
+          "858": 1080,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 1080,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 315,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1080",
+              "type": "Int",
+              "value": "1080"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "07f6ca7c2f96202540727aa4d7348c42cad3a9626389961424b59e19249a323e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "CORE_EX1_559",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "24e01f03c060bbbb81a43f0bdd84b935a68bcf602237a880eb6dc410ba2370a7",
+      "pool_card_sha256": "faeb383d35a03b0dddf2d571121914ef34956032287e661eb01d7a03d17bef9e",
+      "fragment_sha256": "eb4baa77a1512cd89a2fcc1d69b3531f262c288dc9cf1b3daca0990e27f200f3"
+    },
+    {
+      "record": {
+        "id": "BE_152",
+        "dbf_id": 129131,
+        "name": "太阳舞者",
+        "name_en": "Sundancer",
+        "text": "在你的回合结束时，&获取一张法力值消耗为（2）的祝福。祝福可以使随从获得+2/+3。",
+        "text_en": "At the end of your turn,&\nget a 2-Cost Blessing\nthat gives +2/+3.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1994,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 130638,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 130638,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1,
+          "4578": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          }
+        ]
+      },
+      "record_sha256": "ee4d39d47e6e983b45fac7d640fb259ef5a6492abd859e86a1f11eff8ea8ce40",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "common",
+        "deck_identity": "BE_152",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "ed3ea3944596b02ee52b2f872f30bc8770d0bfe541f269241372dd490e082526",
+      "pool_card_sha256": "dc2aa17aef552b844b3c1232aaf2d5f20c9b0ee6ac40a3f5816054170c8426f8",
+      "fragment_sha256": "d0ffa99e21d31b0c62d95042de069c28deee1cb3c83ce05004d707afa8237808"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_210",
+        "dbf_id": 95746,
+        "name": "暗影升腾者",
+        "name_en": "Shadow Ascendant",
+        "text": "在你的回合结束时，&随机使另一个友方随从获得+1/+1。",
+        "text_en": "[x]At the end of your turn,&\ngive another random\nfriendly minion +1/+1.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 6,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 42574,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Kwon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "42574",
+              "type": "Int",
+              "value": "42574"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "18026dfbe7a4f807f6cf6b0b2c443dfc8e60a7a42d89e7687a7af8c8a0b99497",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "common",
+        "deck_identity": "CORE_ICC_210",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "4a2db9ee9c4cbf26c9d6d688ff10ee10ccf3d316d5c64523fcfefae804adfca5",
+      "pool_card_sha256": "36742d8bfc3f2e55ac8f27a4cf1ae26670f0d05d4ce5cb02a97aff24ab598b6b",
+      "fragment_sha256": "d9cb347c43eb6bd002557e3f39d67fb32db674945fe0e85412ae90eaaa5f61ba"
+    },
+    {
+      "record": {
+        "id": "TIME_428",
+        "dbf_id": 120452,
+        "name": "昨日鱼人",
+        "name_en": "Yesterloc",
+        "text": "在你的回合结束时，&使你的其他随从获得+1生命值。",
+        "text_en": "At the end of your turn,& give your other minions +1_Health.",
+        "cost": 2,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 12,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4577": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4577",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4577"
+          }
+        ]
+      },
+      "record_sha256": "e3572949c41a594f2c29c11e34dfe2e5a16f4cc1232a0c03e1860d27312c5ba7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "common",
+        "deck_identity": "TIME_428",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "murloc"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "125b45f1568930f833cd368ecd512248d2bc03eb1d4b4c6709cba70d0d62a8b5",
+      "pool_card_sha256": "2225f5a074abd566a97c31b9cdba9fcc10198256c65cc054b44e6e8bc2a949bb",
+      "fragment_sha256": "91b04b9f43bd5f3cddd360c5145083daddd1f3a296f48dc6328a1db2e0c41652"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BE_004p",
+        "dbf_id": 132368,
+        "name": "阳炎耀光",
+        "name_en": "Sun's Radiance",
+        "text": "{0}",
+        "text_en": "{0}",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1994,
+          "CLASS": 12,
+          "CARDTYPE": 10,
+          "HIDE_COST": 1
+        },
+        "card_set_id": 1994,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "60682d8b56e484eec1cc77cfa313b8ddb61bddfa54576184387b8b9a1796f3f0",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "BE_004p",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_faces": [
+    {
+      "card_id": "BE_004",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 132353,
+        "collectible": 1,
+        "slug": "132353-rajh",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "拉夏",
+        "text": "<b>战吼：</b><b>拼装</b>一个任意职业的随从，将其变形成为一项<b>被动</b>英雄技能。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37b3615044713ee1ee39520281111fd1fd50fe41983f31a2f27c4909bd7dcd1a.png",
+        "imageGold": "",
+        "flavorText": "如果没有太阳，生命必将枯萎。然而太阳并不在乎生命。它散发着光芒，比魔法还要闪亮，甚至可以融化我们脚下的岩石。因此，拉夏肩上的责任极为重大。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e28d7d100409bb17ca66d586a81d21f1c879b4589a6059c30e21b5094cc952f2.png",
+        "childIds": [
+          132368
+        ],
+        "keywordIds": [
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BE_004",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 132353,
+        "collectible": 1,
+        "slug": "132353-rajh",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1994,
+        "rarityId": 5,
+        "artistName": "Sergey Tsvelykh",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "Rajh",
+        "text": "<b>Battlecry:</b> <b>Assemble</b> a minion from any class. Transform it into a <b>Passive</b> Hero Power.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c687b573d20d6d8d8484cd850760ddfbffa0762a3f0f0a7cafbd5195dfd9116.png",
+        "imageGold": "",
+        "flavorText": "Without the sun, life withers. But the sun cares not for life. It shines brighter than magic. It can melt the very stones beneath our feet. So it was Rajh who was left the greatest responsibility.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e28d7d100409bb17ca66d586a81d21f1c879b4589a6059c30e21b5094cc952f2.png",
+        "childIds": [
+          132368
+        ],
+        "keywordIds": [
+          8,
+          397
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "candidate_reference": {
+    "path": "data/support/rajh-published-members-v1.json",
+    "sha256": "0150d5349a923c26709199a9622e05ed08803a3381129265db1094f67c7734d3",
+    "reference": {
+      "schema": 1,
+      "source_url": "https://www.iyingdi.com/tz/post/5758699",
+      "source_html_sha256": "dce598e4215962b56d74a876171b575e363633af1fbd6090457e98475c60b38e",
+      "scope": "Evidence only: fourteen named members, reported total fifteen. No runtime pool or passive-power compatibility claim.",
+      "reported_total": 15,
+      "reported_missing_member_count": 1,
+      "official_pool_complete": false,
+      "cn_calibrated": false,
+      "observations": [
+        {
+          "source": {
+            "role": "rajh",
+            "name": "死亡寒冰",
+            "kind": "MINION",
+            "cost": 2,
+            "attack": 2,
+            "secondary_stat": 3,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/CS2026/card/214.png",
+            "image_series": "CS2026",
+            "site_card_id": "15030"
+          },
+          "card_id": "CORE_RLK_083",
+          "dbf_id": 117027,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "CORE_RLK_083",
+            "RLK_083"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "石雕工匠",
+            "kind": "MINION",
+            "cost": 2,
+            "attack": 1,
+            "secondary_stat": 4,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/LCU/card/198.png?v=1773231037",
+            "image_series": "LCU",
+            "site_card_id": "12516"
+          },
+          "card_id": "TLC_623",
+          "dbf_id": 117918,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "TLC_623"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "原始熊猫人",
+            "kind": "MINION",
+            "cost": 2,
+            "attack": 3,
+            "secondary_stat": 2,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/RBE/card/114.png",
+            "image_series": "RBE",
+            "site_card_id": "15692"
+          },
+          "card_id": "BE_997",
+          "dbf_id": 132135,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "BE_997"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "讲故事的始祖龟",
+            "kind": "MINION",
+            "cost": 2,
+            "attack": 1,
+            "secondary_stat": 2,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/LCU/card/64.png",
+            "image_series": "LCU",
+            "site_card_id": "12379"
+          },
+          "card_id": "TLC_254",
+          "dbf_id": 118257,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "TLC_254"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "昆虫利爪",
+            "kind": "WEAPON",
+            "cost": 3,
+            "attack": 2,
+            "secondary_stat": 2,
+            "secondary_stat_role": "durability",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/LCU/card/178.png",
+            "image_series": "LCU",
+            "site_card_id": "12496"
+          },
+          "card_id": "TLC_833",
+          "dbf_id": 117813,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "TLC_833"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "烬根毁灭者",
+            "kind": "MINION",
+            "cost": 3,
+            "attack": 3,
+            "secondary_stat": 3,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/EWT/card/35.png",
+            "image_series": "EWT",
+            "site_card_id": "12149"
+          },
+          "card_id": "FIR_955",
+          "dbf_id": 115754,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "FIR_955"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "艾瑞达欺诈者",
+            "kind": "MINION",
+            "cost": 4,
+            "attack": 3,
+            "secondary_stat": 5,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/CS2026/card/250.png",
+            "image_series": "CS2026",
+            "site_card_id": "15066"
+          },
+          "card_id": "CORE_TTN_843",
+          "dbf_id": 127589,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "CORE_TTN_843",
+            "TTN_843"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "逐月幼龙",
+            "kind": "MINION",
+            "cost": 4,
+            "attack": 3,
+            "secondary_stat": 6,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/IED/card/24.png",
+            "image_series": "IED",
+            "site_card_id": "11632"
+          },
+          "card_id": "EDR_462",
+          "dbf_id": 114308,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "EDR_462"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "战地医师老兵",
+            "kind": "MINION",
+            "cost": 4,
+            "attack": 3,
+            "secondary_stat": 5,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/CS2026/card/15.png",
+            "image_series": "CS2026",
+            "site_card_id": "14831"
+          },
+          "card_id": "CORE_BAR_878",
+          "dbf_id": 130580,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "BAR_878",
+            "CORE_BAR_878"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "沙漏侍者",
+            "kind": "MINION",
+            "cost": 4,
+            "attack": 2,
+            "secondary_stat": 4,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/ATT/card/128.png",
+            "image_series": "ATT",
+            "site_card_id": "14442"
+          },
+          "card_id": "TIME_100",
+          "dbf_id": 121051,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "TIME_100"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "彩翼灵龙",
+            "kind": "MINION",
+            "cost": 5,
+            "attack": 4,
+            "secondary_stat": 5,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/CAT/card/202.png",
+            "image_series": "CAT",
+            "site_card_id": "14806"
+          },
+          "card_id": "CATA_133",
+          "dbf_id": 122970,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "CATA_133"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "布罗尔·熊皮",
+            "kind": "MINION",
+            "cost": 5,
+            "attack": 3,
+            "secondary_stat": 5,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/IED/card/117.png",
+            "image_series": "IED",
+            "site_card_id": "11734"
+          },
+          "card_id": "EDR_853",
+          "dbf_id": 114857,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "EDR_853"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "OC91战车",
+            "kind": "MINION",
+            "cost": 5,
+            "attack": 5,
+            "secondary_stat": 5,
+            "secondary_stat_role": "health",
+            "image_url": null,
+            "image_series": null,
+            "site_card_id": null
+          },
+          "card_id": "BE_701",
+          "dbf_id": 129943,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "BE_701"
+          ],
+          "omitted_zero_fields": []
+        },
+        {
+          "source": {
+            "role": "rajh",
+            "name": "大法师安东尼达斯",
+            "kind": "MINION",
+            "cost": 7,
+            "attack": 5,
+            "secondary_stat": 7,
+            "secondary_stat_role": "health",
+            "image_url": "https://pic.iyingdi.com/before825java/card/hearthstone/series/CS2026/card/152.png",
+            "image_series": "CS2026",
+            "site_card_id": "14968"
+          },
+          "card_id": "CORE_EX1_559",
+          "dbf_id": 120426,
+          "basis": "name_class_kind_printed_face_and_image_series",
+          "candidates": [
+            "CORE_EX1_559",
+            "EX1_559",
+            "VAN_EX1_559"
+          ],
+          "omitted_zero_fields": []
+        }
+      ],
+      "cards": [
+        {
+          "record": {
+            "id": "CORE_RLK_083",
+            "dbf_id": 117027,
+            "name": "死亡寒冰",
+            "name_en": "Deathchiller",
+            "text": "在你施放一个法术后，&随机对两个敌人造成1点伤害。",
+            "text_en": "[x]After you cast a spell,&\ndeal 1 damage to two\nrandom enemies.",
+            "cost": 2,
+            "attack": 2,
+            "health": 3,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 3,
+              "ATK": 2,
+              "COST": 2,
+              "CARD_SET": 1637,
+              "CLASS": 1,
+              "CARDRACE": 18,
+              "CARDTYPE": 4,
+              "RARITY": 3,
+              "COLLECTIBLE": 1,
+              "858": 78649,
+              "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 78649,
+              "COST_FROST": 2,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4930": 1
+            },
+            "card_set_id": 1637,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Ramzy Kamen"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "858",
+                  "name": "78649",
+                  "type": "Int",
+                  "value": "78649"
+                },
+                "normalized_key": "858"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4930",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4930"
+              }
+            ]
+          },
+          "record_sha256": "2d854d53974b1e395eabe15ae51a8654091490258c900e5e339be8f3f85ed12a"
+        },
+        {
+          "record": {
+            "id": "TLC_623",
+            "dbf_id": 117918,
+            "name": "石雕工匠",
+            "name_en": "Stonecarver",
+            "text": "在你的回合结束时，&使一个受伤的其他友方随从获得+2/+2。",
+            "text_en": "At the end of your turn,& give another friendly damaged minion +2/+2.",
+            "cost": 2,
+            "attack": 1,
+            "health": 4,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 4,
+              "ATK": 1,
+              "COST": 2,
+              "CARD_SET": 1952,
+              "CLASS": 10,
+              "CARDTYPE": 4,
+              "RARITY": 4,
+              "COLLECTIBLE": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4577": 1
+            },
+            "card_set_id": 1952,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Stefano Spagnuolo"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4577",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4577"
+              }
+            ]
+          },
+          "record_sha256": "710390e9c35bf2994cc85d0e77ced565e23f544bfe7d39b3a74061360a6b1f05"
+        },
+        {
+          "record": {
+            "id": "BE_997",
+            "dbf_id": 132135,
+            "name": "原始熊猫人",
+            "name_en": "Proto-Pandaren",
+            "text": "在一张卡牌进入你的手牌后<i>（通过本随从进入的除外）</i>，&使双方玩家各获得一张随机法术牌。~GAMEPLAY_ASPROXY_BE_997",
+            "text_en": "After a card enters your hand <i>except from this</i>,&\ngive both players a random spell.~GAMEPLAY_ASPROXY_BE_997",
+            "cost": 2,
+            "attack": 3,
+            "health": 2,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 2,
+              "ATK": 3,
+              "COST": 2,
+              "CARD_SET": 1994,
+              "CLASS": 12,
+              "CARDTYPE": 4,
+              "RARITY": 4,
+              "COLLECTIBLE": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1
+            },
+            "card_set_id": 1994,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Jakub Kasper"
+              }
+            ]
+          },
+          "record_sha256": "087590bb3f2de08f1c6a1e1a66c56f0a630d6e4244d08f5aec9ec732327f3d64"
+        },
+        {
+          "record": {
+            "id": "TLC_254",
+            "dbf_id": 118257,
+            "name": "讲故事的始祖龟",
+            "name_en": "Tortollan Storyteller",
+            "text": "在你的回合结束时，&使每个不同类型的各一个友方随从获得+1/+1。",
+            "text_en": "[x]At the end of your turn,&\ngive +1/+1 to each friendly\nminion of a different type.",
+            "cost": 2,
+            "attack": 1,
+            "health": 2,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 2,
+              "ATK": 1,
+              "COST": 2,
+              "CARD_SET": 1952,
+              "CLASS": 12,
+              "CARDTYPE": 4,
+              "RARITY": 4,
+              "COLLECTIBLE": 1,
+              "HAS_SIGNATURE_QUALITY": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4577": 1
+            },
+            "card_set_id": 1952,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Max Grecke"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4577",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4577"
+              }
+            ]
+          },
+          "record_sha256": "b9d6e39b98009afd1e4d2052d7f6b3c072a2dd3cb6fc6090dfbe3acfcbf63762"
+        },
+        {
+          "record": {
+            "id": "TLC_833",
+            "dbf_id": 117813,
+            "name": "昆虫利爪",
+            "name_en": "Insect Claw",
+            "text": "在你的英雄攻击后，&召唤一只2/1并具有<b>突袭</b>的异种虫幼体。",
+            "text_en": "After your hero attacks,& summon a 2/1 Grub with <b>Rush</b>.",
+            "cost": 3,
+            "attack": 2,
+            "health": 2,
+            "type": "WEAPON",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 2,
+              "ATK": 2,
+              "COST": 3,
+              "CARD_SET": 1952,
+              "CLASS": 14,
+              "CARDTYPE": 7,
+              "RARITY": 3,
+              "COLLECTIBLE": 1,
+              "COLLECTION_RELATED_CARD_DATABASE_ID": 117689,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4546": 1,
+              "4932": 1
+            },
+            "card_set_id": 1952,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Studio Hive"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4546",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4546"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4932",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4932"
+              },
+              {
+                "tag": "ReferencedTag",
+                "attributes": {
+                  "enumID": "791",
+                  "name": "RUSH",
+                  "type": "Int",
+                  "value": "1"
+                }
+              }
+            ]
+          },
+          "record_sha256": "733f62d5834e019bd85c9331d703d4a9800edc9bdb7a7ff97690dd71743ed20f"
+        },
+        {
+          "record": {
+            "id": "FIR_955",
+            "dbf_id": 115754,
+            "name": "烬根毁灭者",
+            "name_en": "Emberroot Destroyer",
+            "text": "每当你的英雄在你的回合受到伤害，&随机对一个敌方随从造成3点伤害。",
+            "text_en": "[x]Whenever your hero takes\ndamage on your turn,&\ndeal 3 damage to a random\nenemy minion.",
+            "cost": 3,
+            "attack": 3,
+            "health": 3,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 3,
+              "ATK": 3,
+              "COST": 3,
+              "CARD_SET": 1946,
+              "CLASS": 9,
+              "FACTION": 3,
+              "CARDTYPE": 4,
+              "RARITY": 1,
+              "COLLECTIBLE": 1,
+              "MINI_SET": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1
+            },
+            "card_set_id": 1946,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Luca Zontini"
+              }
+            ]
+          },
+          "record_sha256": "d444f969e870dbae6e73dc3ed843ef59742ac2fcdd1f3e7e29f80ea9785c4dd6"
+        },
+        {
+          "record": {
+            "id": "CORE_TTN_843",
+            "dbf_id": 127589,
+            "name": "艾瑞达欺诈者",
+            "name_en": "Eredar Deceptor",
+            "text": "每当你抽一张牌，&召唤一个1/1并具有<b>突袭</b>的恶魔。",
+            "text_en": "Whenever you draw a card,& summon a 1/1 Demon with <b>Rush</b>.",
+            "cost": 4,
+            "attack": 3,
+            "health": 5,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 5,
+              "ATK": 3,
+              "COST": 4,
+              "CARD_SET": 1637,
+              "CLASS": 14,
+              "CARDRACE": 15,
+              "CARDTYPE": 4,
+              "RARITY": 1,
+              "COLLECTIBLE": 1,
+              "858": 97479,
+              "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 97479,
+              "COLLECTION_RELATED_CARD_DATABASE_ID": 101499,
+              "CRAFTABLE_OUTPUT_POWER": 1
+            },
+            "card_set_id": 1637,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Konstantin Turovec"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "858",
+                  "name": "97479",
+                  "type": "Int",
+                  "value": "97479"
+                },
+                "normalized_key": "858"
+              },
+              {
+                "tag": "ReferencedTag",
+                "attributes": {
+                  "enumID": "791",
+                  "name": "RUSH",
+                  "type": "Int",
+                  "value": "1"
+                }
+              }
+            ]
+          },
+          "record_sha256": "a1270541d29bd22658a0a6df6dbce25f524baf6e5002ce92cc0efd8766738b69"
+        },
+        {
+          "record": {
+            "id": "EDR_462",
+            "dbf_id": 114308,
+            "name": "逐月幼龙",
+            "name_en": "Selenic Drake",
+            "text": "<b>扰魔</b>。在你的回合结束时，&随机获取一张龙牌。~GAMEPLAY_ASPROXY_EDR_462",
+            "text_en": "[x]<b>Elusive</b>\nAt the end of your turn,&\nget a random Dragon.~GAMEPLAY_ASPROXY_EDR_462",
+            "cost": 4,
+            "attack": 3,
+            "health": 6,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 6,
+              "ATK": 3,
+              "COST": 4,
+              "CARD_SET": 1946,
+              "CLASS": 6,
+              "CARDRACE": 24,
+              "CARDTYPE": 4,
+              "RARITY": 3,
+              "COLLECTIBLE": 1,
+              "ELUSIVE": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4577": 1
+            },
+            "card_set_id": 1946,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Edgar Hidalgo"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4577",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4577"
+              }
+            ]
+          },
+          "record_sha256": "feceb636a6a7f07131a6e2754b46dc38cd8598ee0309e91e4052253cda8de1ef"
+        },
+        {
+          "record": {
+            "id": "CORE_BAR_878",
+            "dbf_id": 130580,
+            "name": "战地医师老兵",
+            "name_en": "Veteran Warmedic",
+            "text": "在你施放一个神圣法术后，&召唤一个2/2并具有<b>吸血</b>的医师。",
+            "text_en": "[x]After you cast a Holy spell,&\n summon a 2/2 Medic\nwith <b>Lifesteal</b>.",
+            "cost": 4,
+            "attack": 3,
+            "health": 5,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 5,
+              "ATK": 3,
+              "COST": 4,
+              "CARD_SET": 1637,
+              "CLASS": 5,
+              "CARDTYPE": 4,
+              "RARITY": 4,
+              "COLLECTIBLE": 1,
+              "858": 62933,
+              "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 62933,
+              "COLLECTION_RELATED_CARD_DATABASE_ID": 63321,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4930": 1
+            },
+            "card_set_id": 1637,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Wayne Wu"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "858",
+                  "name": "62933",
+                  "type": "Int",
+                  "value": "62933"
+                },
+                "normalized_key": "858"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4930",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4930"
+              },
+              {
+                "tag": "ReferencedTag",
+                "attributes": {
+                  "enumID": "685",
+                  "name": "LIFESTEAL",
+                  "type": "Int",
+                  "value": "1"
+                }
+              }
+            ]
+          },
+          "record_sha256": "85e9d8cfcd3df7f815a68724c94e9e22524ea456dd2be7de640ab0ef634d9756"
+        },
+        {
+          "record": {
+            "id": "TIME_100",
+            "dbf_id": 121051,
+            "name": "沙漏侍者",
+            "name_en": "Hourglass Attendant",
+            "text": "<b>圣盾</b>。在你的回合结束时，&使你手牌中的所有随从牌获得+1/+1。",
+            "text_en": "[x]<b>Divine Shield</b>\nAt the end of your turn,&\ngive all minions in your\nhand +1/+1.",
+            "cost": 4,
+            "attack": 2,
+            "health": 4,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 4,
+              "ATK": 2,
+              "COST": 4,
+              "CARD_SET": 1957,
+              "DIVINE_SHIELD": 1,
+              "CLASS": 12,
+              "FACTION": 1,
+              "CARDTYPE": 4,
+              "RARITY": 1,
+              "COLLECTIBLE": 1,
+              "HAS_SIGNATURE_QUALITY": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4577": 1
+            },
+            "card_set_id": 1957,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Matt Dixon"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4577",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4577"
+              }
+            ]
+          },
+          "record_sha256": "141988d3f51e79cc85950824123b0a4016100026b5654f22b54da90a2db64b98"
+        },
+        {
+          "record": {
+            "id": "CATA_133",
+            "dbf_id": 122970,
+            "name": "彩翼灵龙",
+            "name_en": "Iridescent Flitterwing",
+            "text": "<b>扰魔</b>。在你的回合结束时，&使你的其他随从获得+1/+1。",
+            "text_en": "<b>Elusive</b>\nAt the end of your\nturn,& give your other\nminions +1/+1.",
+            "cost": 5,
+            "attack": 4,
+            "health": 5,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 5,
+              "ATK": 4,
+              "COST": 5,
+              "CARD_SET": 1980,
+              "CLASS": 2,
+              "CARDRACE": 24,
+              "CARDTYPE": 4,
+              "RARITY": 1,
+              "COLLECTIBLE": 1,
+              "ELUSIVE": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4577": 1
+            },
+            "card_set_id": 1980,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Kati Sarin"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4577",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4577"
+              }
+            ]
+          },
+          "record_sha256": "72434e5e92a318d653ae56367e9e61e57f099a8465ae728e96faec7f31d57e27"
+        },
+        {
+          "record": {
+            "id": "EDR_853",
+            "dbf_id": 114857,
+            "name": "布罗尔·熊皮",
+            "name_en": "Broll Bearmantle",
+            "text": "在你施放一个法术后，&随机召唤一个动物伙伴。",
+            "text_en": "After you cast a spell,& summon a random\nAnimal Companion.",
+            "cost": 5,
+            "attack": 3,
+            "health": 5,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 5,
+              "ATK": 3,
+              "COST": 5,
+              "ELITE": 1,
+              "CARD_SET": 1946,
+              "CLASS": 3,
+              "CARDTYPE": 4,
+              "RARITY": 5,
+              "COLLECTIBLE": 1,
+              "HAS_DIAMOND_QUALITY": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4930": 1
+            },
+            "card_set_id": 1946,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Luca Zontini"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4930",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4930"
+              }
+            ]
+          },
+          "record_sha256": "89cb21145ee4f438435860fa3e7d30bcc72e7f59fff690a59a5b697563154506"
+        },
+        {
+          "record": {
+            "id": "BE_701",
+            "dbf_id": 129943,
+            "name": "OC91战车",
+            "name_en": "OC91 Chariot",
+            "text": "在你使用一张随从牌后，&抽一张牌。",
+            "text_en": "After you play a minion,& draw a card.",
+            "cost": 5,
+            "attack": 5,
+            "health": 5,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 5,
+              "ATK": 5,
+              "COST": 5,
+              "CARD_SET": 1994,
+              "CLASS": 12,
+              "CARDRACE": 17,
+              "CARDTYPE": 4,
+              "RARITY": 1,
+              "COLLECTIBLE": 1,
+              "HAS_SIGNATURE_QUALITY": 1,
+              "CRAFTABLE_OUTPUT_POWER": 1
+            },
+            "card_set_id": 1994,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Vlad Botos"
+              }
+            ]
+          },
+          "record_sha256": "baa704d184120b46ac38d61bd4a592420398f7d761a7a483238891399bf6646e"
+        },
+        {
+          "record": {
+            "id": "CORE_EX1_559",
+            "dbf_id": 120426,
+            "name": "大法师安东尼达斯",
+            "name_en": "Archmage Antonidas",
+            "text": "每当你施放一个法术，&将一张“火球术”法术牌置入你的手牌。",
+            "text_en": "Whenever you cast a spell,& add a 'Fireball' spell to_your hand.",
+            "cost": 7,
+            "attack": 5,
+            "health": 7,
+            "type": "MINION",
+            "collectible": true,
+            "tags": {
+              "TRIGGER_VISUAL": 1,
+              "HEALTH": 7,
+              "ATK": 5,
+              "COST": 7,
+              "ELITE": 1,
+              "CARD_SET": 1637,
+              "CLASS": 4,
+              "FACTION": 3,
+              "CARDTYPE": 4,
+              "RARITY": 5,
+              "251": 3,
+              "COLLECTIBLE": 1,
+              "858": 1080,
+              "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 1080,
+              "COLLECTION_RELATED_CARD_DATABASE_ID": 315,
+              "CRAFTABLE_OUTPUT_POWER": 1,
+              "4930": 1
+            },
+            "card_set_id": 1637,
+            "source_entity_version": "2",
+            "reference_tags": [],
+            "power_keyword_tags": [],
+            "related_dbf_ids": [],
+            "xml_card_references": [],
+            "unmapped_xml_nodes": [
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "342",
+                  "name": "ARTISTNAME",
+                  "type": "String"
+                },
+                "text": "Wayne Reynolds"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "251",
+                  "name": "AttackVisualType",
+                  "type": "Int",
+                  "value": "3"
+                },
+                "normalized_key": "251"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "858",
+                  "name": "1080",
+                  "type": "Int",
+                  "value": "1080"
+                },
+                "normalized_key": "858"
+              },
+              {
+                "tag": "Tag",
+                "attributes": {
+                  "enumID": "4930",
+                  "name": "1",
+                  "type": "Int",
+                  "value": "1"
+                },
+                "normalized_key": "4930"
+              }
+            ]
+          },
+          "record_sha256": "07f6ca7c2f96202540727aa4d7348c42cad3a9626389961424b59e19249a323e"
+        }
+      ]
+    }
+  },
+  "candidate_ids": [
+    "CORE_RLK_083",
+    "TLC_623",
+    "BE_997",
+    "TLC_254",
+    "TLC_833",
+    "FIR_955",
+    "CORE_TTN_843",
+    "EDR_462",
+    "CORE_BAR_878",
+    "TIME_100",
+    "CATA_133",
+    "EDR_853",
+    "BE_701",
+    "CORE_EX1_559"
+  ],
+  "base_profile": {
+    "template_card_id": "BE_004p",
+    "source_card_id": "BE_004",
+    "pool_id": "constructed.assemble.rajh",
+    "name": "阳炎耀光",
+    "metadata": {
+      "collectible": false,
+      "classes": [
+        "neutral"
+      ],
+      "rarity": "none",
+      "deck_identity": "BE_004p",
+      "max_copies": null,
+      "runes": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "tribes": [],
+      "factions": [],
+      "subtypes": []
+    },
+    "reviewed_fragment_ids": [
+      "BE_152",
+      "CORE_ICC_210",
+      "TIME_428"
+    ]
+  },
+  "base_profile_sha256": "c96d5b938e711cc804b1811ef1f67c6ae85ca437fc169e5b3516afcee558a32a",
+  "secondary_projection_ids": [
+    "TLC_833"
+  ],
+  "ignored_prefix_keywords": [
+    "elusive",
+    "divine_shield"
+  ],
+  "earlier_widget_reference": {
+    "path": "outputs/card-integration-20261014/k543-pool-source-research/hearthpwn-extracted-widget-data-01.json",
+    "sha256": "bf88d4414ace38b71019f089f3e2b2fcb97ab8d80ab2fc26a0ac03504ab2f3d7",
+    "widget": {
+      "source_card_id": "BE_004",
+      "keys": [
+        "cardId",
+        "primary",
+        "other"
+      ],
+      "rows": 43,
+      "unique_ids": [
+        "BE_008",
+        "BE_152",
+        "BE_349",
+        "BE_701",
+        "CATA_474",
+        "CATA_475",
+        "CATA_476",
+        "CATA_999",
+        "CORE_BAR_878",
+        "CORE_BT_493",
+        "CORE_DRG_256",
+        "CORE_EX1_559",
+        "CORE_ICC_210",
+        "CORE_NEW1_020",
+        "CORE_NEW1_021",
+        "CORE_NX2_028",
+        "CORE_RLK_083",
+        "CORE_RLK_121",
+        "CORE_TTN_843",
+        "CORE_ULD_133",
+        "CORE_YOP_034",
+        "EDR_253",
+        "EDR_530",
+        "EDR_540",
+        "EDR_816",
+        "EDR_853",
+        "EDR_942",
+        "EDR_971",
+        "END_008",
+        "END_026",
+        "FIR_913",
+        "FIR_955",
+        "JAIL_450",
+        "JAIL_718",
+        "JAIL_872",
+        "TIME_428",
+        "TLC_220",
+        "TLC_254",
+        "TLC_478",
+        "TLC_480",
+        "TLC_623",
+        "TLC_822",
+        "TLC_833"
+      ],
+      "data": {
+        "cardId": "BE_004",
+        "primary": [
+          {
+            "cost": 10,
+            "top": "At the end of your turn,",
+            "bottom": "deal 10 damage to a random enemy minion.",
+            "img": "cards.hearthpwn.com/enUS/CORE_YOP_034.png"
+          },
+          {
+            "cost": 9,
+            "top": "<b>Prepare</b> Whenever you cast a spell,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/JAIL_718.png"
+          },
+          {
+            "cost": 9,
+            "top": "At the end of your turn,",
+            "bottom": "set the Attack and Health of all enemy minions to 1.",
+            "img": "cards.hearthpwn.com/enUS/TLC_480.png"
+          },
+          {
+            "cost": 8,
+            "top": "At the end of your turn,",
+            "bottom": "summon a 6/6 Elemental Dragon with <b>Divine Shield</b>.",
+            "img": "cards.hearthpwn.com/enUS/CATA_476.png"
+          },
+          {
+            "cost": 6,
+            "top": "At the end of your turn,",
+            "bottom": "deal 2 damage to all enemies.",
+            "img": "cards.hearthpwn.com/enUS/CATA_475.png"
+          },
+          {
+            "cost": 5,
+            "top": "After you play a minion,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/BE_701.png"
+          },
+          {
+            "cost": 5,
+            "top": "At the end of your turn,",
+            "bottom": "deal 4 damage to the enemy hero.",
+            "img": "cards.hearthpwn.com/enUS/CATA_999.png"
+          },
+          {
+            "cost": 4,
+            "top": "At the end of your turn,",
+            "bottom": "get a random Holy spell. Reduce its Cost by (3).",
+            "img": "cards.hearthpwn.com/enUS/CATA_474.png"
+          },
+          {
+            "cost": 4,
+            "top": "After you cast a Holy spell,",
+            "bottom": "summon a 2/2 Medic with <b>Lifesteal</b>.",
+            "img": "cards.hearthpwn.com/enUS/CORE_BAR_878.png"
+          },
+          {
+            "cost": 4,
+            "top": "At the end of your turn,",
+            "bottom": "give your hero <b>Divine Shield</b>.",
+            "img": "cards.hearthpwn.com/enUS/EDR_942.png"
+          },
+          {
+            "cost": 3,
+            "top": "After you play a neutral card,",
+            "bottom": "your next spell costs (1) less this turn.",
+            "img": "cards.hearthpwn.com/enUS/BE_008.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "get a 2-Cost Blessing that gives +2/+3.",
+            "img": "cards.hearthpwn.com/enUS/BE_152.png"
+          },
+          {
+            "cost": 2,
+            "top": "After you cast a spell,",
+            "bottom": "deal 1 damage to ALL minions.",
+            "img": "cards.hearthpwn.com/enUS/CORE_NEW1_020.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the start of your turn,",
+            "bottom": "destroy ALL minions.",
+            "img": "cards.hearthpwn.com/enUS/CORE_NEW1_021.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "get a random Nature spell.",
+            "img": "cards.hearthpwn.com/enUS/EDR_530.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "give your other minions +1 Health.",
+            "img": "cards.hearthpwn.com/enUS/TIME_428.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "give +1/+1 to each friendly minion of a different type.",
+            "img": "cards.hearthpwn.com/enUS/TLC_254.png"
+          },
+          {
+            "cost": 1,
+            "top": "At the end of your turn,",
+            "bottom": "restore 3 Health to both heroes.",
+            "img": "cards.hearthpwn.com/enUS/EDR_971.png"
+          }
+        ],
+        "other": [
+          {
+            "cost": 7,
+            "top": "At the end of your turn,",
+            "bottom": "deal 6 damage randomly split among all enemies.",
+            "img": "cards.hearthpwn.com/enUS/CORE_BT_493.png"
+          },
+          {
+            "cost": 7,
+            "top": "Whenever you cast a spell,",
+            "bottom": "add a 'Fireball' spell to your hand.",
+            "img": "cards.hearthpwn.com/enUS/CORE_EX1_559.png"
+          },
+          {
+            "cost": 5,
+            "top": "After you cast a spell,",
+            "bottom": "summon a random Animal Companion.",
+            "img": "cards.hearthpwn.com/enUS/EDR_853.png"
+          },
+          {
+            "cost": 4,
+            "top": "After your hero attacks,",
+            "bottom": "summon two 2/2 Elementals with <b>Rush</b>.",
+            "img": "cards.hearthpwn.com/enUS/BE_349.png"
+          },
+          {
+            "cost": 4,
+            "top": "After you use your Hero Power,",
+            "bottom": "deal 5 damage to a random enemy.",
+            "img": "cards.hearthpwn.com/enUS/CORE_DRG_256.png"
+          },
+          {
+            "cost": 4,
+            "top": "Whenever you draw a card,",
+            "bottom": "summon a 1/1 Demon with <b>Rush</b>.",
+            "img": "cards.hearthpwn.com/enUS/CORE_TTN_843.png"
+          },
+          {
+            "cost": 4,
+            "top": "After your hero attacks,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/EDR_253.png"
+          },
+          {
+            "cost": 4,
+            "top": "After you cast a spell on a minion,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/END_026.png"
+          },
+          {
+            "cost": 4,
+            "top": "After you cast a Fire spell,",
+            "bottom": "get a random Elemental and reduce its Cost by (3).",
+            "img": "cards.hearthpwn.com/enUS/FIR_913.png"
+          },
+          {
+            "cost": 4,
+            "top": "After you summon an Elemental,",
+            "bottom": "deal 3 damage to a random enemy.",
+            "img": "cards.hearthpwn.com/enUS/TLC_220.png"
+          },
+          {
+            "cost": 3,
+            "top": "After your hero attacks,",
+            "bottom": "gain 4 Armor and draw a card.",
+            "img": "cards.hearthpwn.com/enUS/CORE_NX2_028.png"
+          },
+          {
+            "cost": 3,
+            "top": "After a friendly Undead dies,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/CORE_RLK_121.png"
+          },
+          {
+            "cost": 3,
+            "top": "After you use your Hero Power,",
+            "bottom": "refresh 2 Mana Crystals.",
+            "img": "cards.hearthpwn.com/enUS/END_008.png"
+          },
+          {
+            "cost": 3,
+            "top": "Whenever your hero takes damage on your turn,",
+            "bottom": "deal 3 damage to a random enemy minion.",
+            "img": "cards.hearthpwn.com/enUS/FIR_955.png"
+          },
+          {
+            "cost": 3,
+            "top": "After your hero attacks,",
+            "bottom": "deal 1 damage to all minions.",
+            "img": "cards.hearthpwn.com/enUS/TLC_478.png"
+          },
+          {
+            "cost": 3,
+            "top": "After your hero attacks,",
+            "bottom": "summon a 2/1 Grub with <b>Rush</b>.",
+            "img": "cards.hearthpwn.com/enUS/TLC_833.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "give another random friendly minion +1/+1.",
+            "img": "cards.hearthpwn.com/enUS/CORE_ICC_210.png"
+          },
+          {
+            "cost": 2,
+            "top": "After you cast a spell,",
+            "bottom": "deal 1 damage to two random enemies.",
+            "img": "cards.hearthpwn.com/enUS/CORE_RLK_083.png"
+          },
+          {
+            "cost": 2,
+            "top": "If you have any unspent Mana at the end of your turn,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/CORE_ULD_133.png"
+          },
+          {
+            "cost": 2,
+            "top": "Whenever you play another minion you've already played,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/EDR_540.png"
+          },
+          {
+            "cost": 2,
+            "top": "After your hero attacks,",
+            "bottom": "summon a 1/1 Frail Ghoul.",
+            "img": "cards.hearthpwn.com/enUS/JAIL_450.png"
+          },
+          {
+            "cost": 2,
+            "top": "After your hero attacks,",
+            "bottom": "draw a card.",
+            "img": "cards.hearthpwn.com/enUS/JAIL_872.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "give another friendly damaged minion +2/+2.",
+            "img": "cards.hearthpwn.com/enUS/TLC_623.png"
+          },
+          {
+            "cost": 2,
+            "top": "At the end of your turn,",
+            "bottom": "reduce the Cost of a random Beast in your hand by (1).",
+            "img": "cards.hearthpwn.com/enUS/TLC_822.png"
+          },
+          {
+            "cost": 1,
+            "top": "At the end of your turn,",
+            "bottom": "give your other minions +1 Attack.",
+            "img": "cards.hearthpwn.com/enUS/EDR_816.png"
+          }
+        ]
+      }
+    }
+  },
+  "reported_total": 15,
+  "reported_missing_member_count": 1,
+  "complete_for_declared_known_inventory": true,
+  "policy": {
+    "inventory": "All fourteen original published identities, unit local weights. Reported fifteenth identity remains unknown; no replacement is invented. Earlier 18+25 demo widget is preserved as conflicting reference, not merged into this list.",
+    "roles": "Original thirteen minions may be primary or secondary; TLC_833 is a reviewed secondary weapon-text projection under the existing assembly role rule, not a new physical minion.",
+    "keywords": "Passive power carries the assembled trigger and subject. Explicit Elusive/Divine Shield minion-only keywords are omitted on the healthless power; they do not grant keywords to the hero. This is a local conversion policy.",
+    "execution": "Only the real approved immutable assembled-power carrier can use existing living-source conditions and captured reaction callbacks. Original minion/weapon definitions, subjects and effect bodies remain intact.",
+    "source": "The previous three approved passive fragments stay compatible for their existing fixtures; none is added to the fourteen-member candidate inventory."
+  },
+  "uncertainties": [
+    "The community report explicitly lacks one of fifteen members; official membership/roles, weights and current CN patch identity remain unconfirmed.",
+    "Primary-minion/secondary-weapon role and original secondary cost window are retained local policies pending evidence, rather than changing the original simulator query.",
+    "Ignoring intrinsic minion keywords on the passive power, captured/replaced power trigger timing and existing native spell entry distinctions are not current CN calibrated.",
+    "The earlier 43-ID demo widget and the explicit fourteen-name report disagree; identities are retained separately.",
+    "Other disputed Assemble combinations remain restricted by the existing explicit policy."
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "version_alignment_deferred": true,
+  "rule_boundaries_deferred": true
+}

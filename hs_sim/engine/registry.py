@@ -572,6 +572,15 @@ class Registry:
             raise ValueError('Duplicate assembled passive power template')
         self._assembled_power_profiles[profile.template_card_id] = profile
 
+    def extend_assembled_power_profile(self, profile):
+        self._require_mutable()
+        from .assembled_powers import validate_extension
+        original = self._assembled_power_profiles.get(profile.template_card_id)
+        if original is None:
+            raise ValueError('Passive compatibility extension requires its original registered template')
+        validate_extension(self, original, profile)
+        self._assembled_power_profiles[profile.template_card_id] = profile
+
     @property
     def crafted_minion_blueprints(self):return MappingProxyType(self._crafted_minion_blueprints)
 
@@ -3080,7 +3089,8 @@ class Registry:
                    "target_visibility": self._target_visibility, "use_visibility": self._use_visibility}
         # Preserve old registry fingerprints when this additive API is unused.
         if self._assembled_power_profiles:
-            payload['assembled_power_profiles'] = [asdict(self._assembled_power_profiles[k])
+            from .assembled_powers import profile_signature
+            payload['assembled_power_profiles'] = [profile_signature(self._assembled_power_profiles[k])
                 for k in sorted(self._assembled_power_profiles)]
         if self._consumption_profiles:
             payload['consumption_profiles']=[asdict(self._consumption_profiles[k]) for k in sorted(self._consumption_profiles)]
