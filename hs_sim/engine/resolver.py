@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v746'
+CORE_EFFECTS_VERSION = 'core-effects-v747'
 
 
 class Mechanics:
@@ -2992,6 +2992,10 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_assemble_corpse_prefixes(mechanics)
     from .destruction_resources import register as register_destruction_resources
     register_destruction_resources(mechanics)
+    from .terminal_spell_loops import register as register_terminal_spell_loops
+    register_terminal_spell_loops(mechanics)
+    from .random_control import register as register_random_control
+    register_random_control(mechanics)
     from .hand_play_locks import register as register_hand_play_locks
     register_hand_play_locks(mechanics)
     from .spent_spells import register as register_spent_spells

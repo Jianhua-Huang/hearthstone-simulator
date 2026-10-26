@@ -2133,3 +2133,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 OG_134复用spell_history_candidates与CastFromPool。按本人已接受未失败的hand根计数并冻结本次战吼次数，原自动CAST继续负责目标、随机选择、资源、等待和终局；不要把尤格自动施法当手动出牌回灌个人计数。30次/特殊窗口/控制转交与正式池差异见[原版尤格契约](m3-original-yogg-native.md)。
+
+
+DMF_004通过完整六分支ChooseRandomEffects及明确权重分发原公共效果。个人计数共用personal_hand_spell_count；控制用原一次选中引用组，属性奖励绑定原摧毁原因和来源驻留，直到终局的法术循环逐次交CastSpell。不要把隐藏费用结果标签当生成池成员，也不要在卡牌回调复制随机、控制、死亡或施法执行器；概率和检查点差异见[命运之轮契约](m3-yogg-wheel.md)。

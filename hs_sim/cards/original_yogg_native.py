@@ -5,7 +5,7 @@ from pathlib import Path
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.model import CardDefinition,CardType
 from hs_sim.engine.pools import PoolCard,PoolQuery
-from hs_sim.engine.spell_history import CastFromPool,SpellHistoryQuery,spell_history_candidates
+from hs_sim.engine.spell_history import CastFromPool,SpellHistoryQuery,personal_hand_spell_count
 from hs_sim.targets import TargetValidationError,canonical_digest
 from .metadata import metadata_from_record
 
@@ -40,8 +40,7 @@ def register_original_yogg_native(registry):
         if (c.battlecry is None or not c.battlecry.payload_started or c.battlecry.failure is not None or
                 (c.battlecry.source_id,c.battlecry.player_id)!=(c.source_id,c.player_id)):
             raise ResolutionError('Original Yogg requires its actual accepted Battlecry')
-        history=spell_history_candidates(c.state,registry,c.player_id,HISTORY,c.source_id)
-        count=min(CAP,sum(row.payload_started and row.failure is None for row in history))
+        count=min(CAP,personal_hand_spell_count(c.state,registry,c.player_id,c.source_id))
         return ()if not count else(CastFromPool(c.player_id,POOL,QUERY,count=count,source_id=c.source_id,
             replacement=True,refresh='per_cast',targeting='random',choices='random',while_source_in_play=False),)
     registry.register_behavior(BODY,cast)

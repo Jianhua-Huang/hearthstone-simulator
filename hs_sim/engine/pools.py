@@ -828,8 +828,11 @@ class FillHandFromPool(Effect):
         permanent_spell = (q.query.kinds == (CardType.SPELL,) and q.temporary_until_turn is None
             and q.cost is None and q.expires_turn is None and q.spell_repeat is None
             and getattr(q, 'minion_grant', None) is None)
+        turn_zero_spell = (q.query.kinds == (CardType.SPELL,) and q.cost == CostSpec(set_to=0) and
+            q.expires_turn is not None and q.temporary_until_turn is None and q.spell_repeat is None and
+            getattr(q,'minion_grant',None) is None)
         if (q.count != 1 or q.source_id is None or q.destination != 'hand' or not q.replacement or
-                (q.query.kinds != (CardType.MINION,) and not (temporary_spell or permanent_spell)) or q.query.collectible is not True or
+                (q.query.kinds != (CardType.MINION,) and not (temporary_spell or permanent_spell or turn_zero_spell)) or q.query.collectible is not True or
                 (not temporary_spell and (q.spell_repeat is not None or q.temporary_until_turn is not None)) or
                 q.cause is not None or q.producer_profile_id is not None or
                 q.combined_shatter or q.board_position is not None or
@@ -922,6 +925,9 @@ def fill_hand_from_pool(r, effect):
     from dataclasses import replace
     from .hand_capacity import hand_capacity
     effect.__post_init__()
+    if (effect.request.query.kinds==(CardType.SPELL,) and effect.request.cost is not None and
+            effect.request.expires_turn!=r.state.turn):
+        raise ValueError('Zero-cost spell fill requires the actual accepting turn deadline')
     player = r.player(effect.request.player_id)
     count = max(0, hand_capacity(player, r.rules) - len(player.hand))
     if not count:

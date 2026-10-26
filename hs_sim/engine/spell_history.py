@@ -90,6 +90,13 @@ def spell_history_candidates(state, registry, player_id, query=SpellHistoryQuery
     return tuple(result)
 
 
+def personal_hand_spell_count(state,registry,player_id,source_id=None):
+    """Accepted personal hand roots, including pending payloads but no repeats."""
+    query=SpellHistoryQuery(origins=('hand',),outcomes='attempts')
+    rows=spell_history_candidates(state,registry,player_id,query,source_id)
+    return sum(row.payload_started and row.failure is None for row in rows)
+
+
 def distinct_policy(distinct):
     if distinct not in ('cast','card','identity'): raise ValueError('Unknown historical distinctness policy')
 

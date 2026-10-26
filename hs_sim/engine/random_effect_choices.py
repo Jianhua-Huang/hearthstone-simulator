@@ -9,6 +9,7 @@ class ChooseRandomEffects(Effect):
     player_id: int
     source_id: int
     options: tuple[ChoiceOption, ...]
+    weights: tuple[int, ...] = ()
 
     def __post_init__(self):
         _player(self.player_id)
@@ -20,6 +21,9 @@ class ChooseRandomEffects(Effect):
             option.__post_init__()
         if len({option.id for option in self.options}) != len(self.options):
             raise ValueError('Random branch identities must be unique')
+        if type(self.weights) is not tuple or self.weights and len(self.weights)!=len(self.options):
+            raise ValueError('Random branch weights must cover the complete ordered alternatives')
+        for value in self.weights:_integer(value,'random branch weight',1)
 
     def validate_in_state(self, state):
         self.__post_init__()
@@ -34,10 +38,11 @@ def choose(r, effect):
     for option in effect.options:
         for work in option.effects:
             r.game.mechanics.handler(work)
-    selected = r.game._rng.choice(effect.options)
+    selected = (r.game._rng.choices(effect.options,weights=effect.weights,k=1)[0]
+                if effect.weights else r.game._rng.choice(effect.options))
     r.emit('random_choice', source_id=effect.source_id, player_id=effect.player_id,
         candidates=tuple(option.id for option in effect.options), selected=selected.id,
-        producer='effect_branch')
+        producer='effect_branch',**({'weights':effect.weights}if effect.weights else{}))
     return selected.effects
 
 
