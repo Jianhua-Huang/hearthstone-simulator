@@ -1805,3 +1805,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 具名控制免疫沿既有KeywordAuraSpec字段声明唯一条件身份，由当前控制者/物理在场政策计算；原可拉克壳与巨型入口复用。盖亚使用completed_minion_types读取原完成攻击当前驻留或唯一匹配死亡驻留的实际种族，不新增战斗快照字段；未知材料明确失败，见[契约](m3-past-colaque-gaia.md)。
+
+
+希拉格的原生伤害成长通过有限TriggerValueProfile及普通单位Enchantment表达；固定生产者、受益身份和原结束正文，复制/沉默/区域/转控沿旧生命周期。公开观察仅补可见数值，不暴露附件或声明身份；原13项参考和全源能力门禁保留，见[契约](m3-xhilag-trigger-upgrades.md)。

@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v757'
+CORE_EFFECTS_VERSION = 'core-effects-v758'
 
 
 class Mechanics:
@@ -2625,6 +2625,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     mechanics = Mechanics(version)
     from .attack_substitution import register as register_attack_substitution
     register_attack_substitution(mechanics)
+    from .native_trigger_values import register as register_trigger_values
+    register_trigger_values(mechanics)
     from .summon_deathrattle_qualifications import register as register_entry_qualifications
     register_entry_qualifications(mechanics)
     from .spell_mana_freeze import register as register_spell_mana_freeze

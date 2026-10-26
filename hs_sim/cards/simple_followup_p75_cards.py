@@ -57,7 +57,9 @@ def register_simple_followup_p75_cards(registry):
 
     def stalk(c):
         if c.event.player_id != c.player_id or not living_source(c): return ()
-        return (RandomDamage(characters(c, registry, 3-c.player_id), 2, c.source_id, DamageKind.MINION_ABILITY),)
+        from hs_sim.engine.native_trigger_values import amount
+        value = amount(registry, c.source, PREFIX+'stalk', 2)
+        return (RandomDamage(characters(c, registry, 3-c.player_id), value, c.source_id, DamageKind.MINION_ABILITY),)
 
     def wing(c):
         result = c.health_result

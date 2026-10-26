@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v647"
+CONTENT_VERSION = "constructed-cn37-preview-v648"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1324,5 +1324,7 @@ def build_registry():
     register_past_colossal_controls(registry)
     from .past_colaque_gaia import register_past_colaque_gaia
     register_past_colaque_gaia(registry)
+    from .xhilag_trigger_upgrades import register_xhilag_trigger_upgrades
+    register_xhilag_trigger_upgrades(registry)
     registry.validate()
     return registry

@@ -528,6 +528,8 @@ class Game:
         validate_remaining_numbers(self)
         from .infused_battlecries import validate_game as validate_infused_battlecries
         validate_infused_battlecries(self)
+        from .native_trigger_values import validate_game as validate_trigger_values
+        validate_trigger_values(self)
         from .cost_polarities import validate_game as validate_cost_polarities
         validate_cost_polarities(self)
         from .rotating_discovery_classes import validate_game as validate_discovery_classes

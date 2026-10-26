@@ -222,7 +222,9 @@ class PastColaqueGaiaTests(CardBatchTestMixin, unittest.TestCase):
                 condition='controller_controls_named_minion', card_ids=(SHELL,)), **changes))
         g = self.game(); eid = self.reward(g); saved = g.snapshot()
         ability = next(a for a in saved['state']['entities'][str(eid)]['abilities'] if a['kind'] == 'keyword_aura')
-        ability['keyword_aura']['card_ids'] = [UNIT]; saved['state_hash'] = canonical_hash(saved['state'])
+        ability['keyword_aura']['card_ids'] = [UNIT]
+        saved['state_hash'] = canonical_hash({k:v for k,v in saved.items()
+            if k not in ('schema_version', 'events', 'events_hash', 'state_hash')})
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, fixture('colaque', 'independent-reader'))
 
     def test_late_old_drill_failure_registers_neither_new_body_nor_behavior(self):

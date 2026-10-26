@@ -2181,3 +2181,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实具名存在条件仅允许self/Immune和一个真实随从ID，不能把条件身份当施加对象或用临时授予替代。完成攻击的种族消费者共用completed_minion_types，以原战斗驻留匹配当前/死亡材料，不靠印刷面或后来同ID重入；原生两例与本地边缘见[契约](m3-past-colaque-gaia.md)。
+
+
+真实原生数值升级使用固定TriggerValueProfile及一件一点的普通可移除附件，不能用标签编码任意数值/寿命或借未审正文、受益身份。原目标引用、复制材料和保存边界核相同声明，公开视图只提供可见结束伤害，见[希拉格契约](m3-xhilag-trigger-upgrades.md)。

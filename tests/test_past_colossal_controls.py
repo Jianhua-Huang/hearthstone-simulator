@@ -256,7 +256,9 @@ class PastColossalControlsTests(CardBatchTestMixin, unittest.TestCase):
         with self.assertRaises(ValueError): r.validate()
         g = self.game(hand=(EQUIP,)); eid = self.reward(g); self.play(g, EQUIP); saved = g.snapshot()
         ability = next(a for a in saved['state']['entities'][str(eid)]['abilities'] if a['kind'] == 'aura' and a['aura_target'] == 'friendly_weapon')
-        ability['aura_card_ids'] = ['CS2_106']; saved['state_hash'] = canonical_hash(saved['state'])
+        ability['aura_card_ids'] = ['CS2_106']
+        saved['state_hash'] = canonical_hash({k:v for k,v in saved.items()
+            if k not in ('schema_version', 'events', 'events_hash', 'state_hash')})
         with self.assertRaises(SnapshotError): Game.from_snapshot(saved, fixture('crab', 'independent-reader'))
 
 

@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v118'
+VIEW_VERSION = 'player-view-v119'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -350,6 +350,9 @@ class Information:
                 weapon_spell=weapon_material(entity)
                 if weapon_spell is not None:result['cast_card_id']=weapon_spell[1]
                 if entity.kind == CardType.MINION:
+                    from .native_trigger_values import public_damage
+                    trigger_damage = public_damage(game.registry, entity)
+                    if trigger_damage is not None: result['end_turn_damage'] = trigger_damage
                     from .dark_gifts import public_gifts
                     gifts = public_gifts(entity)
                     if gifts:
