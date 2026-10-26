@@ -3,11 +3,23 @@
 This delegates marking to DestroyBatch and all deaths, reactions, draw and mana
 to the existing interpreter. There is no extra death checkpoint or death count.
 """
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 from .effects import DestroyBatch, Draw, Effect, RefreshMana, _integer, _player
-from .model import CardType, DeathCause
+from .model import CardType, DeathCause, Zone
 from .sacrifice import MinionReference, live_minion, reference_value
+
+
+def _request_fields(request, *, friendly_only):
+    _player(request.player_id); _integer(request.source_id, 'destruction-resource source', 1)
+    if type(request.victims) is not tuple: raise ValueError('Destruction group requires immutable physical victims')
+    for ref in request.victims:
+        reference_value(ref)
+        if ref.entity_id == request.source_id or friendly_only and ref.player_id != request.player_id:
+            raise ValueError('Resource destruction requires original other friendly minions' if friendly_only
+                else 'Counted discard destruction requires original other minions')
+    if len({ref.entity_id for ref in request.victims}) != len(request.victims):
+        raise ValueError('Destruction group duplicated a physical victim')
 
 
 @dataclass(frozen=True)
@@ -17,23 +29,33 @@ class DestroyMinionsForResources(Effect):
     victims: tuple[MinionReference, ...]
 
     def __post_init__(self):
-        _player(self.player_id); _integer(self.source_id, 'destruction-resource source', 1)
-        if type(self.victims) is not tuple: raise ValueError('Destruction group requires immutable physical victims')
-        for ref in self.victims:
-            reference_value(ref)
-            if ref.player_id != self.player_id or ref.entity_id == self.source_id: raise ValueError('Resource destruction requires original other friendly minions')
-        if len({ref.entity_id for ref in self.victims}) != len(self.victims): raise ValueError('Destruction group duplicated a physical victim')
+        _request_fields(self, friendly_only=True)
+
+
+@dataclass(frozen=True)
+class DestroyMinionsForDiscard(Effect):
+    """Capture both live boards at execution; retain the real Battlecry payer."""
+    player_id: int
+    source_id: int
+    battlecry_id: int
+    victims: tuple[MinionReference, ...] | None = None
+
+    def __post_init__(self):
+        _player(self.player_id); _integer(self.source_id, 'counted destruction source', 1)
+        _integer(self.battlecry_id, 'counted destruction Battlecry', 1)
+        if self.victims is not None: _request_fields(self, friendly_only=False)
 
 
 @dataclass(frozen=True)
 class CompleteDestroyedResources(Effect):
-    original: DestroyMinionsForResources
+    original: DestroyMinionsForResources | DestroyMinionsForDiscard
     first_death_id: int
     accepted: tuple[DeathCause, ...]
 
     def __post_init__(self):
-        if type(self.original) is not DestroyMinionsForResources: raise ValueError('Destruction reward lost its original complete request')
+        if type(self.original) not in (DestroyMinionsForResources, DestroyMinionsForDiscard): raise ValueError('Destruction reward lost its original complete request')
         self.original.__post_init__(); _integer(self.first_death_id, 'original destruction death boundary', 1)
+        if self.original.victims is None: raise ValueError('Completed destruction lost its accepted original victim group')
         if type(self.accepted) is not tuple or any(type(row) is not DeathCause for row in self.accepted): raise ValueError('Destruction reward requires original frozen causes')
         order = {ref.entity_id: index for index, ref in enumerate(self.original.victims)}
         previous = -1
@@ -68,6 +90,13 @@ def validate_material(state, registry, request):
     request.__post_init__()
     original = request.original if type(request) is CompleteDestroyedResources else request
     if original.source_id not in state.entities: raise ValueError('Destruction resource source does not exist')
+    if type(original) is DestroyMinionsForDiscard:
+        from .battlecries import battlecry_record
+        battlecry = battlecry_record(state, original.battlecry_id)
+        if ((battlecry.source_id, battlecry.player_id) != (original.source_id, original.player_id) or
+                not battlecry.payload_started or battlecry.failure is not None):
+            raise ValueError('Counted discard destruction changed its actual Battlecry source or recipient')
+        if original.victims is None: return
     for ref in original.victims:
         entity = state.entities.get(ref.entity_id)
         if entity is None or registry.card(ref.card_id).kind != CardType.MINION or ref.zone_epoch > entity.zone_epoch or ref.entered_order >= state.next_order:
@@ -80,6 +109,14 @@ def validate_material(state, registry, request):
 def begin(r, request):
     from .resolver import destroy_batch
     validate_material(r.state, r.registry, request)
+    if type(request) is DestroyMinionsForDiscard and request.victims is None:
+        from .cross_zone import MinionScope, minion_references
+        scope = MinionScope((Zone.BOARD,), exclude_source=True)
+        victims = tuple(ref for p in (1, 2)
+            for ref in minion_references(r.state, r.registry, p, scope, request.source_id)
+            if r.registry.card(ref.card_id).interactable is None)
+        request = replace(request, victims=victims)
+        validate_material(r.state, r.registry, request)
     targets = tuple(ref.entity_id for ref in request.victims if live_minion(r.state, ref) is not None)
     boundary = r.state.next_death_id
     destroy_batch(r, DestroyBatch(targets, request.source_id))
@@ -99,9 +136,13 @@ def finish(r, request):
         count += bool(dead or deferred)
     if not count: return ()
     original = request.original
+    if type(original) is DestroyMinionsForDiscard:
+        from .zones import DiscardMatching
+        return (DiscardMatching(original.player_id, count=count, source_id=original.source_id),)
     return (Draw(original.player_id, count, original.source_id), RefreshMana(original.player_id, count))
 
 
 def register(mechanics):
     mechanics.register(DestroyMinionsForResources, begin)
+    mechanics.register(DestroyMinionsForDiscard, begin)
     mechanics.register(CompleteDestroyedResources, finish)

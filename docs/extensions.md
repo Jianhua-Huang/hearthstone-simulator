@@ -2115,3 +2115,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 雏龙条件自身免疫只扩展有限原生KeywordAuraSpec，完整在场候选复用印刷WHELP分类，实际战斗与六次召唤仍交原执行器。分类/种族区别、未知错误、生命周期和未校准待死窗口见[契约](m3-native-onyxia-whelp.md)，实际验收与下一项只在两份原台账。
+
+
+实际摧毁数量弃牌复用原批次死亡原因与CompleteDestroyedResources，新增请求绑定真实战吼和原玩家，在执行时捕获双方原物理组；最终数量交原DiscardMatching。完整来源关联、死亡/反应窗口与未校准政策见[契约](m3-deathwing-destroyed-discard.md)，实际结果与下一项仍只在原两份台账。
