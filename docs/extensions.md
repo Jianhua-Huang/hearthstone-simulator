@@ -2100,3 +2100,6 @@ Crystal Core式效果声明MinionBaseStatsProfile，不用反复设值模拟基�
 
 
 原牌库发现后直接召唤/施法使用有限DiscoverDeckCardAction及原物理选项；实际身体与CAST继续委托原执行器，完整发现证明保留原实体。夜影花蕾兼得在首次入场及反应后重新查询，来源、满场及未校准通知窗口见[契约](m3-nightshade-deck-actions.md)，实际结果与下一项仅在两份原台账。
+
+
+已核定的十费过去随从继续以原生关键词、数量计价、真实亡语和原区域请求组合；Core身份、两个召唤物及库恩内部面分别保存。原槽、典狱长自身免疫和黑龙领主原手牌组政策见[契约](m3-frontier-common-natives.md)，实际验收与下一项仅在两份原台账。

@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v623"
+CONTENT_VERSION = "constructed-cn37-preview-v624"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1278,5 +1278,7 @@ def build_registry():
     register_past_recruit_resurrection(registry)
     from .nightshade_deck_actions import register_nightshade_deck_actions
     register_nightshade_deck_actions(registry)
+    from .frontier_common_natives import register_frontier_common_natives
+    register_frontier_common_natives(registry)
     registry.validate()
     return registry
