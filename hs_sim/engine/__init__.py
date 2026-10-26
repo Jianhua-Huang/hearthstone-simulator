@@ -496,8 +496,8 @@ from .hero_health_history import health_change_count
 __all__ += ['HeroHealthChangeRecord', 'health_change_count']
 from .successful_summons import SuccessfulSummonRecord, summoned_minions, summon_count, successful_reborns
 __all__ += ['SuccessfulSummonRecord', 'summoned_minions', 'summon_count', 'successful_reborns']
-from .model import PlayerSummonCountCostSpec, PlayerSummonCountCostFact
-__all__ += ['PlayerSummonCountCostSpec', 'PlayerSummonCountCostFact']
+from .model import PlayerSummonCountCostSpec, PlayerSummonCountCostFact, TreantSummonCountCostSpec
+__all__ += ['PlayerSummonCountCostSpec', 'PlayerSummonCountCostFact', 'TreantSummonCountCostSpec']
 from .model import PlayerPlayedClassCostSpec, PlayerPlayedClassCostRow, PlayerPlayedClassCostFact
 __all__ += ['PlayerPlayedClassCostSpec', 'PlayerPlayedClassCostRow', 'PlayerPlayedClassCostFact']
 from .model import HeroHealthChangeCostSpec, HeroHealthChangeCostFact

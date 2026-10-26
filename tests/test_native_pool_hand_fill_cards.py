@@ -249,7 +249,8 @@ class NativePoolHandFillTests(unittest.TestCase):
         q = GenerateFromPool(1, POOL_ID, UNDEAD, source_id=1)
         FillHandFromPool(q)
         for changes in (dict(count=2), dict(source_id=None), dict(destination='board'),
-                dict(replacement=False), dict(query=PoolQuery(kinds=(CardType.SPELL,), collectible=True))):
+                dict(replacement=False), dict(query=PoolQuery(kinds=(CardType.SPELL,), collectible=True),
+                    cost=CostSpec(delta=-1))):
             with self.subTest(changes=changes), self.assertRaises(ValueError):
                 FillHandFromPool(replace(q, **changes))
         with self.assertRaises(ValueError):

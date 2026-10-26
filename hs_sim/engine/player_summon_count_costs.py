@@ -1,5 +1,5 @@
 """Finite price consumers of original successful summon traits."""
-from .model import CardType, PlayerSummonCountCostSpec, PlayerSummonCountCostFact
+from .model import CardType, PlayerSummonCountCostSpec, PlayerSummonCountCostFact, TreantSummonCountCostSpec
 from .successful_summons import SuccessfulSummonRecord, _matching_rows, validate_state
 from .tribes import tribe_state_for
 
@@ -14,6 +14,11 @@ DEATHRATTLE_PROFILE = 'cost.player-summoned-deathrattle-count-v1'
 
 def selected_rows(records, player_id, spec, qualifications=()):
     spec.__post_init__()
+    if type(spec) is TreantSummonCountCostSpec:
+        from .assemble_faces import PREFIX, recipe_from_id
+        def original_header(card_id):
+            return recipe_from_id(card_id).primary_card_id if card_id.startswith(PREFIX) else card_id
+        return tuple(row for row in records if row.player_id==player_id and original_header(row.card_id) in spec.card_ids)
     if spec.profile_id == DEATHRATTLE_PROFILE:
         qualified={q.summon_id for q in qualifications}
         return tuple(row for row in records if row.player_id==player_id and (row.deathrattle_ids or row.id in qualified))
@@ -24,11 +29,12 @@ def validate_definition(definition):
     spec = definition.player_summon_count_cost
     if spec is None:
         return
-    if type(spec) is not PlayerSummonCountCostSpec:
+    if type(spec) not in (PlayerSummonCountCostSpec, TreantSummonCountCostSpec):
         raise ValueError('Expected PlayerSummonCountCostSpec')
     spec.__post_init__()
-    if definition.kind != CardType.MINION or not definition.hand_playable or definition.starship_for:
-        raise ValueError('Successful summon price belongs to an ordinary physical minion')
+    kind = CardType.SPELL if type(spec) is TreantSummonCountCostSpec else CardType.MINION
+    if definition.kind != kind or not definition.hand_playable or definition.starship_for:
+        raise ValueError('Successful summon price belongs to its reviewed ordinary minion or Treant spell')
     if definition.intrinsic_costs or any(value is not None for value in (
             definition.board_minion_cost, definition.hand_count_cost, definition.hero_missing_health_cost,
             definition.player_spell_count_cost, definition.player_hero_power_count_cost,

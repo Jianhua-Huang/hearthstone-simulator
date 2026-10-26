@@ -229,7 +229,7 @@ class AzsharaFabledLocationTests(unittest.TestCase):
     def test_f00_temporary_spell_fill_declarations_do_not_expand_unrelated_shapes(self):
         for kinds in ((CardType.SPELL,CardType.MINION),(CardType.WEAPON,),(CardType.LOCATION,)):
             with self.assertRaises(ValueError):GenerateFromPool(1,POOL,PoolQuery(kinds=kinds,collectible=True),source_id=1,temporary_until_turn=1)
-        with self.assertRaises(ValueError):FillHandFromPool(GenerateFromPool(1,POOL,PoolQuery(kinds=(CardType.SPELL,),collectible=True),source_id=1))
+        with self.assertRaises(ValueError):FillHandFromPool(GenerateFromPool(1,POOL,PoolQuery(kinds=(CardType.SPELL,),collectible=True),source_id=1,cost=CostSpec(delta=-1)))
         with self.assertRaises(ValueError):GenerateFromPool(1,POOL,PoolQuery(kinds=(CardType.MINION,),collectible=True),source_id=1,temporary_until_turn=1,spell_repeat=CardSpellRepeatGrant())
         with self.assertRaises(ValueError):CreateTemporaryCard(1,SPELL,1,spell_repeat=True)
 

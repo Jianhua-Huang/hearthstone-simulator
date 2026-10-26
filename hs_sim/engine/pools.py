@@ -825,13 +825,16 @@ class FillHandFromPool(Effect):
         q.__post_init__()
         temporary_spell = (q.query.kinds == (CardType.SPELL,) and q.temporary_until_turn is not None
                            and q.cost is None and q.expires_turn is None)
+        permanent_spell = (q.query.kinds == (CardType.SPELL,) and q.temporary_until_turn is None
+            and q.cost is None and q.expires_turn is None and q.spell_repeat is None
+            and getattr(q, 'minion_grant', None) is None)
         if (q.count != 1 or q.source_id is None or q.destination != 'hand' or not q.replacement or
-                (q.query.kinds != (CardType.MINION,) and not temporary_spell) or q.query.collectible is not True or
+                (q.query.kinds != (CardType.MINION,) and not (temporary_spell or permanent_spell)) or q.query.collectible is not True or
                 (not temporary_spell and (q.spell_repeat is not None or q.temporary_until_turn is not None)) or
                 q.cause is not None or q.producer_profile_id is not None or
                 q.combined_shatter or q.board_position is not None or
                 q.minion_stats is not None or q.shuffle_actor_id is not None):
-            raise ValueError('Hand fill requires a plain source-bound single-minion hand specification')
+            raise ValueError('Hand fill requires a reviewed source-bound minion or spell hand specification')
 
 
 def validate_delivery(effect):

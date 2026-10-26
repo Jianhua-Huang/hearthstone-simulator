@@ -5350,8 +5350,24 @@ class PlayerSummonCountCostSpec:
 
 
 @dataclass(frozen=True)
+class TreantSummonCountCostSpec:
+    """The complete reviewed Treant identity group, including Assemble headers."""
+    card_ids: tuple[str, ...]
+    profile_id: str = 'cost.player-summoned-treant-count-v1'
+
+    def __post_init__(self):
+        if type(self.card_ids) is not tuple or not self.card_ids:
+            raise ValueError('Treant summon pricing requires its full immutable identity group')
+        for card_id in self.card_ids: _name(card_id, 'Treant summon price source')
+        if tuple(sorted(set(self.card_ids))) != self.card_ids:
+            raise ValueError('Treant summon price identities must be unique and canonically ordered')
+        if type(self.profile_id) is not str or self.profile_id != 'cost.player-summoned-treant-count-v1':
+            raise ValueError('Unsupported Treant successful summon policy')
+
+
+@dataclass(frozen=True)
 class PlayerSummonCountCostFact:
-    spec: PlayerSummonCountCostSpec
+    spec: PlayerSummonCountCostSpec | TreantSummonCountCostSpec
     player_id: int
     turn: int
     action: int
@@ -5367,7 +5383,7 @@ class PlayerSummonCountCostFact:
     deathrattle_qualifications: tuple = ()
 
     def __post_init__(self):
-        if type(self.spec) is not PlayerSummonCountCostSpec:
+        if type(self.spec) not in (PlayerSummonCountCostSpec, TreantSummonCountCostSpec):
             raise ValueError('Summon price requires its complete finite declaration')
         self.spec.__post_init__()
         if type(self.player_id) is not int or self.player_id not in (1, 2):
@@ -10273,7 +10289,7 @@ class CardDefinition:
     player_draw_count_cost: PlayerDrawCountCostSpec | None = None
     player_weapon_attack_cost: PlayerWeaponAttackCostSpec | None = None
     player_armor_cost: PlayerArmorCostSpec | None = None
-    player_summon_count_cost: PlayerSummonCountCostSpec | None = None
+    player_summon_count_cost: PlayerSummonCountCostSpec | TreantSummonCountCostSpec | None = None
     player_elemental_streak_cost: PlayerElementalStreakCostSpec | None = None
     player_corpse_spend_cost: PlayerCorpseSpendCostSpec | None = None
     hero_damage_taken_cost: HeroDamageTakenCostSpec | None = None

@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 587
+SNAPSHOT_SCHEMA_VERSION = 588
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1120,7 +1120,13 @@ def _intrinsic_stage_from_dict(value):
     if row['player_summons'] is not None:
         from .successful_summons import record_from_dict as successful_summon_from_dict
         summons = _row(row['player_summons'], PlayerSummonCountCostFact)
-        summons['spec'] = PlayerSummonCountCostSpec(**_row(summons['spec'], PlayerSummonCountCostSpec))
+        from .model import TreantSummonCountCostSpec
+        if type(summons['spec']) is dict and summons['spec'].get('profile_id')=='cost.player-summoned-treant-count-v1':
+            spec = _row(summons['spec'], TreantSummonCountCostSpec)
+            spec['card_ids'] = tuple(_list(spec['card_ids'], 'complete original Treant identity group'))
+            summons['spec'] = TreantSummonCountCostSpec(**spec)
+        else:
+            summons['spec'] = PlayerSummonCountCostSpec(**_row(summons['spec'], PlayerSummonCountCostSpec))
         summons['records'] = tuple(successful_summon_from_dict(item)
             for item in _list(summons['records'], 'original successful summon price prefix'))
         summons['selected_ids'] = tuple(_list(summons['selected_ids'], 'original selected successful summons'))
