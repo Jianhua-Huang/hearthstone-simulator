@@ -1,0 +1,533 @@
+{
+  "schema": 1,
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "scope": "Actual Factory Assemblybot, its terminal Mini and fixed Copybot, and Darkmoon Rabbit.",
+  "cards": [
+    {
+      "record": {
+        "id": "TOY_601",
+        "dbf_id": 103431,
+        "name": "工厂装配机",
+        "name_en": "Factory Assemblybot",
+        "text": "<b>微缩</b>\n在你的回合结束时，召唤一个6/7的机器人并使其攻击一个随机敌人。",
+        "text_en": "<b>Miniaturize</b>\nAt the end of your turn, summon a 6/7 Bot that attacks a random enemy.",
+        "cost": 10,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 10,
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 103432,
+          "MINIATURIZE": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "0d0dd12b9c7b747229fc531fd27bb853b971011e123e5f801cf9280b484e51f6"
+    },
+    {
+      "record": {
+        "id": "DMF_070",
+        "dbf_id": 61629,
+        "name": "暗月兔子",
+        "name_en": "Darkmoon Rabbit",
+        "text": "<b>突袭，剧毒</b>\n同时对其攻击目标相邻的随从造成伤害。",
+        "text_en": "<b>Rush</b>, <b>Poisonous</b>\nAlso damages the minions next to whomever this attacks.",
+        "cost": 10,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 10,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "POISONOUS": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "1d302bdc899d2c6fb2b1add854a64c5c90dfdc123fe8b3784649c0970aface13"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TOY_601t",
+        "dbf_id": 103432,
+        "name": "工厂装配机",
+        "name_en": "Factory Assemblybot",
+        "text": "<b>微型</b>\n在你的回合结束时，召唤一个6/7的机器人并使其攻击一个随机敌人。",
+        "text_en": "<b>Mini</b>\nAt the end of your turn, summon a 6/7 Bot that attacks a random enemy.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "MINI": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "f7ff114694255199fc19bd819437ee6e6009e47c6be8b890a3e994bb48f43fc1"
+    },
+    {
+      "record": {
+        "id": "TOY_601t2",
+        "dbf_id": 105497,
+        "name": "拷贝机器人",
+        "name_en": "Copybot",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1897,
+          "CLASS": 12,
+          "CARDRACE": 17,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "8a175001a1d2e73f7367308120f5caa67a66d7aa0b138bbc55e151d43b9bd291"
+    }
+  ],
+  "official_faces": [
+    {
+      "card_id": "TOY_601",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 103431,
+        "collectible": 1,
+        "slug": "103431-factory-assemblybot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Mauricio Herrera",
+        "health": 7,
+        "attack": 6,
+        "manaCost": 10,
+        "name": "工厂装配机",
+        "text": "<b>微缩</b> 在你的回合结束时，召唤一个6/7的机器人并使其攻击一个随机敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e08aea2523d488105291554b6263e8c100fd265cfe60f329642dad3070d8385.png",
+        "imageGold": "",
+        "flavorText": "我称之为微型的我。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2791e2692eced6194bae77e7113bdd50368f78a9a2f54020f54127785d1da1a4.png",
+        "childIds": [
+          103432,
+          105497
+        ],
+        "keywordIds": [
+          294
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_601",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 103431,
+        "collectible": 1,
+        "slug": "103431-factory-assemblybot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Mauricio Herrera",
+        "health": 7,
+        "attack": 6,
+        "manaCost": 10,
+        "name": "Factory Assemblybot",
+        "text": "<b>Miniaturize</b> At the end of your turn, summon a 6/7 Bot that attacks a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3e09448bc443506c0b4235c682ac2c4c57be87ee8ac031a7e4aaf1ad02e7931.png",
+        "imageGold": "",
+        "flavorText": "I call it Mini-me.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2791e2692eced6194bae77e7113bdd50368f78a9a2f54020f54127785d1da1a4.png",
+        "childIds": [
+          103432,
+          105497
+        ],
+        "keywordIds": [
+          294
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_070",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 61629,
+        "collectible": 1,
+        "slug": "61629-darkmoon-rabbit",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 10,
+        "name": "暗月兔子",
+        "text": "<b>突袭，剧毒</b> 同时对其攻击目标相邻的随从造成伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df50cc22a32a52848abb47a52aa4a9669062d4509d85367874c94211dd2d22cf.png",
+        "imageGold": "",
+        "flavorText": "那不是普通的兔子！那是你见过的最粗野，最残暴，脾气最臭的啮齿类动物！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2024219b92e9f36faba0aa7482a8a2343e65f6c3c646491ec149c4a37749d60.png",
+        "keywordIds": [
+          32,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_070",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 61629,
+        "collectible": 1,
+        "slug": "61629-darkmoon-rabbit",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 10,
+        "name": "Darkmoon Rabbit",
+        "text": "<b>Rush</b>, <b>Poisonous</b> Also damages the minions next to whomever this attacks.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0144ad9de7e07d3b65b51cc31c2ba2b1db906edeb78ac3c37526c69bc0bfadd.png",
+        "imageGold": "",
+        "flavorText": "That's no ordinary rabbit! That's the most foul, cruel, and bad-tempered rodent you ever set eyes on!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2024219b92e9f36faba0aa7482a8a2343e65f6c3c646491ec149c4a37749d60.png",
+        "keywordIds": [
+          32,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_601t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k556-frontier-combat-and-mini\\official\\103432-zh_CN.json",
+      "response_sha256": "0cd7f9085c30599805905112100101c9e4fc78ba428c3173c3d2a30f40d0d4f4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=103432&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 103432,
+        "collectible": 0,
+        "slug": "103432-factory-assemblybot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Mauricio Herrera",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "工厂装配机",
+        "text": "<b>微型</b> 在你的回合结束时，召唤一个6/7的机器人并使其攻击一个随机敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a3eaf37eb3fe8da9bd0e17f90c13f6495f712c0c628b3255a32b136ef45b230.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 103431,
+        "keywordIds": [
+          295
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=103432&locale=zh_CN&collectible=0",
+        "sha256": "0cd7f9085c30599805905112100101c9e4fc78ba428c3173c3d2a30f40d0d4f4",
+        "bytes": 695,
+        "observed_at": "2026-10-26T09:24:07.918540+00:00"
+      }
+    },
+    {
+      "card_id": "TOY_601t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k556-frontier-combat-and-mini\\official\\103432-en_US.json",
+      "response_sha256": "1562c8ced25486744e7cf448a9c170543d2584403a053d39b89d183115a17199",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=103432&locale=en_US&collectible=0",
+      "face": {
+        "id": 103432,
+        "collectible": 0,
+        "slug": "103432-factory-assemblybot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Mauricio Herrera",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Factory Assemblybot",
+        "text": "<b>Mini</b> At the end of your turn, summon a 6/7 Bot that attacks a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91202b7fa538ad727fe6f83829cce9466ecd80c5c52d2c689c8f5470ae388d83.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 103431,
+        "keywordIds": [
+          295
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=103432&locale=en_US&collectible=0",
+        "sha256": "1562c8ced25486744e7cf448a9c170543d2584403a053d39b89d183115a17199",
+        "bytes": 677,
+        "observed_at": "2026-10-26T09:24:09.912152+00:00"
+      }
+    },
+    {
+      "card_id": "TOY_601t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k556-frontier-combat-and-mini\\official\\105497-zh_CN.json",
+      "response_sha256": "477729777c0a6724d0eae65232ee0f1d6107f590413abba57421ec0b105f80ca",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=105497&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 105497,
+        "collectible": 0,
+        "slug": "105497-copybot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": null,
+        "artistName": "Mauricio Herrera",
+        "health": 7,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "拷贝机器人",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b19e00eb11d8ea209305599d36c04b77b729d93f2418eda62284a6c8170185f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 103431,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=105497&locale=zh_CN&collectible=0",
+        "sha256": "477729777c0a6724d0eae65232ee0f1d6107f590413abba57421ec0b105f80ca",
+        "bytes": 563,
+        "observed_at": "2026-10-26T09:24:11.861703+00:00"
+      }
+    },
+    {
+      "card_id": "TOY_601t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k556-frontier-combat-and-mini\\official\\105497-en_US.json",
+      "response_sha256": "d1bf7c75e289e1140c36ecb2acca2d57bc24da2326b1431a13cae3a5966d65d8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=105497&locale=en_US&collectible=0",
+      "face": {
+        "id": 105497,
+        "collectible": 0,
+        "slug": "105497-copybot",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": null,
+        "artistName": "Mauricio Herrera",
+        "health": 7,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Copybot",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ba9791cc462bc28e92f270f1cccb06563cc0a699cf519f423699634c90e7ccc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 103431,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=105497&locale=en_US&collectible=0",
+        "sha256": "d1bf7c75e289e1140c36ecb2acca2d57bc24da2326b1431a13cae3a5966d65d8",
+        "bytes": 555,
+        "observed_at": "2026-10-26T09:24:13.762777+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "version_alignment_deferred": true,
+  "rule_boundaries_deferred": true,
+  "local_rules": {
+    "assemblybot": "Original accepted successful Copybot body attacks one random current enemy character using ordinary forced combat; departed/reentered residence is not borrowed.",
+    "rabbit": "Native Rush, Poisonous and existing cleave; primary and adjacent combat damage continue through the common source/Shield/death pipeline.",
+    "scope": "Keep complete 34-ID reference and source mode/version conflict; no production past pool installed."
+  }
+}

@@ -77,7 +77,12 @@ class AttackLowestHealthEnemy(AttackRandomEnemyMinion):
     """One original attacker; reselect current enemy characters for this attack."""
 
 
-def attack_lowest(r, effect):
+@dataclass(frozen=True)
+class AttackRandomEnemyCharacter(AttackRandomEnemyMinion):
+    """One original attacker; uniformly select a current enemy character."""
+
+
+def _attack_character(r, effect, *, lowest):
     effect.validate_in_state(r.state)
     attacker = resolve_board_presence(r.state, effect.attacker)
     if (attacker is None or not attacker.active or attacker.health <= 0 or attacker.doomed or
@@ -88,14 +93,23 @@ def attack_lowest(r, effect):
         for e in (r.live_character(eid),) if e is not None and e.health > 0 and not e.doomed
         and r.registry.card(e.card_id).interactable is None))
     if not candidates: return ()
-    minimum = min(r.state.entities[eid].health for eid in candidates)
-    candidates = tuple(eid for eid in candidates if r.state.entities[eid].health == minimum)
+    if lowest:
+        minimum = min(r.state.entities[eid].health for eid in candidates)
+        candidates = tuple(eid for eid in candidates if r.state.entities[eid].health == minimum)
     defender = r.game._rng.choice(candidates)
     target = (BoardPresenceReference.capture(r.state, defender)
         if r.state.entities[defender].kind == CardType.MINION else defender)
     r.emit('random_choice', source_id=effect.source_id, target_id=attacker.id,
-        defender_id=defender, producer='attack_lowest_health_enemy')
+        defender_id=defender, producer='attack_lowest_health_enemy' if lowest else 'attack_random_enemy_character')
     return (ForceAttack(effect.attacker, target, excess_to_hero=effect.excess_to_hero),)
+
+
+def attack_lowest(r, effect):
+    return _attack_character(r, effect, lowest=True)
+
+
+def attack_random_character(r, effect):
+    return _attack_character(r, effect, lowest=False)
 
 
 @dataclass(frozen=True)
@@ -146,5 +160,6 @@ def attack_all(r, effect):
 def register(mechanics):
     mechanics.register(AttackRandomEnemyMinion, execute)
     mechanics.register(AttackLowestHealthEnemy, attack_lowest)
+    mechanics.register(AttackRandomEnemyCharacter, attack_random_character)
     mechanics.register(AttackAllOtherMinions, attack_all)
     mechanics.register(ForceEachMinionAttack, each_minion_attack)

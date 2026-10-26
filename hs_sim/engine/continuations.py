@@ -325,8 +325,8 @@ class FrameCodec:
             validate_destruction_resources(self.origin_state, self.registry, value)
         if type(value) in (effects.ForceAttack, effects.CopyMinion) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
-        from .forced_attack_sequences import AttackRandomEnemyMinion, AttackLowestHealthEnemy, AttackAllOtherMinions, ForceEachMinionAttack
-        if type(value) in (AttackRandomEnemyMinion, AttackLowestHealthEnemy, AttackAllOtherMinions, ForceEachMinionAttack) and self.origin_state is not None:
+        from .forced_attack_sequences import AttackRandomEnemyMinion, AttackLowestHealthEnemy, AttackRandomEnemyCharacter, AttackAllOtherMinions, ForceEachMinionAttack
+        if type(value) in (AttackRandomEnemyMinion, AttackLowestHealthEnemy, AttackRandomEnemyCharacter, AttackAllOtherMinions, ForceEachMinionAttack) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
         from .minion_attack_damage import EachMinionDealsAttackDamage
         if type(value) is EachMinionDealsAttackDamage and self.origin_state is not None:
