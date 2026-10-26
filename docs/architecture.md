@@ -1793,3 +1793,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 托加的物理延系检索共用一个原生资格查询；原牌/拼装保持既有识别，规范合成面先核完整部件与许可，再读原生profile。原首抽DrawRecord继续固定第二次完整类型，不因变形、爆牌或嵌套抽牌改主体，见[契约](m3-composed-kindred-physical-tutor.md)。
+
+
+冰封猛犸以有限SchoolFreezeProfile及纯原生附件复用已有冻结位、自然解冻和Unfreeze；新物理入场重建门禁，成功本人火焰结算解除，普通复制只补该原生标记自来源重绑。完整规范部件、材料一致性和明确本地复制/施法政策见[契约](m3-native-school-freeze.md)。

@@ -95,6 +95,8 @@ def announce(r, entity, reason, origin_id=None, copy_mode=None, death_id=None):
 
 def enter_minion(r, entity, reason, *, origin_id=None, copy_mode=None, death_id=None, play_id=None):
     """Called after the source path finishes installing the body's current state."""
+    from .school_freeze import initialize as initialize_school_freeze
+    initialize_school_freeze(r.state,r.registry,entity,fresh=True)
     if entity.spell_mana_freeze is None:
         from .spell_mana_freeze import initialize, publish_birth
         initialize(r.state,r.registry,entity)

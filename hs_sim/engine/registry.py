@@ -208,6 +208,7 @@ class Registry:
         self._turn_draw_profiles = {}
         self._turn_draw_replacement_profiles = {}
         self._spell_mana_freeze_profiles = {}
+        self._school_freeze_profiles = {}
         self._native_producer_quantity_profiles = {}
         self._temporary_hero_power_profiles = {}
         self._hero_power_discovery_profiles = {}
@@ -811,6 +812,9 @@ class Registry:
     def spell_mana_freeze_profiles(self):return MappingProxyType(self._spell_mana_freeze_profiles)
 
     @property
+    def school_freeze_profiles(self):return MappingProxyType(self._school_freeze_profiles)
+
+    @property
     def native_producer_quantity_profiles(self):return MappingProxyType(self._native_producer_quantity_profiles)
 
     @property
@@ -1094,6 +1098,15 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._spell_mana_freeze_profiles:raise ValueError('Duplicate native spell-Mana Freeze profile')
         self._spell_mana_freeze_profiles[profile.card_id]=profile
+
+    def register_school_freeze_profile(self, profile):
+        self._require_mutable()
+        from .school_freeze import validate_profile
+        validate_profile(self,profile)
+        if (profile.card_id in self._school_freeze_profiles or
+                any(p.behavior_id==profile.behavior_id for p in self._school_freeze_profiles.values())):
+            raise ValueError('Duplicate native school Freeze card or original body')
+        self._school_freeze_profiles[profile.card_id]=profile
 
     def register_native_producer_quantity_profile(self,profile):
         self._require_mutable()
@@ -2665,6 +2678,8 @@ class Registry:
         for profile in self._turn_draw_replacement_profiles.values():validate_replacement_profile(self,profile)
         from .spell_mana_freeze import validate_profile as validate_spell_mana_freeze_profile
         for profile in self._spell_mana_freeze_profiles.values():validate_spell_mana_freeze_profile(self,profile)
+        from .school_freeze import validate_profile as validate_school_freeze_profile
+        for profile in self._school_freeze_profiles.values():validate_school_freeze_profile(self,profile)
         from .native_producer_quantities import validate_profile as validate_native_quantity_profile
         for profile in self._native_producer_quantity_profiles.values():validate_native_quantity_profile(self,profile)
         from .temporary_hero_powers import validate_profile as validate_temporary_power_profile
@@ -3108,6 +3123,9 @@ class Registry:
         if self._spell_mana_freeze_profiles:
             payload['spell_mana_freeze_profiles']=[asdict(self._spell_mana_freeze_profiles[k])
                 for k in sorted(self._spell_mana_freeze_profiles)]
+        if self._school_freeze_profiles:
+            payload['school_freeze_profiles']=[asdict(self._school_freeze_profiles[k])
+                for k in sorted(self._school_freeze_profiles)]
         if self._native_producer_quantity_profiles:
             payload['native_producer_quantity_profiles']=[asdict(self._native_producer_quantity_profiles[k])
                 for k in sorted(self._native_producer_quantity_profiles)]

@@ -115,6 +115,10 @@ def validate_captured_card_copy(state,registry,material):
     from .native_conditions import validate_carrier as validate_native_condition
     validate_native_condition(registry, material.origin.card_id, material.origin.kind,
         material.local.abilities, material.components)
+    from .school_freeze import validate_carrier as validate_school_freeze_carrier
+    validate_school_freeze_carrier(registry,material.origin.card_id,material.origin.kind,
+        material.local.abilities,material.components,silenced=material.local.silenced,
+        source_id=material.origin.entity_id)
     from .consumed_cards import validate_payload as validate_consumed_payload
     for ability in material.local.abilities:
         validate_consumed_payload(state,registry,ability)
@@ -368,6 +372,11 @@ def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
             validate_stamp(state, registry, attachment)
     if material.captured_turn>state.turn or material.captured_action>state.action_number or material.next_attachment_id>state.next_attachment_id:
         raise ValueError('Future physical copy acceptance facts')
+    if material.local is not None:
+        from .school_freeze import validate_carrier as validate_school_freeze_carrier
+        validate_school_freeze_carrier(registry,material.card_id,material.origin.kind,
+            material.local.abilities,material.components,silenced=material.local.silenced,
+            source_id=material.origin.entity_id)
 
 
 def validate_effect_scope(state,registry,effect):

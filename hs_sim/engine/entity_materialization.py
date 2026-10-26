@@ -71,5 +71,7 @@ def create_entity(state, registry, player_id, card_id, zone, position=None, read
     initialize_location_lock(state, registry, entity)
     from .spell_mana_freeze import initialize as initialize_spell_mana_freeze
     initialize_spell_mana_freeze(state,registry,entity)
+    from .school_freeze import initialize as initialize_school_freeze
+    initialize_school_freeze(state,registry,entity,fresh=True)
     return entity
 

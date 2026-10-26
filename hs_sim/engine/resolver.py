@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v754'
+CORE_EFFECTS_VERSION = 'core-effects-v755'
 
 
 class Mechanics:
@@ -677,6 +677,8 @@ class Resolution:
             from .spell_mana_freeze import initialize as initialize_spell_mana_freeze, publish_birth as publish_spell_mana_freeze_birth
             initialize_spell_mana_freeze(self.state,self.registry,entity)
             publish_spell_mana_freeze_birth(self,entity)
+            from .school_freeze import initialize as initialize_school_freeze
+            initialize_school_freeze(self.state,self.registry,entity,fresh=True)
 
     def refresh_auras(self, include_dying=False, *, emit_freeze_changes=True, rebind_frozen_ids=()):
         from .minion_base_programs import synchronize as synchronize_minion_bases
@@ -741,6 +743,8 @@ class Resolution:
         from .combat import can_be_frozen
         from .spell_mana_freeze import synchronize as synchronize_spell_mana_freeze
         synchronize_spell_mana_freeze(self)
+        from .school_freeze import synchronize as synchronize_school_freeze
+        synchronize_school_freeze(self)
         thawed = tuple(e for e in self.state.entities.values() if e.active and e.is_character
             and e.zone in (Zone.BOARD, Zone.HERO) and e.frozen and not can_be_frozen(e))
         # Settle the entire contribution before publishing any thaw reaction.
@@ -2559,6 +2563,8 @@ def unfreeze_character(r, effect):
     elif entity.frozen:
         from .spell_mana_freeze import release as release_spell_mana_freeze
         release_spell_mana_freeze(r,entity,'unfreeze')
+        from .school_freeze import release as release_school_freeze
+        release_school_freeze(entity)
         entity.frozen_until_owner_turn = None
         r.emit('unfrozen', target_id=entity.id)
 
@@ -2571,7 +2577,9 @@ def thaw_characters(r, effect):
     for entity_id in (player.hero_id, *player.board):
         entity = r.state.entities[entity_id]
         from .spell_mana_freeze import locked as conditional_freeze_locked
-        if entity.frozen and not conditional_freeze_locked(entity) and entity.frozen_until_owner_turn <= index:
+        from .school_freeze import locked as school_freeze_locked
+        if (entity.frozen and not conditional_freeze_locked(entity) and not school_freeze_locked(entity)
+                and entity.frozen_until_owner_turn <= index):
             entity.frozen_until_owner_turn = None
             changed.append(entity_id)
     for entity_id in changed:

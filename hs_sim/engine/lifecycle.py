@@ -108,6 +108,8 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('random_targets')
     if registry is not None and definition.id in registry.hero_power_target_profiles:
         add('hero_power_targets')
+    if registry is not None and definition.id in registry.school_freeze_profiles:
+        add('school_freeze',behavior_id=registry.school_freeze_profiles[definition.id].behavior_id)
     if registry is not None and definition.id in registry.rotating_discovery_class_profiles:
         from .rotating_discovery_classes import initial_class
         add('class_discovery',class_discovery_card_id=definition.id,discovery_class=initial_class(state,entity.controller))
@@ -317,6 +319,7 @@ def copy_attachments(state, source, destination, *, rebind_printed=False, retain
         from .errors import ResolutionError
         raise ResolutionError('Copying a defining hand source requires an explicit supported lifecycle policy')
     destination.hand_lifetime = source.hand_lifetime
+    native_school_entry = any(a.kind == 'school_freeze' for a in destination.abilities)
     destination.choose_branch = source.choose_branch if source.card_id == destination.card_id else None
     destination.herald_rank = source.herald_rank
     destination.jade_size = source.jade_size if source.card_id == destination.card_id else None
@@ -339,10 +342,14 @@ def copy_attachments(state, source, destination, *, rebind_printed=False, retain
             permit = replace(permit, permitted_ability_id=ability_ids.get(
                 permit.permitted_ability_id, permit.permitted_ability_id))
         if ability.kind in ('hand_mirror','spell_mirror') and destination.zone!=Zone.HAND:continue
-        native_self=ability.kind in ('hand_mirror','spell_mirror')or ability.origin=='printed'and ability.reborn_policy is not None
+        native_self=ability.kind in ('hand_mirror','spell_mirror','school_freeze')or ability.origin=='printed'and ability.reborn_policy is not None
         rebound_source=destination.id if native_self or rebind_printed and ability.origin=='printed'and ability.source_id==source.id else ability.source_id
         destination.abilities.append(replace(ability, id=ability_ids[ability.id], source_id=rebound_source, printed_attack_permit=permit))
     destination.silenced = source.silenced
+    if native_school_entry and source.silenced:
+        # Current material removes the newly created printed gate. Ordinary
+        # copied Freeze, when present, is applied by the existing copy caller.
+        destination.frozen_until_owner_turn = None
     from .timed_keywords import arm
     arm(state, destination)
     refresh_entity(destination)
