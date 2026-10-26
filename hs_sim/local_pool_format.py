@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v4.json'
-MANIFEST_HASH = 'a759553ffd44b85dac092690bd2bfd17724b31fe1c528141cb8976086175fe1d'
-FORMAT_VERSION = 'cn37-local-special-pools-v4'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v5.json'
+MANIFEST_HASH = 'bb3d94d277c7500bbda618f7e8b7fb8d1c7fcd0300bb33db06d44a00d5181ee3'
+FORMAT_VERSION = 'cn37-local-special-pools-v5'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -30,6 +30,10 @@ def load_bindings():
     if (len(names) != len(set(names)) or set(names) & set(ORDINARY_POOLS) or
             set(names) & set(value['unresolved_pool_ids'])):
         raise TargetValidationError('Local special pool bindings overlap or replace an unresolved inventory')
+    scoped=[p for item in value['scoped_bindings']for p in item['pool_ids']]
+    if (len(scoped)!=len(set(scoped)) or set(scoped)!=set(value['partially_scoped_pool_ids']) or
+            set(scoped)&(set(names)|set(ORDINARY_POOLS)|set(value['unresolved_pool_ids']))):
+        raise TargetValidationError('Scoped past views overlap an existing or unresolved pool domain')
     return value
 
 
@@ -63,7 +67,12 @@ def build_cn37_local_pool_format():
     original = build_cn37_launch_candidate_format()
     registry = original.registry
     ordinary = tuple(registry.pool(pool_id, original.context) for pool_id in ORDINARY_POOLS)
-    pools = ordinary + _reviewed_sources(registry, manifest)
+    from .cards.past_source_scoped_pools import local_pools,register_scopes,BATCH_PATH
+    if (len(manifest['scoped_bindings'])!=1 or
+            manifest['scoped_bindings'][0]['source_document']!=BATCH_PATH.relative_to(ROOT).as_posix() or
+            manifest['scoped_bindings'][0]['source_document_sha256']!=hashlib.sha256(BATCH_PATH.read_bytes()).hexdigest()):
+        raise TargetValidationError('Scoped past source document changed')
+    pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))
@@ -72,6 +81,7 @@ def build_cn37_local_pool_format():
     for pool in pools:
         registry.register_pool(replace(pool, target_id=target_id, mode=context.mode,
             version=manifest['policy_id'] + '-' + binding[:16] + ':' + pool.version))
+    register_scopes(registry,context)
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
     return replace(original, target_id=target_id, binding_digest=binding,

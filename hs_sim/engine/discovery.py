@@ -531,6 +531,8 @@ def continue_discovery(r, batch):
         return tuple(work for pick in batch.selections for work in deliver_pick(spec,pick,r.registry)) if spec.delivery=='after_all' else ()
     hero_class=r.player(spec.player_id).hero_class if spec.query.class_mode in ('current','other') else None
     source_card=r.state.entities[spec.source_id].card_id if spec.source_id is not None else None
+    from .generation_scopes import accepted_source_card
+    source_card=accepted_source_card(r,spec,source_card)
     options=options_for(r.registry,batch,offered,hero_class,source_card,sample_gifts(r,spec,offered))
     return (RequestChoice(spec.player_id,options,source_id=spec.source_id,prompt=spec.prompt,
                           purpose=ChoicePurpose.POOL_DISCOVERY),)

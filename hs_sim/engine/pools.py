@@ -418,6 +418,9 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
     if player_id is not None:
         _player(player_id)
     pool = registry.pool(pool_id, context)
+    from .generation_scopes import require_scope
+    require_scope(registry,pool,query,current_class=current_class,source_card_id=source_card_id,
+                  policy=policy,exclude_source_by_rule=exclude_source_by_rule)
     if any(q.class_mode in ('current', 'other') for q in (query, *query.any_of)) and (type(current_class) is not CardClass or current_class == CardClass.NEUTRAL):
         raise ValueError('Generation requires a known current playable hero class')
     excluded = set(pool.excluded_card_ids) | set(query.exclude_card_ids)
@@ -890,6 +893,8 @@ def generation_candidates(r, effect):
         if effect.source_id not in r.state.entities:
             raise ResolutionError('Generation source does not exist')
         source_card_id = r.state.entities[effect.source_id].card_id
+    from .generation_scopes import accepted_source_card
+    source_card_id = accepted_source_card(r,effect,source_card_id)
     current_class = None
     if effect.query.class_mode in ('current', 'other'):
         current_class = player.hero_class

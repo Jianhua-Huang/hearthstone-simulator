@@ -2139,3 +2139,6 @@ DMF_004通过完整六分支ChooseRandomEffects及明确权重分发原公共效
 
 
 TID_712声明AttackSubstitutionProfile与一个原印刷attack_declared监听，由original_listener交公共CheckAttackSubstitutes。不要在卡牌回调直接改血量、补攻击次数或复制战斗器；所有接受成员用原ForceAttack，原目标/身体失效跳过且不重选，本体replaced记录区别于真实子攻击completed。有限形状、恢复/私有边界和未校准政策见[契约](m3-neptulon-substitution.md)。
+
+
+接入有限专用参考时，保留所有原成员及权重，给本地池登记GenerationScope的真实来源、职业、原查询/策略与完整库存摘要；不要将某来源名单绑定成任意职业/任意来源的全局域。普通未声明scope的池保持原路径，实际生成缺来源或超范围必须明确失败；受信纯审计查询与实际生成区分。两已知过去视图和保存/未知边界见[契约](m3-source-scoped-past-pools.md)。

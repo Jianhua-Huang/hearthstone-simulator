@@ -236,6 +236,7 @@ class Registry:
         self._cost_polarity_profiles = {}
         self._recruit_expansion_profiles = {}
         self._attack_substitution_profiles = {}
+        self._generation_scopes = {}
         self._lifesteal_recipient_profiles = {}
         self._ability_family_profiles = {}
         self._rotating_discovery_class_profiles = {}
@@ -914,6 +915,19 @@ class Registry:
 
     @property
     def recruit_expansion_profiles(self):return MappingProxyType(self._recruit_expansion_profiles)
+
+    @property
+    def generation_scopes(self):return MappingProxyType(self._generation_scopes)
+
+    def register_generation_scope(self,scope):
+        self._require_mutable()
+        from .generation_scopes import validate_scope
+        validate_scope(self,scope)
+        if scope.id in self._generation_scopes:raise ValueError('Duplicate generation coverage identity')
+        if any((s.pool_key,s.source_card_id,s.current_class,s.query,s.policy)==
+                (scope.pool_key,scope.source_card_id,scope.current_class,scope.query,scope.policy)for s in self._generation_scopes.values()):
+            raise ValueError('Duplicate original generation scope')
+        self._generation_scopes[scope.id]=scope
 
     @property
     def attack_substitution_profiles(self):return MappingProxyType(self._attack_substitution_profiles)
@@ -2692,6 +2706,8 @@ class Registry:
         for profile in self._recruit_expansion_profiles.values():profile.__post_init__()
         from .attack_substitution import validate_profile as validate_attack_substitution_profile
         for profile in self._attack_substitution_profiles.values():validate_attack_substitution_profile(self,profile)
+        from .generation_scopes import validate_scope as validate_generation_scope
+        for scope in self._generation_scopes.values():validate_generation_scope(self,scope)
         for profile in self._cost_polarity_profiles.values():validate_polarity_profile(self,profile)
         for card in self._cards.values():
             if any(s.relation==polarity_relation for s in card.cost_auras) != (card.id in self._cost_polarity_profiles):
@@ -3158,6 +3174,8 @@ class Registry:
                 for k in sorted(self._recruit_expansion_profiles)for p in (self._recruit_expansion_profiles[k],)]
         if self._attack_substitution_profiles:
             payload['attack_substitution_profiles']=[asdict(self._attack_substitution_profiles[k])for k in sorted(self._attack_substitution_profiles)]
+        if self._generation_scopes:
+            payload['generation_scopes']=[asdict(self._generation_scopes[k])for k in sorted(self._generation_scopes)]
         if self._cost_polarity_profiles:
             payload['cost_polarity_profiles']=[asdict(self._cost_polarity_profiles[k])for k in sorted(self._cost_polarity_profiles)]
         if self._infused_battlecry_profiles:

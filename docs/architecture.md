@@ -1763,3 +1763,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 耐普图隆的真实原攻击替代使用有限AttackSubstitutionProfile，原窗口保留在子强制攻击栈底；原CharacterAttackRecord保存完整接受与有序尝试，ForceAttack可空父链接绑定原成员和子声明。普通伤害、死亡、免疫与区域继续由原执行器负责；本体以replaced终态退役而不虚构完成战斗。冻结名单、失效策略与规则边缘见[契约](m3-neptulon-substitution.md)，实际进度仅在原两份台账。
+
+
+来源有限的过去卡池用GenerationScope声明完整库存摘要、原pool/target/mode、来源卡、当前职业及原query/policy；公共候选入口在筛选与随机前拒绝未知范围。旧池没有scope时保持原流程；本地v5仅开放已取得的两个德鲁伊来源视图，原发现/学生自动CAST/支付与生成执行器复用。保存身份、完整名单和未确认范围见[契约](m3-source-scoped-past-pools.md)，实际进度仍只在原两份台账。
