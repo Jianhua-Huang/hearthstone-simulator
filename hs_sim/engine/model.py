@@ -583,7 +583,7 @@ class CardAbilityCondition:
     basis: str = 'current'
 
     def __post_init__(self):
-        if type(self.ability) is not str or self.ability not in ('battlecry', 'outcast', 'secret'):
+        if type(self.ability) is not str or self.ability not in ('battlecry', 'outcast', 'secret', 'spell_damage'):
             raise ValueError('Unsupported card ability condition')
         _bool(self.present, 'card ability presence')
         if type(self.basis) is not str or self.basis not in ('current', 'printed'):

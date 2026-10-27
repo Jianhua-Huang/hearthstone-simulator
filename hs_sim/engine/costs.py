@@ -416,7 +416,7 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_arcane_spells':
         from .model import SpellSchool
         if definition.kind!=CardType.SPELL or definition.spell_school!=SpellSchool.ARCANE:return False
-    if not matches_cost_values(spec, definition, current_battlecry):
+    if not matches_cost_values(spec, definition, current_battlecry, abilities=abilities):
         return False
     modifier=contribution.modifier
     if modifier is not None:
@@ -493,8 +493,15 @@ def validate_first_play_cost_prefix(state, registry, fact):
                 raise ValueError('Periodic spell price rewrote its original cast identity or acceptance')
 
 
-def matches_cost_values(spec, definition, current_battlecry):
-    from .card_conditions import matches_ability, matches_ability_values
+def matches_cost_values(spec, definition, current_battlecry, *, abilities=None):
+    from .card_conditions import has_spell_damage, matches_ability, matches_ability_values
+    if spec.ability is not None and spec.ability.ability == 'spell_damage':
+        if abilities is None and current_battlecry is not None:
+            raise ValueError('Physical spell-damage price requires its complete original ability operands')
+        printed = definition.kind == CardType.MINION and definition.spell_damage > 0
+        current = printed if abilities is None else definition.kind == CardType.MINION and has_spell_damage(abilities)
+        return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids) and
+            matches_ability_values(spec.ability,printed=printed,current=current))
     return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids)
             and (spec.ability is None or (matches_ability(spec.ability, definition) if spec.ability.ability in ('outcast', 'secret')
                 else matches_ability_values(spec.ability,

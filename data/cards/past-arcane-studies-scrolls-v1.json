@@ -1,0 +1,5493 @@
+{
+  "schema": 1,
+  "kind": "past-arcane-studies-and-wonder-scrolls-local-native",
+  "reference_document": "data/cards/past-arcane-local-reference-v1.json",
+  "reference_canonical_sha256": "27016f3ede6ca1e4c0760a67aa17b8b46ae935082325308c79471ce78828cfff",
+  "collectible_leaf_ids": [
+    "LOOT_106",
+    "SCH_270"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "LOOT_106",
+        "dbf_id": 43424,
+        "name": "惊奇套牌",
+        "name_en": "Deck of Wonders",
+        "text": "将五张惊奇卡牌洗入你的牌库。抽到时随机施放一个\n法术。",
+        "text_en": "Shuffle 5 Scrolls into your deck. When drawn, cast a random spell.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 46545,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Efrem Palacios"
+          }
+        ]
+      },
+      "record_sha256": "4786ddca40e430fd0b9cba92256c318e3a664cc636b6f39ca85ca23d6b48d331",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "LOOT_106",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "SCH_270",
+        "dbf_id": 59213,
+        "name": "始生研习",
+        "name_en": "Primordial Studies",
+        "text": "<b>发现</b>一张<b>法术伤害</b>随从牌。你的下一张<b>法术伤害</b>随从牌法力值消耗减少（1）点。",
+        "text_en": "<b>Discover</b> a <b>Spell Damage</b> minion. Your next one costs (1) less.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "MULTIPLE_CLASSES": 136,
+          "SPELL_SCHOOL": 1,
+          "DISCOVER_STUDIES_VISUAL": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Akkapoj T."
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8942266af1dc7baf170db824636ade7fd5bb5aba524a48d9ed1213cffaa5482e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage",
+          "shaman"
+        ],
+        "rarity": "common",
+        "deck_identity": "SCH_270",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "LOOT_106t",
+        "dbf_id": 46545,
+        "name": "惊奇卡牌",
+        "name_en": "Scroll of Wonder",
+        "text": "<b>抽到时施放</b>\n随机施放一个\n法术。",
+        "text_en": "<b>Casts When Drawn</b>\nCast a random spell.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Efrem Palacios"
+          }
+        ]
+      },
+      "record_sha256": "52076676af1356a499bb8cd11046b82e59c651c33c8be5a54a34a574a43b8165",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "LOOT_106t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "LOOT_106",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 43424,
+        "collectible": 1,
+        "slug": "43424-deck-of-wonders",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 4,
+        "artistName": "Efrem Palacios",
+        "manaCost": 5,
+        "name": "惊奇套牌",
+        "text": "将五张惊奇卡牌洗入你的牌库。抽到时随机施放一个 法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3da327cff4f70dc5d8ee3c5d13d1cb0fdfe32e319e16421f2961d2d6949d00e2.png",
+        "imageGold": "",
+        "flavorText": "“挑一张卡吧，哪张都行。等等！不！别动那张！”——之前一个主人的遗言",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99f1fc394c1e7afc4e06e9ae86d8cf77670a402bd69d361dcb01ee0831ee3c03.png",
+        "childIds": [
+          46545
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_106",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 43424,
+        "collectible": 1,
+        "slug": "43424-deck-of-wonders",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 4,
+        "artistName": "Efrem Palacios",
+        "manaCost": 5,
+        "name": "Deck of Wonders",
+        "text": "Shuffle 5 Scrolls into your deck. When drawn, cast a random spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4264412ceb2a6722ca0cb6066469cd40e3e66adfd4aaee918841a27dca860229.png",
+        "imageGold": "",
+        "flavorText": "\"Pick a card, any card. Wait! No! Not that one!\" - Last words of previous owner",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99f1fc394c1e7afc4e06e9ae86d8cf77670a402bd69d361dcb01ee0831ee3c03.png",
+        "childIds": [
+          46545
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_270",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 59213,
+        "collectible": 1,
+        "slug": "59213-primordial-studies",
+        "classId": 12,
+        "multiClassIds": [
+          4,
+          8
+        ],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Akkapoj T.",
+        "manaCost": 1,
+        "name": "始生研习",
+        "text": "<b>发现</b>一张<b>法术伤害</b>随从牌。你的下一张<b>法术伤害</b>随从牌法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39691400efb43585133894cbea2b93ebe4c8e96e223165b8e27ed6d8af0d6553.png",
+        "imageGold": "",
+        "flavorText": "被世人遗忘的秘典，由内而外魔法充盈。神秘作者倾力打造，作者的名字叫……四十尘。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37b197218db09316eb5fcf45927dc660b17a7ed678f7059d7eb0a21eb3876dc5.png",
+        "keywordIds": [
+          2,
+          21
+        ],
+        "copyOfCardId": [
+          74701,
+          76947
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_270",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 59213,
+        "collectible": 1,
+        "slug": "59213-primordial-studies",
+        "classId": 12,
+        "multiClassIds": [
+          4,
+          8
+        ],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Akkapoj T.",
+        "manaCost": 1,
+        "name": "Primordial Studies",
+        "text": "<b>Discover</b> a <b>Spell Damage</b> minion. Your next one costs (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4584181e10af6d63de3eae8830f247504e8fb99d0b7a2dc8117e14ff5ee1ed30.png",
+        "imageGold": "",
+        "flavorText": "A long forgotten tome whose very essence seeps of magic. 40 dust, used.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37b197218db09316eb5fcf45927dc660b17a7ed678f7059d7eb0a21eb3876dc5.png",
+        "keywordIds": [
+          2,
+          21
+        ],
+        "copyOfCardId": [
+          74701,
+          76947
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_106t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\46545-zh_CN.json",
+      "response_sha256": "89791dc3a6bbfc70879ab2aae28742bb44dd57eb8f418bb8fe62302adea2785f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=46545&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 46545,
+        "collectible": 0,
+        "slug": "46545-scroll-of-wonder",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": null,
+        "artistName": "Efrem Palacios",
+        "manaCost": 5,
+        "name": "惊奇卡牌",
+        "text": "<b>抽到时施放</b> 随机施放一个 法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c4ecb062dcf85d838cf19be8a6dafcfcc4a97837ad8607e54ff708d80b1f8cb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43424,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=46545&locale=zh_CN&collectible=0",
+        "sha256": "89791dc3a6bbfc70879ab2aae28742bb44dd57eb8f418bb8fe62302adea2785f",
+        "bytes": 592,
+        "observed_at": "2026-10-27T06:37:40.196343+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_106t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\46545-en_US.json",
+      "response_sha256": "feaac46517d94d16d4fecf317e102b6f0f20d6a112cd8a2f0b0fe177b1617287",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=46545&locale=en_US&collectible=0",
+      "face": {
+        "id": 46545,
+        "collectible": 0,
+        "slug": "46545-scroll-of-wonder",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": null,
+        "artistName": "Efrem Palacios",
+        "manaCost": 5,
+        "name": "Scroll of Wonder",
+        "text": "<b>Casts When Drawn</b> Cast a random spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08a812d605293012c6e662ba91271c4c6573dc11acb787389abaf66a353a1f72.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43424,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=46545&locale=en_US&collectible=0",
+        "sha256": "feaac46517d94d16d4fecf317e102b6f0f20d6a112cd8a2f0b0fe177b1617287",
+        "bytes": 589,
+        "observed_at": "2026-10-27T06:37:42.118170+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "printed_spell_damage_ids": [
+    "AT_006",
+    "AT_093",
+    "BAR_048",
+    "BOT_604",
+    "BT_028",
+    "BT_109",
+    "CATA_483",
+    "CATA_EVENT_401",
+    "CFM_039",
+    "CORE_CS2_142",
+    "CORE_EX1_012",
+    "CORE_EX1_284",
+    "CORE_GVG_109",
+    "CORE_ICC_856",
+    "CORE_ICC_913",
+    "CS2_142",
+    "CS2_155",
+    "CS2_197",
+    "CS3_001",
+    "CS3_007",
+    "DAL_096",
+    "DAL_576",
+    "DAL_748",
+    "DRG_102",
+    "DRG_211",
+    "END_022",
+    "END_031",
+    "EX1_012",
+    "EX1_284",
+    "EX1_563",
+    "EX1_582",
+    "GDB_310",
+    "GIL_121",
+    "GIL_529",
+    "GIL_838",
+    "GVG_109",
+    "GVG_123",
+    "ICC_856",
+    "ICC_913",
+    "LEG_CS3_001",
+    "LOE_051",
+    "OG_082",
+    "OG_209",
+    "OG_303",
+    "RLK_218",
+    "SCH_245",
+    "SCH_310",
+    "SW_061",
+    "TIME_856",
+    "TOY_807",
+    "TRL_312",
+    "TSC_053",
+    "TSC_635",
+    "TTN_071",
+    "VAN_CS2_142",
+    "VAN_CS2_155",
+    "VAN_CS2_197",
+    "VAN_EX1_012",
+    "VAN_EX1_284",
+    "VAN_EX1_563",
+    "VAN_EX1_582",
+    "WON_029",
+    "WON_033",
+    "WON_336",
+    "WON_365",
+    "YOP_021"
+  ],
+  "spell_damage_eligibility_records": [
+    {
+      "record": {
+        "id": "AT_006",
+        "dbf_id": 2549,
+        "name": "达拉然铁骑士",
+        "name_en": "Dalaran Aspirant",
+        "text": "<b>法术伤害+1</b>\n<b>激励：</b>获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Inspire:</b> Gain <b>Spell Damage +1</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 15,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8e9858918cab784d24c05e5ab488337a5c5e390fb2adb8d16f55b15ec0f680d5",
+      "eligible": true,
+      "basis": "reviewed native self Spell Damage clause"
+    },
+    {
+      "record": {
+        "id": "AT_093",
+        "dbf_id": 2532,
+        "name": "冰冷的雪地狗头人",
+        "name_en": "Frigid Snobold",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 15,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "9b1ec9f2a4d921f252db47f55b20cbc07b4c02cb1008283d535af726db9d431d",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "AT_117",
+        "dbf_id": 2493,
+        "name": "庆典司仪",
+        "name_en": "Master of Ceremonies",
+        "text": "<b>战吼：</b>如果你控制任何具有<b>法术伤害</b>的随从，便获得+2/+2。",
+        "text_en": "<b>Battlecry:</b> If you have a minion with <b>Spell Damage</b>, gain +2/+2.",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jesper Ejsing"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a9fa2a62ac22520610ac598ad4227ddc949d2bdf0e855c7cc9a9c29b17bab392",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "BAR_048",
+        "dbf_id": 63074,
+        "name": "布鲁坎",
+        "name_en": "Bru'kan",
+        "text": "<b>自然法术伤害+3</b>",
+        "text_en": "<b>Nature Spell Damage +3</b>",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "SPELLPOWER_NATURE": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "fde5c0d25b95bc37eee4c7759c558ace825f1ccc906d2ea6dc2336d513bbd7c4",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "BOT_604",
+        "dbf_id": 49045,
+        "name": "宇宙异象",
+        "name_en": "Cosmic Anomaly",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1127,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "708af201ebf2e14a928a1f14a3a3902ad137c330ae6486917742837a06ba68e5",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "BT_008",
+        "dbf_id": 56391,
+        "name": "锈誓新兵",
+        "name_en": "Rustsworn Initiate",
+        "text": "<b>亡语：</b>召唤一个1/1并具有<b>法术伤害+1</b>的小鬼施法者。",
+        "text_en": "<b>Deathrattle:</b> Summon a 1/1 Impcaster with\n<b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57906
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zero"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "26d4219996b645618cc1bfbf505dacda7a808a55940dfec86c47c269623134bb",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "BT_028",
+        "dbf_id": 56717,
+        "name": "星术师索兰莉安",
+        "name_en": "Astromancer Solarian",
+        "text": "<b>法术伤害+1</b>\n<b>亡语：</b>将“终极索兰莉安”洗入你的牌库。",
+        "text_en": "[x]<b>Spell Damage +1</b>\n<b>Deathrattle:</b> Shuffle\n'Solarian Prime'\ninto your deck.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1414,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 56718
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "435e13715adfcf4dc516ea8688d5666147a6becfea72b9bbafde7ef83100e98e",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "BT_109",
+        "dbf_id": 56420,
+        "name": "瓦丝琪女士",
+        "name_en": "Lady Vashj",
+        "text": "<b>法术伤害+1</b>\n<b>亡语：</b>将“终极瓦丝琪”洗入你的牌库。",
+        "text_en": "[x]<b>Spell Damage +1</b>\n<b>Deathrattle:</b> Shuffle 'Vashj\nPrime' into your deck.",
+        "cost": 3,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1414,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 56626
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "773d5d6aa26d445600a011eebf380aadeae00a97ce176103cb0cb3019534af48",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "BT_724",
+        "dbf_id": 57184,
+        "name": "虚灵改装师",
+        "name_en": "Ethereal Augmerchant",
+        "text": "<b>战吼：</b>对一个随从造成1点伤害，并使其获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to a minion and give it <b>Spell Damage +1</b>.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "974e1f8b2b09bc8f958451a90e8f4a9638143580f87dbbd0bbfd51a6aa1cf076",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "CATA_209",
+        "dbf_id": 123124,
+        "name": "战场轰炸手",
+        "name_en": "Battlefield Blaster",
+        "text": "<b>战吼：</b>选择你手牌中的一张法术牌，使其获得<b>法术伤害+1</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Choose a\nspell in your hand to\ngive <b>Spell Damage +1</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1980,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "CAN_TARGET_CARDS_IN_HAND": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3cf312b2f1f900f575078516dc5787235d2efd06634558a7483646ef0d48b184",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "CATA_458",
+        "dbf_id": 122632,
+        "name": "大法师卡雷",
+        "name_en": "Archmage Kalec",
+        "text": "<b>战吼：</b>&使你手牌和牌库中所有法术牌获得<b>法术伤害+1</b>。",
+        "text_en": "[x]<b>Battlecry:</b>& Give all spells\nin your hand and deck\n<b>Spell Damage +1.</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1980,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bb43f2d850401b09737a718bf1a6d920e72a34da33e0c636306c67b8fdff6184",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "CATA_483",
+        "dbf_id": 123351,
+        "name": "不稳定的施法者",
+        "name_en": "Unstable Spellcaster",
+        "text": "<b>法术伤害+1</b>。<b>战吼：</b>如果你在本回合中用法术造成过伤害，&召唤一个本随从的复制。",
+        "text_en": "[x]<b>Spell Damage +1</b>\n<b>Battlecry:</b> If you dealt\ndamage with a spell this turn,&\n summon a copy of this.",
+        "cost": 4,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4548": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4548",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4548"
+          }
+        ]
+      },
+      "record_sha256": "7000f98819bb1f667c847173bc4af24d2952aa3a0406cb51a3bee943959bb13b",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CATA_EVENT_401",
+        "dbf_id": 124074,
+        "name": "坑道地卜师",
+        "name_en": "Tunneling Geomancer",
+        "text": "<b>预备</b>。<b>法术伤害+1</b>",
+        "text_en": "<b>Prepare</b>\n<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1941,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DECK_ACTION_COST": 1
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "4354",
+              "name": "PREPARE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b2ea0f79e4ac3e98367084abbf16998ce8cc4b927bfff655c475b022e09d0d7a",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CFM_039",
+        "dbf_id": 40213,
+        "name": "杂耍小鬼",
+        "name_en": "Street Trickster",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 3,
+        "attack": null,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "COST": 3,
+          "CARD_SET": 25,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "IMP": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daria Tuzova"
+          }
+        ]
+      },
+      "record_sha256": "140f0d96f8a40b80f660257c09452490fd2d88d5f3acebc198cf31be047ca549",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_142",
+        "dbf_id": 69539,
+        "name": "狗头人地卜师",
+        "name_en": "Kobold Geomancer",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1810,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 672
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "672",
+              "type": "Int",
+              "value": "672"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "0c5a16b04d2f8f54f53b31e1275fb9c8bc134bb5da3e745f4c5f28469dfe5e43",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_012",
+        "dbf_id": 69655,
+        "name": "血法师萨尔诺斯",
+        "name_en": "Bloodmage Thalnos",
+        "text": "<b>法术伤害+1</b>，<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Deathrattle:</b> Draw a card.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1637,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 4,
+          "COLLECTIBLE": 1,
+          "858": 749,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "4"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "749",
+              "type": "Int",
+              "value": "749"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "aed4f1527ed37c317a863a90699edd7a2d32a7afae2308946233ff21a18f7801",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_284",
+        "dbf_id": 76324,
+        "name": "碧蓝幼龙",
+        "name_en": "Azure Drake",
+        "text": "<b>法术伤害+1</b>，<b>战吼：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Battlecry:</b> Draw a card.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1810,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 825
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Zhang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "825",
+              "type": "Int",
+              "value": "825"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "4649d1e2e292314a2b2776cf75d9f7034175cf903fbc6d495df94341246e4d5c",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CORE_GVG_109",
+        "dbf_id": 69719,
+        "name": "小个子法师",
+        "name_en": "Mini-Mage",
+        "text": "<b>潜行，法术伤害+1</b>",
+        "text_en": "<b>Stealth</b>\n<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1810,
+          "STEALTH": 1,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 2077
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Olson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2077",
+              "type": "Int",
+              "value": "2077"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "53ac2c607ff0bdd57fe4816568f5f5b63b6b030ee8baa1957a93579d52d440f1",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_093",
+        "dbf_id": 95771,
+        "name": "海象人渔夫",
+        "name_en": "Tuskarr Fisherman",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Battlecry:</b> Give a friendly minion <b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1810,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 42775
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "42775",
+              "type": "Int",
+              "value": "42775"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "447011e41a9b749240f95a646437aed31a99567912951301c59edd749a376266",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_856",
+        "dbf_id": 95758,
+        "name": "织法者",
+        "name_en": "Spellweaver",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1810,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 45378
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "45378",
+              "type": "Int",
+              "value": "45378"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "409906302cf8ca4adca07cbb2b04e487572698eacf4d6a9b5b4ba57a7154e268",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_913",
+        "dbf_id": 95764,
+        "name": "被污染的狂热者",
+        "name_en": "Tainted Zealot",
+        "text": "<b>圣盾</b>\n<b>法术伤害+1</b>",
+        "text_en": "<b>Divine Shield</b>\n<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1810,
+          "SPELLPOWER": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 46103
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jesper Ejsing"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "46103",
+              "type": "Int",
+              "value": "46103"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "e7cfd5e49e92be3dc2fe90678a37a419ed820a3bd39a6fab1b78c5e67d448ac8",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CS2_142",
+        "dbf_id": 672,
+        "name": "狗头人地卜师",
+        "name_en": "Kobold Geomancer",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1635,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "eb352b3f94f406947b0ea241e157e0401c5f4e88a68512f2bec942c99a4b83ff",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CS2_155",
+        "dbf_id": 525,
+        "name": "大法师",
+        "name_en": "Archmage",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 6,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1635,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Ellis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "041a25d74149f0266771d16c4da095bc6ec90ee9eb5fb9e80524805b9be77245",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CS2_197",
+        "dbf_id": 995,
+        "name": "食人魔法师",
+        "name_en": "Ogre Magi",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1635,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "7cafb780ed2b77cccf2cc451c381fc2b90c1f9bd1193e2f6d9382936ce5c2208",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CS3_001",
+        "dbf_id": 62347,
+        "name": "守护者艾格文",
+        "name_en": "Aegwynn, the Guardian",
+        "text": "<b>法术伤害+2</b>，<b>亡语：</b>你抽到的下一张随从牌会继承这些能力。",
+        "text_en": "<b>Spell Damage +2</b>\n<b>Deathrattle:</b> The next minion_you draw inherits these powers.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1810,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          }
+        ]
+      },
+      "record_sha256": "3707acb99628d2c10169cd4667ad1e556ba5d48f77a6953826f6987afa8b9838",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "CS3_007",
+        "dbf_id": 62442,
+        "name": "电击学徒",
+        "name_en": "Novice Zapper",
+        "text": "<b>法术伤害+1</b>\n<b>过载：</b>（1）",
+        "text_en": "<b>Spell Damage +1</b> <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Braddock"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "1516832d1bea37a52c31f590117424354a681edc948414eafe4e6e5bb5c6c7d9",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "DAL_089",
+        "dbf_id": 52289,
+        "name": "魔法订书匠",
+        "name_en": "Spellbook Binder",
+        "text": "<b>战吼：</b>如果你拥有<b>法术伤害</b>，抽一张牌。",
+        "text_en": "<b>Battlecry:</b> If you have <b>Spell Damage</b>, draw a card.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "20ef7833f01aa5e29d74d04b69bf3d718726eedc319ea96b6376958b8520f177",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "DAL_096",
+        "dbf_id": 52296,
+        "name": "紫罗兰典狱官",
+        "name_en": "Violet Warden",
+        "text": "<b>嘲讽</b>\n<b>法术伤害+1</b>",
+        "text_en": "<b>Taunt</b>\n<b>Spell Damage +1</b>",
+        "cost": 6,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1130,
+          "TAUNT": 1,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          }
+        ]
+      },
+      "record_sha256": "c6a8f1652f9028eb4f5d3d3e99dbb9c4909e04b490ca10253e5b0a576072eaa3",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "DAL_434",
+        "dbf_id": 52654,
+        "name": "奥术守望者",
+        "name_en": "Arcane Watcher",
+        "text": "除非你拥有<b>法术伤害</b>，\n否则无法进行攻击。",
+        "text_en": "Can't attack unless you have <b>Spell Damage</b>.",
+        "cost": 3,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 3,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c59742c4f5e73eb57957f5569587a6712bdb0a8894cb32874320c75a79fc5fd7",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "DAL_548",
+        "dbf_id": 52415,
+        "name": "艾泽里特元素",
+        "name_en": "Azerite Elemental",
+        "text": "在你的回合开始时，获得<b>法术伤害+2</b>。",
+        "text_en": "At the start of your turn, gain <b>Spell Damage +2</b>.",
+        "cost": 5,
+        "attack": 2,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1130,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3df4ad1b6bb4d34898295d50ba452732497030b8ecc9f46576994610d0994e98",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "DAL_576",
+        "dbf_id": 52638,
+        "name": "肯瑞托三修法师",
+        "name_en": "Kirin Tor Tricaster",
+        "text": "<b>法术伤害+3</b>\n你的法术牌法力值消耗增加（1）点。",
+        "text_en": "<b>Spell Damage +3</b>\nYour spells cost (1) more.",
+        "cost": 4,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1130,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "AURA": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "800a93e44f5da69855ae7f43085398e3565b302a18302610dc66d5d9adbac63a",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "DAL_748",
+        "dbf_id": 52942,
+        "name": "法力之池",
+        "name_en": "Mana Reservoir",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": null,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "COST": 2,
+          "CARD_SET": 1130,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "4e8bb53e887ab3814ccf83932dcd1456ed19da37025c5ccbd4336c8eabdc867f",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "DRG_102",
+        "dbf_id": 54901,
+        "name": "碧蓝龙探险者",
+        "name_en": "Azure Explorer",
+        "text": "<b>法术伤害+2</b>\n<b>战吼：</b><b>发现</b>一张\n龙牌。",
+        "text_en": "<b>Spell Damage +2</b>\n<b>Battlecry:</b> <b>Discover</b> a Dragon.",
+        "cost": 4,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1347,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Charlene LeScanff"
+          }
+        ]
+      },
+      "record_sha256": "934b4d81f93edea4fb3cb448c6f691e606069d6284da042dc8b927a528224ac5",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "DRG_211",
+        "dbf_id": 54956,
+        "name": "猎风巨龙",
+        "name_en": "Squallhunter",
+        "text": "<b>法术伤害+2</b>\n<b>过载：</b>（2）",
+        "text_en": "<b>Spell Damage +2</b>\n<b>Overload:</b> (2)",
+        "cost": 4,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1347,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "e8fd9ba9b7d06019fcd9e60b5ca4aaa0b0678410e35c80f6f1609e3c985bbba0",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "END_022",
+        "dbf_id": 121174,
+        "name": "时光扭曲先知",
+        "name_en": "Time-Twisted Seer",
+        "text": "受伤时拥有\n<b>法术伤害+2</b>。",
+        "text_en": "Has <b>Spell Damage +2</b> while damaged.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 520,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3c64544114e3b21982c4f81126a3b1442e1cc470de1eeba791c8f34652dbef27",
+      "eligible": true,
+      "basis": "reviewed native self Spell Damage clause"
+    },
+    {
+      "record": {
+        "id": "END_031",
+        "dbf_id": 121194,
+        "name": "时光之末的阴影",
+        "name_en": "Shade of the End Time",
+        "text": "<b>潜行</b>。<b>法术伤害+1</b>",
+        "text_en": "<b>Stealth</b>\n<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1957,
+          "STEALTH": 1,
+          "SPELLPOWER": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 192,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "e304c60904685a9a3078200bcc448a6b94983a51554916a8ef3f2f0133279052",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "ETC_029",
+        "dbf_id": 87648,
+        "name": "键盘独演者",
+        "name_en": "Keyboard Soloist",
+        "text": "<b>战吼：</b>如果你没有控制其他随从，召唤两个1/2并具有<b>法术伤害+1</b>的扩音器。",
+        "text_en": "[x]<b>Battlecry:</b> If you control no\nother minions, summon\ntwo 1/2 Amps with\n<b>Spell Damage +1</b>.",
+        "cost": 4,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1809,
+          "CLASS": 4,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 87653
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "65a105b65a369a3d27eaa46a336c8781e510cb0df97e26efcfe4a079e53a0f99",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "EX1_012",
+        "dbf_id": 749,
+        "name": "血法师萨尔诺斯",
+        "name_en": "Bloodmage Thalnos",
+        "text": "<b>法术伤害+1</b>，<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Deathrattle:</b> Draw a card.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "4"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "e103cef53cd87a2bbc82dfe5f162512a9515009d05a8bce6e5d86bb048828d2e",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "EX1_284",
+        "dbf_id": 825,
+        "name": "碧蓝幼龙",
+        "name_en": "Azure Drake",
+        "text": "<b>法术伤害+1</b>，<b>战吼：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Battlecry:</b> Draw a card.",
+        "cost": 5,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 3,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Zhang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "14e757b4ab2fcc1135d15a7b6da247fa8c5f4cd81a6d528759335b7c37a30a73",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "EX1_563",
+        "dbf_id": 436,
+        "name": "玛里苟斯",
+        "name_en": "Malygos",
+        "text": "<b>法术伤害+5</b>",
+        "text_en": "<b>Spell Damage +5</b>",
+        "cost": 9,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michael Komarck"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "877a8165e7b6bdc491522fb854d78aa34df05abd7a67d04672f0b32b3f62add5",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "EX1_582",
+        "dbf_id": 175,
+        "name": "达拉然法师",
+        "name_en": "Dalaran Mage",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1635,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "3eb86be34cb972f1c25e9e5ce3dece762dfdc06f182fd2ae09b1d3b27af4a9cd",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "GDB_304",
+        "dbf_id": 111938,
+        "name": "恒星之火萨鲁恩",
+        "name_en": "Saruun",
+        "text": "<b>战吼：</b>使你牌库中的所有元素获得<b>火焰法术伤害+1</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Give all\nElementals in your deck\n <b>Fire Spell Damage +1</b>.",
+        "cost": 6,
+        "attack": 7,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 7,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1935,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1946",
+              "name": "SPELLPOWER_FIRE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e84e9023bce66460f1774aacff9a2c01122b82a9bf06057a2afbbd6c93ba0502",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "GDB_310",
+        "dbf_id": 111972,
+        "name": "虚灵神谕者",
+        "name_en": "Ethereal Oracle",
+        "text": "<b>法术伤害+1</b>\n<b><b>法术迸发</b>：</b>抽两张法术牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b><b>Spellburst</b>:</b> Draw 2 spells.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1935,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELLBURST": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "ef0c21c69657892cb0be140699e6062c861d7bcb18e913152c97ae1c1f452ce0",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "GIL_121",
+        "dbf_id": 46660,
+        "name": "黑沼枭兽",
+        "name_en": "Darkmire Moonkin",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 7,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 7,
+          "CARD_SET": 1125,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          }
+        ]
+      },
+      "record_sha256": "88640991c72471c99f987d5da1a7a8599f7db17dd4545104ef4fae7833ac9157",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "GIL_529",
+        "dbf_id": 46994,
+        "name": "幻术士",
+        "name_en": "Spellshifter",
+        "text": "<b>法术伤害+1</b>\n如果这张牌在你的手牌中，每个回合使其攻击力和生命值互换。",
+        "text_en": "[x]<b>Spell Damage +1</b>\nEach turn this is in your hand,\nswap its Attack and Health.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1125,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 46995
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "6b76f82421279dd96a60674876006ebefcfd4b78228f4d3c60e96a3a2929fd0e",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "GIL_838",
+        "dbf_id": 48445,
+        "name": "黑猫",
+        "name_en": "Black Cat",
+        "text": "<b>法术伤害+1，战吼：</b>如果你的牌库中只有法力值消耗为奇数的牌，抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n <b>Battlecry:</b> If your deck has only odd-Cost cards, draw a card.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1125,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1584": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1584",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1584"
+          }
+        ]
+      },
+      "record_sha256": "3096414065c32930d21a889e4bf1c846cb8b66a33397c90fb15524a77fbcffa4",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "GVG_109",
+        "dbf_id": 2077,
+        "name": "小个子法师",
+        "name_en": "Mini-Mage",
+        "text": "<b>潜行，法术伤害+1</b>",
+        "text_en": "<b>Stealth</b>\n<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 13,
+          "STEALTH": 1,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Olson"
+          }
+        ]
+      },
+      "record_sha256": "1a9ee374895cd92beed5fbe2e25b97e5b949287f71dc9007736537ce4d775215",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "GVG_123",
+        "dbf_id": 2249,
+        "name": "煤烟喷吐装置",
+        "name_en": "Soot Spewer",
+        "text": "<b>法术伤害+1</b>\n<b>战吼：</b>如果你控制着其他机械，随机获取一张火焰法术牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Battlecry:</b> If you control\nanother Mech, get a random Fire spell.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 13,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          }
+        ]
+      },
+      "record_sha256": "c7971ec980400091068ad2bf7932f78233d40cb8bef5d6cd9ea9efe74e2dfaa5",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "ICC_093",
+        "dbf_id": 42775,
+        "name": "海象人渔夫",
+        "name_en": "Tuskarr Fisherman",
+        "text": "<b>战吼：</b>使一个友方随从获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Battlecry:</b> Give a friendly minion <b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1001,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8bf0d25bce4d98e9b69c86502e243b65a21240ad6643c646f7b70794e7854be6",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "ICC_856",
+        "dbf_id": 45378,
+        "name": "织法者",
+        "name_en": "Spellweaver",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1001,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "042be31673aad62d72b545b0f0b98e9befa8cf22ceb00d10c8778359afedfbd7",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "ICC_913",
+        "dbf_id": 46103,
+        "name": "被污染的狂热者",
+        "name_en": "Tainted Zealot",
+        "text": "<b>圣盾</b>\n<b>法术伤害+1</b>",
+        "text_en": "<b>Divine Shield</b>\n<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1001,
+          "SPELLPOWER": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jesper Ejsing"
+          }
+        ]
+      },
+      "record_sha256": "c7bed8a4333e5586af85a9697d53663434d24f47d899d868a0a70d5b02baed32",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "LEG_CS3_001",
+        "dbf_id": 113180,
+        "name": "守护者艾格文",
+        "name_en": "Aegwynn, the Guardian",
+        "text": "<b>法术伤害+2</b>，<b>亡语：</b>你抽到的下一张随从牌会继承这些能力。",
+        "text_en": "<b>Spell Damage +2</b>\n<b>Deathrattle:</b> The next minion_you draw inherits these powers.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1635,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "858": 62347
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "62347",
+              "type": "Int",
+              "value": "62347"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "19336b58a258ece52b39e6977c427e93f2854b02a61c329eea0cd391d43beba5",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "LOE_051",
+        "dbf_id": 2923,
+        "name": "丛林枭兽",
+        "name_en": "Jungle Moonkin",
+        "text": "双方玩家拥有\n<b>法术伤害+2</b>。",
+        "text_en": "Both players have\n<b>Spell Damage +2</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 20,
+          "SPELLPOWER": 1,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          }
+        ]
+      },
+      "record_sha256": "451d4a91ab6073485f9c2183c61f90f62fd17e022a9aa3e343d76b52b28e1a6c",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "OG_082",
+        "dbf_id": 38408,
+        "name": "异变的狗头人",
+        "name_en": "Evolved Kobold",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 4,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 21,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Genevieve Tsai & Nutchapol"
+          }
+        ]
+      },
+      "record_sha256": "47a64ce75578986702d23161fb21c386f936c96935e8f16fc23b28040451c0ff",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "OG_209",
+        "dbf_id": 38722,
+        "name": "升腾者海纳泽尔",
+        "name_en": "Hallazeal the Ascended",
+        "text": "<b>法术伤害+1</b>\n你的法术拥有<b>吸血</b>。",
+        "text_en": "<b>Spell Damage +1</b>\nYour spells have <b>Lifesteal</b>.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 21,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "eba4c71f1fa7bc856d35b438ccf687aa6ec65072ad6e40b5847e5a6c490f9ade",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "OG_303",
+        "dbf_id": 38900,
+        "name": "异教女巫",
+        "name_en": "Cult Sorcerer",
+        "text": "<b>法术伤害+1</b>\n在你施放一个法术后，使你的克苏恩获得+1/+1<i>（无论它在哪里）。</i>",
+        "text_en": "[x]<b><b>Spell Damage</b> +1</b>\nAfter you cast a spell,\ngive your C'Thun +1/+1\n<i>(wherever it is).</i>",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 21,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 38857,
+          "RITUALIST_MINION": 1,
+          "3633": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Meyers & T. Washington"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3633",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3633"
+          }
+        ]
+      },
+      "record_sha256": "7912c6e0122e6710cc59fa4846204db2fc4ac1816a516619dc3df68432cbf8d9",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "RLK_218",
+        "dbf_id": 86557,
+        "name": "银月城奥术师",
+        "name_en": "Silvermoon Arcanist",
+        "text": "<b>法术伤害+2</b>。<b>战吼：</b>在本回合中，你的法术不能以英雄为目标。",
+        "text_en": "[x]<b>Spell Damage +2</b>\n<b>Battlecry:</b> Your spells can’t\ntarget heroes this turn.",
+        "cost": 3,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1776,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Valeria Styajkina"
+          }
+        ]
+      },
+      "record_sha256": "a1f67da56bb20ba5bf13d34b43270940b93368826d960fbd8f46acfd2d629f71",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "RLK_820",
+        "dbf_id": 84272,
+        "name": "哈杜伦·明翼",
+        "name_en": "Halduron Brightwing",
+        "text": "<b>战吼：</b>使你手牌和牌库中所有奥术法术牌获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Battlecry:</b> Give all Arcane spells in your hand and\n[x]deck <b>Spell Damage +1</b>.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5dc586cf7685b2a748c8f27ffa7fb6975d3b14db1986aafb154467eb5cea25f4",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "RLK_826",
+        "dbf_id": 84393,
+        "name": "银月城远行者",
+        "name_en": "Silvermoon Farstrider",
+        "text": "<b>战吼：</b>使你手牌中所有奥术法术牌获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Battlecry:</b> Give all\nArcane spells in your hand\n<b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1776,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "00f203ed3251dad14e513652f8d00bb5ced39cae5379dab01299a8a1e2caf98e",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "SCH_245",
+        "dbf_id": 59027,
+        "name": "卷轴管理者",
+        "name_en": "Steward of Scrolls",
+        "text": "<b>法术伤害+1</b>\n<b>战吼：</b><b>发现</b>一张法术牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Battlecry:</b> <b>Discover</b> a spell.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1443,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ware Lee"
+          }
+        ]
+      },
+      "record_sha256": "b83c41ebcc9627774e057510bc549ff56cab08d44b1b787bed31f863fd75b0f5",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "SCH_273",
+        "dbf_id": 59216,
+        "name": "莱斯·霜语",
+        "name_en": "Ras Frostwhisper",
+        "text": "在你的回合结束时，对所有敌人造成$1点伤害<i>（受<b>法术伤害</b>加成影响）</i>。",
+        "text_en": "At the end of your turn,\ndeal $1 damage to all enemies <i>(improved by <b>Spell Damage</b>)</i>.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 136,
+          "1450": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luke Mancini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1450",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1450"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "82af28c8d00fbc202d270cab4bdcac667f749617feea12357d13ecbe51d379b2",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "SCH_310",
+        "dbf_id": 59013,
+        "name": "研究伙伴",
+        "name_en": "Lab Partner",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1443,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "16d97bea32952137103401dfe8ad137631cf730c4c81405ea081220ad3aa4a18",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "SCH_400",
+        "dbf_id": 58770,
+        "name": "决斗大师莫扎奇",
+        "name_en": "Mozaki, Master Duelist",
+        "text": "在你施放一个法术后，获得<b>法术伤害+1</b>。",
+        "text_en": "After you cast a spell, gain <b>Spell Damage +1</b>.",
+        "cost": 5,
+        "attack": 3,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 8,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1443,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3c249e74a12c9e54860335725cf3d85e6b34dc105c80819a281ff11f2631fad2",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "SCH_530",
+        "dbf_id": 59576,
+        "name": "巫术替身",
+        "name_en": "Sorcerous Substitute",
+        "text": "<b>战吼：</b>如果你拥有<b>法术伤害</b>，召唤一个本随从的复制。",
+        "text_en": "<b>Battlecry:</b> If you have <b>Spell Damage</b>, summon a copy of this.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Agatha Zhou"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "761cfb2b52160688c2a1f88ec4d4a7fa05277c380a5588b51fe855b87dd2481e",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "SW_061",
+        "dbf_id": 64709,
+        "name": "公会商人",
+        "name_en": "Guild Trader",
+        "text": "<b>可交易</b>\n<b>法术伤害+2</b>",
+        "text_en": "<b>Tradeable</b>\n<b>Spell Damage +2</b>",
+        "cost": 4,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1578,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "TRADEABLE": 1,
+          "DECK_ACTION_COST": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Yoahua Xu & Junru Zhuo"
+          }
+        ]
+      },
+      "record_sha256": "d60428718d829ab6f76c96c8fa9a22b060f69cf20a0a2c394f9976a17f4cec70",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "TIME_856",
+        "dbf_id": 119632,
+        "name": "艾杰斯亚导师",
+        "name_en": "Algeth'ar Instructor",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 5,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1957,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "db3414ac5981bdedc25a6a132db09060e1e5c94a383bfa86c323e9d0535cab1c",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "TLC_223",
+        "dbf_id": 117533,
+        "name": "火山长尾蜥",
+        "name_en": "Volcanic Thrasher",
+        "text": "<b>战吼：</b>抽一张火焰法术牌。<b>延系：</b>使其获得<b>法术伤害+2</b>。",
+        "text_en": "<b>Battlecry:</b> Draw a Fire spell. <b>Kindred:</b> Give it <b>Spell Damage +2</b>.",
+        "cost": 3,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2542": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "KINDRED": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefano Spagnuolo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "929516a237fdeff7dec290899ca6b3d7559615e86a6a3961f9c18efc91b7a072",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "TOY_801",
+        "dbf_id": 104583,
+        "name": "绿植幼龙",
+        "name_en": "Chia Drake",
+        "text": "<b>微缩</b>\n<b>抉择：</b>获得<b>法术伤害+1</b>；或者抽一张法术牌。",
+        "text_en": "<b>Miniaturize</b>\n<b>Choose One -</b> Gain\n<b>Spell Damage +1</b>; or\nDraw a spell.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1897,
+          "CLASS": 2,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "MINIATURIZE": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "aebf6be3f78c4845570eac2262c67dd3d210271632137919eba7651c31352455",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "TOY_807",
+        "dbf_id": 104619,
+        "name": "欧洛尼乌斯",
+        "name_en": "Owlonius",
+        "text": "<b>法术伤害+1</b>。你的法术受到的<b>法术伤害</b>增益效果翻倍。",
+        "text_en": "[x]<b>Spell Damage +1</b>\nYour spells get\ndouble bonus from\n<b>Spell_Damage</b>.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1897,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0c4437808efa698041bf6d370fc8ce76534a0f230dbac17c966d8a1723bceea0",
+      "eligible": true,
+      "basis": "reviewed native self Spell Damage clause"
+    },
+    {
+      "record": {
+        "id": "TRL_312",
+        "dbf_id": 50083,
+        "name": "狂暴咒术师",
+        "name_en": "Spellzerker",
+        "text": "受伤时拥有\n<b>法术伤害+2</b>。",
+        "text_en": "Has <b>Spell Damage +2</b> while damaged.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1129,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7975292bef24ca290117a62d6ad6d688475bf79e315a5107872444bc6ef5370b",
+      "eligible": true,
+      "basis": "reviewed native self Spell Damage clause"
+    },
+    {
+      "record": {
+        "id": "TSC_053",
+        "dbf_id": 72648,
+        "name": "虹彩闪鳞纳迦",
+        "name_en": "Rainbow Glowscale",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1658,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 92,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "64591d20a67e23436f3c4cf35b5e594da30b028fd282af4014ee5c1099ceda57",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "TSC_635",
+        "dbf_id": 72423,
+        "name": "艾萨拉之辉",
+        "name_en": "Radiance of Azshara",
+        "text": "<b>火焰法术伤害+2</b>。你的自然法术法力值消耗降低（1）点。在你施放一个冰霜法术后，获得3点护甲值。",
+        "text_en": "[x]<b>Fire Spell Damage +2</b>\nYour Nature spells cost (1)\nless. After you cast a Frost\nspell, gain 3 Armor.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "SPELLPOWER_FIRE": 1,
+          "2553": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2553",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2553"
+          }
+        ]
+      },
+      "record_sha256": "4924900289ff82c112c1f91cea55f9c8d5bb891e1e9d7cf2161677780cfabc68",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "TTN_071",
+        "dbf_id": 96875,
+        "name": "西芙",
+        "name_en": "Sif",
+        "text": "<b>法术伤害+@</b>\n<i>（在本局对战中，你每施放过一个派系的法术都会提升！）</i>",
+        "text_en": "<b>Spell Damage +@</b>\n<i>(Improved by each\nspell school you've cast this game!)</i>",
+        "cost": 6,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Greco"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "44068f35123ec83658de13c735d920a719c9c001e163cbc6910d98341ea02caa",
+      "eligible": true,
+      "basis": "reviewed native self Spell Damage clause"
+    },
+    {
+      "record": {
+        "id": "VAN_CS2_142",
+        "dbf_id": 68390,
+        "name": "狗头人地卜师",
+        "name_en": "Kobold Geomancer",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 1,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 672
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabor Szikszai"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "672",
+              "type": "Int",
+              "value": "672"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "35cea96dff5a2def51188c617d64151e387803a263ef59586d3168878e19ac5b",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "VAN_CS2_155",
+        "dbf_id": 68393,
+        "name": "大法师",
+        "name_en": "Archmage",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 6,
+        "attack": 4,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 4,
+          "COST": 6,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 525
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Ellis"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "525",
+              "type": "Int",
+              "value": "525"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f0519be64a01524be0aa48759c8af16b82ee7a45058e1d472cde59b824c564b8",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "VAN_CS2_197",
+        "dbf_id": 68405,
+        "name": "食人魔法师",
+        "name_en": "Ogre Magi",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 995
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "995",
+              "type": "Int",
+              "value": "995"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b944ba7ed991ca0275258693bfd1f95cab573ce421b815947655656b20854c93",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_012",
+        "dbf_id": 69813,
+        "name": "血法师萨尔诺斯",
+        "name_en": "Bloodmage Thalnos",
+        "text": "<b>法术伤害+1</b>，<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Deathrattle:</b> Draw a card.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 4,
+          "COLLECTIBLE": 1,
+          "858": 749
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "4"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "749",
+              "type": "Int",
+              "value": "749"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9b918a99fd30d83645038933783b45e985c02734397b4730d2e27b6576cc65e8",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_284",
+        "dbf_id": 69907,
+        "name": "碧蓝幼龙",
+        "name_en": "Azure Drake",
+        "text": "<b>法术伤害+1</b>，<b>战吼：</b>抽一张牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Battlecry:</b> Draw a card.",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 825
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Zhang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "825",
+              "type": "Int",
+              "value": "825"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "ea0bd5655d9583b0e8660b890a98a5227887ee3459c25c5fa604c53c40db3fe7",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_563",
+        "dbf_id": 69979,
+        "name": "玛里苟斯",
+        "name_en": "Malygos",
+        "text": "<b>法术伤害+5</b>",
+        "text_en": "<b>Spell Damage +5</b>",
+        "cost": 9,
+        "attack": 4,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 4,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 24,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 2,
+          "COLLECTIBLE": 1,
+          "858": 436
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michael Komarck"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "436",
+              "type": "Int",
+              "value": "436"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "2cce37ac8395b82f459bc1386d66ea2f325d630c7e4569aa78b27566957270dc",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_582",
+        "dbf_id": 68476,
+        "name": "达拉然法师",
+        "name_en": "Dalaran Mage",
+        "text": "<b>法术伤害+1</b>",
+        "text_en": "<b>Spell Damage +1</b>",
+        "cost": 3,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1646,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "COLLECTIBLE": 1,
+          "858": 175
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "175",
+              "type": "Int",
+              "value": "175"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "25fd18cf92c8411492f1a53aeeadb11a54f468f8c54c8950beb0900b431edc47",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "WON_029",
+        "dbf_id": 102554,
+        "name": "达拉然铁骑士",
+        "name_en": "Dalaran Aspirant",
+        "text": "<b>法术伤害+1</b>\n<b>激励：</b>获得<b>法术伤害+1</b>。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Inspire:</b> Gain <b>Spell Damage +1</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1898,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "INSPIRE": 1,
+          "858": 2549
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2549",
+              "type": "Int",
+              "value": "2549"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "25372bf623086d97a3c5dc4697104101e66646130fa60e8dc7c04529a98a20ad",
+      "eligible": true,
+      "basis": "reviewed native self Spell Damage clause"
+    },
+    {
+      "record": {
+        "id": "WON_033",
+        "dbf_id": 102558,
+        "name": "煤烟喷吐装置",
+        "name_en": "Soot Spewer",
+        "text": "<b>法术伤害+1</b>\n<b>战吼：</b>如果你控制着其他机械，随机获取一张火焰法术牌。",
+        "text_en": "<b>Spell Damage +1</b>\n<b>Battlecry:</b> If you control\nanother Mech, get a random Fire spell.",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1898,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 2249
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2249",
+              "type": "Int",
+              "value": "2249"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "624bf5b608fa12c24e591a08d8904a52cd57a81f0de97927aad10099867908c2",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "WON_039",
+        "dbf_id": 102564,
+        "name": "黑色沼泽卧底",
+        "name_en": "Black Morass Imposter",
+        "text": "如果这张牌在你的手牌中，每个回合都会随机变成一张法力值消耗为（2）并获得<b>法术伤害+1</b>的随从牌。",
+        "text_en": "[x]Each turn this is in your\nhand, transform it into a\n__random 2-Cost minion that__\n__gains <b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1898,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "196ebd6231a1b4cdf175874fb08aa3be0239878346f863da04d42ea2b2622630",
+      "eligible": false,
+      "basis": "reference, grant, or future gain without initial self Spell Damage declaration"
+    },
+    {
+      "record": {
+        "id": "WON_336",
+        "dbf_id": 103239,
+        "name": "升腾者海纳泽尔",
+        "name_en": "Hallazeal the Ascended",
+        "text": "<b>法术伤害+1</b>\n你的法术拥有<b>吸血</b>。",
+        "text_en": "<b>Spell Damage +1</b>\nYour spells have <b>Lifesteal</b>.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1898,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "858": 38722
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38722",
+              "type": "Int",
+              "value": "38722"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7b7e2842be1bebeb02921a57cac0345b399bbc334cdd009bd2ba6890ea6d7918",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "WON_365",
+        "dbf_id": 106568,
+        "name": "杂耍小鬼",
+        "name_en": "Street Trickster",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 3,
+        "attack": null,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "COST": 3,
+          "CARD_SET": 1898,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 40213,
+          "IMP": 1
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daria Tuzova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40213",
+              "type": "Int",
+              "value": "40213"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "13c72b13c02f8248740c779ec1eab57fbb4d8e61f0a93718182bd789641c3466",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    },
+    {
+      "record": {
+        "id": "YOP_021",
+        "dbf_id": 61959,
+        "name": "被禁锢的凤凰",
+        "name_en": "Imprisoned Phoenix",
+        "text": "<b>休眠</b>2回合。<b>法术伤害+2</b>",
+        "text_en": "<b>Dormant</b> for 2 turns.\n<b>Spell Damage +2</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1466,
+          "SPELLPOWER": 1,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 136,
+          "1652": 1,
+          "MINI_SET": 1,
+          "2542": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "684b2bf88e5ebab304428b4f45aa627660f066761dad0c35677d5246481b22d6",
+      "eligible": true,
+      "basis": "positive native SPELLPOWER tag"
+    }
+  ],
+  "eligibility_catalog_source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "eligibility_catalog_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "eligibility_catalog_records": 23452,
+  "eligibility_uses_executable_coverage": false,
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "Discovery admits native self Spell Damage clauses, including conditional, school-specific and scripted declarations, under an explicit local structural policy. The66 identities are independent of executable coverage; the20 reference/grant/future-gain records remain recorded.",
+    "Next-minion cost matches positive unconsumed spell_damage ability presence in the original physical hand quote; native conditions/school restrictions are structural declarations rather than current board activation. Granted current copies qualify; removed abilities do not. Exact CN conditional/dynamic identity windows remain uncalibrated.",
+    "A historical public Sif report was found, but it is not proof of current CN behavior. Dynamic declaration policy remains local and no unknown candidate is silently removed.",
+    "Deck of Wonders creates five ordinary new Scroll of Wonder entities inside one existing semantic shuffle operation, with ordinary independent random insertion. Scroll random spell domain uses the complete actual bound ordinary collectible-spell pool across classes, not the84 Arcane reference.",
+    "Scrolls use existing drawn-cast random targeting/choices and replacement draws, with ordinary full-hand burn precedence. Exact CN rule edges and live version alignment remain deferred."
+  ]
+}

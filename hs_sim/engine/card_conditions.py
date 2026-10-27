@@ -1,5 +1,5 @@
 """Shared structural card predicates for real instances and fresh candidates."""
-from .model import CardAbilityCondition, Keyword
+from .model import CardAbilityCondition, CardType, Keyword
 
 
 class UnknownCardFactError(ValueError):
@@ -25,12 +25,21 @@ def has_battlecry(abilities):
     return any(a.kind == 'battlecry' and not a.consumed for a in abilities)
 
 
+def has_spell_damage(abilities):
+    """Structural positive declaration; school/condition activation stays separate."""
+    return any(a.kind == 'spell_damage' and a.spell_damage > 0 and not a.consumed for a in abilities)
+
+
 def matches_ability(condition, definition, entity=None):
     if type(condition) is not CardAbilityCondition:
         raise ValueError('Expected CardAbilityCondition')
     condition.__post_init__()
     if entity is not None and (entity.card_id, entity.kind) != (definition.id, definition.kind):
         raise ValueError('Card condition instance and definition disagree')
+    if condition.ability == 'spell_damage':
+        printed = definition.kind == CardType.MINION and definition.spell_damage > 0
+        current = printed if entity is None else definition.kind == CardType.MINION and has_spell_damage(entity.abilities)
+        return matches_ability_values(condition,printed=printed,current=current)
     # A generated candidate represents a fresh instance. Current and printed
     # identities coincide until lifecycle operations alter its attachments.
     printed = (definition.secret is not None if condition.ability == 'secret' else

@@ -2232,3 +2232,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 袖珍次元以完整原发现选项的生成身份判断重复终止，复用原提交、普通交付与续接收据；有限repeat_until_seen参数、最后一轮本地窗口和恢复边界见[契约](m3-past-arcane-seen-offers.md)。
+
+
+始生研习的印刷发现资格独立于可执行覆盖，下一费用用原手牌的法伤能力结构；惊奇套牌/卡牌复用原语义洗牌、池内随机施法和抽取替代链。资料、有限条件和待校准窗口见[契约](m3-past-arcane-studies-scrolls.md)。
