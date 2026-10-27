@@ -1,0 +1,2505 @@
+{
+  "schema": 1,
+  "kind": "native-past-arcane-simple-consumers-v1",
+  "reference_document": "data/cards/past-arcane-local-reference-v1.json",
+  "reference_canonical_sha256": "27016f3ede6ca1e4c0760a67aa17b8b46ae935082325308c79471ce78828cfff",
+  "collectible_leaf_ids": [
+    "AT_005",
+    "BOT_101",
+    "CFM_623",
+    "CS2_022",
+    "CS2_023",
+    "CS2_025",
+    "DAL_608",
+    "DS1_185",
+    "EX1_180",
+    "GVG_003",
+    "OG_090",
+    "TID_001",
+    "TID_708",
+    "UNG_941",
+    "WON_037"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "AT_005",
+        "dbf_id": 2542,
+        "name": "变形术：野猪",
+        "name_en": "Polymorph: Boar",
+        "text": "使一个随从变形成为一个4/2并具有<b>冲锋</b>的野猪。",
+        "text_en": "Transform a minion into a 4/2 Boar with <b>Charge</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 2543,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "fabd84db1aa1a54cb2a781ae9ac66f5e0b680a3b54343baa8d3afb6156525f55"
+    },
+    {
+      "record": {
+        "id": "BOT_101",
+        "dbf_id": 47978,
+        "name": "星界裂隙",
+        "name_en": "Astral Rift",
+        "text": "随机将两张随从牌置入你的\n手牌。",
+        "text_en": "Add 2 random minions to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1127,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          }
+        ]
+      },
+      "record_sha256": "5dfb520bbc47bfb0a0f36242dbd09b1a653839999f9bfe23746058f26085c378"
+    },
+    {
+      "record": {
+        "id": "CFM_623",
+        "dbf_id": 40411,
+        "name": "强能奥术飞弹",
+        "name_en": "Greater Arcane Missiles",
+        "text": "随机对敌人发射三枚飞弹，每枚飞弹造成$3点伤害。",
+        "text_en": "Shoot three missiles at random enemies that deal $3 damage each.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 25,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Zagumennyy"
+          }
+        ]
+      },
+      "record_sha256": "6bd51e164b12365bf2532b58f70ea3802f1880b06e98b6acb55384a58c1869ec"
+    },
+    {
+      "record": {
+        "id": "CS2_022",
+        "dbf_id": 77,
+        "name": "变形术",
+        "name_en": "Polymorph",
+        "text": "使一个随从变形成为1/1的绵羊。",
+        "text_en": "Transform a minion\ninto a 1/1 Sheep.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 796,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vance Kovacs"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "ae48c08e780be10e0e8fbc877052d8a78daae578cac8f6f2a9928cce6e4d9756"
+    },
+    {
+      "record": {
+        "id": "CS2_023",
+        "dbf_id": 555,
+        "name": "奥术智慧",
+        "name_en": "Arcane Intellect",
+        "text": "抽两张牌。",
+        "text_en": "Draw 2 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Berggren"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "b05cf9ed8e6a9cb6ba87424ae1f5b1194a77e4ff109b4b2c8c682bf235c10501"
+    },
+    {
+      "record": {
+        "id": "CS2_025",
+        "dbf_id": 447,
+        "name": "魔爆术",
+        "name_en": "Arcane Explosion",
+        "text": "对所有敌方随从造成$1点伤害。",
+        "text_en": "Deal $1 damage to all enemy minions.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Howard Lyon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "a241cd2371308ac06d1c5999b51f2cc1997a8b6eeb05fecfe73556d0022c47bf"
+    },
+    {
+      "record": {
+        "id": "DAL_608",
+        "dbf_id": 52991,
+        "name": "魔术戏法",
+        "name_en": "Magic Trick",
+        "text": "<b>发现</b>一张法力值消耗小于或等于（3）点的法术牌。",
+        "text_en": "<b>Discover</b> a spell that costs (3) or less.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "85f18f6c951fb96e251ec08c89e30536fcc17f7dc2ab80c6b3908889bdb31a1e"
+    },
+    {
+      "record": {
+        "id": "DS1_185",
+        "dbf_id": 877,
+        "name": "奥术射击",
+        "name_en": "Arcane Shot",
+        "text": "造成$2点伤害。",
+        "text_en": "Deal $2 damage.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 8,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "8"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "c9d0c27135e1dbab429e276bea1e69b1d4bd643add7de7619494cc122838b1cc"
+    },
+    {
+      "record": {
+        "id": "EX1_180",
+        "dbf_id": 52262,
+        "name": "智慧秘典",
+        "name_en": "Tome of Intellect",
+        "text": "随机将一张法师法术牌置入你的手牌。",
+        "text_en": "Add a random Mage spell to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Derk Venneman"
+          }
+        ]
+      },
+      "record_sha256": "59163000ab29ea3280ba2c3860410e0ed20f31f3fb7557932539603132c2dc92"
+    },
+    {
+      "record": {
+        "id": "GVG_003",
+        "dbf_id": 1929,
+        "name": "不稳定的传送门",
+        "name_en": "Unstable Portal",
+        "text": "随机将一张随从牌置入你的手牌。该牌的法力值消耗减少（3）点。",
+        "text_en": "Add a random minion to your hand. It costs (3) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 13,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean O’Daniels"
+          }
+        ]
+      },
+      "record_sha256": "f62c42e4fc6537e425b1a67b682efd66329ac4b7485537156598115e3d9bbf26"
+    },
+    {
+      "record": {
+        "id": "OG_090",
+        "dbf_id": 38418,
+        "name": "秘法宝典",
+        "name_en": "Cabalist's Tome",
+        "text": "随机获取3张法师法术牌。",
+        "text_en": "Get 3 random\nMage spells.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 21,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milivoj Ceran"
+          }
+        ]
+      },
+      "record_sha256": "362cc1640437aa600aa6c6cab774ea35f3ae04b00cc45a2c264d3a56e3583d30"
+    },
+    {
+      "record": {
+        "id": "TID_001",
+        "dbf_id": 76117,
+        "name": "月光射线",
+        "name_en": "Moonbeam",
+        "text": "对一个敌人造成$1点伤害两次。",
+        "text_en": "Deal $1 damage to an enemy, twice.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "08ecc07c02cdab6b48591e53b62ef26c74ae92bea077d09192ded0e4baffd380"
+    },
+    {
+      "record": {
+        "id": "TID_708",
+        "dbf_id": 75556,
+        "name": "变形术：水母",
+        "name_en": "Polymorph: Jellyfish",
+        "text": "将一个随从变形成为一只4/1并具有<b>法术伤害+2</b>的水母。",
+        "text_en": "Transform a minion\ninto a 4/1 Jellyfish with <b>Spell Damage +2</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1658,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 75557,
+          "SPELL_SCHOOL": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "334dddc1949cddd0d278c3f5070eb0ba9e4406ec6bf782f7f33bcc73ef3b2ec6"
+    },
+    {
+      "record": {
+        "id": "UNG_941",
+        "dbf_id": 41496,
+        "name": "远古雕文",
+        "name_en": "Primordial Glyph",
+        "text": "<b>发现</b>一张法术牌，使其法力值消耗减少（2）点。",
+        "text_en": "<b>Discover</b> a spell. Reduce its Cost by (2).",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matthew O'Connor"
+          }
+        ]
+      },
+      "record_sha256": "b9da84efc53ad1586c92790c4b312d3b8bc4bdd0130870cfec6c0c8224716c6f"
+    },
+    {
+      "record": {
+        "id": "WON_037",
+        "dbf_id": 102562,
+        "name": "秘法宝典",
+        "name_en": "Cabalist's Tome",
+        "text": "随机获取3张法师法术牌。",
+        "text_en": "Get 3 random\nMage spells.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1898,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 38418,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Milivoj Ceran"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "38418",
+              "type": "Int",
+              "value": "38418"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "898d990e43ec79fded0c6936aa42c51e8e86547c15ecfe48f51a6e2fc30c5bd5"
+    },
+    {
+      "record": {
+        "id": "AT_005t",
+        "dbf_id": 2543,
+        "name": "野猪",
+        "name_en": "Boar",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 15,
+          "CHARGE": 1,
+          "CLASS": 4,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3367147889968112c50c520fc14676c722f1c5812279e090a9ee9728add28845"
+    },
+    {
+      "record": {
+        "id": "TID_708t",
+        "dbf_id": 75557,
+        "name": "水母",
+        "name_en": "Jellyfish",
+        "text": "<b>法术伤害+2</b>",
+        "text_en": "<b>Spell Damage +2</b>",
+        "cost": 3,
+        "attack": 4,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1658,
+          "SPELLPOWER": 1,
+          "CLASS": 4,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7bd26abf9dc437127832129d4c07f6a12018aacb588de8f5121111a62e904517"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_tk1",
+        "dbf_id": 796,
+        "name": "绵羊",
+        "name_en": "Sheep",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "80d26ece31ff72a00fd8d0987581c5c667e8615891695b2f10fb79ac2e468f90",
+      "definition_sha256": "2fa47ca13fdae293b24f8dccf4054ee5c62c489e3b055a5e1f6a1da90867018a",
+      "pool_card_sha256": "73e373a3bb9bb24c74105400d2059e09ac46e58423a33b958b2c03c88f26e76f"
+    },
+    {
+      "record": {
+        "id": "CORE_CS2_023",
+        "dbf_id": 69500,
+        "name": "奥术智慧",
+        "name_en": "Arcane Intellect",
+        "text": "抽两张牌。",
+        "text_en": "Draw 2 cards.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "858": 555,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Berggren"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "555",
+              "type": "Int",
+              "value": "555"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d69cb350635a921248e09a7d5aa82c9b7b1a929b43a40433c8f325e83b371179",
+      "definition_sha256": "b37debe820bf8e5e2d83fe84281c1256646b8e0e1c79f5becdce2a593a05c540",
+      "pool_card_sha256": "22589741dbcbac407d07bad75d82e79743f2a41b8231bd77b462423a3ee34a42"
+    },
+    {
+      "record": {
+        "id": "CORE_DS1_185",
+        "dbf_id": 69546,
+        "name": "奥术射击",
+        "name_en": "Arcane Shot",
+        "text": "造成$2点伤害。",
+        "text_en": "Deal $2 damage.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "251": 8,
+          "COLLECTIBLE": 1,
+          "858": 877,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "8"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "877",
+              "type": "Int",
+              "value": "877"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "792afdf08e4652128d8610c3f2ed8e5b3c30afaf9d13002c254d5e012eee5956",
+      "definition_sha256": "e5252f4223ad97b70369968c228edf6021c0b83da68d38eef6faaa3e3b4fee74",
+      "pool_card_sha256": "3974b0341d438bd039761fb1e8539665971164101cfa79d0ed1cd4df13b47fe3"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "AT_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 2542,
+        "collectible": 1,
+        "slug": "2542-polymorph-boar",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Mike Sass",
+        "manaCost": 3,
+        "name": "变形术：野猪",
+        "text": "使一个随从变形成为一个4/2并具有<b>冲锋</b>的野猪。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cff375aee1142804071da53e7b0837451db3f0bb4cd46ea7084aca1089f0db8c.png",
+        "imageGold": "",
+        "flavorText": "霍弗终于能稳定出场了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/302edaaacee25e8cf2043b4b7f427e4f9f6a9bad823006b2cf6c6e0ba5b37b2e.png",
+        "childIds": [
+          2543
+        ],
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 2542,
+        "collectible": 1,
+        "slug": "2542-polymorph-boar",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Mike Sass",
+        "manaCost": 3,
+        "name": "Polymorph: Boar",
+        "text": "Transform a minion into a 4/2 Boar with <b>Charge</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f99d4ced3b1331321e8ff0f67a8da4e6f30ea319617ff1f56bbde91e0253921.png",
+        "imageGold": "",
+        "flavorText": "It's always Huffer.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/302edaaacee25e8cf2043b4b7f427e4f9f6a9bad823006b2cf6c6e0ba5b37b2e.png",
+        "childIds": [
+          2543
+        ],
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_101",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 47978,
+        "collectible": 1,
+        "slug": "47978-astral-rift",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "A. J. Nazzaro",
+        "manaCost": 2,
+        "name": "星界裂隙",
+        "text": "随机将两张随从牌置入你的 手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e2db61a7be9b952a216559e79e3437d6a4c273b462432c5664dcbcbee4dc8b0.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d55ba29b8afe43d21cd0db40f68644bde4e63f6a43231e108f61ba0995818db.png",
+        "flavorText": "让我们来看看一号裂隙的后面藏着什么！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82bab61f8c90d1837c271b35717936d2472d12c8f88842df975f15a6bca644f8.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_101",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 47978,
+        "collectible": 1,
+        "slug": "47978-astral-rift",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "A. J. Nazzaro",
+        "manaCost": 2,
+        "name": "Astral Rift",
+        "text": "Add 2 random minions to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58bc146aa063622c50280496e7b4d91479cd9571859192ecd9c9ca9f31b2322a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20a958eb0441b7ee78f089ebc708df176e60ce57b9b90b87bdc3b28f5e192993.png",
+        "flavorText": "Let's see what's behind rift number one!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82bab61f8c90d1837c271b35717936d2472d12c8f88842df975f15a6bca644f8.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_623",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 40411,
+        "collectible": 1,
+        "slug": "40411-greater-arcane-missiles",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 4,
+        "artistName": "Evgeniy Zagumennyy",
+        "manaCost": 7,
+        "name": "强能奥术飞弹",
+        "text": "随机对敌人发射三枚飞弹，每枚飞弹造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/467cb9fba59964c8f4c762c5bc64b8599b8b51020d46925ad2b1690aa1d6343a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c12b7dd581e3bc4c915c7dcfa88444f8e0fd3770d5e0ddd39a8406d3778f3049.png",
+        "flavorText": "天呐，我还以为奥术飞弹已经够强了呢！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74839b2435234efe1713300529d70b908713b83a63e3cada227ebf1a785ff346.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_623",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 40411,
+        "collectible": 1,
+        "slug": "40411-greater-arcane-missiles",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 4,
+        "artistName": "Evgeniy Zagumennyy",
+        "manaCost": 7,
+        "name": "Greater Arcane Missiles",
+        "text": "Shoot three missiles at random enemies that deal 3 damage each.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d5f91e839e0b1ecb67e756b016c9142e7962eab15a6ac8abd4dbba2cf4cdc41.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcc7d998d188d8d5223785537cf1aeaa9c39be81f533ad1522ec293e6e78f50c.png",
+        "flavorText": "Wow, and I thought Arcane Missiles was great!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74839b2435234efe1713300529d70b908713b83a63e3cada227ebf1a785ff346.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_022",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 77,
+        "collectible": 1,
+        "slug": "77-polymorph",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Vance Kovacs",
+        "manaCost": 4,
+        "name": "变形术",
+        "text": "使一个随从变形成为1/1的绵羊。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/37bd6a00f3750d01e9799de83c4ae954935087f2a096fb2b7672c4fa54c4f20f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcb0ea3e5436ed08af831be1c541e86e9c68fb48b0da6f796b19a086aa165798.png",
+        "flavorText": "你能想象一个嗜血的兽人发出咩咩的叫声吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/02615bc460870d18e2b2d190f4981b388c25901dbc018856cfca38b54c7af1cc.png",
+        "copyOfCardId": [
+          68194,
+          68319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_022",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 77,
+        "collectible": 1,
+        "slug": "77-polymorph",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Vance Kovacs",
+        "manaCost": 4,
+        "name": "Polymorph",
+        "text": "Transform a minion into a 1/1 Sheep.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eca3260cbec6bd0485627af598b876ad1be039b175da91f189075335896def9a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dcb0ea3e5436ed08af831be1c541e86e9c68fb48b0da6f796b19a086aa165798.png",
+        "flavorText": "There was going to be a pun in this flavor text, but it just came out baa-d.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/02615bc460870d18e2b2d190f4981b388c25901dbc018856cfca38b54c7af1cc.png",
+        "copyOfCardId": [
+          68194,
+          68319
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_023",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 555,
+        "collectible": 1,
+        "slug": "555-arcane-intellect",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Dave Berggren",
+        "manaCost": 3,
+        "name": "奥术智慧",
+        "text": "抽两张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7aadb6096f0d0973bed251284b11a07fee533b49f03826d8a0795bd6c94ef6e4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/24ae4612e5f97902559f92167c9abb39079387907dcc5fec5b5d35f3014da676.png",
+        "flavorText": "使用这张牌能让你变得更聪明。面对现实吧：变聪明些对我们大家来说都是好事。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85a8ede320262f60c650638a154107206f9ec6f99aa771e8df710f191ff16088.png",
+        "copyOfCardId": [
+          68192,
+          68321,
+          69500
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_023",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 555,
+        "collectible": 1,
+        "slug": "555-arcane-intellect",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Dave Berggren",
+        "manaCost": 3,
+        "name": "Arcane Intellect",
+        "text": "Draw 2 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/abb372c879aa12421824cf3a1125e218c80311613545ba10b43b44c99f6c5256.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/24ae4612e5f97902559f92167c9abb39079387907dcc5fec5b5d35f3014da676.png",
+        "flavorText": "Playing this card makes you SMARTER. And let's face it: we could all stand to be a little smarter.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85a8ede320262f60c650638a154107206f9ec6f99aa771e8df710f191ff16088.png",
+        "copyOfCardId": [
+          68192,
+          68321,
+          69500
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_025",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 447,
+        "collectible": 1,
+        "slug": "447-arcane-explosion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Howard Lyon",
+        "manaCost": 2,
+        "name": "魔爆术",
+        "text": "对所有敌方随从造成 1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d64043dd597920a70c05d2ea2b465109a1559317fe2ecd4280af05df881c934.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b17a8f15c2b868d4a8e7b1ee4e62ae941c7ef00dd0a524b7fbfac450c6a91d1.png",
+        "flavorText": "魔爆术曾是让法师们区别于艾泽拉斯其他职业的技能之一。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12b147a129bb7fe11fd300abdba22a0a0ae7da3e6777bae56d49121d16af2ef0.png",
+        "copyOfCardId": [
+          68191,
+          68323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_025",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 447,
+        "collectible": 1,
+        "slug": "447-arcane-explosion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Howard Lyon",
+        "manaCost": 2,
+        "name": "Arcane Explosion",
+        "text": "Deal 1 damage to all enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b025450ead7971b09e61d21ef26dcd100d5c64ee6cc3df472ccce7f2e326fbbb.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b17a8f15c2b868d4a8e7b1ee4e62ae941c7ef00dd0a524b7fbfac450c6a91d1.png",
+        "flavorText": "This spell is much better than Arcane Implosion.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12b147a129bb7fe11fd300abdba22a0a0ae7da3e6777bae56d49121d16af2ef0.png",
+        "copyOfCardId": [
+          68191,
+          68323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_608",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 52991,
+        "collectible": 1,
+        "slug": "52991-magic-trick",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "manaCost": 1,
+        "name": "魔术戏法",
+        "text": "<b>发现</b>一张法力值消耗小于或等于（3）点的法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b35a107573de0cd7c6b55a616b993f5e5c1d0be80fc5b3a1cbad57610f38bf20.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c421051f73ade3f4a174d326287a3041e15ffa3b82e4eeb9a8974a89bdcf70f7.png",
+        "flavorText": "我发明了一个深奥复杂的魔术，可惜这里地方太小，施展不出来！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48aec626bd424b80d4e097a3cead79c274b83bd91b2860edcabb4601155da069.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_608",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 52991,
+        "collectible": 1,
+        "slug": "52991-magic-trick",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 3,
+        "artistName": "Ivan Fomin",
+        "manaCost": 1,
+        "name": "Magic Trick",
+        "text": "<b>Discover</b> a spell that costs (3) or less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a09d9e68df0078c0f9af1469f0ad6ee87a372a43ed397587c95192f33b36f2ee.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a5cc8641057cf4b9bea528d917f32eaee544353a55425737b7de2c158718842.png",
+        "flavorText": "The world is not ready for an illusion of this depth and intricacy!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48aec626bd424b80d4e097a3cead79c274b83bd91b2860edcabb4601155da069.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DS1_185",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 877,
+        "collectible": 1,
+        "slug": "877-arcane-shot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Luca Zontini",
+        "manaCost": 1,
+        "name": "奥术射击",
+        "text": "造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6aecc734e808bb4248b495476c5df8b20374672b9d446161a6c5308ad3e85705.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d075d43b38cd2b7c5edc26ff0ee5017a9fbf2a31bf9e25c53fcdeb55d378b617.png",
+        "flavorText": "法师们用奥术强化箭矢，然后出售给猎人；后来猎人们自己学会了足够的魔法之后便能够自给自足。不少法师因此失业，给暴风城的经济带来不小的冲击。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62fcb73d4604263c722b2c3e23643d9a096e98fd29fb549d09d2ae793a6ae9b1.png",
+        "copyOfCardId": [
+          68193,
+          68434,
+          69546
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DS1_185",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 877,
+        "collectible": 1,
+        "slug": "877-arcane-shot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Luca Zontini",
+        "manaCost": 1,
+        "name": "Arcane Shot",
+        "text": "Deal 2 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01b0a4f8a9bfaf6dca14d293123b3faacbb88f5c3927df23fa92b374ac8899d3.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d075d43b38cd2b7c5edc26ff0ee5017a9fbf2a31bf9e25c53fcdeb55d378b617.png",
+        "flavorText": "Magi conjured arcane arrows to sell to hunters, until hunters learned just enough magic to do it themselves. The resulting loss of jobs sent Stormwind into a minor recession.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62fcb73d4604263c722b2c3e23643d9a096e98fd29fb549d09d2ae793a6ae9b1.png",
+        "copyOfCardId": [
+          68193,
+          68434,
+          69546
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_180",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 52262,
+        "collectible": 1,
+        "slug": "52262-tome-of-intellect",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": "Derk Venneman",
+        "manaCost": 1,
+        "name": "智慧秘典",
+        "text": "随机将一张法师法术牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6fead2882b9bcfafaf82aa1ee6ef64cb5bfa59eab9dbecf01542c0ae7aed3010.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/858cdd6ec9d7e74f98936d7e2c64013628f016caf83d6a11fbaad3b8e94cf74b.png",
+        "flavorText": "秘术的合订本就是秘典。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39e86d26b8169058e6fb5fc4d0d8f3c889898efae2bef9873c0d48547ad30471.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_180",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 52262,
+        "collectible": 1,
+        "slug": "52262-tome-of-intellect",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": "Derk Venneman",
+        "manaCost": 1,
+        "name": "Tome of Intellect",
+        "text": "Add a random Mage spell to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dab03fa5bf45f40b7a88240bdb05f8078c8daee1f729b9b4c1947411d655096e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/858cdd6ec9d7e74f98936d7e2c64013628f016caf83d6a11fbaad3b8e94cf74b.png",
+        "flavorText": "Just a compilation of napkins of intellect.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39e86d26b8169058e6fb5fc4d0d8f3c889898efae2bef9873c0d48547ad30471.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_003",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 1929,
+        "collectible": 1,
+        "slug": "1929-unstable-portal",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": 3,
+        "artistName": "Sean O’Daniels",
+        "manaCost": 2,
+        "name": "不稳定的传送门",
+        "text": "随机将一张随从牌置入你的手牌。该牌的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c2d225df976a3fadfac580daf2ce57cb3a831a5085bf6e39417519ac6086d616.png",
+        "imageGold": "",
+        "flavorText": "艾泽拉斯的普通住民根本不知道让一座传送门稳定下来需要花费多少人力物力。我们每年要花费30%的GDP用于传送门维护。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/837a4fc320557c625c09aa600d29cca83545d8f8b33e85d179bcbf6c945ebfdc.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_003",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 1929,
+        "collectible": 1,
+        "slug": "1929-unstable-portal",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": 3,
+        "artistName": "Sean O’Daniels",
+        "manaCost": 2,
+        "name": "Unstable Portal",
+        "text": "Add a random minion to your hand. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cba7041fc447cf4aeba4e1ef1c28c1803e22258661893615e82c314aacd3dd93.png",
+        "imageGold": "",
+        "flavorText": "The denizens of Azeroth have no idea how much work goes into stabilizing portals. We spend like 30% of GDP on portal upkeep.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/837a4fc320557c625c09aa600d29cca83545d8f8b33e85d179bcbf6c945ebfdc.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_090",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 38418,
+        "collectible": 1,
+        "slug": "38418-cabalists-tome",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 4,
+        "artistName": "Milivoj Ceran",
+        "manaCost": 4,
+        "name": "秘法宝典",
+        "text": "随机获取3张法师法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2d23f944634a91ef284ff8cb514256279e8b5ae2f1b8f72f4bd2ed9e013f7a8.png",
+        "imageGold": "",
+        "flavorText": "秘法宝典？说不定里面有制作魔法点心的食谱……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/269f3cbf14b43acc9e6d45d0515f75f7e6a9bb7c05d0076fcfce527ce2166c30.png",
+        "copyOfCardId": [
+          102562
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_090",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 38418,
+        "collectible": 1,
+        "slug": "38418-cabalists-tome",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 4,
+        "artistName": "Milivoj Ceran",
+        "manaCost": 4,
+        "name": "Cabalist's Tome",
+        "text": "Get 3 random Mage spells.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cc580018631430e098ac39452f2a295c2069d95fb84905ac8836f8d475ae12b8.png",
+        "imageGold": "",
+        "flavorText": "What's in there? I bet it's cookie recipes!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/269f3cbf14b43acc9e6d45d0515f75f7e6a9bb7c05d0076fcfce527ce2166c30.png",
+        "copyOfCardId": [
+          102562
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_001",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 76117,
+        "collectible": 1,
+        "slug": "76117-moonbeam",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Jaemin Kim",
+        "manaCost": 1,
+        "name": "月光射线",
+        "text": "对一个敌人造成 1点伤害两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a61377b3d92c3778f2b9530926641308c15730ff7b243c5df1b41fa3d0dee09.png",
+        "imageGold": "",
+        "flavorText": "大分裂之后，月亮的光芒在辛艾萨莉的废墟中消散，可它的威力依然如故。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ce4ee5ae5268bafd716acfc322f44e082cb0d0d44db7fa4281d5aab3dc355c7.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_001",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 76117,
+        "collectible": 1,
+        "slug": "76117-moonbeam",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Jaemin Kim",
+        "manaCost": 1,
+        "name": "Moonbeam",
+        "text": "Deal 1 damage to an enemy, twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ee942d1c2fdab24f751cda7d3cefac8170a0f06e8be9cea8b54c2bf7703eae3.png",
+        "imageGold": "",
+        "flavorText": "The light of the moon may have disappeared from Zin-Azshari after the Sundering, but not its power.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ce4ee5ae5268bafd716acfc322f44e082cb0d0d44db7fa4281d5aab3dc355c7.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_708",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 75556,
+        "collectible": 1,
+        "slug": "75556-polymorph-jellyfish",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 3,
+        "name": "变形术：水母",
+        "text": "将一个随从变形成为一只4/1并具有<b>法术伤害+2</b>的水母。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/42023818bb66b3237b6b4cae429ea679419eaad3229231e21d7225c36fb1e62c.png",
+        "imageGold": "",
+        "flavorText": "伊妮因为使用了自原性凝胶变形器而被取消了侏儒厨艺大赛的参赛资格，但她仍不会抛弃任何一项新发明。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4b83e8531666d0fb8a9bbec7121d6b8d5fcdbdc21462f11dd030c39eb34db00.png",
+        "childIds": [
+          75557
+        ],
+        "keywordIds": [
+          2
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_708",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 75556,
+        "collectible": 1,
+        "slug": "75556-polymorph-jellyfish",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 3,
+        "name": "Polymorph: Jellyfish",
+        "text": "Transform a minion into a 4/1 Jellyfish with <b>Spell Damage +2</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c612ada4a63f28f95193f6519996585c6c09393ac6eb9d9324ce64b2b14b4e74.png",
+        "imageGold": "",
+        "flavorText": "While Ini’s first use of the Spontaneous Gelatin Transmalgamizer may have gotten her banned from the Gnomish Cooking Convention, she’s never one to throw away a new invention.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4b83e8531666d0fb8a9bbec7121d6b8d5fcdbdc21462f11dd030c39eb34db00.png",
+        "childIds": [
+          75557
+        ],
+        "keywordIds": [
+          2
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_941",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 41496,
+        "collectible": 1,
+        "slug": "41496-primordial-glyph",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Matthew O'Connor",
+        "manaCost": 2,
+        "name": "远古雕文",
+        "text": "<b>发现</b>一张法术牌，使其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bfe9b5404d4a94a686d64e59a7207707b0189a485ebe12c54287946e039ec3b9.png",
+        "imageGold": "",
+        "flavorText": "雕文上的符号翻译过来就是“抱歉”。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/155ee529b53774d5ca1004ffb93028096bd855bdda82dbbcac484b5e01707fae.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          111366
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_941",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 41496,
+        "collectible": 1,
+        "slug": "41496-primordial-glyph",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Matthew O'Connor",
+        "manaCost": 2,
+        "name": "Primordial Glyph",
+        "text": "<b>Discover</b> a spell. Reduce its Cost by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12785a4d5f00d0c22531030d5a76924ab1103aa0a912ad78f4df1b8bc742abc7.png",
+        "imageGold": "",
+        "flavorText": "It's the Ancient Tol'vir symbol for \"Whoops!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/155ee529b53774d5ca1004ffb93028096bd855bdda82dbbcac484b5e01707fae.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          111366
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_037",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 102562,
+        "collectible": 1,
+        "slug": "102562-cabalists-tome",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 4,
+        "artistName": "Milivoj Ceran",
+        "manaCost": 4,
+        "name": "秘法宝典",
+        "text": "随机获取3张法师法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd1c15c7064483c0227ef5ad2894fc1364abee0141b0b88653cb10656e54618c.png",
+        "imageGold": "",
+        "flavorText": "秘法宝典？说不定里面有制作魔法点心的食谱……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29e26d09fa16874a75ec4ede925d530b6da7d1f62c4dda13ffd583ac1526f6eb.png",
+        "copyOfCardId": [
+          38418
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_037",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 102562,
+        "collectible": 1,
+        "slug": "102562-cabalists-tome",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 4,
+        "artistName": "Milivoj Ceran",
+        "manaCost": 4,
+        "name": "Cabalist's Tome",
+        "text": "Get 3 random Mage spells.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/970e2704e6f28875c2564500d44106e86b3bd187615e905759e9de8116179d6f.png",
+        "imageGold": "",
+        "flavorText": "What's in there? I bet it's cookie recipes!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29e26d09fa16874a75ec4ede925d530b6da7d1f62c4dda13ffd583ac1526f6eb.png",
+        "copyOfCardId": [
+          38418
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_005t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k589-past-arcane-simple-spells\\token-primary\\2543-zh_CN.json",
+      "response_sha256": "5f9f2ca857a1b846117d11935708dba390b123c98cc3dbb382451175c0e12886",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=2543&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 2543,
+        "collectible": 0,
+        "slug": "2543-boar",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "野猪",
+        "text": "<b>冲锋</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95975ed8039007ae6a1d7bc1d802552df494e061acfc75d3d109d3c4a156bd82.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 2542,
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=2543&locale=zh_CN&collectible=0",
+        "sha256": "5f9f2ca857a1b846117d11935708dba390b123c98cc3dbb382451175c0e12886",
+        "bytes": 558,
+        "observed_at": "2026-10-27T01:19:52.854020+00:00"
+      }
+    },
+    {
+      "card_id": "AT_005t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k589-past-arcane-simple-spells\\token-primary\\2543-en_US.json",
+      "response_sha256": "5361c458ccb96b61ea834f9b4c1fa7d939f205f720a85b433ed75ef52bd83bed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=2543&locale=en_US&collectible=0",
+      "face": {
+        "id": 2543,
+        "collectible": 0,
+        "slug": "2543-boar",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Boar",
+        "text": "<b>Charge</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae2cdf6c8521144b84ebaa65b528be9123da1eec0ec55b83c05983172a3afaa4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 2542,
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=2543&locale=en_US&collectible=0",
+        "sha256": "5361c458ccb96b61ea834f9b4c1fa7d939f205f720a85b433ed75ef52bd83bed",
+        "bytes": 556,
+        "observed_at": "2026-10-27T01:19:53.317403+00:00"
+      }
+    },
+    {
+      "card_id": "TID_708t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k589-past-arcane-simple-spells\\token-primary\\75557-zh_CN.json",
+      "response_sha256": "8ca5ee9f47865fbc6799f3ad027b3d8687199745a7cace726a563dbabb16e559",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=75557&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 75557,
+        "collectible": 0,
+        "slug": "75557-jellyfish",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "水母",
+        "text": "<b>法术伤害+2</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7676d9a24188ac19069341e3299b7ba814067aca627f77fab59942c524cfde64.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75556,
+        "keywordIds": [
+          2
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=75557&locale=zh_CN&collectible=0",
+        "sha256": "8ca5ee9f47865fbc6799f3ad027b3d8687199745a7cace726a563dbabb16e559",
+        "bytes": 576,
+        "observed_at": "2026-10-27T01:19:52.859838+00:00"
+      }
+    },
+    {
+      "card_id": "TID_708t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k589-past-arcane-simple-spells\\token-primary\\75557-en_US.json",
+      "response_sha256": "ee94a80f6e84dc4359092ce2b4942af2ab1fec8c66e6a13369711f72f5b0710a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=75557&locale=en_US&collectible=0",
+      "face": {
+        "id": 75557,
+        "collectible": 0,
+        "slug": "75557-jellyfish",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Jellyfish",
+        "text": "<b>Spell Damage +2</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fb6371181219c1761d3b530fc1c0b26769dfa947932978da207df6261d9e2ce.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75556,
+        "keywordIds": [
+          2
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=75557&locale=en_US&collectible=0",
+        "sha256": "ee94a80f6e84dc4359092ce2b4942af2ab1fec8c66e6a13369711f72f5b0710a",
+        "bytes": 580,
+        "observed_at": "2026-10-27T01:19:53.267830+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_tk1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k589-past-arcane-simple-spells\\token-primary\\796-zh_CN.json",
+      "response_sha256": "8dd7ea889ee4a0a7a28b716254a72ff0dd38c8aef58f7692a67eaef2596ae2a2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=796&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 796,
+        "collectible": 0,
+        "slug": "796-sheep",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "绵羊",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d82ebe6c7e3b5630611463e3718039c75da7eb3f698b12333ae7338ddaa574c2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c8c2025ae64b9f0a2dea0134384e3c0f773464ff6338dc6367d70e9b04468ce.jpg",
+        "copyOfCardId": [
+          68419
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=796&locale=zh_CN&collectible=0",
+        "sha256": "8dd7ea889ee4a0a7a28b716254a72ff0dd38c8aef58f7692a67eaef2596ae2a2",
+        "bytes": 652,
+        "observed_at": "2026-10-27T01:19:54.393563+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_tk1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k589-past-arcane-simple-spells\\token-primary\\796-en_US.json",
+      "response_sha256": "4cd58eeea1d0fe159d3f9f9819ea07379c3ee15266e72a3b644d7b48cc8f879e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=796&locale=en_US&collectible=0",
+      "face": {
+        "id": 796,
+        "collectible": 0,
+        "slug": "796-sheep",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Sheep",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b391231c1b6d260c9d457d145f3dd85beaeff0b1f14247c15a1ee76f064e8ac.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c8c2025ae64b9f0a2dea0134384e3c0f773464ff6338dc6367d70e9b04468ce.jpg",
+        "copyOfCardId": [
+          68419
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=796&locale=en_US&collectible=0",
+        "sha256": "4cd58eeea1d0fe159d3f9f9819ea07379c3ee15266e72a3b644d7b48cc8f879e",
+        "bytes": 651,
+        "observed_at": "2026-10-27T01:19:54.475081+00:00"
+      }
+    }
+  ],
+  "named_transform_faces": {
+    "AT_005": "AT_005t",
+    "CS2_022": "CS2_tk1",
+    "TID_708": "TID_708t"
+  },
+  "existing_body_aliases": {
+    "CS2_023": "CORE_CS2_023",
+    "DS1_185": "CORE_DS1_185"
+  },
+  "fixed_three_shots": {
+    "card_id": "CFM_623",
+    "shots": 3,
+    "base_damage_each": 3
+  },
+  "moonbeam_fixed_hits": {
+    "card_id": "TID_001",
+    "hits": 2,
+    "base_damage_each": 1
+  },
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "source_scope_bound": false,
+  "uncertainties": [
+    "Complete84 reference remains closed for actual source generation until native dependencies and source-qualified full inventory are verified.",
+    "Original OG_090 and WON_037 identities are preserved separately; their official generation deduplication/weights remain unconfirmed."
+  ]
+}
