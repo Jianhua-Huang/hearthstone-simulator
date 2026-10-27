@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 608
+SNAPSHOT_SCHEMA_VERSION = 609
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1024,8 +1024,13 @@ def _intrinsic_stage_from_dict(value):
     if row['board_minions'] is not None:
         board = _row(row['board_minions'], BoardMinionCostFact)
         board['spec'] = BoardMinionCostSpec(**_row(board['spec'], BoardMinionCostSpec))
-        board['boards'] = tuple(tuple(BoardMinionCostRow(**_row(v, BoardMinionCostRow))
-            for v in _list(b, 'board price rows')) for b in _list(board['boards'], 'board price inventories'))
+        def board_row(value):
+            entry = _row(value,BoardMinionCostRow)
+            if entry['tribe_changes'] is not None:
+                entry['tribe_changes'] = tuple(_enchantment_from_dict(c) for c in _list(entry['tribe_changes'],'original board tribe attachments'))
+            return BoardMinionCostRow(**entry)
+        board['boards'] = tuple(tuple(board_row(v) for v in _list(b, 'board price rows'))
+            for b in _list(board['boards'], 'board price inventories'))
         row['board_minions'] = BoardMinionCostFact(**board)
     if row['hand_cards'] is not None:
         from .hand_count_costs import fact_from_dict

@@ -460,6 +460,11 @@ def validate_intrinsic_history_prefix(fact, state, registry, *, _within_cast_his
     if fact.board_minions is not None and (fact.board_minions.next_entity_id > state.next_entity_id or
             any(row.entity_id not in state.entities for board in fact.board_minions.boards for row in board)):
         raise ValueError('Board cost lost its original physical allocation prefix')
+    if fact.board_minions is not None and fact.board_minions.next_attachment_id is not None:
+        if fact.board_minions.next_attachment_id > state.next_attachment_id or any(
+                change.source_id is not None and change.source_id not in state.entities
+                for board in fact.board_minions.boards for row in board for change in row.tribe_changes or ()):
+            raise ValueError('Board tribe cost lost its original physical allocation prefix')
     hand = fact.hand_cards
     if hand is not None and (hand.next_entity_id > state.next_entity_id or
             any(eid not in state.entities for ids in hand.hands for eid in ids) or

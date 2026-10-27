@@ -4361,25 +4361,34 @@ class HandDerivativeSpec:
 
 @dataclass(frozen=True)
 class BoardMinionCostSpec:
-    """One mana less per ordinary resident minion, before local cost edits."""
+    """One mana less per selected ordinary board minion, before local edits."""
     scope: str = 'friendly'
     profile_id: str = 'cost.board-minions-v1'
 
     def __post_init__(self):
         if type(self.scope) is not str or self.scope not in ('friendly', 'enemy', 'all'):
             raise ValueError('Board minion costs require friendly, enemy or all scope')
-        if type(self.profile_id) is not str or self.profile_id != 'cost.board-minions-v1':
+        if type(self.profile_id) is not str or self.profile_id not in ('cost.board-minions-v1','cost.board-friendly-elementals-v1'):
             raise ValueError('Unsupported board minion cost policy')
+        if self.profile_id == 'cost.board-friendly-elementals-v1' and self.scope != 'friendly':
+            raise ValueError('Native Elemental price requires the friendly board')
+
+    @property
+    def tribes_any(self):
+        """Finite native selector; not another serialized declaration field."""
+        return ('elemental',) if self.profile_id == 'cost.board-friendly-elementals-v1' else ()
 
 
 @dataclass(frozen=True)
 class BoardMinionCostRow:
     entity_id: int
     card_id: str
+    tribe_changes: tuple[Enchantment, ...] | None = None
 
     def __post_init__(self):
         _int(self.entity_id, 'board cost physical ID', 1)
         _name(self.card_id, 'board cost physical face')
+        if self.tribe_changes is not None:_tribe_changes(self.tribe_changes)
 
 
 @dataclass(frozen=True)
@@ -4391,6 +4400,7 @@ class BoardMinionCostFact:
     quantity: int
     before: int
     after: int
+    next_attachment_id: int | None = field(default=None,kw_only=True)
 
     def __post_init__(self):
         if type(self.spec) is not BoardMinionCostSpec:
@@ -4402,15 +4412,25 @@ class BoardMinionCostFact:
         if (type(self.boards) is not tuple or len(self.boards) != 2 or any(type(board) is not tuple
                 or any(type(row) is not BoardMinionCostRow for row in board) for board in self.boards)):
             raise ValueError('Board cost requires both complete ordered board inventories')
-        identities = []
+        filtered = bool(self.spec.tribes_any)
+        if filtered:_int(self.next_attachment_id,'original board tribe attachment bound',1)
+        elif self.next_attachment_id is not None:raise ValueError('Ordinary board count cannot invent tribe operands')
+        identities = [];attachments = []
         for board in self.boards:
             for row in board:
                 row.__post_init__()
                 if row.entity_id >= self.next_entity_id:
                     raise ValueError('Board cost contains a future physical entity')
                 identities.append(row.entity_id)
+                if not filtered and row.tribe_changes is not None:
+                    raise ValueError('Ordinary board count cannot invent tribe operands')
+                for change in row.tribe_changes or ():
+                    if change.id >= self.next_attachment_id or change.source_id is not None and change.source_id >= self.next_entity_id:
+                        raise ValueError('Board tribe operand borrowed a future allocation')
+                    attachments.append(change.id)
         if len(set(identities)) != len(identities):
             raise ValueError('Board cost cannot count a physical entity twice')
+        if len(set(attachments)) != len(attachments):raise ValueError('Board tribe operand repeated a physical attachment')
         for name in ('quantity', 'before', 'after'):
             _int(getattr(self, name), 'board cost '+name, 0)
         maximum = len(identities) if self.spec.scope == 'all' else len(self.boards[

@@ -1886,3 +1886,8 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 ## 原快枪事实的反向目标条件
 
 [热浪来袭契约](m3-heatwave-inverse-quickdraw.md)在原target_condition字段增加有限unless_quickdraw声明。原五种正向条件、自动CAST的原quickdraw=false及手牌进入事实保持；共享纯判断覆盖手动/自动有效声明、主体预检和普通根目标证明，反向值不另存。真实卡的两种伤害范围复用原组伤害执行器，原接受/付款/目标与等待恢复继续按原事实验证，不以始终可选目标替代真实条件。
+
+
+## 原有效元素战场费用
+
+[阳炎耀斑契约](m3-solar-flare-elemental-price.md)在原BoardMinionCostSpec有限profile内复用当前种族查询。原声明字段及旧完整卡面定义保持；选中本人普通随从保存完整原种族变化附件及分配上界，以同一纯数量函数重算原费用。完整付款状态另行认证原捕获，后续合法场面/种族变化不重新定价旧根。私有wire行扩展使schema609拒绝旧存档，不增加费用执行器、Entity缓存、Effect/payload或CardDefinition字段，玩家接口保持原投影。

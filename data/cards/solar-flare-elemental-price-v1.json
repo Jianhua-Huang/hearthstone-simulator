@@ -1,0 +1,160 @@
+{
+  "schema": 1,
+  "kind": "real-solar-flare-current-elemental-board-price",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_canonical_sha256": "a6ad8cee67c84b23206cf7fcb7cc75ebdeddc451f1f10f32bc7f9d275ca145a6",
+  "cards": [
+    {
+      "record": {
+        "id": "GDB_305",
+        "dbf_id": 111967,
+        "name": "阳炎耀斑",
+        "name_en": "Solar Flare",
+        "text": "对所有敌人造成$2点伤害。你每控制一个元素，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Deal $2 damage to all enemies. Costs (1) less for each Elemental you control.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1935,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          }
+        ]
+      },
+      "record_sha256": "0fd0942b03e96a3eca01a219c4b983f209c8d3ca1681b92a84ebaabf077d5e90",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "GDB_305",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "GDB_305",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 111967,
+        "collectible": 1,
+        "slug": "111967-solar-flare",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 5,
+        "name": "阳炎耀斑",
+        "text": "对所有敌人造成 2点伤害。你每控制一个元素，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/67137a78ae8d9d73b9cfff92dc64ef6c576ab150f521933d2888ed7ab69ce221.png",
+        "imageGold": "",
+        "flavorText": "萨鲁恩的盘旋舞步灼热而致命。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d009f30f46e2fde2a00667383fe6f928dd38de2a50d925dbf98100aa229e8c9f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_305",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 111967,
+        "collectible": 1,
+        "slug": "111967-solar-flare",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 5,
+        "name": "Solar Flare",
+        "text": "Deal 2 damage to all enemies. Costs (1) less for each Elemental you control.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05024d16767ab2b57e40eed0563d1fe20a2a89296eaca9ed0d2d95abd6fba7c6.png",
+        "imageGold": "",
+        "flavorText": "Saruun is quite the dancer. Their pirouette is deadly.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d009f30f46e2fde2a00667383fe6f928dd38de2a50d925dbf98100aa229e8c9f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "board_price_profile": "cost.board-friendly-elementals-v1",
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "Elemental count uses the same complete BOARD residence policy as existing board-count prices, including dormant and transient doomed ordinary minions until they actually leave BOARD. Formal CN edges remain uncalibrated.",
+    "Current tribe identity comes from original printed metadata plus original ordered physical tribe-change attachments, including all-tribe exclusions; unknown relevant identity fails explicitly.",
+    "Only actual friendly ordinary minions contribute. Complete opponent/inert face inventory is retained and validated, without requiring irrelevant opponent tribe operands.",
+    "Whole actual pre-payment state separately validates capture. Compact original facts prove internal consistency, not authenticity of unsigned archives.",
+    "The real spell deals one ordinary SPELL DamageBatch of 2 to all enemy characters. Exact official notifications, redirection and terminal edges remain deferred.",
+    "Full179 past Mage inventory and NX2_001/TIME_857 production scopes remain closed; this adds one actual missing dependency, not a complete source binding."
+  ]
+}

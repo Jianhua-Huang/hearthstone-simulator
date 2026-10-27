@@ -1,6 +1,8 @@
 """Finite pure board-count price operand, without persistent cost modifiers."""
 from .model import (BoardMinionCostSpec, BoardMinionCostRow, BoardMinionCostFact,
                     CardType, Zone)
+from .card_conditions import UnknownCardFactError
+from .tribes import tribe_changes,tribe_state_for
 
 
 def validate_definition(definition):
@@ -17,11 +19,24 @@ def validate_definition(definition):
 def quantity(registry, boards, spec, player_id):
     # Validate every declared face, including the unselected side and inert
     # objects. Zero cost and friendly scope cannot conceal an unknown row.
-    eligible = tuple(tuple(registry.card(row.card_id).kind == CardType.MINION and
-        registry.card(row.card_id).interactable is None for row in board) for board in boards)
-    selected = eligible if spec.scope == 'all' else (eligible[
-        player_id - 1 if spec.scope == 'friendly' else 2 - player_id],)
-    return sum(sum(board) for board in selected)
+    spec.__post_init__()
+    filtered = bool(spec.tribes_any)
+    selected = (1,2) if spec.scope == 'all' else (player_id if spec.scope == 'friendly' else 3-player_id,)
+    count = 0
+    for pid,board in enumerate(boards,1):
+        for row in board:
+            card = registry.card(row.card_id)
+            ordinary = card.kind == CardType.MINION and card.interactable is None
+            needs_tribes = filtered and pid == player_id and ordinary
+            if needs_tribes != (row.tribe_changes is not None):
+                raise ValueError('Board price changed its complete selected tribe operands')
+            matches = ordinary
+            if needs_tribes:
+                current = tribe_state_for(registry,row.card_id,row.tribe_changes)
+                if current is None:raise UnknownCardFactError('Unknown current board tribe identity: '+row.card_id)
+                matches = current.matches_any(spec.tribes_any)
+            if pid in selected:count += matches
+    return count
 
 
 def capture(state, registry, player_id, definition, base_cost):
@@ -36,12 +51,16 @@ def capture(state, registry, player_id, definition, base_cost):
             entity = state.entities[eid]
             if entity.zone != Zone.BOARD or entity.controller != pid:
                 raise ValueError('Board price inventory differs from its physical zone/controller')
-            rows.append(BoardMinionCostRow(eid, entity.card_id))
+            card = registry.card(entity.card_id)
+            needs_tribes = (bool(spec.tribes_any) and pid == player_id and
+                card.kind == CardType.MINION and card.interactable is None)
+            rows.append(BoardMinionCostRow(eid, entity.card_id,tribe_changes(entity) if needs_tribes else None))
         boards.append(tuple(rows))
     boards = tuple(boards)
     count = quantity(registry, boards, spec, player_id)
     return BoardMinionCostFact(spec, player_id, state.next_entity_id, boards,
-        count, base_cost, max(0, base_cost - count))
+        count, base_cost, max(0, base_cost - count),
+        next_attachment_id=state.next_attachment_id if spec.tribes_any else None)
 
 
 def validate_fact(registry, definition, fact):

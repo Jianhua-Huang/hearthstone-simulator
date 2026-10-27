@@ -52,3 +52,8 @@ friendly按实际报价玩家的当前控制方场面计数；all统计双方。
 场面对象资格、休眠/将死驻留政策、固有费用顺序与特殊复制来源目前是内部政策，未国服校准。不同数量公式、伤害/治疗/弃牌/支付等历史条件，以及完整真实来源、正式池与导入继续U53/M0/M6/M7；本项不宣称任意费用公式或整个模拟器完成。具体卡牌能用现有固定效果表达时不另造公共机制。
 
 当前共享费用API为prototype-v190/core-effects-v184/schema179，拒旧1～178。新增[本局实际法术法力费用](m3-player-spell-mana-costs.md)复用原物理出牌/付款，不改变本契约自身资格；精确CN仍待校准。
+
+
+## 2026-10-27 有效元素筛选与原附件操作数
+
+[阳炎耀斑契约](m3-solar-flare-elemental-price.md)为真实GDB_305增加有限friendly元素profile。BoardMinionCostSpec仍保存原两个字段，旧未筛种族profile及驻留政策保持；新profile从原卡面和本人普通随从的完整当前种族变化附件重算有效元素，未知相关事实不当作不匹配。私有Row增加tribe_changes，Fact增加原next_attachment_id上界，原付款/接受完整状态另核真实捕获；schema609拒旧1～608，无新Effect/payload或CardDefinition字段。当前实际验收与下一项仍仅在原两份台账维护。

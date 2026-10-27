@@ -2262,3 +2262,8 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 ## 原生反向快枪目标的有限声明
 
 [热浪来袭](m3-heatwave-inverse-quickdraw.md)以target_condition="unless_quickdraw"声明未触发快枪时必须有敌方随从目标，触发时无目标；仍要求印刷Keyword.QUICKDRAW。target_condition_active读取原quickdraw布尔事实并取反，不增加保存标志，不接受任意unless_/not_别名。卡牌主体使用原physical/cast条件，当前手牌的新同名副本不能重写旧根；普通模式的原目标正文前离场只空执行保留付款。目标域、随机、支付、组伤害和恢复仍沿公共执行器，真实自动施法不伪装手牌获取。
+
+
+## 按有效元素驻留数量持续减费
+
+[真实阳炎耀斑](m3-solar-flare-elemental-price.md)声明BoardMinionCostSpec("friendly","cost.board-friendly-elementals-v1")；tribes_any为有限profile导出的只读选择器，不是新的保存字段。纯报价捕获本人普通随从完整原tribe_changes，复用印刷元数据与共享add/set/remove、全部种族排除语义；相关未知失败，零费不裁目录。原Row/Fact附件分配上界进入恢复检查，完整原付款状态验证真实捕获；不得借当前局面重写旧数量、借未来附件或把紧凑一致性当作外部认证。旧未筛种族profile不携带新种族操作数，代码复用原费用顺序及伤害批次。
