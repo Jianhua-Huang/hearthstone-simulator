@@ -11,6 +11,17 @@ def validate_spec(spec):
     if type(spec.entry_keywords) is not tuple or spec.entry_keywords not in ((),(Keyword.TAUNT,Keyword.ELUSIVE)) or any(
             type(k) is not Keyword for k in spec.entry_keywords):
         raise ValueError('Discovery entry boons require the original Taunt and Elusive pair')
+    if type(spec.repeat_until_seen) is not bool:
+        raise ValueError('Seen-offer discovery requires an explicit boolean')
+    if spec.repeat_until_seen:
+        allowed = {'player_id','pool_id','query','source_id','prompt','policy','repeat_until_seen'}
+        if any(field.name not in allowed and field.default is not MISSING and
+                getattr(spec,field.name) != field.default for field in fields(spec)):
+            raise ValueError('Seen-offer discovery cannot borrow unrelated rewards or delivery policies')
+        if (spec.source_id is None or type(spec.query) is not PoolQuery or
+                spec.query != PoolQuery(kinds=(CardType.SPELL,),collectible=True,class_mode='current')):
+            raise ValueError('Seen-offer discovery requires one ordinary current-class spell hand discovery')
+        return
     active = (spec.summon_copies==2,bool(spec.entry_keywords))
     if not any(active): return
     if sum(active) != 1:

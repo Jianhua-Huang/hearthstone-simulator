@@ -58,7 +58,7 @@ class ContinuePoolDiscovery(Effect):
         if self.producer_id is not None:
             from .effects import _integer
             _integer(self.producer_id,'discovery producer',1)
-        if type(self.selections) is not tuple or not self.spec.excess_discount and len(self.selections) > self.spec.discoveries:
+        if type(self.selections) is not tuple or not (self.spec.excess_discount or self.spec.repeat_until_seen) and len(self.selections) > self.spec.discoveries:
             raise ValueError('Invalid discovery progress')
         for pick in self.selections:
             if type(pick) is not DiscoveryPick: raise ValueError('Expected immutable discovery receipt')
@@ -98,7 +98,7 @@ class ResolvePoolDiscovery(Effect):
             self.choice_result.__post_init__()
         if (self.selection.card_id not in self.offered_card_ids or
                 (self.batch.spec.cost.delta == 0 if self.batch.spec.excess_discount else
-                 len(self.batch.selections) >= self.batch.spec.discoveries)):
+                 not self.batch.spec.repeat_until_seen and len(self.batch.selections) >= self.batch.spec.discoveries)):
             raise ValueError('Discovery selection exceeds its offered batch')
 
 
@@ -370,6 +370,21 @@ def eligible(registry, context, spec, pick):
     return candidates
 
 
+def seen_offer_finished(registry, batch):
+    """All original offers count; an unchosen face can end this one execution."""
+    seen = set(); finished = False
+    for pick in batch.selections:
+        if finished:
+            raise ValueError('Discovery continued after an original offered identity was seen twice')
+        if pick.result is None:
+            raise ValueError('Seen-offer discovery lost its complete original result')
+        identities = tuple(registry.pool_card(option.card_id).generation_identity
+            for option in pick.result.choice.options)
+        finished = bool(seen.intersection(identities))
+        seen.update(identities)
+    return finished
+
+
 def validate_batch(registry, context, batch):
     batch.__post_init__(); used=set(); prior_choice=0
     if batch.spec.spell_weapon_card_id is not None:
@@ -392,13 +407,20 @@ def validate_batch(registry, context, batch):
         if (any(o.entity_id is not None for o in choice.options) or pick.card_id not in offered or
                 pick.result.selected_ids!=(f'generated-{offered.index(pick.card_id)+1}',)):
             raise ValueError('Discovery progress changed the original ordered offer or selection')
-        if pick.card_id not in {m.card_id for m in eligible(registry,context,batch.spec,pick)}:
+        candidates = eligible(registry,context,batch.spec,pick)
+        if pick.card_id not in {m.card_id for m in candidates}:
             raise ValueError('Prior discovery is not a valid captured candidate')
+        if spec.repeat_until_seen and (len(offered)!=min(spec.count,len(candidates)) or
+                not set(offered).issubset({m.card_id for m in candidates}) or
+                len({registry.pool_card(cid).generation_identity for cid in offered})!=len(offered)):
+            raise ValueError('Seen-offer progress changed its complete original eligible menu')
         identity=registry.pool_card(pick.card_id).generation_identity
         if not batch.spec.replacement and identity in used:
             raise ValueError('Non-replacement discovery repeats an identity')
         used.add(identity)
         prior_choice=choice.id
+    if batch.spec.repeat_until_seen:
+        seen_offer_finished(registry,batch)
     return used
 
 
@@ -415,6 +437,8 @@ def validate_receipt_history(state, batch, result=None):
 def validate_selection(registry, context, effect):
     effect.__post_init__(); batch=effect.batch; spec=batch.spec
     used=validate_batch(registry,context,batch)
+    if spec.repeat_until_seen and seen_offer_finished(registry,batch):
+        raise ValueError('Discovery offered another menu after seeing an original identity twice')
     candidates=eligible(registry,context,spec,effect.selection)
     if not spec.replacement:
         candidates=tuple(m for m in candidates if registry.pool_card(m.card_id).generation_identity not in used)
@@ -505,7 +529,8 @@ def continue_discovery(r, batch):
     if spec.excess_discount and spec.cost.delta == 0:
         from .discovery_discounts import finished
         finished(r,batch,'spent');return ()
-    if not spec.excess_discount and len(batch.selections)==spec.discoveries:
+    if (seen_offer_finished(r.registry,batch) if spec.repeat_until_seen else
+            not spec.excess_discount and len(batch.selections)==spec.discoveries):
         if batch.producer_id is not None:
             from .discovery_summons import ready
             return ready(r,batch)

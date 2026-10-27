@@ -2229,3 +2229,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 月光指引使用DiscoverForPlayFollowup(draw_original)，原地图默认奖励保持；加大音量只在原压轴快照成立时声明三法术槽的discover_spell_copy奖励。真实原引用、原组与复制边界见[契约](m3-past-arcane-physical-discovery.md)。
+
+
+袖珍次元以完整原发现选项的生成身份判断重复终止，复用原提交、普通交付与续接收据；有限repeat_until_seen参数、最后一轮本地窗口和恢复边界见[契约](m3-past-arcane-seen-offers.md)。

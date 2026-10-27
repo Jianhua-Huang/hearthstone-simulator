@@ -563,6 +563,7 @@ class DiscoverFromPool(Effect):
     spell_weapon_card_id: str | None = None
     summon_copies: int = 1
     entry_keywords: tuple[Keyword, ...] = ()
+    repeat_until_seen: bool = False
 
     def __post_init__(self):
         from .discovery_profiles import validate_spec as validate_finite_discovery

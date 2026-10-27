@@ -1853,3 +1853,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 原同回合复制使用后续可用有限draw_original模式绑定原牌库引用和真实抽牌根；原组三次法术发现保留各实际根材料，交原发现与复制器。字段、恢复与窗口见[契约](m3-past-arcane-physical-discovery.md)，不另建区域或抽牌执行器。
+
+
+袖珍次元以完整原发现选项的生成身份判断重复终止，复用原提交、普通交付与续接收据；有限repeat_until_seen参数、最后一轮本地窗口和恢复边界见[契约](m3-past-arcane-seen-offers.md)。
