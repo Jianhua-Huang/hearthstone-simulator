@@ -2282,3 +2282,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 高戈奈斯首法术使用CostAuraSpec(CostSpec(delta=-3,card_types=(CardType.SPELL,)),first_per_turn=True)；阿米图斯使用原HealthRule(CAP2,target_relation="friendly",target_kinds=(MINION,))。真实抽两随从并设2/2/2可直接复用DrawPhysicalGroup和set_stats_cost_all奖励；物理过载检索用完整已核正标签身份，不套生成可收藏过滤。详见[契约](m3-titan-value-effects.md)。主线可用card_batch.observe_local_host/check_local_host_preservation复用完整宿主保全，卡牌行为仍需专项验证。
+
+
+真实多敌方原目标移除继续用带targeting的RequestChoice与原MinionReference批次，不能复用数字id跟随重入。技能重复到另一个友方随从，可由原主体后的ChooseRandomEffects声明一个完整效果分支，不把重复伪装成额外UseMinionAbility。V-07-TR-0N的炮击必须以接收者为Damage/RandomDamage的MINION_ABILITY来源，具体来源与窗口见[契约](m3-titan-copy-echo.md)。

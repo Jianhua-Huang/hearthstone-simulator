@@ -1,0 +1,1220 @@
+{
+  "schema": 1,
+  "kind": "native-titan-copy-echo",
+  "cards": [
+    {
+      "record": {
+        "id": "TTN_429",
+        "dbf_id": 97103,
+        "name": "阿曼苏尔",
+        "name_en": "Aman'Thul",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>任意职业的<b>传说</b>随从牌。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\n<b>Discover</b> any <b>Legendary</b>\n_minion from any class.",
+        "cost": 7,
+        "attack": 3,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 3,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "46307c5d006c526fff988cd77b7f8c29b2e1a85556df91233c5b1cb741078e2f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_429",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_721",
+        "dbf_id": 97642,
+        "name": "终极V-07-TR-0N",
+        "name_en": "V-07-TR-0N Prime",
+        "text": "<b>泰钽</b>\n本随从的技能会在另一个随机友方随从身上重复。",
+        "text_en": "[x]<b>T1T4N</b>\nThis minion's abilities\nrepeat on another random\nfriendly minion.",
+        "cost": 6,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 7,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "0e46d12c70b0bbe6e55801dc5dedf6273cd6416f274837c02f0e3f35e436f312",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_721",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TTN_429t",
+        "dbf_id": 97105,
+        "name": "塑造星辰",
+        "name_en": "Shape the Stars",
+        "text": "选择一个非<b>泰坦</b>随从，召唤一个具有+2/+2的复制。",
+        "text_en": "Choose a non-<b>Titan</b> minion. Summon a copy of it with +2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3316aaf391f3f09b17174d5b8ae5d880b394f7cbaf9c49b78949b4fb57732a49",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_429t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_429t2",
+        "dbf_id": 97106,
+        "name": "扫出历史",
+        "name_en": "Strike from History",
+        "text": "选择两个敌方随从，将其移出\n对战。",
+        "text_en": "Choose two enemy minions. Remove them from the game.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "fca915cd175accdece70dfc783ab8003cec67d418edaf518375dd5ca126260c3",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_429t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_429t3",
+        "dbf_id": 97107,
+        "name": "英雄视界",
+        "name_en": "Vision of Heroes",
+        "text": "随机召唤一个法力值消耗为（6）的随从。使其获得<b>嘲讽</b>和<b>吸血</b>。",
+        "text_en": "Summon a random\n6-Cost minion. Give it <b>Taunt</b> and <b>Lifesteal</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "abbb8e3e6a53f6e15bca8cc0fdcb18310d9eb52fcd91f3e8bd37174eb61d6414",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_429t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_721t",
+        "dbf_id": 97643,
+        "name": "加装火炮！",
+        "name_en": "Attach the Cannons!",
+        "text": "获得+2/+1。随机对一个敌人造成4点伤害。",
+        "text_en": "Gain +2/+1.\nDeal 4 damage to a random enemy.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "2cb83da70422d012ef58a6c79d8396d6fa5dc02f41e5b3903fa2d933b5649f2d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_721t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_721t1",
+        "dbf_id": 97645,
+        "name": "动力全开！",
+        "name_en": "Full Power!",
+        "text": "获得+1/+2。抽一张牌。",
+        "text_en": "Gain +1/+2.\nDraw a card.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          }
+        ]
+      },
+      "record_sha256": "3996450c63f948e66141252237d0236deb1b9d31605346829764d3e5369d8e77",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_721t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_721t2",
+        "dbf_id": 97646,
+        "name": "防御拉满！",
+        "name_en": "Maximize Defenses!",
+        "text": "获得+3生命值和<b>扰魔</b>。",
+        "text_en": "Gain +3 Health\nand <b>Elusive</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2a585085641950c58df2fb142ddccd082dc0253e1fe2366c01503cb9ba95c064",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_721t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "TTN_429",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 97103,
+        "collectible": 1,
+        "slug": "97103-amanthul",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "阿曼苏尔",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，<b>发现</b>任意职业的<b>传说</b>随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f243d86ed280a21c7f1a8b9b0c94c11e1a69c5af79a21840a23b9a7ed6fce672.png",
+        "imageGold": "",
+        "flavorText": "泰坦诸神的领袖最先醒来。在孤寂之中，他穿行诸界，寻找其他泰坦，与之共同组成了万神殿。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/571e0d12fba91f153adc12ea8073105e7554e2fcd1d00f0d875d3924f0c378cc.png",
+        "childIds": [
+          97105,
+          97106,
+          97107
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_429",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 97103,
+        "collectible": 1,
+        "slug": "97103-amanthul",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "Aman'Thul",
+        "text": "<b>Titan</b> After this uses an ability, <b>Discover</b> any <b>Legendary</b> minion from any class.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0acc0a35798dc592d481d3efd8839ba53b4c394090bbb8eb355b4476b2c72a43.png",
+        "imageGold": "",
+        "flavorText": "The leader of the titans was the first to awaken. In his loneliness, he sought out other titans across many different worlds, and together, they formed the Pantheon.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/571e0d12fba91f153adc12ea8073105e7554e2fcd1d00f0d875d3924f0c378cc.png",
+        "childIds": [
+          97105,
+          97106,
+          97107
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_721",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 97642,
+        "collectible": 1,
+        "slug": "97642-v-0-tr-0n-prime",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "终极V-07-TR-0N",
+        "text": "<b>泰钽</b> 本随从的技能会在另一个随机友方随从身上重复。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8af47d9b17c90b96d5919d0dcf23630d1e5403999fdd2acaeb95a30d10388caa.png",
+        "imageGold": "",
+        "flavorText": "在泰坦们离开了很久之后，米米尔隆有了一个设想，创造出足以匹敌泰坦之能的造物。他好像成功了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd48df9e6365d34c7cb0fc936f4e44c2c970a6853b4cf81721d355b149c342c6.png",
+        "childIds": [
+          97643,
+          97645,
+          97646
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_721",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 97642,
+        "collectible": 1,
+        "slug": "97642-v-0-tr-0n-prime",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "V-07-TR-0N Prime",
+        "text": "<b>T1T4N</b> This minion's abilities repeat on another random friendly minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1fc0c8c5d42d6e96b2ed6c02310f36a432896e0f83783a8da3e1ba3acf4a4ab.png",
+        "imageGold": "",
+        "flavorText": "Long after the titans' departure, Mimiron dreamed of creating something with an approximation of their power. He may have actually succeeded!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd48df9e6365d34c7cb0fc936f4e44c2c970a6853b4cf81721d355b149c342c6.png",
+        "childIds": [
+          97643,
+          97645,
+          97646
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_429t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97105-zh_CN.json",
+      "response_sha256": "7c9cacafd9a4125b4cf12a8c458910b03ff274e5a138b68dc8295a11bfdd7ce8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97105&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97105,
+        "collectible": 0,
+        "slug": "97105-shape-the-stars",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 0,
+        "name": "塑造星辰",
+        "text": "选择一个非<b>泰坦</b>随从，召唤一个具有+2/+2的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d1563d1551c564474f3aec3be87944f47a6c20996bc0838bdc6f2b4bf641bb9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97103,
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97105&locale=zh_CN&collectible=0",
+        "sha256": "7c9cacafd9a4125b4cf12a8c458910b03ff274e5a138b68dc8295a11bfdd7ce8",
+        "bytes": 614,
+        "observed_at": "2026-10-27T17:01:45.688606+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_429t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97105-en_US.json",
+      "response_sha256": "b5a05bb74867ff1ea9396c61ce9fa84cc5bbdd6ba15ff3ffd9a21d9e746ed1ea",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97105&locale=en_US&collectible=0",
+      "face": {
+        "id": 97105,
+        "collectible": 0,
+        "slug": "97105-shape-the-stars",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 0,
+        "name": "Shape the Stars",
+        "text": "Choose a non-<b>Titan</b> minion. Summon a copy of it with +2/+2.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4069ac7c8ea82bddb1364d9ca3a1b2a6f68a405dc11e9e4b69291c4879ce220d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97103,
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97105&locale=en_US&collectible=0",
+        "sha256": "b5a05bb74867ff1ea9396c61ce9fa84cc5bbdd6ba15ff3ffd9a21d9e746ed1ea",
+        "bytes": 610,
+        "observed_at": "2026-10-27T17:01:47.371383+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_429t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97106-zh_CN.json",
+      "response_sha256": "23a8e5622e4fe6b1bd89b3b1346f02916d744d4e0326c3ebc90471bf08cac04f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97106&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97106,
+        "collectible": 0,
+        "slug": "97106-strike-from-history",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 0,
+        "name": "扫出历史",
+        "text": "选择两个敌方随从，将其移出 对战。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/320cedc7e82090d84b2420b2cf7e70f98f3b08bd2351bc59809a3b9a7cb48dd8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97103,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97106&locale=zh_CN&collectible=0",
+        "sha256": "23a8e5622e4fe6b1bd89b3b1346f02916d744d4e0326c3ebc90471bf08cac04f",
+        "bytes": 576,
+        "observed_at": "2026-10-27T17:01:49.180709+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_429t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97106-en_US.json",
+      "response_sha256": "2ac84a6a836b95626076622ece53858871d641097227622653a892e079da6ce7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97106&locale=en_US&collectible=0",
+      "face": {
+        "id": 97106,
+        "collectible": 0,
+        "slug": "97106-strike-from-history",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 0,
+        "name": "Strike from History",
+        "text": "Choose two enemy minions. Remove them from the game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5842f6c6ccd1784b7bb7d478ba7a56fecb288a58ae678e4ad77c55303d2e084c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97103,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97106&locale=en_US&collectible=0",
+        "sha256": "2ac84a6a836b95626076622ece53858871d641097227622653a892e079da6ce7",
+        "bytes": 586,
+        "observed_at": "2026-10-27T17:01:50.854848+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_429t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97107-zh_CN.json",
+      "response_sha256": "3375c9002593b2932c34d599ea628d099f2248d1a6a38f49832f447bdfe99b58",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97107&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97107,
+        "collectible": 0,
+        "slug": "97107-vision-of-heroes",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 0,
+        "name": "英雄视界",
+        "text": "随机召唤一个法力值消耗为（6）的随从。使其获得<b>嘲讽</b>和<b>吸血</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b36c2f1e8bdae3939ca91a7aeeb6618647380001695fb18388ea0ed898d5648.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97103,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97107&locale=zh_CN&collectible=0",
+        "sha256": "3375c9002593b2932c34d599ea628d099f2248d1a6a38f49832f447bdfe99b58",
+        "bytes": 619,
+        "observed_at": "2026-10-27T17:01:52.641579+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_429t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97107-en_US.json",
+      "response_sha256": "385e6cb298bef63195991818f215d7dc70ecb5044475ff424cf97b07527f431b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97107&locale=en_US&collectible=0",
+      "face": {
+        "id": 97107,
+        "collectible": 0,
+        "slug": "97107-vision-of-heroes",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "manaCost": 0,
+        "name": "Vision of Heroes",
+        "text": "Summon a random 6-Cost minion. Give it <b>Taunt</b> and <b>Lifesteal</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8420c967ef4411c380aca37652925ab64f1871b94d2926a3702114a46af474d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97103,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97107&locale=en_US&collectible=0",
+        "sha256": "385e6cb298bef63195991818f215d7dc70ecb5044475ff424cf97b07527f431b",
+        "bytes": 597,
+        "observed_at": "2026-10-27T17:01:54.280053+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_721t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97643-zh_CN.json",
+      "response_sha256": "d2b1f7bb954704c0e199f0ad1e2ca9cb80968c5f8821d4f50e4f757f4674c05e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97643&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97643,
+        "collectible": 0,
+        "slug": "97643-attach-the-cannons",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Anton Zemskov",
+        "manaCost": 0,
+        "name": "加装火炮！",
+        "text": "获得+2/+1。随机对一个敌人造成4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6fef5aab708a4803b6dd79dc3cc5692a4dc9c128213022e5f4edc098d9fa9532.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97642,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97643&locale=zh_CN&collectible=0",
+        "sha256": "d2b1f7bb954704c0e199f0ad1e2ca9cb80968c5f8821d4f50e4f757f4674c05e",
+        "bytes": 581,
+        "observed_at": "2026-10-27T17:01:56.001993+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_721t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97643-en_US.json",
+      "response_sha256": "42ade85f1e95d1c14fc1def3ff36b4fb7054cbb2570f17ec4b87015e8c45fa75",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97643&locale=en_US&collectible=0",
+      "face": {
+        "id": 97643,
+        "collectible": 0,
+        "slug": "97643-attach-the-cannons",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Anton Zemskov",
+        "manaCost": 0,
+        "name": "Attach the Cannons!",
+        "text": "Gain +2/+1. Deal 4 damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f476bf10bafedf181b2ccb097eefdd88425cb9b47f62726147fc2665b9e5a5e3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97642,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97643&locale=en_US&collectible=0",
+        "sha256": "42ade85f1e95d1c14fc1def3ff36b4fb7054cbb2570f17ec4b87015e8c45fa75",
+        "bytes": 575,
+        "observed_at": "2026-10-27T17:01:57.528311+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_721t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97645-zh_CN.json",
+      "response_sha256": "aaf874eb04b8931fe3ed3ec21c03f6b135f348a94b84eef9980e3080ce842f7e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97645&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97645,
+        "collectible": 0,
+        "slug": "97645-full-power",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Guillaume Beauchêne",
+        "manaCost": 0,
+        "name": "动力全开！",
+        "text": "获得+1/+2。抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/abfda8b2012155199f0330d5c97dc295847479daf894d64ee4af1132e94d5ae6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97642,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97645&locale=zh_CN&collectible=0",
+        "sha256": "aaf874eb04b8931fe3ed3ec21c03f6b135f348a94b84eef9980e3080ce842f7e",
+        "bytes": 555,
+        "observed_at": "2026-10-27T17:01:59.320241+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_721t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97645-en_US.json",
+      "response_sha256": "5a39063f026224453509e3797afd013e30fee504f32296aa33646578243d3f03",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97645&locale=en_US&collectible=0",
+      "face": {
+        "id": 97645,
+        "collectible": 0,
+        "slug": "97645-full-power",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Guillaume Beauchêne",
+        "manaCost": 0,
+        "name": "Full Power!",
+        "text": "Gain +1/+2. Draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5962ff9f93e7c158ad58a4a0343fb2fe64d17052844b2f6da627db52907684fd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97642,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97645&locale=en_US&collectible=0",
+        "sha256": "5a39063f026224453509e3797afd013e30fee504f32296aa33646578243d3f03",
+        "bytes": 546,
+        "observed_at": "2026-10-27T17:02:00.822084+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_721t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97646-zh_CN.json",
+      "response_sha256": "461717923ad33ab4d29dc445a946ab0ef47606f4baa505b519586c1175fdad2c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97646&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97646,
+        "collectible": 0,
+        "slug": "97646-maximize-defenses",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Anton Zemskov",
+        "manaCost": 0,
+        "name": "防御拉满！",
+        "text": "获得+3生命值和<b>扰魔</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d772b467611d91ab5695f27c73b9eb51e35d57da55c7b20a5cf0e1135f5e4b0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97642,
+        "keywordIds": [
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97646&locale=zh_CN&collectible=0",
+        "sha256": "461717923ad33ab4d29dc445a946ab0ef47606f4baa505b519586c1175fdad2c",
+        "bytes": 581,
+        "observed_at": "2026-10-27T17:02:02.463908+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_721t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\97646-en_US.json",
+      "response_sha256": "f2ccfe65438b5d7b8f6e3058acd40cbc828529ab17b31c996c2a026f15aba6f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97646&locale=en_US&collectible=0",
+      "face": {
+        "id": 97646,
+        "collectible": 0,
+        "slug": "97646-maximize-defenses",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Anton Zemskov",
+        "manaCost": 0,
+        "name": "Maximize Defenses!",
+        "text": "Gain +3 Health and <b>Elusive</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b961de77048f636bbe5cce358ac31d8c06d1b29fa2312f02916a5881fa2fcb88.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97642,
+        "keywordIds": [
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97646&locale=en_US&collectible=0",
+        "sha256": "f2ccfe65438b5d7b8f6e3058acd40cbc828529ab17b31c996c2a026f15aba6f3",
+        "bytes": 582,
+        "observed_at": "2026-10-27T17:02:04.157558+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "TTN_429t": {
+      "cost": 0
+    },
+    "TTN_429t2": {
+      "cost": 0
+    },
+    "TTN_429t3": {
+      "cost": 0
+    },
+    "TTN_721t": {
+      "cost": 0
+    },
+    "TTN_721t1": {
+      "cost": 0
+    },
+    "TTN_721t2": {
+      "cost": 0
+    }
+  },
+  "choice_only_ids": [
+    "TTN_429t",
+    "TTN_429t2",
+    "TTN_429t3",
+    "TTN_721t",
+    "TTN_721t1",
+    "TTN_721t2"
+  ],
+  "new_token_ids": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "real_excavate_profile_bound": false,
+  "references": [
+    {
+      "path": "data/cards/titan-reference-khaz-argus-v1.json",
+      "sha256": "e2910daa6c9b662d93ec0aba159df4a69ccf7cb481cd60e376842658472e20c4"
+    },
+    {
+      "path": "data/cards/native-pool-lifesteal-v1.json",
+      "sha256": "75adc39c4f5a097406660c076d98d1a89b715966c891c1e29cfe700de2a900d6"
+    },
+    {
+      "path": "data/cards/simple-followup-p56-v1.json",
+      "sha256": "e99dcbe7e28b7e6e977e8a140297a219a986d3b2eb904962a804d77f0c5b17bb"
+    },
+    {
+      "path": "data/cards/titanographer-draw-copy-v1.json",
+      "sha256": "7fa43e246103a73fa465438ff44b3b4b0c70195fcfea9137e7dd4e5f8c7fd452"
+    }
+  ],
+  "rule_sources": [
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/dev-talk%E2%80%94totally-titans-all-about-the-new-keyword/109540",
+      "author": "Clay Howell, Senior Software Engineer, relayed by Blizzard staff",
+      "original_post_date": "2023-06-30",
+      "observed_via": "web tool complete primary post",
+      "historical_official_statement": "Voltron causes the attached minion itself to deal its echoed cannon damage; its own Poisonous and Lifesteal therefore apply.",
+      "current_cn_calibration": false,
+      "other_evidence_url": "https://us.forums.blizzard.com/en/hearthstone/t/v-07-tr-0n-prime-from-the-azerite-hawk-bug-interaction/122652",
+      "community_report": "Azerite Hawk generated Prime; cannon gave both minions the buff and produced two four-damage hits. This is a historical observation, not current CN proof."
+    }
+  ],
+  "known_local_policies": [
+    "AmanThul discovers from the complete ordinary collectible Legendary-minion domain of all classes and neutral; existing ordinary Titan exclusions remain, exact dedicated exceptions unconfirmed.",
+    "Copy uses the original existing pre-entry plus-two grant; six-cost summons reuse the existing pre-entry Taunt/Lifesteal policy. Exact entry/reaction windows remain uncalibrated.",
+    "Voltron executes its full native body then chooses one current other friendly live minion and executes the full body there, without another action or CAST. Selection timing and original-source departure continuation remain local uncalibrated policies.",
+    "The echoed minion is the cannon damage source, as explicitly stated in the historical official engineer post. Buff/draw source bookkeeping uses the same body receiver; exact source-log details are not current CN certification."
+  ]
+}
