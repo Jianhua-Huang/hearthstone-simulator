@@ -28,7 +28,7 @@ def validate_request(request):
                 or request.shuffle_unselected_into_deck or request.keep_all_corpse_cost is not None):
             raise ValueError('Hand followup requires one plain hand delivery')
     elif (request.zone != Zone.DECK or request.owner_id != request.player_id
-          or request.operation not in ('copy_base', 'copy_current', 'take', 'draw')):
+          or request.operation not in ('copy_base', 'copy_current', 'take', 'draw') or request.selected_reward is not None):
         raise ValueError('Hand followup zone discovery requires an explicit own-deck hand operation')
 
 

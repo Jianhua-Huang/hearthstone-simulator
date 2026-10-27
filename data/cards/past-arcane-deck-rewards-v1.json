@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "kind": "past-arcane-physical-deck-discovery-rewards",
+  "reference_document": "data/cards/past-arcane-local-reference-v1.json",
+  "reference_canonical_sha256": "27016f3ede6ca1e4c0760a67aa17b8b46ae935082325308c79471ce78828cfff",
+  "collectible_leaf_ids": [
+    "RLK_817",
+    "TOY_851"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "RLK_817",
+        "dbf_id": 84237,
+        "name": "奥术箭袋",
+        "name_en": "Arcane Quiver",
+        "text": "从你的牌库中<b>发现</b>一张法术牌。如果选中的是奥术法术牌，使其获得<b>法术伤害+1</b>。",
+        "text_en": "[x]<b>Discover</b> a spell from\nyour deck. If it's Arcane,\ngive it <b>Spell Damage +1</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1776,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7e22e2fe7f22af0e75ed1d9f6500c6f7a98f66e79ba8d607426f23db0ab31d79",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "epic",
+        "deck_identity": "RLK_817",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "TOY_851",
+        "dbf_id": 104665,
+        "name": "无底玩具箱",
+        "name_en": "Bottomless Toy Chest",
+        "text": "从你的牌库中<b>发现</b>一张牌。如果你拥有<b>法术伤害</b>，复制发现的牌。",
+        "text_en": "<b>Discover</b> a card from your deck. If you have <b>Spell Damage</b>, copy it.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1897,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "74688e9747db547dc2fc8867b008175e37c553264986c917a3f7b398fc28c647",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "TOY_851",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "RLK_817",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 84237,
+        "collectible": 1,
+        "slug": "84237-arcane-quiver",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 4,
+        "artistName": "BOSi Studio",
+        "manaCost": 2,
+        "name": "奥术箭袋",
+        "text": "从你的牌库中<b>发现</b>一张法术牌。如果选中的是奥术法术牌，使其获得<b>法术伤害+1</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/248e7d2d1b8be5bc15b330f6a192444d0978f80f642c41315af45cc8afa24a42.png",
+        "imageGold": "",
+        "flavorText": "巫妖王：“袋！袋！袋！” 我：“好的。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5aa284dc9123d09b90c8f6b7860dce85246a6306f2f89e03a8bd803a864c55fb.png",
+        "keywordIds": [
+          2,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_817",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 84237,
+        "collectible": 1,
+        "slug": "84237-arcane-quiver",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 4,
+        "artistName": "BOSi Studio",
+        "manaCost": 2,
+        "name": "Arcane Quiver",
+        "text": "<b>Discover</b> a spell from your deck. If it's Arcane, give it <b>Spell Damage +1</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0908ab6ba28d9528ee35f3a3fff4e3e7f4fb029dcec70211117921a5e623b446.png",
+        "imageGold": "",
+        "flavorText": "\"Quiver in fear!\" - The Lich King \"Ok.\" - Me",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5aa284dc9123d09b90c8f6b7860dce85246a6306f2f89e03a8bd803a864c55fb.png",
+        "keywordIds": [
+          2,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_851",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 104665,
+        "collectible": 1,
+        "slug": "104665-bottomless-toy-chest",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 1,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 2,
+        "name": "无底玩具箱",
+        "text": "从你的牌库中<b>发现</b>一张牌。如果你拥有<b>法术伤害</b>，复制发现的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a42a9b9a1bd03831c8dd6687cb668960bad774edfaf989a5887be4a6fbb67142.png",
+        "imageGold": "",
+        "flavorText": "没错，放在玩具箱里就对了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0970e87d5d161336a662de17698a34de3b926c23421449fadc809c131aa547e3.png",
+        "keywordIds": [
+          2,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_851",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 104665,
+        "collectible": 1,
+        "slug": "104665-bottomless-toy-chest",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 1,
+        "artistName": "Patrik Bjorkstrom",
+        "manaCost": 2,
+        "name": "Bottomless Toy Chest",
+        "text": "<b>Discover</b> a card from your deck. If you have <b>Spell Damage</b>, copy it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/90f81db660a6be9c9b69210e0bf0f5260e6cf3f4dcb905405a52ce9cb8bfcc51.png",
+        "imageGold": "",
+        "flavorText": "That's right, it goes in the toy chest.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0970e87d5d161336a662de17698a34de3b926c23421449fadc809c131aa547e3.png",
+        "keywordIds": [
+          2,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "display_normalizations": {},
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "Physical take follows existing distinct-entity maximum-three deck offers. Duplicate weighting and precise CN windows remain uncalibrated.",
+    "The Arcane bonus is attached to the selected original deck residence before ordinary hand delivery, never to a same-name replacement.",
+    "Bottomless Toy Chest checks aggregate currently active player Spell Damage at committed selection before original delivery; next-spell and local-only spell bonuses do not imply a persistent provider.",
+    "The extra copy captures the selected original current material at the same selection window, then uses the ordinary copy writer after original discovery delivery, including overflow and intervening observers. Exact official copy/condition timing is deferred; no claim of CN equivalence."
+  ]
+}

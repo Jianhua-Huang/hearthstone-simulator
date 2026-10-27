@@ -2220,3 +2220,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 创世之力使用一次原发现的双召唤声明，星云使用两次普通发现的原入场关键词材料，两类有限策略不混用；倒带显式设置DiscoverSpellHistory.discovery，而能量之泉的无随从分支使用普通生成。原选择/子根/材料/完成通知和原手牌来源契约见[说明](m3-past-arcane-discovery-profiles.md)，不能据提示文案推断发现。
+
+
+奥术箭袋/无底玩具箱使用ChooseFromZone.selected_reward的两个独立声明，不能与费用/未选销毁混用。原牌局部法强、选择时材料捕获和普通复制共用原执行器，见[扩展契约](m3-past-arcane-deck-rewards.md)。

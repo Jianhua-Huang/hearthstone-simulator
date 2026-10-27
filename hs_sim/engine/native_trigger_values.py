@@ -133,9 +133,8 @@ def validate_game(game):
         # Only marked rows need the extra lookup, including dynamic compositions.
         if any(marker_id(e) is not None for e in death.enchantments):
             validate_carrier(r, death.card_id, r.card(death.card_id).kind, death.enchantments)
-    for discard in state.discard_history:
-        if any(marker_id(e) is not None for e in discard.enchantments):
-            validate_carrier(r, discard.card_id, r.card(discard.card_id).kind, discard.enchantments)
+    # DiscardRecord retains base allocation facts, not an attachment snapshot.
+    # Its still-existing physical carrier is covered by the entity pass above.
 
 
 def register(mechanics):

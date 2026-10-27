@@ -691,6 +691,7 @@ class ChooseFromZone(Effect):
     discovery: bool = False
     cost: CostSpec | None = None
     destroy_unchosen: bool = False
+    selected_reward: str | None = None
 
     def __post_init__(self):
         _player(self.player_id); _player(self.owner_id); card_zone(self.zone)
@@ -716,6 +717,8 @@ class ChooseFromZone(Effect):
             raise ValueError('Discard choice requires hand cards')
         if self.operation in ('top', 'bottom') and self.zone != Zone.DECK:
             raise ValueError('Reposition choice requires deck cards')
+        from .deck_discovery_rewards import validate_request
+        validate_request(self)
 
 
 @dataclass(frozen=True)
@@ -741,7 +744,7 @@ class SelectDeckTake(Effect):
         if type(self.request) is not ChooseFromZone:
             raise ValueError('Deck selection requires its actual original zone request')
         self.request.__post_init__()
-        if self.request.cost is None and not self.request.destroy_unchosen:
+        if self.request.cost is None and not self.request.destroy_unchosen and self.request.selected_reward is None:
             raise ValueError('Plain zone choices retain their original delivery')
         if type(self.offered) is not tuple or not self.offered or any(type(x) is not DeckTakeOffer for x in self.offered):
             raise ValueError('Deck selection requires its complete ordered original offers')
@@ -1302,17 +1305,23 @@ def select_deck_take(r, effect):
     source_exists(r, request.source_id)
     if effect.result is None:
         raise ResolutionError('Enriched deck selection requires its actual committed discovery')
-    require_original_result(r.state, effect.result)
+    original = require_original_result(r.state, effect.result)
+    from .offered_card_execution import original_offer
+    accepted = original_offer(r.registry, original.original_offer)
     choice = effect.result.choice
     if (choice.purpose != ChoicePurpose.CARD_DISCOVERY or
             (choice.player_id, choice.source_id, choice.prompt) != (request.player_id, request.source_id, request.prompt) or
             choice.options != tuple(o.item for o in deck_take_options(r.registry, request, effect.offered)) or
+            accepted.options != deck_take_options(r.registry, request, effect.offered) or accepted.on_select is not None or
             effect.result.selected_ids != (f'zone-{effect.index+1}',)):
         raise ResolutionError('Deck selection changed its original complete request or offers')
     selected = effect.offered[effect.index].card
-    work = (ModifyStoredCost(selected, request.cost, request.source_id),) if request.cost is not None else ()
+    from .deck_discovery_rewards import selected_work
+    before, after = selected_work(r, request, selected)
+    work = before + ((ModifyStoredCost(selected, request.cost, request.source_id),) if request.cost is not None else ())
     work += (MaterializeDiscoveredCard(effect.result,
         MoveCard(selected, request.player_id, Zone.HAND, source_id=request.source_id)),)
+    work += after
     others = tuple(o.card for i, o in enumerate(effect.offered) if i != effect.index)
     if request.destroy_unchosen and others:
         work += (DestroyDeckBatch(others, request.source_id),)
@@ -1344,7 +1353,7 @@ def validate_deck_take_choice(game):
 def choose_from_zone(r, effect):
     offered=sample_zone_choices(r,effect)
     if not offered:return ()
-    if effect.cost is not None or effect.destroy_unchosen:
+    if effect.cost is not None or effect.destroy_unchosen or effect.selected_reward is not None:
         from .model import ChoicePurpose
         original = tuple(DeckTakeOffer(card, CardPreview.capture(r.state.entities[card.entity_id], r.registry)) for card in offered)
         return (RequestChoice(effect.player_id, deck_take_options(r.registry, effect, original), source_id=effect.source_id,
