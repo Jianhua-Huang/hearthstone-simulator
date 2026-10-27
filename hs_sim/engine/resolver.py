@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v767'
+CORE_EFFECTS_VERSION = 'core-effects-v768'
 
 
 class Mechanics:
@@ -2275,7 +2275,7 @@ def transform(r, effect):
 
 
 def transform_minion(r, entity, definition, *, source_id=None, retained_cost=None,
-                     copy_material=None, stats=None, deathrattle_grant=None):
+                     copy_material=None, stats=None, deathrattle_grant=None, notifications=None):
     if deathrattle_grant is not None:
         deathrattle_grant.__post_init__()
         if (deathrattle_grant.target_id != entity.id or deathrattle_grant.source_id != source_id
@@ -2314,15 +2314,28 @@ def transform_minion(r, entity, definition, *, source_id=None, retained_cost=Non
         granted = entity.abilities[-1]
     from .spell_mana_freeze import initialize as initialize_spell_mana_freeze, publish_birth as publish_freeze_birth
     initialize_spell_mana_freeze(r.state,r.registry,entity)
-    publish_freeze_birth(r,entity)
+    if notifications is None:
+        publish_freeze_birth(r,entity)
     r.refresh_auras()
     if copy_material is not None and copy_material.frozen:
         from .combat import can_be_frozen
         if can_be_frozen(entity):
             entity.frozen_until_owner_turn = freeze_deadline(r.state, entity,
                 ending_turn=r.ending_turn, registry=r.registry)
+    notice = (entity, old_card, definition.id, replacement, granted, source_id)
+    if notifications is not None:
+        notifications.append(notice)
+        return ()
+    return publish_transformation(r, *notice)
+
+
+def publish_transformation(r, entity, old_card, card_id, replacement, granted, source_id, *, publish_birth=False):
+    from .transform_replacements import record_draw
+    if publish_birth:
+        from .spell_mana_freeze import publish_birth as publish_freeze_birth
+        publish_freeze_birth(r, entity)
     transform_cursor = len(r.game._events)
-    r.emit('transformed', target_id=entity.id, old_card_id=old_card, card_id=definition.id)
+    r.emit('transformed', target_id=entity.id, old_card_id=old_card, card_id=card_id)
     if replacement is not None:
         event, = (e for e in r.game._events[transform_cursor:] if e.kind == 'transformed' and e.target_id == entity.id)
         record_draw(r, replacement, event.sequence)
@@ -2825,6 +2838,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .body_conditions import register as register_body_conditions
     register_body_conditions(mechanics)
     from .card_creation import CardSpellRepeatGrant, CreatedMinionGrant, CreatedMinionStats
+    from .named_transform_groups import register as register_named_transform_groups
+    register_named_transform_groups(mechanics)
     mechanics.register_payload_type(CardSpellRepeatGrant)
     mechanics.register_payload_type(CreatedMinionGrant)
     mechanics.register_payload_type(CreatedMinionStats)

@@ -2223,3 +2223,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 奥术箭袋/无底玩具箱使用ChooseFromZone.selected_reward的两个独立声明，不能与费用/未选销毁混用。原牌局部法强、选择时材料捕获和普通复制共用原执行器，见[扩展契约](m3-past-arcane-deck-rewards.md)。
+
+
+群体变形用TransformMinionsToCard保存原实体组，卡牌仅捕获目标和声明真实目的面；弃手与同费替换继续组合普通弃牌、资源及两次独立池召唤。实际衍生物和本地时序边界见[契约](m3-past-arcane-board-replacements.md)。
