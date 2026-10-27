@@ -670,6 +670,77 @@ def observe_registry(root=ROOT):
     return data
 
 
+def observe_local_host():
+    """Read complete local host identities/inventories without creating a Game."""
+    from hs_sim.local_pool_format import build_cn37_local_pool_format
+    fmt = build_cn37_local_pool_format()
+    registry = fmt.registry
+    value = dict(target_id=fmt.target_id,
+        cards={cid: canonical(asdict(card)) for cid, card in registry.cards.items()},
+        metadata={cid: canonical(asdict(card)) for cid, card in registry.pool_cards.items()},
+        pools=[asdict(pool) for pool in registry.pools.values()],
+        families=dict(registry.generation_families), policy=asdict(fmt.policy),
+        root_card_ids=list(fmt.root_card_ids), native=sorted(registry.crafted_minion_parts),
+        scopes=[asdict(scope) for scope in registry.generation_scopes.values()])
+    return json.loads(json.dumps(value, ensure_ascii=False))
+
+
+def check_local_host_preservation(before, after, added_ids, added_metadata_ids):
+    """Preserve full ordered inventories; permit only paired target/version labels."""
+    keys = {'target_id', 'cards', 'metadata', 'pools', 'families', 'policy',
+            'root_card_ids', 'native', 'scopes'}
+    require(type(before) is dict and type(after) is dict and set(before) == set(after) == keys,
+            'Local host observation lost a complete section')
+    def without(row, *omitted):
+        return {key: value for key, value in row.items() if key not in omitted}
+    def label_role(value):
+        return re.sub(r'(?<![0-9a-f])[0-9a-f]{16,64}(?![0-9a-f])', '{digest}', value)
+    for section, additions in (('cards', added_ids), ('metadata', added_metadata_ids)):
+        require(all(after[section].get(cid) == pin for cid, pin in before[section].items()),
+                'Existing complete local ' + section + ' changed')
+        require(set(after[section]) - set(before[section]) == set(additions),
+                'Unassigned local ' + section + ' additions')
+    relabels, target_map = [], {}
+    require(len(before['pools']) == len(after['pools']), 'Local pool object count changed')
+    for index, (old, new) in enumerate(zip(before['pools'], after['pools'])):
+        require(without(old, 'target_id', 'version') == without(new, 'target_id', 'version'),
+                'Local pool inventory, role, weight, exclusions, completeness or order changed')
+        changed = {key for key in old.keys() | new.keys() if old.get(key) != new.get(key)}
+        require(changed in (set(), {'target_id', 'version'}), 'Local pool labels changed independently')
+        require(target_map.setdefault(old['target_id'], new['target_id']) == new['target_id'] and
+                len(set(target_map.values())) == len(target_map), 'Local target roles split or merged')
+        if changed:
+            require(label_role(old['target_id']) == label_role(new['target_id']) and
+                    label_role(old['version']) == label_role(new['version']),
+                    'Local pool relabel borrowed another role or source version')
+            relabels.append(dict(index=index, id=new['id'], old_target=old['target_id'],
+                new_target=new['target_id'], old_version=old['version'], new_version=new['version']))
+    for section in ('families', 'root_card_ids', 'native'):
+        require(before[section] == after[section], 'Local ' + section + ' changed')
+    require(target_map.get(before['target_id']) == after['target_id'], 'Local header lost its pool target role')
+    require(before['policy']['target_id'] == before['target_id'] and after['policy']['target_id'] == after['target_id'] and
+            without(before['policy'], 'id', 'target_id') == without(after['policy'], 'id', 'target_id') and
+            after['policy']['id'].replace(after['target_id'], before['target_id']) == before['policy']['id'],
+            'Local construction policy changed')
+    require(len(before['scopes']) == len(after['scopes']), 'Local source coverage count changed')
+    for old, new in zip(before['scopes'], after['scopes']):
+        require(without(old, 'id', 'target_id', 'inventory_sha256') == without(new, 'id', 'target_id', 'inventory_sha256') and
+                new['target_id'] == target_map.get(old['target_id']) and
+                new['id'].replace(after['target_id'], before['target_id']) == old['id'],
+                'Local source query, class, role, policy or order changed')
+        for host, scope in ((before, old), (after, new)):
+            pools = [pool for pool in host['pools'] if
+                     (pool['id'], pool['target_id'], pool['mode']) ==
+                     (scope['pool_id'], scope['target_id'], scope['mode'])]
+            require(len(pools) == 1 and canonical(pools[0]) == scope['inventory_sha256'],
+                    'Local source coverage borrowed another target or inventory digest')
+    return dict(old_definitions=len(before['cards']), old_metadata=len(before['metadata']),
+        pool_objects=len(after['pools']), distinct_pool_ids=len({p['id'] for p in after['pools']}),
+        relabels=relabels, source_scopes=len(after['scopes']),
+        all_complete_old_rows_and_ordered_inventory_bodies_preserved=True,
+        all_actual_scope_inventory_digests_verified=True)
+
+
 def capture(output, root=ROOT):
     data = observe_registry(root)
     save_new(output, data)

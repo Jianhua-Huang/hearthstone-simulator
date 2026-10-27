@@ -653,3 +653,54 @@ class CardBatchToolTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class LocalHostPreservationToolTests(unittest.TestCase):
+    def host(self, target):
+        target='local-v1-'+('0'*16 if target=='T0' else '1'*16)
+        pool=dict(id='same',version='v-'+target.rsplit('-',1)[-1],target_id=target,mode='experimental',members=[dict(card_id='a',weight=1)],excluded_card_ids=[],complete=True)
+        fixed=dict(pool,target_id='fixed',version='fixed-v1')
+        return dict(target_id=target,cards={'a':batch.canonical({'id':'a'})},metadata={'a':batch.canonical({'id':'a'})},pools=[pool,fixed],families={'a':'f'},policy=dict(id=target+'.deck',target_id=target,allowed_card_ids=['a'],banned_card_ids=[]),root_card_ids=['a'],native=['a'],scopes=[dict(id='scope:'+target,pool_id='same',target_id=target,mode='experimental',source_card_id='a',current_class='mage',query={'kinds':['minion']},policy={'allowed_special':[]},inventory_sha256=batch.canonical(pool))])
+
+    def test_paired_relabels_preserve_complete_bodies_and_target_specific_duplicate_ids(self):
+        before,after=self.host('T0'),self.host('T1');proof=batch.check_local_host_preservation(before,after,(),())
+        self.assertEqual((proof['pool_objects'],proof['distinct_pool_ids'],proof['source_scopes']),(2,1,1));self.assertEqual(len(proof['relabels']),1)
+        self.assertEqual(before,self.host('T0'));self.assertEqual(after,self.host('T1'))
+        for host,digest in ((before,'2'*16),(after,'3'*16)):
+            host['pools'][1]['target_id']='launch-v2-'+digest;host['pools'][1]['version']='source-pinned-'+digest*4
+        proof=batch.check_local_host_preservation(before,after,(),());self.assertEqual(len(proof['relabels']),2)
+
+    def test_rehashed_weights_completeness_exclusions_and_duplicate_role_reordering_are_rejected(self):
+        for operation in ('weight','complete','exclude','swap'):
+            before,after=self.host('T0'),self.host('T1')
+            if operation=='weight':after['pools'][0]['members'][0]['weight']=2
+            elif operation=='complete':after['pools'][0]['complete']=False
+            elif operation=='exclude':after['pools'][0]['excluded_card_ids']=['a']
+            else:after['pools'].reverse()
+            selected=next(p for p in after['pools']if p['target_id']==after['target_id']);after['scopes'][0]['inventory_sha256']=batch.canonical(selected)
+            with self.assertRaises(ValueError):batch.check_local_host_preservation(before,after,(),())
+
+    def test_old_rows_extra_metadata_roots_and_source_queries_cannot_drift(self):
+        for operation in ('card','metadata','roots','scope','digest','policy','version'):
+            before,after=self.host('T0'),self.host('T1')
+            if operation=='card':after['cards']['a']='0'*64
+            elif operation=='metadata':after['metadata']['b']='0'*64
+            elif operation=='roots':after['root_card_ids'].append('b')
+            elif operation=='scope':after['scopes'][0]['query']={'kinds':['spell']}
+            elif operation=='digest':after['scopes'][0]['inventory_sha256']=batch.canonical(after['pools'][1])
+            elif operation=='policy':after['policy']['target_id']='other'
+            else:after['pools'][0]['version']='unrelated-v1'
+            with self.assertRaises(ValueError):batch.check_local_host_preservation(before,after,(),())
+
+    def test_only_explicit_new_executable_and_metadata_identities_are_admitted(self):
+        before,after=self.host('T0'),self.host('T1');after['cards']['b']='1'*64;after['metadata']['b']='2'*64
+        batch.check_local_host_preservation(before,after,('b',),('b',))
+        with self.assertRaises(ValueError):batch.check_local_host_preservation(before,after,(),('b',))
+        with self.assertRaises(ValueError):batch.check_local_host_preservation(before,after,('b',),())
+
+    def test_actual_observer_is_read_only_and_never_creates_a_game(self):
+        with patch('hs_sim.engine.Game.from_scenario',side_effect=AssertionError('observer must not create a Game')):
+            host=batch.observe_local_host()
+        proof=batch.check_local_host_preservation(host,deepcopy(host),(),())
+        self.assertEqual((proof['pool_objects'],proof['distinct_pool_ids'],proof['source_scopes']),(47,40,5))
+        self.assertEqual(len(host['root_card_ids']),1322);self.assertEqual(len(host['native']),114)

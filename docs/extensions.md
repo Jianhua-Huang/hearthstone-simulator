@@ -2279,3 +2279,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实原生泰坦技能安装next_spell_bonus时，为AddPlayerEffect同时提供ability_event=c.event与ability_source=SourceAllocationFact.capture(c.state,c.source)，程序id必须等于对应ActivatedAbilitySpec.behavior_id；不要用当前活体重新构造原来源。普通战吼仍用旧入口。符文发现用完整宿主PoolQuery(runes_any=(rune,),collectible=True)，不按当前职业裁剪。详见[兵主契约](m3-primus-titan.md)。
+
+
+高戈奈斯首法术使用CostAuraSpec(CostSpec(delta=-3,card_types=(CardType.SPELL,)),first_per_turn=True)；阿米图斯使用原HealthRule(CAP2,target_relation="friendly",target_kinds=(MINION,))。真实抽两随从并设2/2/2可直接复用DrawPhysicalGroup和set_stats_cost_all奖励；物理过载检索用完整已核正标签身份，不套生成可收藏过滤。详见[契约](m3-titan-value-effects.md)。主线可用card_batch.observe_local_host/check_local_host_preservation复用完整宿主保全，卡牌行为仍需专项验证。
