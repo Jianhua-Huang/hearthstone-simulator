@@ -8,9 +8,10 @@ from dataclasses import asdict,dataclass,fields,is_dataclass,replace
 import json
 from random import Random
 
+from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate_allocation
 from .effects import Effect,_integer
 from .errors import ResolutionError
-from .model import ChoicePurpose,ChoiceResult,GameState,PendingChoice,validate_end_turn_rng
+from .model import CardType,ChoicePurpose,ChoiceResult,GameState,PendingChoice,Zone,validate_end_turn_rng
 from .pools import DiscoverFromPool,PoolMember,sample_candidates
 from .pool_summons import PoolSummonBasis,validate_basis,from_dict as pool_from_dict
 from .summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial,accept as accept_entry,validate_cause
@@ -64,6 +65,12 @@ def selected(offer):
     return next(x.card_id for x in offer.result.choice.options if x.id in offer.result.selected_ids)
 
 
+def unselected_cards(root):
+    if not root.spec.unselected_to_hand:return ()
+    return tuple(cid for offer in root.offers if offer.result is not None
+        for cid in offer.offered if cid != selected(offer))
+
+
 @dataclass(frozen=True)
 class DiscoverySummonRecord:
     id:int
@@ -79,6 +86,7 @@ class DiscoverySummonRecord:
     freeze_acceptances:tuple[int,...]=()
     stat_acceptances:tuple[int,...]=()
     copy_acceptances:tuple[int,...]=()
+    remainder_created:tuple[SourceAllocationFact,...]=()
 
     def __post_init__(self):
         for n,floor in (('id',1),('event_cursor',0),('turn',1),('action',0)):_integer(getattr(self,n),'discovery producer '+n,floor)
@@ -125,6 +133,20 @@ class DiscoverySummonRecord:
             raise ValueError('Discovery closed before its original stat setting')
         if self.status == 'completed' and self.spec.copy_selected_to_hand and len(self.copy_acceptances) != len(self.entry_root_ids):
             raise ValueError('Discovery closed before its original selected copy')
+        if type(self.remainder_created) is not tuple or any(type(f) is not SourceAllocationFact for f in self.remainder_created):
+            raise ValueError('Original unselected delivery requires complete physical allocations')
+        for fact in self.remainder_created:fact.__post_init__()
+        cards=unselected_cards(self)
+        if (len(self.remainder_created)>len(cards) or
+                tuple(f.card_id for f in self.remainder_created)!=cards[:len(self.remainder_created)] or
+                len({f.entity_id for f in self.remainder_created})!=len(self.remainder_created) or
+                any(f.kind!=CardType.MINION or (f.owner,f.controller)!=(self.spec.player_id,self.spec.player_id) or
+                    f.zone not in (Zone.HAND,Zone.GRAVEYARD) for f in self.remainder_created)):
+            raise ValueError('Discovery lost its ordered original unselected creation prefix')
+        if self.remainder_created and not self.entry_root_ids:
+            raise ValueError('Unselected cards preceded the actual selected entry attempt')
+        if self.status=='completed' and len(self.remainder_created)!=len(cards):
+            raise ValueError('Discovery closed before all original unselected cards')
 
 
 @dataclass(frozen=True)
@@ -167,7 +189,19 @@ class CopyDiscoveredCardToHand(Effect):
         _integer(self.index,'copy selected entry',0)
 
 
-CONTROL=(StartDiscoverySummonEntry,FinishDiscoverySummon,FreezeDiscoveredMinion,SetDiscoveredMinionStats,CopyDiscoveredCardToHand)
+@dataclass(frozen=True)
+class DeliverUnselectedDiscoveryCard(Effect):
+    producer_id:int
+    index:int
+    def __post_init__(self):
+        _integer(self.producer_id,'original unselected discovery producer',1)
+        _integer(self.index,'original unselected discovery index',0)
+
+
+CONTROL=(StartDiscoverySummonEntry,FinishDiscoverySummon,FreezeDiscoveredMinion,SetDiscoveredMinionStats,CopyDiscoveredCardToHand,DeliverUnselectedDiscoveryCard)
+# Creation is an ordinary semantic checkpoint: its acquisition reactions must
+# finish before the next original card. Ownership does not make it transparent.
+TRANSPARENT_CONTROL=CONTROL[:-1]
 
 
 def record(state,producer_id):
@@ -299,6 +333,8 @@ def start_entry(r,effect):
         first=root.entry_root_ids[effect.index-root.spec.summon_copies+1]
         notification=queue(r,PublishDiscoveredSummon(chosen[effect.index].result,first))
         continuation=(*continuation,notification)
+    if root.spec.unselected_to_hand and unselected_cards(root):
+        continuation=(*continuation,DeliverUnselectedDiscoveryCard(root.id,0))
     remaining_copies=(effect.index+1)%root.spec.summon_copies!=0
     if (root.phase=='delivering'or remaining_copies)and len(root.entry_root_ids)<len(chosen):
         continuation=(*continuation,StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)))
@@ -375,6 +411,25 @@ def finish(r,effect):
     emit(r,'discovery_summon_finished',update(r.state,root,status='completed'))
 
 
+def deliver_unselected_discovery_card(r,effect):
+    from .effects import AddToHand
+    from .opening import create_hand_card
+    from .summon_quantities import record as child_record
+    effect.__post_init__();root=record(r.state,effect.producer_id);cards=unselected_cards(root)
+    if (root.status!='active' or not root.spec.unselected_to_hand or
+            effect.index!=len(root.remainder_created) or effect.index>=len(cards) or len(root.entry_root_ids)!=1):
+        raise ResolutionError('Stale or foreign original unselected hand delivery')
+    child=child_record(r.state,root.entry_root_ids[0]);validate_child(root,0,child)
+    if child.status not in ('completed','skipped'):
+        raise ResolutionError('Unselected hand delivery preceded the complete selected entry')
+    # The complete original offered order owns these recipes. Acquisition uses
+    # the normal creator and its live hand capacity, never a later pool query.
+    entity=create_hand_card(r,AddToHand(root.spec.player_id,cards[effect.index],root.spec.source_id))
+    root=update(r.state,root,remainder_created=(*root.remainder_created,SourceAllocationFact.capture(r.state,entity)))
+    emit(r,'discovery_summon_remainder_created',root)
+    return (DeliverUnselectedDiscoveryCard(root.id,len(root.remainder_created)),)if len(root.remainder_created)<len(cards)else ()
+
+
 def interrupt(r):
     for root in tuple(r.state.discovery_summon_history):
         if root.status=='active':emit(r,'discovery_summon_finished',update(r.state,root,status='interrupted'))
@@ -415,6 +470,7 @@ def validate_record(state,registry,root,*,closed=False,children=None):
     root.__post_init__();validate_cause(state,registry,root.spec.cause,closed=closed)
     if root.id>=state.next_discovery_summon_id or root.turn>state.turn or root.action>state.action_number:raise ValueError('Future discovery producer')
     if root.spec.cause.turn>root.turn or root.spec.cause.action>root.action:raise ValueError('Discovery cause is newer than acceptance')
+    for fact in root.remainder_created:validate_allocation(state,registry,fact,closed=closed)
     used=set();cursor=root.event_cursor
     for offer in root.offers:
         validate_basis(state,registry,offer.basis,closed=closed)
@@ -438,6 +494,8 @@ def validate_record(state,registry,root,*,closed=False,children=None):
             raise ValueError('Discovery froze an unfinished original entry')
         if not closed and index in root.copy_acceptances and children[i].status not in ('completed','skipped'):
             raise ValueError('Discovery copied before its original entry completed')
+        if not closed and root.remainder_created and children[i].status not in ('completed','skipped'):
+            raise ValueError('Discovery delivered unselected cards before its original entry completed')
 
 
 def validate_history(state,registry):
@@ -470,8 +528,14 @@ def validate_queue(state,registry,queue):
         freeze=(FreezeDiscoveredMinion(root.id,len(root.freeze_acceptances)),)if root.spec.freeze_summoned and len(root.freeze_acceptances)<len(root.entry_root_ids)else()
         stats=(SetDiscoveredMinionStats(root.id,len(root.stat_acceptances)),)if root.spec.set_summoned_stats is not None and len(root.stat_acceptances)<len(root.entry_root_ids)else()
         copies=(CopyDiscoveredCardToHand(root.id,len(root.copy_acceptances)),)if root.spec.copy_selected_to_hand and len(root.copy_acceptances)<len(root.entry_root_ids)else()
-        expected=freeze+stats+copies+((StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if need_entry else())+(FinishDiscoverySummon(root.id),)
+        remainder=(DeliverUnselectedDiscoveryCard(root.id,len(root.remainder_created)),)if root.entry_root_ids and len(root.remainder_created)<len(unselected_cards(root))else()
+        expected=freeze+stats+copies+remainder+((StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if need_entry else())+(FinishDiscoverySummon(root.id),)
         if tuple(controls)!=expected:raise ValueError('Discovery lost original owed entry/finish tail')
+        if remainder:
+            from .discovery_delivery import PublishDiscoveredSummon
+            notification=next((w for w in queue if type(w)is PublishDiscoveredSummon and w.root_id in root.entry_root_ids),None)
+            if notification is not None and queue.index(notification)>queue.index(remainder[0]):
+                raise ValueError('Unselected cards advanced before the original discovery notification')
         pending=bool(root.offers and root.offers[-1].offered and root.offers[-1].result is None)
         if len(advances)!=(int(root.phase=='discovering'and not pending)):raise ValueError('Discovery lost original next offer continuation')
         for work in advances:validate_progress(state,registry,work)
@@ -540,14 +604,17 @@ def validate_closed_events(game):
     for event in events:
         if event.kind=='card_summon_accepted':
             child=entry_from_dict(CardSummonRecord,json.loads(dict(event.data)['root']));children.setdefault(child.id,child)
-    current={x.id:x for x in state.discovery_summon_history};latest={}
+    current={x.id:x for x in state.discovery_summon_history};latest={};latest_sequences={}
+    creations={};notifications={};used_creations=set()
     finished={}
     for event in events:
         if event.kind=='card_summon_finished':
             child=entry_from_dict(CardSummonRecord,json.loads(dict(event.data)['root']))
             finished[child.id]=(child,event.sequence)
-    kinds=('discovery_summon_accepted','discovery_summon_offered','discovery_summon_bound','discovery_summon_picked','discovery_summon_ready','discovery_summon_entry','discovery_summon_freeze_started','discovery_summon_stats_started','discovery_summon_copy_started','discovery_summon_finished')
+    kinds=('discovery_summon_accepted','discovery_summon_offered','discovery_summon_bound','discovery_summon_picked','discovery_summon_ready','discovery_summon_entry','discovery_summon_freeze_started','discovery_summon_stats_started','discovery_summon_copy_started','discovery_summon_remainder_created','discovery_summon_finished')
     for event in events:
+        if event.kind=='card_created':creations[event.target_id]=event
+        if event.kind=='card_discovered':notifications[dict(event.data).get('choice_id')]=event
         if event.kind not in kinds:continue
         data=dict(event.data)
         if set(data)!={'producer_id','root'}or type(data['root'])is not str:raise ValueError('Complete original discovery event required')
@@ -557,7 +624,7 @@ def validate_closed_events(game):
             raise ValueError('Discovery event changed original identity/domain')
         previous=latest.get(root.id)
         if event.kind=='discovery_summon_accepted':
-            if previous is not None or root.offers or root.entry_root_ids or root.freeze_acceptances or root.stat_acceptances or root.copy_acceptances or root.phase!='discovering'or root.status!='active'or root.event_cursor!=event.sequence-1:
+            if previous is not None or root.offers or root.entry_root_ids or root.freeze_acceptances or root.stat_acceptances or root.copy_acceptances or root.remainder_created or root.phase!='discovering'or root.status!='active'or root.event_cursor!=event.sequence-1:
                 raise ValueError('Invalid/duplicate original discovery acceptance')
         else:
             if previous is None or previous.status!='active':raise ValueError('Discovery transition has no original active producer')
@@ -603,11 +670,24 @@ def validate_closed_events(game):
                 if done is None or done[0].status not in ('completed','skipped') or done[1] >= event.sequence:
                     raise ValueError('Discovery copy lost its original completed child')
                 validate_child(root,index,done[0]); expected=replace(previous,copy_acceptances=root.copy_acceptances)
+            elif event.kind=='discovery_summon_remainder_created':
+                if (not root.spec.unselected_to_hand or len(root.remainder_created)!=len(previous.remainder_created)+1 or
+                        root.remainder_created[:-1]!=previous.remainder_created or len(root.entry_root_ids)!=1):
+                    raise ValueError('Discovery changed its original ordered unselected delivery')
+                done=finished.get(root.entry_root_ids[0]);fact=root.remainder_created[-1];creation=creations.get(fact.entity_id)
+                notice=notifications.get(root.offers[0].result.choice.id)
+                if (done is None or done[0].status not in ('completed','skipped') or notice is None or
+                        creation is None or creation.sequence in used_creations or
+                        not max(done[1],notice.sequence,latest_sequences[root.id])<creation.sequence<event.sequence or
+                        creation.action!=event.action or (creation.source_id,creation.player_id)!=(root.spec.source_id,root.spec.player_id)):
+                    raise ValueError('Discovery unselected delivery lost its actual post-entry creation window')
+                used_creations.add(creation.sequence)
+                validate_child(root,0,done[0]);expected=replace(previous,remainder_created=root.remainder_created)
             elif event.kind=='discovery_summon_finished':
                 if root.status=='active':raise ValueError('Discovery has no final status')
                 expected=replace(previous,status=root.status)
             if root!=expected:raise ValueError('Discovery transition changed original facts')
-        latest[root.id]=root
+        latest[root.id]=root;latest_sequences[root.id]=event.sequence
         if root.id not in current and not any(e.kind=='timeline_rewound'and e.sequence>event.sequence and type(dict(e.data).get('event_start'))is int and dict(e.data)['event_start']<=root.event_cursor for e in events):
             raise ValueError('Discovery producer vanished without actual later Retry')
     for root in current.values():
@@ -651,6 +731,7 @@ def from_dict(cls,value):
         row['entry_root_ids']=tuple(row['entry_root_ids']);row['freeze_acceptances']=tuple(row['freeze_acceptances'])
         row['stat_acceptances']=tuple(row['stat_acceptances'])
         row['copy_acceptances']=tuple(row['copy_acceptances'])
+        row['remainder_created']=tuple(allocation_from_dict(f)for f in row['remainder_created'])
     return cls(**row)
 
 
@@ -665,3 +746,4 @@ def register(mechanics):
     mechanics.register(FreezeDiscoveredMinion,freeze_discovered_minion)
     mechanics.register(SetDiscoveredMinionStats,set_discovered_minion_stats)
     mechanics.register(CopyDiscoveredCardToHand,copy_discovered_card_to_hand)
+    mechanics.register(DeliverUnselectedDiscoveryCard,deliver_unselected_discovery_card)

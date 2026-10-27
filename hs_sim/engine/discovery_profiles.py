@@ -6,6 +6,8 @@ from .model import CardType, Keyword
 
 def validate_spec(spec):
     from .pools import PoolQuery
+    if type(spec.unselected_to_hand) is not bool:
+        raise ValueError('Unselected hand delivery requires an explicit boolean')
     if type(spec.summon_copies) is not int or spec.summon_copies not in (1,2):
         raise ValueError('Selected discovery copies require one or two original entries')
     if type(spec.entry_keywords) is not tuple or spec.entry_keywords not in ((),(Keyword.TAUNT,Keyword.ELUSIVE)) or any(
@@ -13,6 +15,16 @@ def validate_spec(spec):
         raise ValueError('Discovery entry boons require the original Taunt and Elusive pair')
     if type(spec.repeat_until_seen) is not bool:
         raise ValueError('Seen-offer discovery requires an explicit boolean')
+    if spec.unselected_to_hand:
+        allowed = {'player_id','pool_id','query','source_id','prompt','policy','destination','cause','unselected_to_hand'}
+        if any(field.name not in allowed and field.default is not MISSING and
+                getattr(spec,field.name) != field.default for field in fields(spec)):
+            raise ValueError('Original unselected hand delivery cannot borrow unrelated discovery policies')
+        if (spec.destination != 'board' or spec.cause is None or spec.source_id is None or
+                type(spec.query) is not PoolQuery or spec.query != PoolQuery(kinds=(CardType.MINION,),
+                    collectible=True,class_mode='current',tribes_any=('elemental',))):
+            raise ValueError('Original unselected hand delivery requires one attributed Elemental board discovery')
+        return
     if spec.repeat_until_seen:
         allowed = {'player_id','pool_id','query','source_id','prompt','policy','repeat_until_seen'}
         if any(field.name not in allowed and field.default is not MISSING and

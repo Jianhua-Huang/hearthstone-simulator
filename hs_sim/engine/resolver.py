@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v778'
+CORE_EFFECTS_VERSION = 'core-effects-v779'
 
 
 class Mechanics:
@@ -908,7 +908,7 @@ class Resolution:
             from .pool_summons import CONTROL as POOL_SUMMON_CONTROL
             from .recruit_stat_groups import CONTROL as RECRUIT_STAT_CONTROL
             from .ordered_group_batches import CONTROL as ORDERED_GROUP_CONTROL
-            from .discovery_summons import CONTROL as DISCOVERY_SUMMON_CONTROL
+            from .discovery_summons import TRANSPARENT_CONTROL as DISCOVERY_SUMMON_CONTROL
             from .hand_choice_followups import CONTROL as HAND_FOLLOWUP_CONTROL
             from .summon_quantities import SummonByCard,FinishCardSummon
             from .source_stat_summons import SummonBySourceStats

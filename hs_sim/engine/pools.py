@@ -564,6 +564,7 @@ class DiscoverFromPool(Effect):
     summon_copies: int = 1
     entry_keywords: tuple[Keyword, ...] = ()
     repeat_until_seen: bool = False
+    unselected_to_hand: bool = False
 
     def __post_init__(self):
         from .discovery_profiles import validate_spec as validate_finite_discovery

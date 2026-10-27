@@ -2270,3 +2270,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 [发掘宝藏原生示例](m3-excavate-shared-treasures.md)将固定印刷费用发现接原DiscoverFromPool加CostSpec(set_to=0)，把活体石头亡语交原SummonFromPool和实际死亡SummonCause。邻位附魔捕获原物理位置及驻留引用，地标复用普通两次耐久和冷却。完整25成员参考与生产profile绑定分开；暂缺原未选候选交付或嵌套生成域时明确保留缺口，不能新建卡牌层随机/选择结算器。
+
+
+[原发现其余候选交付](m3-shard-original-remainders.md)仅以DiscoverFromPool(unselected_to_hand=True,destination="board",cause=原SummonCause)开放真实元素形状。原未选身份来自同一菜单，不能重新抽池、按当前职业改写、把其它来源同名手牌当作交付或附加复制/改费/冻结；实际获取仍走普通手牌创建、烧牌和反应，逐项控制及原分配事实进入保存验证。
