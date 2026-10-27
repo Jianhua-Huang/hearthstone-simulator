@@ -1,0 +1,429 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-paladin-mech-source-continuations-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-paladin-mech-local-reference-v1.json",
+  "reference_canonical_sha256": "92bf7f1b4ac499111e6d8bb07d3ccd513fa4262c651351a493b8ffd33e16cdb8",
+  "collectible_leaf_ids": [
+    "SC_412",
+    "TSC_083"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "SC_412",
+        "dbf_id": 113855,
+        "name": "恶火",
+        "name_en": "Hellion",
+        "text": "你的其他随从拥有+1攻击力。<i>（如果你在本局对战中发射过<b>星舰</b>，则会\n变形。）</i>",
+        "text_en": "[x]Your other minions\nhave +1 Attack.\n<i>(Transforms if you launched\na <b>Starship</b> this game.)</i>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1724": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "MINI_SET": 1,
+          "TERRAN": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "68a1994477486673490b739727ec2837e0deb6e2a37783fd05a6a1f50818c8b2"
+    },
+    {
+      "record": {
+        "id": "TSC_083",
+        "dbf_id": 77018,
+        "name": "海床救生员",
+        "name_en": "Seafloor Savior",
+        "text": "<b>战吼：</b><b>探底</b>。如果选中的是随从牌，使其获得本随从的攻击力和生命值。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Dredge</b>.\nIf it's a minion, give it\nthis minion's Attack\nand Health.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1658,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DREDGE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "71e6969cbe6b5e0ae9fc284631254b7b56b0feb2adb0a0c16bfa763402fb6e8b"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "SC_412t",
+        "dbf_id": 113858,
+        "name": "恶蝠",
+        "name_en": "Hellbat",
+        "text": "你的其他随从拥有+2攻击力和<b>突袭</b>。",
+        "text_en": "Your other minions have +2 Attack and <b>Rush</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "AURA": 1,
+          "MINI_SET": 1,
+          "TERRAN": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "630c677d246749c8df4e0a089b860c94ddfe5583bb21fd82c32c12a15778389f",
+      "definition_sha256": "b9e29b784ced0ffe07bcb1f12ad58c4d289067b40a509c79a152c1bf51d80f02",
+      "pool_card_sha256": "d822852a848f6eb92452c73e36189d1b0e8f77ca729583299fc920628ef184e4"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TSC_083e",
+        "dbf_id": 80795,
+        "name": "灯光",
+        "name_en": "Lamplight",
+        "text": "属性值提高。",
+        "text_en": "Increased stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "50dd501d199ba69c0d919a705339695606579c4430a02631ea9aa88557906610"
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "SC_412",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 113855,
+        "collectible": 1,
+        "slug": "113855-hellion",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Mike Sass",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "恶火",
+        "text": "你的其他随从拥有+1攻击力。<i>（如果你在本局对战中发射过<b>星舰</b>，则会 变形。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cff1b2609399fd9c6f7ac81ecc987bafab1f7b636fbdd3d1904d86e8865ce41d.png",
+        "imageGold": "",
+        "flavorText": "下次一定要升级阻燃轮胎。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86924d0d6e5a7e7dff984517166f0fb1d76ae08be23120b05b5ab4ba4f28bc2a.png",
+        "childIds": [
+          113858,
+          114363
+        ],
+        "keywordIds": [
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_412",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 113855,
+        "collectible": 1,
+        "slug": "113855-hellion",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Mike Sass",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Hellion",
+        "text": "Your other minions have +1 Attack. <i>(Transforms if you launched a <b>Starship</b> this game.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8184d82950588c00be3e762eb6ed8a7bc7c175e7e60f1538d1e97d705383b24d.png",
+        "imageGold": "",
+        "flavorText": "Let's upgrade to the non-flammable tires next time.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86924d0d6e5a7e7dff984517166f0fb1d76ae08be23120b05b5ab4ba4f28bc2a.png",
+        "childIds": [
+          113858,
+          114363
+        ],
+        "keywordIds": [
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_083",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 77018,
+        "collectible": 1,
+        "slug": "77018-seafloor-savior",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "海床救生员",
+        "text": "<b>战吼：</b><b>探底</b>。如果选中的是随从牌，使其获得本随从的攻击力和生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce09b39a38f3cd2c67f1a3b91bb79d9e27cc9e7a04551564dd16270499386720.png",
+        "imageGold": "",
+        "flavorText": "“龟龟已找到。正在执行绷带贴贴与亲亲。痛痛即将清除。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac6cfdddabee67f6c291f59f9e8c5730f54c8d6ecfa305d59a89b0724548967e.png",
+        "keywordIds": [
+          8,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_083",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 77018,
+        "collectible": 1,
+        "slug": "77018-seafloor-savior",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Seafloor Savior",
+        "text": "<b>Battlecry:</b> <b>Dredge</b>. If it's a minion, give it this minion's Attack and Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6783fa69d1af1a8fd94ed1658c307cebdbe36bfe68fed6fee53b6e2d30fb502.png",
+        "imageGold": "",
+        "flavorText": "\"TURTLE PROCURED. ADMINISTRATING BANDAGES AND KISSES. BOO BOO MUST BE ELIMINATED.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac6cfdddabee67f6c291f59f9e8c5730f54c8d6ecfa305d59a89b0724548967e.png",
+        "keywordIds": [
+          8,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "hellion_form": "SC_412t",
+  "hellion_zones": [
+    "hand",
+    "deck"
+  ],
+  "hellion_stat_policy": "preserve ordinary existing stored enchantments and costs; change only printed face; do not transform board bodies",
+  "dredge_stat_policy": "original accepted Battlecry body Attack and nonnegative remaining Health at Dredge request; reward original selected minion deck residence after reorder",
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "rule_references": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-gb/cards/113855/",
+      "role": "Official complete Hellion body and named Hellbat relation"
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1imzuw0/",
+      "role": "Direct player reports: hand/deck transform; existing board body stays original",
+      "official": false
+    }
+  ],
+  "uncertainties": [
+    "SC faction conditional generation eligibility is separately reported by community and remains a pool-binding qualification item; preserve all27 original candidates.",
+    "Exact CN launch/acquisition order, special copied faces/silence and Dredge stat timing edge windows remain uncalibrated.",
+    "No global past domain or official source membership is certified by this native adapter batch."
+  ]
+}

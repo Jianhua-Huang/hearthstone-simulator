@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v651"
+CONTENT_VERSION = "constructed-cn37-preview-v652"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1332,5 +1332,7 @@ def build_registry():
     register_gigafin_devour(registry)
     from .past_paladin_mech_values import register_past_paladin_mech_values
     register_past_paladin_mech_values(registry)
+    from .paladin_mech_source_continuations import register_paladin_mech_source_continuations
+    register_paladin_mech_source_continuations(registry)
     registry.validate()
     return registry

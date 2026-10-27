@@ -492,6 +492,8 @@ class Game:
         validate_hand_mirrors(self)
         from .held_battlecry_forms import validate_game as validate_held_battlecry_forms
         validate_held_battlecry_forms(self)
+        from .stored_launch_forms import validate_game as validate_stored_launch_forms
+        validate_stored_launch_forms(self)
         from .named_minion_boons import validate_game as validate_named_boons
         validate_named_boons(self)
         from .cost_presence import validate_game as validate_controlled_prices

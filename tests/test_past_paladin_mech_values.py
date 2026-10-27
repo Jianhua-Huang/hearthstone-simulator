@@ -274,15 +274,15 @@ class PastPaladinMechValueTests(CardBatchTestMixin,unittest.TestCase):
         for current in (g,restored): self.choose(current)
         self.assertEqual(g.snapshot(),restored.snapshot()); self.assertEqual(sum(g.state.entities[i].card_id==native.GIANT for i in g.state.players[1].hand),1)
 
-    def test_full_27_reference_cannot_execute_missing_members_or_borrow_old_bound_inventory(self):
-        g=self.game(mode='full-reference'); before=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'SC_412'): self.play(g,SOURCE)
-        self.assertEqual(g.snapshot(),before)
+    def test_full_27_reference_resolves_native_members_but_cannot_borrow_old_bound_inventory(self):
+        complete=host('full-reference')
+        rows=resolve_candidates(complete.registry,CONTEXT,POOL,QUERIES[SOURCE],source_card_id=SOURCE)
+        self.assertEqual([v.card_id for v in rows],batch.read(native.REFERENCE_PATH)['candidate_ids'])
         f=host()
         with self.assertRaisesRegex(UnsupportedDefinitionError,'Unreviewed generation scope'):
             resolve_candidates(f.registry,f.context,POOL,QUERIES[SOURCE],source_card_id=SOURCE,exclude_source_by_rule=True)
         ref=batch.read(native.REFERENCE_PATH)
-        self.assertEqual([cid for cid in ref['candidate_ids'] if cid not in f.registry.cards],['SC_412','TSC_083'])
+        self.assertEqual([cid for cid in ref['candidate_ids'] if cid not in f.registry.cards],[])
 
     def test_changed_final_existing_dependency_leaves_registry_without_half_registered_cards(self):
         r=build_registry()

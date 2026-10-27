@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from .effects import Effect, ChoiceOption, RequestChoice, _player, _source
 from .model import CardPreview, ChoicePurpose, Zone
 from .zones import CardReference, reference_value, reference_entity, source_exists
+from .registry import RuleContext
 
 
 @dataclass(frozen=True)
@@ -38,7 +39,33 @@ class SelectDredgedCard(Effect):
             raise ValueError('Dredge selection must reference its specified deck')
 
 
-def dredge(r, effect):
+@dataclass(frozen=True)
+class DredgeWithSourceStats(Effect):
+    original: RuleContext
+
+    def __post_init__(self):
+        from .model import CardType
+        c = self.original
+        if (type(c) is not RuleContext or c.source.kind != CardType.MINION or c.battlecry is None or
+                not c.battlecry.payload_started or c.battlecry.failure is not None or
+                (c.battlecry.source_id,c.battlecry.player_id) != (c.source_id,c.player_id)):
+            raise ValueError('Dredge source stats require their original accepted minion Battlecry')
+
+
+@dataclass(frozen=True)
+class SelectDredgedCardWithSourceStats(SelectDredgedCard):
+    request: DredgeWithSourceStats
+
+    def __post_init__(self):
+        super().__post_init__()
+        if type(self.request) is not DredgeWithSourceStats:
+            raise ValueError('Dredge stat reward requires its complete original request')
+        self.request.__post_init__(); c = self.request.original
+        if self.spec != Dredge(c.player_id,source_id=c.source_id):
+            raise ValueError('Dredge stat reward changed its original owner, source or query')
+
+
+def dredge(r, effect, *, request=None):
     from .continuations import FrameCodec
     effect.__post_init__(); source_exists(r, effect.source_id)
     # Validate even on an empty deck: unsupported callbacks never become no-ops.
@@ -52,11 +79,32 @@ def dredge(r, effect):
     options = []
     for n, entity_id in enumerate(offered, 1):
         entity = r.state.entities[entity_id]
+        branch = (SelectDredgedCard(effect,CardReference.capture(entity)) if request is None else
+            SelectDredgedCardWithSourceStats(effect,CardReference.capture(entity),request))
         options.append(ChoiceOption(f'dredge-{n}', entity.display_name or r.registry.card(entity.card_id).name,
-            (SelectDredgedCard(effect, CardReference.capture(entity)),), card_id=entity.card_id,
+            (branch,), card_id=entity.card_id,
             preview=CardPreview.capture(entity, r.registry)))
     return (RequestChoice(effect.player_id, tuple(options), source_id=effect.source_id,
                           prompt='探底：选择一张牌置于牌库顶', purpose=ChoicePurpose.DREDGE),)
+
+
+def dredge_with_source_stats(r, effect):
+    effect.__post_init__(); c = effect.original
+    return dredge(r,Dredge(c.player_id,source_id=c.source_id),request=effect)
+
+
+def select_with_source_stats(r, effect):
+    from .hand_upgrades import BuffStoredCard
+    from .model import CardType
+    effect.__post_init__()
+    entity = reference_entity(r,effect.card)
+    if entity is None: return ()
+    # The common reorder retires the old deck reference and announces before
+    # reactions. Capture the new physical residence in the same window.
+    work = select_card(r,SelectDredgedCard(effect.spec,effect.card))
+    if entity.kind != CardType.MINION: return work
+    c = effect.request.original
+    return (*work,BuffStoredCard(CardReference.capture(entity),c.source.attack,max(0,c.source.health),c.source_id))
 
 
 def select_card(r, effect):
@@ -82,6 +130,8 @@ def select_card(r, effect):
 def register(mechanics):
     mechanics.register(Dredge, dredge)
     mechanics.register(SelectDredgedCard, select_card)
+    mechanics.register(DredgeWithSourceStats, dredge_with_source_stats)
+    mechanics.register(SelectDredgedCardWithSourceStats, select_with_source_stats)
 
 
 def validate_choice(game):
@@ -91,11 +141,19 @@ def validate_choice(game):
     if (choice.min_count != 1 or choice.max_count != 1 or not 1 <= len(choice.options) <= 3 or
             choice.repeat_key is not None or frame.on_select is not None):
         raise ValueError('Invalid Dredge choice cardinality or continuation')
-    refs = set(); spec = None
+    refs = set(); spec = None; request = None; kind = None
     for n, option in enumerate(frame.options, 1):
-        if len(option.effects) != 1 or type(option.effects[0]) is not SelectDredgedCard:
+        if len(option.effects) != 1 or type(option.effects[0]) not in (SelectDredgedCard,SelectDredgedCardWithSourceStats):
             raise ValueError('Dredge choice requires a physical selection branch')
         effect = option.effects[0]
+        if kind is not None and kind is not type(effect):
+            raise ValueError('Dredge choices cannot mix native stat and ordinary source requests')
+        if type(effect) is SelectDredgedCardWithSourceStats:
+            effect.__post_init__()
+            if request is not None and request != effect.request:
+                raise ValueError('Dredge choices cannot borrow different original stat windows')
+            request = effect.request
+        kind = type(effect)
         if (option.id != f'dredge-{n}' or option.card_id != effect.card.card_id or
                 option.preview is None or option.entity_id is not None or
                 effect.spec.player_id != choice.player_id or effect.spec.source_id != choice.source_id or

@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v761'
+CORE_EFFECTS_VERSION = 'core-effects-v762'
 
 
 class Mechanics:
@@ -380,6 +380,8 @@ class Resolution:
             pass_guard(self.state,_end_turn_guard,event)
         if self.game._information is not None:
             self.game._information.record(self.game, event)
+        from .stored_launch_forms import synchronize as synchronize_stored_launch_forms
+        synchronize_stored_launch_forms(self,event)
         from .hand_mirrors import synchronize as synchronize_hand_mirrors
         synchronize_hand_mirrors(self,event)
         from .held_battlecry_forms import synchronize as synchronize_held_battlecry_forms

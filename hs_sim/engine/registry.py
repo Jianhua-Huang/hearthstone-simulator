@@ -244,6 +244,7 @@ class Registry:
         self._ability_family_profiles = {}
         self._rotating_discovery_class_profiles = {}
         self._held_battlecry_forms_profiles = {}
+        self._stored_launch_form_profiles = {}
         self._named_minion_boon_profiles = {}
         self._named_minion_boon_programs = {}
         self._adjoining_spell_profiles = {}
@@ -1005,6 +1006,9 @@ class Registry:
     def held_battlecry_forms_profiles(self):return MappingProxyType(self._held_battlecry_forms_profiles)
 
     @property
+    def stored_launch_form_profiles(self):return MappingProxyType(self._stored_launch_form_profiles)
+
+    @property
     def named_minion_boon_profiles(self):return MappingProxyType(self._named_minion_boon_profiles)
 
     @property
@@ -1301,6 +1305,15 @@ class Registry:
         validate_profile(self,profile)
         if profile.card_id in self._held_battlecry_forms_profiles:raise ValueError('Duplicate held Battlecry declaration')
         self._held_battlecry_forms_profiles[profile.card_id]=profile
+
+    def register_stored_launch_form_profile(self,profile):
+        self._require_mutable()
+        from .stored_launch_forms import validate_profile
+        validate_profile(self,profile)
+        if (profile.card_id in self._stored_launch_form_profiles or
+                any(p.form_card_id == profile.card_id for p in self._stored_launch_form_profiles.values())):
+            raise ValueError('Duplicate or chained stored launch declaration')
+        self._stored_launch_form_profiles[profile.card_id]=profile
 
     def register_named_minion_boon_profile(self,profile):
         self._require_mutable()
@@ -2788,6 +2801,8 @@ class Registry:
         for profile in self._rotating_discovery_class_profiles.values():validate_rotating_discovery_class_profile(self,profile)
         from .held_battlecry_forms import validate_profile as validate_held_battlecry_profile
         for profile in self._held_battlecry_forms_profiles.values():validate_held_battlecry_profile(self,profile)
+        from .stored_launch_forms import validate_profile as validate_stored_launch_profile
+        for profile in self._stored_launch_form_profiles.values():validate_stored_launch_profile(self,profile)
         from .named_minion_boons import validate_profile as validate_named_boon_profile
         for profile in self._named_minion_boon_profiles.values():validate_named_boon_profile(self,profile)
         from .colossal_reserves import validate_profile as validate_colossal_reserve_profile
@@ -3233,6 +3248,8 @@ class Registry:
             payload['rotating_discovery_class_profiles']=[asdict(self._rotating_discovery_class_profiles[k])for k in sorted(self._rotating_discovery_class_profiles)]
         if self._held_battlecry_forms_profiles:
             payload['held_battlecry_forms_profiles']=[asdict(self._held_battlecry_forms_profiles[k])for k in sorted(self._held_battlecry_forms_profiles)]
+        if self._stored_launch_form_profiles:
+            payload['stored_launch_form_profiles']=[asdict(self._stored_launch_form_profiles[k])for k in sorted(self._stored_launch_form_profiles)]
         if self._named_minion_boon_profiles:
             payload['named_minion_boon_profiles']=[asdict(self._named_minion_boon_profiles[k])for k in sorted(self._named_minion_boon_profiles)]
         if self._adjoining_spell_profiles:
