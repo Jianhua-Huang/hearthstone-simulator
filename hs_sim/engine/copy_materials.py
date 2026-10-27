@@ -114,6 +114,8 @@ def validate_captured_card_copy(state,registry,material):
     validate_recipe(registry,material.origin.card_id,infused_value(material.local))
     from .native_trigger_values import validate_carrier as validate_trigger_values
     validate_trigger_values(registry,material.origin.card_id,material.origin.kind,material.local.enchantments)
+    from .minion_ability_power import validate_carrier as validate_ability_power
+    validate_ability_power(registry,material.origin.card_id,material.origin.kind,material.local.enchantments)
     from .native_conditions import validate_carrier as validate_native_condition
     validate_native_condition(registry, material.origin.card_id, material.origin.kind,
         material.local.abilities, material.components)
@@ -293,6 +295,8 @@ def validate_material(registry,material,*,hand_copy=False):
     if material.local is not None:
         from .native_trigger_values import validate_carrier as validate_trigger_values
         validate_trigger_values(registry,material.card_id,registry.card(material.card_id).kind,material.local.enchantments)
+        from .minion_ability_power import validate_carrier as validate_ability_power
+        validate_ability_power(registry,material.card_id,registry.card(material.card_id).kind,material.local.enchantments)
     if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy','death_copy') or material.profile=='board_copy' and material.mode=='current':
         card=registry.card(material.card_id)
         from .crafted_faces import composition_shape

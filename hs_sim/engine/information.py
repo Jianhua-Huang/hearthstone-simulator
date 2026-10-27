@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v119'
+VIEW_VERSION = 'player-view-v120'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -37,7 +37,7 @@ PUBLIC_EVENTS = frozenset('''counter_policy_used limited_trigger_used game_creat
     spell_modifier_added spell_modifier_used spell_modifier_removed spell_modifier_expired
     choose_both_modifier_added choose_both_modifier_used choose_both_modifier_removed choose_both_modifier_expired
     secret_set secret_revealed secret_removed spell_countered minion_countered attack_redirected spell_redirected
-    minion_ability_started minion_ability_used
+    minion_ability_started minion_ability_used minion_ability_power_doubled
     minion_dormant minion_awakened dormancy_progressed
     minion_summoned minion_died minion_reborn minion_resurrected weapon_equipped weapon_destroyed weapon_changed weapon_transferred
     weapon_durability_spent hero_power_started hero_power_used hero_power_replaced hero_power_added hero_power_removed
@@ -430,6 +430,10 @@ class Information:
                 if entity.kind == CardType.MINION and entity.zone == Zone.BOARD:
                     result['minion_abilities'] = [{'ability_id': a.activation.id, 'card_id': a.activation.card_id,
                         'used': a.consumed} for a in entity.abilities if a.kind == 'activated']
+                    from .minion_ability_power import public_value as public_ability_value
+                    for row,ability in zip(result['minion_abilities'],(a for a in entity.abilities if a.kind=='activated')):
+                        power=public_ability_value(game.registry,entity,ability)
+                        if power is not None:row['power']=power
                 if entity.kind == CardType.LOCATION:
                     from .location_rune_locks import is_locked
                     result['location'] = {'cooldown_remaining': entity.location_cooldown,

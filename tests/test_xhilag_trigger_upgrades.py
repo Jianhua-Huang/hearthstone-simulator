@@ -14,6 +14,7 @@ from hs_sim.engine.colossal import SummonStoredCard
 from hs_sim.engine.effects import (Buff, ChangeControl, ChoiceOption, CopyMinion, Destroy,
     InvokeBehavior, RequestChoice, ReturnToHand, Silence, Summon)
 from hs_sim.engine.native_trigger_values import PREFIX, amount, marker_id
+from hs_sim.engine.information import VIEW_VERSION
 from hs_sim.engine.sacrifice import MinionReference
 from hs_sim.engine.pools import GenerationContext, PoolDefinition, PoolMember
 from hs_sim.engine.serialization import canonical_hash
@@ -209,7 +210,7 @@ class XhilagTriggerUpgradeTests(CardBatchTestMixin, unittest.TestCase):
     def test_visible_damage_for_both_board_viewers_and_own_hand_hides_enemy_hand_numbers_and_internal_markers(self):
         g = self.game((ENEMY_HAND,)); self.reward(g); self.grow(g); self.play(g, ENEMY_HAND, self.stalks(g)[0].id)
         for viewer in (1, 2):
-            observed = g.observe(viewer); self.assertEqual(observed['version'], 'player-view-v119')
+            observed = g.observe(viewer); self.assertEqual(observed['version'], VIEW_VERSION)
             own = observed['players'][0]
             self.assertEqual([e['end_turn_damage'] for e in own['board'] if e.get('card_id') in PARTS], [3]*4)
             text = json.dumps(observed)

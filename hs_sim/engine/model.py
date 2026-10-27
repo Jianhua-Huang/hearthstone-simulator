@@ -1046,6 +1046,9 @@ class Enchantment:
         if type(self.label) is str and self.label.startswith('native_trigger_value.'):
             from .native_trigger_values import validate_marker_shape
             validate_marker_shape(self)
+        if type(self.label) is str and self.label.startswith('native_minion_ability_power.'):
+            from .minion_ability_power import validate_marker_shape
+            validate_marker_shape(self)
         if self.infused_damage is not None:
             _int(self.infused_damage, 'intrinsic infused damage', 1)
             if self.label != 'infused_battlecry_damage' or self.remove_on_silence:

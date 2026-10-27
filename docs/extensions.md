@@ -2288,3 +2288,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实当前武器授予使用原EquipWeapon、GrantTrigger、ModifyWeapon和GrantKeyword；需要主体窗口的新局面时用InvokeBehavior续接，攻击后主体用completed_attack核原英雄/玩家/物理武器，不从后来的装备槽重找来源。不要把永久武器附魔绑成泰坦存活光环，详见[阿格拉玛契约](m3-aggramar-weapon-skills.md)。
+
+
+真实剩余技能增强声明MinionAbilityPowerProfile并返回DoubleRemainingMinionAbilities，绑定原完成事件及当前物理引用；不要按consumed数量推算尚未发生的强化，也不要把原使用者误作当前载体控制者。原附魔、复制、沉默与恢复共用生命周期，玩家只获剩余技能power，见[诺甘农契约](m3-norgannon-native-power.md)。

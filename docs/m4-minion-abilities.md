@@ -82,3 +82,8 @@ v76复验说明：上文原批次契约和验收数字保留为历史；当前�
 真实当前生产者只有诅咒之链对应的既有 `ChangeControl.cannot_attack_this_turn` 路径：原瞬时控制、归还附件与期限不变，以同一来源/本回合到期的政策表达主动技能限制。先安装该政策，再在原刷新器重绑冻结时钟，然后发出原授予/转控事件；不让冻结机会查询漏看刚安装的禁令。其他控制路径及普通攻击禁令保持。冻结仍沿既有“捕获丢失行动机会”的内部时钟政策；该复杂边界未当前国服校准。
 
 外部 `ChooseFamilyAbilities`/`TriggerFamilyAbility` 不因场上古神不能主动行动而被禁止，也不消耗其物理技能/免费标记/攻击次数；强制攻击执行器未改。真实问题来自[诅咒之链夺取克苏恩后的直接报告](https://www.reddit.com/r/hearthstone/comments/1xbkagb/error_when_stealing_opponents_cthun/)，只保存了解析网页观察（直接HTTP403），不是当前国服37.0实验或官方裁定。完整官方历史首帖及七张完整原行绑定于[来源包](../data/support/minion-action-prohibition-v1.json)。规则签名为 `core-effects-v731`；结构schema587及状态/Effect/命令/观察形状不变，只增加原有限模式的合法值。实际执行及校准状态仅在两份原台账维护。
+
+
+## 诺甘农原生数值的后续扩展
+
+上文“尚未接入”是原始M4批次范围。诺甘农现通过独立MinionAbilityPowerProfile和DoubleRemainingMinionAbilities接入，基础5/1/1来自完整原行，增强在完成后留下普通可沉默单位附魔。当前复制保留状态、基础复制/回手重打重置，完成前复制不提前增强；原动作使用者与完成时当前载体控制者分别处理。结构schema611保持、core782与观察v120另有明确版本；完整主体、公开power及待校准边界见[契约](m3-norgannon-native-power.md)，实际进度仍只在原两份台账维护。
