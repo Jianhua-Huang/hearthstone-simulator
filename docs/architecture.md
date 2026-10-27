@@ -1832,3 +1832,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 按原实际到手类型奖励费用时扩展有限DrawGroupReward kind，保留原完整抽牌组和物理驻留，不在卡层另扫历史。板满条件由公共IfBoardFull读取实际规则上限和全部占位，在原解释器顺序执行并接受分支，不增加条件缓存或硬编码七格。真实召唤、临时生成及边缘见[抽牌与容量契约](m3-past-arcane-draw-capacity.md)。
+
+
+原生奥秘用原SecretSpec和真实CAST/物理出牌/死亡/攻击事件，复制用原捕获引用或DeathRecord；全区域增益交BuffMinionsInZones，不在卡层复制结算器。原始别名的完整依赖pin、完整生成查询和未校准伤害窗口见[过去奥术消费者契约](m3-past-arcane-secrets-copy-damage.md)。

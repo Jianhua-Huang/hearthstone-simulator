@@ -2208,3 +2208,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实卡所需的类型限定抽牌减费使用cost_drawn_minions/cost_drawn_spells原组奖励，不能改扫现手牌或给额外反应抽牌发奖。满板用实际执行窗IfBoardFull和rules.max_board，地点/休眠占位保持；回调只组合普通增益与召唤。原始参考和群体变形边界见[抽牌与容量契约](m3-past-arcane-draw-capacity.md)。
+
+
+接过去奥秘时区分真正施法完成与物理手动出牌，原条件不得借同名体或后来驻留；原死亡面复制、当前板位复制和固定1/1/1覆写各交相应公共材料。原整组区域增益与一次分配伤害预算继续复用，有限消费者及未确认次数/法强关系见[契约](m3-past-arcane-secrets-copy-damage.md)。

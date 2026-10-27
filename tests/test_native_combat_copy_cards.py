@@ -29,11 +29,20 @@ P='k100.';VICTIM=P+'victim';YETI='CORE_CS2_182';TIDE='CORE_EX1_509';WATCH=P+'wat
 
 def registry():
     r=build_registry()
-    # Reuse the existing pinned real artwork fixture, outside the constructed pool.
-    from test_jade_basics import FORMS,registry as jade_fixture
+    # Preserve real artwork already installed by later native content. Only
+    # fill an absent fixture definition, after checking the original full face.
+    from test_jade_basics import FORMS,evidence as jade_evidence,registry as jade_fixture
     jade=jade_fixture()
-    for cid in FORMS:r.register_card(jade.card(cid))
-    r.register_jade_family(jade.jade_families['jade.classic'])
+    raw=jade_evidence()
+    for cid in FORMS:
+        if cid in r.cards:
+            expected=replace(jade.card(cid),metadata=metadata_from_record(raw[cid]))
+            if r.card(cid)!=expected:raise ValueError('Existing real Jade artwork changed its complete original face')
+        else:r.register_card(jade.card(cid))
+    family=jade.jade_families['jade.classic']
+    if family.id in r.jade_families:
+        if r.jade_families[family.id]!=family:raise ValueError('Existing real Jade family changed its original declaration')
+    else:r.register_jade_family(family)
     def attacker(c):return next(i for i in c.state.players[c.player_id].board if c.state.entities[i].card_id==SABRE)
     def force(c):return(ForceAttack(attacker(c),c.target_id,'any_minions'),)
     def reenter(c):return(SummonStoredCard(CardReference.capture(c.state.entities[c.target_id]),c.player_id),)

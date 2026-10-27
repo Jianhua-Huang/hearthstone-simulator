@@ -307,7 +307,8 @@ class PastArcaneDrawCapacityTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_full84_membership_stays_intact_and_production_source_remains_closed(self):
         ref=batch.read(native.load_batch()['reference_document']);r=host().registry
-        self.assertEqual(len(ref['candidate_ids']),84);self.assertEqual(sum(cid in r.cards for cid in ref['candidate_ids']),35)
+        self.assertEqual(len(ref['candidate_ids']),84)
+        self.assertTrue(set(native.LEAVES)<=set(ref['candidate_ids'])&set(r.cards))
         g=self.game(('TIME_857',));saved=g.snapshot()
         with self.assertRaisesRegex(ResolutionError,'Unreviewed generation scope'):self.play(g,'TIME_857')
         self.assertEqual(g.snapshot(),saved)
