@@ -1,0 +1,500 @@
+{
+  "schema": 1,
+  "kind": "cata-past-colossal-source-projection-binding",
+  "policy_id": "cn37-local-cata-colossal-source-binding-v1",
+  "reference_document": "data/cards/past-colossal-local-reference-v1.json",
+  "reference_canonical_sha256": "6f4881cac0e225c31ede9eb6f83e115d942ace6641246e36f1030950eb9c4bdf",
+  "frontier_document": "data/cards/past-source-scoped-inventories-v1.json",
+  "frontier_canonical_sha256": "2f05e22fb63195d8b4bdd6f72dba9805a54c80c75eadb947307f2ed0df9a0f38",
+  "source_card_id": "CATA_EVENT_000",
+  "source_producer": {
+    "record": {
+      "id": "CATA_EVENT_000",
+      "dbf_id": 126698,
+      "name": "始源领主",
+      "name_en": "Primordial Lord",
+      "text": "<b>战吼：</b>&随机获取一张来自过去的<b>巨型</b>随从牌。",
+      "text_en": "<b>Battlecry:</b>& Get a random <b>Colossal</b> minion\nfrom the past.",
+      "cost": 6,
+      "attack": 7,
+      "health": 6,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "HEALTH": 6,
+        "ATK": 7,
+        "COST": 6,
+        "CARD_SET": 1941,
+        "CLASS": 12,
+        "CARDRACE": 18,
+        "CARDTYPE": 4,
+        "RARITY": 4,
+        "BATTLECRY": 1,
+        "COLLECTIBLE": 1,
+        "CRAFTABLE_OUTPUT_POWER": 1
+      },
+      "card_set_id": 1941,
+      "source_entity_version": "2",
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "xml_card_references": [],
+      "unmapped_xml_nodes": [
+        {
+          "tag": "Tag",
+          "attributes": {
+            "enumID": "342",
+            "name": "ARTISTNAME",
+            "type": "String"
+          },
+          "text": "Konstantin Turovec"
+        },
+        {
+          "tag": "ReferencedTag",
+          "attributes": {
+            "enumID": "2247",
+            "name": "COLOSSAL",
+            "type": "Int",
+            "value": "1"
+          }
+        }
+      ]
+    },
+    "record_sha256": "0d0c5900d007da29a9f51752527696af1bae716689ae561c4cb8af3ec492e58f",
+    "definition_sha256": "eb0ab1c16c1859cde4d94ab46939bb71d0299141a08ce1ffb0a9a98d8d98f27d"
+  },
+  "pool_id": "constructed.past.cards",
+  "query": {
+    "kinds": [
+      "minion"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "any",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [],
+    "keywords_all": [
+      "colossal"
+    ],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "member_ids": [
+    "NX2_037",
+    "TID_711",
+    "TID_712",
+    "TSC_026",
+    "TSC_029",
+    "TSC_030",
+    "TSC_216",
+    "TSC_219",
+    "TSC_639",
+    "TSC_660",
+    "TSC_937",
+    "TSC_950",
+    "TSC_962"
+  ],
+  "weight": 1,
+  "frontier_source_card_id": "GDB_857",
+  "frontier_query": {
+    "kinds": [
+      "minion"
+    ],
+    "min_cost": 10,
+    "max_cost": 10,
+    "collectible": true,
+    "class_mode": "current",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "frontier_member_ids": [
+    "AT_120",
+    "AV_141t",
+    "BOT_424",
+    "BT_155",
+    "CFM_308",
+    "CORE_EX1_586",
+    "CORE_MAW_034",
+    "CORE_REV_375",
+    "CORE_REV_906",
+    "CS3_036",
+    "DAL_553",
+    "DMF_004",
+    "DMF_070",
+    "DMF_188",
+    "ETC_086",
+    "NEW1_030",
+    "NX2_033",
+    "OG_042",
+    "OG_133",
+    "OG_134",
+    "OG_141",
+    "OG_317",
+    "ONY_004",
+    "SW_062",
+    "TID_712",
+    "TOY_601",
+    "TRL_541",
+    "ULD_193",
+    "ULD_304",
+    "ULD_721",
+    "UNG_806",
+    "UNG_852",
+    "VAC_439",
+    "WORK_043"
+  ],
+  "shared_ids": [
+    "TID_712"
+  ],
+  "merged_member_ids": [
+    "AT_120",
+    "AV_141t",
+    "BOT_424",
+    "BT_155",
+    "CFM_308",
+    "CORE_EX1_586",
+    "CORE_MAW_034",
+    "CORE_REV_375",
+    "CORE_REV_906",
+    "CS3_036",
+    "DAL_553",
+    "DMF_004",
+    "DMF_070",
+    "DMF_188",
+    "ETC_086",
+    "NEW1_030",
+    "NX2_033",
+    "OG_042",
+    "OG_133",
+    "OG_134",
+    "OG_141",
+    "OG_317",
+    "ONY_004",
+    "SW_062",
+    "NX2_037",
+    "TID_711",
+    "TID_712",
+    "TSC_026",
+    "TSC_029",
+    "TSC_030",
+    "TSC_216",
+    "TSC_219",
+    "TSC_639",
+    "TSC_660",
+    "TSC_937",
+    "TSC_950",
+    "TSC_962",
+    "TOY_601",
+    "TRL_541",
+    "ULD_193",
+    "ULD_304",
+    "ULD_721",
+    "UNG_806",
+    "UNG_852",
+    "VAC_439",
+    "WORK_043"
+  ],
+  "native_pins": [
+    {
+      "card_id": "CATA_EVENT_000",
+      "role": "producer",
+      "definition_sha256": "eb0ab1c16c1859cde4d94ab46939bb71d0299141a08ce1ffb0a9a98d8d98f27d",
+      "pool_card_sha256": "0fd28b0d559b6ebe0e6b890175713838c05b8da945681410fc1cbe77bc0e1832"
+    },
+    {
+      "card_id": "NX2_037",
+      "role": "member",
+      "definition_sha256": "e2e2e3a010908df1f27489848457f250ceb146df2897bd11f662018df1404d5e",
+      "pool_card_sha256": "8f5e5147ecd818e985a99bb109c648fa4ffe9697d8d13253df2cba3b1bcfd64c"
+    },
+    {
+      "card_id": "TID_711",
+      "role": "member",
+      "definition_sha256": "12767eed524334a509dfc1269451c4faac4afaee4c96b865a096c7ff88942b51",
+      "pool_card_sha256": "4f6bcd1b20f0e011658a1e1cb83e22118626f4344e5a8faca163f4ec44b343a5"
+    },
+    {
+      "card_id": "TID_712",
+      "role": "member",
+      "definition_sha256": "1d3730bd5c67bb74d01d0459730bd4f1c3505de13eeaa521be64e4a62f671836",
+      "pool_card_sha256": "524e81bfa703d11d83e1171187abb2384544129060c27c312024820373e28a17"
+    },
+    {
+      "card_id": "TSC_026",
+      "role": "member",
+      "definition_sha256": "0a9185e50fa386260e94d502c30b43dc0dfc719938c7618a940292c172caa596",
+      "pool_card_sha256": "0581baa684e35ab525558b9ed7c002b078b00e2f56579def8e4cd5248045befc"
+    },
+    {
+      "card_id": "TSC_029",
+      "role": "member",
+      "definition_sha256": "0865a9ac658ed8f9b14d6ead8c09d8b0dfc68f8551c52ea91903209c0b5c3e68",
+      "pool_card_sha256": "3624ffbcca907933c7f8774751bb93d337edfcc5bf4a15c63e7dfb1dd9809a88"
+    },
+    {
+      "card_id": "TSC_030",
+      "role": "member",
+      "definition_sha256": "a5997083541b3621427eb1fd808e86f1fe329e2f50c947c1c0be42573a8ded16",
+      "pool_card_sha256": "8ad8f2b63253068986bbff4280be417f3fbbbee1469d1ade161d4f5a031cac40"
+    },
+    {
+      "card_id": "TSC_216",
+      "role": "member",
+      "definition_sha256": "90eedc2580e2587b10697bda115b0b0b0cbca913a971817c98e9f118fa03e21e",
+      "pool_card_sha256": "5091e00fb01c95c988872a7ee1a015f73c2132616cddd535029207f0db7d133d"
+    },
+    {
+      "card_id": "TSC_219",
+      "role": "member",
+      "definition_sha256": "5ae6987fae7252ebd9415cae57ebe2040e8652e62a21eff3a1fe5d204a8ce7ff",
+      "pool_card_sha256": "0a95de57e63719aec5b19535999176d534ef492a3f8d31b91624df992d1cd87f"
+    },
+    {
+      "card_id": "TSC_639",
+      "role": "member",
+      "definition_sha256": "221baf72951c655b067bb285f2683ad970847bcd07ecbfd5a0ec98f347cc196d",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TSC_660",
+      "role": "member",
+      "definition_sha256": "c8caeaad50d04242da9cb0eb049d16a72906a480f3f4d5ce32ade3479c15aee9",
+      "pool_card_sha256": "72b70629bf6c6ccf78efba652a5d1e9ecc36c8edc2e178114257e3d821f6cdeb"
+    },
+    {
+      "card_id": "TSC_937",
+      "role": "member",
+      "definition_sha256": "d87d05a94c90d439fa98a8f371b95965d3d7b43d92187da9521982c4961b309c",
+      "pool_card_sha256": "e3a63788b569177c5ac7707f3b7c00dee39fe038064bcf8ef09f331a798cc1bf"
+    },
+    {
+      "card_id": "TSC_950",
+      "role": "member",
+      "definition_sha256": "ca68aa7bb84b266c11f3322025c6ee6aa3917af4e01df53d1770ea47bf52a922",
+      "pool_card_sha256": "f6b791d7de67cb919e531c69709d0f56e988b55d5e33fc4bceb69400db6e8bc0"
+    },
+    {
+      "card_id": "TSC_962",
+      "role": "member",
+      "definition_sha256": "b91d9393eb2738891eca9efe83a2d50d7d3272ec7f3909775b90bd98b5e97dd9",
+      "pool_card_sha256": "0a988c850835096114b0687e35e4f65a11c663c486864af5cf7bafda14e7671a"
+    },
+    {
+      "card_id": "NX2_037t",
+      "role": "fixed_dependency",
+      "definition_sha256": "00c21ef2fb006c6ba53f4fbadf1882747782d9a3ebf8072277a131f5f9cda53d",
+      "pool_card_sha256": "20e316a3f4e6372bb50b5a3346bf0c98da0205fa016b0fabd323f6ce15e03e09"
+    },
+    {
+      "card_id": "NX2_037t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "f24a3de6279692d787220b6944a915fe1b2cac97c974b39bc3f20ac323874213",
+      "pool_card_sha256": "64beaf9209c14386085d14383bf4b1f7cb9d38151c76e28f1989d3e5606eb821"
+    },
+    {
+      "card_id": "TID_711t",
+      "role": "fixed_dependency",
+      "definition_sha256": "f69c586eedb8d1f2dcdae3751c083b81c5d40580baa07526674a950ed4019291",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TID_711t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "b0b225397182fdc9d681f8962c29da5ccbc88b160260267fd5147d6d06501b8f",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TID_711t3",
+      "role": "fixed_dependency",
+      "definition_sha256": "ae411b9d8a4c25589e3a7dad4a6d47d97837f56905a54ab215278b4057ac2e0d",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TID_711t4",
+      "role": "fixed_dependency",
+      "definition_sha256": "f5be7a5e9870ed0bab72bfd9c34673756c437b2842b532f2e1b094dacea6fc43",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TID_711t5",
+      "role": "fixed_dependency",
+      "definition_sha256": "fb6bee706470da3142ebfec498255022582238ea2b6ba3a382285990679523b2",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TID_711t6",
+      "role": "fixed_dependency",
+      "definition_sha256": "58ef7484d386920628d24a45b47385d6a7f97dc5f37ae69ec782989ed4edc3a3",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TID_712t",
+      "role": "fixed_dependency",
+      "definition_sha256": "557558ece22b946380518525bba59a0c54e03c8f5e96ceda446f97c3052d1383",
+      "pool_card_sha256": "6659bf3646731e66cc97f11efea5d1861010f536b5c16673b2de0ffa39be9d9e"
+    },
+    {
+      "card_id": "TID_712t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "d55eeea450ede25f86b4eeb0de3f52b23a7e3508ae7ceec22e79c3162bbf995c",
+      "pool_card_sha256": "5958fe116f5382b1843f678ca2bf0497de2b3b1f935a0719ad38277d32af0e1f"
+    },
+    {
+      "card_id": "TSC_026t",
+      "role": "fixed_dependency",
+      "definition_sha256": "3e828546db875050cd2c758efd26c7cdadee473d1c006728bcb53ebdc987ece0",
+      "pool_card_sha256": "a9ec710e5ef9e7b0004061dd4dbb8e2a589818841f8badbb18aa661bbf2d21eb"
+    },
+    {
+      "card_id": "TSC_029t",
+      "role": "fixed_dependency",
+      "definition_sha256": "9c6b7fe428ac015ff2d0437efebedeec1ea17e3f51cd0a00cd2513f384d411dd",
+      "pool_card_sha256": "bf4438252fcb16acea3dd15cf8d56ca7d9ab9624e73c3d0c04576e9cf4670d23"
+    },
+    {
+      "card_id": "TSC_029t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "5cf6cc2c4d164eb665ffbaa1584c18b0df4ffad265fea2c38993cbe719e3eab5",
+      "pool_card_sha256": "d87553d13ba7a6fd0b40ddbf4ae46a8e2913d9188f5887e65e27f55c860cc619"
+    },
+    {
+      "card_id": "TSC_030t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "a4b2348efda74d86fe2dc6dfa512f8589ef06136017ff5fe90b8563c46b72d97",
+      "pool_card_sha256": "e543fcdfc49730953edb578b74ec46731a7f3327f284b6aa44f497b275f4ffde"
+    },
+    {
+      "card_id": "TSC_216t",
+      "role": "fixed_dependency",
+      "definition_sha256": "8b92f7b432ce028b0979461fb76d102842879feea378978c3b2b44cbc4291785",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TSC_219t",
+      "role": "fixed_dependency",
+      "definition_sha256": "b197ad0c51e82d22b7ef7b4a06f9cfd63c8cf7f7efe9b91cdb6accb214f4dfe2",
+      "pool_card_sha256": "c518423dea6f6032aef96c0ed9b908e13fd4b976708ef59072fa76530f12d2ac"
+    },
+    {
+      "card_id": "TSC_219t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "6f14ea3f8c7853df0fe50f019eedd3c33a5301fad81d804e168dc2bbf7b13d9f",
+      "pool_card_sha256": "3e05e6d4a6977cad00558840eed57b999ee3f9223ea11eb837d49824892c379e"
+    },
+    {
+      "card_id": "TSC_219t3",
+      "role": "fixed_dependency",
+      "definition_sha256": "f2a9276c5c5acac5811a0f0ec60d07355ef00e596feef95178ee9606f50b6a9f",
+      "pool_card_sha256": "1f0b607958d3d926dd9c555d6983672891b2e1eb0fbf486e6ae70fff332b5d5c"
+    },
+    {
+      "card_id": "TSC_219t4",
+      "role": "fixed_dependency",
+      "definition_sha256": "ff942d504d2606f38fcd0808c8da6394e9a109f83155d64f021e589aac50a19e",
+      "pool_card_sha256": "797fad65ca667cb6103ad86f2b5af50531da152525f6389a27f86386e1f03bc4"
+    },
+    {
+      "card_id": "TSC_639t",
+      "role": "fixed_dependency",
+      "definition_sha256": "3ea18753c0ea795b440d49b9e4f646ad31f5bec536297bfef4296db2d4f2a6e5",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TSC_639t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "90114cf293901e97873ae660b7ab0d73932748e31d40cc01c3854df15402c7f1",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TSC_639t3",
+      "role": "fixed_dependency",
+      "definition_sha256": "6b2d12d1f494a9eeccda5acc62aa832ab4b48488e33e40d6290152ce2045a1e6",
+      "pool_card_sha256": null
+    },
+    {
+      "card_id": "TSC_660t",
+      "role": "fixed_dependency",
+      "definition_sha256": "4d014246db983635414fea48a4126d702d9625f2269e49118264a4b3a188edd9",
+      "pool_card_sha256": "1aa38ada2f333a74fc485a7e85c7ae9cd4e32f24b7953ff7daec96e78f0a10cb"
+    },
+    {
+      "card_id": "TSC_937t",
+      "role": "fixed_dependency",
+      "definition_sha256": "a026927231a10dd7a8a51e34422eed8867383f9e2f4ef145bf75e638e9af420e",
+      "pool_card_sha256": "37318d365a24df2d65a18ad4125021205c3ccb84ed1377a53375217fa3029ab9"
+    },
+    {
+      "card_id": "TSC_937t3",
+      "role": "fixed_dependency",
+      "definition_sha256": "527334ad5e398ac15b461acec5bd0d37bec283ae2ef58f615f4364b61ad51d96",
+      "pool_card_sha256": "e2b9b14a293695046fcd4c0f009514799aeb4778721390542917c3ee3355a355"
+    },
+    {
+      "card_id": "TSC_950t",
+      "role": "fixed_dependency",
+      "definition_sha256": "44148c4219b1ba1c4a672f275015c1af3c95d8bfe29601bf0768cfb1a8e01396",
+      "pool_card_sha256": "7dac42e6e1ac6823de88c3dfbac4b4361c3d6a16b1857704ebffb78cc00b663d"
+    },
+    {
+      "card_id": "TSC_950t2",
+      "role": "fixed_dependency",
+      "definition_sha256": "5f8579fc101c93ed913fcd3bf71fe621622d472784d518a9fc38d15de202ab6a",
+      "pool_card_sha256": "64ec53f2833ffea58be74eb973406f69bcbea68e2778de569984a63e39f1c61e"
+    },
+    {
+      "card_id": "TSC_962t",
+      "role": "fixed_dependency",
+      "definition_sha256": "0732ac5e0d85529a923986faa7cf129520198e522367f2729817bd16eeb8b21f",
+      "pool_card_sha256": "4805bcb3da8ae01825a2823f66fe50556aba3dd70479b78bb37eea3bc348a85d"
+    }
+  ],
+  "source_pool_complete_for_both_declared_views": true,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policy": [
+    "Membership and both ordered projections are fixed from the two original complete references before native capability checks.",
+    "Use one 46-identity union with one shared Neptulon; preserve each original view order and unit weights.",
+    "Permit only original CATA collectible Colossal any-class query and original Druid Frontier ten-cost query on this domain.",
+    "Other unknown past queries remain rejected; this is not a global past domain or official hidden-pool certification."
+  ],
+  "metadata_additions": [
+    {
+      "card_id": "TSC_639",
+      "pool_card_sha256": "e763a9c7959ba38ee7bef6e68281f67e3a629955c760068f5eaa87635c9174bc",
+      "reason": "Existing full native definition lacks printed generation metadata; full original reference row retained"
+    }
+  ]
+}

@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v9.json'
-MANIFEST_HASH = '94957f4a59242ad7eec3a8d9c5b52c8a9bfa792a735bc920f6532f795abcba4e'
-FORMAT_VERSION = 'cn37-local-special-pools-v9'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v10.json'
+MANIFEST_HASH = 'f9387530aa090d338cf80510611e7bc612252cc69f9659b035227becc9607998'
+FORMAT_VERSION = 'cn37-local-special-pools-v10'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -54,6 +54,20 @@ def load_bindings():
             zombeast['member_counts'] != [34, 38] or zombeast['eligible_counts'] != [34, 37] or
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
+    previous = value['previous_manifest']
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v9.json':
+        raise TargetValidationError('CATA host requires its original complete predecessor manifest')
+    prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
+    if (canonical_digest(prior) != previous['canonical_sha256'] or any(
+            value.get(k) != v for k,v in prior.items() if k not in ('policy_id','accepted_on'))):
+        raise TargetValidationError('CATA host changed an existing special-pool declaration')
+    cata = value['cata_colossal_binding']
+    if (cata['source_document'] != 'data/cards/past-colossal-source-binding-v1.json' or
+            cata['pool_id'] != 'constructed.past.cards' or cata['pool_id'] not in value['partially_scoped_pool_ids'] or
+            cata['source_card_id'] != 'CATA_EVENT_000' or (cata['member_count'],cata['merged_member_count']) != (13,46) or
+            cata['complete_for_declared_source_view'] is not True or cata['formal_pool_complete'] is not False or
+            canonical_digest(json.loads((ROOT/cata['source_document']).read_text(encoding='utf8'))) != cata['source_document_canonical_sha256']):
+        raise TargetValidationError('CATA host lost its complete declared Colossal source projection')
     return value
 
 
@@ -92,6 +106,7 @@ def build_cn37_local_pool_format():
     from .cards.standard_pack_inventory import local_pool as standard_pack_pool,BATCH_PATH as PACK_PATH
     from .cards.rajh_known_passive_pool import local_pool as rajh_pool,BATCH_PATH as RAJH_PATH
     from .cards.zombeast_reference_pools import local_pools as zombeast_pools,BATCH_PATH as ZOMBEAST_PATH
+    from .cards.past_colossal_source_pool import missing_metadata,merge_pools,register_scope as register_colossal_scope
     paths=(BATCH_PATH,ONE_COST_PATH)
     if len(manifest['scoped_bindings'])!=len(paths):raise TargetValidationError('Scoped past source documents missing or duplicated')
     for item,path in zip(manifest['scoped_bindings'],paths):
@@ -111,7 +126,9 @@ def build_cn37_local_pool_format():
             zombeast['source_document_canonical_sha256'] != canonical_digest(
                 json.loads(ZOMBEAST_PATH.read_text(encoding='utf8')))):
         raise TargetValidationError('Local Zombeast source document changed')
-    pools = ordinary + _reviewed_sources(registry, manifest) + local_pools(registry,original.context) + (
+    for metadata in missing_metadata(registry): registry.register_pool_card(metadata)
+    past_pools = merge_pools(registry,original.context,local_pools(registry,original.context))
+    pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
         local_pool(registry,original.context),standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
@@ -123,6 +140,7 @@ def build_cn37_local_pool_format():
             version=manifest['policy_id'] + '-' + binding[:16] + ':' + pool.version))
     register_scopes(registry,context)
     register_scope(registry,context)
+    register_colossal_scope(registry,context)
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
     return replace(original, target_id=target_id, binding_digest=binding,
