@@ -1,0 +1,3312 @@
+{
+  "schema": 1,
+  "kind": "full-local-titan-reference-and-khazgoroth-argus-native",
+  "cards": [
+    {
+      "record": {
+        "id": "TTN_415",
+        "dbf_id": 96710,
+        "name": "卡兹格罗斯",
+        "name_en": "Khaz'goroth",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，在本回合中获得<b>免疫</b>并随机攻击一个敌方随从。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability, gain\n<b>Immune</b> this turn and attack a\nrandom enemy minion.",
+        "cost": 6,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4dc5519a44eff9a46ab34327edcddc6dc146775dcc163ada20ae1479b1fb8912",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_415",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862",
+        "dbf_id": 98344,
+        "name": "翠绿之星阿古斯",
+        "name_en": "Argus, the Emerald Star",
+        "text": "<b>泰坦</b>\n本随从左边的随从均拥有<b>突袭</b>，本随从右边的随从均拥有<b>吸血</b>。",
+        "text_en": "[x]<b>Titan</b>\nMinions to the left of this\nhave <b>Rush</b>, and ones to the\nright have <b>Lifesteal</b>.",
+        "cost": 7,
+        "attack": 5,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a8d6bd64704ba259572a62afa4784bd87148f772e811a00b784886c2cd299c08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_862",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TTN_415t",
+        "dbf_id": 96715,
+        "name": "泰坦锻造",
+        "name_en": "Titanforge",
+        "text": "获得+2/+2。抽一张武器牌。",
+        "text_en": "Gain +2/+2.\nDraw a weapon.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "c17491fe35114185238c6b7ba68110c5c445b67cdc641d74815bcc78d0643f04",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_415t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_415t2",
+        "dbf_id": 96720,
+        "name": "升温回火",
+        "name_en": "Tempering",
+        "text": "获得+5攻击力。在本回合中，使你的英雄获得+5攻击力。",
+        "text_en": "Gain +5 Attack.\nGive your hero +5 Attack this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "358dc10e2c05ee56d7e34037238014b9266efa8f6fb25d0986a151b1d44ca759",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_415t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_415t3",
+        "dbf_id": 96722,
+        "name": "烈焰之心",
+        "name_en": "Heart of Flame",
+        "text": "获得+5生命值。使你的英雄获得5点护甲值。",
+        "text_en": "Gain +5 Health.\nGive your hero 5 Armor.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "1d093884e82702c8b1bfa0244391275a56d7e42c226a0210b1030a146db6a3e2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_415t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862t1",
+        "dbf_id": 98345,
+        "name": "雕琢晶石",
+        "name_en": "Crystal Carving",
+        "text": "<b>发现</b>一张<b>亡语</b>随从牌，其法力值消耗减少（3）点。",
+        "text_en": "[x]<b>Discover</b> a <b>Deathrattle</b>\nminion. It costs (3) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "08bd35658e4a6712f217ffbf0e5e2148e58b377028d302bf16860cb42d05cc0e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_862t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862t2",
+        "dbf_id": 98346,
+        "name": "力量展现",
+        "name_en": "Show of Force",
+        "text": "使你手牌中的所有随从牌的法力值消耗减少（2）点。",
+        "text_en": "Reduce the Cost\nof all minions in your hand by (2).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "7f060fe4e8f57cf83be4a2187030b5dfb19556cba819d140eb285370f20de6af",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_862t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_862t3",
+        "dbf_id": 98347,
+        "name": "阿古尼特大军",
+        "name_en": "Argunite Army",
+        "text": "召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "text_en": "Summon four 2/2 Elementals with <b>Taunt</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "66232003d7ae8f548804620661695e6b4a5ebc4fc2b305eeb1d8552e054ce82d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_862t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TTN_903",
+        "dbf_id": 96671,
+        "name": "生命的缚誓者艾欧娜尔",
+        "name_en": "Eonar, the Life-Binder",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，召唤一棵5/5并具有<b>嘲讽</b>的古树。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\nsummon a 5/5 Ancient\nwith <b>Taunt</b>.",
+        "cost": 10,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "396b977c2bc893429f705bbf4e625ef0272f38ac2289169b06a6599b615fb415",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_903",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "808faaf08b0bbce6ad0ac32bdcb0d82049f2459bfb75f905ba5b2a6b0c4fb136"
+    },
+    {
+      "record": {
+        "id": "WW_001t24",
+        "dbf_id": 102027,
+        "name": "艾泽里特鹰",
+        "name_en": "The Azerite Hawk",
+        "text": "<b>战吼：</b>随机获取一张<b>泰坦</b>牌，其法力值消耗为（1）点。",
+        "text_en": "<b>Battlecry:</b> Get a random <b>Titan</b>. It costs (1).",
+        "cost": 4,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1892,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "2542": 1,
+          "2823": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2823",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2823"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d7b0db2ef1f195467a912e40b8980ea63dea7257d4dabb2f09bb7d920ae83b34",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "WW_001t24",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "ef99facabb14b97bb9b2a4765c6dc4e63b42cd8632eb48b8c6cef1fececbc256"
+    },
+    {
+      "record": {
+        "id": "TTN_862t4",
+        "dbf_id": 98348,
+        "name": "晶石元素",
+        "name_en": "Crystal Elemental",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 14,
+          "CARDRACE": 18,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          }
+        ]
+      },
+      "record_sha256": "4513d5f423155944086dd6091060cb1c8fd4ee9dc9f565e8bb038abe875e0bf6",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_862t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "81716088445f5c508c1494f232ce0e278d0970dd8fa80e93076a6157afd5efe9"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TTN_075",
+        "dbf_id": 96903,
+        "name": "诺甘农",
+        "name_en": "Norgannon",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，其他技能的效果翻倍。",
+        "text_en": "<b>Titan</b>\nAfter this uses an ability, double the power of the other abilities.",
+        "cost": 6,
+        "attack": 3,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 8,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "fd30c98978e5bf9e3de139f867e8702fd6034abb5d145e3a09d83ddabfe37aad",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_075",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_092",
+        "dbf_id": 97495,
+        "name": "复仇者阿格拉玛",
+        "name_en": "Aggramar, the Avenger",
+        "text": "<b>泰坦</b>\n<b>战吼：</b>装备一把3/3的泰沙拉克。",
+        "text_en": "<b>Titan</b>\n<b>Battlecry:</b> Equip a\n3/3 Taeshalach.",
+        "cost": 6,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "11a84581d6253946e4ed19360eeb23de927e8b0bbe78849bdbcda5ef6b80607c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_092",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_429",
+        "dbf_id": 97103,
+        "name": "阿曼苏尔",
+        "name_en": "Aman'Thul",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>任意职业的<b>传说</b>随从牌。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\n<b>Discover</b> any <b>Legendary</b>\n_minion from any class.",
+        "cost": 7,
+        "attack": 3,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 3,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "46307c5d006c526fff988cd77b7f8c29b2e1a85556df91233c5b1cb741078e2f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_429",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_721",
+        "dbf_id": 97642,
+        "name": "终极V-07-TR-0N",
+        "name_en": "V-07-TR-0N Prime",
+        "text": "<b>泰钽</b>\n本随从的技能会在另一个随机友方随从身上重复。",
+        "text_en": "[x]<b>T1T4N</b>\nThis minion's abilities\nrepeat on another random\nfriendly minion.",
+        "cost": 6,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 7,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "0e46d12c70b0bbe6e55801dc5dedf6273cd6416f274837c02f0e3f35e436f312",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_721",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_737",
+        "dbf_id": 98285,
+        "name": "兵主",
+        "name_en": "The Primus",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "text_en": "<b>Titan</b>\nAfter this uses an ability, <b>Discover</b> a card with that Rune.",
+        "cost": 8,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f582eb38fa16da10a658553821a004e68bb786f4b2b630bf5ee38449d71d6afb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_737",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_800",
+        "dbf_id": 96909,
+        "name": "雷霆之神高戈奈斯",
+        "name_en": "Golganneth, the Thunderer",
+        "text": "<b>泰坦</b>\n你每个回合使用的第一张法术牌的法力值消耗减少（3）点。",
+        "text_en": "<b>Titan</b>\nYour first spell each turn costs (3) less.",
+        "cost": 6,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nicola Saviori"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "9dca90415cf1bb23b16c71353f9a72dc992ac3cdc70ef243503d86cb995fcd41",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_800",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_858",
+        "dbf_id": 98061,
+        "name": "维和者阿米图斯",
+        "name_en": "Amitus, the Peacekeeper",
+        "text": "<b>泰坦</b>\n<b>嘲讽</b>。你的随从每次受到伤害不会超过2点。",
+        "text_en": "<b>Titan</b>\n<b>Taunt</b>. Your minions\ncan't take more than 2_damage at a time.",
+        "cost": 7,
+        "attack": 1,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 1,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "3fdfffdc3a9319c1aaa880f337e064ec1cd9aa71b67560736c1baf1f841d50cd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_858",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_960",
+        "dbf_id": 97702,
+        "name": "灭世泰坦萨格拉斯",
+        "name_en": "Sargeras, the Destroyer",
+        "text": "<b>泰坦</b>\n<b>战吼：</b>打开一道传送门，每回合召唤两个3/2的小鬼。",
+        "text_en": "[x]<b>Titan</b>\n<b>Battlecry:</b> Open a portal\nthat summons two 3/2\nImps each turn.",
+        "cost": 9,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "801483b8c1a206866fd7818230741d67154443e666836bf3aea3d7c40179ac08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_960",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "YOG_516",
+        "dbf_id": 101033,
+        "name": "脱困古神尤格-萨隆",
+        "name_en": "Yogg-Saron, Unleashed",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，随机施放两个法术。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\ncast two random spells.",
+        "cost": 9,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "MINI_SET": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "9fffafd6e0bdca41461a2b64ca1225097ddee5d825a9999b854e4dd5e4fd1141",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "YOG_516",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TTN_415",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 96710,
+        "collectible": 1,
+        "slug": "96710-khazgoroth",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Grafit Studio",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 6,
+        "name": "卡兹格罗斯",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，在本回合中获得<b>免疫</b>并随机攻击一个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/441d7b91350482606a46c874f6524b4663c11640c1f683bf65c288c54d4373cd.png",
+        "imageGold": "",
+        "flavorText": "卡兹格罗斯打造了各个种族的泰坦造物，以期保护艾泽拉斯免受腐蚀与纷乱的侵害。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f48b4005fcfcba87f15e6a48fece68bf1ced43fa508d4772c4eb7759e8a8b11.png",
+        "childIds": [
+          96715,
+          96720,
+          96722
+        ],
+        "keywordIds": [
+          17,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_415",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 96710,
+        "collectible": 1,
+        "slug": "96710-khazgoroth",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Grafit Studio",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 6,
+        "name": "Khaz'goroth",
+        "text": "<b>Titan</b> After this uses an ability, gain <b>Immune</b> this turn and attack a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/449f6011c08c898acbdf0ee4d66d49b62bff49a0d4072066224c9687c943e703.png",
+        "imageGold": "",
+        "flavorText": "Creator of the titan-forged races, Khaz'goroth intended them to safeguard the world of Azeroth from corruption and discord.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f48b4005fcfcba87f15e6a48fece68bf1ced43fa508d4772c4eb7759e8a8b11.png",
+        "childIds": [
+          96715,
+          96720,
+          96722
+        ],
+        "keywordIds": [
+          17,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_862",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 98344,
+        "collectible": 1,
+        "slug": "98344-argus-the-emerald-star",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 9,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "翠绿之星阿古斯",
+        "text": "<b>泰坦</b> 本随从左边的随从均拥有<b>突袭</b>，本随从右边的随从均拥有<b>吸血</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4a8fb7d7d1452a3202c4d322099512a86149accf608fe29206404a8bd2d2d7a8.png",
+        "imageGold": "",
+        "flavorText": "阿古斯曾是一位高傲的泰坦，命运却引他走向了黑暗的结局。萨格拉斯与麾下的恶魔腐蚀了阿古斯，将他的力量据为己有，星球也因此而破碎。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3dfe61c35c52c2accee594a200e19436b32ad7a15c6a5f264d378a52fda2ac3.png",
+        "childIds": [
+          98345,
+          98346,
+          98347,
+          98348
+        ],
+        "keywordIds": [
+          38,
+          53,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_862",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 98344,
+        "collectible": 1,
+        "slug": "98344-argus-the-emerald-star",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 9,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "Argus, the Emerald Star",
+        "text": "<b>Titan</b> Minions to the left of this have <b>Rush</b>, and ones to the right have <b>Lifesteal</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c707783db8f87d44d31d197e2f2bb8c9d06078dfeba6c024b2f4ca783b77743.png",
+        "imageGold": "",
+        "flavorText": "Once a proud titan, Argus was fated to meet a darker end. Sargeras and his demons would later corrupt and shatter Argus to use his power for themselves.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3dfe61c35c52c2accee594a200e19436b32ad7a15c6a5f264d378a52fda2ac3.png",
+        "childIds": [
+          98345,
+          98346,
+          98347,
+          98348
+        ],
+        "keywordIds": [
+          38,
+          53,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_415t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\96715-zh_CN.json",
+      "response_sha256": "4cbb8b743d63e4c409c82abe1f2ce4df7f60f505416180fea7551490ab3ecc57",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=96715&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 96715,
+        "collectible": 0,
+        "slug": "96715-titanforge",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "泰坦锻造",
+        "text": "获得+2/+2。抽一张武器牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b75491c8877c0fba233d13f4fa97b94bf73d760653f50b87f065f1e1286fc02.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 96710,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=96715&locale=zh_CN&collectible=0",
+        "sha256": "4cbb8b743d63e4c409c82abe1f2ce4df7f60f505416180fea7551490ab3ecc57",
+        "bytes": 552,
+        "observed_at": "2026-10-27T13:52:42.334522+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_415t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\96715-en_US.json",
+      "response_sha256": "71583db492fd3fb59959d2df0eda65c66fa52f653ceff7eeb983716a784486c4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=96715&locale=en_US&collectible=0",
+      "face": {
+        "id": 96715,
+        "collectible": 0,
+        "slug": "96715-titanforge",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "Titanforge",
+        "text": "Gain +2/+2. Draw a weapon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0904fd0e49c14a123a7030b1e47ed2a6eb2811401c96091579d742f8b9c96d1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 96710,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=96715&locale=en_US&collectible=0",
+        "sha256": "71583db492fd3fb59959d2df0eda65c66fa52f653ceff7eeb983716a784486c4",
+        "bytes": 541,
+        "observed_at": "2026-10-27T13:52:42.474824+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_415t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\96720-zh_CN.json",
+      "response_sha256": "6864d26ceba0a76728c14da5dd1c2b1f169411b38851c160a7bee1fcaff52ff0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=96720&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 96720,
+        "collectible": 0,
+        "slug": "96720-tempering",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "升温回火",
+        "text": "获得+5攻击力。在本回合中，使你的英雄获得+5攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e46a14f51e80a7fd15aaf7cac612d81534e223c2f176d28840c316e336706d51.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 96710,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=96720&locale=zh_CN&collectible=0",
+        "sha256": "6864d26ceba0a76728c14da5dd1c2b1f169411b38851c160a7bee1fcaff52ff0",
+        "bytes": 589,
+        "observed_at": "2026-10-27T13:52:42.340163+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_415t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\96720-en_US.json",
+      "response_sha256": "5c4c16d94f1f856d8dde9a65919d65b310672805e313c33dc6d136c8854cfbed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=96720&locale=en_US&collectible=0",
+      "face": {
+        "id": 96720,
+        "collectible": 0,
+        "slug": "96720-tempering",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "Tempering",
+        "text": "Gain +5 Attack. Give your hero +5 Attack this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/abe0b7db5fb313cc7e5c3789397a7abbb8dca523e934cd533f3b6255596dbe43.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 96710,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=96720&locale=en_US&collectible=0",
+        "sha256": "5c4c16d94f1f856d8dde9a65919d65b310672805e313c33dc6d136c8854cfbed",
+        "bytes": 564,
+        "observed_at": "2026-10-27T13:52:42.658746+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_415t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\96722-zh_CN.json",
+      "response_sha256": "960cfab297101e40539e8328f2965882096a7c318186e34af2ad3f77308b535d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=96722&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 96722,
+        "collectible": 0,
+        "slug": "96722-heart-of-flame",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "烈焰之心",
+        "text": "获得+5生命值。使你的英雄获得5点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e7c1dc36bb25361f659361332adeae792af820ae3696ae9266572b2d6940f25f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 96710,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=96722&locale=zh_CN&collectible=0",
+        "sha256": "960cfab297101e40539e8328f2965882096a7c318186e34af2ad3f77308b535d",
+        "bytes": 578,
+        "observed_at": "2026-10-27T13:52:44.140063+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_415t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\96722-en_US.json",
+      "response_sha256": "23920a6d969a9f9da4540d46893fc1c434b6f9e25acb4a3452ee4a5090903337",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=96722&locale=en_US&collectible=0",
+      "face": {
+        "id": 96722,
+        "collectible": 0,
+        "slug": "96722-heart-of-flame",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Grafit Studio",
+        "manaCost": 0,
+        "name": "Heart of Flame",
+        "text": "Gain +5 Health. Give your hero 5 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0071fd677dd0d6e036fceef1d719484c911ccc7c8749ebf2190e42683af6832e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 96710,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=96722&locale=en_US&collectible=0",
+        "sha256": "23920a6d969a9f9da4540d46893fc1c434b6f9e25acb4a3452ee4a5090903337",
+        "bytes": 562,
+        "observed_at": "2026-10-27T13:52:43.827939+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98345-zh_CN.json",
+      "response_sha256": "20cf9ca5d1e510f4d53a9db20c89ef0c2bdd7f0a7cf9d31168e2f91f892c76fd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98345&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 98345,
+        "collectible": 0,
+        "slug": "98345-crystal-carving",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 0,
+        "name": "雕琢晶石",
+        "text": "<b>发现</b>一张<b>亡语</b>随从牌，其法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa6fc0138ef4438aeec78c825443c3093e6add1fdd1b2f613c4b8df763f248ae.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98345&locale=zh_CN&collectible=0",
+        "sha256": "20cf9ca5d1e510f4d53a9db20c89ef0c2bdd7f0a7cf9d31168e2f91f892c76fd",
+        "bytes": 601,
+        "observed_at": "2026-10-27T13:52:44.140063+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98345-en_US.json",
+      "response_sha256": "b32e7debb8ac5ef1b7f557e8d57a70692bbd5f53705c2f1ccdcf5d28b5c318b4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98345&locale=en_US&collectible=0",
+      "face": {
+        "id": 98345,
+        "collectible": 0,
+        "slug": "98345-crystal-carving",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 0,
+        "name": "Crystal Carving",
+        "text": "<b>Discover</b> a <b>Deathrattle</b> minion. It costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d4e8f6a4b4f81a1c1dea42b4cd97fcf8ecab639ef397a41c87eb393d9860539.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98345&locale=en_US&collectible=0",
+        "sha256": "b32e7debb8ac5ef1b7f557e8d57a70692bbd5f53705c2f1ccdcf5d28b5c318b4",
+        "bytes": 586,
+        "observed_at": "2026-10-27T13:52:44.156428+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98346-zh_CN.json",
+      "response_sha256": "3d4c2358fef5dd42e28f68bd2d961f5555b9e5c3d4947bad452d69f4121a2bbf",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98346&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 98346,
+        "collectible": 0,
+        "slug": "98346-show-of-force",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 0,
+        "name": "力量展现",
+        "text": "使你手牌中的所有随从牌的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/256b160397509f549104fe78f2dbd01e0ff9546096d7d6a71fc8219b83a1a8fb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98346&locale=zh_CN&collectible=0",
+        "sha256": "3d4c2358fef5dd42e28f68bd2d961f5555b9e5c3d4947bad452d69f4121a2bbf",
+        "bytes": 588,
+        "observed_at": "2026-10-27T13:52:45.755487+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98346-en_US.json",
+      "response_sha256": "1af7313aaee8cb4e60af8cd24c52d709362fe766eccdb36d367c043c4df78f18",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98346&locale=en_US&collectible=0",
+      "face": {
+        "id": 98346,
+        "collectible": 0,
+        "slug": "98346-show-of-force",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 0,
+        "name": "Show of Force",
+        "text": "Reduce the Cost of all minions in your hand by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f698f236165953afd27196fd9160b9863e3e29e26b2b39c9cb1257e9cee9198d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98346&locale=en_US&collectible=0",
+        "sha256": "1af7313aaee8cb4e60af8cd24c52d709362fe766eccdb36d367c043c4df78f18",
+        "bytes": 570,
+        "observed_at": "2026-10-27T13:52:45.854140+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98347-zh_CN.json",
+      "response_sha256": "1b8dd5562ca9d80381a6e388b81dd04512aa38448e4e449e69758ddafee82122",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=zh_CN",
+      "face": {
+        "id": 98347,
+        "collectible": 0,
+        "slug": "98347-argunite-army",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "manaCost": 0,
+        "name": "阿古尼特大军",
+        "text": "召唤四个2/2并具有<b>嘲讽</b>的元素。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ad439f69deed9f3149f6eeebb06ed514486d2c61fe8c53f6e811d2b641c1d5c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=zh_CN",
+        "sha256": "1b8dd5562ca9d80381a6e388b81dd04512aa38448e4e449e69758ddafee82122",
+        "bytes": 572,
+        "observed_at": "2026-10-17T09:51:51.790363+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98347-en_US.json",
+      "response_sha256": "3063a548c676e6c65683a405e35d3bc955f8bd05ccdb7bdeb3164a6364879449",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=en_US",
+      "face": {
+        "id": 98347,
+        "collectible": 0,
+        "slug": "98347-argunite-army",
+        "classId": 14,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "manaCost": 0,
+        "name": "Argunite Army",
+        "text": "Summon four 2/2 Elementals with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/113b514c1f82bb4685428a35a9fb607759dd48713d8bf10fcfcfba449781b792.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98347&locale=en_US",
+        "sha256": "3063a548c676e6c65683a405e35d3bc955f8bd05ccdb7bdeb3164a6364879449",
+        "bytes": 563,
+        "observed_at": "2026-10-17T09:50:26.914534+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98348-zh_CN.json",
+      "response_sha256": "67aea1fd761385a858df5cd7aedb4b11ac5a43e4fc3fe52babfeb3d3184e7973",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=zh_CN",
+      "face": {
+        "id": 98348,
+        "collectible": 0,
+        "slug": "98348-crystal-elemental",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "晶石元素",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9aa806fcd57780107804730cebe40638f25e93078096bb8c131fea3f36844223.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=zh_CN",
+        "sha256": "67aea1fd761385a858df5cd7aedb4b11ac5a43e4fc3fe52babfeb3d3184e7973",
+        "bytes": 591,
+        "observed_at": "2026-10-17T09:51:50.415249+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_862t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98348-en_US.json",
+      "response_sha256": "e37c06332229d7f0b5b893a3d4c4b6599ddf6e5165130407edc879c13a75d52f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=en_US",
+      "face": {
+        "id": 98348,
+        "collectible": 0,
+        "slug": "98348-crystal-elemental",
+        "classId": 14,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Alex Stone",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Crystal Elemental",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f84889982353ea05b88cd246f5e616ff1087c91aef5b6ae81d1ae83dcfa75d85.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98344,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98348&locale=en_US",
+        "sha256": "e37c06332229d7f0b5b893a3d4c4b6599ddf6e5165130407edc879c13a75d52f",
+        "bytes": 595,
+        "observed_at": "2026-10-17T09:50:27.539412+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_903",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 96671,
+        "collectible": 1,
+        "slug": "96671-eonar-the-life-binder",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 10,
+        "name": "生命的缚誓者艾欧娜尔",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，召唤一棵5/5并具有<b>嘲讽</b>的古树。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/441d5c6d566ab3b2e4b8761d60a6e1979918628bf4a6dbfa552c06e5e9503792.png",
+        "imageGold": "",
+        "flavorText": "她是所有生命的保护者，曾经挽救新生的艾泽拉斯世界之魂，使之免于毁灭。仁善便是她最伟大的智慧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d93dd51cc75ade3331210f466a781b803ee41f34eb0ad29566b7bce7bc2384ca.png",
+        "childIds": [
+          96707,
+          96708,
+          96709,
+          97457
+        ],
+        "keywordIds": [
+          1,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_903",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 96671,
+        "collectible": 1,
+        "slug": "96671-eonar-the-life-binder",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 10,
+        "name": "Eonar, the Life-Binder",
+        "text": "<b>Titan</b> After this uses an ability, summon a 5/5 Ancient with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c05fdd4dc2627db1c631b05015b6115e6caf333ec541f312a2f5e889dbce655.png",
+        "imageGold": "",
+        "flavorText": "Protector of all living things, she once saved the nascent world-soul of Azeroth from annihilation. It seems mercy was her greatest wisdom.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d93dd51cc75ade3331210f466a781b803ee41f34eb0ad29566b7bce7bc2384ca.png",
+        "childIds": [
+          96707,
+          96708,
+          96709,
+          97457
+        ],
+        "keywordIds": [
+          1,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_001t24",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102027-zh_CN.json",
+      "response_sha256": "3106975488d23ee32eee1e26428de6953534b3e455f279d6c74aba59980b4405",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 102027,
+        "collectible": 0,
+        "slug": "102027-the-azerite-hawk",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 5,
+        "artistName": "Vika Yarova",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "艾泽里特鹰",
+        "text": "<b>战吼：</b>随机获取一张<b>泰坦</b>牌，其法力值消耗为（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4eac52cd9bfd1014245d6edd3a62ba4115d184881ab2cc69742d9deae60529d4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98762,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=zh_CN&collectible=0",
+        "sha256": "3106975488d23ee32eee1e26428de6953534b3e455f279d6c74aba59980b4405",
+        "bytes": 690,
+        "observed_at": "2026-10-27T12:55:37.519147+00:00"
+      }
+    },
+    {
+      "card_id": "WW_001t24",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102027-en_US.json",
+      "response_sha256": "971ed681e37f1a23974ebc80444e7e0ba6e0a229095a950cf7c88bcfae202389",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=en_US&collectible=0",
+      "face": {
+        "id": 102027,
+        "collectible": 0,
+        "slug": "102027-the-azerite-hawk",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 5,
+        "artistName": "Vika Yarova",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "The Azerite Hawk",
+        "text": "<b>Battlecry:</b> Get a random <b>Titan</b>. It costs (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec7a6f8e10e8a8e380b9fa84d188afe0189d15668c1d16a02056928a74803067.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98762,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=en_US&collectible=0",
+        "sha256": "971ed681e37f1a23974ebc80444e7e0ba6e0a229095a950cf7c88bcfae202389",
+        "bytes": 662,
+        "observed_at": "2026-10-27T12:55:37.912382+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_075",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 96903,
+        "collectible": 1,
+        "slug": "96903-norgannon",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 8,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "诺甘农",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，其他技能的效果翻倍。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5262e032e1fd901a02cba2fef886e89fe58d6d56f430fa6a3682ff5fb8a696d5.png",
+        "imageGold": "",
+        "flavorText": "他的奥术魔法无与伦比，足以在萨格拉斯摧毁泰坦们的实体之后保护他们的灵魂。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a9bfdb891d17554e3f2dba388e19cd9ba81f2e56714b518e00a2e9354e88a68f.png",
+        "childIds": [
+          96904,
+          96905,
+          96906
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_075",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 96903,
+        "collectible": 1,
+        "slug": "96903-norgannon",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Mooncolony",
+        "health": 8,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "Norgannon",
+        "text": "<b>Titan</b> After this uses an ability, double the power of the other abilities.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a33037c72e1e5e158842d8cd815f712f3a3208bf01e90dab8f4c6baee037d5f7.png",
+        "imageGold": "",
+        "flavorText": "His tremendous arcane magic was strong enough to save all of the spirits of the titans after Sargeras destroyed their physical forms.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a9bfdb891d17554e3f2dba388e19cd9ba81f2e56714b518e00a2e9354e88a68f.png",
+        "childIds": [
+          96904,
+          96905,
+          96906
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_092",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 97495,
+        "collectible": 1,
+        "slug": "97495-aggramar-the-avenger",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "复仇者阿格拉玛",
+        "text": "<b>泰坦</b> <b>战吼：</b>装备一把3/3的泰沙拉克。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2379495483d1eeb287ea4438149c1c818b236ae52aba51530903440e38a17fc8.png",
+        "imageGold": "",
+        "flavorText": "阿格拉玛曾是萨格拉斯信赖的副官，在萨格拉斯堕落之前与他一道扫荡诸界，对战恶魔大军。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcaa8410f265ba4d5eb113314b960b189135f96ed909211c961bf4f8f6041beb.png",
+        "childIds": [
+          97519,
+          97520,
+          97521,
+          97496,
+          97524
+        ],
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_092",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 97495,
+        "collectible": 1,
+        "slug": "97495-aggramar-the-avenger",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Kevin Sidharta",
+        "health": 7,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "Aggramar, the Avenger",
+        "text": "<b>Titan</b> <b>Battlecry:</b> Equip a 3/3 Taeshalach.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6c2ea3c16905414bcbac0715907e6a878a688954dd6a17b358d0df79cb1da45.png",
+        "imageGold": "",
+        "flavorText": "Formerly a trusted lieutenant of Sargeras, Aggramar helped him fight the demonic legions across many worlds before he was corrupted.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcaa8410f265ba4d5eb113314b960b189135f96ed909211c961bf4f8f6041beb.png",
+        "childIds": [
+          97519,
+          97520,
+          97521,
+          97496,
+          97524
+        ],
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_429",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 97103,
+        "collectible": 1,
+        "slug": "97103-amanthul",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "阿曼苏尔",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，<b>发现</b>任意职业的<b>传说</b>随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f243d86ed280a21c7f1a8b9b0c94c11e1a69c5af79a21840a23b9a7ed6fce672.png",
+        "imageGold": "",
+        "flavorText": "泰坦诸神的领袖最先醒来。在孤寂之中，他穿行诸界，寻找其他泰坦，与之共同组成了万神殿。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/571e0d12fba91f153adc12ea8073105e7554e2fcd1d00f0d875d3924f0c378cc.png",
+        "childIds": [
+          97105,
+          97106,
+          97107
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_429",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 97103,
+        "collectible": 1,
+        "slug": "97103-amanthul",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "James Ryman",
+        "health": 10,
+        "attack": 3,
+        "manaCost": 7,
+        "name": "Aman'Thul",
+        "text": "<b>Titan</b> After this uses an ability, <b>Discover</b> any <b>Legendary</b> minion from any class.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0acc0a35798dc592d481d3efd8839ba53b4c394090bbb8eb355b4476b2c72a43.png",
+        "imageGold": "",
+        "flavorText": "The leader of the titans was the first to awaken. In his loneliness, he sought out other titans across many different worlds, and together, they formed the Pantheon.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/571e0d12fba91f153adc12ea8073105e7554e2fcd1d00f0d875d3924f0c378cc.png",
+        "childIds": [
+          97105,
+          97106,
+          97107
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_721",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 97642,
+        "collectible": 1,
+        "slug": "97642-v-0-tr-0n-prime",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "终极V-07-TR-0N",
+        "text": "<b>泰钽</b> 本随从的技能会在另一个随机友方随从身上重复。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8af47d9b17c90b96d5919d0dcf23630d1e5403999fdd2acaeb95a30d10388caa.png",
+        "imageGold": "",
+        "flavorText": "在泰坦们离开了很久之后，米米尔隆有了一个设想，创造出足以匹敌泰坦之能的造物。他好像成功了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd48df9e6365d34c7cb0fc936f4e44c2c970a6853b4cf81721d355b149c342c6.png",
+        "childIds": [
+          97643,
+          97645,
+          97646
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_721",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 97642,
+        "collectible": 1,
+        "slug": "97642-v-0-tr-0n-prime",
+        "classId": 7,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Matt Dixon",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 6,
+        "name": "V-07-TR-0N Prime",
+        "text": "<b>T1T4N</b> This minion's abilities repeat on another random friendly minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1fc0c8c5d42d6e96b2ed6c02310f36a432896e0f83783a8da3e1ba3acf4a4ab.png",
+        "imageGold": "",
+        "flavorText": "Long after the titans' departure, Mimiron dreamed of creating something with an approximation of their power. He may have actually succeeded!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd48df9e6365d34c7cb0fc936f4e44c2c970a6853b4cf81721d355b149c342c6.png",
+        "childIds": [
+          97643,
+          97645,
+          97646
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_737",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 98285,
+        "collectible": 1,
+        "slug": "98285-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "兵主",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/620fd392afbc59dac779a92a14b4875fcc270181a0cdfcbad97b048f0ed57391.png",
+        "imageGold": "",
+        "flavorText": "既然存在泰坦万神殿，也就有死亡万神殿，其中包括暗影界各位强大的统治者。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5da5360e71ca9e341151f252251ef2b5ff9213118cb15d61f82492524880e91.png",
+        "childIds": [
+          98286,
+          98289,
+          98287,
+          98288
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_737",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 98285,
+        "collectible": 1,
+        "slug": "98285-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "The Primus",
+        "text": "<b>Titan</b> After this uses an ability, <b>Discover</b> a card with that Rune.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4aabf8d5d210271194333178ff302c184a6a1e0ae3ed22fe071fefcc8f02a1cd.png",
+        "imageGold": "",
+        "flavorText": "As there is a Pantheon of titans, so is there also a Pantheon of Death, comprised of powerful rulers in the Shadowlands.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5da5360e71ca9e341151f252251ef2b5ff9213118cb15d61f82492524880e91.png",
+        "childIds": [
+          98286,
+          98289,
+          98287,
+          98288
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_800",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 96909,
+        "collectible": 1,
+        "slug": "96909-golganneth-the-thunderer",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Nicola Saviori",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 6,
+        "name": "雷霆之神高戈奈斯",
+        "text": "<b>泰坦</b> 你每个回合使用的第一张法术牌的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/abb801008a2b27a93eeef908dc0f82956d1bc355bf9834d2dba9ac23c02ba1a7.png",
+        "imageGold": "",
+        "flavorText": "高戈奈斯统领天空与海洋，英勇无畏地运用着自然的力量，为万神殿效力。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e86d02e860a8c1979bfad5c5d5e57308875715d93bec586a94d5864aeb5348b.png",
+        "childIds": [
+          96912,
+          96913,
+          96911
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_800",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 96909,
+        "collectible": 1,
+        "slug": "96909-golganneth-the-thunderer",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Nicola Saviori",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 6,
+        "name": "Golganneth, the Thunderer",
+        "text": "<b>Titan</b> Your first spell each turn costs (3) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7491ea06c11d967edf661b18964f161ba3c6a2b63c868f5707a45adb8190d3f.png",
+        "imageGold": "",
+        "flavorText": "With dominion over the seas and skies, Golganneth fearlessly wields the power of nature to serve the Pantheon.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e86d02e860a8c1979bfad5c5d5e57308875715d93bec586a94d5864aeb5348b.png",
+        "childIds": [
+          96912,
+          96913,
+          96911
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_858",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 98061,
+        "collectible": 1,
+        "slug": "98061-amitus-the-peacekeeper",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 8,
+        "attack": 1,
+        "manaCost": 7,
+        "name": "维和者阿米图斯",
+        "text": "<b>泰坦</b> <b>嘲讽</b>。你的随从每次受到伤害不会超过2点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b9f91b2a0dba1f51536e2f44c5186152eb3f8cb74b964b24e9da5647207be686.png",
+        "imageGold": "",
+        "flavorText": "阿米图斯曾是维护和谐的勇士，消弭了万神殿的诸多纷争。萨格拉斯堕落之后不久，她也一同消失了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d375c7cf92256bf890abbf8f761d896b4916458dfdba3d76e6071bd13745ae81.png",
+        "childIds": [
+          98062,
+          98063,
+          98064
+        ],
+        "keywordIds": [
+          1,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_858",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 98061,
+        "collectible": 1,
+        "slug": "98061-amitus-the-peacekeeper",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Zoltan Boros",
+        "health": 8,
+        "attack": 1,
+        "manaCost": 7,
+        "name": "Amitus, the Peacekeeper",
+        "text": "<b>Titan</b> <b>Taunt</b>. Your minions can't take more than 2 damage at a time.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1dde4d310edbf30058c9f7f8a244df06adf85c46ab4db6ed3a7afae75861bc95.png",
+        "imageGold": "",
+        "flavorText": "As a champion of harmony, Amitus abstained from the Pantheon's many conflicts until one day, shortly after the corruption of Sargeras, she vanished altogether.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d375c7cf92256bf890abbf8f761d896b4916458dfdba3d76e6071bd13745ae81.png",
+        "childIds": [
+          98062,
+          98063,
+          98064
+        ],
+        "keywordIds": [
+          1,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_960",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 97702,
+        "collectible": 1,
+        "slug": "97702-sargeras-the-destroyer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 12,
+        "attack": 6,
+        "manaCost": 9,
+        "name": "灭世泰坦萨格拉斯",
+        "text": "<b>泰坦</b> <b>战吼：</b>打开一道传送门，每回合召唤两个3/2的小鬼。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a69ea7090a3f189b164d60339bd7cbb41bc4291c3e8b5f0d7ca1fd9e2ec4d9ff.png",
+        "imageGold": "",
+        "flavorText": "他曾是万神殿的护卫者，在执行任务时心志幻灭，于是组建了燃烧军团，旨在扫平宇宙间的一切生命。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0a9a51be47c9faa87bb5b1fe32d2138d4d111d92f9ca0b5683fb6cf56b39064.png",
+        "childIds": [
+          97706,
+          97708,
+          97709,
+          97703,
+          101511,
+          101510
+        ],
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_960",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 97702,
+        "collectible": 1,
+        "slug": "97702-sargeras-the-destroyer",
+        "classId": 9,
+        "multiClassIds": [],
+        "minionTypeId": 15,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Juan Calle",
+        "health": 12,
+        "attack": 6,
+        "manaCost": 9,
+        "name": "Sargeras, the Destroyer",
+        "text": "<b>Titan</b> <b>Battlecry:</b> Open a portal that summons two 3/2 Imps each turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22b82589a3b9d14180df3edba78ef92439aef3db07c24a4c5ffd595235c1e674.png",
+        "imageGold": "",
+        "flavorText": "Formerly the Defender of the Pantheon, he became disillusioned by his mission and formed the Burning Legion to destroy all life within the universe.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0a9a51be47c9faa87bb5b1fe32d2138d4d111d92f9ca0b5683fb6cf56b39064.png",
+        "childIds": [
+          97706,
+          97708,
+          97709,
+          97703,
+          101511,
+          101510
+        ],
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_516",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 101033,
+        "collectible": 1,
+        "slug": "101033-yogg-saron-unleashed",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Konstantin Porubov",
+        "health": 5,
+        "attack": 7,
+        "manaCost": 9,
+        "name": "脱困古神尤格-萨隆",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，随机施放两个法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4d312050e4fc07f7313695ef2bfc7c1ced5460acd6a0387a2d23b26f0f212c2.png",
+        "imageGold": "",
+        "flavorText": "开战之前话巨多。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c504bac5f43aeea51ec3cc9340e0507be125fbb39276bd68ab455cce1d4227b.png",
+        "childIds": [
+          101035,
+          101036,
+          101037,
+          101021
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_516",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 101033,
+        "collectible": 1,
+        "slug": "101033-yogg-saron-unleashed",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "Konstantin Porubov",
+        "health": 5,
+        "attack": 7,
+        "manaCost": 9,
+        "name": "Yogg-Saron, Unleashed",
+        "text": "<b>Titan</b> After this uses an ability, cast two random spells.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6f5fabec303d3f46c06d3073edd9a20bf81102a24dcf0783708b151f64a22879.png",
+        "imageGold": "",
+        "flavorText": "Has been known to monologue before he strikes.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c504bac5f43aeea51ec3cc9340e0507be125fbb39276bd68ab455cce1d4227b.png",
+        "childIds": [
+          101035,
+          101036,
+          101037,
+          101021
+        ],
+        "keywordIds": [
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "TTN_415t": {
+      "cost": 0
+    },
+    "TTN_415t2": {
+      "cost": 0
+    },
+    "TTN_415t3": {
+      "cost": 0
+    },
+    "TTN_862t1": {
+      "cost": 0
+    },
+    "TTN_862t2": {
+      "cost": 0
+    },
+    "TTN_862t3": {
+      "cost": 0
+    }
+  },
+  "inventory": {
+    "candidate_ids": [
+      "TTN_075",
+      "TTN_092",
+      "TTN_415",
+      "TTN_429",
+      "TTN_721",
+      "TTN_737",
+      "TTN_800",
+      "TTN_858",
+      "TTN_862",
+      "TTN_903",
+      "TTN_960",
+      "YOG_516"
+    ],
+    "weights": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "excluded_card_ids": [],
+    "complete_for_declared_local_raw_reference": true,
+    "runtime_bound": false,
+    "weight_policy": "local-uniform-unconfirmed",
+    "role": "Azerite Hawk explicitly requests Titans; does not make Titans ordinary random-generation or evolution candidates"
+  },
+  "choice_only_ids": [
+    "TTN_415t",
+    "TTN_415t2",
+    "TTN_415t3",
+    "TTN_862t1",
+    "TTN_862t2",
+    "TTN_862t3"
+  ],
+  "new_token_ids": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "membership_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/102027-the-azerite-hawk/",
+      "supports": "Primary Hawk text explicitly requests a random Titan, cost 1; does not enumerate pool or weights"
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/dev-talk%E2%80%94totally-titans-all-about-the-new-keyword/109540",
+      "supports": "Official engineer: Titans have three non-spell activated abilities; forced combat does not consume an extra normal action; ordinary random generation/evolution excludes Titans"
+    }
+  ],
+  "known_local_policies": [
+    "The fixed complete raw collectible TITAN tag set has 12 identities; exact Hawk membership, bans and weights remain unconfirmed",
+    "Khazgoroth reads current living enemy minions after its immunity grant; native forced combat and end-of-turn expiry are reused",
+    "Argus side auras use current physical board order, independent of adjacency and through occupied location positions",
+    "Argus army uses the existing ordinary named-summon placement policy; exact source-relative placement remains uncalibrated",
+    "Argus deathrattle discovery uses full installed ordinary current-class and neutral collectible minions; no coverage-based filtering"
+  ],
+  "real_excavate_profile_bound": false
+}

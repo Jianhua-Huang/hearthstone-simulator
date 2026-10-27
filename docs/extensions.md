@@ -2273,3 +2273,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 [原发现其余候选交付](m3-shard-original-remainders.md)仅以DiscoverFromPool(unselected_to_hand=True,destination="board",cause=原SummonCause)开放真实元素形状。原未选身份来自同一菜单，不能重新抽池、按当前职业改写、把其它来源同名手牌当作交付或附加复制/改费/冻结；实际获取仍走普通手牌创建、烧牌和反应，逐项控制及原分配事实进入保存验证。
+
+
+[原生泰坦和来源侧光环](m3-titan-khaz-argus.md)继续以ActivatedAbilitySpec引用choice-only技能面，不能把技能展示卡当作法术施放。阿古斯的KeywordAuraSpec(RUSH,"friendly_minions_left_of_source")和对应右侧LIFESTEAL只允许印刷普通随从声明，不支持额外授予或过滤组合；连续贡献随当前场位刷新，四次召唤复用同一个已有元素定义和四个独立请求。

@@ -1479,7 +1479,8 @@ class KeywordAuraSpec:
         if type(self.keyword) is not Keyword or self.keyword not in supported:
             raise ValueError('Keyword aura requires a supported continuous keyword')
         if not hand and self.target not in ('friendly_hero', 'friendly_minions', 'enemy_minions', 'self',
-                                          'friendly_leftmost_minion', 'friendly_rightmost_minion'):
+                                          'friendly_leftmost_minion', 'friendly_rightmost_minion',
+                                          'friendly_minions_left_of_source', 'friendly_minions_right_of_source'):
             raise ValueError('Unsupported keyword aura target')
         _bool(self.include_self, 'keyword aura include_self')
         _bool(self.adjacent_only, 'keyword aura adjacent_only')
@@ -1487,6 +1488,11 @@ class KeywordAuraSpec:
         _aura_card_ids(self.card_ids)
         positional = {'friendly_leftmost_minion': Keyword.RUSH,
                       'friendly_rightmost_minion': Keyword.IMMUNE_WHILE_ATTACKING}
+        relative = {'friendly_minions_left_of_source': Keyword.RUSH,
+                    'friendly_minions_right_of_source': Keyword.LIFESTEAL}
+        if self.target in relative and (self.keyword != relative[self.target] or self.include_self or
+                self.adjacent_only or self.condition != 'always' or self.tribes_any or self.card_ids):
+            raise ValueError('Source-relative keyword aura requires its exact independent board side')
         if self.target in positional and (self.keyword != positional[self.target] or not self.include_self or
                 self.adjacent_only or self.condition != 'always' or self.tribes_any or self.card_ids):
             raise ValueError('Positional native keyword aura requires its exact independent board scope')

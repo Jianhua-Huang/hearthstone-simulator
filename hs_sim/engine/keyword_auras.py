@@ -7,11 +7,12 @@ from .model import AbilityInstance, CardType, Keyword, KeywordAuraSpec, PlayerKe
 
 
 POSITIONAL_TARGETS = ('friendly_leftmost_minion', 'friendly_rightmost_minion')
+RELATIVE_TARGETS = ('friendly_minions_left_of_source', 'friendly_minions_right_of_source')
 
 
 def native_scope(spec):
     return (spec.condition != 'always' or spec.tribes_any or spec.card_ids or
-            spec.target in POSITIONAL_TARGETS)
+            spec.target in POSITIONAL_TARGETS+RELATIVE_TARGETS)
 
 
 def validate_definition(card):
@@ -107,7 +108,7 @@ class GrantKeywordAura(Effect):
             raise ValueError('Conditional keyword grants are not supported')
         if self.spec.tribes_any or self.spec.card_ids:
             raise ValueError('Filtered keyword grants are not supported')
-        if self.spec.target in POSITIONAL_TARGETS:
+        if self.spec.target in POSITIONAL_TARGETS+RELATIVE_TARGETS:
             raise ValueError('Positional keyword auras require their native declaration')
         if self.expires_turn is not None:
             _integer(self.expires_turn, 'keyword aura expiry', 1)
@@ -159,6 +160,8 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                                     and not state.entities[i].interactable_object
                                     and not state.entities[i].starship_building)
                     targets = minions[:1] if spec.target == 'friendly_leftmost_minion' else minions[-1:]
+                if spec.target in RELATIVE_TARGETS:
+                    targets = player.board[:index] if spec.target=='friendly_minions_left_of_source' else player.board[index+1:]
                 if spec.adjacent_only:
                     targets = player.board[max(0, index - 1):index] + player.board[index + 1:index + 2]
                 for target_id in targets:
