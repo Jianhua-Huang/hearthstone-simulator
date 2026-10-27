@@ -313,7 +313,8 @@ class CreateCastDerivative(Effect):
 
 
 def effective_definition(definition, conditions):
-    if definition.target_condition and not conditions[definition.target_condition]:
+    from .target_conditions import target_condition_active
+    if not target_condition_active(definition.target_condition,conditions):
         return replace(definition, requires_target=False, targeting=None, target_rule='any_entity')
     return definition
 

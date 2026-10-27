@@ -2257,3 +2257,8 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 ## 原伤害击杀奖励、召唤改进与物理手牌改费
 
 [过去法师契约](m3-past-mage-summon-draw-chains.md)提供真实复用例：Damage.on_result/InvokeHealthResult用完整原伤害payload与死亡原因核验奖励，后续召唤保存原实际CAST归因；目标后来在墓地不足以认定本伤害击杀。两次召唤用两次普通请求，不将同一候选重复写入随机材料名单当次数；鲁莽试验只在原主体计算一次适用法强费用。DrawPhysicalGroup只奖励原实际手牌到达，海床传送口在原检索/反应后对当前手牌有效种族捕获驻留引用，不用印刷名单替代当前机械。饮品下一杯按真实ID普通交付，无敌方随从仍交下一杯，未知合格候选显式失败。
+
+
+## 原生反向快枪目标的有限声明
+
+[热浪来袭](m3-heatwave-inverse-quickdraw.md)以target_condition="unless_quickdraw"声明未触发快枪时必须有敌方随从目标，触发时无目标；仍要求印刷Keyword.QUICKDRAW。target_condition_active读取原quickdraw布尔事实并取反，不增加保存标志，不接受任意unless_/not_别名。卡牌主体使用原physical/cast条件，当前手牌的新同名副本不能重写旧根；普通模式的原目标正文前离场只空执行保留付款。目标域、随机、支付、组伤害和恢复仍沿公共执行器，真实自动施法不伪装手牌获取。

@@ -2293,10 +2293,11 @@ class Registry:
                 raise ValueError('Casts When Drawn requires a physical spell')
             card.cast_when_drawn.__post_init__()
         if card.target_condition is not None:
-            if (card.target_condition not in ('combo', 'outcast', 'finale', 'manathirst', 'quickdraw') or not card.hand_playable or
+            from .target_conditions import TARGET_CONDITIONS,target_condition_keyword
+            if (card.target_condition not in TARGET_CONDITIONS or not card.hand_playable or
                     card.kind == CardType.LOCATION or not (card.requires_target or card.targeting)):
                 raise ValueError('Invalid conditional play target declaration')
-            if Keyword(card.target_condition) not in card.keywords:
+            if Keyword(target_condition_keyword(card.target_condition)) not in card.keywords:
                 raise ValueError('Conditional targeting requires its printed keyword')
         if type(card.choice_only) is not bool:
             raise ValueError('choice_only must be boolean')

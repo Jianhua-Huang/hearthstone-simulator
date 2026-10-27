@@ -10,6 +10,7 @@ from .body_grants import BodyReference
 from .effects import _behavior, _integer, _source
 from .lifecycle import active_abilities
 from .model import CardType, TargetSpec
+from .target_conditions import TARGET_CONDITIONS
 
 
 @dataclass(frozen=True)
@@ -69,8 +70,7 @@ class BodyTargetContract:
             self.targeting.__post_init__()
         if type(self.target_visibility) is not str or self.target_visibility not in ('builtin', 'player', 'omniscient'):
             raise ValueError('Unknown body target predicate visibility')
-        if self.target_condition is not None and (type(self.target_condition) is not str or self.target_condition not in (
-                'combo', 'outcast', 'finale', 'quickdraw', 'manathirst')):
+        if self.target_condition is not None and (type(self.target_condition) is not str or self.target_condition not in TARGET_CONDITIONS):
             raise ValueError('Unknown body target condition')
         if self.manathirst_threshold is not None: _integer(self.manathirst_threshold, 'body target threshold', 1)
         if self.target_condition is not None and self.targeting is None:

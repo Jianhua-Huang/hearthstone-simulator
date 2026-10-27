@@ -101,7 +101,11 @@ class PastMageSummonDrawChainTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual((len(data['dependencies']),len(data['existing_dependencies']),len(data['evidence_only'])),(12,2,1))
         self.assertEqual((registry().card(FIREWORKS).cost,registry().card(FIREWORKS).attack,registry().card(FIREWORKS).health),(8,8,8))
         self.assertTrue(all(not registry().card(i).metadata.collectible for i in native.TOKENS))
-        self.assertTrue(registry().card(SKELETON).metadata.collectible);self.assertNotIn('WW_377',registry().cards)
+        self.assertTrue(registry().card(SKELETON).metadata.collectible)
+        at_batch_end=batch.registration_prefix(build_registry,
+            'hs_sim.cards.past_mage_summon_draw_chains.register_past_mage_summon_draw_chains',
+            native.register_past_mage_summon_draw_chains,after=True)
+        self.assertNotIn('WW_377',at_batch_end.cards)
         self.assertEqual(native.COLLECTIBLE_ROOTS,())
         for row in data['existing_dependencies']:
             cid=row['record']['id'];self.assertEqual(batch.canonical(asdict(registry().card(cid))),row['definition_sha256'])

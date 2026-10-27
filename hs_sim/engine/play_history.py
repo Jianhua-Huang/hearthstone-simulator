@@ -172,7 +172,8 @@ def play_definition(state, registry, source, record=None, *, branch_id=None):
     from .choose_one import effective
     definition=effective(definition, record.branch_id if record is not None else branch_id)
     condition=definition.target_condition
-    active=(getattr(record,condition) if record is not None else preplay_conditions(state,source,registry)[condition]) if condition else True
+    from .target_conditions import target_condition_active
+    active=target_condition_active(condition,record if record is not None else preplay_conditions(state,source,registry)) if condition else True
     from .crafted_faces import PREFIX
     dormant_native_entry=(definition.kind == CardType.MINION and definition.id.startswith(PREFIX)
         and definition.dormant_turns > 0 and (record is not None or source.zone == Zone.HAND))

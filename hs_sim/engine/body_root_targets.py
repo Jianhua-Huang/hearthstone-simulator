@@ -16,6 +16,7 @@ from .effects import _behavior, _integer, _source
 from .errors import IllegalAction
 from .lifecycle import active_abilities
 from .model import AbilityInstance, CardType, PaymentType, TargetSpec, Zone
+from .target_conditions import TARGET_CONDITIONS,target_condition_active
 
 
 @dataclass(frozen=True)
@@ -38,7 +39,7 @@ class BodyRootTargetBinding:
                 raise ValueError('Root target binding requires an exact TargetSpec')
             self.targeting.__post_init__()
         if self.target_condition is not None and (type(self.target_condition) is not str or
-                self.target_condition not in ('combo', 'outcast', 'finale', 'quickdraw', 'manathirst')):
+                self.target_condition not in TARGET_CONDITIONS):
             raise ValueError('Unknown ordinary root target condition')
         if self.manathirst_threshold is not None:
             _integer(self.manathirst_threshold, 'ordinary root target threshold', 1)
@@ -109,8 +110,8 @@ class PaidBodyRootTargetRequirement:
             raise ValueError('Unknown root target predicate permission')
         if type(self.conditions) is not BodyPlayConditions: raise ValueError('Expected original root target conditions')
         self.conditions.__post_init__()
-        if type(self.target_active) is not bool or self.target_active != (self.targeting is not None and (
-                self.target_condition is None or getattr(self.conditions, self.target_condition))):
+        if type(self.target_active) is not bool or self.target_active != (self.targeting is not None and
+                target_condition_active(self.target_condition,self.conditions)):
             raise ValueError('Root target condition disagrees with its original facts')
         if type(self.target_choices) is not tuple or len(set(self.target_choices)) != len(self.target_choices):
             raise ValueError('Root target choices require an ordered unique tuple')
@@ -195,7 +196,7 @@ PLAY, no payment occurs and no accepted runtime history is fabricated here.
         player.max_mana, raw.manathirst)
     from .targeting import target_spec, target_choices
     domain = target_spec(raw)
-    active = domain is not None and (raw.target_condition is None or getattr(conditions, raw.target_condition))
+    active = domain is not None and target_condition_active(raw.target_condition,conditions)
     effective_root = raw if active else replace(raw, requires_target=False, targeting=None, target_rule='any_entity')
     bodies = _paid_body_target_plan(game, action, profile_id,
         validator=lambda value: game._validate_action(value, play_target_definition=effective_root))

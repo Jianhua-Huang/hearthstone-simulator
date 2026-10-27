@@ -15,6 +15,7 @@ from .costs import CostQuote, quote_cost
 from .effects import _behavior, _source
 from .errors import IllegalAction
 from .model import PaymentType, Zone
+from .target_conditions import target_condition_active
 
 
 @dataclass(frozen=True)
@@ -163,7 +164,7 @@ the eventual consumer must still prove the actual accepted route separately.
         conditions = BodyPlayConditions(common['combo'], common['outcast'], finale, common['quickdraw'],
             threshold is not None and player.max_mana >= threshold, player.max_mana, threshold)
         active = contract.activation_condition is None or getattr(conditions, contract.activation_condition)
-        target_active = active and contract.targeting is not None and (contract.target_condition is None or getattr(conditions, contract.target_condition))
+        target_active = active and contract.targeting is not None and target_condition_active(contract.target_condition,conditions)
         if target_active:
             # Selectability protections depend on the physical carrier kind,
             # while domain/predicate/condition come from this complete body.
