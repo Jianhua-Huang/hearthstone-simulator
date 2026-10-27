@@ -83,7 +83,7 @@ def start_receipt(record):
     return {'source_cost': canonical_hash(asdict(record.source_cost))}
 
 
-def validate_record(state, registry, record):
+def validate_record(state, registry, record, *, _within_cast_history_check=False):
     if not requires_quote(registry,record.card_id):
         if record.source_cost is not None:
             raise ValueError('Undeclared spell invented an original source-cost value')
@@ -100,7 +100,8 @@ def validate_record(state, registry, record):
     from .repeat_matching import validate_cost_quote_fact
     from .intrinsic_costs import validate_intrinsic_history_prefix
     validate_cost_quote_fact(registry, quote)
-    validate_intrinsic_history_prefix(quote.intrinsic, state, registry)
+    validate_intrinsic_history_prefix(quote.intrinsic, state, registry,
+                                     _within_cast_history_check=_within_cast_history_check)
     if record.origin in ('hand', 'repeat'):
         from .play_history import play_record
         play = play_record(state, record.play_id)

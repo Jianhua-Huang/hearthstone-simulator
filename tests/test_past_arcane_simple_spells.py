@@ -258,7 +258,9 @@ class PastArcaneSimpleSpellTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(g.snapshot(),saved)
         g = self.game(('TIME_857',),mode='full-reference'); saved = g.snapshot()
         self.assertEqual(len(g.registry.pool('constructed.past.cards',FULL).members),84)
-        with self.assertRaisesRegex(ResolutionError,'AT_004'): self.play(g,'TIME_857')
+        reference=batch.read(native.load_batch()['reference_document'])
+        missing=next(cid for cid in reference['class_metadata_views']['mage'] if cid not in g.registry.cards)
+        with self.assertRaisesRegex(ResolutionError,missing): self.play(g,'TIME_857')
         self.assertEqual(g.snapshot(),saved)
 
     def test_late_existing_body_pin_failure_adds_no_partial_native_cards_or_behaviors(self):

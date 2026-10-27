@@ -4692,7 +4692,8 @@ class PlayerSpellCountCostSpec:
     def __post_init__(self):
         if type(self.profile_id) is not str or self.profile_id not in (
                 'cost.player-spell-count-v1', 'cost.player-distinct-spell-school-count-v1',
-                'cost.player-fel-spell-count-v1', 'cost.player-holy-cast-count-v1'):
+                'cost.player-fel-spell-count-v1', 'cost.player-holy-cast-count-v1',
+                'cost.player-distinct-school-cast-count-v1'):
             raise ValueError('Unsupported personal spell-count cost policy')
 
 
@@ -4745,6 +4746,9 @@ def _player_spell_count_quantity(spec, player_id, rows):
         # Keep the older root-only price profiles' operands unchanged.
         return sum(row.player_id == player_id and row.spell_school is SpellSchool.HOLY and
                    row.payload_started and row.failure is None for row in rows)
+    if spec.profile_id == 'cost.player-distinct-school-cast-count-v1':
+        return len({row.spell_school for row in rows if row.player_id == player_id and
+                    row.payload_started and row.failure is None and row.spell_school is not None})
     personal = tuple(row for row in rows if row.counts_for(player_id))
     if spec.profile_id == 'cost.player-spell-count-v1':
         return len(personal)

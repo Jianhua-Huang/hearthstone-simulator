@@ -12,7 +12,8 @@ def validate_definition(definition):
     if type(spec) is not PlayerSpellCountCostSpec:
         raise ValueError('Expected PlayerSpellCountCostSpec')
     spec.__post_init__()
-    kind = (CardType.SPELL if spec.profile_id == 'cost.player-distinct-spell-school-count-v1'
+    kind = (CardType.SPELL if spec.profile_id in ('cost.player-distinct-spell-school-count-v1',
+                                               'cost.player-distinct-school-cast-count-v1')
             else CardType.MINION)
     if definition.kind != kind or not definition.hand_playable or definition.starship_for:
         raise ValueError('Personal spell count requires the ordinary physical type of its finite policy')
@@ -59,9 +60,14 @@ def validate_fact(registry, definition, fact):
             raise ValueError('Personal spell price rewrote an original declared school')
 
 
-def validate_prefix(fact, state, registry):
+def validate_prefix(fact, state, registry, *, _within_cast_history_check=False):
     from .spell_casts import validate_history
-    validate_history(state, registry)
+    if type(_within_cast_history_check) is not bool:
+        raise ValueError('Cast history validation context requires a boolean')
+    # The outer history validator still checks every CAST and source receipt.
+    # Re-entering it from that receipt's own prefix would be a dependency cycle.
+    if not _within_cast_history_check:
+        validate_history(state, registry)
     if fact.next_entity_id > state.next_entity_id or len(fact.rows) > len(state.cast_history):
         raise ValueError('Personal spell price lost its complete original allocation prefix')
     for old, current in zip(fact.rows, state.cast_history):

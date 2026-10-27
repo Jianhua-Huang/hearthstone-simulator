@@ -445,7 +445,7 @@ def validate_generated_quote_fact(registry, fact):
         raise ValueError('Generated result differs from its complete ordered operations')
 
 
-def validate_intrinsic_history_prefix(fact, state, registry):
+def validate_intrinsic_history_prefix(fact, state, registry, *, _within_cast_history_check=False):
     """Bind a saved query boundary to the retained timeline, allowing real progress.
 
     Full original payment/acceptance states separately authenticate capture.
@@ -482,7 +482,8 @@ def validate_intrinsic_history_prefix(fact, state, registry):
             raise ValueError('Hero price borrowed another physical hero or changed its retained identity')
     if fact.player_spells is not None:
         from .player_spell_count_costs import validate_prefix
-        validate_prefix(fact.player_spells, state, registry)
+        validate_prefix(fact.player_spells, state, registry,
+                        _within_cast_history_check=_within_cast_history_check)
     if fact.player_hero_powers is not None:
         from .player_hero_power_count_costs import validate_prefix as validate_power_prefix
         validate_power_prefix(fact.player_hero_powers, state, registry)

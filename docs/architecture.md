@@ -1835,3 +1835,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 原生奥秘用原SecretSpec和真实CAST/物理出牌/死亡/攻击事件，复制用原捕获引用或DeathRecord；全区域增益交BuffMinionsInZones，不在卡层复制结算器。原始别名的完整依赖pin、完整生成查询和未校准伤害窗口见[过去奥术消费者契约](m3-past-arcane-secrets-copy-damage.md)。
+
+
+按全部实际CAST的不同派系计价须声明独立有限策略，保留旧手动根策略；费用前缀在外层完整历史校验内部不重入同一全历史，直接入口仍核全部历史义务。原下一次法强/价格、受法强数值和持牌纳迦消费者见[契约](m3-past-arcane-next-values.md)，不增加保存可选的跳过标记。

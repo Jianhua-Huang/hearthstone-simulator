@@ -527,7 +527,7 @@ def validate_history(state, registry):
         from .hand_cost_rank import validate_cast as validate_hand_rank
         validate_hand_rank(state, registry, record)
         from .spell_source_costs import validate_record as validate_source_cost
-        validate_source_cost(state, registry, record)
+        validate_source_cost(state, registry, record, _within_cast_history_check=True)
         if record.target_origin is not None:
             from .allocation_facts import validate_allocation
             validate_allocation(state,registry,record.target_origin)
