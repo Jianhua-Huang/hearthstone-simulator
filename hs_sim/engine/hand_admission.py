@@ -35,8 +35,9 @@ def validate_hand_play(state, registry, rules, action, *, context=None, play_tar
         raise IllegalAction('This card type cannot be played')
     if not definition.manual_playable:
         raise IllegalAction('This card cannot be manually played from hand')
-    from .play_requirements import manual_requirement_error
-    if reason := manual_requirement_error(state, registry, entity):
+    from .play_requirements import manual_requirement_error, manual_use_error
+    if reason := (manual_requirement_error(state, registry, entity) or
+            manual_use_error(state, registry, entity, context_factory=context)):
         raise IllegalAction(reason)
     from .player_effects import manual_play_allowed
     if not manual_play_allowed(state, registry, player.id, definition.kind):

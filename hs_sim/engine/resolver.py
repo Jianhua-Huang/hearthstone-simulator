@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v772'
+CORE_EFFECTS_VERSION = 'core-effects-v773'
 
 
 class Mechanics:
@@ -1655,8 +1655,10 @@ def play_from_hand(r, effect):
     definition = r.registry.card(entity.card_id)
     if not definition.hand_playable or not definition.manual_playable:
         raise ResolutionError('This card cannot be manually played from hand')
-    from .play_requirements import manual_requirement_error
-    if reason := manual_requirement_error(r.state, r.registry, entity):
+    from .play_requirements import manual_requirement_error, manual_use_error
+    from .targeting import effect_target_context
+    if reason := (manual_requirement_error(r.state, r.registry, entity) or
+            manual_use_error(r.state, r.registry, entity, context_factory=effect_target_context(r, entity))):
         raise ResolutionError(reason)
     from .player_effects import manual_play_allowed
     if not manual_play_allowed(r.state, r.registry, player.id, definition.kind):

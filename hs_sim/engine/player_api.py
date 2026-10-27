@@ -97,7 +97,8 @@ def require_supported_source(game, entity_id, *, definition=None, check_use=Fals
             raise UnsupportedPlayerRule('unsupported_target_domain')
         # any_character rejects hands based solely on their public zone.
         # any_entity accepts every current hand kind; neither reads hidden stats.
-    if check_use or definition.kind == CardType.HERO_POWER or (definition.kind == CardType.LOCATION and source.zone == Zone.BOARD):
+    if (check_use or definition.kind in (CardType.SPELL, CardType.HERO_POWER) or
+            definition.kind == CardType.LOCATION and source.zone == Zone.BOARD):
         if game.registry.use_visibility(definition.use_rule) not in ('builtin', 'player'):
             raise UnsupportedPlayerRule('unsupported_rule')
 

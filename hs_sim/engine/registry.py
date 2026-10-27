@@ -2590,8 +2590,9 @@ class Registry:
                 _name(card.on_use, 'active ability on_use')
             if card.on_play is not None:
                 raise ValueError('Hero powers and locations use on_use, not on_play')
-        elif card.on_use is not None or card.uses_per_turn != 1 or card.use_rule != 'always' or card.requires_board_space:
-            raise ValueError('Only hero powers and locations have use behavior and limits')
+        elif (card.on_use is not None or card.uses_per_turn != 1 or card.requires_board_space or
+                card.use_rule != 'always' and card.kind != CardType.SPELL):
+            raise ValueError('Only spells may add manual use conditions; active behavior and limits require powers or locations')
         if type(card.passive_hero_power) is not bool:
             raise ValueError('passive_hero_power must be boolean')
         if card.passive_hero_power and (card.kind != CardType.HERO_POWER or card.on_use is not None or
@@ -3058,7 +3059,7 @@ class Registry:
                     raise ValueError('Forge upgrade must preserve card type')
             if card.requires_target or card.targeting is not None:
                 self.target_rule(card.target_rule)
-            if card.kind in (CardType.HERO_POWER, CardType.LOCATION):
+            if card.kind in (CardType.SPELL, CardType.HERO_POWER, CardType.LOCATION):
                 self.use_rule(card.use_rule)
             if card.initial_hero_power is not None and self.card(card.initial_hero_power).kind != CardType.HERO_POWER:
                 raise ValueError('Initial hero power must identify a hero power definition')

@@ -150,6 +150,6 @@ class WeaponPlayRequirementTests(unittest.TestCase):
         before=deepcopy(proof.payment_state)
         before.entities[before.players[1].weapon_id].zone=Zone.GRAVEYARD
         before.players[1].weapon_id=None
-        with self.assertRaisesRegex(ValueError,'original equipped weapon prerequisite'):
+        with self.assertRaisesRegex(ValueError,'original manual play prerequisite'):
             validate_hand_cost_proof(replace(proof,payment_state=before),r.registry)
 
