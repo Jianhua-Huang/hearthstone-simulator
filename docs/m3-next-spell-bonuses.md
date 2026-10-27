@@ -11,3 +11,8 @@
 原安装、实际付费/自动认领和显式移除有私有原材料证明，核实际战吼、玩家/来源、分配顺序和安装早于认领。活动程序、已认领记录及显式移除须完整覆盖原安装，不能裁掉整个待用程序或只留永久减费。快照、克隆、回放、错误操作回滚、等待恢复及玩家信息继续沿原管线；这些检查不认证未签名存档的来源。
 
 只在原模型增加三个默认字段：`PlayerEffectSpec.next_spell_cost_reduction=0`、`PlayRecord.next_spell_bonus_effects=()`和`SpellCastRecord.next_spell_bonus_effects=()`；无新模型类、对局账户、效果类型或明确payload。旧Spec的零默认值不改变注册表指纹。协议core583/schema477、观察107、内容preview-v408，命令12/replay1保持。整卡手牌切换、两个其他缺失战吼及正式规则仍未完成；实际验收和下一项只在[项目状态](project-status.md)与[机制台账](mechanism-backlog.md)维护。
+
+
+## 原生泰坦技能来源扩展
+
+兵主冰霜技能另接受原Event和SourceAllocationFact；原战吼入口、配对实例和支付/CAST消费政策保持。开始事件、注册正文与完整来源须一致，并在实际技能完成之前安装一次；等待选择可以增加命令编号，不能误判为原技能已结束。新私有收据与两项AddPlayerEffect wire字段采用schema611，旧1～610拒绝。其余边界与表达见[兵主契约](m3-primus-titan.md)，实际验收仍只在原两台账记录。

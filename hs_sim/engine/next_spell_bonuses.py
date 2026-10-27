@@ -7,7 +7,7 @@ reactions. The existing payment projection uses the same pure paid commit.
 from dataclasses import asdict,replace
 import json
 
-from .model import CardType,CostModifier,CostSpec,PlayerEffect
+from .model import CardType,CostModifier,CostSpec,Event,PlayerEffect,Zone
 
 KIND='next_spell_bonus'
 INSTALLED='native_spell_bonus_installed'
@@ -58,14 +58,70 @@ def modifier_owner(state,registry,player_id,modifier):
     return True
 
 
-def install_origin(state,spec,player_id,source_id):
-    rows=[b for b in state.battlecry_history if b.source_id==source_id and b.player_id==player_id and
+def ability_event_json(event):
+    from .serialization import event_to_dict
+    return json.dumps(event_to_dict(event),ensure_ascii=False,sort_keys=True,separators=(',',':'))
+
+
+def validate_ability_origin(state,registry,events,spec,player_id,source_id,event,source,*,installation=None):
+    """Bind one native program to its exact already accepted skill, not its live face."""
+    from .allocation_facts import SourceAllocationFact,validate_allocation
+    from .effects import _integer
+    from .hero_health_history import effective_events
+    if type(event)is not Event or type(source)is not SourceAllocationFact:
+        raise ValueError('Native spell bonus requires typed original ability material')
+    validate_allocation(state,registry,source)
+    _integer(event.sequence,'native ability event sequence',1)
+    _integer(event.action,'native ability action',0)
+    data=dict(event.data)
+    if (spec.kind!=KIND or event.kind!='minion_ability_started' or event.amount!=0 or
+            set(data)!={'ability_id','ability_card_id'} or len(event.data)!=2 or
+            (event.source_id,event.player_id)!=(source_id,player_id) or
+            (source.entity_id,source.card_id,source.controller,source.kind,source.zone)!=
+            (source_id,spec.card_id,player_id,CardType.MINION,Zone.BOARD)):
+        raise ValueError('Native spell bonus changed its original skill source')
+    native=registry.card(source.card_id)
+    if not any((a.id,a.card_id,a.behavior_id)==(data['ability_id'],data['ability_card_id'],spec.id)
+            for a in native.activated_abilities):
+        raise ValueError('Native spell bonus borrowed another skill or program')
+    original=effective_events(events)
+    if [e for e in original if e.sequence==event.sequence]!=[event]:
+        raise ValueError('Native spell bonus lost its actual original ability event')
+    end=installation.sequence if installation is not None else max((e.sequence for e in events),default=0)+1
+    action=installation.action if installation is not None else state.action_number
+    # Resolving a real choice is a later command in the same accepted ability.
+    # The original completion below, rather than command equality, closes it.
+    if event.sequence>=end or event.action>action:
+        raise ValueError('Native spell bonus installation precedes its original ability')
+    if any(e.kind=='minion_ability_used' and event.sequence<e.sequence<end and
+            (e.source_id,e.player_id,dict(e.data).get('ability_id'),dict(e.data).get('ability_card_id'))==
+            (source_id,player_id,data['ability_id'],data['ability_card_id'])for e in original):
+        raise ValueError('Native spell bonus cannot install after its original ability completed')
+
+
+def install_origin(r,spec,player_id,source_id,ability_event=None,ability_source=None):
+    if ability_event is not None:
+        validate_ability_origin(r.state,r.registry,r.game._events,spec,player_id,source_id,ability_event,ability_source)
+        encoded=ability_event_json(ability_event)
+        from .hero_health_history import effective_events
+        if any(e.kind==INSTALLED and dict(e.data).get('ability_event_json')==encoded
+                for e in effective_events(r.game._events)):
+            raise ValueError('Native spell bonus repeated the same original skill installation')
+        return ability_event,ability_source
+    rows=[b for b in r.state.battlecry_history if b.source_id==source_id and b.player_id==player_id and
         b.payload.card_id==spec.card_id and b.payload_started and not b.completed and not b.interrupted and b.failure is None]
     if len(rows)!=1:raise ValueError('Native spell bonus requires its actual original Battlecry')
     return rows[0].id
 
 
 def note_install(r,instance,battlecry_id):
+    if type(battlecry_id)is tuple:
+        event,source=battlecry_id
+        r.emit(INSTALLED,source_id=instance.source_id,player_id=event.player_id,
+            ability_event_json=ability_event_json(event),
+            ability_source_json=json.dumps(asdict(source),ensure_ascii=False,sort_keys=True,separators=(',',':')),
+            effects_json=material_json((instance,)),_capture=False)
+        return
     r.emit(INSTALLED,source_id=instance.source_id,player_id=r.state.battlecry_history[battlecry_id-1].player_id,
         battlecry_id=battlecry_id,effects_json=material_json((instance,)),_capture=False)
 
@@ -117,27 +173,41 @@ def accept_automatic(r,record):
 
 def validate_game(game):
     state,registry=game._state,game.registry
+    from .player_effects import AddPlayerEffect
+    from .summon_quantities import walk_work
+    queued=tuple(e for e in walk_work(game._frame)if type(e)is AddPlayerEffect and e.ability_event is not None)
     if not(any(e.kind in(INSTALLED,CLAIMED,REMOVED)for e in game._events)or
            any(p.next_spell_bonus_effects for p in state.play_history)or any(c.next_spell_bonus_effects for c in state.cast_history)or
-           any(registry.player_effect(e.spec_id).kind==KIND for p in state.players.values()for e in p.player_effects)):
+           any(registry.player_effect(e.spec_id).kind==KIND for p in state.players.values()for e in p.player_effects)or queued):
         return
     from .hero_health_history import effective_events
-    events=effective_events(game._events);installed={};claims={};removed={}
+    events=effective_events(game._events);installed={};claims={};removed={};native_origins=set()
     for event in events:
         d=dict(event.data)
         if event.kind==INSTALLED:
-            if set(d)!={'battlecry_id','effects_json'}:raise ValueError('Native spell bonus installation lost its complete receipt')
+            native=set(d)=={'ability_event_json','ability_source_json','effects_json'}
+            if not native and set(d)!={'battlecry_id','effects_json'}:raise ValueError('Native spell bonus installation lost its complete receipt')
             raw=json.loads(d['effects_json'])
             from .serialization import player_effect_from_dict
             rows=tuple(player_effect_from_dict(x)for x in raw);validate_material(rows,state.turn)
             if len(rows)!=1:raise ValueError('Native spell bonus installation requires one original instance')
             e=rows[0];spec=registry.player_effect(e.spec_id)
-            from .battlecries import battlecry_record
-            b=battlecry_record(state,d['battlecry_id'])
-            if(spec.kind!=KIND or e.source_card_id!=spec.card_id or e.source_id!=event.source_id or
-                    (b.source_id,b.player_id,b.payload.card_id)!=(event.source_id,event.player_id,spec.card_id)or
-                    not b.payload_started or b.failure is not None or e.id in installed):
+            if(spec.kind!=KIND or e.source_card_id!=spec.card_id or e.source_id!=event.source_id or e.id in installed):
                 raise ValueError('Native spell bonus installation borrowed another original source')
+            if native:
+                from .serialization import event_from_dict
+                from .allocation_facts import allocation_from_dict
+                origin=event_from_dict(json.loads(d['ability_event_json']))
+                source=allocation_from_dict(json.loads(d['ability_source_json']))
+                validate_ability_origin(state,registry,events,spec,event.player_id,event.source_id,origin,source,installation=event)
+                if origin.sequence in native_origins:raise ValueError('Native spell bonus repeated its original skill receipt')
+                native_origins.add(origin.sequence)
+            else:
+                from .battlecries import battlecry_record
+                b=battlecry_record(state,d['battlecry_id'])
+                if((b.source_id,b.player_id,b.payload.card_id)!=(event.source_id,event.player_id,spec.card_id)or
+                        not b.payload_started or b.failure is not None):
+                    raise ValueError('Native spell bonus installation borrowed another original Battlecry')
             installed[e.id]=(event,rows[0])
         elif event.kind==CLAIMED:
             if set(d)!={'origin','identity','effects_json'}or d['origin']not in('play','cast'):
@@ -153,6 +223,12 @@ def validate_game(game):
             rows=tuple(player_effect_from_dict(x)for x in json.loads(d['effects_json']));validate_material(rows,state.turn)
             if len(rows)!=1 or rows[0].id in removed:raise ValueError('Native spell bonus removal repeated its original instance')
             removed[rows[0].id]=(event,rows[0])
+    for effect in queued:
+        effect.__post_init__()
+        spec=registry.player_effect(effect.spec_id)
+        validate_ability_origin(state,registry,events,spec,effect.player_id,effect.source_id,effect.ability_event,effect.ability_source)
+        if effect.ability_event.sequence in native_origins:raise ValueError('Native spell bonus queued its original skill twice')
+        native_origins.add(effect.ability_event.sequence)
     expected={};used={};live={e.id for p in state.players.values()for e in p.player_effects}
     def check_material(rows,player_id,turn):
         validate_material(rows,turn)

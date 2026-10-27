@@ -1,0 +1,1084 @@
+{
+  "schema": 1,
+  "kind": "native-primus-rune-skills",
+  "cards": [
+    {
+      "record": {
+        "id": "TTN_737",
+        "dbf_id": 98285,
+        "name": "兵主",
+        "name_en": "The Primus",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "text_en": "<b>Titan</b>\nAfter this uses an ability, <b>Discover</b> a card with that Rune.",
+        "cost": 8,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f582eb38fa16da10a658553821a004e68bb786f4b2b630bf5ee38449d71d6afb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_737",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TTN_737t",
+        "dbf_id": 98286,
+        "name": "鲜血符文",
+        "name_en": "Runes of Blood",
+        "text": "消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "text_en": "Destroy an enemy minion. This minion and your hero gain its Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1,
+          "COST_BLOOD": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "10a610402653d8e4de0d65ce4ad6ae2476ea8595f8fe2cde1a0c6269770ea72f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_737t",
+        "max_copies": null,
+        "runes": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_737t1",
+        "dbf_id": 98287,
+        "name": "邪恶符文",
+        "name_en": "Runes of the Unholy",
+        "text": "召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "text_en": "Summon two 3/3 Undead with <b>Taunt</b>\nand <b>Reborn</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1,
+          "COST_UNHOLY": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "e5a4bc96af2da54714c3b6b4a10709721e87c6d7c9c7cef5776ee37ae1f3598d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_737t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_737t3",
+        "dbf_id": 98289,
+        "name": "冰霜符文",
+        "name_en": "Runes of Frost",
+        "text": "你施放的下一个法术法力值消耗减少（3）点且拥有<b>法术伤害+3</b>。",
+        "text_en": "The next spell you cast\ncosts (3) less and has <b>Spell_Damage_+3</b>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 5,
+          "HIDE_STATS": 1,
+          "COST_FROST": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "241d5df5633999111d3a2f88b46053db6180b2974fbe9d196c3da27633dae280",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_737t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TTN_737t2",
+        "dbf_id": 98288,
+        "name": "兵主的仆从",
+        "name_en": "Servant of the Primus",
+        "text": "<b>嘲讽</b>，<b>复生</b>",
+        "text_en": "<b>Taunt</b>\n<b>Reborn</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 1,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "REBORN": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "5dee105ed4642872081c7f8f85aa34d2b8c64d9b8054db1edd637df8b8ae3cc4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_737t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "eb0527663de75455a47411bc17406ab1faff4ca810c4e28c5402fa093f26c57d"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TLC_452t1",
+        "dbf_id": 120714,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "text_en": "<b>Battlecry:</b> Destroy\nan enemy minion.\nThis minion and your\nhero gain its Health.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f8c11a29dece4a562a23810762038c16f57778844fb558dac3e51478e62412e5",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TLC_452t2",
+        "dbf_id": 121297,
+        "name": "泰坦考据学家欧斯克",
+        "name_en": "Titanographer Osk",
+        "text": "<b>战吼：</b>你施放的下一个法术法力值消耗减少（3）点且拥有<b>法术伤害+3</b>。",
+        "text_en": "[x]<b>Battlecry:</b> The next spell\nyou cast costs (3) less and\nhas <b>Spell_Damage_+3</b>.",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1952,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 117956,
+          "HAS_DIAMOND_QUALITY": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d3df14a244ca4c6210080aa84f0afcfcee26eb148cbde00929604900b2d393a1",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TLC_452t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TTN_737",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 98285,
+        "collectible": 1,
+        "slug": "98285-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "兵主",
+        "text": "<b>泰坦</b> 在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/620fd392afbc59dac779a92a14b4875fcc270181a0cdfcbad97b048f0ed57391.png",
+        "imageGold": "",
+        "flavorText": "既然存在泰坦万神殿，也就有死亡万神殿，其中包括暗影界各位强大的统治者。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5da5360e71ca9e341151f252251ef2b5ff9213118cb15d61f82492524880e91.png",
+        "childIds": [
+          98286,
+          98289,
+          98287,
+          98288
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_737",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 98285,
+        "collectible": 1,
+        "slug": "98285-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 5,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "health": 9,
+        "attack": 7,
+        "manaCost": 8,
+        "name": "The Primus",
+        "text": "<b>Titan</b> After this uses an ability, <b>Discover</b> a card with that Rune.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4aabf8d5d210271194333178ff302c184a6a1e0ae3ed22fe071fefcc8f02a1cd.png",
+        "imageGold": "",
+        "flavorText": "As there is a Pantheon of titans, so is there also a Pantheon of Death, comprised of powerful rulers in the Shadowlands.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5da5360e71ca9e341151f252251ef2b5ff9213118cb15d61f82492524880e91.png",
+        "childIds": [
+          98286,
+          98289,
+          98287,
+          98288
+        ],
+        "keywordIds": [
+          21,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_737t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98286-zh_CN.json",
+      "response_sha256": "b460a718ceda27581defd02f619389b82e38e6938ca3c55279827562bffac35a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98286&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 98286,
+        "collectible": 0,
+        "slug": "98286-runes-of-blood",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "鲜血符文",
+        "text": "消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6563fab1c307414d1d92a88315c26aab22bc51bfdf12ce33f025ce395078c43d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98286&locale=zh_CN&collectible=0",
+        "sha256": "b460a718ceda27581defd02f619389b82e38e6938ca3c55279827562bffac35a",
+        "bytes": 647,
+        "observed_at": "2026-10-27T14:42:42.629279+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98286-en_US.json",
+      "response_sha256": "9c29eab15429f89f196b6366837f37836f2e1dd570e788a1670f34dcbd829ab1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98286&locale=en_US&collectible=0",
+      "face": {
+        "id": 98286,
+        "collectible": 0,
+        "slug": "98286-runes-of-blood",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "Runes of Blood",
+        "text": "Destroy an enemy minion. This minion and your hero gain its Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/67b4401ab2daf5fb73fb20ca329aa73acf2d2b3b480e12b0a46fe4931ccb908e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 1,
+          "frost": 0,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98286&locale=en_US&collectible=0",
+        "sha256": "9c29eab15429f89f196b6366837f37836f2e1dd570e788a1670f34dcbd829ab1",
+        "bytes": 644,
+        "observed_at": "2026-10-27T14:42:42.414939+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98287-zh_CN.json",
+      "response_sha256": "6d563a0e7bb354905193b46ab7ec595c53306cb9d43c8f66946410af89755f6f",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=zh_CN",
+      "face": {
+        "id": 98287,
+        "collectible": 0,
+        "slug": "98287-runes-of-the-unholy",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "邪恶符文",
+        "text": "召唤两个3/3并具有<b>嘲讽</b>和<b>复生</b>的亡灵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa205e4b2d5ef00485fef419de8b022a8738845f824d16889e69b0d8c624176d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=zh_CN",
+        "sha256": "6d563a0e7bb354905193b46ab7ec595c53306cb9d43c8f66946410af89755f6f",
+        "bytes": 645,
+        "observed_at": "2026-10-17T09:51:51.139619+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98287-en_US.json",
+      "response_sha256": "96fefbf708cd89ca0fe7627d134e7cbb6b0d70fa35fc05ea6da8e2a5d9684b2d",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=en_US",
+      "face": {
+        "id": 98287,
+        "collectible": 0,
+        "slug": "98287-runes-of-the-unholy",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "Runes of the Unholy",
+        "text": "Summon two 3/3 Undead with <b>Taunt</b> and <b>Reborn</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9aed7f97f1ac49a16fd00db7dbe61325cc9ce2ea315664c5ea47fa9e0da05817.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 1
+        }
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98287&locale=en_US",
+        "sha256": "96fefbf708cd89ca0fe7627d134e7cbb6b0d70fa35fc05ea6da8e2a5d9684b2d",
+        "bytes": 645,
+        "observed_at": "2026-10-17T09:50:26.813844+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98289-zh_CN.json",
+      "response_sha256": "ab942c89591c3a5e68f3e1962cbfbd0de5f865eb28f63a45c0ce95cc00d9b903",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98289&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 98289,
+        "collectible": 0,
+        "slug": "98289-runes-of-frost",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "冰霜符文",
+        "text": "你施放的下一个法术法力值消耗减少（3）点且拥有<b>法术伤害+3</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f4c845557e381d484922556df1a400b3942c2cfec47feff6072a4d29b32f95a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98289&locale=zh_CN&collectible=0",
+        "sha256": "ab942c89591c3a5e68f3e1962cbfbd0de5f865eb28f63a45c0ce95cc00d9b903",
+        "bytes": 666,
+        "observed_at": "2026-10-27T14:42:42.503000+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98289-en_US.json",
+      "response_sha256": "90ffd522f8d12f8cb675a6c69929314a53e2f89e238f8fcb0344172b52f3af83",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98289&locale=en_US&collectible=0",
+      "face": {
+        "id": 98289,
+        "collectible": 0,
+        "slug": "98289-runes-of-frost",
+        "classId": 1,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "A. Zemskov & T. Shevtsov",
+        "manaCost": 0,
+        "name": "Runes of Frost",
+        "text": "The next spell you cast costs (3) less and has <b>Spell Damage +3</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86b08a3a393f539abd2cab835e3abf3b9595902a73f5ab4900d9cd9e95be9966.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "runeCost": {
+          "blood": 0,
+          "frost": 1,
+          "unholy": 0
+        }
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98289&locale=en_US&collectible=0",
+        "sha256": "90ffd522f8d12f8cb675a6c69929314a53e2f89e238f8fcb0344172b52f3af83",
+        "bytes": 647,
+        "observed_at": "2026-10-27T14:42:42.405417+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98288-zh_CN.json",
+      "response_sha256": "ee613d9fd9ede8e6573ccbe1c505329b649f76a78d2462c11e76a644dacdfb37",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=zh_CN",
+      "face": {
+        "id": 98288,
+        "collectible": 0,
+        "slug": "98288-servant-of-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "兵主的仆从",
+        "text": "<b>嘲讽</b>，<b>复生</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a0c08f63c6975135665e7adf485dd082c4460f3174ff335ea53843ae9d1f517.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "keywordIds": [
+          1,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=zh_CN",
+        "sha256": "ee613d9fd9ede8e6573ccbe1c505329b649f76a78d2462c11e76a644dacdfb37",
+        "bytes": 617,
+        "observed_at": "2026-10-17T09:51:49.899988+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_737t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98288-en_US.json",
+      "response_sha256": "1892881e923ce9b684424fd6c7affb627c551113edb976e3fef773ce7d5c4589",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=en_US",
+      "face": {
+        "id": 98288,
+        "collectible": 0,
+        "slug": "98288-servant-of-the-primus",
+        "classId": 1,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "James Ryman",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Servant of the Primus",
+        "text": "<b>Taunt</b> <b>Reborn</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eefa51314c4c5c437eb91315a0f25cb16527078730ba48979b831761957ba867.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98285,
+        "keywordIds": [
+          1,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=98288&locale=en_US",
+        "sha256": "1892881e923ce9b684424fd6c7affb627c551113edb976e3fef773ce7d5c4589",
+        "bytes": 620,
+        "observed_at": "2026-10-17T09:50:26.852623+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120714-zh_CN.json",
+      "response_sha256": "407ed2032c5c4342c4d666bb91b4e94c269e664e7c91a9eab85653fcb9cab648",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=zh_CN",
+      "face": {
+        "id": 120714,
+        "collectible": 0,
+        "slug": "120714-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>消灭一个敌方随从。本随从和你的英雄获得其生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6701a1cb518f71420ac0dd47a4d4e1bd826a7c7c002255c2d40eaa4e8d4c1cab.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=zh_CN",
+        "sha256": "407ed2032c5c4342c4d666bb91b4e94c269e664e7c91a9eab85653fcb9cab648",
+        "bytes": 658,
+        "observed_at": "2026-10-20T02:55:39.141658+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\120714-en_US.json",
+      "response_sha256": "316a5d2146ab41c6a283aa76ab80f1f88e9fef754e762b2b3e11ca007764ec4a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=en_US",
+      "face": {
+        "id": 120714,
+        "collectible": 0,
+        "slug": "120714-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> Destroy an enemy minion. This minion and your hero gain its Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/56516a2b9032e328041a12e6bf6388e1dcc490043addc7d23e9be1d90aeaefb6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=120714&locale=en_US",
+        "sha256": "316a5d2146ab41c6a283aa76ab80f1f88e9fef754e762b2b3e11ca007764ec4a",
+        "bytes": 645,
+        "observed_at": "2026-10-20T02:55:39.446073+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121297-zh_CN.json",
+      "response_sha256": "a77df093f3b8135835b360b84fd824823316311be33711ce5db13ae6a9e97a16",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=zh_CN",
+      "face": {
+        "id": 121297,
+        "collectible": 0,
+        "slug": "121297-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "泰坦考据学家欧斯克",
+        "text": "<b>战吼：</b>你施放的下一个法术法力值消耗减少（3）点且拥有<b>法术伤害+3</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3b995495a2e000bf2711f38a9389da8656444a829d864736dfb35c37e256726.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          2,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=zh_CN",
+        "sha256": "a77df093f3b8135835b360b84fd824823316311be33711ce5db13ae6a9e97a16",
+        "bytes": 679,
+        "observed_at": "2026-10-20T02:55:40.827050+00:00"
+      }
+    },
+    {
+      "card_id": "TLC_452t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\121297-en_US.json",
+      "response_sha256": "3be61e2333eee86c5b9fb9768f1c3ca363a90f92aaf8360c5f281824655edaa7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=en_US",
+      "face": {
+        "id": 121297,
+        "collectible": 0,
+        "slug": "121297-titanographer-osk",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1952,
+        "rarityId": 5,
+        "artistName": null,
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Titanographer Osk",
+        "text": "<b>Battlecry:</b> The next spell you cast costs (3) less and has <b>Spell Damage +3</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7eb3d0a96ea0515a3eac8f53db6fe4123a0136f27e38862ad09a5023db5529da.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 117956,
+        "keywordIds": [
+          2,
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=121297&locale=en_US",
+        "sha256": "3be61e2333eee86c5b9fb9768f1c3ca363a90f92aaf8360c5f281824655edaa7",
+        "bytes": 650,
+        "observed_at": "2026-10-20T02:55:41.112441+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "TTN_737t": {
+      "cost": 0
+    },
+    "TTN_737t1": {
+      "cost": 0
+    },
+    "TTN_737t3": {
+      "cost": 0
+    }
+  },
+  "choice_only_ids": [
+    "TTN_737t",
+    "TTN_737t1",
+    "TTN_737t3"
+  ],
+  "new_token_ids": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "real_excavate_profile_bound": false,
+  "titan_reference": {
+    "path": "data/cards/titan-reference-khaz-argus-v1.json",
+    "sha256": "e2910daa6c9b662d93ec0aba159df4a69ccf7cb481cd60e376842658472e20c4"
+  },
+  "known_local_policies": [
+    "Native Titan skills remain once-only abilities, never physical spells or CASTs.",
+    "Rune discoveries query the entire current host ordinary collectible pool, without current-class filtering. Its existing triple-rune eligibility policy is retained; exact dedicated-source exceptions remain unconfirmed.",
+    "Blood grants the captured target current remaining Health only after actual destruction, reusing the original captured-reference followup.",
+    "The Frost paired bonus uses the same paid/automatic admission, countered-spell and first-cast reservation policies as the original Osk branch.",
+    "Exact CN timing and current patch qualification are deferred; the 12-member Titan reference remains complete, uniform and unbound."
+  ]
+}

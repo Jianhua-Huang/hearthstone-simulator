@@ -2276,3 +2276,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 [原生泰坦和来源侧光环](m3-titan-khaz-argus.md)继续以ActivatedAbilitySpec引用choice-only技能面，不能把技能展示卡当作法术施放。阿古斯的KeywordAuraSpec(RUSH,"friendly_minions_left_of_source")和对应右侧LIFESTEAL只允许印刷普通随从声明，不支持额外授予或过滤组合；连续贡献随当前场位刷新，四次召唤复用同一个已有元素定义和四个独立请求。
+
+
+真实原生泰坦技能安装next_spell_bonus时，为AddPlayerEffect同时提供ability_event=c.event与ability_source=SourceAllocationFact.capture(c.state,c.source)，程序id必须等于对应ActivatedAbilitySpec.behavior_id；不要用当前活体重新构造原来源。普通战吼仍用旧入口。符文发现用完整宿主PoolQuery(runes_any=(rune,),collectible=True)，不按当前职业裁剪。详见[兵主契约](m3-primus-titan.md)。

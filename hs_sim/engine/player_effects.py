@@ -4,7 +4,8 @@ from dataclasses import dataclass, replace
 from .effects import AddCostModifier, Effect
 from .errors import ResolutionError
 from .lifecycle import attachment_id
-from .model import AbilityInstance, CardType, CostModifier, CostSpec, HandInvestigation, PlayerEffect, _int, _name
+from .model import AbilityInstance, CardType, CostModifier, CostSpec, Event, HandInvestigation, PlayerEffect, Zone, _int, _name
+from .allocation_facts import SourceAllocationFact
 from .secrets import area_count
 
 
@@ -68,6 +69,8 @@ class AddPlayerEffect(Effect):
     aura_duration_grants: tuple[AbilityInstance, ...] = ()
     investigation: HandInvestigation | None = None
     issued_spell_set: object | None = None
+    ability_event: Event | None = None
+    ability_source: SourceAllocationFact | None = None
 
     def __post_init__(self):
         _int(self.player_id, 'player', 1)
@@ -93,6 +96,21 @@ class AddPlayerEffect(Effect):
         validate_grants(self.aura_duration_grants)
         if self.aura_duration_grants and self.aura_duration_cast_id is not None:
             raise ValueError('Aura duration cannot combine cast and direct-entry proofs')
+        if (self.ability_event is None) != (self.ability_source is None):
+            raise ValueError('Native ability installation requires both original event and source')
+        if self.ability_event is not None:
+            e, source = self.ability_event, self.ability_source
+            if (type(e) is not Event or type(source) is not SourceAllocationFact or
+                    e.kind != 'minion_ability_started' or
+                    (e.source_id,e.player_id) != (self.source_id,self.player_id) or
+                    (source.entity_id,source.controller,source.kind,source.zone) !=
+                    (self.source_id,self.player_id,CardType.MINION,Zone.BOARD)):
+                raise ValueError('Native ability installation changed its original board source')
+            source.__post_init__()
+            if (self.capture_health_source or self.aura_duration_cast_id is not None or
+                    self.spell_aura_id is not None or self.aura_duration_grants or
+                    self.investigation is not None or self.issued_spell_set is not None):
+                raise ValueError('Native ability installation cannot combine unrelated program material')
 
 
 @dataclass(frozen=True)
@@ -184,9 +202,12 @@ def add(r, effect, *, adaptations=(), adaptation_source=None):
     player = r.player(effect.player_id)
     spec = r.registry.player_effect(effect.spec_id)
     native_bonus_origin=None
+    if effect.ability_event is not None and spec.kind!='next_spell_bonus':
+        raise ResolutionError('Only a native next-spell bonus accepts minion ability origin')
     if spec.kind=='next_spell_bonus':
         from .next_spell_bonuses import install_origin
-        native_bonus_origin=install_origin(r.state,spec,player.id,effect.source_id)
+        native_bonus_origin=install_origin(r,spec,player.id,effect.source_id,
+            effect.ability_event,effect.ability_source)
     source = r.state.entities.get(effect.source_id)
     if source is None:
         raise ResolutionError('Player effect source does not exist')
