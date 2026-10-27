@@ -2252,3 +2252,8 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 ## 真实火焰/星灵费用消费者与完整独立域
 
 [星灵契约](m3-protoss-spell-domain.md)展示正向印刷结构费用筛选：CostSpec(delta=-2,ability=CardAbilityCondition("fire_spell",basis="printed"),card_types=(CardType.SPELL,))或对应"protoss"。不以当前手牌位置、临时能力或冻结ID名单替代印刷派系；未知factions不能当作不匹配，生成报价不消耗一次折扣。CardAbilityCondition沿用原字段，新名字仅开放这两个真实正向printed形状，PoolQuery既有能力范围不因此扩大。专用随机域必须保留完整声明成员，不能取普通池星灵子集的空结果、按已实现程度裁池或把本地complete当作官方池认证。新增域必须进入宿主完整库存摘要，真实抽牌、原结果击杀奖励与复制交付后续仍交公共执行器。
+
+
+## 原伤害击杀奖励、召唤改进与物理手牌改费
+
+[过去法师契约](m3-past-mage-summon-draw-chains.md)提供真实复用例：Damage.on_result/InvokeHealthResult用完整原伤害payload与死亡原因核验奖励，后续召唤保存原实际CAST归因；目标后来在墓地不足以认定本伤害击杀。两次召唤用两次普通请求，不将同一候选重复写入随机材料名单当次数；鲁莽试验只在原主体计算一次适用法强费用。DrawPhysicalGroup只奖励原实际手牌到达，海床传送口在原检索/反应后对当前手牌有效种族捕获驻留引用，不用印刷名单替代当前机械。饮品下一杯按真实ID普通交付，无敌方随从仍交下一杯，未知合格候选显式失败。
