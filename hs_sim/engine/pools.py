@@ -839,8 +839,11 @@ class FillHandFromPool(Effect):
         turn_zero_spell = (q.query.kinds == (CardType.SPELL,) and q.cost == CostSpec(set_to=0) and
             q.expires_turn is not None and q.temporary_until_turn is None and q.spell_repeat is None and
             getattr(q,'minion_grant',None) is None)
+        permanent_fire_one = (q.query == PoolQuery(kinds=(CardType.SPELL,),collectible=True,spell_schools=(SpellSchool.FIRE,)) and
+            q.cost == CostSpec(set_to=1) and q.expires_turn is None and q.temporary_until_turn is None and q.spell_repeat is None and
+            getattr(q,'minion_grant',None) is None)
         if (q.count != 1 or q.source_id is None or q.destination != 'hand' or not q.replacement or
-                (q.query.kinds != (CardType.MINION,) and not (temporary_spell or permanent_spell or turn_zero_spell)) or q.query.collectible is not True or
+                (q.query.kinds != (CardType.MINION,) and not (temporary_spell or permanent_spell or turn_zero_spell or permanent_fire_one)) or q.query.collectible is not True or
                 (not temporary_spell and (q.spell_repeat is not None or q.temporary_until_turn is not None)) or
                 q.cause is not None or q.producer_profile_id is not None or
                 q.combined_shatter or q.board_position is not None or
@@ -935,7 +938,7 @@ def fill_hand_from_pool(r, effect):
     from dataclasses import replace
     from .hand_capacity import hand_capacity
     effect.__post_init__()
-    if (effect.request.query.kinds==(CardType.SPELL,) and effect.request.cost is not None and
+    if (effect.request.query.kinds==(CardType.SPELL,) and effect.request.cost == CostSpec(set_to=0) and
             effect.request.expires_turn!=r.state.turn):
         raise ValueError('Zero-cost spell fill requires the actual accepting turn deadline')
     player = r.player(effect.request.player_id)
@@ -1167,9 +1170,11 @@ class FillBoardFromPool(Effect):
         if type(self.cause)is not SummonCause:
             raise ValueError('Pool fill requires original card attribution')
         self.cause.__post_init__()
-        if (self.cause.source.entity_id!=self.source_id or self.cause.source.kind!=CardType.MINION
-                or self.cause.origin!='card_effect'):
-            raise ValueError('Pool fill requires its actual non-cast minion source')
+        minion = self.cause.source.kind==CardType.MINION and self.cause.origin=='card_effect'
+        spell = (self.cause.source.kind==CardType.SPELL and self.cause.origin=='spell_cast' and
+            self.cause.cast_card_id==self.cause.source.card_id)
+        if self.cause.source.entity_id!=self.source_id or not(minion or spell):
+            raise ValueError('Pool fill requires its original minion effect or actual SPELL cast')
         if (type(self.query)is not PoolQuery or self.query.kinds!=(CardType.MINION,)
                 or self.query.collectible is not True):
             raise ValueError('Pool fill requires a complete collectible minion query')

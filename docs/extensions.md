@@ -2244,3 +2244,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 过去法师法术的原邻位冻结复用FreezeCapturedMinion，新DamageCapturedMinionGroup保存1～3个原引用与等长伤害量，反应后只对仍有效原体交一次普通DamageBatch，不重选邻位或改写死亡管线。真实双生副本、具名召唤/交付、可交易与非死亡移除复用原公共机制；灵魂冻结计数、自伤法强与自动施法连击等本地政策见[契约](m3-past-mage-freeze-summons.md)。实际进度仅在原两台账维护。
+
+
+过去法师的真实填手/填场消费者继续走普通完整域：FillHandFromPool仅增加精确火焰查询的永久1费形状，FillBoardFromPool增加携带真实SummonCause/CAST身份的SPELL来源。原随从、临时/零费/永久填手、容量与原批次继续共用；具名雪人/伙伴/火把/骷髅和费用/牌库后续无独立执行器。来源、未确认星灵域及实际边界见[契约](m3-past-mage-pool-rewards.md)，实际进度仅在原两台账维护。
