@@ -199,6 +199,9 @@ class FrameCodec:
         from .spell_target_sequences import FreezeAdjacentThenDestroyDamaged,FreezeOriginalGroupMember,DestroyDamagedFrozenGroup,validate_frozen_group
         if type(value)in(FreezeAdjacentThenDestroyDamaged,FreezeOriginalGroupMember,DestroyDamagedFrozenGroup)and self.origin_state is not None:
             validate_frozen_group(self.origin_state,self.registry,value)
+        from .captured_minion_spell_groups import DamageCapturedMinionGroup
+        if type(value)is DamageCapturedMinionGroup and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .summon_attack_groups import AttackSummonedGroup,validate_request as validate_summon_attack_request
         if type(value)is AttackSummonedGroup:validate_summon_attack_request(self.registry,value,self.origin_state)
         from .summon_keyword_groups import GrantOutcastSummonedGroup,validate_request as validate_outcast_summon_request

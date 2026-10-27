@@ -2241,3 +2241,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 过去法师法术的基础效果复用普通伤害/批次、冻结、消灭、抽牌、随机施法和当前随从复制；实际无箭头施放条件仅扩展既有SPELL.use_rule。动态接受检查与纯费用证明分开，玩家回调只读独立公开DTO，自动CAST继续走自己的资格。未新增卡面/状态字段或保存格式；完整名单与未确认政策见[契约](m3-past-mage-primitives.md)，实际进度仅在原两台账。
+
+
+过去法师法术的原邻位冻结复用FreezeCapturedMinion，新DamageCapturedMinionGroup保存1～3个原引用与等长伤害量，反应后只对仍有效原体交一次普通DamageBatch，不重选邻位或改写死亡管线。真实双生副本、具名召唤/交付、可交易与非死亡移除复用原公共机制；灵魂冻结计数、自伤法强与自动施法连击等本地政策见[契约](m3-past-mage-freeze-summons.md)。实际进度仅在原两台账维护。

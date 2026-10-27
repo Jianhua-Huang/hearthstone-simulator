@@ -1,0 +1,3110 @@
+{
+  "schema": 1,
+  "kind": "past-mage-freeze-summons-native-local-v1",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_canonical_sha256": "a6ad8cee67c84b23206cf7fcb7cc75ebdeddc451f1f10f32bc7f9d275ca145a6",
+  "collectible_leaf_ids": [
+    "CFM_021",
+    "EX1_275",
+    "UNG_955",
+    "DEEP_032",
+    "ICC_836",
+    "SW_107",
+    "MAW_013",
+    "GIL_801",
+    "DAL_577",
+    "CS2_027",
+    "BT_072",
+    "UNG_018",
+    "SW_108",
+    "VAC_428",
+    "SCH_509"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CFM_021",
+        "dbf_id": 40324,
+        "name": "冰冻药水",
+        "name_en": "Freezing Potion",
+        "text": "<b>冻结</b>一个敌人。",
+        "text_en": "<b>Freeze</b> an enemy.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 25,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "552afc359be0f8addaf166fa8e22cc17da34e94adf4245ce3a1a8c77a584fef6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "CFM_021",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "EX1_275",
+        "dbf_id": 430,
+        "name": "冰锥术",
+        "name_en": "Cone of Cold",
+        "text": "<b>冻结</b>一个随从和其相邻的随从，并对它们造成$1点伤害。",
+        "text_en": "<b>Freeze</b> a minion and the minions next to it, and deal $1 damage to them.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "FREEZE": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Leo Che"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "a6d9fdbc4ac82d228ce7fcc35aba7aa18f3c740d94dea5f01523b655a419c385",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "EX1_275",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "UNG_955",
+        "dbf_id": 41878,
+        "name": "陨石术",
+        "name_en": "Meteor",
+        "text": "对一个随从造成$15点伤害，并对其相邻的随从造成\n$4点伤害。",
+        "text_en": "Deal $15 damage to a minion and $4 damage to adjacent ones.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Gaser"
+          }
+        ]
+      },
+      "record_sha256": "915afc689be8db80088e9a1b09d596819f0b4c91f402bd55757c355f1c7c578b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "UNG_955",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "DEEP_032",
+        "dbf_id": 102724,
+        "name": "灵魂冻结",
+        "name_en": "Soulfreeze",
+        "text": "<b>冻结</b>一个随从及其相邻随从，对你的英雄造成等同于所<b>冻结</b>随从数量的伤害。",
+        "text_en": "<b>Freeze</b> a minion\nand its neighbors. Deal damage to your hero equal to the number <b>Frozen</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1892,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "FREEZE": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 264,
+          "SPELL_SCHOOL": 3,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "627040a95029996314f7a2092aaf835529b03f3e56050fe70005de0b03992825",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage",
+          "warlock"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DEEP_032",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "ICC_836",
+        "dbf_id": 43502,
+        "name": "冰龙吐息",
+        "name_en": "Breath of Sindragosa",
+        "text": "随机对一个敌方随从造成$2点伤害，并使其<b>冻结</b>。",
+        "text_en": "Deal $2 damage to a random enemy minion and <b>Freeze</b> it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1001,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Braddock"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "10f0c2c8bb3e12ae8733e9f3a271f0e143aa52b16301f76c6dca55fddc804d3a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "ICC_836",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "SW_107",
+        "dbf_id": 64423,
+        "name": "火热促销",
+        "name_en": "Fire Sale",
+        "text": "<b>可交易</b>\n对所有随从造成\n$3点伤害。",
+        "text_en": "<b>Tradeable</b>\nDeal $3 damage\nto all minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "TRADEABLE": 1,
+          "DECK_ACTION_COST": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & A. Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "207829da666c4bca95809e30dd1f5b9903975f880ef0bf6a510ac64b0796e826",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "SW_107",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "MAW_013",
+        "dbf_id": 79596,
+        "name": "终身刑罚",
+        "name_en": "Life Sentence",
+        "text": "将一个随从移出对战。",
+        "text_en": "Remove a minion\nfrom the game.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1691,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "7e163157b0f7e3f1412230c275790fcfd8b2161602358d704235ac714ef38333",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "MAW_013",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "GIL_801",
+        "dbf_id": 47821,
+        "name": "急速冷冻",
+        "name_en": "Snap Freeze",
+        "text": "<b>冻结</b>一个随从。如果该随从已被<b>冻结</b>，则将其消灭。",
+        "text_en": "<b>Freeze</b> a minion.\nIf it's already <b>Frozen</b>, destroy it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1125,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gonzalo Ordonez"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ded3374e46708ed52581baf83db2c61c42fa5128230479a197b44719e10593fb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "GIL_801",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "DAL_577",
+        "dbf_id": 52639,
+        "name": "霜冻射线",
+        "name_en": "Ray of Frost",
+        "text": "<b>双生法术</b>\n<b>冻结</b>一个随从。如果该随从已被<b>冻结</b>，则对其造成$2点伤害。",
+        "text_en": "<b>Twinspell</b>\n<b>Freeze</b> a minion.\nIf it's already <b>Frozen</b>,\ndeal $2 damage to it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "TWINSPELL": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Garner"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "77465db74637395bd5190125cb7270e848f87c30a74c6f0d1ad05add3bbda2ea",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "DAL_577",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "CS2_027",
+        "dbf_id": 1084,
+        "name": "镜像",
+        "name_en": "Mirror Image",
+        "text": "召唤两个0/2，并具有<b>嘲讽</b>的随从。",
+        "text_en": "Summon two 0/2 minions with <b>Taunt</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 968
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9d3b1805bd0c5cfb628256beb946b3413e21b9201ec2c988f715f563da1c14c4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_027",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BT_072",
+        "dbf_id": 57950,
+        "name": "深度冻结",
+        "name_en": "Deep Freeze",
+        "text": "<b>冻结</b>一个敌人。召唤两个3/6的水元素。",
+        "text_en": "<b>Freeze</b> an enemy. Summon two 3/6 Water Elementals.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1414,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "FREEZE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 395,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "4bb01f2e2a69eb54072684ddb7cd62bd07e6bbff58f1ad556f3eccb4f97f8329",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BT_072",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "UNG_018",
+        "dbf_id": 41151,
+        "name": "烈焰喷涌",
+        "name_en": "Flame Geyser",
+        "text": "造成$2点伤害。\n将一张1/2的元素牌置入你的手牌。",
+        "text_en": "Deal $2 damage.\nAdd a 1/2 Elemental to_your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42044,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Chris Seaman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "dabaec0fc4199aa6544e86a399d49648f55f006d9a4b4bbfddcca0c988e37953",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "UNG_018",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "SW_108",
+        "dbf_id": 64430,
+        "name": "初始之火",
+        "name_en": "First Flame",
+        "text": "对一个随从造成$2点伤害。将“传承之火”置入你的手牌。",
+        "text_en": "Deal $2 damage to a minion. Add a Second Flame to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 64432,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "93feef63372b8ac1de53d513684426c82b4468a907ad1b178ee5233ec0d6c0b3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "SW_108",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "VAC_428",
+        "dbf_id": 107776,
+        "name": "顺水漂流",
+        "name_en": "Go with the Flow",
+        "text": "选择一个随从。如果是敌方随从，将其<b>冻结</b>；如果是友方随从，使其获得<b>法术伤害+1</b>。",
+        "text_en": "Choose a minion.\nIf it's an enemy, <b>Freeze</b> it. If it's friendly, give it <b>Spell Damage +1</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1905,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2e6fda7c3f1441bb0a0ac75a88d4ec3a0ad1a97ba13a71a6fe6e6ec9a8e825b6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "VAC_428",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SCH_509",
+        "dbf_id": 59207,
+        "name": "冰冷智慧",
+        "name_en": "Brain Freeze",
+        "text": "<b>冻结</b>一个随从。<b>连击：</b>并对其造成$3点伤害。",
+        "text_en": "<b>Freeze</b> a minion. <b>Combo:</b> Also deal $3 damage to it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1443,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 72,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5f50c3d8e7fe8a91c23168f786faad3ad49a76c5189c63105cbf9f94650d3adc",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage",
+          "rogue"
+        ],
+        "rarity": "rare",
+        "deck_identity": "SCH_509",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "DAL_577ts",
+        "dbf_id": 54193,
+        "name": "霜冻射线",
+        "name_en": "Ray of Frost",
+        "text": "<b>冻结</b>一个随从。如果该随从已被<b>冻结</b>，则对其造成$2点伤害。",
+        "text_en": "<b>Freeze</b> a minion.\nIf it's already <b>Frozen</b>,\ndeal $2 damage to it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6432a889d1fb27a90d8a0eece9dd4f3ad6e679bb94b0682e61f1a606495478a7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "DAL_577ts",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "CS2_mirror",
+        "dbf_id": 968,
+        "name": "镜像",
+        "name_en": "Mirror Image",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": null,
+        "attack": null,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "e2459e0b10069c1aa14df16b36a71a2de9b4aa56e50a46643fee12a2407c26b4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "CS2_mirror",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_033",
+        "dbf_id": 395,
+        "name": "水元素",
+        "name_en": "Water Elemental",
+        "text": "<b>冻结</b>任何受到本随从伤害的角色。",
+        "text_en": "<b>Freeze</b> any character damaged by this minion.",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 2,
+          "FREEZE": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "John Avon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "fbcf11fa73f1bfbfbeb55632809d7cf3705f0cd6f7243a6a6666c812b0068817",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_033",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "17a8a26914edb957d9cd221a1e4659ce6642e813cc1069f6bfb2244b4c235b0f",
+      "pool_card_sha256": "0efe21d670223dd24c1aa795eb58f893fe39edc44cc6654a8111ff128a12f8c8"
+    },
+    {
+      "record": {
+        "id": "UNG_809t1",
+        "dbf_id": 42044,
+        "name": "烈焰元素",
+        "name_en": "Flame Elemental",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyler Walpole"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2f33a9294b2ad75ec28a375b93331aea46218fcb47c40a6f3b02cf0ca4cdf979",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_809t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "a430d86c8bed0667a85d911491250e4a26fe39693a53d51479c35673de9380aa",
+      "pool_card_sha256": "7777cb395a3618bb10760771caa17e68431349c684aee89cdebd6cc7724e772a"
+    },
+    {
+      "record": {
+        "id": "SW_108t",
+        "dbf_id": 64432,
+        "name": "传承之火",
+        "name_en": "Second Flame",
+        "text": "对一个随从造成$2点伤害。",
+        "text_en": "Deal $2 damage to\na minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "9e2d56d3236071e7629e98883476ea01794afd1e34dc972683c7924c6ee943eb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "SW_108t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire",
+      "definition_sha256": "d116dff17b1bb87b66555eb5cb39c86ab798ecd1244320f6a5c6b69e7f496672",
+      "pool_card_sha256": "9c818a5ddc8d0f28928f0bcc8f765bc84c5ec06f2ec6f8aa0e6937c0de4eef4b"
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "CFM_021",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 40324,
+        "collectible": 1,
+        "slug": "40324-freezing-potion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "冰冻药水",
+        "text": "<b>冻结</b>一个敌人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cdad9d5dc0b864717d8a11731f93468b43b27885895a9c16df22528cb69a8d4e.png",
+        "imageGold": "",
+        "flavorText": "冻住，不许走！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ebec45d7f134c3612e9f76e2abd752b74337b44834450bc9061f490af1af495.png",
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_021",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 40324,
+        "collectible": 1,
+        "slug": "40324-freezing-potion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "Freezing Potion",
+        "text": "<b>Freeze</b> an enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d1283f5f3b5f757c70363f68fff82ad02940c0d1be67cb03da1bde2713825933.png",
+        "imageGold": "",
+        "flavorText": "This is delicious! Oh no. BRAIN FREEEEEEEZE!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ebec45d7f134c3612e9f76e2abd752b74337b44834450bc9061f490af1af495.png",
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_275",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 430,
+        "collectible": 1,
+        "slug": "430-cone-of-cold",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Leo Che",
+        "manaCost": 3,
+        "name": "冰锥术",
+        "text": "<b>冻结</b>一个随从和其相邻的随从，并对它们造成 1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2526d484fcafc94c7706a1d6a234bbee996022740add22cd61b9d01ba0b76cf2.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a09a85bd17cf03ec384a9197aad74b0b4c02ea7287f7d40d9bf98c35c95c165.png",
+        "flavorText": "冰锥术在大约90年前开始流行起来，而在那之前，肯瑞托的法师们习惯用的是冰块术。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10a4ea20c54c549b8674ecfa51d784d00375b79f820cd129b0ff42295821289b.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          69606,
+          69904
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_275",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 430,
+        "collectible": 1,
+        "slug": "430-cone-of-cold",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Leo Che",
+        "manaCost": 3,
+        "name": "Cone of Cold",
+        "text": "<b>Freeze</b> a minion and the minions next to it, and deal 1 damage to them.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a9eec08ff850ce18c8b94a4597fd59c68e0b2d9084e29663fd9f66016a02804.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a09a85bd17cf03ec384a9197aad74b0b4c02ea7287f7d40d9bf98c35c95c165.png",
+        "flavorText": "Magi of the Kirin Tor were casting Cubes of Cold for many years before Cones came into fashion some 90 years ago.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10a4ea20c54c549b8674ecfa51d784d00375b79f820cd129b0ff42295821289b.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          69606,
+          69904
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_955",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 41878,
+        "collectible": 1,
+        "slug": "41878-meteor",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Matt Gaser",
+        "manaCost": 6,
+        "name": "陨石术",
+        "text": "对一个随从造成 15点伤害，并对其相邻的随从造成 4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/158428fbd1a32aaf492d916ce65bb9150d6be38439170ce23cfc663073be04bd.png",
+        "imageGold": "",
+        "flavorText": "引导时请注意落点的选择。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53faceee17c348f4761e415039a6b95015f05f19527635549fa6f7c8eb9148a2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_955",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 41878,
+        "collectible": 1,
+        "slug": "41878-meteor",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Matt Gaser",
+        "manaCost": 6,
+        "name": "Meteor",
+        "text": "Deal 15 damage to a minion and 4 damage to adjacent ones.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82235ce99ccfe6e4da53c419446723258e0d54a76a2d3004045539a9fc169556.png",
+        "imageGold": "",
+        "flavorText": "When you absolutely, positively have to kill all the dinosaurs.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53faceee17c348f4761e415039a6b95015f05f19527635549fa6f7c8eb9148a2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_032",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 102724,
+        "collectible": 1,
+        "slug": "102724-soulfreeze",
+        "classId": 9,
+        "multiClassIds": [
+          4,
+          9
+        ],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Jakub Kasper",
+        "manaCost": 1,
+        "name": "灵魂冻结",
+        "text": "<b>冻结</b>一个随从及其相邻随从，对你的英雄造成等同于所<b>冻结</b>随从数量的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5840c9e977b588d70d39da81bf2e1e3e643eb56ee1e9a7a81a19227d1efaa3f4.png",
+        "imageGold": "",
+        "flavorText": "想冻住灵魂，先冻住身体。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14817c6cb4473c0514afc25b475a482d6c75c38cfc07ed931ca09728ccb51adc.png",
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_032",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 102724,
+        "collectible": 1,
+        "slug": "102724-soulfreeze",
+        "classId": 9,
+        "multiClassIds": [
+          4,
+          9
+        ],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Jakub Kasper",
+        "manaCost": 1,
+        "name": "Soulfreeze",
+        "text": "<b>Freeze</b> a minion and its neighbors. Deal damage to your hero equal to the number <b>Frozen</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2457d6066492ba2678c8d4faa1c4eef6bc016fdec20304a9e9778a7abf4ca8fd.png",
+        "imageGold": "",
+        "flavorText": "An effective way to freeze someone's soul is to just freeze their body.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14817c6cb4473c0514afc25b475a482d6c75c38cfc07ed931ca09728ccb51adc.png",
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_836",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 43502,
+        "collectible": 1,
+        "slug": "43502-breath-of-sindragosa",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Eric Braddock",
+        "manaCost": 1,
+        "name": "冰龙吐息",
+        "text": "随机对一个敌方随从造成 2点伤害，并使其<b>冻结</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eace0787e91df4d4689a67a952723846b9abf563845ae576ade294e86f17356f.png",
+        "imageGold": "",
+        "flavorText": "是这里本来就冷，还是因为辛达苟萨？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d0160497ac966e14a0be9824d549aad975793f9bfaf1a3b2ae735274eb0ba41.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          95650
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_836",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 43502,
+        "collectible": 1,
+        "slug": "43502-breath-of-sindragosa",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Eric Braddock",
+        "manaCost": 1,
+        "name": "Breath of Sindragosa",
+        "text": "Deal 2 damage to a random enemy minion and <b>Freeze</b> it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97d9e43496fa26f38f99a8172acd29de22a1250243506136ab7cd79aca74f7f3.png",
+        "imageGold": "",
+        "flavorText": "Is it cold in here or is it just Sindragosa?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d0160497ac966e14a0be9824d549aad975793f9bfaf1a3b2ae735274eb0ba41.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          95650
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_107",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 64423,
+        "collectible": 1,
+        "slug": "64423-fire-sale",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "L. Lullabi & A. Bozonnet",
+        "manaCost": 4,
+        "name": "火热促销",
+        "text": "<b>可交易</b> 对所有随从造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f4d76f533f9c652ed89eab76db6f55a9b5606bfdba57a6ae9afece139934ade.png",
+        "imageGold": "",
+        "flavorText": "库房失火，五折甩卖，全场商品一律五折。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9215e9732d0cbfd3030c06b2dde1c262f2cd3ec614a993970b5dcacae49f1308.png",
+        "keywordIds": [
+          97
+        ],
+        "copyOfCardId": [
+          102193
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_107",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 64423,
+        "collectible": 1,
+        "slug": "64423-fire-sale",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "L. Lullabi & A. Bozonnet",
+        "manaCost": 4,
+        "name": "Fire Sale",
+        "text": "<b>Tradeable</b> Deal 3 damage to all minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c53b83c3c411ec268dba60d936902f13ceb80c6ff76f004bb30b55c0a05b2fa7.png",
+        "imageGold": "",
+        "flavorText": "Everything is 50% off now that our warehouse burned down.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9215e9732d0cbfd3030c06b2dde1c262f2cd3ec614a993970b5dcacae49f1308.png",
+        "keywordIds": [
+          97
+        ],
+        "copyOfCardId": [
+          102193
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MAW_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 79596,
+        "collectible": 1,
+        "slug": "79596-life-sentence",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 4,
+        "name": "终身刑罚",
+        "text": "将一个随从移出对战。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d451bb466e98ba7111ba92eb6eed55364cdb39e944ac4871bf9f2f474b2a1cd.png",
+        "imageGold": "",
+        "flavorText": "一键误终身。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5488493082174c40412236923aa5623d577d7dbb6c6d87f29cf6ab69b528eef0.png",
+        "copyOfCardId": [
+          118023
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MAW_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 79596,
+        "collectible": 1,
+        "slug": "79596-life-sentence",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 4,
+        "name": "Life Sentence",
+        "text": "Remove a minion from the game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f89b11a22c9ce07697bdaf1fe4b32403b9deb029ec1412de314357b6bad613ca.png",
+        "imageGold": "",
+        "flavorText": "Also sentenced to laugh and love.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5488493082174c40412236923aa5623d577d7dbb6c6d87f29cf6ab69b528eef0.png",
+        "copyOfCardId": [
+          118023
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_801",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 47821,
+        "collectible": 1,
+        "slug": "47821-snap-freeze",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Gonzalo Ordonez",
+        "manaCost": 1,
+        "name": "急速冷冻",
+        "text": "<b>冻结</b>一个随从。如果该随从已被<b>冻结</b>，则将其消灭。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bac5523791488a905b5325c3a622ca098d264db6d8d2c47bd31751aa5f11e5f4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5abcb225c54d1c6fb28b7ca1e1086b30b581dc058b21b6f4804de42f85b1ed3b.png",
+        "flavorText": "舔一舔就知道甜不甜了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/661eb0a580b13de169b85c164fd10a927708f66949af90b918da9316cc4fa96b.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          69699
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_801",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 47821,
+        "collectible": 1,
+        "slug": "47821-snap-freeze",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Gonzalo Ordonez",
+        "manaCost": 1,
+        "name": "Snap Freeze",
+        "text": "<b>Freeze</b> a minion. If it's already <b>Frozen</b>, destroy it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ac3f8c16cc38bb51ccae5f04e736292ae1a68053fafee5e13d6c8f8fe762d28.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15b3accc857f631596a70be513dae010d8a332f54590cd46213ab349cfc8fa3f.png",
+        "flavorText": "Lick the ice block. I triple-double-dog-dare-you.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/661eb0a580b13de169b85c164fd10a927708f66949af90b918da9316cc4fa96b.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          69699
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_577",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 52639,
+        "collectible": 1,
+        "slug": "52639-ray-of-frost",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 1,
+        "artistName": "Alex Garner",
+        "manaCost": 1,
+        "name": "霜冻射线",
+        "text": "<b>双生法术</b> <b>冻结</b>一个随从。如果该随从已被<b>冻结</b>，则对其造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f4d675b28824f52d9340f65daef82a92e7027acd63dc3e71a6c874ec0f2539d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe371fe80801098f245c77b01cfdeb42817ea0cb838a9417232dce17d9bb85a6.png",
+        "flavorText": "如果你失去了理智，就用这个冷静一下吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c0410a6de2467defe2c0acea70cb7a7e9c96f701730f05e97a99f9e6b1684f1.png",
+        "childIds": [
+          54193
+        ],
+        "keywordIds": [
+          10,
+          76
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_577",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 52639,
+        "collectible": 1,
+        "slug": "52639-ray-of-frost",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 1,
+        "artistName": "Alex Garner",
+        "manaCost": 1,
+        "name": "Ray of Frost",
+        "text": "<b>Twinspell</b> <b>Freeze</b> a minion. If it's already <b>Frozen</b>, deal 2 damage to it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0d784a90b3a7ed8c461f3bd654b79fd18066f9387a5bb3410b6fcaaba358866.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/014ecce470ccfdd8deabef51cf5d6a3efac2420dec8590bd9ec6e73f73feb0e6.png",
+        "flavorText": "If you have zero chill, this can help.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1c0410a6de2467defe2c0acea70cb7a7e9c96f701730f05e97a99f9e6b1684f1.png",
+        "childIds": [
+          54193
+        ],
+        "keywordIds": [
+          10,
+          76
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_027",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 1084,
+        "collectible": 1,
+        "slug": "1084-mirror-image",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "name": "镜像",
+        "text": "召唤两个0/2，并具有<b>嘲讽</b>的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c98e007f1a8c70621a05cce4988dc0563b46bf5393cfe27d8fe555b8f02b0af.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec2dee80763445b52d3b372d33b3b98ae167ebbf8826bb1f4434804c801f0c3a.png",
+        "flavorText": "哦，嘿，这是个镜像！！像镜个是这，嘿，哦",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13aa97386c8e350d18c180491e16fe1e6eac80b5ae049751f562305c481218f4.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68325
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_027",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 1084,
+        "collectible": 1,
+        "slug": "1084-mirror-image",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "name": "Mirror Image",
+        "text": "Summon two 0/2 minions with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39382aae1e9a0a18ae525bb04e12e1b437d44105ef77b3988512991a4cd3be63.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec2dee80763445b52d3b372d33b3b98ae167ebbf8826bb1f4434804c801f0c3a.png",
+        "flavorText": "Oh hey it's Mirror Image! !egamI rorriM s'ti yeh hO",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13aa97386c8e350d18c180491e16fe1e6eac80b5ae049751f562305c481218f4.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68325
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_072",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 57950,
+        "collectible": 1,
+        "slug": "57950-deep-freeze",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 7,
+        "name": "深度冻结",
+        "text": "<b>冻结</b>一个敌人。召唤两个3/6的水元素。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b63493ce204ddb516e11b74bdeec583d202e81e84a19e5c5f29a9ae07842003b.png",
+        "imageGold": "",
+        "flavorText": "雪花，雪花，洁白的雪花。 飘呀飘，飘呀飘，给大地披上银纱。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f58386eadb4f400d7d871e5c5551a76ed1949520f8735bbc59260f99fe90f639.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          126976
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_072",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 57950,
+        "collectible": 1,
+        "slug": "57950-deep-freeze",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 7,
+        "name": "Deep Freeze",
+        "text": "<b>Freeze</b> an enemy. Summon two 3/6 Water Elementals.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05fe5981ea1b63213b76e21a192220dc594fcc05d5f5095d302ecf066d9783c6.png",
+        "imageGold": "",
+        "flavorText": "\"Dancing with the Satyrs… on Ice!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f58386eadb4f400d7d871e5c5551a76ed1949520f8735bbc59260f99fe90f639.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          126976
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_018",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 41151,
+        "collectible": 1,
+        "slug": "41151-flame-geyser",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Chris Seaman",
+        "manaCost": 1,
+        "name": "烈焰喷涌",
+        "text": "造成 2点伤害。 将一张1/2的元素牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0251fb10818459a310dccb06ef15287d812b677667056454d11076ce1f97a05.png",
+        "imageGold": "",
+        "flavorText": "火可以带来光明，也可以毁掉一切。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4335ab45272bd8bd5696ad00bfa24fe7a2fc4bcd6f62d72beb7337329d62166.png",
+        "copyOfCardId": [
+          102194
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_018",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 41151,
+        "collectible": 1,
+        "slug": "41151-flame-geyser",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Chris Seaman",
+        "manaCost": 1,
+        "name": "Flame Geyser",
+        "text": "Deal 2 damage. Add a 1/2 Elemental to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dab8b6dffb00d54dc5c43a2e78b03b3ebce4daacce069eb45021abe63cf05112.png",
+        "imageGold": "",
+        "flavorText": "Oh, a wise geyser eh?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4335ab45272bd8bd5696ad00bfa24fe7a2fc4bcd6f62d72beb7337329d62166.png",
+        "copyOfCardId": [
+          102194
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_108",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 64430,
+        "collectible": 1,
+        "slug": "64430-first-flame",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 1,
+        "name": "初始之火",
+        "text": "对一个随从造成 2点伤害。将“传承之火”置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6864b95237237e7eef626dd4a2189742e6244fea5d4a0a583dc6c5baabc4fe59.png",
+        "imageGold": "",
+        "flavorText": "你还是那么喜欢火。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8751fe59d171c63edb42d127c60def40eabdefd860ab87a738d981fcd33af5cf.png",
+        "childIds": [
+          64432
+        ],
+        "copyOfCardId": [
+          126227
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_108",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 64430,
+        "collectible": 1,
+        "slug": "64430-first-flame",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 1,
+        "name": "First Flame",
+        "text": "Deal 2 damage to a minion. Add a Second Flame to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7bacae3a22271db59eb92b9fac89377bc3ad01e262e4b36537274cb54d1b5fb5.png",
+        "imageGold": "",
+        "flavorText": "You never forget your first love: fire.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8751fe59d171c63edb42d127c60def40eabdefd860ab87a738d981fcd33af5cf.png",
+        "childIds": [
+          64432
+        ],
+        "copyOfCardId": [
+          126227
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_428",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 107776,
+        "collectible": 1,
+        "slug": "107776-go-with-the-flow",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "顺水漂流",
+        "text": "选择一个随从。如果是敌方随从，将其<b>冻结</b>；如果是友方随从，使其获得<b>法术伤害+1</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a4184b911f07b11113cc3276bac14bc36ad02790e2a04b820ba60add43d6e7f.png",
+        "imageGold": "",
+        "flavorText": "跟着水流划水吧，兄弟！动都不用动！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dbf7f1fc8bc6f89f80b5114a4559797ff7ea2321d541ccd3e9762773c5ca785.png",
+        "keywordIds": [
+          2,
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_428",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 107776,
+        "collectible": 1,
+        "slug": "107776-go-with-the-flow",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "Go with the Flow",
+        "text": "Choose a minion. If it's an enemy, <b>Freeze</b> it. If it's friendly, give it <b>Spell Damage +1</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1e247d21f66c79f2b43e5ce2e2943502f1e7e26a783ee2e1183a8e9d83b04dcb.png",
+        "imageGold": "",
+        "flavorText": "Just go with the flow, bro! No mo' woe fo' yo'!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5dbf7f1fc8bc6f89f80b5114a4559797ff7ea2321d541ccd3e9762773c5ca785.png",
+        "keywordIds": [
+          2,
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_509",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 59207,
+        "collectible": 1,
+        "slug": "59207-brain-freeze",
+        "classId": 12,
+        "multiClassIds": [
+          4,
+          7
+        ],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 3,
+        "artistName": "Peter Stapleton",
+        "manaCost": 1,
+        "name": "冰冷智慧",
+        "text": "<b>冻结</b>一个随从。<b>连击：</b>并对其造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84e100173c6047f82016ce2975523029ee4998e2a2f99e7e85da658a1002fc91.png",
+        "imageGold": "",
+        "flavorText": "“教授让我回答问题，我直接凉了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9456b41cffd5c6ef929d2a93c0e292b0dec1e8a650d305066ef2d0400a669d87.png",
+        "keywordIds": [
+          10,
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_509",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 59207,
+        "collectible": 1,
+        "slug": "59207-brain-freeze",
+        "classId": 12,
+        "multiClassIds": [
+          4,
+          7
+        ],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 3,
+        "artistName": "Peter Stapleton",
+        "manaCost": 1,
+        "name": "Brain Freeze",
+        "text": "<b>Freeze</b> a minion. <b>Combo:</b> Also deal 3 damage to it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/06d35a158bcc1fc34371ff8f6e1e329cb2ae337f2fe4346943b9966c8a5207e1.png",
+        "imageGold": "",
+        "flavorText": "\"The professor called on me, and I totally froze!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9456b41cffd5c6ef929d2a93c0e292b0dec1e8a650d305066ef2d0400a669d87.png",
+        "keywordIds": [
+          10,
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_577ts",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\54193-zh_CN.json",
+      "response_sha256": "fe419baad5c7f68662ee399e9cbe04fc2ce7516352e9276253e1106a7ce9d8ac",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=54193&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 54193,
+        "collectible": 0,
+        "slug": "54193-ray-of-frost",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 1,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "霜冻射线",
+        "text": "<b>冻结</b>一个随从。如果该随从已被<b>冻结</b>，则对其造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/025360b319004e2c5022a5b04d775b12e213174006c4b16caaefc01daf12390c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 52639,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=54193&locale=zh_CN&collectible=0",
+        "sha256": "fe419baad5c7f68662ee399e9cbe04fc2ce7516352e9276253e1106a7ce9d8ac",
+        "bytes": 634,
+        "observed_at": "2026-10-27T08:35:27.639780+00:00"
+      }
+    },
+    {
+      "card_id": "DAL_577ts",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\54193-en_US.json",
+      "response_sha256": "7e25ddfc770a2dd0cc3632230a3bbbbaa02632894b6dcf7497d5e51b140d5355",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=54193&locale=en_US&collectible=0",
+      "face": {
+        "id": 54193,
+        "collectible": 0,
+        "slug": "54193-ray-of-frost",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 1,
+        "artistName": null,
+        "manaCost": 1,
+        "name": "Ray of Frost",
+        "text": "<b>Freeze</b> a minion. If it's already <b>Frozen</b>, deal 2 damage to it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/288da8e22c3cde0df96ca7e2b0b849f8a7677c68d05b7086e25c1a42c1a6b4a9.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 52639,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=54193&locale=en_US&collectible=0",
+        "sha256": "7e25ddfc770a2dd0cc3632230a3bbbbaa02632894b6dcf7497d5e51b140d5355",
+        "bytes": 615,
+        "observed_at": "2026-10-27T08:35:27.238699+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_mirror",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\968-zh_CN.json",
+      "response_sha256": "269bcf89356707b045a867a8d59ef21594eba418775b6f52e2da776fb2e991cf",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=968&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 968,
+        "collectible": 0,
+        "slug": "968-mirror-image",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 0,
+        "name": "镜像",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/955bb0a3104392b76102f37d3b219e033952799a73077931ee455151c25398d6.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/260895db494370566bd8857dba88462a4fa4dd35769625192b60901fead16259.jpg",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68418
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=968&locale=zh_CN&collectible=0",
+        "sha256": "269bcf89356707b045a867a8d59ef21594eba418775b6f52e2da776fb2e991cf",
+        "bytes": 668,
+        "observed_at": "2026-10-27T08:35:27.395943+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_mirror",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\968-en_US.json",
+      "response_sha256": "5660c703eaf1f9795a59cc9b1d91f1b66dd31de286e7b429e503093893861b21",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=968&locale=en_US&collectible=0",
+      "face": {
+        "id": 968,
+        "collectible": 0,
+        "slug": "968-mirror-image",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 1,
+        "artistName": null,
+        "health": 2,
+        "attack": 0,
+        "manaCost": 0,
+        "name": "Mirror Image",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f0097754df433688890bf05f1464fcdf43ba270e1be21163ae4babcf9f18dfdf.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/260895db494370566bd8857dba88462a4fa4dd35769625192b60901fead16259.jpg",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68418
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=968&locale=en_US&collectible=0",
+        "sha256": "5660c703eaf1f9795a59cc9b1d91f1b66dd31de286e7b429e503093893861b21",
+        "bytes": 673,
+        "observed_at": "2026-10-27T08:35:27.192356+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_033",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 395,
+        "collectible": 1,
+        "slug": "395-water-elemental",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "John Avon",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "水元素",
+        "text": "<b>冻结</b>任何受到本随从伤害的角色。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/de525b9bfd6f40dee81391cbc5190f569cb8827650bf283c595b528a5840492d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7a5a8852db161eb9d91cfaad9f0fe3aefe48fdb5d8ec5540d3b9f8df78e8fe4.png",
+        "flavorText": "千万别在晚会上召唤水元素。它会把一切都搞砸的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04b6041de2219af8b4929fd1fbfc514078a840b74ed17efdf3381946eb0bcd83.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          68328,
+          69503,
+          111536,
+          46458
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_033",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 395,
+        "collectible": 1,
+        "slug": "395-water-elemental",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "John Avon",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Water Elemental",
+        "text": "<b>Freeze</b> any character damaged by this minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/989131f9904811dbaa005243e6f9faa2aebd56af056a3ff7a36dfa133351e676.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c7a5a8852db161eb9d91cfaad9f0fe3aefe48fdb5d8ec5540d3b9f8df78e8fe4.png",
+        "flavorText": "Don't summon a water elemental at a party. It'll dampen the mood.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04b6041de2219af8b4929fd1fbfc514078a840b74ed17efdf3381946eb0bcd83.png",
+        "keywordIds": [
+          10
+        ],
+        "copyOfCardId": [
+          68328,
+          69503,
+          111536,
+          46458
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_809t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-parallel-p94-20261018\\official-cache-01\\42044-zh_CN.json",
+      "response_sha256": "9b4c932386947c01dc0256890b23f3686fbba14de99bd4b132eccd590cf9633e",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42044&locale=zh_CN",
+      "face": {
+        "id": 42044,
+        "collectible": 0,
+        "slug": "42044-flame-elemental",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Tyler Walpole",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "烈焰元素",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bb7c7fb7fb8a6f7df9277de6074cb82c44a0e524d9a63528889f0990aceb366.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41323,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42044&locale=zh_CN",
+        "sha256": "9b4c932386947c01dc0256890b23f3686fbba14de99bd4b132eccd590cf9633e",
+        "bytes": 560,
+        "observed_at": "2026-10-18T07:46:11.334616+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_809t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-parallel-p94-20261018\\official-cache-01\\42044-en_US.json",
+      "response_sha256": "dec84539a72f1ef956dfa134d6db62a5935aa893f01717339e5cf08e6c59b667",
+      "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42044&locale=en_US",
+      "face": {
+        "id": 42044,
+        "collectible": 0,
+        "slug": "42044-flame-elemental",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Tyler Walpole",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Flame Elemental",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6d30042046bbc8d3462d014bd90d6722eef1f38fead960d5c2ee2fc2927fea2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41323,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://hearthstone.blizzard.com/en-us/api/cards?card=42044&locale=en_US",
+        "sha256": "dec84539a72f1ef956dfa134d6db62a5935aa893f01717339e5cf08e6c59b667",
+        "bytes": 563,
+        "observed_at": "2026-10-18T07:46:11.625397+00:00"
+      }
+    },
+    {
+      "card_id": "SW_108t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\64432-zh_CN.json",
+      "response_sha256": "f412408e9c08a6b380ff9fb9e7b4c5eb0f67122bb24bcc34afe5f8c9a42d8b5d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64432&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 64432,
+        "collectible": 0,
+        "slug": "64432-second-flame",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Anton Zemskov",
+        "manaCost": 1,
+        "name": "传承之火",
+        "text": "对一个随从造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bc62b5640113c0c8c0e121f508e7034c8979de728f6a6fef6fd672853cd713fd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64430,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64432&locale=zh_CN&collectible=0",
+        "sha256": "f412408e9c08a6b380ff9fb9e7b4c5eb0f67122bb24bcc34afe5f8c9a42d8b5d",
+        "bytes": 571,
+        "observed_at": "2026-10-27T08:35:29.193127+00:00"
+      }
+    },
+    {
+      "card_id": "SW_108t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\64432-en_US.json",
+      "response_sha256": "dd9e2a865b8b7537b5c7d76bddae102d948e1dac64c903543504a792b221ebff",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64432&locale=en_US&collectible=0",
+      "face": {
+        "id": 64432,
+        "collectible": 0,
+        "slug": "64432-second-flame",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Anton Zemskov",
+        "manaCost": 1,
+        "name": "Second Flame",
+        "text": "Deal 2 damage to a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be5ef05934c6be4c58953ecbca52f80dc0f74a00e5ad6c68c2334c942183bb97.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64430,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64432&locale=en_US&collectible=0",
+        "sha256": "dd9e2a865b8b7537b5c7d76bddae102d948e1dac64c903543504a792b221ebff",
+        "bytes": 562,
+        "observed_at": "2026-10-27T08:35:29.021971+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "CFM_021": {
+      "cost": 0
+    },
+    "CS2_mirror": {
+      "cost": 0,
+      "attack": 0
+    }
+  },
+  "display_normalizations": {},
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "The complete179 past Mage inventory and the84 Arcane inventory are retained. This package does not bind either incomplete source pool or create Standard deck roots.",
+    "Cone of Cold freezes the original physical adjacent living minions, then damages surviving original references in one shared batch. Meteor damages original target15 and immediate physical neighbors4 in one batch; locations/dormant occupants do not cause farther replacement neighbors.",
+    "Soulfreeze captures original active targets and pays damage to the caster hero equal to that original count after guarded freezes. Already-frozen targets count; freeze prevention or intervening reactions do not recalculate this local count. Exact affected-count, spell-power and CN window differences remain unconfirmed.",
+    "Breath of Sindragosa uses the existing finite random-effect producer over complete original enemy minion references, followed by guarded damage and guarded freeze. Reentry/control/face changes use existing strict MinionReference policy; exact official transformation boundaries remain deferred.",
+    "Snap Freeze and Ray of Frost branch on the initial current frozen flag; no new freeze is applied by their already-frozen destruction/damage branch. Ray uses the actual DAL_577ts terminal Twinspell face through shared HandDerivativeSpec.",
+    "Brain Freeze uses the existing spell-native Combo keyword and original spell_conditions.combo fact. It freezes the captured target and, for that accepted condition, applies3 spell damage to the original reference. Automatic casts retain existing automatic Combo policy; minion-only independent Combo repeat providers are not expanded by this card.",
+    "Deep Freeze summons the original CS2_033 from its raw related dbf395; Flame Geyser adds original UNG_809t1 dbf42044. Mirror Image uses original CS2_mirror dbf968 with explicit zero cost/attack normalization from both official faces. Existing SW_108t is not overwritten.",
+    "Lifelong removal uses the existing nondeath RemoveFromGame interpreter; Fire Sale uses a real Tradeable hand action. Ripple uses the existing minion spell-damage grant. Summon capacity/quantity, full-hand burn, death, freeze and exact CN reaction timing retain shared local policies."
+  ]
+}

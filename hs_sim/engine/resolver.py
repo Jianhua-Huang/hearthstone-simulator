@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v773'
+CORE_EFFECTS_VERSION = 'core-effects-v774'
 
 
 class Mechanics:
@@ -3025,6 +3025,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_spell_sequences(mechanics)
     from .spell_target_sequences import register as register_spell_target_sequences
     register_spell_target_sequences(mechanics)
+    from .captured_minion_spell_groups import register as register_captured_minion_spell_groups
+    register_captured_minion_spell_groups(mechanics)
     from .draw_beneficiaries import register as register_draw_beneficiaries
     register_draw_beneficiaries(mechanics)
     from .physical_draw_groups import register as register_physical_draw_groups
