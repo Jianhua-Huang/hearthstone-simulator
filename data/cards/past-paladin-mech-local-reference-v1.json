@@ -1,0 +1,4205 @@
+{
+  "schema": 1,
+  "kind": "complete-local-source-candidate-reference",
+  "policy_id": "cn37-local-past-paladin-mech-reference-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "past_set_policy": {
+    "policy": "Visible official Wild set slugs minus visible Standard set slugs, including their explicit numeric aliasSetIds. Candidate only; Past meaning, reprints/duplicate weighting, CN exclusions remain unverified.",
+    "set_ids": [
+      3,
+      4,
+      12,
+      13,
+      14,
+      15,
+      20,
+      21,
+      23,
+      25,
+      27,
+      1001,
+      1004,
+      1125,
+      1127,
+      1129,
+      1130,
+      1158,
+      1347,
+      1403,
+      1414,
+      1443,
+      1463,
+      1466,
+      1525,
+      1578,
+      1626,
+      1635,
+      1658,
+      1691,
+      1776,
+      1809,
+      1858,
+      1869,
+      1892,
+      1897,
+      1898,
+      1905,
+      1935
+    ],
+    "reference_source": "outputs/card-integration-20261014/k454-past-one-cost-source/expanded-past-onecost-inventory-candidate-02.json",
+    "reference_sha256": "fa7275a7f8131e1d0ac57017f89dc2a0e4f857d482a7579c0b9b3d894289527e"
+  },
+  "set_policy_reference_document": "data/cards/past-colossal-local-reference-v1.json",
+  "set_policy_reference_canonical_sha256": "6f4881cac0e225c31ede9eb6f83e115d942ace6641246e36f1030950eb9c4bdf",
+  "source_card_id": "TIME_016",
+  "pool_id": "constructed.past.cards",
+  "query": {
+    "kinds": [
+      "minion"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "specified",
+    "classes": [
+      "paladin"
+    ],
+    "include_neutral": false,
+    "rarities": [],
+    "tribes_any": [
+      "mech"
+    ],
+    "spell_schools": [],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "candidate_ids": [
+    "BOT_537",
+    "BOT_906",
+    "BOT_911",
+    "DEEP_015",
+    "DMF_064",
+    "DRG_225",
+    "ETC_321",
+    "GVG_058",
+    "GVG_062",
+    "JAM_010",
+    "MIS_918",
+    "NX2_022",
+    "NX2_023",
+    "SC_401",
+    "SC_405",
+    "SC_412",
+    "TSC_030",
+    "TSC_059",
+    "TSC_083",
+    "TSC_644",
+    "TTN_852",
+    "TTN_906",
+    "ULD_217",
+    "WORK_002",
+    "YOD_010",
+    "YOG_510",
+    "YOG_525"
+  ],
+  "candidate_records": [
+    {
+      "record": {
+        "id": "BOT_537",
+        "dbf_id": 49169,
+        "name": "机械蛋",
+        "name_en": "Mechano-Egg",
+        "text": "<b>亡语：</b>召唤一个8/8的机械暴龙。",
+        "text_en": "<b>Deathrattle:</b> Summon an 8/8 Robosaur.",
+        "cost": 5,
+        "attack": null,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "COST": 5,
+          "CARD_SET": 1127,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "BACON_TRIPLE_UPGRADE_MINION_ID": 58387,
+          "TECH_LEVEL": 4,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 49168,
+          "BACON_SUBSET_MECH": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "98dde5fb33bbca54446bbbebe51cc4058891851d7ca6b990cf2fc5fd8607627c"
+    },
+    {
+      "record": {
+        "id": "BOT_906",
+        "dbf_id": 48982,
+        "name": "格洛顿",
+        "name_en": "Glow-Tron",
+        "text": "<b>磁力</b>",
+        "text_en": "<b>Magnetic</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2787": 48979,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MAGNETIC": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Azevedo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2787",
+              "name": "48979",
+              "type": "Int",
+              "value": "48979"
+            },
+            "normalized_key": "2787"
+          }
+        ]
+      },
+      "record_sha256": "787feeb703b234a28d15b911393060dc72c14b23baa00319270ff3a509615cac"
+    },
+    {
+      "record": {
+        "id": "BOT_911",
+        "dbf_id": 48993,
+        "name": "吵吵模组",
+        "name_en": "Annoy-o-Module",
+        "text": "<b>磁力</b>\n<b>圣盾</b>\n<b>嘲讽</b>",
+        "text_en": "<b>Magnetic</b>\n<b>Divine Shield</b>\n<b>Taunt</b>",
+        "cost": 4,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2787": 49003,
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 1127,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MAGNETIC": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2787",
+              "name": "49003",
+              "type": "Int",
+              "value": "49003"
+            },
+            "normalized_key": "2787"
+          }
+        ]
+      },
+      "record_sha256": "5488807c10bb5824f60af427aad5d533e69d58961060817000f85b084097510e"
+    },
+    {
+      "record": {
+        "id": "DEEP_015",
+        "dbf_id": 104524,
+        "name": "义肢假手",
+        "name_en": "Prosthetic Hand",
+        "text": "<b>磁力</b>。<b>复生</b>\n可以<b>磁力吸附</b>在机械或亡灵上。",
+        "text_en": "<b>Magnetic</b>, <b>Reborn</b>\nCan <b>Magnetize</b> to\nMechs or Undead.",
+        "cost": 3,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2787": 104525,
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1892,
+          "CLASS": 1,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 17,
+          "MAGNETIC": 1,
+          "REBORN": 1,
+          "MINI_SET": 1,
+          "MAGNETIC_TO_RACE": 11
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Guillaume Beauchêne"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2787",
+              "name": "104525",
+              "type": "Int",
+              "value": "104525"
+            },
+            "normalized_key": "2787"
+          }
+        ]
+      },
+      "record_sha256": "b7e8da453447eaa44cadcfb1c3ffe959b02b676dc1ffa54a6b68f4698f50d991"
+    },
+    {
+      "record": {
+        "id": "DMF_064",
+        "dbf_id": 61581,
+        "name": "旋转木马",
+        "name_en": "Carousel Gryphon",
+        "text": "<b>圣盾</b>，<b>腐蚀：</b>获得+3/+3和<b>嘲讽</b>。",
+        "text_en": "<b>Divine Shield</b>\n<b>Corrupt:</b> Gain +3/+3 and_<b>Taunt</b>.",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2542": 1,
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1466,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 62076,
+          "CORRUPT": 1,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0e0b5574d3998c5f9f840c5b043ae34d23ba57055865cdc7ad706e03b061783a"
+    },
+    {
+      "record": {
+        "id": "DRG_225",
+        "dbf_id": 55047,
+        "name": "空中飞爪",
+        "name_en": "Sky Claw",
+        "text": "你的其他机械拥有+1攻击力。<b>战吼：</b>召唤两个1/1的微型\n旋翼机。",
+        "text_en": "Your other Mechs\nhave +1 Attack.\n<b>Battlecry:</b> Summon two 1/1 Microcopters.",
+        "cost": 3,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 3,
+          "CARD_SET": 1347,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 57055
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "43aa8c8243df9f35e94030b9c79b37a14a36641be5a2591bed82d7f35957ca42"
+    },
+    {
+      "record": {
+        "id": "ETC_321",
+        "dbf_id": 90695,
+        "name": "吵吵演艺团",
+        "name_en": "Annoy-o-Troupe",
+        "text": "<b>嘲讽</b>，<b>圣盾</b>。<b>亡语：</b>召唤三个1/2并具有<b>嘲讽</b>和<b>圣盾</b>的机械。",
+        "text_en": "[x]<b>Taunt</b>, <b>Divine Shield</b>\n<b>Deathrattle:</b> Summon three\n1/2 Mechs with <b>Taunt</b>\nand <b>Divine Shield</b>.",
+        "cost": 9,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 9,
+          "CARD_SET": 1809,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 69718
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "46692c29ff9a20744b65ad0bc803ba73b386ec94b03e54e0eef2ab5a01363730"
+    },
+    {
+      "record": {
+        "id": "GVG_058",
+        "dbf_id": 2026,
+        "name": "护盾机器人",
+        "name_en": "Shielded Minibot",
+        "text": "<b>圣盾</b>",
+        "text_en": "<b>Divine Shield</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 13,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          }
+        ]
+      },
+      "record_sha256": "e995a68d7c7c25e3a89c0bbaef6c3d97bbaac628481dbeb81f14c58494350d34"
+    },
+    {
+      "record": {
+        "id": "GVG_062",
+        "dbf_id": 2030,
+        "name": "钴制卫士",
+        "name_en": "Cobalt Guardian",
+        "text": "每当你召唤一个机械，便获得<b>圣盾</b>。",
+        "text_en": "Whenever you summon a Mech, gain <b>Divine Shield</b>.",
+        "cost": 5,
+        "attack": 6,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 6,
+          "COST": 5,
+          "CARD_SET": 13,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "TECH_LEVEL": 3
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c5d93780499a796de4bc4c141613050e622590d8c9e508ac03d1e6556809c66c"
+    },
+    {
+      "record": {
+        "id": "JAM_010",
+        "dbf_id": 95345,
+        "name": "点唱机图腾",
+        "name_en": "Jukebox Totem",
+        "text": "在你的回合结束时，召唤一个{0}的白银之手新兵。",
+        "text_en": "[x]At the end of your turn,\nsummon a{1} {0} Silver\nHand Recruit.",
+        "cost": 2,
+        "attack": null,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2539": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "COST": 2,
+          "CARD_SET": 1809,
+          "CLASS": 5,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 144,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1652,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "657a67966983d7bd55b23173e96b4915e2d5150ffc0d841c71b9cb2d41523f40"
+    },
+    {
+      "record": {
+        "id": "MIS_918",
+        "dbf_id": 105281,
+        "name": "灯火机器人",
+        "name_en": "Flickering Lightbot",
+        "text": "<b>扩大</b>\n在本局对战中，你每施放一个神圣法术，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Gigantify</b>\nCosts (1) less for each\nHoly spell you've cast\nthis game.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1897,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 106663,
+          "MINI_SET": 1,
+          "GIGANTIFY": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "9f1d735286c5a28af20578e74aa16f3b8ec03a2973fd44b0f5f58c3cc8f75bec"
+    },
+    {
+      "record": {
+        "id": "NX2_022",
+        "dbf_id": 86660,
+        "name": "金翼巨龙",
+        "name_en": "Goldwing",
+        "text": "<b>突袭</b>。<b>战吼：</b>如果你的手牌中有机械牌，便获得<b>风怒</b>。",
+        "text_en": "[x]<b>Rush</b>\n<b>Battlecry:</b> If you're holding\na Mech, gain <b>Windfury</b>.",
+        "cost": 4,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2539": 1,
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 1776,
+          "CLASS": 5,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Valeria Styajkina"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "189",
+              "name": "WINDFURY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "27f491d37e5036115b4bb22dc6aea940551fec39a34c342289841d9021c8f3d9"
+    },
+    {
+      "record": {
+        "id": "NX2_023",
+        "dbf_id": 86661,
+        "name": "纯净馆长",
+        "name_en": "The Purator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的牌库中没有中立卡牌，抽取每个随从类型的随从牌各一张。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> If your deck has no\nNeutral cards, draw a minion\nof each minion type.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "b5030cc10e39db6479e67c79b108528ab5072fb329aa4cc2c535711b1a7d6381"
+    },
+    {
+      "record": {
+        "id": "SC_401",
+        "dbf_id": 112820,
+        "name": "SCV",
+        "name_en": "SCV",
+        "text": "<b>战吼：</b>你的下一次\n<b>星舰</b>发射的法力值消耗减少（2）点。",
+        "text_en": "<b>Battlecry:</b> Your next <b>Starship</b> launch costs\n(2) less.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1724": 1,
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 656,
+          "MINI_SET": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "TERRAN": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "217cd11db3979496fd2806f173ed3575f03421a3388c2c59ff18da0b14d84dff"
+    },
+    {
+      "record": {
+        "id": "SC_405",
+        "dbf_id": 112866,
+        "name": "超级电容器",
+        "name_en": "Ultra-Capacitor",
+        "text": "<b>星舰组件</b>\n<b>战吼：</b>每有一个其他友方随从，便获得+1/+1。发射时也会触发。",
+        "text_en": "[x]<b>Starship Piece</b>\n<b>Battlecry:</b> Gain +1/+1 for\n__each other friendly minion.__\nAlso triggers on launch.",
+        "cost": 2,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1724": 1,
+          "3684": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1,
+          "TERRAN": 1,
+          "STARSHIP_PIECE": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3684",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3684"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "532e22348a3cc442fa67013be5bf7bc2872f30c381b0d0eb1fd938ef22a6ba4b"
+    },
+    {
+      "record": {
+        "id": "SC_412",
+        "dbf_id": 113855,
+        "name": "恶火",
+        "name_en": "Hellion",
+        "text": "你的其他随从拥有+1攻击力。<i>（如果你在本局对战中发射过<b>星舰</b>，则会\n变形。）</i>",
+        "text_en": "[x]Your other minions\nhave +1 Attack.\n<i>(Transforms if you launched\na <b>Starship</b> this game.)</i>",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1724": 1,
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1935,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "MINI_SET": 1,
+          "TERRAN": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mike Sass"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3555",
+              "name": "STARSHIP",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "68a1994477486673490b739727ec2837e0deb6e2a37783fd05a6a1f50818c8b2"
+    },
+    {
+      "record": {
+        "id": "TSC_030",
+        "dbf_id": 71984,
+        "name": "海兽号",
+        "name_en": "The Leviathan",
+        "text": "<b>巨型+1</b>\n<b>突袭</b>，<b>圣盾</b>。在本随从攻击后，<b>探底</b>。",
+        "text_en": "[x]<b>Colossal +1</b>\n<b>Rush</b>, <b>Divine Shield</b>\nAfter this attacks,\n<b>Dredge</b>.",
+        "cost": 7,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "1544": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 71982,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 71982,
+          "COLOSSAL": 1,
+          "DREDGE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "32d99842385aa57b5152eb2b0e9047f722009357cc1c94662738a3ce55ab6f45"
+    },
+    {
+      "record": {
+        "id": "TSC_059",
+        "dbf_id": 73428,
+        "name": "泡泡机器人",
+        "name_en": "Bubblebot",
+        "text": "<b>战吼：</b>\n使你的所有其他机械获得<b>圣盾</b>和<b>嘲讽</b>。",
+        "text_en": "[x]<b>Battlecry:</b> Give your other\nMechs <b>Divine Shield</b>\nand <b>Taunt</b>.",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1658,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "194",
+              "name": "DIVINE_SHIELD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a81a520600faba1f360b3c254aab5a668046a622d0906acfd2d99bac9e29169e"
+    },
+    {
+      "record": {
+        "id": "TSC_083",
+        "dbf_id": 77018,
+        "name": "海床救生员",
+        "name_en": "Seafloor Savior",
+        "text": "<b>战吼：</b><b>探底</b>。如果选中的是随从牌，使其获得本随从的攻击力和生命值。",
+        "text_en": "[x]<b>Battlecry:</b> <b>Dredge</b>.\nIf it's a minion, give it\nthis minion's Attack\nand Health.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1658,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DREDGE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "71e6969cbe6b5e0ae9fc284631254b7b56b0feb2adb0a0c16bfa763402fb6e8b"
+    },
+    {
+      "record": {
+        "id": "TSC_644",
+        "dbf_id": 72926,
+        "name": "艾萨拉的观月仪",
+        "name_en": "Azsharan Mooncatcher",
+        "text": "<b>圣盾</b>，<b>战吼：</b>将一张沉没的观月仪置于你的牌库底。",
+        "text_en": "[x]<b>Divine Shield</b>. <b>Battlecry:</b> Put\na 'Sunken Mooncatcher' on\nthe bottom of your deck.",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1658,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 74957
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          }
+        ]
+      },
+      "record_sha256": "cd318eeb44dc0128d2f024701bb60cd796bd4e23fe0415b6518f4100e9279275"
+    },
+    {
+      "record": {
+        "id": "TTN_852",
+        "dbf_id": 98054,
+        "name": "崇高的迷你机",
+        "name_en": "Noble Minibot",
+        "text": "<b>磁力</b>。在本随从攻击后，随机使你手牌中的一张随从牌获得+1/+1。",
+        "text_en": "<b>Magnetic</b>\nAfter this attacks,\ngive a random minion in your hand +1/+1.",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2787": 98066,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MAGNETIC": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2787",
+              "name": "98066",
+              "type": "Int",
+              "value": "98066"
+            },
+            "normalized_key": "2787"
+          }
+        ]
+      },
+      "record_sha256": "b65bbfd8a3ca99bfb054fb46fa93988b0f9fbb5c0b996cd9c2bb7649db512374"
+    },
+    {
+      "record": {
+        "id": "TTN_906",
+        "dbf_id": 96910,
+        "name": "修理机器人X-21",
+        "name_en": "X-21 Repairbot",
+        "text": "<b>亡语：</b>将所有<b>磁力吸附</b>在本随从上的机械移回你的手牌。",
+        "text_en": "<b>Deathrattle:</b> Return any Mechs <b>Magnetized</b> to this to your hand.",
+        "cost": 1,
+        "attack": 1,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "849",
+              "name": "MAGNETIC",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d64543597d5c2b740853f10c781a15c83ecd0aa7144875af64e6a80d90b777d9"
+    },
+    {
+      "record": {
+        "id": "ULD_217",
+        "dbf_id": 53445,
+        "name": "微型木乃伊",
+        "name_en": "Micro Mummy",
+        "text": "<b>复生</b>\n在你的回合结束时，随机使另一个友方随从获得+1攻击力。",
+        "text_en": "[x]<b>Reborn</b>\nAt the end of your turn, give\nanother random friendly\nminion +1 Attack.",
+        "cost": 2,
+        "attack": 1,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2534": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1158,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "REBORN": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          }
+        ]
+      },
+      "record_sha256": "e9208a5c7fe169e5c08da30b3f7fcdd23ac45e175a8402bb6c0612967052b2f9"
+    },
+    {
+      "record": {
+        "id": "WORK_002",
+        "dbf_id": 110751,
+        "name": "忙碌机器人",
+        "name_en": "Busy-Bot",
+        "text": "<b>战吼：</b>使你攻击力为1的随从获得+1/+1。",
+        "text_en": "<b>Battlecry:</b> Give your\n1-Attack minions +1/+1.",
+        "cost": 2,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1905,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "3b65f9e671b6823f4886513f4d250048cebfb93fd8e5a05d81596c643a4ab273"
+    },
+    {
+      "record": {
+        "id": "YOD_010",
+        "dbf_id": 56077,
+        "name": "炮火机甲",
+        "name_en": "Shotbot",
+        "text": "<b>复生</b>",
+        "text_en": "<b>Reborn</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1403,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "REBORN": 1
+        },
+        "card_set_id": 1403,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          }
+        ]
+      },
+      "record_sha256": "8aa8f3583777374a16d4e861bd6275e792b2fa60c80c3ea3b2cd278aa78f3067"
+    },
+    {
+      "record": {
+        "id": "YOG_510",
+        "dbf_id": 101009,
+        "name": "报警安保机器人",
+        "name_en": "Alarmed Securitybot",
+        "text": "<b>亡语：</b>抽一张其他随从牌。将其攻击力，生命值和法力值消耗变为5。",
+        "text_en": "[x]<b>Deathrattle:</b> Draw another\nminion. Set its Attack,\nHealth, and Cost to 5.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "7bcd45a8db62b327fe482cbe7895a4484d210db9b91b744db5b06e6e1a95866e"
+    },
+    {
+      "record": {
+        "id": "YOG_525",
+        "dbf_id": 101112,
+        "name": "健身肌器人",
+        "name_en": "Muscle-o-Tron",
+        "text": "<b>战吼：</b>使你手牌中的所有随从牌获得+1/+1。<b>锻造：</b>改为+2/+2。",
+        "text_en": "[x]<b>Battlecry:</b> Give all minions\nin your hand +1/+1.\n<b>Forge:</b> +2/+2 instead.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 101113,
+          "DECK_ACTION_COST": 2,
+          "MINI_SET": 1,
+          "FORGE": 1,
+          "FORGES_INTO": 101113
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "9c391d20e4ff36a410e499e077698ff6d92285c3fb8e221fa84dbd5dadfa98db"
+    }
+  ],
+  "other_set_paladin_mech_ids": [
+    "TIME_009",
+    "TIME_015",
+    "TIME_017",
+    "TIME_043"
+  ],
+  "official_observations": [
+    {
+      "card_id": "BOT_537",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 49169,
+        "collectible": 1,
+        "slug": "49169-mechano-egg",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Hideaki Takamura",
+        "health": 5,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "机械蛋",
+        "text": "<b>亡语：</b>召唤一个8/8的机械暴龙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e71845496a440e1633f1452eed41b8fd8c4162cb1d9ecddf72baac3e34ea0cc.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6eb00046f82230710a3bda121dc58ea0f2e302e22b4c19071b91b726335187c0.png",
+        "flavorText": "补铁补血，健康之选。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1f017bf6f5b33b1fbdd637a1a0aa81a66d7620208f9380ab9e5f0bc59a89c16.png",
+        "childIds": [
+          49168
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_537",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 49169,
+        "collectible": 1,
+        "slug": "49169-mechano-egg",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Hideaki Takamura",
+        "health": 5,
+        "attack": 0,
+        "manaCost": 5,
+        "name": "Mechano-Egg",
+        "text": "<b>Deathrattle:</b> Summon an 8/8 Robosaur.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8afb1d8c7b81c60aa8846c43223ddc2276b70e7325f0127e3b191ff5a646f927.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6eb00046f82230710a3bda121dc58ea0f2e302e22b4c19071b91b726335187c0.png",
+        "flavorText": "When you need more iron in your diet.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1f017bf6f5b33b1fbdd637a1a0aa81a66d7620208f9380ab9e5f0bc59a89c16.png",
+        "childIds": [
+          49168
+        ],
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_906",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 48982,
+        "collectible": 1,
+        "slug": "48982-glow-tron",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Mike Azevedo",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "格洛顿",
+        "text": "<b>磁力</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d02ba04d3ce0a3e271cf721568ca89593426ebe5b2c6869338249602727f248.png",
+        "imageGold": "",
+        "flavorText": "设计师耗费数周试图打造潜行版，最终还是因为罩子太亮而放弃了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93e1c963d04512f8809371d64e981bef62c4986d2f83a07a37507eb627b54988.png",
+        "keywordIds": [
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_906",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 48982,
+        "collectible": 1,
+        "slug": "48982-glow-tron",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Mike Azevedo",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Glow-Tron",
+        "text": "<b>Magnetic</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/866d35d1024bd5c97f6577816de9f8a8dd1b89810faf8dff74b6e2efc00730a8.png",
+        "imageGold": "",
+        "flavorText": "They tried for weeks to make a stealth version, but eventually decided to just let it glow.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93e1c963d04512f8809371d64e981bef62c4986d2f83a07a37507eb627b54988.png",
+        "keywordIds": [
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_911",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 48993,
+        "collectible": 1,
+        "slug": "48993-annoy-o-module",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "吵吵模组",
+        "text": "<b>磁力</b> <b>圣盾</b> <b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1f718cf65b4a09efff4d07cb6f70bf42053f30c7b94cb3f681e6d4cdf07b237e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0687f52b32ba5664a3da1b3b1b04110323e0a98833ea2b2c1f2be6cd53b3358e.png",
+        "flavorText": "每隔十秒就会弹出一次，问你要不要更新。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6475fde8b711e88dab740632afccd18a3ff30ba2766ece74271527574337f2fc.png",
+        "keywordIds": [
+          1,
+          3,
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_911",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 48993,
+        "collectible": 1,
+        "slug": "48993-annoy-o-module",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Annoy-o-Module",
+        "text": "<b>Magnetic</b> <b>Divine Shield</b> <b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0ead20f1f2b71e1acbbe3d443e99b8199d271ba2d5c23f93c18390dff2a22e8.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0687f52b32ba5664a3da1b3b1b04110323e0a98833ea2b2c1f2be6cd53b3358e.png",
+        "flavorText": "Every ten seconds it asks if you want to update.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6475fde8b711e88dab740632afccd18a3ff30ba2766ece74271527574337f2fc.png",
+        "keywordIds": [
+          1,
+          3,
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_015",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 104524,
+        "collectible": 1,
+        "slug": "104524-prosthetic-hand",
+        "classId": 1,
+        "multiClassIds": [
+          1,
+          5
+        ],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Guillaume Beauchêne",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "义肢假手",
+        "text": "<b>磁力</b>。<b>复生</b> 可以<b>磁力吸附</b>在机械或亡灵上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cbe8f275f6f048ead94ccfa78f46309dd4819a48fb756040d7e96eef3cebf1f8.png",
+        "imageGold": "",
+        "flavorText": "声音尖利，有点锈迹。沾了点污泥，还有点神秘。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a7c4564f0ee2c6e88916d29b4ab748d1992e035b11ce26206dd4f5688839e22.png",
+        "keywordIds": [
+          66,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_015",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 104524,
+        "collectible": 1,
+        "slug": "104524-prosthetic-hand",
+        "classId": 1,
+        "multiClassIds": [
+          1,
+          5
+        ],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Guillaume Beauchêne",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Prosthetic Hand",
+        "text": "<b>Magnetic</b>, <b>Reborn</b> Can <b>Magnetize</b> to Mechs or Undead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f8943ec16726e4182279a3c1a05bf58a8376fe0c6b38fa92aee76fa518a2379.png",
+        "imageGold": "",
+        "flavorText": "It's creaky and it's rusty! It's spooky and it's dusty!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a7c4564f0ee2c6e88916d29b4ab748d1992e035b11ce26206dd4f5688839e22.png",
+        "keywordIds": [
+          66,
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_064",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 61581,
+        "collectible": 1,
+        "slug": "61581-carousel-gryphon",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Vladimir Kafanov",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "旋转木马",
+        "text": "<b>圣盾</b>，<b>腐蚀：</b>获得+3/+3和<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/43406a5726bfa9b9b57828204f9aaff7027b7504e937addc69e83b38ff906e92.png",
+        "imageGold": "",
+        "flavorText": "“这玩意什么时候能到暴风城飞行点？我都飞了好几个小时了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df4b7ade636c249793a741f4d62753d756fa78276c110f39d46b6806e3bb8595.png",
+        "childIds": [
+          62076
+        ],
+        "keywordIds": [
+          1,
+          3,
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_064",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 61581,
+        "collectible": 1,
+        "slug": "61581-carousel-gryphon",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Vladimir Kafanov",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Carousel Gryphon",
+        "text": "<b>Divine Shield</b> <b>Corrupt:</b> Gain +3/+3 and <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/490db20524e2cf1ecbfe5f32eb0b8957c358fa979254290159ffd32cf02111be.png",
+        "imageGold": "",
+        "flavorText": "\"When does this bird land in Stormwind? I've been flying for hours!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df4b7ade636c249793a741f4d62753d756fa78276c110f39d46b6806e3bb8595.png",
+        "childIds": [
+          62076
+        ],
+        "keywordIds": [
+          1,
+          3,
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_225",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 55047,
+        "collectible": 1,
+        "slug": "55047-sky-claw",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "空中飞爪",
+        "text": "你的其他机械拥有+1攻击力。<b>战吼：</b>召唤两个1/1的微型 旋翼机。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9bf2c29800e166f6778e0a08d0885466b90762e677e05e7251ca3702f87e1e46.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/653f3c380e5b7b5422ebf87080b8ff203fd893b1276915249198e069aec5bca6.png",
+        "flavorText": "经过仔细的调校，永远都抓不住那个大布偶米米尔隆。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c1f4447df44f854d0e65f3c6223ee95826b616c7e4badff49f03de995f30835.png",
+        "childIds": [
+          57055
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_225",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 55047,
+        "collectible": 1,
+        "slug": "55047-sky-claw",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 3,
+        "name": "Sky Claw",
+        "text": "Your other Mechs have +1 Attack. <b>Battlecry:</b> Summon two 1/1 Microcopters.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9bcfd88159c85e4281d03f3e9a61752883c95863698395371c8284ce98d8b7c9.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/653f3c380e5b7b5422ebf87080b8ff203fd893b1276915249198e069aec5bca6.png",
+        "flavorText": "Carefully engineered to never grab the Mimiron plush toy.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c1f4447df44f854d0e65f3c6223ee95826b616c7e4badff49f03de995f30835.png",
+        "childIds": [
+          57055
+        ],
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_321",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 90695,
+        "collectible": 1,
+        "slug": "90695-annoy-o-troupe",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 9,
+        "name": "吵吵演艺团",
+        "text": "<b>嘲讽</b>，<b>圣盾</b>。<b>亡语：</b>召唤三个1/2并具有<b>嘲讽</b>和<b>圣盾</b>的机械。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20de06dbb2a8a63e1dec60025bb0312fb90c5644eb89801987cc2d70eb68c74f.png",
+        "imageGold": "",
+        "flavorText": "某些职业有虚空领主，而某些职业有吵吵领主。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e46964f4025efbe1ab159b1cb4a7fed13221ace4588353e90f0f4a3c6477ba1b.png",
+        "keywordIds": [
+          1,
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_321",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 90695,
+        "collectible": 1,
+        "slug": "90695-annoy-o-troupe",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 9,
+        "name": "Annoy-o-Troupe",
+        "text": "<b>Taunt</b>, <b>Divine Shield</b> <b>Deathrattle:</b> Summon three 1/2 Mechs with <b>Taunt</b> and <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d33241215b4f6377aba29bf833f5e6bb26148925073e4814952a33c5b55cba0b.png",
+        "imageGold": "",
+        "flavorText": "Some classes get Void Lords, other classes get Annoyed Lords.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e46964f4025efbe1ab159b1cb4a7fed13221ace4588353e90f0f4a3c6477ba1b.png",
+        "keywordIds": [
+          1,
+          3,
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_058",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 2026,
+        "collectible": 1,
+        "slug": "2026-shielded-minibot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Raymond Swanland",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "护盾机器人",
+        "text": "<b>圣盾</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8b0dcb7f590ce84fa7d64f8d09f47c0bdb4effc5b5e7f96bba5654e80e0bb1a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff7bb0878701c1c399a657bbb1745dc7935e2f174dd4f3c3a96f05e5fe0fe622.png",
+        "flavorText": "他愿为他的信仰牺牲，因为他的控制程序就是这么写的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38d6a3f3cc7a5c0c7b09b6842c8b9a9bc887cd8a7f6d1494f5707a464c49f1e3.jpg",
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_058",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 2026,
+        "collectible": 1,
+        "slug": "2026-shielded-minibot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Raymond Swanland",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Shielded Minibot",
+        "text": "<b>Divine Shield</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33da024752fa781d3b0fa3b9cbdeda4fd7ef94241d15d85f20a1b3d15808b885.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff7bb0878701c1c399a657bbb1745dc7935e2f174dd4f3c3a96f05e5fe0fe622.png",
+        "flavorText": "He chooses to believe what he is programmed to believe!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38d6a3f3cc7a5c0c7b09b6842c8b9a9bc887cd8a7f6d1494f5707a464c49f1e3.jpg",
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_062",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 2030,
+        "collectible": 1,
+        "slug": "2030-cobalt-guardian",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 5,
+        "name": "钴制卫士",
+        "text": "每当你召唤一个机械，便获得<b>圣盾</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7917f755bff700105b40156ea761c29772504b016f5b1975fdf2316e95c65c19.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be3b5d87d525c540ab4aff566cd9c339c7427f97b31eb9d0ab3ee1dd2d60b676.png",
+        "flavorText": "过去这些“卫士”们都是用真银打造的，但自从把生产线外包给加基森的厂家之后，他们的材质就发生了改变。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/06ada6f945cb0e588e4ca793b19ff058807488142948a843d37902aadf61e97f.jpg",
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_062",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 2030,
+        "collectible": 1,
+        "slug": "2030-cobalt-guardian",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 13,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "health": 3,
+        "attack": 6,
+        "manaCost": 5,
+        "name": "Cobalt Guardian",
+        "text": "Whenever you summon a Mech, gain <b>Divine Shield</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9df8e56c339d0f42e9eb2f147a1ca040714cbc1f39462ce4f50a1d3d9b1f5e2a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be3b5d87d525c540ab4aff566cd9c339c7427f97b31eb9d0ab3ee1dd2d60b676.png",
+        "flavorText": "Guardians used to be built out of Adamantium, but production got moved to Gadgetzan and Cobalt was cheap.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/06ada6f945cb0e588e4ca793b19ff058807488142948a843d37902aadf61e97f.jpg",
+        "keywordIds": [
+          3
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAM_010",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 95345,
+        "collectible": 1,
+        "slug": "95345-jukebox-totem",
+        "classId": 5,
+        "multiClassIds": [
+          5,
+          8
+        ],
+        "minionTypeId": 21,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 0,
+        "manaCost": 2,
+        "name": "点唱机图腾",
+        "text": "在你的回合结束时，召唤一个 的白银之手新兵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4790c4bb69f82f627515e1874563b4bc9df31a550ad5c91484f0e8ec5663d937.png",
+        "imageGold": "",
+        "flavorText": "如果你真的喜爱《炉石传说》，那么就给图腾再投个币吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b64893eb58e937096b3001ae2da9e1efb12f13351cd0e88e80d853512dc232a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAM_010",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 95345,
+        "collectible": 1,
+        "slug": "95345-jukebox-totem",
+        "classId": 5,
+        "multiClassIds": [
+          5,
+          8
+        ],
+        "minionTypeId": 21,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 0,
+        "manaCost": 2,
+        "name": "Jukebox Totem",
+        "text": "At the end of your turn, summon a Silver Hand Recruit.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/965d6c4f7b9a222da6647690a1166dc640a79136f63a88de81a66a6f6170946a.png",
+        "imageGold": "",
+        "flavorText": "If you really love Hearthstone, put another coin in the Totem baby!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b64893eb58e937096b3001ae2da9e1efb12f13351cd0e88e80d853512dc232a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_918",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 105281,
+        "collectible": 1,
+        "slug": "105281-flickering-lightbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Stefan Bogdasarov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "灯火机器人",
+        "text": "<b>扩大</b> 在本局对战中，你每施放一个神圣法术，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff0506785f4d0533869c8d588c39d2ab714548051de985d61a860210e92fc0be.png",
+        "imageGold": "",
+        "flavorText": "出厂时只保留了极少的电量，帮你营造灯火阑珊的氛围。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01625086f78434c71c47fa5a2060c7f38cfb3b6e910f649786a27500fdc18812.png",
+        "childIds": [
+          106663
+        ],
+        "keywordIds": [
+          301
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_918",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 105281,
+        "collectible": 1,
+        "slug": "105281-flickering-lightbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Stefan Bogdasarov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Flickering Lightbot",
+        "text": "<b>Gigantify</b> Costs (1) less for each Holy spell you've cast this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5812c86edc5882ac40b3ceadf7c076abf97270bde65e39f252d8ef4003a5bf13.png",
+        "imageGold": "",
+        "flavorText": "These bots are sent out with nearly drained batteries, for dramatic effect.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01625086f78434c71c47fa5a2060c7f38cfb3b6e910f649786a27500fdc18812.png",
+        "childIds": [
+          106663
+        ],
+        "keywordIds": [
+          301
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_022",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 86660,
+        "collectible": 1,
+        "slug": "86660-goldwing",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 3,
+        "artistName": "Valeria Styajkina",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "金翼巨龙",
+        "text": "<b>突袭</b>。<b>战吼：</b>如果你的手牌中有机械牌，便获得<b>风怒</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04a2d97b993c493f3f63d0eb14cc22d4a1c42ed7ee539f56af7b48ba275bbe95.png",
+        "imageGold": "",
+        "flavorText": "它肯定值好多奥术之尘，对吧？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bc2d568dcecc7660234d79e885a7220f4293de7c7aec74111f2fc9271e5dd49.png",
+        "keywordIds": [
+          8,
+          11,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_022",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 86660,
+        "collectible": 1,
+        "slug": "86660-goldwing",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 3,
+        "artistName": "Valeria Styajkina",
+        "health": 5,
+        "attack": 3,
+        "manaCost": 4,
+        "name": "Goldwing",
+        "text": "<b>Rush</b> <b>Battlecry:</b> If you're holding a Mech, gain <b>Windfury</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3d02b5d294558b886753af38fac4f74b6f57663975b7159912fd24cebe05995.png",
+        "imageGold": "",
+        "flavorText": "This HAS to be worth more dust, right?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bc2d568dcecc7660234d79e885a7220f4293de7c7aec74111f2fc9271e5dd49.png",
+        "keywordIds": [
+          8,
+          11,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_023",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 86661,
+        "collectible": 1,
+        "slug": "86661-the-purator",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "Jaemin Kim",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "纯净馆长",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的牌库中没有中立卡牌，抽取每个随从类型的随从牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/357ad7a5f985134f19c6dc87fe8201854e98e3998184aedffdaf62282239d347.png",
+        "imageGold": "",
+        "flavorText": "馆长见到了爬起来的亡灵，就感觉自己应该照顾他们。这是他的责任。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9f55e28c31a04bc1d01fb9586d512d14864ad11946e33fc8edc6c9fc3168db9.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_023",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 86661,
+        "collectible": 1,
+        "slug": "86661-the-purator",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "Jaemin Kim",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "The Purator",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> If your deck has no Neutral cards, draw a minion of each minion type.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ec5b81fbb8a78805a513ba440e5c0c3d1712c6bba5a3217331857f9d1775ee1.png",
+        "imageGold": "",
+        "flavorText": "With the rise of the undead, the Curator sees it as his duty to take care of them.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9f55e28c31a04bc1d01fb9586d512d14864ad11946e33fc8edc6c9fc3168db9.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_401",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 112820,
+        "collectible": 1,
+        "slug": "112820-scv",
+        "classId": null,
+        "multiClassIds": [
+          5,
+          8,
+          10
+        ],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Brian Despain",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "SCV",
+        "text": "<b>战吼：</b>你的下一次 <b>星舰</b>发射的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14338d6c045c41d3886a82c2dbcb15837dba54821230c9db0760e3336174b41a.png",
+        "imageGold": "",
+        "flavorText": "SCV，就是社畜（Very）。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/024aa0aaf5357101600fb696d884d27426650940acd3c09a074f036e9ac78bae.png",
+        "childIds": [
+          114363
+        ],
+        "keywordIds": [
+          8,
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_401",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 112820,
+        "collectible": 1,
+        "slug": "112820-scv",
+        "classId": null,
+        "multiClassIds": [
+          5,
+          8,
+          10
+        ],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Brian Despain",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "SCV",
+        "text": "<b>Battlecry:</b> Your next <b>Starship</b> launch costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f7afdb7974f14524b05abb703d1a0f56b36c1d6dbaa6e765730a1d4c1a7da972.png",
+        "imageGold": "",
+        "flavorText": "They're called SCVs because they're Super Cool (Very).",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/024aa0aaf5357101600fb696d884d27426650940acd3c09a074f036e9ac78bae.png",
+        "childIds": [
+          114363
+        ],
+        "keywordIds": [
+          8,
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_405",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 112866,
+        "collectible": 1,
+        "slug": "112866-ultra-capacitor",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "超级电容器",
+        "text": "<b>星舰组件</b> <b>战吼：</b>每有一个其他友方随从，便获得+1/+1。发射时也会触发。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41506864ce3593abc3ef341e10e239d4911c49bd52604014d502fa3e19d31d93.png",
+        "imageGold": "",
+        "flavorText": "要是我没算错的话，当这台宝贝儿冲到88迈……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/129e113d6bf48b578f4f0d6e30f1604643606bece48ffe37baeb58e584c81249.png",
+        "childIds": [
+          114363
+        ],
+        "keywordIds": [
+          8,
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_405",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 112866,
+        "collectible": 1,
+        "slug": "112866-ultra-capacitor",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Ultra-Capacitor",
+        "text": "<b>Starship Piece</b> <b>Battlecry:</b> Gain +1/+1 for each other friendly minion. Also triggers on launch.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7855fbce24ada943b0b093c3517b3c9ccea3ccc88128ab157d04faaa2c71cfb.png",
+        "imageGold": "",
+        "flavorText": "If my calculations are correct, when this baby hits 88 miles per hour...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/129e113d6bf48b578f4f0d6e30f1604643606bece48ffe37baeb58e584c81249.png",
+        "childIds": [
+          114363
+        ],
+        "keywordIds": [
+          8,
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_412",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 113855,
+        "collectible": 1,
+        "slug": "113855-hellion",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Mike Sass",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "恶火",
+        "text": "你的其他随从拥有+1攻击力。<i>（如果你在本局对战中发射过<b>星舰</b>，则会 变形。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cff1b2609399fd9c6f7ac81ecc987bafab1f7b636fbdd3d1904d86e8865ce41d.png",
+        "imageGold": "",
+        "flavorText": "下次一定要升级阻燃轮胎。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86924d0d6e5a7e7dff984517166f0fb1d76ae08be23120b05b5ab4ba4f28bc2a.png",
+        "childIds": [
+          113858,
+          114363
+        ],
+        "keywordIds": [
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_412",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 113855,
+        "collectible": 1,
+        "slug": "113855-hellion",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Mike Sass",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Hellion",
+        "text": "Your other minions have +1 Attack. <i>(Transforms if you launched a <b>Starship</b> this game.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8184d82950588c00be3e762eb6ed8a7bc7c175e7e60f1538d1e97d705383b24d.png",
+        "imageGold": "",
+        "flavorText": "Let's upgrade to the non-flammable tires next time.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86924d0d6e5a7e7dff984517166f0fb1d76ae08be23120b05b5ab4ba4f28bc2a.png",
+        "childIds": [
+          113858,
+          114363
+        ],
+        "keywordIds": [
+          323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3458
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_030",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 71984,
+        "collectible": 1,
+        "slug": "71984-the-leviathan",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Paul Mafayon",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "海兽号",
+        "text": "<b>巨型+1</b> <b>突袭</b>，<b>圣盾</b>。在本随从攻击后，<b>探底</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61be2b965cb619e2ca0baef7750384d72e1d3da6eeacc096c0d43b1dded20107.png",
+        "imageGold": "",
+        "flavorText": "由伊妮·积雷亲手建造。这艘巨舰可以陪你闯过几乎任何恶劣环境……但她真心希望你别去那么险恶的地方！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fefb1cc16645c51d5b49778fa1c54a4c5b05bd7b4e168d815fb26ad4c6e5c0fd.png",
+        "childIds": [
+          71982
+        ],
+        "keywordIds": [
+          3,
+          53,
+          231,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_030",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 71984,
+        "collectible": 1,
+        "slug": "71984-the-leviathan",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 5,
+        "artistName": "Paul Mafayon",
+        "health": 5,
+        "attack": 4,
+        "manaCost": 7,
+        "name": "The Leviathan",
+        "text": "<b>Colossal +1</b> <b>Rush</b>, <b>Divine Shield</b> After this attacks, <b>Dredge</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72f3d611a4ee663c526f840295e8354429f7e87c673c43cc5b0d6673388cb365.png",
+        "imageGold": "",
+        "flavorText": "Built by Ini Stormcoil, this massive vessel can withstand almost anything you put it through... although she would prefer you didn't!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fefb1cc16645c51d5b49778fa1c54a4c5b05bd7b4e168d815fb26ad4c6e5c0fd.png",
+        "childIds": [
+          71982
+        ],
+        "keywordIds": [
+          3,
+          53,
+          231,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_059",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 73428,
+        "collectible": 1,
+        "slug": "73428-bubblebot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "泡泡机器人",
+        "text": "<b>战吼：</b> 使你的所有其他机械获得<b>圣盾</b>和<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53993aca1f5a2c106435fd4d232ace491968660bb5af86f14de385becaaaea22.png",
+        "imageGold": "",
+        "flavorText": "泡泡机器人，泡泡泡泡泡泡机器人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f24bca11b6ffd72c27a2bca363ba3988b04bf600901bb2f3ded3a23c5eac8967.png",
+        "keywordIds": [
+          1,
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_059",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 73428,
+        "collectible": 1,
+        "slug": "73428-bubblebot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Bubblebot",
+        "text": "<b>Battlecry:</b> Give your other Mechs <b>Divine Shield</b> and <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb240661a5cb48c9b298fd28f33ae4a6741ab9788e7399e5cbbab5564785ced5.png",
+        "imageGold": "",
+        "flavorText": "Bubblebot, bubble bubble bubblebot.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f24bca11b6ffd72c27a2bca363ba3988b04bf600901bb2f3ded3a23c5eac8967.png",
+        "keywordIds": [
+          1,
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_083",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 77018,
+        "collectible": 1,
+        "slug": "77018-seafloor-savior",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "海床救生员",
+        "text": "<b>战吼：</b><b>探底</b>。如果选中的是随从牌，使其获得本随从的攻击力和生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce09b39a38f3cd2c67f1a3b91bb79d9e27cc9e7a04551564dd16270499386720.png",
+        "imageGold": "",
+        "flavorText": "“龟龟已找到。正在执行绷带贴贴与亲亲。痛痛即将清除。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac6cfdddabee67f6c291f59f9e8c5730f54c8d6ecfa305d59a89b0724548967e.png",
+        "keywordIds": [
+          8,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_083",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 77018,
+        "collectible": 1,
+        "slug": "77018-seafloor-savior",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Seafloor Savior",
+        "text": "<b>Battlecry:</b> <b>Dredge</b>. If it's a minion, give it this minion's Attack and Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6783fa69d1af1a8fd94ed1658c307cebdbe36bfe68fed6fee53b6e2d30fb502.png",
+        "imageGold": "",
+        "flavorText": "\"TURTLE PROCURED. ADMINISTRATING BANDAGES AND KISSES. BOO BOO MUST BE ELIMINATED.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac6cfdddabee67f6c291f59f9e8c5730f54c8d6ecfa305d59a89b0724548967e.png",
+        "keywordIds": [
+          8,
+          232
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_644",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 72926,
+        "collectible": 1,
+        "slug": "72926-azsharan-mooncatcher",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Evgeniy Dlinnov",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "艾萨拉的观月仪",
+        "text": "<b>圣盾</b>，<b>战吼：</b>将一张沉没的观月仪置于你的牌库底。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84bff905a1dcf13e99d15c4d74314a355d6245a0b4058cb0401a300dedcf5164.png",
+        "imageGold": "",
+        "flavorText": "艾露恩的光芒在辛艾萨莉的废墟中消散，可宝藏依然如故。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a62ebdc76613d8fd2a9e37f7029d71d08a2ca4357c688492d15a92b7d21a3b8.png",
+        "childIds": [
+          74957
+        ],
+        "keywordIds": [
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_644",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 72926,
+        "collectible": 1,
+        "slug": "72926-azsharan-mooncatcher",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Evgeniy Dlinnov",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Azsharan Mooncatcher",
+        "text": "<b>Divine Shield</b>. <b>Battlecry:</b> Put a 'Sunken Mooncatcher' on the bottom of your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dda95629c40e257f396304e5769e9c54eb8fdaf230067a03f38aa63a19f4a821.png",
+        "imageGold": "",
+        "flavorText": "The light of Elune faded from the ruins of Zin-Azshari, but not its treasures.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a62ebdc76613d8fd2a9e37f7029d71d08a2ca4357c688492d15a92b7d21a3b8.png",
+        "childIds": [
+          74957
+        ],
+        "keywordIds": [
+          3,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_852",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 98054,
+        "collectible": 1,
+        "slug": "98054-noble-minibot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "崇高的迷你机",
+        "text": "<b>磁力</b>。在本随从攻击后，随机使你手牌中的一张随从牌获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86e199f3881a64878314c7fe618ebb74d91b7d7e44d5d7b9d5d5a155d073f51c.png",
+        "imageGold": "",
+        "flavorText": "我的迷你机总会感到迷辋。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85d9c615b35d3c311977066484a56f50209f2f659c308de92281b02ae59e20f9.png",
+        "keywordIds": [
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_852",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 98054,
+        "collectible": 1,
+        "slug": "98054-noble-minibot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Noble Minibot",
+        "text": "<b>Magnetic</b> After this attacks, give a random minion in your hand +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99a8ac49705582cedc7a559b7ca28c14c8a33b55d376ec5fbcb020e2c7dfb47b.png",
+        "imageGold": "",
+        "flavorText": "I always get the minibot with the wobbly wheel.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85d9c615b35d3c311977066484a56f50209f2f659c308de92281b02ae59e20f9.png",
+        "keywordIds": [
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_906",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 96910,
+        "collectible": 1,
+        "slug": "96910-x-1-repairbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "修理机器人X-21",
+        "text": "<b>亡语：</b>将所有<b>磁力吸附</b>在本随从上的机械移回你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f00347f26bddee3a62a81ad329ed1be108c11676a527fb98ae61d9fd273661c4.png",
+        "imageGold": "",
+        "flavorText": "圆柱形螺栓？放进方形孔。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0099432e242ad6793855ddbcb258c551b603fd6ea17f494dea86fd843beca474.png",
+        "keywordIds": [
+          12,
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_906",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 96910,
+        "collectible": 1,
+        "slug": "96910-x-1-repairbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "X-21 Repairbot",
+        "text": "<b>Deathrattle:</b> Return any Mechs <b>Magnetized</b> to this to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/704db06f6daa3e558e94aeefe2b23ce95f96d1dc648799f7155fa190325190a8.png",
+        "imageGold": "",
+        "flavorText": "The circle bolt goes in the square hole.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0099432e242ad6793855ddbcb258c551b603fd6ea17f494dea86fd843beca474.png",
+        "keywordIds": [
+          12,
+          66
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_217",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 53445,
+        "collectible": 1,
+        "slug": "53445-micro-mummy",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "微型木乃伊",
+        "text": "<b>复生</b> 在你的回合结束时，随机使另一个友方随从获得+1攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5320c7aaf6d893b3dba16d38eaca8f4e62d51e7a565752ba54cd7fb2e13e8a5d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/365bff81799f9fdaf673e9a630b0eb6ec8e6cca4ef6d45a589690686b8290c2e.png",
+        "flavorText": "精雕细刻，精湛工艺，至真精品，惊世再现。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84adbec496390cc3fd7eb0f542281d44c894796e39348628ae9152ada6b94701.png",
+        "keywordIds": [
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_217",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 53445,
+        "collectible": 1,
+        "slug": "53445-micro-mummy",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1158,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "health": 2,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Micro Mummy",
+        "text": "<b>Reborn</b> At the end of your turn, give another random friendly minion +1 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/052c190035d96a804923e095befb0a51038a1f3e459c320984dbefade9b8770c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b765392e38dcda29dd055a3af6885f7b6fc3e70997a58ecfa97ef32b7ec95478.png",
+        "flavorText": "The dramatically detailed terrifically trimmed replica of the real thing!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84adbec496390cc3fd7eb0f542281d44c894796e39348628ae9152ada6b94701.png",
+        "keywordIds": [
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_002",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 110751,
+        "collectible": 1,
+        "slug": "110751-busy-bot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "忙碌机器人",
+        "text": "<b>战吼：</b>使你攻击力为1的随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/00a171c68c9450cf9bc7b9cf68586128391905423f43766f742c9523c09e9b91.png",
+        "imageGold": "",
+        "flavorText": "忙碌机器人喜欢干净的桌面。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48eeaccd2bfa0c24d0afb4461c6f3e588880822eb6c5395bddd28d54e0a7702e.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_002",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 110751,
+        "collectible": 1,
+        "slug": "110751-busy-bot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "health": 2,
+        "attack": 3,
+        "manaCost": 2,
+        "name": "Busy-Bot",
+        "text": "<b>Battlecry:</b> Give your 1-Attack minions +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177c937de52079c7925cfb96816002080482404bb25c2784be88c6a307234586.png",
+        "imageGold": "",
+        "flavorText": "Busy-Bot likes a clean desktop.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48eeaccd2bfa0c24d0afb4461c6f3e588880822eb6c5395bddd28d54e0a7702e.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_010",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 56077,
+        "collectible": 1,
+        "slug": "56077-shotbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1403,
+        "rarityId": 1,
+        "artistName": "Phil Saunders",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "炮火机甲",
+        "text": "<b>复生</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fbf187dafd08761cf07f408fa663a97a2f9d61bd8a6abf1187d0509c83d897b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3acfa606a00bf37641820949450eaf3dfa3f96db1effdd8ac0894e780a64873.png",
+        "flavorText": "侦测到即将落地。启动英雄造型。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/32d69b5649aab4429390a901ba6ed42b636b883013fc0e8b8511b05c6f96502a.png",
+        "keywordIds": [
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_010",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 56077,
+        "collectible": 1,
+        "slug": "56077-shotbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1403,
+        "rarityId": 1,
+        "artistName": "Phil Saunders",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Shotbot",
+        "text": "<b>Reborn</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36f892aa01e55d1b5ba65e9aa0ba7f568fdafc2d435fd8d28c9ad1612c695947.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a01040cf44323a491637e488d66ed860b8417bb291c2856e3c09dd113ad8400.png",
+        "flavorText": "Impact detected. Assuming hero pose.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/32d69b5649aab4429390a901ba6ed42b636b883013fc0e8b8511b05c6f96502a.png",
+        "keywordIds": [
+          78
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_510",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 101009,
+        "collectible": 1,
+        "slug": "101009-alarmed-securitybot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "报警安保机器人",
+        "text": "<b>亡语：</b>抽一张其他随从牌。将其攻击力，生命值和法力值消耗变为5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87164605ea69bb342205b4115bbaa8e2baca3908d0b9c2d359a7d03b3e9a9a48.png",
+        "imageGold": "",
+        "flavorText": "威胁等级：5！但其实好像也没有那么危险。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63ff0e23ae30b42baf2feb1374ddf72444ff600a40686d155ee65c5938f81233.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_510",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 101009,
+        "collectible": 1,
+        "slug": "101009-alarmed-securitybot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Alarmed Securitybot",
+        "text": "<b>Deathrattle:</b> Draw another minion. Set its Attack, Health, and Cost to 5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbc5c92d44aa00ed0cea8ae5fc882a9f7602569438ff59ddf9b4d9b6718ef546.png",
+        "imageGold": "",
+        "flavorText": "THREAT LEVEL: 5! Which doesn't actually sound that bad to be honest.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63ff0e23ae30b42baf2feb1374ddf72444ff600a40686d155ee65c5938f81233.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_525",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 101112,
+        "collectible": 1,
+        "slug": "101112-muscle-o-tron",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Mooncolony",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "健身肌器人",
+        "text": "<b>战吼：</b>使你手牌中的所有随从牌获得+1/+1。<b>锻造：</b>改为+2/+2。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca3a7864eef62d5f135d9cf66320e15e944b5d7e270d60cee1b44e2aa851f205.png",
+        "imageGold": "",
+        "flavorText": "哥们，你锻炼过吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b2fa10c8eebae8baa8354e6e0289e67ca32135ae00b66a54373260bd7d292f11.png",
+        "childIds": [
+          101113
+        ],
+        "keywordIds": [
+          8,
+          266
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_525",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 101112,
+        "collectible": 1,
+        "slug": "101112-muscle-o-tron",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Mooncolony",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Muscle-o-Tron",
+        "text": "<b>Battlecry:</b> Give all minions in your hand +1/+1. <b>Forge:</b> +2/+2 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84da6102d201fc7cb9f66696f21ce031c245899e0b31f65b5e2015f19e167f84.png",
+        "imageGold": "",
+        "flavorText": "Bro, do you even forge?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b2fa10c8eebae8baa8354e6e0289e67ca32135ae00b66a54373260bd7d292f11.png",
+        "childIds": [
+          101113
+        ],
+        "keywordIds": [
+          8,
+          266
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_016",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 119964,
+        "collectible": 1,
+        "slug": "119964-neon-innovation",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "耀眼创意",
+        "text": "<b>发现</b>一张来自过去的圣骑士机械牌。使其获得+5/+5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ac11ba9b786880c9e2d65599a0b95ac1b381414ea2945b4a23b31398c4f23dfa.png",
+        "imageGold": "",
+        "flavorText": "“这星期你带护盾机器人来班里三次了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177e3c8afb548ca9a26a5c7e4e104fa5bfc0e20d77f81b3b0124d1d4e087e301.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_016",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 119964,
+        "collectible": 1,
+        "slug": "119964-neon-innovation",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 1957,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "Neon Innovation",
+        "text": "<b>Discover</b> a Paladin Mech from the past. Give it +5/+5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c2b7db7d6893fa5a21f1a8601ee631cd68b020d4aa71f3183be42d7a0a53ed8.png",
+        "imageGold": "",
+        "flavorText": "\"This is the third time this week you've brought Shielded Minibot to class.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/177e3c8afb548ca9a26a5c7e4e104fa5bfc0e20d77f81b3b0124d1d4e087e301.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "BOT_537": {
+      "attack": 0
+    },
+    "JAM_010": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {
+    "JAM_010": {
+      "zh_CN": {
+        "{0}": ""
+      },
+      "en_US": {
+        "{0}": "",
+        "{1}": ""
+      }
+    }
+  },
+  "source_producer": {
+    "record": {
+      "id": "TIME_016",
+      "dbf_id": 119964,
+      "name": "耀眼创意",
+      "name_en": "Neon Innovation",
+      "text": "<b>发现</b>一张来自过去的圣骑士机械牌。使其获得+5/+5。",
+      "text_en": "<b>Discover</b> a Paladin Mech from the past. Give it +5/+5.",
+      "cost": 3,
+      "attack": null,
+      "health": null,
+      "type": "SPELL",
+      "collectible": true,
+      "tags": {
+        "COST": 3,
+        "CARD_SET": 1957,
+        "CLASS": 5,
+        "CARDTYPE": 5,
+        "RARITY": 3,
+        "COLLECTIBLE": 1,
+        "DISCOVER": 1,
+        "GEARS": 1,
+        "SPELL_SCHOOL": 5
+      },
+      "card_set_id": 1957,
+      "source_entity_version": "2",
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "xml_card_references": [],
+      "unmapped_xml_nodes": [
+        {
+          "tag": "Tag",
+          "attributes": {
+            "enumID": "342",
+            "name": "ARTISTNAME",
+            "type": "String"
+          },
+          "text": "Matt Dixon"
+        }
+      ]
+    },
+    "record_sha256": "2e0e1d341a2ac5cc1cf2725712b7c54fb172ae5bacbfdbb6b5f5658c2788e813",
+    "definition_sha256": "a6645d8b15bc8a028c868a8686e232701f97627f53de24b58b5b832e350bc5c6"
+  },
+  "membership_uses_executable_coverage": false,
+  "unit_local_weights": true,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "runtime_bindings_added": false,
+  "uncertainties": [
+    "Local visible Wild-minus-Standard series and numeric aliases are not the official hidden Past eligibility table.",
+    "Reprint identities, exclusions, source offer weights and CN effective patch/hotfix correspondence remain unconfirmed.",
+    "The full 27-member source remains unbound until all real native members and reachable dependencies can execute."
+  ]
+}

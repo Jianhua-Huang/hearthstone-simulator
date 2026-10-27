@@ -4692,7 +4692,7 @@ class PlayerSpellCountCostSpec:
     def __post_init__(self):
         if type(self.profile_id) is not str or self.profile_id not in (
                 'cost.player-spell-count-v1', 'cost.player-distinct-spell-school-count-v1',
-                'cost.player-fel-spell-count-v1'):
+                'cost.player-fel-spell-count-v1', 'cost.player-holy-cast-count-v1'):
             raise ValueError('Unsupported personal spell-count cost policy')
 
 
@@ -4722,10 +4722,10 @@ class PlayerSpellCountCostRow:
         _bool(self.payload_started, 'personal spell row accepted payload')
         if self.spell_school is not None and type(self.spell_school) is not SpellSchool:
             raise ValueError('Personal spell row requires its original declared school')
-        if type(self.origin) is not str or self.origin not in ('hand', 'repeat', 'effect', 'draw', 'history'):
+        if type(self.origin) is not str or self.origin not in ('hand', 'repeat', 'effect', 'draw', 'history', 'native_repeat'):
             raise ValueError('Personal spell row requires a known physical cast origin')
-        automatic = self.origin in ('effect', 'draw', 'history')
-        if automatic != (self.play_id is None) or (self.origin == 'repeat') != (self.iteration > 1):
+        automatic = self.origin in ('effect', 'draw', 'history', 'native_repeat')
+        if automatic != (self.play_id is None) or (self.origin in ('repeat', 'native_repeat')) != (self.iteration > 1):
             raise ValueError('Personal spell row changed its original hand root or iteration')
         if self.failure not in (None, 'countered', 'no_target', 'invalid_target'):
             raise ValueError('Personal spell row contains an unknown attempt result')
@@ -4740,6 +4740,11 @@ class PlayerSpellCountCostRow:
 
 
 def _player_spell_count_quantity(spec, player_id, rows):
+    if spec.profile_id == 'cost.player-holy-cast-count-v1':
+        # Lightbot names casts, including real repeated/automatic occurrences.
+        # Keep the older root-only price profiles' operands unchanged.
+        return sum(row.player_id == player_id and row.spell_school is SpellSchool.HOLY and
+                   row.payload_started and row.failure is None for row in rows)
     personal = tuple(row for row in rows if row.counts_for(player_id))
     if spec.profile_id == 'cost.player-spell-count-v1':
         return len(personal)

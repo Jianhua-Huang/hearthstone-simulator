@@ -413,15 +413,16 @@ class PlayerSpellSchoolCostTests(unittest.TestCase):
         view = g.observe(1)
         self.assertEqual(view['players'][0]['hand'][0]['cost']['amount'], 4)
         self.assertTrue(all(row['card_id'] is None and row.get('cost') is None for row in view['players'][1]['hand']))
+        self.assertEqual(view['players'][0]['spell_schools_played_this_turn'], ['fire'])
         for key in ('player_spells', 'cast_history', 'spell_school', 'submitted_cost', 'cast_history_length', 'next_entity_id'):
-            self.assertNotIn(key, json.dumps(view))
+            self.assertNotIn('"'+key+'"', json.dumps(view))
         self.portable(g)
 
     def test_new_strict_row_layout_rejects_all_old_future_boolean_and_host_versions(self):
         g = self.game()
         saved = g.snapshot()
         self.assertEqual((saved['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
-        self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']), ('player-view-v115', 'player-actions-v13'))
+        self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']), ('player-view-v119', 'player-actions-v13'))
         self.assertEqual(build_replay(g)['schema_version'], 1)
         for version in (*range(1, 218), 217, True, 208.0):
             bad = deepcopy(saved)

@@ -352,6 +352,11 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                         canonical(row) == 'afa504c878895524959d208f1afb003bbfcc9aa2a71717362c1a61793c950bb7')
     upgraded_recruit_display = (display_normalizations == {'{0}': ''} and row['id'] == 'HERO_04bp2' and
         canonical(row) == 'e591407799b3a77a6013ede32fccc293544df11bcdf4b8c3b1371edcb4ede54d')
+    # Jukebox's complete primary faces omit the live Recruit size and the
+    # English article suffix. No static rule, stat or printed number is omitted.
+    jukebox_display = (row['id'] == 'JAM_010' and
+        canonical(row) == '657a67966983d7bd55b23173e96b4915e2d5150ffc0d841c71b9cb2d41523f40' and
+        display_normalizations == ({'{0}': ''} if chinese else {'{0}': '', '{1}': ''}))
     upgraded_hunter_display = (display_normalizations == {'@': ''} and row['id'] == 'HERO_05bp2' and
         canonical(row) == '405a2877e62fd20fd01e5ec1c38c7eb4a1bcb84b4a263a8750bdaf6e2a4f925a')
     # The gallery keeps both complete Lookout texts but omits the branch
@@ -425,10 +430,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_reprint_display or jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
+                    (jade_reprint_display or jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_reprint_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_reprint_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):

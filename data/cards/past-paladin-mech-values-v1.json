@@ -1,0 +1,785 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-past-paladin-mech-values-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-paladin-mech-local-reference-v1.json",
+  "reference_canonical_sha256": "92bf7f1b4ac499111e6d8bb07d3ccd513fa4262c651351a493b8ffd33e16cdb8",
+  "collectible_leaf_ids": [
+    "JAM_010",
+    "MIS_918",
+    "NX2_023",
+    "YOG_510"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAM_010",
+        "dbf_id": 95345,
+        "name": "点唱机图腾",
+        "name_en": "Jukebox Totem",
+        "text": "在你的回合结束时，召唤一个{0}的白银之手新兵。",
+        "text_en": "[x]At the end of your turn,\nsummon a{1} {0} Silver\nHand Recruit.",
+        "cost": 2,
+        "attack": null,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "2539": 1,
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 4,
+          "COST": 2,
+          "CARD_SET": 1809,
+          "CLASS": 5,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 144,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1652,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2539",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2539"
+          }
+        ]
+      },
+      "record_sha256": "657a67966983d7bd55b23173e96b4915e2d5150ffc0d841c71b9cb2d41523f40"
+    },
+    {
+      "record": {
+        "id": "MIS_918",
+        "dbf_id": 105281,
+        "name": "灯火机器人",
+        "name_en": "Flickering Lightbot",
+        "text": "<b>扩大</b>\n在本局对战中，你每施放一个神圣法术，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Gigantify</b>\nCosts (1) less for each\nHoly spell you've cast\nthis game.",
+        "cost": 5,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 5,
+          "CARD_SET": 1897,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 106663,
+          "MINI_SET": 1,
+          "GIGANTIFY": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "9f1d735286c5a28af20578e74aa16f3b8ec03a2973fd44b0f5f58c3cc8f75bec"
+    },
+    {
+      "record": {
+        "id": "NX2_023",
+        "dbf_id": 86661,
+        "name": "纯净馆长",
+        "name_en": "The Purator",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的牌库中没有中立卡牌，抽取每个随从类型的随从牌各一张。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Battlecry:</b> If your deck has no\nNeutral cards, draw a minion\nof each minion type.",
+        "cost": 5,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "b5030cc10e39db6479e67c79b108528ab5072fb329aa4cc2c535711b1a7d6381"
+    },
+    {
+      "record": {
+        "id": "YOG_510",
+        "dbf_id": 101009,
+        "name": "报警安保机器人",
+        "name_en": "Alarmed Securitybot",
+        "text": "<b>亡语：</b>抽一张其他随从牌。将其攻击力，生命值和法力值消耗变为5。",
+        "text_en": "[x]<b>Deathrattle:</b> Draw another\nminion. Set its Attack,\nHealth, and Cost to 5.",
+        "cost": 4,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "7bcd45a8db62b327fe482cbe7895a4484d210db9b91b744db5b06e6e1a95866e"
+    },
+    {
+      "record": {
+        "id": "MIS_918t",
+        "dbf_id": 106663,
+        "name": "灯火机器人",
+        "name_en": "Flickering Lightbot",
+        "text": "<b>大型</b>\n在本局对战中，你每施放一个神圣法术，本牌的法力值消耗便减少（1）点。",
+        "text_en": "[x]<b>Gigantic</b>\nCosts (1) less for each\nHoly spell you've cast\nthis game.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1897,
+          "CLASS": 5,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "MINI_SET": 1,
+          "GIGANTIC": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "0d7c4b32a793c6cf93f3ab8788839e3f03e9eebea775d3def10e37924ad19b3e"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CS2_101t",
+        "dbf_id": 1652,
+        "name": "白银之手新兵",
+        "name_en": "Silver Hand Recruit",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "3444": 1,
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "3444",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "3444"
+          }
+        ]
+      },
+      "record_sha256": "d6e11cb6245a7dca1c68d31adbd57b33e9dcc2d48de091e5471736cae9df12ea",
+      "definition_sha256": "c465bf114ee5f2b6e8fd3581621e11cc9540af2f226a291ca2fca7e02007264b",
+      "pool_card_sha256": null
+    }
+  ],
+  "evidence_only": [],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "JAM_010",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 95345,
+        "collectible": 1,
+        "slug": "95345-jukebox-totem",
+        "classId": 5,
+        "multiClassIds": [
+          5,
+          8
+        ],
+        "minionTypeId": 21,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 0,
+        "manaCost": 2,
+        "name": "点唱机图腾",
+        "text": "在你的回合结束时，召唤一个 的白银之手新兵。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4790c4bb69f82f627515e1874563b4bc9df31a550ad5c91484f0e8ec5663d937.png",
+        "imageGold": "",
+        "flavorText": "如果你真的喜爱《炉石传说》，那么就给图腾再投个币吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b64893eb58e937096b3001ae2da9e1efb12f13351cd0e88e80d853512dc232a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAM_010",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 95345,
+        "collectible": 1,
+        "slug": "95345-jukebox-totem",
+        "classId": 5,
+        "multiClassIds": [
+          5,
+          8
+        ],
+        "minionTypeId": 21,
+        "multiTypeIds": [
+          17
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": 1,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 4,
+        "attack": 0,
+        "manaCost": 2,
+        "name": "Jukebox Totem",
+        "text": "At the end of your turn, summon a Silver Hand Recruit.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/965d6c4f7b9a222da6647690a1166dc640a79136f63a88de81a66a6f6170946a.png",
+        "imageGold": "",
+        "flavorText": "If you really love Hearthstone, put another coin in the Totem baby!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b64893eb58e937096b3001ae2da9e1efb12f13351cd0e88e80d853512dc232a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_918",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 105281,
+        "collectible": 1,
+        "slug": "105281-flickering-lightbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Stefan Bogdasarov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "灯火机器人",
+        "text": "<b>扩大</b> 在本局对战中，你每施放一个神圣法术，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff0506785f4d0533869c8d588c39d2ab714548051de985d61a860210e92fc0be.png",
+        "imageGold": "",
+        "flavorText": "出厂时只保留了极少的电量，帮你营造灯火阑珊的氛围。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01625086f78434c71c47fa5a2060c7f38cfb3b6e910f649786a27500fdc18812.png",
+        "childIds": [
+          106663
+        ],
+        "keywordIds": [
+          301
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_918",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 105281,
+        "collectible": 1,
+        "slug": "105281-flickering-lightbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Stefan Bogdasarov",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Flickering Lightbot",
+        "text": "<b>Gigantify</b> Costs (1) less for each Holy spell you've cast this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5812c86edc5882ac40b3ceadf7c076abf97270bde65e39f252d8ef4003a5bf13.png",
+        "imageGold": "",
+        "flavorText": "These bots are sent out with nearly drained batteries, for dramatic effect.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01625086f78434c71c47fa5a2060c7f38cfb3b6e910f649786a27500fdc18812.png",
+        "childIds": [
+          106663
+        ],
+        "keywordIds": [
+          301
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_023",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 86661,
+        "collectible": 1,
+        "slug": "86661-the-purator",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "Jaemin Kim",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "纯净馆长",
+        "text": "<b>嘲讽</b>。<b>战吼：</b>如果你的牌库中没有中立卡牌，抽取每个随从类型的随从牌各一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/357ad7a5f985134f19c6dc87fe8201854e98e3998184aedffdaf62282239d347.png",
+        "imageGold": "",
+        "flavorText": "馆长见到了爬起来的亡灵，就感觉自己应该照顾他们。这是他的责任。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9f55e28c31a04bc1d01fb9586d512d14864ad11946e33fc8edc6c9fc3168db9.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_023",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 86661,
+        "collectible": 1,
+        "slug": "86661-the-purator",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "Jaemin Kim",
+        "health": 6,
+        "attack": 4,
+        "manaCost": 5,
+        "name": "The Purator",
+        "text": "<b>Taunt</b> <b>Battlecry:</b> If your deck has no Neutral cards, draw a minion of each minion type.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ec5b81fbb8a78805a513ba440e5c0c3d1712c6bba5a3217331857f9d1775ee1.png",
+        "imageGold": "",
+        "flavorText": "With the rise of the undead, the Curator sees it as his duty to take care of them.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c9f55e28c31a04bc1d01fb9586d512d14864ad11946e33fc8edc6c9fc3168db9.png",
+        "keywordIds": [
+          1,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_510",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 101009,
+        "collectible": 1,
+        "slug": "101009-alarmed-securitybot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "报警安保机器人",
+        "text": "<b>亡语：</b>抽一张其他随从牌。将其攻击力，生命值和法力值消耗变为5。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/87164605ea69bb342205b4115bbaa8e2baca3908d0b9c2d359a7d03b3e9a9a48.png",
+        "imageGold": "",
+        "flavorText": "威胁等级：5！但其实好像也没有那么危险。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63ff0e23ae30b42baf2feb1374ddf72444ff600a40686d155ee65c5938f81233.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_510",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 101009,
+        "collectible": 1,
+        "slug": "101009-alarmed-securitybot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "health": 3,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Alarmed Securitybot",
+        "text": "<b>Deathrattle:</b> Draw another minion. Set its Attack, Health, and Cost to 5.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbc5c92d44aa00ed0cea8ae5fc882a9f7602569438ff59ddf9b4d9b6718ef546.png",
+        "imageGold": "",
+        "flavorText": "THREAT LEVEL: 5! Which doesn't actually sound that bad to be honest.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63ff0e23ae30b42baf2feb1374ddf72444ff600a40686d155ee65c5938f81233.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_918t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k586-past-paladin-mech-values\\official-giant\\106663-zh_CN.json",
+      "response_sha256": "1483fe48944c8fdb06b4cec3d7a68da27ee3d4a645a61b9b5dcc21c3d2037f5b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=106663&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 106663,
+        "collectible": 0,
+        "slug": "106663-flickering-lightbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Stefan Bogdasarov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "灯火机器人",
+        "text": "<b>大型</b> 在本局对战中，你每施放一个神圣法术，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f78f92c9f32f2459d9ae11698c955764814ae97ed0cca62da75478e5025485dd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 105281,
+        "keywordIds": [
+          302
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=106663&locale=zh_CN&collectible=0",
+        "sha256": "1483fe48944c8fdb06b4cec3d7a68da27ee3d4a645a61b9b5dcc21c3d2037f5b",
+        "bytes": 705,
+        "observed_at": "2026-10-27T00:06:40.781099+00:00"
+      }
+    },
+    {
+      "card_id": "MIS_918t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k586-past-paladin-mech-values\\official-giant\\106663-en_US.json",
+      "response_sha256": "184f1307641ce316afa7fc0e2df2e8ecfa89fd49d0561a7bd1f090b81f728cbd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=106663&locale=en_US&collectible=0",
+      "face": {
+        "id": 106663,
+        "collectible": 0,
+        "slug": "106663-flickering-lightbot",
+        "classId": 5,
+        "multiClassIds": [],
+        "minionTypeId": 17,
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Stefan Bogdasarov",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Flickering Lightbot",
+        "text": "<b>Gigantic</b> Costs (1) less for each Holy spell you've cast this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f0297929dc6951357364340194045271e7563d1efa27cdd0c8b16831e84ca40.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 105281,
+        "keywordIds": [
+          302
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=106663&locale=en_US&collectible=0",
+        "sha256": "184f1307641ce316afa7fc0e2df2e8ecfa89fd49d0561a7bd1f090b81f728cbd",
+        "bytes": 668,
+        "observed_at": "2026-10-27T00:06:40.908545+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "JAM_010": {
+      "attack": 0
+    }
+  },
+  "display_normalizations": {
+    "JAM_010": {
+      "zh_CN": {
+        "{0}": ""
+      },
+      "en_US": {
+        "{0}": "",
+        "{1}": ""
+      }
+    }
+  },
+  "holy_cost_profile": "cost.player-holy-cast-count-v1",
+  "holy_count_policy": "all original accepted Holy cast occurrences by this player; exclude failed/countered and not-yet-started payloads, count repeat/effect/draw/history occurrences independently",
+  "purator_tribe_order": [
+    "draenei",
+    "undead",
+    "murloc",
+    "demon",
+    "mech",
+    "elemental",
+    "beast",
+    "totem",
+    "pirate",
+    "dragon",
+    "quilboar",
+    "naga"
+  ],
+  "security_excludes_card_ids": [
+    "YOG_510"
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "Purator race order and dual/All-type assignment follow sequential ordinary queries; exact CN boundary ordering remains unverified.",
+    "Securitybot another-minion exclusion uses the original YOG_510 identity; hidden alias equivalence is unverified.",
+    "Automatic/repeated Holy cast reductions use actual accepted cast history, with pending/failed attempts excluded."
+  ]
+}
