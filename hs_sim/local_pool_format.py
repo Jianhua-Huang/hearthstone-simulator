@@ -146,8 +146,9 @@ def build_cn37_local_pool_format():
     for metadata in metadata_additions: registry.register_pool_card(metadata)
     past_pools = merge_pools(registry,original.context,local_pools(registry,original.context))
     past_pools = merge_mech_pools(registry,original.context,past_pools)
+    from .cards.protoss_spell_domain import local_pool as protoss_pool
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context)
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))

@@ -1,0 +1,1496 @@
+{
+  "schema": 1,
+  "kind": "complete-local-protoss-spell-domain-and-native-consumers",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "candidate_policy": "collectible SPELL and printed PROTOSS=1 in fixed full raw catalogue; unit weight; no source exclusion",
+  "candidate_ids": [
+    "SC_750",
+    "SC_753",
+    "SC_755",
+    "SC_757",
+    "SC_759",
+    "SC_760",
+    "SC_761"
+  ],
+  "collectible_leaf_ids": [
+    "SW_462",
+    "SC_750",
+    "SC_753",
+    "SC_755",
+    "SC_757",
+    "SC_759",
+    "SC_760",
+    "SC_761"
+  ],
+  "new_token_ids": [
+    "SC_751t"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "SW_462",
+        "dbf_id": 65140,
+        "name": "炽热连击",
+        "name_en": "Hot Streak",
+        "text": "在本回合中，你的下一张火焰法术牌法力值消耗减少\n（2）点。",
+        "text_en": "Your next Fire spell this turn costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "d1be66f54f689e058ef743ccb076a52ab95c6890fdcbd983503db5568b662cd7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "SW_462",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "SC_750",
+        "dbf_id": 113163,
+        "name": "时空提速",
+        "name_en": "Chrono Boost",
+        "text": "抽两张星灵牌。召唤一个3/4并具有<b>冲锋</b>的狂热者。",
+        "text_en": "Draw 2 Protoss cards. Summon a 3/4 Zealot with <b>Charge</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1935,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 106,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "197",
+              "name": "CHARGE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7033f42ac122b4684817fb3cb2af7ff12dcaea567643c83b8ab0011240635d3e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid",
+          "mage",
+          "priest",
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "SC_750",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_753",
+        "dbf_id": 113168,
+        "name": "光子炮台",
+        "name_en": "Photon Cannon",
+        "text": "造成$3点伤害。\n如果本牌消灭了一个随从，则在本局对战中，你的星灵随从牌的法力值消耗\n减少（1）点。",
+        "text_en": "Deal $3 damage.\nIf this kills a minion, your Protoss minions cost (1) less this game.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1935,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 106,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "dfc9318f2c29a89edac2261c9b1ee1d1cd5c8f186c853cb52fd8ccccce4db469",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid",
+          "mage",
+          "priest",
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "SC_753",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_755",
+        "dbf_id": 113173,
+        "name": "建造水晶塔",
+        "name_en": "Construct Pylons",
+        "text": "在本回合中，你的下一张星灵牌法力值消耗减少（2）点。",
+        "text_en": "Your next Protoss card this turn costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1935,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "f4a395f4a14b0cb05c6b8a9cdcaaffac807822e38b1056f01c26fa6028350716",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "common",
+        "deck_identity": "SC_755",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_757",
+        "dbf_id": 113176,
+        "name": "幻像",
+        "name_en": "Hallucination",
+        "text": "召唤一个友方\n星灵随从的一个复制。该复制受到的伤害翻倍。",
+        "text_en": "Summon a copy of a\nfriendly Protoss minion.\nIt takes double damage.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "5634d631f5a56b328c1e032ca1c1db4b9b47600f19ee0754545f94df6396a0d3",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "rare",
+        "deck_identity": "SC_757",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_759",
+        "dbf_id": 113178,
+        "name": "护盾充能器",
+        "name_en": "Shield Battery",
+        "text": "获得6点护甲值。你的下一张星灵法术牌法力值消耗减少（2）点。",
+        "text_en": "Gain 6 Armor.\nYour next Protoss spell costs (2) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1935,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Studio Hive"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "893ccab3e99e15da79471271d7c4a508162856ff5786e0995c16de39f528855b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "SC_759",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_760",
+        "dbf_id": 113181,
+        "name": "谐振盘",
+        "name_en": "Resonance Coil",
+        "text": "对一个随从造成$5点伤害。随机获取一张星灵法术牌。",
+        "text_en": "Deal $5 damage to a minion. Get a random Protoss spell.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1935,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "a66322cd2496ddee1337cbaf8ce52a2e07c0b97fd3a134052928663c8d9d1d63",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "SC_760",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_761",
+        "dbf_id": 113192,
+        "name": "闪现",
+        "name_en": "Blink",
+        "text": "抽一张星灵随从牌。<b>连击：</b>其法力值消耗减少（2）点。",
+        "text_en": "[x]Draw a Protoss minion.\n<b>Combo:</b> It costs (2) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1935,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COMBO": 1,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "3a061eed21e70eb00023a9b2c12936797daa12dde8d5a71e5c6e69ecfc9172d6",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "SC_761",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SC_751t",
+        "dbf_id": 113732,
+        "name": "狂热者",
+        "name_en": "Zealot",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1935,
+          "CHARGE": 1,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 106,
+          "MINI_SET": 1,
+          "PROTOSS": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & I. Campelo da Silva"
+          }
+        ]
+      },
+      "record_sha256": "3a90abb66fa36d32cf5e95b461ec2a2f2d5c5968d0e4b08c761e0124c86da65e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid",
+          "mage",
+          "priest",
+          "rogue"
+        ],
+        "rarity": "none",
+        "deck_identity": "SC_751t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [
+          "protoss"
+        ],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "skipped": [],
+  "enchantment_reference": {
+    "record": {
+      "id": "SC_757e",
+      "dbf_id": 113737,
+      "name": "幻像",
+      "name_en": "Hallucination",
+      "text": "受到的伤害翻倍。",
+      "text_en": "Takes double damage.",
+      "cost": null,
+      "attack": null,
+      "health": null,
+      "type": "ENCHANTMENT",
+      "collectible": false,
+      "tags": {
+        "CARD_SET": 1935,
+        "CLASS": 6,
+        "CARDTYPE": 6,
+        "ENCHANTMENT_BIRTH_VISUAL": 2,
+        "ENCHANTMENT_IDLE_VISUAL": 2
+      },
+      "card_set_id": 1935,
+      "source_entity_version": "2",
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "xml_card_references": [],
+      "unmapped_xml_nodes": []
+    },
+    "record_sha256": "5a632eab38237949f2bde344d7ef23dfde318da6e9a3f2249a5adc8a381f5067"
+  },
+  "official_observations": [
+    {
+      "card_id": "SW_462",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 65140,
+        "collectible": 1,
+        "slug": "65140-hot-streak",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 0,
+        "name": "炽热连击",
+        "text": "在本回合中，你的下一张火焰法术牌法力值消耗减少 （2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d0bf740bdee4fc57afbcd784dca039af2afae3e9bd420088eb96f2511da58d2.png",
+        "imageGold": "",
+        "flavorText": "容易在上火的时候触发。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f063cc383ceedfa02c35453865e75be51c46199cd61c00cdad1b4750b38ec3c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_462",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 65140,
+        "collectible": 1,
+        "slug": "65140-hot-streak",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 0,
+        "name": "Hot Streak",
+        "text": "Your next Fire spell this turn costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/837239dc8d2c58f0606d8d4f148dede06d3066e98dde29d6e167fe76e871c704.png",
+        "imageGold": "",
+        "flavorText": "It's easy to catch fire when you're on fire.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f063cc383ceedfa02c35453865e75be51c46199cd61c00cdad1b4750b38ec3c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_750",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 113163,
+        "collectible": 1,
+        "slug": "113163-chrono-boost",
+        "classId": null,
+        "multiClassIds": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Grafit Studio",
+        "manaCost": 4,
+        "name": "时空提速",
+        "text": "抽两张星灵牌。召唤一个3/4并具有<b>冲锋</b>的狂热者。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e207b45baf807b90ff17525f20d59a7699a30987da3506cecb17c1a1c730f53d.png",
+        "imageGold": "",
+        "flavorText": "想想吧，这下能造出多少风暴战舰啊！……啊，玩笑而已，我只是想多造点探机。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee650b948f444b3bd2c2dcaa1962bb747b32898edc5581a0a41eaa07a3b14896.png",
+        "childIds": [
+          113732
+        ],
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_750",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 113163,
+        "collectible": 1,
+        "slug": "113163-chrono-boost",
+        "classId": null,
+        "multiClassIds": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Grafit Studio",
+        "manaCost": 4,
+        "name": "Chrono Boost",
+        "text": "Draw 2 Protoss cards. Summon a 3/4 Zealot with <b>Charge</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ac362c9352231be6666463176db6b228241cf107b38b2d78d104c0dd05d3e7a.png",
+        "imageGold": "",
+        "flavorText": "Just think of all the tempests I can make! ...Ah, who am I kidding? I'm just going to use this on probes.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee650b948f444b3bd2c2dcaa1962bb747b32898edc5581a0a41eaa07a3b14896.png",
+        "childIds": [
+          113732
+        ],
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_753",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 113168,
+        "collectible": 1,
+        "slug": "113168-photon-cannon",
+        "classId": null,
+        "multiClassIds": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 2,
+        "name": "光子炮台",
+        "text": "造成 3点伤害。 如果本牌消灭了一个随从，则在本局对战中，你的星灵随从牌的法力值消耗 减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/16a18363376ca43d40cb583fa90b5acd824c9a6d8ea1862279266a5f0972fee0.png",
+        "imageGold": "",
+        "flavorText": "如果本牌是随从牌，则应该会拥有<b>突袭</b>吧。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28f96c2ca08b521257a561aada24bd05778a3ffbc5c2cc880efbae69ad399e10.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_753",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 113168,
+        "collectible": 1,
+        "slug": "113168-photon-cannon",
+        "classId": null,
+        "multiClassIds": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 2,
+        "name": "Photon Cannon",
+        "text": "Deal 3 damage. If this kills a minion, your Protoss minions cost (1) less this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e122b309a1eb2ef9ced31467981f524a58140680aaaadf7fb457c6bd0901e99b.png",
+        "imageGold": "",
+        "flavorText": "If this card were a minion, it would have <b>Rush</b>.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/28f96c2ca08b521257a561aada24bd05778a3ffbc5c2cc880efbae69ad399e10.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_755",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 113173,
+        "collectible": 1,
+        "slug": "113173-construct-pylons",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Studio Hive",
+        "manaCost": 0,
+        "name": "建造水晶塔",
+        "text": "在本回合中，你的下一张星灵牌法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/99f8e7364a3322d18b70ff22a234d5eaa0d47e051fc5ba8825d94c33a76cebf6.png",
+        "imageGold": "",
+        "flavorText": "你必须建造更多的……你懂的……",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15343f138fa3444ef0f5034e239a9cf080db945507e383b927578360b5516842.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_755",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 113173,
+        "collectible": 1,
+        "slug": "113173-construct-pylons",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Studio Hive",
+        "manaCost": 0,
+        "name": "Construct Pylons",
+        "text": "Your next Protoss card this turn costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d80883cbe7c6cf59a879b8f9dba35a9d72a00b634d75e74e781e29e0147be665.png",
+        "imageGold": "",
+        "flavorText": "You must... y'know...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15343f138fa3444ef0f5034e239a9cf080db945507e383b927578360b5516842.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_757",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 113176,
+        "collectible": 1,
+        "slug": "113176-hallucination",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 1,
+        "name": "幻像",
+        "text": "召唤一个友方 星灵随从的一个复制。该复制受到的伤害翻倍。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/06962ce912392fbfad2f58028c8c786a5f30c7a9f18041ed5f9f907deaba45bc.png",
+        "imageGold": "",
+        "flavorText": "“星灵？在咱们基地里？你肯定看错了。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fbb1ec7134b5395532412b84cd73728438bd4cb0af16cba24cd4fa433b8a329.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_757",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 113176,
+        "collectible": 1,
+        "slug": "113176-hallucination",
+        "classId": 6,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 1,
+        "name": "Hallucination",
+        "text": "Summon a copy of a friendly Protoss minion. It takes double damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ad069e382f8af97464e4e16a20337c8a2ace1fcec954a82ee862c1e6d7f82327.png",
+        "imageGold": "",
+        "flavorText": "\"Protoss? In our base? I think you're seeing things.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fbb1ec7134b5395532412b84cd73728438bd4cb0af16cba24cd4fa433b8a329.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_759",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 113178,
+        "collectible": 1,
+        "slug": "113178-shield-battery",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Studio Hive",
+        "manaCost": 2,
+        "name": "护盾充能器",
+        "text": "获得6点护甲值。你的下一张星灵法术牌法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/802fcbb573084b19ecc8e3260e3ba14728927d9f1b37107180e28d40a1c3c7d9.png",
+        "imageGold": "",
+        "flavorText": "阿塔尼斯，充能器借我用用？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa5e92e037eaa96f54edb7ee8f7d89869581fac9473ac1dc4bebcb8c6cbc532f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_759",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 113178,
+        "collectible": 1,
+        "slug": "113178-shield-battery",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Studio Hive",
+        "manaCost": 2,
+        "name": "Shield Battery",
+        "text": "Gain 6 Armor. Your next Protoss spell costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a47986cbbb2c39ef8aa7b6c192276eb528015da5c485b0bcf1ccd5416402de3c.png",
+        "imageGold": "",
+        "flavorText": "Hey Artanis, can I use your charger?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fa5e92e037eaa96f54edb7ee8f7d89869581fac9473ac1dc4bebcb8c6cbc532f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_760",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 113181,
+        "collectible": 1,
+        "slug": "113181-resonance-coil",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 3,
+        "name": "谐振盘",
+        "text": "对一个随从造成 5点伤害。随机获取一张星灵法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/11a62a036c420f6aa5a0d393006e1b8260aedff910191e7faa236367d126504e.png",
+        "imageGold": "",
+        "flavorText": "能在三屏视野之外狙杀随从！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fa828b6bb8a67b9ce2e6d9d36e3e7f96982755e4c8f6b321222755dc8b1b98a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_760",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 113181,
+        "collectible": 1,
+        "slug": "113181-resonance-coil",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Kevin Sidharta",
+        "manaCost": 3,
+        "name": "Resonance Coil",
+        "text": "Deal 5 damage to a minion. Get a random Protoss spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be58992173b80bd98fbbbb2f5f006e428e4c8624939780c3c91f6dd769f4fc83.png",
+        "imageGold": "",
+        "flavorText": "This thing can snipe minions three screens away!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9fa828b6bb8a67b9ce2e6d9d36e3e7f96982755e4c8f6b321222755dc8b1b98a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_761",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 113192,
+        "collectible": 1,
+        "slug": "113192-blink",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 2,
+        "name": "闪现",
+        "text": "抽一张星灵随从牌。<b>连击：</b>其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/da4e5d2edd639881799096ef3d5d81c5cfecadb872b171eb89a3bd343db311fa.png",
+        "imageGold": "",
+        "flavorText": "机动性极高，移动范围广。不擅长不眨眼挑战。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f97d1968c20d1af5a80de9d81fc51d363f92b2e18c607d76e30b8efa4bbc5759.png",
+        "keywordIds": [
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_761",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 113192,
+        "collectible": 1,
+        "slug": "113192-blink",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 2,
+        "name": "Blink",
+        "text": "Draw a Protoss minion. <b>Combo:</b> It costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25dd68372c9d875dd5f766a32c6aec6c9ebb24574831c3dc731351b385d1bb86.png",
+        "imageGold": "",
+        "flavorText": "Highly mobile. Solid range. Awful at staring contests.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f97d1968c20d1af5a80de9d81fc51d363f92b2e18c607d76e30b8efa4bbc5759.png",
+        "keywordIds": [
+          13
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SC_751t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\113732-zh_CN.json",
+      "response_sha256": "5d9c4b5725845b3e7a02279111e5b29d7c9884477130eb25d11defcc1e1f1cd4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=113732&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 113732,
+        "collectible": 0,
+        "slug": "113732-zealot",
+        "classId": null,
+        "multiClassIds": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": null,
+        "artistName": "L. Lullabi & I. Campelo da Silva",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "狂热者",
+        "text": "<b>冲锋</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d2bea4aa4c8e438e39b12d1e03a3cea416557f874fed97c5be51f3a54f49cb4d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 113164,
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=113732&locale=zh_CN&collectible=0",
+        "sha256": "5d9c4b5725845b3e7a02279111e5b29d7c9884477130eb25d11defcc1e1f1cd4",
+        "bytes": 612,
+        "observed_at": "2026-10-27T10:28:31.024857+00:00"
+      }
+    },
+    {
+      "card_id": "SC_751t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\113732-en_US.json",
+      "response_sha256": "578584acfef407c3658f8da51c0b6f94fc8fad10ee61a57974974991c7d6436a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=113732&locale=en_US&collectible=0",
+      "face": {
+        "id": 113732,
+        "collectible": 0,
+        "slug": "113732-zealot",
+        "classId": null,
+        "multiClassIds": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1935,
+        "rarityId": null,
+        "artistName": "L. Lullabi & I. Campelo da Silva",
+        "health": 4,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Zealot",
+        "text": "<b>Charge</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0149d30ffb0bd0ff8e492225f61b8a90d5a141a97c25d711b647a8e94d95c01f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 113164,
+        "keywordIds": [
+          4
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false,
+        "factionId": [
+          3469
+        ]
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=113732&locale=en_US&collectible=0",
+        "sha256": "578584acfef407c3658f8da51c0b6f94fc8fad10ee61a57974974991c7d6436a",
+        "bytes": 609,
+        "observed_at": "2026-10-27T10:28:30.991435+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "SW_462": {
+      "cost": 0
+    },
+    "SC_755": {
+      "cost": 0
+    }
+  },
+  "display_normalizations": {},
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "Seven candidates are complete for this declared raw-tag inventory, not official current CN random-generation membership. Printed unit weights and self-generation retained locally.",
+    "Hallucination uses shared original-copy followup after entry notifications; pre-entry modifier timing remains uncalibrated.",
+    "Photon Cannon requires original target death with exact original damage-result provenance after normal death processing; replacement/redirect edges remain uncalibrated.",
+    "Printed school/faction discounts use original definition metadata. Zero-cost eligible paid cards consume one-use discounts; automatic casts do not.",
+    "Past Mage 179 reference and NX2_001/TIME_857 scopes remain unbound; patch alignment and formal CN rule calibration deferred."
+  ]
+}

@@ -2247,3 +2247,8 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 过去法师的真实填手/填场消费者继续走普通完整域：FillHandFromPool仅增加精确火焰查询的永久1费形状，FillBoardFromPool增加携带真实SummonCause/CAST身份的SPELL来源。原随从、临时/零费/永久填手、容量与原批次继续共用；具名雪人/伙伴/火把/骷髅和费用/牌库后续无独立执行器。来源、未确认星灵域及实际边界见[契约](m3-past-mage-pool-rewards.md)，实际进度仅在原两台账维护。
+
+
+## 真实火焰/星灵费用消费者与完整独立域
+
+[星灵契约](m3-protoss-spell-domain.md)展示正向印刷结构费用筛选：CostSpec(delta=-2,ability=CardAbilityCondition("fire_spell",basis="printed"),card_types=(CardType.SPELL,))或对应"protoss"。不以当前手牌位置、临时能力或冻结ID名单替代印刷派系；未知factions不能当作不匹配，生成报价不消耗一次折扣。CardAbilityCondition沿用原字段，新名字仅开放这两个真实正向printed形状，PoolQuery既有能力范围不因此扩大。专用随机域必须保留完整声明成员，不能取普通池星灵子集的空结果、按已实现程度裁池或把本地complete当作官方池认证。新增域必须进入宿主完整库存摘要，真实抽牌、原结果击杀奖励与复制交付后续仍交公共执行器。

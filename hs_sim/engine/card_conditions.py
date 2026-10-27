@@ -1,5 +1,5 @@
 """Shared structural card predicates for real instances and fresh candidates."""
-from .model import CardAbilityCondition, CardType, Keyword
+from .model import CardAbilityCondition, CardType, Keyword, SpellSchool
 
 
 class UnknownCardFactError(ValueError):
@@ -36,6 +36,13 @@ def matches_ability(condition, definition, entity=None):
     condition.__post_init__()
     if entity is not None and (entity.card_id, entity.kind) != (definition.id, definition.kind):
         raise ValueError('Card condition instance and definition disagree')
+    if condition.ability in ('fire_spell', 'protoss'):
+        if condition.ability == 'fire_spell':
+            printed = definition.kind == CardType.SPELL and definition.spell_school == SpellSchool.FIRE
+        else:
+            meta = definition.metadata
+            printed = None if meta is None or meta.factions is None else 'protoss' in meta.factions
+        return matches_ability_values(condition, printed=printed, current=printed)
     if condition.ability == 'spell_damage':
         printed = definition.kind == CardType.MINION and definition.spell_damage > 0
         current = printed if entity is None else definition.kind == CardType.MINION and has_spell_damage(entity.abilities)
