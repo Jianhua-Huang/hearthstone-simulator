@@ -10,6 +10,7 @@ from hs_sim.engine import (Attack,CardDefinition,CardType,EndTurn,EquippedWeapon
 from hs_sim.engine.effects import (ChoiceOption,Destroy,GainArmor,GrantKeyword,
     InvokeBehavior,ModifyWeapon,RequestChoice)
 from hs_sim.engine.equipment import weapon_transfer_reference
+from hs_sim.engine.information import VIEW_VERSION
 from hs_sim.engine.representative import metadata_from_record
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.engine.serialization import canonical_hash
@@ -249,7 +250,7 @@ class WeaponTransferTests(unittest.TestCase):
         snapshot=g.snapshot()
         for p in (1,2):
             view=g.for_player(p).observe()['observation']; events=g.player_events(p)
-            self.assertEqual(view['version'],'player-view-v86'); self.assertIsNone(view['players'][1]['weapon'])
+            self.assertEqual(view['version'],VIEW_VERSION); self.assertIsNone(view['players'][1]['weapon'])
             self.assertEqual(view['players'][0]['weapon']['card_id'],'weapon')
             text=json.dumps(events)
             for private in ('new_zone_epoch','new_entered_order','owner_id','"weapon":'):

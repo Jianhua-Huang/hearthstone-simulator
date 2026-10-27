@@ -2285,3 +2285,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实多敌方原目标移除继续用带targeting的RequestChoice与原MinionReference批次，不能复用数字id跟随重入。技能重复到另一个友方随从，可由原主体后的ChooseRandomEffects声明一个完整效果分支，不把重复伪装成额外UseMinionAbility。V-07-TR-0N的炮击必须以接收者为Damage/RandomDamage的MINION_ABILITY来源，具体来源与窗口见[契约](m3-titan-copy-echo.md)。
+
+
+真实当前武器授予使用原EquipWeapon、GrantTrigger、ModifyWeapon和GrantKeyword；需要主体窗口的新局面时用InvokeBehavior续接，攻击后主体用completed_attack核原英雄/玩家/物理武器，不从后来的装备槽重找来源。不要把永久武器附魔绑成泰坦存活光环，详见[阿格拉玛契约](m3-aggramar-weapon-skills.md)。
