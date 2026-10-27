@@ -1,0 +1,988 @@
+{
+  "schema": 1,
+  "kind": "past-arcane-discovery-profile-consumers",
+  "reference_document": "data/cards/past-arcane-local-reference-v1.json",
+  "reference_canonical_sha256": "27016f3ede6ca1e4c0760a67aa17b8b46ae935082325308c79471ce78828cfff",
+  "collectible_leaf_ids": [
+    "BT_021",
+    "DAL_578",
+    "ETC_528",
+    "ETC_532",
+    "GDB_479",
+    "LOOT_104"
+  ],
+  "cards": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BT_021",
+        "dbf_id": 56460,
+        "name": "能量之泉",
+        "name_en": "Font of Power",
+        "text": "<b>发现</b>一张法师随从牌。如果你的牌库中没有随从牌，改为保留全部三张牌。",
+        "text_en": "<b>Discover</b> a Mage minion. If your deck\nhas no minions, keep\nall 3 instead.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1414,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "fbaf23ad2bbd73292c1f42b684909d085463dce16758e6c39ffc16c7fb0cbe90",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BT_021",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "DAL_578",
+        "dbf_id": 52640,
+        "name": "创世之力",
+        "name_en": "Power of Creation",
+        "text": "<b>发现</b>一张法力值消耗为（6）的随从牌。召唤两个它的\n复制。",
+        "text_en": "<b>Discover</b> a 6-Cost minion. Summon two copies of it.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1130,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "c0691810f780da709169e6edf454e14641f85bc07e67a3f9cc91784577302566",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "DAL_578",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "ETC_528",
+        "dbf_id": 90534,
+        "name": "灯光表演",
+        "name_en": "Lightshow",
+        "text": "向敌人发射@道可以造成$2点伤害的灯光。你此后的灯光表演多发射一道。",
+        "text_en": "[x]Shoot @ beams at enemies\nthat each deal $2 damage.\nYour future Lightshows\nshoot one more beam.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 3,
+          "CARD_SET": 1809,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "cdcd422662c50596eb21f237d411724fcfef8a575ec19bdb9e8f5eee74262a2e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "ETC_528",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "ETC_532",
+        "dbf_id": 90592,
+        "name": "倒带",
+        "name_en": "Rewind",
+        "text": "<b>发现</b>你在本局对战中施放过的其他法术的一张复制。",
+        "text_en": "<b>Discover</b> a copy of another spell you've cast this game.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1809,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "1bca81672cbc0ef50a03f6f31ab8d095956f17ac62536cfc66f5d4e75a8c1bd0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "ETC_532",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "GDB_479",
+        "dbf_id": 114348,
+        "name": "星云",
+        "name_en": "Nebula",
+        "text": "<b>发现</b>并召唤两个法力值消耗为（8）的随从，并使其具有\n<b>嘲讽</b>和<b>扰魔</b>。",
+        "text_en": "[x]<b>Discover</b> two 8-Cost\nminions to summon with\n<b>Taunt</b> and <b>Elusive</b>.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1935,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "08aef7d5de48e1482d7a5632a1aff06061f886a5352b954a0529e0d6a97cd6bd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "epic",
+        "deck_identity": "GDB_479",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    },
+    {
+      "record": {
+        "id": "LOOT_104",
+        "dbf_id": 43420,
+        "name": "变形卷轴",
+        "name_en": "Shifting Scroll",
+        "text": "如果这张牌在你的手牌中，每个回合都会变成一张随机法师法术牌。",
+        "text_en": "Each turn this is in your hand, transform it into a random Mage spell.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "HIDE_STATS": 1,
+          "1544": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "fa6b0bd8e54a665247113f216d5b300324f8086bd1a19719a19ec48486440b24",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "LOOT_104",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "LOOT_104e",
+        "dbf_id": 43418,
+        "name": "变形",
+        "name_en": "Shifting",
+        "text": "变成一张随机法师法术牌。",
+        "text_en": "Transforming into random Mage spells.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 6,
+          "DEFINING_ENCHANTMENT": 43420
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "a5b64cdd07e0b62ce2d72faa67b6d8584521a5ebfb6dedab5ec238a966f5caac",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "LOOT_104e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "skipped": [],
+  "official_observations": [
+    {
+      "card_id": "BT_021",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 56460,
+        "collectible": 1,
+        "slug": "56460-font-of-power",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 1,
+        "name": "能量之泉",
+        "text": "<b>发现</b>一张法师随从牌。如果你的牌库中没有随从牌，改为保留全部三张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9b46e7dc803355968e4c63b804491886ac1b426ca50a77bd5524a7b19d501165.png",
+        "imageGold": "",
+        "flavorText": "来自晶歌森林的天然好水。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a12a7ddc6541b12a39bbd3f8206a9425fb2f6e4f4c0154253cd8cd3534f4bb2e.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          74692
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_021",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 56460,
+        "collectible": 1,
+        "slug": "56460-font-of-power",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 1,
+        "name": "Font of Power",
+        "text": "<b>Discover</b> a Mage minion. If your deck has no minions, keep all 3 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/beec85f6abbd917a4b3dbff3b8b1e037a2ec805d4a67a769c581bb100cd4a58e.png",
+        "imageGold": "",
+        "flavorText": "It's Comic Sans.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a12a7ddc6541b12a39bbd3f8206a9425fb2f6e4f4c0154253cd8cd3534f4bb2e.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          74692
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_578",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 52640,
+        "collectible": 1,
+        "slug": "52640-power-of-creation",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 8,
+        "name": "创世之力",
+        "text": "<b>发现</b>一张法力值消耗为（6）的随从牌。召唤两个它的 复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab1a2ed97269053054b43ec2f5732d2e45cc279e56f5d637bed9f23f208bd3de.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a48a7774900b1e35005f6f80d8675104e4175a6ced793595990ff600be952f98.png",
+        "flavorText": "通常用于晚会表演，真的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/248d1808b85040689611805e15de05f49528ddd6dfea8a026498b948b72f9ce8.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_578",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 52640,
+        "collectible": 1,
+        "slug": "52640-power-of-creation",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 8,
+        "name": "Power of Creation",
+        "text": "<b>Discover</b> a 6-Cost minion. Summon two copies of it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c841d4f5dd5772d345de22551ad94e9d1589636cc10ef17ea8af03fb31f764b6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbb002a96f635485273fd525fb5afe0b671bd3944f07ce356cfbe31974ba3db4.png",
+        "flavorText": "Mostly used for party tricks, to be honest.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/248d1808b85040689611805e15de05f49528ddd6dfea8a026498b948b72f9ce8.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_528",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 90534,
+        "collectible": 1,
+        "slug": "90534-lightshow",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Arthur Gimaldinov",
+        "manaCost": 3,
+        "name": "灯光表演",
+        "text": "向敌人发射 道可以造成 2点伤害的灯光。你此后的灯光表演多发射一道。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1530727782c1e4bf64e42219ca7002531d216b797764255dcbeb11cbb9a6c46b.png",
+        "imageGold": "",
+        "flavorText": "搞艺术要时刻记得四个字，和光同尘。和是和平，同是协同，尘表示谦卑。光嘛，是激光！！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f9922c11cba85e7274a2bf28b004dd5149d2eb352e93202c75210ba6e243f05.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_528",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 90534,
+        "collectible": 1,
+        "slug": "90534-lightshow",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Arthur Gimaldinov",
+        "manaCost": 3,
+        "name": "Lightshow",
+        "text": "Shoot beams at enemies that each deal 2 damage. Your future Lightshows shoot one more beam.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ae56f7faa9e3806d973b23ae5b0cb875746b676586f0bcdf60fbe8c057f92ca.png",
+        "imageGold": "",
+        "flavorText": "Always remember P.L.U.R.: Peace, Laser-beams, Unity, Respect.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f9922c11cba85e7274a2bf28b004dd5149d2eb352e93202c75210ba6e243f05.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_532",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 90592,
+        "collectible": 1,
+        "slug": "90592-rewind",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 2,
+        "name": "倒带",
+        "text": "<b>发现</b>你在本局对战中施放过的其他法术的一张复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/25dacd7e16367dbb86f4cdedda9ea022b124d882c1831de1a65c701e6464445f.png",
+        "imageGold": "",
+        "flavorText": "如果没找到想要的法术，不如试试倒带重来。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b610f0791e932f67908dd6d0e8f29d2ab232ab2042cacce4004f2f4e753484aa.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_532",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 90592,
+        "collectible": 1,
+        "slug": "90592-rewind",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 2,
+        "name": "Rewind",
+        "text": "<b>Discover</b> a copy of another spell you've cast this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f9a31b99fb1aae961d7b63d02b2e6e855dc94f78a0dc2e2eb76568084866c6ae.png",
+        "imageGold": "",
+        "flavorText": "If you don't find the spell you want, just cast this one more time and see if you get lucky.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b610f0791e932f67908dd6d0e8f29d2ab232ab2042cacce4004f2f4e753484aa.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_479",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 114348,
+        "collectible": 1,
+        "slug": "114348-nebula",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 9,
+        "name": "星云",
+        "text": "<b>发现</b>并召唤两个法力值消耗为（8）的随从，并使其具有 <b>嘲讽</b>和<b>扰魔</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e0dbb714a8917350f9849d20f79bfeb4275829cfd3de0484e5c3bdc5f5728cdf.png",
+        "imageGold": "",
+        "flavorText": "原来你是我最想留住的星云~",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/025cc4c6341f69119ab127c5b3b8f57d9d0adaf858bab348f55dcd99b40a9448.png",
+        "keywordIds": [
+          1,
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_479",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 114348,
+        "collectible": 1,
+        "slug": "114348-nebula",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 4,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 9,
+        "name": "Nebula",
+        "text": "<b>Discover</b> two 8-Cost minions to summon with <b>Taunt</b> and <b>Elusive</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae193c9bc9bb6a71c9ce980f9c4e8ba9c3a6bc685bf7bbde0f24cb0016329bb1.png",
+        "imageGold": "",
+        "flavorText": "Do-re-mi-fa-so-ne-bu-la!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/025cc4c6341f69119ab127c5b3b8f57d9d0adaf858bab348f55dcd99b40a9448.png",
+        "keywordIds": [
+          1,
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_104",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 43420,
+        "collectible": 1,
+        "slug": "43420-shifting-scroll",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "变形卷轴",
+        "text": "如果这张牌在你的手牌中，每个回合都会变成一张随机法师法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c6460013a51b2d3274b3557e8662591d5bd1c50a2ac5e6369916859137d5390.png",
+        "imageGold": "",
+        "flavorText": "等到下回合，就会变成特别厉害的法术了！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f45653f65b584778060c25ab9d76661dd5008f4b6354d1ed51f61b8e83923ba3.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_104",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 43420,
+        "collectible": 1,
+        "slug": "43420-shifting-scroll",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "Shifting Scroll",
+        "text": "Each turn this is in your hand, transform it into a random Mage spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/936501f8b061fce6bb208332223610d7cf849a03444eaa1541c4ed9ae6376eea.png",
+        "imageGold": "",
+        "flavorText": "Next turn, this is going to be AMAZING.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f45653f65b584778060c25ab9d76661dd5008f4b6354d1ed51f61b8e83923ba3.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "LOOT_104": {
+      "cost": 0
+    }
+  },
+  "display_normalizations": {
+    "ETC_528": {
+      "@": ""
+    }
+  },
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "uncertainties": [
+    "Font of Power accepts whether the deck has minions at the actual body window. With no minions it samples three distinct candidates from the complete Mage-minion pool without a choice or Discover fact, following the official 31.0.3 Discover/alternative-effect distinction. The without-replacement identity/small-domain details are local pending calibration.",
+    "Power of Creation has one discovery choice and two sequential independent card-summon roots. Each original copy independently accepts current ordinary summon quantity; the original discovery-delivery notification follows completion of both requested copies and identifies the first original recipient.",
+    "Nebula uses two current-class ordinary eight-cost minion discoveries, each delivered before the next offer, with Taunt and Elusive installed before entry reactions. These precise choice/delivery windows are local pending CN calibration.",
+    "Lightshow counts own accepted successful same-face actual CASTs, including its current root, to freeze one plus that count beams. Countered/no-target attempts and opponent casts do not count; later accepted nested Lightshows do not change the frozen current beam count.",
+    "Rewind uses the existing completed successful own CAST history, excludes the source face, and offers distinct spell faces as an actual history discovery; original exact automatic and unfinished-history boundaries remain local.",
+    "Shifting Scroll is not manually playable in its original hidden-stat face. The original defining hand source persists across transformations and uses the complete ordinary specified-Mage spell pool at each owner turn; original zero cost is explicit normalization backed by both primary faces."
+  ],
+  "semantic_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-gb/news/24161533/3103-patch-notes",
+      "role": "official distinction between Discover and alternative gains for Font of Power"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jleclanche/fireplace/master/fireplace/cards/outlands/mage.py",
+      "role": "independent primary source code corroborates direct three-card generation in the no-minion branch, not official runtime certification"
+    }
+  ]
+}

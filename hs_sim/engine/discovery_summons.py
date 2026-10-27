@@ -110,14 +110,15 @@ class DiscoverySummonRecord:
                 not self.spec.copy_selected_to_hand and self.copy_acceptances):
             raise ValueError('Discovery lost its ordered original selected-copy acceptances')
         picks=sum(o.result is not None for o in self.offers)
-        if len(self.entry_root_ids)>picks:raise ValueError('Discovery delivered an unselected entry')
+        entries=picks*self.spec.summon_copies
+        if len(self.entry_root_ids)>entries:raise ValueError('Discovery delivered an unselected entry')
         if self.phase not in ('discovering','delivering')or type(self.exhausted)is not bool or self.status not in ('active','completed','interrupted'):
             raise ValueError('Unknown discovery producer lifecycle')
         if self.exhausted!=(bool(self.offers)and not self.offers[-1].offered):raise ValueError('Discovery exhaustion differs from its complete final empty offer')
         if self.phase=='delivering'and not self.exhausted and picks!=self.spec.discoveries:raise ValueError('Discovery delivered before all original choices')
         if self.spec.delivery=='after_all'and self.phase=='discovering'and self.entry_root_ids:raise ValueError('after_all discovery delivered early')
-        if self.spec.delivery=='after_each'and self.status=='active'and picks-len(self.entry_root_ids)>1:raise ValueError('after_each discovery skipped an original delivery')
-        if self.status=='completed'and(self.phase!='delivering'or len(self.entry_root_ids)!=picks):raise ValueError('Incomplete original discovery close')
+        if self.spec.delivery=='after_each'and self.status=='active'and entries-len(self.entry_root_ids)>self.spec.summon_copies:raise ValueError('after_each discovery skipped an original delivery')
+        if self.status=='completed'and(self.phase!='delivering'or len(self.entry_root_ids)!=entries):raise ValueError('Incomplete original discovery close')
         if self.status=='completed'and self.spec.freeze_summoned and len(self.freeze_acceptances)!=len(self.entry_root_ids):
             raise ValueError('Discovery closed before its original freeze')
         if self.status == 'completed' and self.spec.set_summoned_stats is not None and len(self.stat_acceptances) != len(self.entry_root_ids):
@@ -190,6 +191,14 @@ def picks(root):
     from .discovery import DiscoveryPick
     return tuple(DiscoveryPick(selected(o),o.basis.hero_class,None if o.basis.source is None else o.basis.source.card_id,result=o.result)
         for o in root.offers if o.result is not None)
+
+
+def entry_picks(root):
+    return tuple(pick for pick in picks(root) for _ in range(root.spec.summon_copies))
+
+
+def entry_material(root,pick):
+    return SummonEntryMaterial(pick.card_id,keywords=root.spec.entry_keywords)
 
 
 def validate_progress(state,registry,batch):
@@ -269,13 +278,13 @@ def select_offer(r,effect):
 def ready(r,batch):
     root=validate_progress(r.state,r.registry,batch)
     root=update(r.state,root,phase='delivering');emit(r,'discovery_summon_ready',root)
-    return (StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if len(root.entry_root_ids)<len(picks(root))else ()
+    return (StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)),)if len(root.entry_root_ids)<len(entry_picks(root))else ()
 
 
 def start_entry(r,effect):
-    root=record(r.state,effect.producer_id);chosen=picks(root)
+    root=record(r.state,effect.producer_id);chosen=entry_picks(root)
     if root.status!='active'or effect.index!=len(root.entry_root_ids)or effect.index>=len(chosen):raise ResolutionError('Out-of-order discovery entry')
-    request=SummonByCard(root.spec.player_id,(SummonEntryMaterial(chosen[effect.index].card_id),),root.spec.cause,
+    request=SummonByCard(root.spec.player_id,(entry_material(root,chosen[effect.index]),),root.spec.cause,
         capacity='preselected_attempt',producer_link=DiscoverySummonEntryLink(root.id,effect.index))
     continuation=accept_entry(r,request);child_id=r.state.card_summon_history[-1].id
     root=update(r.state,root,entry_root_ids=(*root.entry_root_ids,child_id));emit(r,'discovery_summon_entry',root)
@@ -286,9 +295,12 @@ def start_entry(r,effect):
     if root.spec.copy_selected_to_hand:
         continuation=(*continuation,CopyDiscoveredCardToHand(root.id,effect.index))
     from .discovery_delivery import PublishDiscoveredSummon,queue
-    notification=queue(r,PublishDiscoveredSummon(chosen[effect.index].result,child_id))
-    continuation=(*continuation,notification)
-    if root.phase=='delivering'and len(root.entry_root_ids)<len(chosen):
+    if (effect.index+1)%root.spec.summon_copies==0:
+        first=root.entry_root_ids[effect.index-root.spec.summon_copies+1]
+        notification=queue(r,PublishDiscoveredSummon(chosen[effect.index].result,first))
+        continuation=(*continuation,notification)
+    remaining_copies=(effect.index+1)%root.spec.summon_copies!=0
+    if (root.phase=='delivering'or remaining_copies)and len(root.entry_root_ids)<len(chosen):
         continuation=(*continuation,StartDiscoverySummonEntry(root.id,len(root.entry_root_ids)))
     return continuation
 
@@ -357,7 +369,7 @@ def copy_discovered_card_to_hand(r,effect):
 
 def finish(r,effect):
     root=record(r.state,effect.producer_id)
-    if root.status!='active'or root.phase!='delivering'or len(root.entry_root_ids)!=len(picks(root)):raise ResolutionError('Incomplete discovery producer finish')
+    if root.status!='active'or root.phase!='delivering'or len(root.entry_root_ids)!=len(entry_picks(root)):raise ResolutionError('Incomplete discovery producer finish')
     if any(next(x for x in r.state.card_summon_history if x.id==i).status=='active'for i in root.entry_root_ids):
         raise ResolutionError('Discovery finish preceded actual entry finish')
     emit(r,'discovery_summon_finished',update(r.state,root,status='completed'))
@@ -391,10 +403,10 @@ def validate_link(state,child,*,closed=False):
 
 
 def validate_child(root,index,child):
-    chosen=picks(root)
+    chosen=entry_picks(root)
     if (index>=len(root.entry_root_ids)or root.entry_root_ids[index]!=child.id or
         child.request.producer_link!=DiscoverySummonEntryLink(root.id,index)or child.request.cause!=root.spec.cause or
-        child.request.player_id!=root.spec.player_id or child.request.materials!=(SummonEntryMaterial(chosen[index].card_id),)or
+        child.request.player_id!=root.spec.player_id or child.request.materials!=(entry_material(root,chosen[index]),)or
         child.request.capacity!='preselected_attempt'or child.event_cursor<=root.event_cursor):
         raise ValueError('Discovery child borrowed another selected entry/cause/window')
 
@@ -454,7 +466,7 @@ def validate_queue(state,registry,queue):
         if root.status!='active':
             if controls or advances:raise ValueError('Closed discovery retains pending work')
             continue
-        chosen=picks(root);need_entry=len(root.entry_root_ids)<len(chosen)and(root.spec.delivery=='after_each'or root.phase=='delivering')
+        chosen=entry_picks(root);need_entry=len(root.entry_root_ids)<len(chosen)and(root.spec.delivery=='after_each'or root.phase=='delivering')
         freeze=(FreezeDiscoveredMinion(root.id,len(root.freeze_acceptances)),)if root.spec.freeze_summoned and len(root.freeze_acceptances)<len(root.entry_root_ids)else()
         stats=(SetDiscoveredMinionStats(root.id,len(root.stat_acceptances)),)if root.spec.set_summoned_stats is not None and len(root.stat_acceptances)<len(root.entry_root_ids)else()
         copies=(CopyDiscoveredCardToHand(root.id,len(root.copy_acceptances)),)if root.spec.copy_selected_to_hand and len(root.copy_acceptances)<len(root.entry_root_ids)else()
@@ -617,6 +629,7 @@ def spec_from_dict(value):
     row=_row(value,DiscoverFromPool);row['query']=query_from_dict(row['query'])
     policy=_row(row['policy'],GenerationPolicy);policy['allowed_special']=tuple(Keyword(k)for k in policy['allowed_special'])
     row['policy']=GenerationPolicy(**policy);row['cause']=entry_from_dict(SummonCause,row['cause'])
+    row['entry_keywords']=tuple(Keyword(k)for k in row['entry_keywords'])
     if row['set_summoned_stats'] is not None:
         from .model import SummonStats
         row['set_summoned_stats']=SummonStats(**_row(row['set_summoned_stats'],SummonStats))

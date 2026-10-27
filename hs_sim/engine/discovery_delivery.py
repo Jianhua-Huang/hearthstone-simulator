@@ -234,6 +234,15 @@ def summon_completion(state, registry, work, *, closed=False):
         raise ValueError('Discovery summon borrowed another original selected entry')
     if not closed and root.status not in ('completed', 'skipped'):
         raise ValueError('Discovery notification preceded complete original entry work')
+    from .discovery_summons import DiscoverySummonEntryLink,record as discovery_record
+    link=root.request.producer_link
+    if type(link)is DiscoverySummonEntryLink:
+        parent=discovery_record(state,link.producer_id)
+        if parent.spec.summon_copies==2:
+            if link.index!=0 or len(parent.entry_root_ids)!=2 or parent.entry_root_ids[0]!=root.id:
+                raise ValueError('Selected-copy discovery lost its two original entry roots')
+            if record(state,parent.entry_root_ids[1]).status not in ('completed','skipped'):
+                raise ValueError('Discovery notification preceded its second original copy')
     recipient = root.deliveries[0].entity if root.deliveries else None
     return DiscoveryCompletion(work.result, recipient, summon_root_id=root.id)
 

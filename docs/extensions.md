@@ -2217,3 +2217,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 当前报价牌库复制用CopyDeckSpellAtCurrentCost，原印刷查询的CopyMatching语义保持；DrawMatchingTurnSpellRepeat只授予原被抽实体当前回合的手动双施法，原永久全部CAST入口不变。真实健康结果、物理变形、抉择和奥秘消费者见[契约](m3-past-arcane-physical-values.md)，旧子牌缺独立官网主面须如实登记。
+
+
+创世之力使用一次原发现的双召唤声明，星云使用两次普通发现的原入场关键词材料，两类有限策略不混用；倒带显式设置DiscoverSpellHistory.discovery，而能量之泉的无随从分支使用普通生成。原选择/子根/材料/完成通知和原手牌来源契约见[说明](m3-past-arcane-discovery-profiles.md)，不能据提示文案推断发现。

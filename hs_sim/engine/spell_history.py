@@ -7,7 +7,7 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, AddToHand, ChoiceOption, RequestChoice, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardClass, CardType, Zone, _name
+from .model import CardClass, CardType, ChoicePurpose, Zone, _name
 from .pools import PoolQuery, PoolMember, GenerationPolicy, validate_policy, generation_candidates, matches_metadata, sample_candidates, resolve_candidates
 from .spell_casts import CAST_ORIGINS, CastSpell, automatic, cast_record, policies
 from .zones import filter_value, source_exists
@@ -121,6 +121,7 @@ class DiscoverSpellHistory(Effect):
     source_id: int | None = None
     prompt: str = '发现一张施放过的法术'
     branch_policy: str = 'current'
+    discovery: bool = False
 
     def __post_init__(self):
         _player(self.player_id); _source(self.source_id); _integer(self.count,'history offer count',1)
@@ -129,6 +130,8 @@ class DiscoverSpellHistory(Effect):
         self.query.__post_init__()
         if type(self.branch_policy) is not str or self.branch_policy not in ('current', 'inherit'):
             raise ValueError('Unknown discovered history branch policy')
+        if type(self.discovery) is not bool or self.discovery and (self.source_id is None or self.branch_policy!='current'):
+            raise ValueError('Genuine history discovery requires its source and fresh base-card delivery')
 
 
 def discover_history(r, effect):
@@ -148,7 +151,8 @@ def discover_history(r, effect):
     options = tuple(ChoiceOption(f'history-{n}',r.registry.card(group[0].card_id).name,
         (AddToHand(effect.player_id,group[0].card_id,effect.source_id,choose_branch=selection(group[0])),),card_id=group[0].card_id)
         for n,group in enumerate(selected,1))
-    return (RequestChoice(effect.player_id,options,source_id=effect.source_id,prompt=effect.prompt),)
+    return (RequestChoice(effect.player_id,options,source_id=effect.source_id,prompt=effect.prompt,
+        purpose=ChoicePurpose.CARD_DISCOVERY if effect.discovery else ChoicePurpose.EFFECT),)
 
 
 @dataclass(frozen=True)

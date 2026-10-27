@@ -92,7 +92,7 @@ class SummonEntryMaterial:
         if type(self.keywords) is not tuple or any(type(k) is not Keyword for k in self.keywords):
             raise ValueError('Pre-entry keywords require immutable typed declarations')
         if any(k not in (Keyword.CHARGE,Keyword.RUSH,Keyword.WINDFURY,Keyword.TAUNT,Keyword.DIVINE_SHIELD,
-                Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.IMMUNE,Keyword.STEALTH,Keyword.REBORN) for k in self.keywords):
+                Keyword.POISONOUS,Keyword.LIFESTEAL,Keyword.IMMUNE,Keyword.STEALTH,Keyword.REBORN,Keyword.ELUSIVE) for k in self.keywords):
             raise ValueError('Composite or contextual pre-entry keyword is unsupported')
 
 
