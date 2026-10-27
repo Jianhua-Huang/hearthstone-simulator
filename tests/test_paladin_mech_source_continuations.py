@@ -37,8 +37,8 @@ META = CardMetadata(False,(CardClass.PALADIN,),None)
 @lru_cache(None)
 def host(mode='normal', role='writer'):
     f=build_cn37_local_pool_format(); r=f.registry; ref=batch.read('data/cards/past-paladin-mech-local-reference-v1.json')
-    # Explicit reference target; the production host's source scope remains
-    # separately controlled until the full union binding is reviewed.
+    # This independent complete reference target keeps the native regression
+    # fixture separate from the production host's reviewed physical union.
     for cid in ref['candidate_ids']:
         if cid not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
     r.register_pool(PoolDefinition(POOL,P+'complete-original-reference',CONTEXT.target_id,CONTEXT.mode,

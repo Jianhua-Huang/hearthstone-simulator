@@ -36,7 +36,10 @@ class GenerationScope:
             raise ValueError('Generation coverage requires its exact original query and policy')
         self.query.__post_init__();self.policy.__post_init__()
         if self.current_class is None:
-            if self.query.class_mode!='any' or self.query.any_of:
+            # A fixed specified-class query does not read the recipient's hero.
+            # Current/other-class requests and unreviewed disjunctions still
+            # require their explicit finite recipient view.
+            if self.query.class_mode not in ('any','specified') or self.query.any_of:
                 raise ValueError('Any-recipient generation scope requires its original class-independent query')
         elif type(self.current_class)is not CardClass or self.current_class==CardClass.NEUTRAL:
             raise ValueError('Generation coverage requires its actual playable class view')

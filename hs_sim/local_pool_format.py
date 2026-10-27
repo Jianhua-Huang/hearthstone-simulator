@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v10.json'
-MANIFEST_HASH = 'f9387530aa090d338cf80510611e7bc612252cc69f9659b035227becc9607998'
-FORMAT_VERSION = 'cn37-local-special-pools-v10'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v11.json'
+MANIFEST_HASH = 'f92e5f581642c64c9f76438b60c3376434321b76e83287a6a5e76396415df4e8'
+FORMAT_VERSION = 'cn37-local-special-pools-v11'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -55,12 +55,12 @@ def load_bindings():
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     previous = value['previous_manifest']
-    if previous['path'] != 'data/cards/local-special-pool-bindings-v9.json':
-        raise TargetValidationError('CATA host requires its original complete predecessor manifest')
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v10.json':
+        raise TargetValidationError('Past Mech host requires its original complete predecessor manifest')
     prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
     if (canonical_digest(prior) != previous['canonical_sha256'] or any(
-            value.get(k) != v for k,v in prior.items() if k not in ('policy_id','accepted_on'))):
-        raise TargetValidationError('CATA host changed an existing special-pool declaration')
+            value.get(k) != v for k,v in prior.items() if k not in ('policy_id','accepted_on','previous_manifest'))):
+        raise TargetValidationError('Past Mech host changed an existing special-pool declaration')
     cata = value['cata_colossal_binding']
     if (cata['source_document'] != 'data/cards/past-colossal-source-binding-v1.json' or
             cata['pool_id'] != 'constructed.past.cards' or cata['pool_id'] not in value['partially_scoped_pool_ids'] or
@@ -68,6 +68,15 @@ def load_bindings():
             cata['complete_for_declared_source_view'] is not True or cata['formal_pool_complete'] is not False or
             canonical_digest(json.loads((ROOT/cata['source_document']).read_text(encoding='utf8'))) != cata['source_document_canonical_sha256']):
         raise TargetValidationError('CATA host lost its complete declared Colossal source projection')
+    mech = value['paladin_mech_binding']
+    if (mech['source_document'] != 'data/cards/past-paladin-mech-source-binding-v1.json' or
+            mech['pool_id'] != 'constructed.past.cards' or mech['pool_id'] not in value['partially_scoped_pool_ids'] or
+            mech['source_card_id'] != 'TIME_016' or
+            (mech['member_count'],mech['prior_merged_member_count'],mech['merged_member_count']) != (27,46,72) or
+            mech['complete_for_declared_source_view'] is not True or mech['formal_pool_complete'] is not False or
+            canonical_digest(json.loads((ROOT/mech['source_document']).read_text(encoding='utf8'))) != mech['source_document_canonical_sha256'] or
+            mech['faction_qualification_policy_id'] != 'cn37-local-paladin-past-mechs-full-reference-v1'):
+        raise TargetValidationError('Past Mech host lost its complete original source or explicit faction policy')
     return value
 
 
@@ -107,6 +116,8 @@ def build_cn37_local_pool_format():
     from .cards.rajh_known_passive_pool import local_pool as rajh_pool,BATCH_PATH as RAJH_PATH
     from .cards.zombeast_reference_pools import local_pools as zombeast_pools,BATCH_PATH as ZOMBEAST_PATH
     from .cards.past_colossal_source_pool import missing_metadata,merge_pools,register_scope as register_colossal_scope
+    from .cards.past_paladin_mech_source_pool import (missing_metadata as mech_metadata,
+        merge_pools as merge_mech_pools,register_scope as register_mech_scope,load_batch as load_mech_binding)
     paths=(BATCH_PATH,ONE_COST_PATH)
     if len(manifest['scoped_bindings'])!=len(paths):raise TargetValidationError('Scoped past source documents missing or duplicated')
     for item,path in zip(manifest['scoped_bindings'],paths):
@@ -126,10 +137,17 @@ def build_cn37_local_pool_format():
             zombeast['source_document_canonical_sha256'] != canonical_digest(
                 json.loads(ZOMBEAST_PATH.read_text(encoding='utf8')))):
         raise TargetValidationError('Local Zombeast source document changed')
-    for metadata in missing_metadata(registry): registry.register_pool_card(metadata)
+    # The existing one-cost inventory installs its reviewed SCV metadata too;
+    # build that dependency before validating the new source's complete pins.
+    one_cost_pool = local_pool(registry,original.context)
+    # Prepare all new-source additions before installing any, including a late
+    # failure in this source. Metadata does not extend ordinary deck legality.
+    metadata_additions = missing_metadata(registry) + mech_metadata(registry)
+    for metadata in metadata_additions: registry.register_pool_card(metadata)
     past_pools = merge_pools(registry,original.context,local_pools(registry,original.context))
+    past_pools = merge_mech_pools(registry,original.context,past_pools)
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        local_pool(registry,original.context),standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context)
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))
@@ -140,7 +158,8 @@ def build_cn37_local_pool_format():
             version=manifest['policy_id'] + '-' + binding[:16] + ':' + pool.version))
     register_scopes(registry,context)
     register_scope(registry,context)
-    register_colossal_scope(registry,context)
+    register_colossal_scope(registry,context,reviewed_member_ids=tuple(load_mech_binding()['merged_member_ids']))
+    register_mech_scope(registry,context)
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
     return replace(original, target_id=target_id, binding_digest=binding,

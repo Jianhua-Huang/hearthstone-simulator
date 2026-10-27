@@ -274,13 +274,13 @@ class PastPaladinMechValueTests(CardBatchTestMixin,unittest.TestCase):
         for current in (g,restored): self.choose(current)
         self.assertEqual(g.snapshot(),restored.snapshot()); self.assertEqual(sum(g.state.entities[i].card_id==native.GIANT for i in g.state.players[1].hand),1)
 
-    def test_full_27_reference_resolves_native_members_but_cannot_borrow_old_bound_inventory(self):
+    def test_full_27_reference_and_current_source_resolve_same_original_native_members(self):
         complete=host('full-reference')
         rows=resolve_candidates(complete.registry,CONTEXT,POOL,QUERIES[SOURCE],source_card_id=SOURCE)
         self.assertEqual([v.card_id for v in rows],batch.read(native.REFERENCE_PATH)['candidate_ids'])
         f=host()
-        with self.assertRaisesRegex(UnsupportedDefinitionError,'Unreviewed generation scope'):
-            resolve_candidates(f.registry,f.context,POOL,QUERIES[SOURCE],source_card_id=SOURCE,exclude_source_by_rule=True)
+        actual=resolve_candidates(f.registry,f.context,POOL,QUERIES[SOURCE],source_card_id=SOURCE,exclude_source_by_rule=True)
+        self.assertEqual([v.card_id for v in actual],[v.card_id for v in rows])
         ref=batch.read(native.REFERENCE_PATH)
         self.assertEqual([cid for cid in ref['candidate_ids'] if cid not in f.registry.cards],[])
 

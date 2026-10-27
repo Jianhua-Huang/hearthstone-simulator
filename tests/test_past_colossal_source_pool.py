@@ -96,16 +96,16 @@ class PastColossalSourcePoolTests(CardBatchTestMixin, unittest.TestCase):
         self.assertFalse(data['formal_pool_complete']); self.assertFalse(data['cn_calibrated'])
         self.assertFalse(reference['runtime_bindings_added'])  # The historical reference stays untouched.
 
-    def test_union_keeps_both_exact_original_orders_identity_weights_and_four_scopes(self):
+    def test_extended_union_keeps_both_exact_original_orders_identity_weights_and_five_scopes(self):
         f = host(); data = binding.load_batch(); pool = f.registry.pool(POOL, f.context)
-        self.assertEqual([v.card_id for v in pool.members], data['merged_member_ids'])
-        self.assertEqual(len(pool.members), 46); self.assertTrue(all(v.weight == 1 for v in pool.members))
+        self.assertEqual([v.card_id for v in pool.members if v.card_id in data['merged_member_ids']], data['merged_member_ids'])
+        self.assertEqual(len(pool.members), 72); self.assertTrue(all(v.weight == 1 for v in pool.members))
         self.assertEqual([v.card_id for v in candidates()], data['member_ids'])
         frontier = resolve_candidates(f.registry, f.context, POOL, binding.FRONTIER_QUERY,
             current_class=CardClass.DRUID, source_card_id='GDB_857', exclude_source_by_rule=True)
         self.assertEqual([v.card_id for v in frontier], data['frontier_member_ids'])
         self.assertEqual(set(data['member_ids']) & set(data['frontier_member_ids']), {'TID_712'})
-        self.assertEqual(len(f.registry.generation_scopes), 4)
+        self.assertEqual(len(f.registry.generation_scopes), 5)
         scope = next(s for s in f.registry.generation_scopes.values() if s.source_card_id == SOURCE)
         self.assertIsNone(scope.current_class); self.assertEqual(scope.query, binding.QUERY)
         self.assertIn(POOL, load_bindings()['partially_scoped_pool_ids'])
@@ -196,14 +196,14 @@ class PastColossalSourcePoolTests(CardBatchTestMixin, unittest.TestCase):
 
     def test_missing_eligible_definition_rejects_before_rng_without_removing_pool_member(self):
         g = self.game(mode='missing'); saved = g.snapshot(); f = host('missing')
-        self.assertEqual(len(f.registry.pool(POOL,f.context).members),46)
+        self.assertEqual(len(f.registry.pool(POOL,f.context).members),72)
         with self.assertRaisesRegex(ResolutionError,'TSC_029'): self.play(g,SOURCE)
         self.assertEqual(g.snapshot(),saved)
 
-    def test_nine_other_past_views_and_wrong_queries_stay_closed_with_actual_spell_rollback(self):
+    def test_eight_other_past_views_and_wrong_queries_stay_closed_with_actual_spell_rollback(self):
         f = host()
         for source, query in OTHER_QUERIES.items():
-            if source == SOURCE: continue
+            if source in (SOURCE,'TIME_016'): continue
             with self.subTest(source=source), self.assertRaises(UnsupportedDefinitionError):
                 resolve_candidates(f.registry,f.context,POOL,query,current_class=CardClass.MAGE,
                     source_card_id=source,exclude_source_by_rule=True)
@@ -213,7 +213,7 @@ class PastColossalSourcePoolTests(CardBatchTestMixin, unittest.TestCase):
         with self.assertRaises(UnsupportedDefinitionError):
             resolve_candidates(f.registry,f.context,POOL,PoolQuery(kinds=(CardType.MINION,)),
                 source_card_id=SOURCE,exclude_source_by_rule=True)
-        for source in ('TIME_016','TIME_707','TIME_861'):
+        for source in ('TIME_707','TIME_861'):
             g = self.game(hand=(source,)); saved = g.snapshot()
             with self.assertRaisesRegex(ResolutionError,'Unreviewed generation scope'): self.play(g,source)
             self.assertEqual(g.snapshot(),saved)

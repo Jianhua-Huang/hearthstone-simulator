@@ -121,7 +121,8 @@ class OneCostPastPoolTests(CardBatchTestMixin,unittest.TestCase):
         for cid in data['candidate_ids']:
             self.assertEqual(r.pool_card(cid).metadata,metadata_from_record(original[cid]['record']))
             self.assertEqual(r.card(cid).kind,CardType.MINION)
-        self.assertEqual(len(r.generation_scopes),3)
+        self.assertTrue({SOURCE,'TIME_704','GDB_857'} <=
+            {scope.source_card_id for scope in r.generation_scopes.values()})
 
     def test_starting_deck_gate_preserves_raw_member_and_uses_only_original_recipient(self):
         self.assertEqual(len(candidates()),281);self.assertNotIn(CARD,{m.card_id for m in candidates()})

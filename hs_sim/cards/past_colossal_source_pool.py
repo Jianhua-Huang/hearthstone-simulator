@@ -88,9 +88,16 @@ def projection(registry, members, query, current_class=None):
     return result
 
 
-def validate_union(registry, data, pool):
+def validate_union(registry, data, pool, *, reviewed_member_ids=None):
+    # A later independently pinned source may extend the physical inventory.
+    # Its host supplies the full reviewed union, never a capability-filtered
+    # subset. Retain the entire original projection as well as both queries.
+    expected = tuple(data['merged_member_ids']) if reviewed_member_ids is None else reviewed_member_ids
+    if (type(expected) is not tuple or len(expected) != len(set(expected)) or
+            [cid for cid in expected if cid in data['merged_member_ids']] != data['merged_member_ids']):
+        raise TargetValidationError('Past extension lost its complete original physical inventory')
     if (pool.id != POOL or not pool.complete or pool.excluded_card_ids or
-            [v.card_id for v in pool.members] != data['merged_member_ids'] or any(v.weight != 1 for v in pool.members) or
+            tuple(v.card_id for v in pool.members) != expected or any(v.weight != 1 for v in pool.members) or
             projection(registry, pool.members, QUERY) != data['member_ids'] or
             projection(registry, pool.members, FRONTIER_QUERY, CardClass.DRUID) != data['frontier_member_ids']):
         raise TargetValidationError('Past union does not preserve both complete original candidate views')
@@ -112,9 +119,9 @@ def merge_pools(registry, context, pools):
     return tuple(merged if v is original else v for v in pools)
 
 
-def register_scope(registry, context):
+def register_scope(registry, context, *, reviewed_member_ids=None):
     data = load_batch(); pool = registry.pool(POOL, context)
-    validate_native(registry, data); validate_union(registry, data, pool)
+    validate_native(registry, data); validate_union(registry, data, pool, reviewed_member_ids=reviewed_member_ids)
     registry.register_generation_scope(GenerationScope(POLICY+':'+context.target_id,
         POOL, context.target_id, context.mode, SOURCE, None, QUERY, pool_digest(pool)))
     # The normal resolver owns bans, deduplication and pre-RNG executable checks.
