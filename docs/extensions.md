@@ -2267,3 +2267,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 ## 按有效元素驻留数量持续减费
 
 [真实阳炎耀斑](m3-solar-flare-elemental-price.md)声明BoardMinionCostSpec("friendly","cost.board-friendly-elementals-v1")；tribes_any为有限profile导出的只读选择器，不是新的保存字段。纯报价捕获本人普通随从完整原tribe_changes，复用印刷元数据与共享add/set/remove、全部种族排除语义；相关未知失败，零费不裁目录。原Row/Fact附件分配上界进入恢复检查，完整原付款状态验证真实捕获；不得借当前局面重写旧数量、借未来附件或把紧凑一致性当作外部认证。旧未筛种族profile不携带新种族操作数，代码复用原费用顺序及伤害批次。
+
+
+[发掘宝藏原生示例](m3-excavate-shared-treasures.md)将固定印刷费用发现接原DiscoverFromPool加CostSpec(set_to=0)，把活体石头亡语交原SummonFromPool和实际死亡SummonCause。邻位附魔捕获原物理位置及驻留引用，地标复用普通两次耐久和冷却。完整25成员参考与生产profile绑定分开；暂缺原未选候选交付或嵌套生成域时明确保留缺口，不能新建卡牌层随机/选择结算器。
