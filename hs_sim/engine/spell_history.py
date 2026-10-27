@@ -97,19 +97,20 @@ def personal_hand_spell_count(state,registry,player_id,source_id=None):
     return sum(row.payload_started and row.failure is None for row in rows)
 
 
-def distinct_policy(distinct):
-    if distinct not in ('cast','card','identity'): raise ValueError('Unknown historical distinctness policy')
+def distinct_policy(distinct, *, costs=False):
+    if distinct not in (('cast','card','identity','cost') if costs else ('cast','card','identity')):
+        raise ValueError('Unknown historical distinctness policy')
 
 
 def historical_groups(registry, records, distinct):
-    distinct_policy(distinct)
+    distinct_policy(distinct,costs=True)
     groups = {}
     for record in records:
-        key = record.id if distinct == 'cast' else record.card_id
+        key = registry.card(record.card_id).cost if distinct == 'cost' else record.id if distinct == 'cast' else record.card_id
         if distinct == 'identity' and record.card_id in registry.pool_cards:
             key = registry.pool_card(record.card_id).generation_identity
         groups.setdefault(key,[]).append(record)
-    return tuple(tuple(g) for g in groups.values())
+    return tuple(tuple(groups[k])for k in sorted(groups)) if distinct == 'cost' else tuple(tuple(g) for g in groups.values())
 
 
 @dataclass(frozen=True)
@@ -226,10 +227,12 @@ class RecastFromHistory(Effect):
         RecastSpell(self.player_id,1,self.source_id,self.target_id,self.targeting,self.choices,
             target_preference=self.target_preference,branch_policy=self.branch_policy,target_ids=self.target_ids)
         if type(self.query) is not SpellHistoryQuery: raise ValueError('Expected SpellHistoryQuery')
-        self.query.__post_init__(); distinct_policy(self.distinct)
+        self.query.__post_init__(); distinct_policy(self.distinct,costs=True)
         if self.count is not None: _integer(self.count,'history cast count',0)
-        if self.selection not in ('oldest','newest','random') or type(self.replacement) is not bool:
+        if self.selection not in ('oldest','newest','random','cost_ascending') or type(self.replacement) is not bool:
             raise ValueError('Invalid historical cast sampling policy')
+        from .cost_history_recasts import validate_spec
+        validate_spec(self)
 
 
 @dataclass(frozen=True)
@@ -238,6 +241,7 @@ class ContinueHistoryCasts(Effect):
     cast_ids: tuple[int, ...]
     remaining: int
     before_id: int
+    initial_cast_ids: tuple[int, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not RecastFromHistory: raise ValueError('Expected history batch specification')
@@ -248,6 +252,13 @@ class ContinueHistoryCasts(Effect):
             raise ValueError('Historical candidates cross their frozen boundary')
         if self.spec.count is not None and self.remaining > self.spec.count:
             raise ValueError('Historical batch grew beyond its request')
+        integer_ids(self.initial_cast_ids,'original cost-history candidates')
+        if self.spec.distinct == 'cost':
+            if (not self.initial_cast_ids or tuple(sorted(self.initial_cast_ids)) != self.initial_cast_ids or
+                    any(i >= self.before_id for i in self.initial_cast_ids)):
+                raise ValueError('Cost-history batch requires its complete original frozen candidates')
+        elif self.initial_cast_ids:
+            raise ValueError('Ordinary history batches cannot borrow cost-group progress')
 
 
 def history_batch(r, effect):
@@ -256,15 +267,22 @@ def history_batch(r, effect):
     records = spell_history_candidates(r.state,r.registry,effect.player_id,effect.query,effect.source_id)
     count = len(historical_groups(r.registry,records,effect.distinct)) if effect.count is None else effect.count
     if count > r.rules.max_resolution_steps: raise ResolutionLimitExceeded('Historical casts exceed resolution budget')
-    return (ContinueHistoryCasts(effect,tuple(c.id for c in records),count,len(r.state.cast_history)+1),) if count else ()
+    captured = tuple(c.id for c in records)
+    return (ContinueHistoryCasts(effect,captured,count,len(r.state.cast_history)+1,
+        captured if effect.distinct == 'cost' else ()),) if count else ()
 
 
 def continue_history(r, effect):
     effect.__post_init__(); spec = effect.spec
+    if spec.distinct == 'cost':
+        from .cost_history_recasts import validate_progress
+        validate_progress(r.state,r.registry,effect)
     if not effect.remaining or not effect.cast_ids: return ()
     records = tuple(cast_record(r.state,i) for i in effect.cast_ids)
     groups = historical_groups(r.registry,records,spec.distinct)
-    if spec.selection == 'random':
+    if spec.selection == 'cost_ascending':
+        group = groups[0]; selected = r.game._rng.choice(group)
+    elif spec.selection == 'random':
         group = r.game._rng.choice(groups)
         selected = r.game._rng.choice(group)
     elif spec.selection == 'newest':
@@ -275,7 +293,7 @@ def continue_history(r, effect):
     remaining_ids = tuple(i for i in effect.cast_ids if i not in remove)
     return (RecastSpell(spec.player_id,selected.id,spec.source_id,spec.target_id,spec.targeting,spec.choices,
                 target_preference=spec.target_preference,branch_policy=spec.branch_policy,target_ids=spec.target_ids),
-            ContinueHistoryCasts(spec,remaining_ids,effect.remaining-1,effect.before_id))
+            ContinueHistoryCasts(spec,remaining_ids,effect.remaining-1,effect.before_id,effect.initial_cast_ids))
 
 
 @dataclass(frozen=True)
@@ -389,6 +407,9 @@ def validate_boundary(game):
         if isinstance(work,ContinueHistoryCasts):
             if work.before_id > len(state.cast_history)+1: raise ValueError('Frozen history boundary is in the future')
             for cast_id in work.cast_ids: cast_record(state,cast_id)
+            if work.spec.distinct == 'cost':
+                from .cost_history_recasts import validate_progress
+                validate_progress(state,registry,work,allow_pending=True)
         else:
             spec = work.spec
             if spec.refresh == 'frozen':
