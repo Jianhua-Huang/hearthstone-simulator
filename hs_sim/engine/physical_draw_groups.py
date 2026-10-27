@@ -21,6 +21,7 @@ from .tribes import TribeState, tribe_state
 from .zones import CardReference, CopyCard, ModifyStoredCost, MoveCard, reference_entity, zone_candidates
 
 QUALIFIED_FOLLOWUPS = frozenset(('qualified_non_minion_followup', 'qualified_both_minions_followup'))
+COPY_REWARDS = frozenset(('copy_other', 'discover_spell_copy'))
 
 
 @dataclass(frozen=True)
@@ -64,7 +65,7 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions', 'non_minion_followup') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
@@ -137,6 +138,9 @@ class DrawPhysicalGroup(Effect):
         if self.reward.kind in QUALIFIED_FOLLOWUPS and (self.slots != (DrawGroupSlot(),)*2 or
                 self.kindred_pair or self.reward.source is not None and self.reward.source.entity_id != self.source_id):
             raise ValueError('Qualified text rewards require exactly two original ordinary draws')
+        if self.reward.kind == 'discover_spell_copy' and (
+                self.kindred_pair or self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,))),)*3):
+            raise ValueError('Original spell-copy discovery requires exactly three matching spell slots')
 
 
 @dataclass(frozen=True)
@@ -160,7 +164,7 @@ class ContinuePhysicalDrawGroup(DrawPhysicalGroup):
                 raise ValueError('Draw group lost its original selected minion type')
             if row.draw_id is not None and self.slots[row.slot].different_costs != (row.cost is not None):
                 raise ValueError('Draw group lost its original selected deck cost')
-            if self.reward.kind != 'copy_other' and row.copy is not None: raise ValueError('Draw group invented copy material for another reward')
+            if self.reward.kind not in COPY_REWARDS and row.copy is not None: raise ValueError('Draw group invented copy material for another reward')
             if row.draw_id is None and self.slots[row.slot].query is None:
                 raise ValueError('A normal draw cannot skip its original attempt')
             previous_slot = row.slot
@@ -183,7 +187,7 @@ class CapturePhysicalDrawGroup(ContinuePhysicalDrawGroup):
         if self.slots[self.index].different_tribes != (self.tribes is not None):
             raise ValueError('Pending draw changed its original minion type')
         if self.slots[self.index].different_costs != (self.cost is not None): raise ValueError('Pending draw changed its selected deck cost')
-        if self.reward.kind != 'copy_other' and self.copy is not None: raise ValueError('Pending draw invented copy material')
+        if self.reward.kind not in COPY_REWARDS and self.copy is not None: raise ValueError('Pending draw invented copy material')
 
 
 def arrival_reference(state, root_id, hand_cursor):
@@ -253,7 +257,7 @@ def validate_material(state, registry, request, *, completed=False):
 
 
 def validate_copy(state,registry,request,row,record):
-    if (request.reward.kind=='copy_other' and record.outcome!='fatigue') != (row.copy is not None):
+    if (request.reward.kind in COPY_REWARDS and record.outcome!='fatigue') != (row.copy is not None):
         raise ValueError('Draw group lost its complete original drawn-card copy material')
     if row.copy is not None:
         value=row.copy;validate_captured_card_copy(state,registry,value)
@@ -354,7 +358,7 @@ def advance(r, request):
         ref, tribes, price = r.game._rng.choice(pool)
     index = len(r.state.draw_history); hand_cursor = len(r.state.hand_entries)
     original=r.state.entities[ref.entity_id]if ref is not None else r.state.entities[r.player(request.player_id).deck[0]]if r.player(request.player_id).deck else None
-    material=CapturedCardCopyMaterial.capture(r.state,original)if request.reward.kind=='copy_other'and original is not None else None
+    material=CapturedCardCopyMaterial.capture(r.state,original)if request.reward.kind in COPY_REWARDS and original is not None else None
     work = draw_one(r, request.player_id, card=ref, source_id=request.source_id)
     if len(r.state.draw_history) != index + 1: raise ResolutionError('Physical group draw did not produce its original root attempt')
     record = r.state.draw_history[index]
@@ -373,6 +377,9 @@ def capture(r, request):
 def finish(r, request):
     reward = request.reward
     if reward.kind == 'none': return ()
+    if reward.kind == 'discover_spell_copy':
+        from .draw_group_discoveries import discover
+        return discover(r, request)
     if reward.kind in QUALIFIED_FOLLOWUPS:
         records = qualified_records(r.state, r.registry, request)
         return tuple(r.call(reward.behavior_id, request.source_id, request.player_id,

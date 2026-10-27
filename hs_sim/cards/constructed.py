@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v660"
+CONTENT_VERSION = "constructed-cn37-preview-v661"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1350,5 +1350,7 @@ def build_registry():
     register_past_arcane_deck_rewards(registry)
     from .past_arcane_board_replacements import register_past_arcane_board_replacements
     register_past_arcane_board_replacements(registry)
+    from .past_arcane_physical_discovery import register_past_arcane_physical_discovery
+    register_past_arcane_physical_discovery(registry)
     registry.validate()
     return registry

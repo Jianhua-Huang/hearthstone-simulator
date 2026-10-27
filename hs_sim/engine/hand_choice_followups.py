@@ -15,7 +15,7 @@ from .zones import (CardReference, ChooseFromZone, CopyCard, MoveCard, choose_fr
                     reference_entity, zone_candidates)
 
 
-def validate_request(request):
+def validate_request(request, reward_mode='remaining_offer'):
     if type(request) not in (DiscoverFromPool, ChooseFromZone):
         raise ValueError('Hand followup requires a pool or own-deck hand discovery')
     request.__post_init__()
@@ -30,12 +30,22 @@ def validate_request(request):
     elif (request.zone != Zone.DECK or request.owner_id != request.player_id
           or request.operation not in ('copy_base', 'copy_current', 'take', 'draw') or request.selected_reward is not None):
         raise ValueError('Hand followup zone discovery requires an explicit own-deck hand operation')
+    if type(reward_mode) is not str or reward_mode not in ('remaining_offer', 'draw_original'):
+        raise ValueError('Unknown original hand-play reward profile')
+    if reward_mode == 'draw_original':
+        from .pools import PoolQuery
+        if (type(request) is not ChooseFromZone or request.operation != 'copy_current' or
+                request.distinct != 'card' or request.discovery is not True or request.sample_size != 3 or
+                type(request.sample_size) is not int or request.query != PoolQuery() or
+                request.cost is not None or request.destroy_unchosen):
+            raise ValueError('Original draw reward requires one plain own-deck current-copy discovery')
 
 
 @dataclass(frozen=True)
 class DiscoverForPlayFollowup(Effect):
     request: DiscoverFromPool | ChooseFromZone
-    def __post_init__(self): validate_request(self.request)
+    reward_mode: str = 'remaining_offer'
+    def __post_init__(self): validate_request(self.request, self.reward_mode)
 
 
 @dataclass(frozen=True)
@@ -79,9 +89,16 @@ class HandChoiceFollowup:
     reward_result: ChoiceResult | None = None
     reward_entity_id: int | None = None
     reward_delivery_pending: bool = False
+    reward_mode: str = 'remaining_offer'
+    reward_draw_id: int | None = None
 
     def __post_init__(self):
-        validate_request(self.request)
+        validate_request(self.request, self.reward_mode)
+        _source(self.reward_draw_id)
+        if self.reward_mode == 'remaining_offer' and self.reward_draw_id is not None:
+            raise ValueError('Remaining-offer reward cannot borrow an original draw')
+        if self.reward_mode == 'draw_original' and (self.reward_choice is not None or self.reward_result is not None or self.status == 'reward_offered'):
+            raise ValueError('Original draw reward does not create another player menu')
         for name in ('id', 'turn', 'owner_turn_id'): _integer(getattr(self, name), name, 1)
         _integer(self.action, 'followup action', 0)
         if type(self.source_card_id) is not str or not self.source_card_id:
@@ -161,10 +178,14 @@ def selected(root, phase='initial'):
 
 def phase_options(root, phase):
     picked = selected(root)
+    if phase == 'reward' and root.reward_mode == 'draw_original':
+        return (picked,) if picked is not None else ()
     return root.offers if phase == 'initial' else tuple(o for o in root.offers if o.id != picked.id)
 
 
 def request_choice(root, phase, registry):
+    if phase == 'reward' and root.reward_mode == 'draw_original':
+        raise ValueError('Original draw reward has no second choice')
     return RequestChoice(root.request.player_id, tuple(ChoiceOption(o.id, registry.card(o.card_id).name,
         (ResolveHandFollowupChoice(root.id, phase, o.id),), card_id=o.card_id)
         for o in phase_options(root, phase)), root.request.source_id,
@@ -183,7 +204,7 @@ def sample_zone(request, cards, rng):
 
 
 def start(r, effect):
-    req = effect.request; validate_request(req)
+    req = effect.request; validate_request(req, effect.reward_mode)
     if req.source_id not in r.state.entities: raise ResolutionError('Hand discovery source does not exist')
     from .owner_turns import current_owner_turn
     interval = current_owner_turn(r.state)
@@ -211,7 +232,7 @@ def start(r, effect):
                 raise ResolutionError('Hand offer contains a nonphysical hand card')
     root = HandChoiceFollowup(len(r.state.hand_choice_followups)+1, req, r.state.turn, interval.id,
         r.state.action_number, r.state.entities[req.source_id].card_id, options, pool, cards, hero,
-        before, r.game._rng.getstate(), status='offered' if options else 'empty')
+        before, r.game._rng.getstate(), status='offered' if options else 'empty', reward_mode=effect.reward_mode)
     r.state.hand_choice_followups.append(root)
     return (request_choice(root, 'initial', r.registry),) if options else ()
 
@@ -297,6 +318,8 @@ def note_delivery(r, event):
 def finish_delivery(r, effect):
     root = record(r.state, effect.followup_id); phase = effect.phase
     if not getattr(root, phase+'_delivery_pending'): raise ResolutionError('Hand delivery already finished')
+    if phase == 'reward' and root.reward_mode == 'draw_original':
+        validate_original_draw(r.state, root, completed=True)
     changes = {phase+'_delivery_pending': False}
     if phase == 'initial' and root.status == 'initial_delivery': changes['status'] = 'not_hand'
     if phase == 'reward' and root.status == 'reward_delivery': changes['status'] = 'completed'
@@ -320,10 +343,43 @@ def note_play(r, event):
 def reward(r, effect):
     root = record(r.state, effect.followup_id)
     if root.status != 'reward_queued': raise ResolutionError('Hand followup has already been consumed')
+    if root.reward_mode == 'draw_original':
+        original = selected(root).card
+        if reference_entity(r, original) is None:
+            update(r.state, root, status='exhausted'); return ()
+        draw_id = len(r.state.draw_history)+1
+        root = update(r.state, root, status='reward_delivery', reward_entity_id=original.entity_id,
+            reward_delivery_pending=True, reward_draw_id=draw_id)
+        from .zones import move_card
+        work = move_card(r, MoveCard(original, root.request.player_id, Zone.HAND, draw=True, source_id=root.request.source_id)) or ()
+        if len(r.state.draw_history) != draw_id:
+            raise ResolutionError('Original hand-play reward lost its one accepted physical draw')
+        validate_original_draw(r.state, root)
+        return (*work, FinishHandFollowupDelivery(root.id, 'reward'))
     if not phase_options(root, 'reward'):
         update(r.state, root, status='exhausted'); return ()
     root = update(r.state, root, status='reward_offered')
     return (request_choice(root, 'reward', r.registry),)
+
+
+def validate_original_draw(state, root, *, completed=False):
+    from .draw_casts import draw_record
+    if root.reward_mode != 'draw_original' or root.reward_draw_id is None or root.trigger_play_id is None:
+        raise ValueError('Original draw reward requires its accepted physical draw and play')
+    if (not 1 <= root.reward_draw_id <= len(state.draw_history) or
+            not 1 <= root.trigger_play_id <= len(state.play_history) or root.initial_result is None or
+            len(root.initial_result.selected_ids) != 1):
+        raise ValueError('Original draw reward has an unknown draw, play or selection')
+    option = next((o for o in root.offers if o.id == root.initial_result.selected_ids[0]), None)
+    if option is None or option.card is None:
+        raise ValueError('Original draw reward lost its actual original physical option')
+    row = draw_record(state, root.reward_draw_id); original = option.card
+    play = state.play_history[root.trigger_play_id-1]
+    if ((row.entity_id, row.card_id, row.player_id, row.source_id, row.parent_id) !=
+            (original.entity_id, original.card_id, root.request.player_id, root.request.source_id, None) or
+            root.reward_entity_id != original.entity_id or row.turn != root.turn or row.action < play.action or
+            completed and not row.completed):
+        raise ValueError('Original hand-play reward borrowed another card, source, turn or unfinished draw')
 
 
 def synchronize(r):
@@ -413,8 +469,15 @@ def validate_shape(state):
             raise ValueError('Hand reward result differs from its delivery phase')
         if root.initial_delivery_pending and (root.initial_result is None or root.initial_entity_id is None):
             raise ValueError('Initial hand delivery has no reserved recipient')
-        if root.reward_delivery_pending and (root.reward_result is None or root.reward_entity_id is None):
+        if root.reward_delivery_pending and ((root.reward_result is None and root.reward_mode != 'draw_original') or root.reward_entity_id is None):
             raise ValueError('Reward hand delivery has no reserved recipient')
+        if root.reward_mode == 'draw_original':
+            if root.reward_draw_id is not None and root.status not in ('reward_delivery', 'completed', 'ended'):
+                raise ValueError('Original draw reward was accepted outside its consumed delivery')
+            if root.status in ('reward_delivery', 'completed') and root.reward_draw_id is None:
+                raise ValueError('Original draw reward lost its accepted draw')
+            if root.reward_draw_id is not None:
+                validate_original_draw(state, root, completed=root.status == 'completed')
         if root.request.source_id not in state.entities or not 1 <= root.owner_turn_id <= len(state.owner_turn_history):
             raise ValueError('Unknown original hand source or turn interval')
         if state.owner_turn_history[root.owner_turn_id-1].turn != root.turn:

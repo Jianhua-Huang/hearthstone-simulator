@@ -2226,3 +2226,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 群体变形用TransformMinionsToCard保存原实体组，卡牌仅捕获目标和声明真实目的面；弃手与同费替换继续组合普通弃牌、资源及两次独立池召唤。实际衍生物和本地时序边界见[契约](m3-past-arcane-board-replacements.md)。
+
+
+月光指引使用DiscoverForPlayFollowup(draw_original)，原地图默认奖励保持；加大音量只在原压轴快照成立时声明三法术槽的discover_spell_copy奖励。真实原引用、原组与复制边界见[契约](m3-past-arcane-physical-discovery.md)。

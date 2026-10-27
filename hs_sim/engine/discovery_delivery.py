@@ -28,6 +28,10 @@ def recipe_types():
 
 
 def recipe_face(request):
+    from .copy_materials import CapturedCardCopyMaterial
+    material = getattr(request, 'card', None)
+    if type(material) is CapturedCardCopyMaterial:
+        return material.origin.card_id
     return request.card_id if hasattr(request, 'card_id') else request.card.card_id
 
 
