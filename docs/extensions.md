@@ -2214,3 +2214,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实新计价须区分实际CAST与手动出牌根；只新增有原卡依据的有限profile，不更改旧量值政策。源费用前缀通过内部调用上下文消除自递归，完整CAST与直接前缀检查仍保留原凭证和有序行。明确法强数值只读原cast_id并冻结数量，交原Draw/有归因召唤；具体消费者及边缘见[契约](m3-past-arcane-next-values.md)。
+
+
+当前报价牌库复制用CopyDeckSpellAtCurrentCost，原印刷查询的CopyMatching语义保持；DrawMatchingTurnSpellRepeat只授予原被抽实体当前回合的手动双施法，原永久全部CAST入口不变。真实健康结果、物理变形、抉择和奥秘消费者见[契约](m3-past-arcane-physical-values.md)，旧子牌缺独立官网主面须如实登记。

@@ -125,6 +125,7 @@ def register(mechanics):
     mechanics.register(GrantCardSpellRepeat, grant)
     mechanics.register(RemoveCardSpellRepeat, remove)
     mechanics.register(DrawMatchingSpellRepeat, draw_matching)
+    mechanics.register(DrawMatchingTurnSpellRepeat, draw_matching_turn)
     for kind in (CardCastRepeatPlan, CardCastRepeatProof): mechanics.register_payload_type(kind)
 
 
@@ -147,7 +148,32 @@ class DrawMatchingSpellRepeat(Effect):
         if self.source_id not in state.entities: raise ValueError('Drawn repeat grant has an unknown original source')
 
 
+@dataclass(frozen=True)
+class DrawMatchingTurnSpellRepeat(Effect):
+    """The original drawn spell repeats only when played in this turn."""
+    player_id: int
+    query: PoolQuery
+    source_id: int
+    school: SpellSchool
+
+    def __post_init__(self):
+        DrawMatchingSpellRepeat(self.player_id, self.query, self.source_id, self.school).__post_init__()
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if self.source_id not in state.entities:
+            raise ValueError('Turn-bound repeat draw has an unknown original source')
+
+
 def draw_matching(r, effect):
+    return _draw_matching(r, effect, temporary=False)
+
+
+def draw_matching_turn(r, effect):
+    return _draw_matching(r, effect, temporary=True)
+
+
+def _draw_matching(r, effect, *, temporary):
     from .draw_casts import draw_one
     from .zones import zone_candidates, source_exists
     effect.__post_init__(); source_exists(r, effect.source_id)
@@ -157,7 +183,8 @@ def draw_matching(r, effect):
     entity = reference_entity(r, card)
     if r.registry.card(entity.card_id).spell_school == effect.school:
         # Use the original pre-draw window, including cast-when-drawn carriers.
-        grant(r, GrantCardSpellRepeat(card, 2, effect.source_id, automatic=True))
+        grant(r, GrantCardSpellRepeat(card, 2, effect.source_id,
+            expires_turn=r.state.turn if temporary else None, automatic=not temporary))
     return draw_one(r, effect.player_id, card=card, source_id=effect.source_id)
 
 

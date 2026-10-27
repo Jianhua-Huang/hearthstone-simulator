@@ -783,6 +783,33 @@ class CopyMatching(Effect):
 
 
 @dataclass(frozen=True)
+class CopyDeckSpellAtCurrentCost(Effect):
+    """Copy one own physical deck spell from its current quoted cost tier."""
+    player_id: int
+    current_cost: int
+    source_id: int
+
+    def __post_init__(self):
+        _player(self.player_id)
+        integer(self.current_cost, 'current deck spell cost', 0)
+        integer(self.source_id, 'current deck spell copy source', 1)
+
+
+def copy_deck_spell_at_current_cost(r, effect):
+    from .costs import quote_unselected_cost
+    effect.__post_init__()
+    candidates = zone_candidates(r, effect.player_id, Zone.DECK,
+        PoolQuery(kinds=(CardType.SPELL,)), effect.player_id, effect.source_id)
+    candidates = tuple(c for c in candidates if quote_unselected_cost(
+        r.state, r.registry, r.state.entities[c.entity_id]).amount == effect.current_cost)
+    if not candidates:
+        return ()
+    validate_copy_cost(r, None, 'current', candidates)
+    return (CopyCard(r.game._rng.choice(candidates), effect.player_id,
+        mode='current', source_id=effect.source_id),)
+
+
+@dataclass(frozen=True)
 class CopyLowestCostMinion(Effect):
     """Copy an own physical hand minion by current tribes and current price."""
     player_id: int
@@ -1404,5 +1431,6 @@ def register_zones(mechanics):
             (DiscardCard, discard_card), (ShuffleDeck, shuffle_deck), (ReorderZone, reorder_zone),
             (DrawMatching, matching_card), (DrawMinionWithAttack, draw_minion_with_attack),
             (DiscardMatching, matching_card), (ChooseFromZone, choose_from_zone),
-            (CopyMatching, copy_matching), (CopyLowestCostMinion, copy_lowest_cost_minion)):
+            (CopyMatching, copy_matching), (CopyDeckSpellAtCurrentCost, copy_deck_spell_at_current_cost),
+            (CopyLowestCostMinion, copy_lowest_cost_minion)):
         mechanics.register(kind, handler)
