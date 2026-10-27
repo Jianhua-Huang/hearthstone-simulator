@@ -64,7 +64,7 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions', 'non_minion_followup') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'source_charge_if_both_minions', 'non_minion_followup') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
@@ -79,7 +79,7 @@ class DrawGroupReward:
             if self.kind not in QUALIFIED_FOLLOWUPS:
                 raise ValueError('Only qualified selected rewards carry an original target')
         _integer(self.amount, 'draw reward amount', 0)
-        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
+        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'lock_all')) != (self.amount > 0):
             raise ValueError('Draw reward amount differs from its operation')
 
 
@@ -402,7 +402,11 @@ def finish(r, request):
             continue
         if row.hand is None or reference_entity(r, row.hand) is None: continue
         ref = row.hand
-        if reward.kind in ('cost_all', 'cost_one'):
+        if reward.kind in ('cost_drawn_minions','cost_drawn_spells'):
+            kind=CardType.MINION if reward.kind=='cost_drawn_minions' else CardType.SPELL
+            if r.registry.card(ref.card_id).kind!=kind:continue
+            effect=ModifyStoredCost(ref,CostSpec(delta=-reward.amount),request.source_id)
+        elif reward.kind in ('cost_all', 'cost_one'):
             effect = ModifyStoredCost(ref, CostSpec(delta=-reward.amount), request.source_id)
         elif reward.kind=='set_cost_all':
             effect=ModifyStoredCost(ref,CostSpec(set_to=reward.amount),request.source_id)

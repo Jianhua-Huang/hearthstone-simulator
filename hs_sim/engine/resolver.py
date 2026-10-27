@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v762'
+CORE_EFFECTS_VERSION = 'core-effects-v763'
 
 
 class Mechanics:
@@ -3012,6 +3012,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_draw_beneficiaries(mechanics)
     from .physical_draw_groups import register as register_physical_draw_groups
     register_physical_draw_groups(mechanics)
+    from .board_conditions import register as register_board_conditions
+    register_board_conditions(mechanics)
     from .assemble_death_programs import register as register_assemble_death_programs
     register_assemble_death_programs(mechanics)
     from .assemble_corpse_prefixes import register as register_assemble_corpse_prefixes

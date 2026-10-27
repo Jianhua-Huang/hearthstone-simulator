@@ -2205,3 +2205,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 接过去法术须保留原印刷ID和完整原行，普通随机/发现仍用完整宿主池；已有Core正文仅在原依赖pin验证后复用，不覆盖原定义。固定飞弹数量与逐点分摊不同，每次候选和伤害交已有执行器；未闭合的完整来源不能用当前已接15项冒充。接口见[过去奥术契约](m3-past-arcane-simple-spells.md)。
+
+
+真实卡所需的类型限定抽牌减费使用cost_drawn_minions/cost_drawn_spells原组奖励，不能改扫现手牌或给额外反应抽牌发奖。满板用实际执行窗IfBoardFull和rules.max_board，地点/休眠占位保持；回调只组合普通增益与召唤。原始参考和群体变形边界见[抽牌与容量契约](m3-past-arcane-draw-capacity.md)。
