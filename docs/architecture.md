@@ -1982,3 +1982,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 原死亡的 1 点剩余生命复活与计时休眠复制，分别复用原 ResurrectionEntryMaterial 和 CopyEntryMaterial；赋值与休眠在首次入场通知前完成，来源及数量证明继续校验，见[死亡召唤入场契约](m3-death-summon-entry-policies.md)。
+
+
+原手牌法术的反制回手/随机替换以已有付款收据的zone_epoch锁定原墓地驻留，沿原窗口反制和自动CAST；共享墓地回手交付安装费用与原生值后再发布。死亡历史使用冻结类型而非后来的卡面，见[原法术奥秘契约](m3-original-spell-secret-effects.md)。

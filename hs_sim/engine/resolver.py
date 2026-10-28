@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v796'
+CORE_EFFECTS_VERSION = 'core-effects-v797'
 
 
 class Mechanics:
@@ -3068,6 +3068,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_death_hand_returns(mechanics)
     from .death_summon_entries import register as register_death_summon_entries
     register_death_summon_entries(mechanics)
+    from .countered_spell_secrets import register as register_countered_spell_secrets
+    register_countered_spell_secrets(mechanics)
     from .dead_minion_shuffles import register as register_dead_minion_shuffles
     register_dead_minion_shuffles(mechanics)
     from .growing_weapon_shuffles import register as register_growing_weapon_shuffles

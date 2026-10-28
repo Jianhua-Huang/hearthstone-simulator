@@ -2356,3 +2356,6 @@ ReturnDeadMinion使用已有分配事实并接受帧状态校验，不放宽普�
 
 
 真实死亡奥秘可使用 ResurrectOneHealth 或 SummonDormantDeathCopy；普通 ResurrectMinion ABI 保持，材料仅新增有限可选入场字段，原物理回手驻留检查保持默认开启。恢复、数量、复制与休眠边界见[死亡召唤入场契约](m3-death-summon-entry-policies.md)。
+
+
+CounterReturnSpell/CounterReplaceSpell只消费原活跃手牌法术窗口和完整分配事实；已有HandPlayCostReceipt提供原驻留，无新窗口/历史字段。回手/原生值保留、完整同费用域及既有反制回溯口径见[扩展契约](m3-original-spell-secret-effects.md)。

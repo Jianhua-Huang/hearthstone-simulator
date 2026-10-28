@@ -12353,8 +12353,10 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             raise ValueError('Invalid destruction record type')
         if kind == CardType.LOCATION and (record.corpse_value or record.max_health or record.attack or record.damage):
             raise ValueError('Location destruction cannot carry character death stats')
-        if registry.card(state.entities[record.entity_id].card_id).kind != kind or registry.card(record.card_id).kind != kind:
-            raise ValueError('Death record entity/type does not match its zone')
+        if registry.card(state.entities[record.entity_id].card_id).kind != kind and (
+                record.copy_source is None or record.copy_source.origin.kind != kind or
+                state.entities[record.entity_id].zone_epoch <= record.copy_source.origin.zone_epoch+1):
+            raise ValueError('Death record entity/type does not match its original frozen lifetime')
         if record.id <= previous_record_id or record.batch < previous_batch:
             raise ValueError("death history IDs must increase and batches cannot move backwards")
         if record.id >= state.next_death_id or record.batch >= state.next_death_batch:

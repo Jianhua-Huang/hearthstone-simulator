@@ -66,26 +66,8 @@ def return_minion(r,effect):
     if (entity.owner,entity.controller,entity.card_id,entity.kind,entity.zone,entity.zone_epoch,entity.entered_order)!=(
             fact.owner,fact.controller,fact.card_id,fact.kind,fact.zone,fact.zone_epoch,fact.entered_order):
         r.emit('zone_target_skipped',target_id=fact.entity_id,reason='captured_death_departed');return ()
-    player=r.player(fact.controller)
-    if len(player.hand)>=hand_capacity(player,r.rules):
-        original=SourceAllocationFact.capture(r.state,entity)
-        r.move(entity,Zone.GRAVEYARD,hand_entry_reason=None);r.refresh_auras()
-        from .zones import emit_burn
-        emit_burn(r,entity,profile='graveyard_delivery_overflow',original=original,
-            source_id=effect.source.entity_id,player_id=player.id,reason='return_hand_full')
-        return ()
-    # Match ordinary return's acquisition order; install the discount before listeners.
-    r.move(entity,Zone.HAND,hand_entry_reason=None)
-    from .hand_history import enter_hand,publish
-    enter_hand(r.state,entity,Zone.GRAVEYARD,'return',source_id=effect.source.entity_id)
-    reset_to_definition(r.state,entity,r.registry.card(entity.card_id),r.registry,preserve_jade=True,preserve_cthun=True)
-    if effect.cost_reduction:
-        from .zones import CardReference,ModifyStoredCost,modify_stored_cost
-        modify_stored_cost(r,ModifyStoredCost(CardReference.capture(entity),CostSpec(delta=-effect.cost_reduction),effect.source.entity_id))
-    r.refresh_auras()
-    r.emit('card_returned',source_id=effect.source.entity_id,target_id=entity.id,player_id=player.id)
-    publish(r,entity.hand_entry_id)
-    return ()
+    from .hand_returns import deliver
+    return deliver(r,entity,effect.source.entity_id,cost_delta=-effect.cost_reduction)
 
 
 def register(mechanics):mechanics.register(ReturnDeadMinion,return_minion)
