@@ -2297,3 +2297,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 指定一方的互斗使用ForcePlayerMinionsAttackEachOther，接受原玩家和剩余BoardPresenceReference；不要按当前所有随从不断扩充攻击者，或在卡牌层重建伤害。脱困尤格的后置触发用原CastFromPool(count=2)和完整普通法术查询，触须填手直接复用真实YOG_514与原FillHandWithCard，见[契约](m3-yogg-unleashed.md)。
+
+
+完整鹰奖励沿azerite_hawk_domain.local_pool核全部原依赖，追加到本地格式来源投影；不要覆盖原实验样本、改战吼或把候选按实现程度过滤。沿用专用池调用名，凭目标/模式/版本区分完整新域，显式TITAN例外仍由原主体声明，见[契约](m3-azerite-hawk-domain.md)。

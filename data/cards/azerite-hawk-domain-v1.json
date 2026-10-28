@@ -1,0 +1,1264 @@
+{
+  "schema": 1,
+  "kind": "complete-local-azerite-hawk-native-titan-domain",
+  "policy_id": "cn37-local-azerite-hawk-full-titans-v1",
+  "source_card_id": "WW_001t24",
+  "pool_id": "representative.excavate-titans",
+  "source_snapshot": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "WW_001t24",
+        "dbf_id": 102027,
+        "name": "艾泽里特鹰",
+        "name_en": "The Azerite Hawk",
+        "text": "<b>战吼：</b>随机获取一张<b>泰坦</b>牌，其法力值消耗为（1）点。",
+        "text_en": "<b>Battlecry:</b> Get a random <b>Titan</b>. It costs (1).",
+        "cost": 4,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1892,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "2542": 1,
+          "2823": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2823",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2823"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2772",
+              "name": "TITAN",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d7b0db2ef1f195467a912e40b8980ea63dea7257d4dabb2f09bb7d920ae83b34",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "WW_001t24",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental",
+          "beast"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "ef99facabb14b97bb9b2a4765c6dc4e63b42cd8632eb48b8c6cef1fececbc256",
+      "pool_metadata_sha256": "9267de30a1da22c73e475e46c613d9ac4794e3e85de2fce027c166294574cee5"
+    },
+    {
+      "record": {
+        "id": "TTN_075",
+        "dbf_id": 96903,
+        "name": "诺甘农",
+        "name_en": "Norgannon",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，其他技能的效果翻倍。",
+        "text_en": "<b>Titan</b>\nAfter this uses an ability, double the power of the other abilities.",
+        "cost": 6,
+        "attack": 3,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "HEALTH": 8,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "fd30c98978e5bf9e3de139f867e8702fd6034abb5d145e3a09d83ddabfe37aad",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_075",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "3c16df2f0c57fa93c55b5a1727405ad8fa97a117fd34f87d24a74e151ed0487f",
+      "pool_metadata_sha256": "17f48b48634fb6b820bf6ee9084db8bff8ce202cba82869b22db5e50a95ba1d2"
+    },
+    {
+      "record": {
+        "id": "TTN_092",
+        "dbf_id": 97495,
+        "name": "复仇者阿格拉玛",
+        "name_en": "Aggramar, the Avenger",
+        "text": "<b>泰坦</b>\n<b>战吼：</b>装备一把3/3的泰沙拉克。",
+        "text_en": "<b>Titan</b>\n<b>Battlecry:</b> Equip a\n3/3 Taeshalach.",
+        "cost": 6,
+        "attack": 3,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "11a84581d6253946e4ed19360eeb23de927e8b0bbe78849bdbcda5ef6b80607c",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_092",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "8e3dbd21be233327c92d72a73acdf1220eef52d6a1c1cf48649082ea6810a8a0",
+      "pool_metadata_sha256": "440517decc528d92573239362f4dac88051b904355e1d65a14e7d4c463c39f55"
+    },
+    {
+      "record": {
+        "id": "TTN_415",
+        "dbf_id": 96710,
+        "name": "卡兹格罗斯",
+        "name_en": "Khaz'goroth",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，在本回合中获得<b>免疫</b>并随机攻击一个敌方随从。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability, gain\n<b>Immune</b> this turn and attack a\nrandom enemy minion.",
+        "cost": 6,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4dc5519a44eff9a46ab34327edcddc6dc146775dcc163ada20ae1479b1fb8912",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_415",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "fcc74c20d03761620bab7c2571940e2bc22d750103e54cfffd08d7aaaec7deb3",
+      "pool_metadata_sha256": "3cfb0c5fafd0aad030976223ba4ffad5ab55ac913343883bb04a5c8189fff15e"
+    },
+    {
+      "record": {
+        "id": "TTN_429",
+        "dbf_id": 97103,
+        "name": "阿曼苏尔",
+        "name_en": "Aman'Thul",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>任意职业的<b>传说</b>随从牌。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\n<b>Discover</b> any <b>Legendary</b>\n_minion from any class.",
+        "cost": 7,
+        "attack": 3,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 3,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 6,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "46307c5d006c526fff988cd77b7f8c29b2e1a85556df91233c5b1cb741078e2f",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_429",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "cd3756aeb8bb3a651ec3827571a451324b70cd7bd0dc952de7135b388dd83306",
+      "pool_metadata_sha256": "2a37e76983f0b24f546c2354c096133a3c5fdc37cb6ecf04afe8a73787733c20"
+    },
+    {
+      "record": {
+        "id": "TTN_721",
+        "dbf_id": 97642,
+        "name": "终极V-07-TR-0N",
+        "name_en": "V-07-TR-0N Prime",
+        "text": "<b>泰钽</b>\n本随从的技能会在另一个随机友方随从身上重复。",
+        "text_en": "[x]<b>T1T4N</b>\nThis minion's abilities\nrepeat on another random\nfriendly minion.",
+        "cost": 6,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 3,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 7,
+          "CARDRACE": 17,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "0e46d12c70b0bbe6e55801dc5dedf6273cd6416f274837c02f0e3f35e436f312",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_721",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "mech"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b74c3c571643038edbc3dc7fd15d25d7d5690772b3a2d0236286a7382da7a00a",
+      "pool_metadata_sha256": "2b27c2e411f6e5d4adbe5c0ea5e9b67ef4cac1e9a226bdeccb52d27c7644dc72"
+    },
+    {
+      "record": {
+        "id": "TTN_737",
+        "dbf_id": 98285,
+        "name": "兵主",
+        "name_en": "The Primus",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，<b>发现</b>一张对应符文的牌。",
+        "text_en": "<b>Titan</b>\nAfter this uses an ability, <b>Discover</b> a card with that Rune.",
+        "cost": 8,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 1,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. Zemskov & T. Shevtsov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f582eb38fa16da10a658553821a004e68bb786f4b2b630bf5ee38449d71d6afb",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "death_knight"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_737",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "129946bed2023d34e9e599847980bbc886ae7b1bdcb766d16d4e11b812a71234",
+      "pool_metadata_sha256": "475385d43cbef803400aff9369f138228f6f0cdb44a4ccb581483279088ce30a"
+    },
+    {
+      "record": {
+        "id": "TTN_800",
+        "dbf_id": 96909,
+        "name": "雷霆之神高戈奈斯",
+        "name_en": "Golganneth, the Thunderer",
+        "text": "<b>泰坦</b>\n你每个回合使用的第一张法术牌的法力值消耗减少（3）点。",
+        "text_en": "<b>Titan</b>\nYour first spell each turn costs (3) less.",
+        "cost": 6,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nicola Saviori"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "9dca90415cf1bb23b16c71353f9a72dc992ac3cdc70ef243503d86cb995fcd41",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "shaman"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_800",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "03fd0243c8f1313b59dacae50eaf2a2467c30d1b001fe3ed42dd6a06ee34a139",
+      "pool_metadata_sha256": "449d4b8a8929f342194a358d4ea17526b20b0aeae141f10b1d049754a80369fc"
+    },
+    {
+      "record": {
+        "id": "TTN_858",
+        "dbf_id": 98061,
+        "name": "维和者阿米图斯",
+        "name_en": "Amitus, the Peacekeeper",
+        "text": "<b>泰坦</b>\n<b>嘲讽</b>。你的随从每次受到伤害不会超过2点。",
+        "text_en": "<b>Titan</b>\n<b>Taunt</b>. Your minions\ncan't take more than 2_damage at a time.",
+        "cost": 7,
+        "attack": 1,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 1,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 5,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "3fdfffdc3a9319c1aaa880f337e064ec1cd9aa71b67560736c1baf1f841d50cd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_858",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "7b38046619fdc0220a85d59b1394fd50305123d3da70b40e0979fae26387bb45",
+      "pool_metadata_sha256": "45421c3fc144d5dafe7ed8f9b44b5ab6c230dc8be643d3f9cdb5ace2371793f6"
+    },
+    {
+      "record": {
+        "id": "TTN_862",
+        "dbf_id": 98344,
+        "name": "翠绿之星阿古斯",
+        "name_en": "Argus, the Emerald Star",
+        "text": "<b>泰坦</b>\n本随从左边的随从均拥有<b>突袭</b>，本随从右边的随从均拥有<b>吸血</b>。",
+        "text_en": "[x]<b>Titan</b>\nMinions to the left of this\nhave <b>Rush</b>, and ones to the\nright have <b>Lifesteal</b>.",
+        "cost": 7,
+        "attack": 5,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 14,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a8d6bd64704ba259572a62afa4784bd87148f772e811a00b784886c2cd299c08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "demon_hunter"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_862",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b29bc0ff8784cbaf60d8f76d0953ca70609dd473594b5ab4d40de8b7894a2189",
+      "pool_metadata_sha256": "8e9c0d897976dc394c6533d5cf2c57e82c781796c89e3d3a9ab5e2ad68a476c8"
+    },
+    {
+      "record": {
+        "id": "TTN_903",
+        "dbf_id": 96671,
+        "name": "生命的缚誓者艾欧娜尔",
+        "name_en": "Eonar, the Life-Binder",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，召唤一棵5/5并具有<b>嘲讽</b>的古树。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\nsummon a 5/5 Ancient\nwith <b>Taunt</b>.",
+        "cost": 10,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "396b977c2bc893429f705bbf4e625ef0272f38ac2289169b06a6599b615fb415",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_903",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "808faaf08b0bbce6ad0ac32bdcb0d82049f2459bfb75f905ba5b2a6b0c4fb136",
+      "pool_metadata_sha256": "afd74c88cd59013b8aa2c5a62eecc68ddbc022fe279992a0e26b290b08d4b46b"
+    },
+    {
+      "record": {
+        "id": "TTN_960",
+        "dbf_id": 97702,
+        "name": "灭世泰坦萨格拉斯",
+        "name_en": "Sargeras, the Destroyer",
+        "text": "<b>泰坦</b>\n<b>战吼：</b>打开一道传送门，每回合召唤两个3/2的小鬼。",
+        "text_en": "[x]<b>Titan</b>\n<b>Battlecry:</b> Open a portal\nthat summons two 3/2\nImps each turn.",
+        "cost": 9,
+        "attack": 6,
+        "health": 12,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 12,
+          "ATK": 6,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 9,
+          "CARDRACE": 15,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "801483b8c1a206866fd7818230741d67154443e666836bf3aea3d7c40179ac08",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "TTN_960",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "demon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b89fdd3e55ea608d5b29d6721003dc11ac771dc1ad64867867518e00cba7899d",
+      "pool_metadata_sha256": "5eceea13f86cf2304dc8a308ffe9401e33c6fd2a3dbab503f7a8df27cff0db20"
+    },
+    {
+      "record": {
+        "id": "YOG_516",
+        "dbf_id": 101033,
+        "name": "脱困古神尤格-萨隆",
+        "name_en": "Yogg-Saron, Unleashed",
+        "text": "<b>泰坦</b>\n在本随从使用一个技能后，随机施放两个法术。",
+        "text_en": "[x]<b>Titan</b>\nAfter this uses an ability,\ncast two random spells.",
+        "cost": 9,
+        "attack": 7,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 7,
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1858,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "1544": 1,
+          "MINI_SET": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "TITAN": 1,
+          "ACTIVATABLE_MINION": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1544",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1544"
+          }
+        ]
+      },
+      "record_sha256": "9fffafd6e0bdca41461a2b64ca1225097ddee5d825a9999b854e4dd5e4fd1141",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "YOG_516",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "4b484f36565b4672b083ba5642a9defb457d5030115851d43b5266917ef056f4",
+      "pool_metadata_sha256": "050b4769bd3867c389816ce9cad600e7a274361a5ae55b05d039f980a5923d5b"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "WW_001t24",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102027-zh_CN.json",
+      "response_sha256": "3106975488d23ee32eee1e26428de6953534b3e455f279d6c74aba59980b4405",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 102027,
+        "collectible": 0,
+        "slug": "102027-the-azerite-hawk",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 5,
+        "artistName": "Vika Yarova",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "艾泽里特鹰",
+        "text": "<b>战吼：</b>随机获取一张<b>泰坦</b>牌，其法力值消耗为（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4eac52cd9bfd1014245d6edd3a62ba4115d184881ab2cc69742d9deae60529d4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98762,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=zh_CN&collectible=0",
+        "sha256": "3106975488d23ee32eee1e26428de6953534b3e455f279d6c74aba59980b4405",
+        "bytes": 690,
+        "observed_at": "2026-10-27T12:55:37.519147+00:00"
+      }
+    },
+    {
+      "card_id": "WW_001t24",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\102027-en_US.json",
+      "response_sha256": "971ed681e37f1a23974ebc80444e7e0ba6e0a229095a950cf7c88bcfae202389",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=en_US&collectible=0",
+      "face": {
+        "id": 102027,
+        "collectible": 0,
+        "slug": "102027-the-azerite-hawk",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": 5,
+        "artistName": "Vika Yarova",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "The Azerite Hawk",
+        "text": "<b>Battlecry:</b> Get a random <b>Titan</b>. It costs (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec7a6f8e10e8a8e380b9fa84d188afe0189d15668c1d16a02056928a74803067.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98762,
+        "keywordIds": [
+          8,
+          270
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=102027&locale=en_US&collectible=0",
+        "sha256": "971ed681e37f1a23974ebc80444e7e0ba6e0a229095a950cf7c88bcfae202389",
+        "bytes": 662,
+        "observed_at": "2026-10-27T12:55:37.912382+00:00"
+      }
+    }
+  ],
+  "inventory": {
+    "candidate_ids": [
+      "TTN_075",
+      "TTN_092",
+      "TTN_415",
+      "TTN_429",
+      "TTN_721",
+      "TTN_737",
+      "TTN_800",
+      "TTN_858",
+      "TTN_862",
+      "TTN_903",
+      "TTN_960",
+      "YOG_516"
+    ],
+    "weights": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "excluded_card_ids": [],
+    "complete_for_declared_local_raw_reference": true,
+    "runtime_bound": true,
+    "weight_policy": "local-uniform-unconfirmed",
+    "role": "Azerite Hawk explicitly requests Titans; does not make Titans ordinary random-generation or evolution candidates"
+  },
+  "new_definition_ids": [],
+  "new_metadata_ids": [],
+  "new_standard_roots": [],
+  "source_scope_bound": true,
+  "real_excavate_profile_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "references": [
+    {
+      "path": "data/cards/titan-reference-khaz-argus-v1.json",
+      "sha256": "e2910daa6c9b662d93ec0aba159df4a69ccf7cb481cd60e376842658472e20c4"
+    },
+    {
+      "path": "data/cards/excavate-shared-treasures-v1.json",
+      "sha256": "0b27910aa91724d7cf3e0505d5ea5c366276b29b81649edddb218bfe11581253"
+    }
+  ],
+  "known_local_policies": [
+    "Use every one of the twelve original raw-reference Titan identities, in original order, with declared weights and exclusions unchanged. Equal weights remain a local unconfirmed policy; no current CN eligibility or hotfix certification is claimed.",
+    "Add one complete domain under the local constructed host context and existing nominal Hawk pool ID. The original one-member incomplete experimental pool and original launch context remain unchanged.",
+    "The existing trusted Hawk behavior uses its actual Titan exception and ordinary GenerateFromPool cost-set-to-one hand delivery. No class or implementation-based trimming, new card behavior, or private generation executor is introduced.",
+    "Native Titan definitions and direct Hawk acquisition/one-cost play are closed for this declared domain. Random spell, rune, legendary and other nested sources still obey their existing scopes and explicit unknown failures; broader recursive closure and the real Excavate profile remain separate pending work."
+  ]
+}
