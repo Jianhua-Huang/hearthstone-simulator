@@ -150,8 +150,9 @@ def build_cn37_local_pool_format():
     from .cards.azerite_hawk_domain import local_pool as hawk_pool
     from .cards.azerite_reward_domains import local_pools as azerite_pools
     from .cards.excavate_local_host import local_pools as excavation_pools, profile as excavation_profile
+    from .cards.past_mage_effect_consumers import gift_pool
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context)
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context)
     excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),

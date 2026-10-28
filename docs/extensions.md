@@ -2306,3 +2306,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 低温贮藏是跨系列可达依赖，不增加标准组牌根；2费冰霜及敌方角色目标沿原TargetSpec。完整发掘表用excavate_local_host.local_pools/profile，保持旧同名实验profile，不在牌层维护进度；见[契约](m3-excavate-local-host.md)。
+
+
+plain临时法术发现可使用DiscoverFromPool的单一SPELL/collectible查询、原source_id及temporary_until_turn，仍为一次三选一普通手牌交付；不附加费用/重复/混合类型。CreateTemporaryCard与原minion路径保持，见[礼物及过去消费者契约](m3-past-mage-effect-consumers.md)。

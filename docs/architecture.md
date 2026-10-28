@@ -1932,3 +1932,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 完整本地发掘沿excavate_local_host准备十个原名单池及同名excavate的新目标profile，全部profile字段纳入宿主摘要，原实验profile另作全字段保全。真实低温贮藏只组合Freeze与Excavate，见[契约](m3-excavate-local-host.md)。
+
+
+过去法师十二消费者沿past_mage_effect_consumers复用原原生核心别名、当前复制、公开牌库揭示、发现召唤及生命/奥秘执行器。礼物的完整三牌域与179生产源分开绑定；真实需求只扩plain临时法术发现，见[契约](m3-past-mage-effect-consumers.md)。

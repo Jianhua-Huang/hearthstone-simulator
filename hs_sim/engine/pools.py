@@ -871,17 +871,18 @@ def validate_delivery(effect):
             raise ValueError('Generated board position requires attributed board delivery')
     if effect.temporary_until_turn is not None:
         integer(effect.temporary_until_turn, 'temporary pool card deadline', 1)
-        temporary_spell = (type(effect) is GenerateFromPool and effect.query.kinds == (CardType.SPELL,))
+        temporary_spell = effect.query.kinds == (CardType.SPELL,)
+        temporary_repeated_spell = temporary_spell and type(effect) is GenerateFromPool
         if (effect.destination!='hand' or effect.source_id is None or not effect.replacement or
                 type(effect.query)is not PoolQuery or (effect.query.kinds!=(CardType.MINION,) and not temporary_spell) or
                 effect.query.collectible is not True or effect.cost is not None or
-                effect.expires_turn is not None or (effect.spell_repeat is not None and not temporary_spell) or effect.cause is not None or
+                effect.expires_turn is not None or (effect.spell_repeat is not None and not temporary_repeated_spell) or effect.cause is not None or
                 getattr(effect,'combined_shatter',False) or getattr(effect,'minion_grant',None)is not None or
                 getattr(effect,'gift_pool',None)is not None or getattr(effect,'heal_hero_by_printed_cost',False) or
                 getattr(effect,'freeze_summoned',False) or getattr(effect,'summon_copy_stats',None)is not None or
                 (type(effect)is DiscoverFromPool and
                  (effect.count!=3 or effect.discoveries!=1 or effect.delivery!='after_each'))):
-            raise ValueError('Temporary pool cards require a plain source-bound hand-minion delivery')
+            raise ValueError('Temporary pool cards require a plain source-bound hand-minion or hand-spell delivery')
     if getattr(effect,'combined_shatter',False) and effect.destination!='hand':
         raise ValueError('Combined Shatter generation requires hand delivery')
     from .effects import validate_generated_cost
