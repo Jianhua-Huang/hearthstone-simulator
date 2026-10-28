@@ -1,0 +1,942 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-mage-gambit-wildfire-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "SW_450",
+    "BAR_546"
+  ],
+  "choice_only_ids": [
+    "SW_450t",
+    "SW_450t2"
+  ],
+  "new_token_ids": [],
+  "dependencies": [
+    {
+      "record": {
+        "id": "SW_450",
+        "dbf_id": 64488,
+        "name": "巫师的计策",
+        "name_en": "Sorcerer's Gambit",
+        "text": "<b>任务线：</b>施放火焰，冰霜和奥术法术各一个。<b>奖励：</b>抽一张法术牌。",
+        "text_en": "<b>Questline:</b> Cast a Fire, Frost, and Arcane spell. <b>Reward: </b>Draw a spell.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 64490,
+          "QUESTLINE": 1,
+          "QUESTLINE_FINAL_REWARD_DATABASE_ID": 67550,
+          "QUESTLINE_PART": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          }
+        ]
+      },
+      "record_sha256": "9501625898e686798e10e8a8664285a06720b38e54eff089d9896fc125b17c2e",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "SW_450",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BAR_546",
+        "dbf_id": 63062,
+        "name": "野火",
+        "name_en": "Wildfire",
+        "text": "在本局对战中，你的英雄技能造成的伤害增加1点。",
+        "text_en": "[x]Your Hero Power\ndeals 1 more damage\nthis game.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "David Kegg"
+          }
+        ]
+      },
+      "record_sha256": "e32a2dac3e7b96cb39f5ed39c6e2e1a3eb99bd8bdb0a56eda6aa83b3b6ad65e9",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "BAR_546",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "SW_450t",
+        "dbf_id": 64490,
+        "name": "拖延时间",
+        "name_en": "Stall for Time",
+        "text": "<b>任务线：</b>施放火焰，冰霜和奥术法术各一个。<b>奖励：</b><b>发现</b>上述派系中的一张法术牌。",
+        "text_en": "<b>Questline:</b> Cast a Fire, Frost, and Arcane spell. <b>Reward:</b> <b>Discover</b> one.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "HIDE_COST": 1,
+          "QUEST_REWARD_DATABASE_ID": 64491,
+          "USE_DISCOVER_VISUALS": 1,
+          "QUESTLINE": 1,
+          "QUESTLINE_PART": 2
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b27ff1ccf38c663f0ecf2d0019b3eefadb0a71ebd167b7a3f37796f175f9b59b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "SW_450t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "SW_450t2",
+        "dbf_id": 64491,
+        "name": "抵达传送大厅",
+        "name_en": "Reach the Portal Room",
+        "text": "<b>任务线：</b>施放火焰，冰霜和奥术法术各一个。<b>奖励：</b>奥术师晨拥。",
+        "text_en": "[x]<b>Questline:</b> Cast a Fire,\nFrost, and Arcane spell.\n<b>Reward:</b> Arcanist\nDawngrasp.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "HIDE_COST": 1,
+          "QUEST_REWARD_DATABASE_ID": 67550,
+          "QUESTLINE": 1,
+          "QUESTLINE_PART": 3,
+          "4297": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "968bca1751b64d7522d481fc9fa35a1097ddd0782f5cdb0bb2805c33708d2168",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "SW_450t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "SW_450t4e",
+        "dbf_id": 67552,
+        "name": "晨拥之力",
+        "name_en": "Power of Dawngrasp",
+        "text": "<b>法术伤害+3</b>",
+        "text_en": "<b>Spell Damage +3</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "20ce7589fb4607f6a0440cad7c36eba3fd12df54809af240cb2793afb52f8425",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "SW_450t4e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BAR_546e",
+        "dbf_id": 63063,
+        "name": "火力全开！",
+        "name_en": "Flame On!",
+        "text": "英雄技能造成的伤害提高1点。",
+        "text_en": "Hero Power deals 1 more damage.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "57336d4e8ad89b4a8cb42dab5227ef4583472ff9396e8503c46d6cabd147ad4b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "BAR_546e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "BAR_546e2",
+        "dbf_id": 85108,
+        "name": "火力全开！",
+        "name_en": "Flame On!",
+        "text": "英雄技能造成的伤害提高1点。",
+        "text_en": "Hero Power deals 1 more damage.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "489754d37cbbf27e6b3c4d3e34b76fc5694180514083aeac8b874599af1c891a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "BAR_546e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "SW_450t4",
+        "dbf_id": 67550,
+        "name": "奥术师晨拥",
+        "name_en": "Arcanist Dawngrasp",
+        "text": "<b>战吼：</b>在本局对战的剩余时间内，你拥有<b>法术伤害+3</b>。",
+        "text_en": "[x]<b>Battlecry:</b> For the rest\nof the game, you have\n<b>Spell Damage +3</b>.",
+        "cost": 5,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "192",
+              "name": "SPELLPOWER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1bc84a738210627c2bb8a2778a83fbd8ec61e4c70db9ab44846c3798601b7c9f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "SW_450t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b0fb4daed3be6f76e13b316005066d743b5980d6a6ff19f0120fbc2d0eed00e3",
+      "pool_metadata_previously_registered": false,
+      "player_effect_id": "m4.dawngrasp",
+      "player_effect_sha256": "420ef0a860f3c3be400d3863a4c006c03579b8f8c4d7d80357090572706ebc71"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "SW_450",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 64488,
+        "collectible": 1,
+        "slug": "64488-sorcerers-gambit",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 5,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 1,
+        "name": "巫师的计策",
+        "text": "<b>任务线：</b>施放火焰，冰霜和奥术法术各一个。<b>奖励：</b>抽一张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be9c36a97a22d70e5ca83935a6c896f3e7554a89718f084f38451be55dfee2d0.png",
+        "imageGold": "",
+        "flavorText": "在“那次事故”之后，暴风城监狱真的应该重新评估一下《反法师条例》了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81ecb60c57c3fe257626171071efa913337584bdd5218eb42332456858b15937.png",
+        "childIds": [
+          64490,
+          64491,
+          67550
+        ],
+        "keywordIds": [
+          96
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_450",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 64488,
+        "collectible": 1,
+        "slug": "64488-sorcerers-gambit",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 5,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 1,
+        "name": "Sorcerer's Gambit",
+        "text": "<b>Questline:</b> Cast a Fire, Frost, and Arcane spell. <b>Reward: </b>Draw a spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e3971577a85b3a05e3c04cdf41f8c7e31b3ef61b8d53dd6e56a38ed7be60cbc.png",
+        "imageGold": "",
+        "flavorText": "After \"the incident,\" the Stockades really had to reevaluate their anti-mage protocols.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81ecb60c57c3fe257626171071efa913337584bdd5218eb42332456858b15937.png",
+        "childIds": [
+          64490,
+          64491,
+          67550
+        ],
+        "keywordIds": [
+          96
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_546",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 63062,
+        "collectible": 1,
+        "slug": "63062-wildfire",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "David Kegg",
+        "manaCost": 1,
+        "name": "野火",
+        "text": "在本局对战中，你的英雄技能造成的伤害增加1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e5735bd9031680a9b25aa0dbecbd54f5d8ddd20f6d994ad08c2b259e460cef8.png",
+        "imageGold": "",
+        "flavorText": "贫瘠之地原本是一片繁茂的丛林。后来就发生了这种事。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f7bdf1c01ce4fac4d4cd3a6a41c95c0e6c335b317ebb73cdbbbc2a304e4f5e1.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_546",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 63062,
+        "collectible": 1,
+        "slug": "63062-wildfire",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "David Kegg",
+        "manaCost": 1,
+        "name": "Wildfire",
+        "text": "Your Hero Power deals 1 more damage this game.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48fa871c415f9c4552850ec1c61e804dab78ef84091e7f2eedffd423f6302ede.png",
+        "imageGold": "",
+        "flavorText": "The Barrens were a lush jungle. Then this happened.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f7bdf1c01ce4fac4d4cd3a6a41c95c0e6c335b317ebb73cdbbbc2a304e4f5e1.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_450t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\64490-zh_CN.json",
+      "response_sha256": "43201f5d700a55dd527cfb5e6e60d876e594225bfe94f42782dca08471948c22",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64490&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 64490,
+        "collectible": 0,
+        "slug": "64490-stall-for-time",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 5,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 1,
+        "name": "拖延时间",
+        "text": "<b>任务线：</b>施放火焰，冰霜和奥术法术各一个。<b>奖励：</b><b>发现</b>上述派系中的一张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae4b7ae888a04a30881479df43487db9b654cf22ded5e9ecfd74097234ef6bc0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64488,
+        "keywordIds": [
+          21,
+          96
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64490&locale=zh_CN&collectible=0",
+        "sha256": "43201f5d700a55dd527cfb5e6e60d876e594225bfe94f42782dca08471948c22",
+        "bytes": 672,
+        "observed_at": "2026-10-28T14:33:04.816558+00:00"
+      }
+    },
+    {
+      "card_id": "SW_450t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\64490-en_US.json",
+      "response_sha256": "96f2b5c83ab185fa93bbaa68d843d92539d270fc90d037415df867386f0638e0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64490&locale=en_US&collectible=0",
+      "face": {
+        "id": 64490,
+        "collectible": 0,
+        "slug": "64490-stall-for-time",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 5,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 1,
+        "name": "Stall for Time",
+        "text": "<b>Questline:</b> Cast a Fire, Frost, and Arcane spell. <b>Reward:</b> <b>Discover</b> one.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bbb2c49e6f2ea5370a5172411b6c1b6c4202b30adb6d4d794e1534776a345a4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64488,
+        "keywordIds": [
+          21,
+          96
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64490&locale=en_US&collectible=0",
+        "sha256": "96f2b5c83ab185fa93bbaa68d843d92539d270fc90d037415df867386f0638e0",
+        "bytes": 633,
+        "observed_at": "2026-10-28T14:33:06.761672+00:00"
+      }
+    },
+    {
+      "card_id": "SW_450t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\64491-zh_CN.json",
+      "response_sha256": "4b2003ac57dd7e8de5595ad516d9adbe3f63d559fa93e145c2b7c5c09eb0c474",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64491&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 64491,
+        "collectible": 0,
+        "slug": "64491-reach-the-portal-room",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 5,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 1,
+        "name": "抵达传送大厅",
+        "text": "<b>任务线：</b>施放火焰，冰霜和奥术法术各一个。<b>奖励：</b>奥术师晨拥。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/77630674d7613a52a625453d10d2957d4a7dca15feace78e5d3c6d8e731101f4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64488,
+        "keywordIds": [
+          96
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64491&locale=zh_CN&collectible=0",
+        "sha256": "4b2003ac57dd7e8de5595ad516d9adbe3f63d559fa93e145c2b7c5c09eb0c474",
+        "bytes": 651,
+        "observed_at": "2026-10-28T14:33:08.625073+00:00"
+      }
+    },
+    {
+      "card_id": "SW_450t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\64491-en_US.json",
+      "response_sha256": "2e6e47305ec1c2285bce3adb9d1ad7814c6e58d209186742e9ab9ce40ea50de2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=64491&locale=en_US&collectible=0",
+      "face": {
+        "id": 64491,
+        "collectible": 0,
+        "slug": "64491-reach-the-portal-room",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 5,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 1,
+        "name": "Reach the Portal Room",
+        "text": "<b>Questline:</b> Cast a Fire, Frost, and Arcane spell. <b>Reward:</b> Arcanist Dawngrasp.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb0f5b4191381554b68049e3bce9b42db035fec8fb8c02f82ec9d1a8c9bbf22d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64488,
+        "keywordIds": [
+          96
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=64491&locale=en_US&collectible=0",
+        "sha256": "2e6e47305ec1c2285bce3adb9d1ad7814c6e58d209186742e9ab9ce40ea50de2",
+        "bytes": 643,
+        "observed_at": "2026-10-28T14:33:10.836057+00:00"
+      }
+    },
+    {
+      "card_id": "SW_450t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\67550-zh_CN.json",
+      "response_sha256": "1322b7d7b9db893670c39347949e8430741d2ccf16b19e24056c293a9f33e21f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=67550&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 67550,
+        "collectible": 0,
+        "slug": "67550-arcanist-dawngrasp",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Arthur Bozonnet",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "奥术师晨拥",
+        "text": "<b>战吼：</b>在本局对战的剩余时间内，你拥有<b>法术伤害+3</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d32fe4482939ea0a949fb01557807a0ccd0901d7d676e822a2f462a0bcf8ca24.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64488,
+        "keywordIds": [
+          2,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=67550&locale=zh_CN&collectible=0",
+        "sha256": "1322b7d7b9db893670c39347949e8430741d2ccf16b19e24056c293a9f33e21f",
+        "bytes": 655,
+        "observed_at": "2026-10-28T14:33:12.723885+00:00"
+      }
+    },
+    {
+      "card_id": "SW_450t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\67550-en_US.json",
+      "response_sha256": "e42d06a4233d219195449529bd9bb16f799a5a27236cda00f43a81e7c7be79f4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=67550&locale=en_US&collectible=0",
+      "face": {
+        "id": 67550,
+        "collectible": 0,
+        "slug": "67550-arcanist-dawngrasp",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1578,
+        "rarityId": null,
+        "artistName": "Arthur Bozonnet",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 5,
+        "name": "Arcanist Dawngrasp",
+        "text": "<b>Battlecry:</b> For the rest of the game, you have <b>Spell Damage +3</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/af1ab2954ee4f5ef66d93d968644b08b80f6933980b74a71a5092b7895769fda.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 64488,
+        "keywordIds": [
+          2,
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=67550&locale=en_US&collectible=0",
+        "sha256": "e42d06a4233d219195449529bd9bb16f799a5a27236cda00f43a81e7c7be79f4",
+        "bytes": 649,
+        "observed_at": "2026-10-28T14:33:14.591085+00:00"
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Each Gambit stage requires three distinct original Fire/Frost/Arcane CAST schools after that stage activates. Existing normal/countered hand cast-attempt policy is reused; failed automatic attempts and other actors do not count.",
+    "Quest rewards use one original physical Spell draw, ordinary current-class discovery from the full union of those three schools, and the original fixed 5-mana 7/7 Arcanist reward. No unsupported per-school menu quota is inferred from card text.",
+    "Stage display faces retain full original records but are choice-only, cost-hidden, not hand playable, and have no pool metadata or generated membership.",
+    "Dawngrasp uses the existing independent persistent player Spell Damage +3 program; independent successful battlecries stack and survive minion departure and hero changes.",
+    "Wildfire uses the already implemented two ordinary named phases and a permanent friendly HERO_POWER HealthRule on the current hero, preserving source identity and original replacement/attachment lifecycle.",
+    "Quest phase, countered cast, discovery class and hand-capacity reward windows remain explicit local policies pending CN calibration. Version/hotfix alignment and edge-rule testing are deferred."
+  ],
+  "public_research": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-gb/cards/64488-sorcerers-gambit/",
+      "scope": "Official root and three related stage/reward faces; complete bilingual responses separately preserved."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/23758614/22-0-2-patch-notes",
+      "scope": "Official Wildfire game-long duration and preservation after Hero Power replacement; historical change is not full current-CN timing certification."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Stall_for_Time",
+      "scope": "Community lists the three eligible spell-school pools; no unproven menu partition is inferred."
+    }
+  ]
+}

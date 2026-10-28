@@ -2321,3 +2321,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 真实任务的进度回调应只返回原AdvanceQuest/ResetQuestProgress，并绑定原实例、阶段和实际事件身份；原支付/提交种族/起始牌库材料通过现有只读查询取得。普通AddToHand任务奖励自动沿原容量延后交付，勿在卡牌层另建奖励队列。示例见[过去法师任务](m3-past-mage-quests.md)。
+
+
+真实任务线可用每阶段原学派键表达独立收集，奖励继续委托公共检索、发现和延后入手；原有完整奖励应按定义/程序指纹复用。阶段描述保持choice_only，永久技能伤害沿原GrantHealthRule与当前英雄命名交付；见[法师任务线与野火](m3-mage-gambit-wildfire.md)。
