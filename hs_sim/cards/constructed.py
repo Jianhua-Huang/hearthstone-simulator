@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v686"
+CONTENT_VERSION = "constructed-cn37-preview-v687"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1402,5 +1402,7 @@ def build_registry():
     register_ring_toss_secret_casts(registry)
     from .past_mage_draw_followups import register_past_mage_draw_followups
     register_past_mage_draw_followups(registry)
+    from .past_mage_quests import register_past_mage_quests
+    register_past_mage_quests(registry)
     registry.validate()
     return registry

@@ -1944,3 +1944,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 过去法师抽牌后续继续由physical_draw_groups绑定原槽、DrawRecord和原HAND驻留；泉水复原原账户，怨灵之书复用zones的准备/共同移动/发布弃牌，畅游海底读取原抽前材料的费用并交公共召唤。见[契约](m3-past-mage-draw-followups.md)。
+
+
+过去法师任务复用QuestSpec、实际支付/消费历史、原CAST与本人回合区间；奖励由原物理抽牌、召唤、技能替换和延后手牌交付执行，不新增内核状态。完整奖励和本地来源政策见[契约](m3-past-mage-quests.md)。

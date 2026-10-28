@@ -1,0 +1,1055 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-past-mage-quests-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "DRG_323",
+    "DRG_324",
+    "ULD_433",
+    "UNG_028"
+  ],
+  "new_token_ids": [
+    "DRG_323t",
+    "ULD_433p"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DRG_323",
+        "dbf_id": 55281,
+        "name": "学习龙语",
+        "name_en": "Learn Draconic",
+        "text": "<b>支线任务：</b>\n消耗8点法力值用于法术牌上。<b>奖励：</b>召唤一条6/6的龙。",
+        "text_en": "[x]<b>Sidequest:</b> Spend\n8 Mana on spells.\n<b>Reward:</b> Summon a\n6/6 Dragon.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "QUEST_REWARD_DATABASE_ID": 55282,
+          "SIDE_QUEST": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 55282
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "faadde650b319fc2b6b1c5c4afde5f3c601a938f8bdcc7984c4c11f0dfb94c92",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "DRG_323",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DRG_324",
+        "dbf_id": 55283,
+        "name": "元素盟军",
+        "name_en": "Elemental Allies",
+        "text": "<b>支线任务：</b>\n连续两个回合使用元素牌。<b>奖励：</b>从你的牌库中抽三张法术牌。",
+        "text_en": "[x]<b>Sidequest:</b> Play an\nElemental 2 turns in a row.\n<b>Reward:</b> Draw 3 spells\nfrom your deck.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 2,
+          "QUEST_REWARD_DATABASE_ID": 395,
+          "SIDE_QUEST": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "b44be6aa732935fb4f318ece8de8a2ca085aa985e2c336df54aea36aa1e8e845",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "DRG_324",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ULD_433",
+        "dbf_id": 53945,
+        "name": "洗劫天空殿",
+        "name_en": "Raid the Sky Temple",
+        "text": "<b>任务：</b>施放10个法术。\n<b>奖励：</b>升格卷轴。",
+        "text_en": "<b>Quest:</b> Cast 10 spells.\n<b>Reward: </b>Ascendant Scroll.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 1158,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 10,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 53946
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ludo Lullabi"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          }
+        ]
+      },
+      "record_sha256": "4682e3afee2db9e08a9ca5feaad1489d036674c53664738ed2aeef5d7a7b59e5",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "ULD_433",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "UNG_028",
+        "dbf_id": 41168,
+        "name": "打开时空之门",
+        "name_en": "Open the Waygate",
+        "text": "<b>任务：</b>施放8个你的套牌之外的\n法术。\n <b>奖励：</b>时空扭曲。",
+        "text_en": "[x]<b>Quest:</b> Cast 8 spells that\ndidn't start in your deck.\n<b>Reward:</b> Time Warp.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "QUEST": 1,
+          "QUEST_PROGRESS_TOTAL": 8,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "839": 1,
+          "QUEST_REWARD_DATABASE_ID": 41167,
+          "4297": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "839",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "839"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4297",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4297"
+          }
+        ]
+      },
+      "record_sha256": "0ca10388390b30f6efc85e1aa00c07a20eb16fe1578fc13abae9bd0915d4d90d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "UNG_028",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "DRG_323t",
+        "dbf_id": 55282,
+        "name": "龙族使者",
+        "name_en": "Draconic Emissary",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1347,
+          "CLASS": 4,
+          "CARDRACE": 24,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "db54331358a0526856fa918a3c787dc8e03bde81a3a8df87096302071b0d0928",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "DRG_323t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "dragon"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ULD_433p",
+        "dbf_id": 53946,
+        "name": "升格卷轴",
+        "name_en": "Ascendant Scroll",
+        "text": "随机将一张法师法术牌置入你的手牌。该牌的法力值消耗减少（2）点。",
+        "text_en": "Add a random Mage\nspell to your hand.\nIt costs (2) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1158,
+          "CLASS": 4,
+          "CARDTYPE": 10
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "69e61ea2cc7c67694d2334517f3db9f4ee25c559d6d41b194b0ead3cb6b606ad",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "ULD_433p",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "UNG_028t",
+        "dbf_id": 41167,
+        "name": "时空扭曲",
+        "name_en": "Time Warp",
+        "text": "获得一个额外回合。<i>（每局对战限一次）</i>",
+        "text_en": "Take an extra turn.\n<i>(Once per game)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 27,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "d9e43a3b04ae6f56964083b1e0bac6077de4887a61d028335b26965bae6497ca",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "UNG_028t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "arcane",
+      "definition_sha256": "81b453e215d132e321dafab348f05395f6f7d3ef5e91fce973361a9a348b3770",
+      "pool_metadata_sha256": "21472a5b748d914e71381fc86a99ea0085501565a0e7bac1a6271cd75807674e"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "DRG_323",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 55281,
+        "collectible": 1,
+        "slug": "55281-learn-draconic",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "manaCost": 1,
+        "name": "学习龙语",
+        "text": "<b>支线任务：</b> 消耗8点法力值用于法术牌上。<b>奖励：</b>召唤一条6/6的龙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca524de15e0e17e03b7eb6e011aa196993feca46b83fd90952da45c8f00a09f1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48cb71ae57cfb2f684c2f59b08c3295456a886bc4fbbbd914349c5cdd6138372.png",
+        "flavorText": "直到拿起初阶法术教材，雷诺才意识到自己不会龙语。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75d999ee0409b8ef2c4c96df2b5447bc495a991afff6831989de65a001cc3724.png",
+        "childIds": [
+          55282
+        ],
+        "keywordIds": [
+          89
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_323",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 55281,
+        "collectible": 1,
+        "slug": "55281-learn-draconic",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Ivan Fomin",
+        "manaCost": 1,
+        "name": "Learn Draconic",
+        "text": "<b>Sidequest:</b> Spend 8 Mana on spells. <b>Reward:</b> Summon a 6/6 Dragon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/272151da80c657b75e47c6d3aa699a43bc7f7d8ab448fdd7e97b294fe159c429.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5c97a926ee3012fa15896a8e9107511e219d7aca7c3c13b8f238ca13ac52862.png",
+        "flavorText": "Upon taking up the spellbook, Reno realized with a start: \"I can't read.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75d999ee0409b8ef2c4c96df2b5447bc495a991afff6831989de65a001cc3724.png",
+        "childIds": [
+          55282
+        ],
+        "keywordIds": [
+          89
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_324",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 55283,
+        "collectible": 1,
+        "slug": "55283-elemental-allies",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 1,
+        "name": "元素盟军",
+        "text": "<b>支线任务：</b> 连续两个回合使用元素牌。<b>奖励：</b>从你的牌库中抽三张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a835c63ff082ef53f46286c09e8ec1b828a9368c4fdac363a2d8057acc54781b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcadd398a96931fc8b9fb423a014a6095ef6e8407d31e5a1f732bfd0a972c9c2.png",
+        "flavorText": "幸好接住雷诺的不是火元素。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54261cd41ad0f287c3e832141ca679bd50341416465baa3a92aa119abd06a962.png",
+        "keywordIds": [
+          89
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_324",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 55283,
+        "collectible": 1,
+        "slug": "55283-elemental-allies",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 1,
+        "name": "Elemental Allies",
+        "text": "<b>Sidequest:</b> Play an Elemental 2 turns in a row. <b>Reward:</b> Draw 3 spells from your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebf2e000d66f7e3be72e5b726ce599916ff59498be525be590cac03774e66ea1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f0eed63006fa26ddeea5730ecde2b1c662ff725b1583f5a7baf8751351b4a51d.png",
+        "flavorText": "Reno’s lucky he wasn’t caught by a fire elemental.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54261cd41ad0f287c3e832141ca679bd50341416465baa3a92aa119abd06a962.png",
+        "keywordIds": [
+          89
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_433",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 53945,
+        "collectible": 1,
+        "slug": "53945-raid-the-sky-temple",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1158,
+        "rarityId": 5,
+        "artistName": "Ludo Lullabi",
+        "manaCost": 1,
+        "name": "洗劫天空殿",
+        "text": "<b>任务：</b>施放10个法术。 <b>奖励：</b>升格卷轴。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ddb6010c92620369b5fea2d1e8d1aaa6cd02a174e9dffec2f33229b22e95e63.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c16f90bb1557c562caf7786ebb4775bb2957b342c1fc45e2e6559b0964f5d36b.png",
+        "flavorText": "“我怎么就拿不住这些卷轴？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff53349bb27b38e58a8070eebea97cc9d764ce78361bfb318e9d2f059df96ffc.png",
+        "childIds": [
+          53946
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ULD_433",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 53945,
+        "collectible": 1,
+        "slug": "53945-raid-the-sky-temple",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1158,
+        "rarityId": 5,
+        "artistName": "Ludo Lullabi",
+        "manaCost": 1,
+        "name": "Raid the Sky Temple",
+        "text": "<b>Quest:</b> Cast 10 spells. <b>Reward: </b>Ascendant Scroll.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e5a6ef3b2e9635e93733a9030c157012bce783ee37b8375f6c9be07d0d1f145.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e9ad591638f9d09342e1cb4de13078579822e8f3ac1b30255edde25dcb1ea6d.png",
+        "flavorText": "\"Why can't I hold all these scrolls?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff53349bb27b38e58a8070eebea97cc9d764ce78361bfb318e9d2f059df96ffc.png",
+        "childIds": [
+          53946
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_028",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 41168,
+        "collectible": 1,
+        "slug": "41168-open-the-waygate",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 5,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 1,
+        "name": "打开时空之门",
+        "text": "<b>任务：</b>施放8个你的套牌之外的 法术。 <b>奖励：</b>时空扭曲。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8ca45b8dfa2b488e225ac8b0e3adba8575334183bde7a11cd683aef24425be33.png",
+        "imageGold": "",
+        "flavorText": "这个咒语看似复杂，但只要往左跳一小步，再往右跳一小步，就完成施法了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/269102abae8b41a4d0c301c94e3477b74c0957f7fe8ad5f9bab9a8372f8dad83.png",
+        "childIds": [
+          41167
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_028",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 41168,
+        "collectible": 1,
+        "slug": "41168-open-the-waygate",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 5,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 1,
+        "name": "Open the Waygate",
+        "text": "<b>Quest:</b> Cast 8 spells that didn't start in your deck. <b>Reward:</b> Time Warp.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4ff8bfc1d38e4b9bac6ce20fc6b0f4b6cf712a0fb2890edf52c00503bf3ab71.png",
+        "imageGold": "",
+        "flavorText": "Although powerful, the incantation is simple. It’s just a jump to the left, and then a step to the right.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/269102abae8b41a4d0c301c94e3477b74c0957f7fe8ad5f9bab9a8372f8dad83.png",
+        "childIds": [
+          41167
+        ],
+        "keywordIds": [
+          31
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_323t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\55282-zh_CN.json",
+      "response_sha256": "567c7dade571c1f5d09fa141f5a3f52083a01a97d4885376de1ee27b7f87c169",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=55282&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 55282,
+        "collectible": 0,
+        "slug": "55282-draconic-emissary",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "龙族使者",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a84567d1afeb43f0bbf87965f33fbf6bc9f35e4e4e2cb9022f8a64ef2062003.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a1dc4f547cb2cc3be5c75cbad951c1b58ff487c3eafaaa1838bcbc099992a2e.jpg",
+        "parentId": 55281,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=55282&locale=zh_CN&collectible=0",
+        "sha256": "567c7dade571c1f5d09fa141f5a3f52083a01a97d4885376de1ee27b7f87c169",
+        "bytes": 676,
+        "observed_at": "2026-10-28T13:55:49.025519+00:00"
+      }
+    },
+    {
+      "card_id": "DRG_323t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\55282-en_US.json",
+      "response_sha256": "9f23a50695417394e9218455ddbd6dcade77d1157e264ba8f4173d4a6488d04d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=55282&locale=en_US&collectible=0",
+      "face": {
+        "id": 55282,
+        "collectible": 0,
+        "slug": "55282-draconic-emissary",
+        "classId": 4,
+        "multiClassIds": [],
+        "minionTypeId": 24,
+        "cardTypeId": 4,
+        "cardSetId": 1347,
+        "rarityId": null,
+        "artistName": "Ivan Fomin",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Draconic Emissary",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b07b82b9c6d105ee94e9844ce043fb6b9ea65114866c3edf35ae8b729a93d0d5.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a1dc4f547cb2cc3be5c75cbad951c1b58ff487c3eafaaa1838bcbc099992a2e.jpg",
+        "parentId": 55281,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=55282&locale=en_US&collectible=0",
+        "sha256": "9f23a50695417394e9218455ddbd6dcade77d1157e264ba8f4173d4a6488d04d",
+        "bytes": 681,
+        "observed_at": "2026-10-28T13:55:51.085607+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_433p",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\53946-zh_CN.json",
+      "response_sha256": "03738412f7cb2f7cd07fa2baca39042675e65f260e19eacbc4f041666ed1be79",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53946&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 53946,
+        "collectible": 0,
+        "slug": "53946-ascendant-scroll",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1158,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 2,
+        "name": "升格卷轴",
+        "text": "随机将一张法师法术牌置入你的手牌。该牌的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a5bff76d9261f8110390ae10efdaabdb333be645edea75db3d252f315c6bc24.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 53945,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53946&locale=zh_CN&collectible=0",
+        "sha256": "03738412f7cb2f7cd07fa2baca39042675e65f260e19eacbc4f041666ed1be79",
+        "bytes": 622,
+        "observed_at": "2026-10-28T13:55:53.680557+00:00"
+      }
+    },
+    {
+      "card_id": "ULD_433p",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\53946-en_US.json",
+      "response_sha256": "898cba5221634689fa069f541b84c2745c01b7d2771055d81f0ef2ecf2bc49f7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=53946&locale=en_US&collectible=0",
+      "face": {
+        "id": 53946,
+        "collectible": 0,
+        "slug": "53946-ascendant-scroll",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 10,
+        "cardSetId": 1158,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 2,
+        "name": "Ascendant Scroll",
+        "text": "Add a random Mage spell to your hand. It costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8240116819c9903efe92fc626767e9adc3caafb9e2fc44f206774fc7ba3fb0de.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 53945,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=53946&locale=en_US&collectible=0",
+        "sha256": "898cba5221634689fa069f541b84c2745c01b7d2771055d81f0ef2ecf2bc49f7",
+        "bytes": 588,
+        "observed_at": "2026-10-28T13:55:55.895633+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_028t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41167-zh_CN.json",
+      "response_sha256": "d5c2b025d2583c4ed1a1cfbe19a36725f8fa2bb5587434058e49d96eb9804ac1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 41167,
+        "collectible": 0,
+        "slug": "41167-time-warp",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 5,
+        "name": "时空扭曲",
+        "text": "获得一个额外回合。<i>（每局对战限一次）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b188f6909e11ef47026fb959324d7a73bd4a0f9e67c965e490b2fc33454aa3e3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41168,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=zh_CN&collectible=0",
+        "sha256": "d5c2b025d2583c4ed1a1cfbe19a36725f8fa2bb5587434058e49d96eb9804ac1",
+        "bytes": 595,
+        "observed_at": "2026-10-28T13:55:58.172986+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_028t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\41167-en_US.json",
+      "response_sha256": "e30be4b540c56dca319460efeddde27d35fcd492266f9392a97c572bc3953387",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=en_US&collectible=0",
+      "face": {
+        "id": 41167,
+        "collectible": 0,
+        "slug": "41167-time-warp",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 5,
+        "name": "Time Warp",
+        "text": "Take an extra turn. <i>(Once per game)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41bac52c86d330694160a837c3392462bef0607824bddadbbcb622ee5e1e9ca7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41168,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41167&locale=en_US&collectible=0",
+        "sha256": "e30be4b540c56dca319460efeddde27d35fcd492266f9392a97c572bc3953387",
+        "bytes": 573,
+        "observed_at": "2026-10-28T13:56:00.389318+00:00"
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Learn Draconic uses existing committed physical spell-Mana rows and explicit spell-source consumption records; health substitution, minions, hero powers, trade and forge do not count. Unique original debit units advance at most the eight-point goal.",
+    "Elemental Allies uses completed original submitted Elemental plays, one progress per genuine own-turn interval; an owner turn ending without a credited Elemental resets it. No earlier play before activation receives retroactive credit.",
+    "Sky Temple and Waygate reuse the ordinary spell_cast_started attempt policy: normal casts and countered hand attempts count, other failed automatic attempts do not; each original cast ID counts once.",
+    "Waygate requires actual opening physical deck identity; an unknown Scenario never guesses from card names. Physical copies outside the original deck and replaced original faces qualify under the existing local provenance policy.",
+    "The existing complete Time Warp body and its per-player once-per-game effect are reused unchanged. Original quest hand rewards use the existing deferred-capacity wrapper; no ordinary hand-generation policy changes.",
+    "Fine quest progress/reward, consecutive-turn and provenance boundaries remain local policies pending CN calibration. Version/hotfix alignment and rule edges are deferred."
+  ],
+  "public_research": [
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Advanced_rulebook",
+      "scope": "Community description distinguishes Counterspell from spell on-play triggers and describes delayed quest reward phases; not full CN timing certification."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Quest_(ability)",
+      "scope": "Community notes describe visible quests, opening hands and hand-capacity reward waiting; full fixed source rows remain the card-text basis."
+    }
+  ]
+}

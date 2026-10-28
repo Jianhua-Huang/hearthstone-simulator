@@ -2318,3 +2318,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 原抽牌组新增两/三普通槽的法术根复原/弃牌奖励和单一排除来源法术槽的合格费用回调。费用材料沿既有CapturedCardCopyMaterial保存，回调绑定原完整组与实际draw；单张弃牌保持，批量先共同移动再发布。见[契约](m3-past-mage-draw-followups.md)。
+
+
+真实任务的进度回调应只返回原AdvanceQuest/ResetQuestProgress，并绑定原实例、阶段和实际事件身份；原支付/提交种族/起始牌库材料通过现有只读查询取得。普通AddToHand任务奖励自动沿原容量延后交付，勿在卡牌层另建奖励队列。示例见[过去法师任务](m3-past-mage-quests.md)。
