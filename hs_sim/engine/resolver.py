@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v790'
+CORE_EFFECTS_VERSION = 'core-effects-v791'
 
 
 class Mechanics:
@@ -3013,6 +3013,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_return_followups(mechanics)
     from .excess_damage import register as register_excess_damage
     register_excess_damage(mechanics)
+    from .secret_source_operations import register as register_secret_sources
+    register_secret_sources(mechanics)
     from .infinite_damage import register as register_infinite_damage
     register_infinite_damage(mechanics)
     from .health_theft import register as register_health_theft

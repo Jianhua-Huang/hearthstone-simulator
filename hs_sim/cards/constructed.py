@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v692"
+CONTENT_VERSION = "constructed-cn37-preview-v693"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1414,5 +1414,7 @@ def build_registry():
     register_ignite_card(registry)
     from .past_mage_secret_consumers import register_past_mage_secret_consumers
     register_past_mage_secret_consumers(registry)
+    from .secret_original_sources import register_secret_original_sources
+    register_secret_original_sources(registry)
     registry.validate()
     return registry
