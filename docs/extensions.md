@@ -2329,3 +2329,5 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 资源结果回调通过原cast_id取原目标分配，再使用既有物理引用效果，勿从后来的法力或同id新驻留重建。PreviousElementalTargetProfile复用原本人回合关系；DamageMinionsRepeatIfNoDeaths/RepeatSpellBatchIfNoDeaths仅按首批实际死亡追加一次当前场面伤害，见[扩展契约](m3-mage-conditional-damage.md)。
 
 真实火球滚滚/燃烧共用DamageMinionExcess的原棋盘邻位分配、一次来源预算与公共健康批；冲击波按原HealthResult超杀回调生成完整Mage域奖励。阻挡、随机窗口、恢复及待国服边界见[契约](m3-mage-excess-overkill.md)。
+
+点燃式新副本成长用GrowingDamageProfile和原CAST冻结的GrowingSpellDamageValue表达，普通伤害后经create_deck_card在发布前安装基础值加一；复制、重放、校验与信息边界见[契约](m3-ignite-native-growth.md)。

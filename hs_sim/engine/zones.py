@@ -842,7 +842,7 @@ def add_to_deck(r, effect):
     create_deck_card(r, effect)
 
 
-def create_deck_card(r, effect):
+def create_deck_card(r, effect, *, native_spell_value=None):
     """Materialize once through the ordinary creator and return its actual body.
 
     Internal delivery callers may immediately capture a physical reference. The
@@ -861,6 +861,9 @@ def create_deck_card(r, effect):
         return None
     position = insertion_index(r, effect.position, len(player.deck))
     entity = r.create_entity(player.id, effect.card_id, Zone.DECK, position)
+    if native_spell_value is not None:
+        from .native_spell_values import install as install_native_spell_value
+        install_native_spell_value(r.state,r.registry,entity,native_spell_value)
     if effect.cost is not None:
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
     install(r.state, entity, effect, resolver=r)

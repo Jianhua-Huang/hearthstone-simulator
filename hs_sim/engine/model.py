@@ -3092,6 +3092,19 @@ class SpellRemainderDamageValue:
 
 
 @dataclass(frozen=True)
+class GrowingSpellDamageValue:
+    """A new spell's base, derived from one original accepted parent cast."""
+    card_id: str
+    amount: int
+    parent_cast_id: int
+
+    def __post_init__(self):
+        _name(self.card_id, 'growing damage spell')
+        _int(self.amount, 'growing spell base damage', 1)
+        _int(self.parent_cast_id, 'growing spell parent cast', 1)
+
+
+@dataclass(frozen=True)
 class SpellStatGrantValue:
     """Frozen native bonuses and the genuine destruction that created them."""
     card_id: str
@@ -3210,7 +3223,7 @@ class AbilityInstance:
     discovery_class: str | None = None
     colossal_reserve_card_id: str | None = None
     colossal_remaining: int | None = None
-    spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | SourceAttackSpellValue | None = None
+    spell_base_value: SpellBaseDamageValue | SpellRemainderDamageValue | SourceAttackSpellValue | GrowingSpellDamageValue | None = None
     spell_stat_value: SpellStatGrantValue | None = None
     spell_resummon_value: object | None = None
     attack_policy_expiry: OwnerTurnExpiry | None = None
@@ -3342,7 +3355,7 @@ class AbilityInstance:
         elif self.native_producer_quantity_card_id is not None:
             raise ValueError('Only native quantity sources carry their declaration')
         if self.kind=='spell_base_value':
-            if type(self.spell_base_value) not in (SpellBaseDamageValue, SpellRemainderDamageValue, SourceAttackSpellValue):raise ValueError('Native spell requires its complete typed base value')
+            if type(self.spell_base_value) not in (SpellBaseDamageValue, SpellRemainderDamageValue, SourceAttackSpellValue, GrowingSpellDamageValue):raise ValueError('Native spell requires its complete typed base value')
             self.spell_base_value.__post_init__()
             from dataclasses import fields
             allowed={'id','kind','source_id','origin','spell_base_value'}

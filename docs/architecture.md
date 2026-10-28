@@ -1955,3 +1955,5 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 真实法师伤害续接读取原ManaConsumptionRecord/CAST目标分配及上一本人回合提交事实；spell_sequences新增一个首批无死亡才追加一次的有限伤害序列，死亡仍由原结算器负责。完整批次、条件目标、恢复和本地边界见[契约](m3-mage-conditional-damage.md)。
 
 真实火球滚滚/燃烧共用DamageMinionExcess的原棋盘邻位分配、一次来源预算与公共健康批；冲击波按原HealthResult超杀回调生成完整Mage域奖励。阻挡、随机窗口、恢复及待国服边界见[契约](m3-mage-excess-overkill.md)。
+
+点燃式新副本成长用GrowingDamageProfile和原CAST冻结的GrowingSpellDamageValue表达，普通伤害后经create_deck_card在发布前安装基础值加一；复制、重放、校验与信息边界见[契约](m3-ignite-native-growth.md)。

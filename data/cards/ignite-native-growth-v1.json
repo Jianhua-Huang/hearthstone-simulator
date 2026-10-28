@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-ignite-native-growth-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "SW_110"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "SW_110",
+        "dbf_id": 64434,
+        "name": "点燃",
+        "name_en": "Ignite",
+        "text": "造成$@点伤害。将一张伤害提高一点的“点燃”洗入\n你的牌库。",
+        "text_en": "Deal $@ damage. Shuffle an Ignite into\nyour deck that deals\none more damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 2,
+          "CARD_SET": 1578,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "ac08b265b136ca0df8beb30dc13c82644732a0d348446a44e5ed17874f00c332",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "SW_110",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "existing_dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "SW_110",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 64434,
+        "collectible": 1,
+        "slug": "64434-ignite",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 4,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 2,
+        "name": "点燃",
+        "text": "造成 点伤害。将一张伤害提高一点的“点燃”洗入 你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/617d13a557103dc1c9c19cfe1ab811529054bf68affcb28cdf6db4080521ba39.png",
+        "imageGold": "",
+        "flavorText": "“当年下死亡矿井的时候，我一把掐住了范克里夫的脖子，正要给他个痛快……*嗅*什么味？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfbb1105b3105f6f5819b61747aa7ebc923a1bdf53846114cb0073f481ff137d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_110",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 64434,
+        "collectible": 1,
+        "slug": "64434-ignite",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 4,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 2,
+        "name": "Ignite",
+        "text": "Deal damage. Shuffle an Ignite into your deck that deals one more damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44b9ce0299b7a2b2210856965a487002aa234321004940f4e95e84423dd0da9d.png",
+        "imageGold": "",
+        "flavorText": "\"So there I was in the Deadmines, I had VanCleef by the throat, and I was just about to let him have it when... <sniff> What's that smell?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfbb1105b3105f6f5819b61747aa7ebc923a1bdf53846114cb0073f481ff137d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "display_normalizations": {
+    "SW_110": {
+      "@": ""
+    }
+  },
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "The complete original TAG_SCRIPT_DATA_NUM_1=2 supplies printed damage. Both complete primary descriptions omit only their dynamic @; the existing shared explicit-script-number normalization certifies this display difference. No original rule word or source tag is removed.",
+    "Each accepted CAST freezes its physical native base. Spell Damage, local spell bonus, recipient protection and multipliers affect that damage only. A new physical Ignite is shuffled with frozen base plus one, not actual damage and not a global same-name upgrade.",
+    "Current copies preserve native material; base copies and fresh cards use printed 2. Whole-card replay inherits the selected original hand occurrence, including countered material. Cast ancestry is strictly decreasing and checked iteratively.",
+    "The successor value is installed before ordinary creation/deck-entry publication. Capacity, insertion RNG and rollback remain shared; stale-target and reaction/generation boundaries are explicit local policy.",
+    "Version/hotfix and CN edge calibration are deferred; complete source lists remain unchanged without implementation filtering."
+  ],
+  "public_research": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/64434-ignite",
+      "scope": "Official card text; starting 2 comes from the full fixed source."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/game-bug-or-blizzard-absurdity/124146",
+      "scope": "Player distinction between a newly generated Ignite and returning the same Kingsbane; supporting local evidence."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/ignite-greatest-and-stupidest-idea-ever/70615",
+      "scope": "Player explanation that only the successor improves, not all same-name cards."
+    }
+  ]
+}

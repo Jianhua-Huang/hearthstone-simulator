@@ -15,6 +15,9 @@ class SpellBaseDamageProfile:
 
 
 def validate_profile(registry,profile):
+    from .growing_spell_damage import GrowingDamageProfile,validate_profile as validate_growing
+    if type(profile) is GrowingDamageProfile:
+        return validate_growing(registry,profile)
     from .destruction_resummon_spells import SpellResummonProfile, validate_profile as validate_resummon_profile
     if type(profile) is SpellResummonProfile:
         return validate_resummon_profile(registry, profile)
@@ -38,6 +41,10 @@ def validate_ability(state,registry,ability):
         from .destruction_spell_values import validate_ability as validate_stat_ability
         return validate_stat_ability(state, registry, ability)
     ability.__post_init__()
+    from .model import GrowingSpellDamageValue
+    if type(ability.spell_base_value) is GrowingSpellDamageValue:
+        from .growing_spell_damage import validate_ability as validate_growing
+        return validate_growing(state,registry,ability)
     from .model import SpellRemainderDamageValue
     if type(ability.spell_base_value) is SpellRemainderDamageValue:
         from .retained_spell_damage import validate_ability as validate_returning
@@ -85,6 +92,10 @@ def validate_carrier(state,registry,card_id,kind,abilities):
 
 
 def install(state,registry,entity,value):
+    from .model import GrowingSpellDamageValue
+    if type(value) is GrowingSpellDamageValue:
+        from .growing_spell_damage import install as install_growing
+        return install_growing(state,registry,entity,value)
     from .destruction_resummon_spells import SpellResummonValue, install as install_resummon_value
     if type(value) is SpellResummonValue:
         return install_resummon_value(state, registry, entity, value)
@@ -133,7 +144,8 @@ def capture(r,record):
     rows=tuple(a for a in r.state.entities[record.source_id].abilities if a.kind in VALUE_KINDS)
     required=record.card_id in r.registry.spell_value_profiles
     from .retained_spell_damage import ReturningDamageProfile
-    if not rows and type(r.registry.spell_value_profiles.get(record.card_id)) is ReturningDamageProfile:
+    from .growing_spell_damage import GrowingDamageProfile
+    if not rows and type(r.registry.spell_value_profiles.get(record.card_id)) in (ReturningDamageProfile,GrowingDamageProfile):
         return record
     if not required and not rows:return record
     if len(rows)!=1 or ability_value(rows[0]).card_id!=record.card_id:
@@ -146,8 +158,9 @@ def capture(r,record):
 
 def validate_record(state,registry,record,live,owners):
     from .retained_spell_damage import ReturningDamageProfile
+    from .growing_spell_damage import GrowingDamageProfile
     ability=record.native_spell_value;declared=record.card_id in registry.spell_value_profiles
-    required=declared and type(registry.spell_value_profiles[record.card_id]) is not ReturningDamageProfile
+    required=declared and type(registry.spell_value_profiles[record.card_id]) not in (ReturningDamageProfile,GrowingDamageProfile)
     if ability is None:
         if required and record.payload_started and record.failure is None:raise ValueError('Accepted native spell lost its original frozen value')
         return
@@ -167,6 +180,9 @@ def public_value(entity):
 def inherit_play(r,entity,original_state,play_id):
     """One exact selected hand occurrence, including a countered original card."""
     if entity.card_id not in r.registry.spell_value_profiles:return
+    from .growing_spell_damage import GrowingDamageProfile,inherit_play as inherit_growing
+    if type(r.registry.spell_value_profiles[entity.card_id]) is GrowingDamageProfile:
+        return inherit_growing(r,entity,original_state,play_id)
     from .retained_spell_damage import ReturningDamageProfile,inherit_play as inherit_returning
     if type(r.registry.spell_value_profiles[entity.card_id]) is ReturningDamageProfile:
         return inherit_returning(r,entity,original_state,play_id)
@@ -196,3 +212,5 @@ def register(mechanics):
     register_stat_values(mechanics)
     from .destruction_resummon_spells import register as register_resummon_values
     register_resummon_values(mechanics)
+    from .growing_spell_damage import register as register_growing
+    register_growing(mechanics)
