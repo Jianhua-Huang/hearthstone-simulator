@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .death_hand_returns import ReturnDeadMinion
+        if type(value) is ReturnDeadMinion and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .attack_substitution import CheckAttackSubstitutes
         if type(value) is CheckAttackSubstitutes and self.origin_state is not None:
             from .allocation_facts import validate_allocation

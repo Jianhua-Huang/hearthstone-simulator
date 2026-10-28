@@ -2350,3 +2350,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 非定向出牌后效果使用原PlayRecord种类，避免错误要求战吼后仍存活；原伤害来源驻留、控制数量与可作用域、完整伙伴复用和两类抽牌顺序见[扩展契约](m3-past-secret-event-effects.md)。
+
+
+ReturnDeadMinion使用已有分配事实并接受帧状态校验，不放宽普通HAND/DECK引用；原空间接受、后来溢出与一次墓地驻留失效，以及两旧抽牌奥秘修正见[扩展契约](m3-original-death-hand-returns.md)。

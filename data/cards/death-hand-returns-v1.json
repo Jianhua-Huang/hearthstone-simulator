@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-death-hand-returns-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "CFM_800",
+    "LOOT_204"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "CFM_800",
+        "dbf_id": 40587,
+        "name": "战术撤离",
+        "name_en": "Getaway Kodo",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，将其移回你的手牌。",
+        "text_en": "<b>Secret:</b> When a friendly minion dies, return it to your hand.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 5,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SECRET": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rudy Siswanto"
+          }
+        ]
+      },
+      "record_sha256": "0f24b5002811ed1e51741e4de057a246265ae9381d4811dd5e1e5617efe60565"
+    },
+    {
+      "record": {
+        "id": "LOOT_204",
+        "dbf_id": 45520,
+        "name": "诈死",
+        "name_en": "Cheat Death",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，将其移回你的手牌，它的法力值消耗减少（2）点。",
+        "text_en": "<b>Secret:</b> When a friendly minion dies, return it to your hand.\nIt costs (2) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1004,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "SECRET": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "bc117c1af61a09a86d54a4bde942111dff4f606825b5e500d39755e1cac11de2"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "LOOT_204e",
+        "dbf_id": 45530,
+        "name": "侥幸逃脱",
+        "name_en": "Close Call",
+        "text": "法力值消耗减少（2）点。",
+        "text_en": "Costs (2) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1004,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "10f1439ea4687442a70744fbaea1f4d1ecf381ebb489f0ef0df9fa63762d00cd"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "CFM_800",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 40587,
+        "collectible": 1,
+        "slug": "40587-getaway-kodo",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Rudy Siswanto",
+        "manaCost": 1,
+        "name": "战术撤离",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，将其移回你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ddfd25e984aa5e05263ba3db71a8a9baaf0420696d2bb79513a468240bd9702e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2f212978dcbb5730e884c1ef34c177865d188d9ec63a45f94346ba3b2014cc1.png",
+        "flavorText": "留得青山在，不怕没架打！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8240a0cf941075f0ed0dde14846c8f7df9024dd1519934b79510fd74bb49fd87.png",
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_800",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 40587,
+        "collectible": 1,
+        "slug": "40587-getaway-kodo",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Rudy Siswanto",
+        "manaCost": 1,
+        "name": "Getaway Kodo",
+        "text": "<b>Secret:</b> When a friendly minion dies, return it to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6286ba52ae5434fa938a67abe136d2569b87cd95cb52dd84b6dc5305df074ee.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74ac5f185527e6c40ea7953e505c784dfeabda87d235cd913a8de50d7b8624fc.png",
+        "flavorText": "Get to da Kodo! Now!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8240a0cf941075f0ed0dde14846c8f7df9024dd1519934b79510fd74bb49fd87.png",
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_204",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 45520,
+        "collectible": 1,
+        "slug": "45520-cheat-death",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 2,
+        "name": "诈死",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，将其移回你的手牌，它的法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74bd87532da5785fe96ead180cdb0de002a22d1d1e7b5ed5c3f175b4a35c1121.png",
+        "imageGold": "",
+        "flavorText": "已举报。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9635bff8b47d720c9ddcc0493d134c64f8b421647ccb5472b9fe45999c539c40.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          102203
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_204",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 45520,
+        "collectible": 1,
+        "slug": "45520-cheat-death",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 2,
+        "name": "Cheat Death",
+        "text": "<b>Secret:</b> When a friendly minion dies, return it to your hand. It costs (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/081725a6271af413acea36fd5554cb3ea5d4f39edde2c623d8e9690771505f0d.png",
+        "imageGold": "",
+        "flavorText": "Reported.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9635bff8b47d720c9ddcc0493d134c64f8b421647ccb5472b9fe45999c539c40.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          102203
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-secrets-local-reference-v1.json",
+  "reference_sha256": "cf90f4272ba8bd6cf4d054c01afd409ead939c17b60223a106c743f3d21a25bf",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Return the original still-present dead minion residence to its death controller hand, retaining physical owner. Original death and corpse credit are not removed and its already captured Deathrattles remain independent.",
+    "Both Secret conditions require effective hand space at acceptance. Later reveal reactions can fill that hand; the accepted operation then uses the existing graveyard delivery overflow profile without another minion death.",
+    "The shared ordinary reset precedes return reactions. Cheat Death applies its ordinary permanent local cost delta-2 before acquisition listeners. No new minion or Battlecry is created by return.",
+    "Only the first consequence that actually moves the same graveyard residence can return that physical card; later original-death queries see it departed. No substitute same-name minion or later death lifetime is selected.",
+    "Old local Fireplace uses Bounce for CFM_800. Old SabberStone copies Kodo, but its Cheat Death test explicitly checks the original entity ID. These references are not current official CN evidence; physical identity and exact reaction/control/return ordering remain documented local policies.",
+    "Dirty Tricks and Hidden Wisdom gain the same engine-owned hand-space guard following firsthand public full-hand reports. Empty matching deck/fatigue semantics are unchanged. Bargain Bin full-hand policy is outside this correction and remains its previous local policy."
+  ]
+}

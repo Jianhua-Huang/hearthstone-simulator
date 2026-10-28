@@ -7,6 +7,8 @@ from .errors import ResolutionError
 from .lifecycle import attachment_id
 from .model import Event, Zone, _int, _name
 from .registry import RuleContext
+from .secret_conditions import SecretHandSpace
+from .hand_capacity import hand_capacity
 
 
 def area_count(player, registry):
@@ -113,6 +115,9 @@ def check(r, effect):
     context = RuleContext(deepcopy(r.state), entity.id, entity.controller,
         target_id=window.target_id if window else effect.event.target_id, event=effect.event, window=window)
     eligible = r.registry.secret_condition(spec.condition_id)(context)
+    if type(eligible) is SecretHandSpace:
+        eligible.__post_init__()
+        eligible = eligible.matched and len(r.player(entity.controller).hand) < hand_capacity(r.player(entity.controller),r.rules)
     if type(eligible) is not bool:
         raise ResolutionError('Secret condition must return a boolean')
     if not eligible:

@@ -9,6 +9,7 @@ from types import MappingProxyType
 from typing import Callable, Mapping, Sequence, TypeAlias
 
 from .effects import Effect
+from .secret_conditions import SecretHandSpace
 from .model import HeroPowerRecord, BattlecryRecord, ComboRecord, DeathrattleCapture, HeroPowerPayloadCapture, EndTurnCapture, KindredActivation, KindredProfile
 from .model import SummonProducerProfile
 from .model import EndTurnActivationProfile, EndTurnCandidateProfile, RepeatWitnessProfile, CostQueryProfile
@@ -124,6 +125,7 @@ class PlayerRuleContext:
 
 Behavior: TypeAlias = Callable[[RuleContext], Sequence[Effect]]
 TargetRule: TypeAlias = Callable[[RuleContext], bool]
+SecretCondition: TypeAlias = Callable[[RuleContext], bool | SecretHandSpace]
 
 
 def _any_character(context: RuleContext) -> bool:
@@ -310,7 +312,7 @@ class Registry:
         self._behaviors: dict[str, Behavior] = {DISPATCH: lambda c: dispatch(self, c)}
         from .dark_gifts import LIVING_NIGHTMARE_BEHAVIOR, living_nightmare
         self._behaviors[LIVING_NIGHTMARE_BEHAVIOR] = living_nightmare
-        self._secret_conditions: dict[str, TargetRule] = {}
+        self._secret_conditions: dict[str, SecretCondition] = {}
         self._trigger_conditions: dict[str, TargetRule] = {'always': lambda c: True}
         self._target_rules: dict[str, TargetRule] = {"any_character": _any_character, "any_entity": lambda ctx: ctx.target_id in ctx.state.entities,
             "triggerable_deathrattle": _triggerable_deathrattle}
@@ -2032,14 +2034,14 @@ class Registry:
             raise ValueError(f"duplicate behavior definition: {id}")
         self._behaviors[id] = handler
 
-    def register_secret_condition(self, id: str, handler: TargetRule) -> None:
+    def register_secret_condition(self, id: str, handler: SecretCondition) -> None:
         self._require_mutable()
         _name(id, 'secret condition ID')
         if id in self._secret_conditions or not callable(handler):
             raise ValueError('Duplicate or invalid secret condition')
         self._secret_conditions[id] = handler
 
-    def secret_condition(self, id: str) -> TargetRule:
+    def secret_condition(self, id: str) -> SecretCondition:
         try:
             return self._secret_conditions[id]
         except KeyError:

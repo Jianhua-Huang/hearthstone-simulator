@@ -12,6 +12,7 @@ from hs_sim.engine.model import CardDefinition,CardType,DamageKind,HealthFlow,Ke
 from hs_sim.engine.pools import PoolCard
 from hs_sim.engine.sacrifice import BuffCapturedMinion,MinionReference,SetCapturedMinionStats
 from hs_sim.engine.spell_casts import cast_record
+from hs_sim.engine.secret_conditions import SecretHandSpace
 from hs_sim.targets import TargetValidationError,canonical_digest
 from .core_secret_cards import enemy_minions,event_play,rat
 from .health_cards import SCHOOLS
@@ -104,12 +105,12 @@ def register_past_secret_base_effects(registry):
         row=hero_damage(c)
         return () if row is None else (Damage(c.state.players[3-c.player_id].hero_id,row.damage_dealt,c.source_id,DamageKind.SPELL),)
     conditions={SPIRIT:lambda c:bool(c.event and c.event.kind=='turn_started' and c.event.player_id==c.player_id and friendly_minions(c)),
-        MATRIX:lambda c:attacked_minion(c) is not None,TRICKS:lambda c:enemy_cast(c,'spell_cast_finished') is not None,
+        MATRIX:lambda c:attacked_minion(c) is not None,TRICKS:lambda c:SecretHandSpace(enemy_cast(c,'spell_cast_finished') is not None),
         SURRENDER:lambda c:enemy_cast(c,'spell_cast_started') is not None and bool(friendly_minions(c)),
         EYE:lambda c:hero_damage(c) is not None,REPENT:lambda c:played_minion(c) is not None and played_minion(c).max_health!=1,
         SNIPE:lambda c:played_minion(c) is not None,SNIPE_REPRINT:lambda c:played_minion(c) is not None,
         PLATE:lambda c:enemy_cast(c,'spell_cast_finished') is not None and bool(enemy_minions(c,registry)),
-        WISDOM:rat,DART:enemy_power}
+        WISDOM:lambda c:SecretHandSpace(rat(c)),DART:enemy_power}
     bodies={SPIRIT:lambda c:buff_board(c,1,1),MATRIX:matrix,TRICKS:lambda c:(Draw(c.player_id,2,c.source_id),),
         SURRENDER:lambda c:buff_board(c,0,2),EYE:eye,REPENT:repent,SNIPE:snipe,SNIPE_REPRINT:snipe,
         PLATE:lambda c:(RandomDestroy(enemy_minions(c,registry),c.source_id),),WISDOM:lambda c:(Draw(c.player_id,2,c.source_id),),

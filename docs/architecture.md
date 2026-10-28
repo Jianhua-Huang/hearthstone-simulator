@@ -1976,3 +1976,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 九种过去奥秘只消费原出牌/健康/死亡/攻击事实；打开兽笼沿原动物伙伴producer与族修订，折价篓沿原物理抽牌组，见[原事件奥秘契约](m3-past-secret-event-effects.md)。
+
+
+原死亡回手绑定DeathRecord与第一次墓地驻留，复用移动/重置/费用/进手；瞬时SecretHandSpace只将有效容量交给内核，旧布尔条件与卡牌结构保持，见[死亡回手契约](m3-original-death-hand-returns.md)。
