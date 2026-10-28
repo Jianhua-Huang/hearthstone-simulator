@@ -38,12 +38,22 @@ def delivery(r, window):
     if r.state.entities[window.source_id].kind != CardType.HERO: return None
     old = record(r.state, window.id); identity = old.declaration.identity
     if (old.delivery is not None or old.terminal is not None or
-            (window.player_id, window.source_id, window.forced, window.combat_relation) !=
-            (identity.player_id, identity.physical_hero_id, False, 'opponent')):
+            (window.player_id, window.source_id, window.forced) !=
+            (identity.player_id, identity.physical_hero_id, False)):
         raise ResolutionError('Hero attack delivery lost its unique original window')
-    receipt = HeroAttackDeliveryReceipt(identity, r.state.action_number, len(r.game._events), window.target_id)
+    require_redirect_relation(r.state, window.id, window.combat_relation)
+    receipt = HeroAttackDeliveryReceipt(identity, r.state.action_number, len(r.game._events), window.target_id,
+        combat_relation=window.combat_relation)
     update(r.state, old, delivery=receipt)
     return HeroAttackReference(identity, receipt)
+
+
+def require_redirect_relation(state, window_id, relation):
+    if relation == 'opponent': return
+    from .character_attacks import record as character_record
+    row = character_record(state, window_id)
+    if relation != 'any_characters' or not row.secret_redirects:
+        raise ValueError('Friendly hero delivery requires its accepted original Secret redirection')
 
 
 def require_link(state, attacker_id, defender_id, forced, relation, link, *, accepted=False):
@@ -60,8 +70,9 @@ def require_link(state, attacker_id, defender_id, forced, relation, link, *, acc
             old.declaration.identity != link.identity or old.delivery != link.delivery or
             old.terminal is not None or old.combat is not None and not accepted or
             (attacker_id, defender_id, forced, relation) !=
-            (link.identity.physical_hero_id, link.delivery.target_id, False, 'opponent')):
+            (link.identity.physical_hero_id, link.delivery.target_id, False, link.delivery.combat_relation)):
         raise ResolutionError('Foreign, duplicated or unsupported hero combat reference')
+    require_redirect_relation(state, link.identity.window_id, relation)
     return old
 
 
@@ -125,9 +136,18 @@ def validate_history(state, registry=None, event_limit=None):
             raise ValueError('Hero attack phase chronology regressed')
         if value.delivery and value.delivery.target_id not in state.entities:
             raise ValueError('Unknown actual hero attack delivery target')
+        if value.delivery:
+            require_redirect_relation(state, identity.window_id, value.delivery.combat_relation)
+            if value.delivery.combat_relation == 'any_characters':
+                from .character_attacks import record as character_record
+                original = character_record(state, identity.window_id)
+                if original.delivery is None or (original.delivery.target_id, original.delivery.combat_relation) != (
+                        value.delivery.target_id, value.delivery.combat_relation):
+                    raise ValueError('Hero delivery borrowed another character redirect')
         if value.combat:
             c=value.combat
-            if c.defender_id != value.delivery.target_id or c.attacker_controller == c.defender_controller:
+            if c.defender_id != value.delivery.target_id or (c.attacker_controller == c.defender_controller and
+                    value.delivery.combat_relation != 'any_characters'):
                 raise ValueError('Hero combat differs from original opponent delivery')
             if registry is not None and (registry.card(c.attacker_card_id).kind != CardType.HERO or
                     registry.card(c.defender_card_id).kind not in (CardType.HERO,CardType.MINION)):
@@ -149,8 +169,9 @@ def validate_tails(state, work):
             window=next((w for w in state.action_windows if w.id==item.window_id),None)
             if window is not None and state.entities[window.source_id].kind==CardType.HERO:
                 value=record(state,window.id); i=value.declaration.identity
-                if value.delivery is not None or value.terminal is not None or (window.player_id,window.source_id,window.forced,window.combat_relation)!=(i.player_id,i.physical_hero_id,False,'opponent'):
+                if value.delivery is not None or value.terminal is not None or (window.player_id,window.source_id,window.forced)!=(i.player_id,i.physical_hero_id,False):
                     raise ValueError('Hero declaration has a foreign original window tail')
+                require_redirect_relation(state, window.id, window.combat_relation)
                 tails.setdefault(i.record_id,[]).append('declared')
         elif type(item) is CombatDamage or type(item) is DamageBatch and item.combat is not None:
             combat=item if type(item) is CombatDamage else item.combat

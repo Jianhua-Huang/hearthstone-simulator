@@ -228,10 +228,21 @@ def resolve_attack(r, effect):
     return [work]
 
 
-def redirect(r, effect, *, native_selection=None):
+def redirect(r, effect, *, native_selection=None, secret_selection=None):
     from .combat import combat_relation_matches
     window = find_window(r.state, effect.window_id)
     relation = None if window is None else window.combat_relation
+    if native_selection is not None and secret_selection is not None:
+        raise ValueError('An attack redirect has exactly one acceptance producer')
+    if secret_selection is not None:
+        from .attack_redirects import AttackRedirectSelection, RELATION
+        from .character_attacks import record
+        if (type(secret_selection) is not AttackRedirectSelection or window != secret_selection.window or
+                not record(r.state, window.id).secret_redirects or
+                record(r.state, window.id).secret_redirects[-1] != secret_selection or
+                secret_selection.selected_id != effect.target_id):
+            raise ValueError('Secret redirect requires its actual accepted original selection')
+        relation = RELATION
     if native_selection is not None:
         from .character_attacks import record
         from .native_random_targets import NativeTargetSelection
@@ -248,9 +259,13 @@ def redirect(r, effect, *, native_selection=None):
     presence = BoardPresenceReference.capture(r.state, target.id) if target.kind == CardType.MINION else None
     r.state.action_windows[r.state.action_windows.index(window)] = replace(window, target_id=target.id,
         attack_target_presence=presence, combat_relation=relation)
+    from .attack_redirects import encoded
     r.emit('attack_redirected', source_id=window.source_id, target_id=target.id, player_id=window.player_id,
            window_id=window.id, target_presence_id=None if presence is None else presence.presence_id,
-           **({'native_random_target': True} if native_selection is not None else {}))
+           **({'native_random_target': True} if native_selection is not None else {}),
+           **({'secret_attack_redirect': True, '_secret_redirect_receipt':
+                encoded(secret_selection)}
+              if secret_selection is not None else {}))
 
 
 def redirect_spell(r, effect):

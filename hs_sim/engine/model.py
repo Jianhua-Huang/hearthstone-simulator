@@ -8870,7 +8870,7 @@ class MagneticRecord:
 
 
 def validate_combat_relation(value):
-    if type(value) is not str or value not in ('opponent', 'friendly_minions', 'any_minions'):
+    if type(value) is not str or value not in ('opponent', 'friendly_minions', 'any_minions', 'any_characters'):
         raise ValueError('Unsupported combat relation')
 
 
@@ -8901,7 +8901,7 @@ class ActionWindow:
         validate_combat_relation(self.combat_relation)
         _bool(self.excess_to_hero, 'combat excess policy')
         if self.excess_to_hero and (self.kind != 'attack' or not self.forced or
-                self.combat_relation != 'opponent' or self.attack_source_presence is None):
+                self.combat_relation not in ('opponent', 'any_characters') or self.attack_source_presence is None):
             raise ValueError('Combat excess requires a forced original minion attack')
         if self.attack_source_presence is not None:
             if (self.kind != 'attack' or type(self.attack_source_presence) is not BoardPresenceReference or
@@ -8913,8 +8913,9 @@ class ActionWindow:
                     self.attack_target_presence.entity_id != self.target_id):
                 raise ValueError('Attack target presence must reference its original selected minion')
             self.attack_target_presence.__post_init__()
-        if self.combat_relation != 'opponent' and (self.kind != 'attack' or not self.forced):
-            raise ValueError('Friendly combat requires a forced attack window')
+        if (self.combat_relation != 'opponent' and (self.kind != 'attack' or
+                self.combat_relation != 'any_characters' and not self.forced)):
+            raise ValueError('Friendly combat requires a forced attack or accepted character redirect')
         for name in ('id', 'player_id', 'source_id'):
             _int(getattr(self, name), name, 1)
         if self.player_id not in (1, 2) or self.kind not in ('spell', 'minion', 'attack'):
@@ -11185,6 +11186,7 @@ class CharacterAttackRecord:
     terminal: CharacterAttackTerminalFact | None = None
     native_target: object | None = None
     substitution: object | None = None
+    secret_redirects: tuple = ()
 
     def __post_init__(self):
         from .character_attacks import validate_record
@@ -11238,8 +11240,8 @@ class HeroAttackDeliveryReceipt(HeroAttackDeclarationFact):
     def __post_init__(self):
         super().__post_init__()
         _int(self.target_id, 'hero attack delivery target', 1)
-        if type(self.forced) is not bool or self.forced or self.combat_relation != 'opponent':
-            raise ValueError('Only voluntary opponent hero attacks are supported')
+        if type(self.forced) is not bool or self.forced or self.combat_relation not in ('opponent', 'any_characters'):
+            raise ValueError('Hero delivery requires a voluntary attack with an accepted relation')
 
 
 @dataclass(frozen=True)

@@ -55,6 +55,20 @@ def validate_record(row):
         raise ValueError('Character attack requires its original typed declaration')
     w = row.declaration
     w.__post_init__()
+    if w.combat_relation == 'any_characters':
+        raise ValueError('A character redirect cannot mint a new attack declaration')
+    from .attack_redirects import AttackRedirectSelection
+    if type(row.secret_redirects) is not tuple or any(type(x) is not AttackRedirectSelection for x in row.secret_redirects):
+        raise ValueError('Character attack requires typed original Secret selections')
+    previous_action, previous_cursor = row.declaration_action, row.declaration_event_cursor
+    for selection in row.secret_redirects:
+        selection.__post_init__()
+        if (replace(selection.window, target_id=w.target_id, attack_target_presence=w.attack_target_presence,
+                combat_relation=w.combat_relation) != w or selection.action < previous_action or
+                selection.event_cursor <= previous_cursor or
+                row.delivery_event_cursor is not None and selection.event_cursor >= row.delivery_event_cursor):
+            raise ValueError('Character Secret redirect changed its original window or chronology')
+        previous_action, previous_cursor = selection.action, selection.event_cursor
     if row.substitution is not None:
         from .attack_substitution import AttackSubstitutionPlan
         if type(row.substitution) is not AttackSubstitutionPlan:
@@ -125,6 +139,8 @@ def validate_record(row):
 def selected_window(row, window):
     relation = ('opponent' if row.native_target is not None and row.native_target.failure is None
                 else row.declaration.combat_relation)
+    if row.secret_redirects and window.combat_relation in (relation, 'any_characters'):
+        relation = window.combat_relation  # Exact chronological order is proved against original redirect events.
     return replace(row.declaration, target_id=window.target_id,
         attack_target_presence=window.attack_target_presence, combat_relation=relation)
 
@@ -245,6 +261,8 @@ def validate_history(state, registry=None, event_limit=None):
                 raise ValueError('Character declaration changed its original card kind')
             from .attack_substitution import validate_plan
             validate_plan(state, registry, row)
+            from .attack_redirects import validate_selections
+            validate_selections(state, registry, row, event_limit)
         if row.delivery is not None and row.delivery.target_id not in state.entities:
             raise ValueError('Character delivery lost its original target')
         for window in (w, *(() if row.delivery is None else (row.delivery,))):
@@ -332,6 +350,7 @@ def validate_boundary(game):
             raise ValueError('Character declaration changed its original target residence')
         target_id, selected, relation = w.target_id, w.attack_target_presence, w.combat_relation
         native_redirects = 0
+        secret_redirects = []
         for changed in redirects.get(w.id,()):
             if (changed.sequence <= row.declaration_event_cursor or
                     row.delivery_event_cursor is not None and changed.sequence > row.delivery_event_cursor or
@@ -339,13 +358,29 @@ def validate_boundary(game):
                 raise ValueError('Character redirect borrowed a closed or foreign original window')
             from .model import BoardPresenceReference
             ident = dict(changed.data).get('target_presence_id')
+            before_window = replace(w, target_id=target_id, attack_target_presence=selected, combat_relation=relation)
             target_id = changed.target_id
             selected = None if ident is None else BoardPresenceReference(target_id,ident)
+            data = dict(changed.data)
+            if 'secret_attack_redirect' in data or '_secret_redirect_receipt' in data:
+                from .attack_redirects import encoded
+                proof = next((x for x in row.secret_redirects if x.event_cursor+1 == changed.sequence), None)
+                if (data.get('secret_attack_redirect') is not True or proof is None or
+                        data.get('native_random_target') is not None or proof.window != before_window or
+                        proof.action != changed.action or proof.selected_id != target_id or
+                        proof.selected.presence != selected or data.get('_secret_redirect_receipt') != encoded(proof)):
+                    raise ValueError('Secret redirect lost its complete original selection receipt')
+                from .attack_redirects import validate_reveal
+                validate_reveal(game._state, w.id, proof.source, effective, proof.event_cursor)
+                secret_redirects.append(proof)
+                relation = 'any_characters'
             if dict(changed.data).get('native_random_target') is True:
                 native_redirects += 1
                 if row.native_target is None or row.native_target.failure is not None or target_id != row.native_target.target_id:
                     raise ValueError('Native redirect lost its original accepted selection')
                 relation = 'opponent'
+        if tuple(secret_redirects) != row.secret_redirects:
+            raise ValueError('Character attack lost or duplicated an original Secret redirect')
         expected_native = int(row.native_target is not None and row.native_target.failure is None)
         if native_redirects != expected_native:
             raise ValueError('Character attack lost its one native replacement')
@@ -446,6 +481,8 @@ def record_from_dict(value):
     row['native_target'] = selection_from_dict(row['native_target'])
     from .attack_substitution import plan_from_dict
     row['substitution'] = plan_from_dict(row['substitution'])
+    from .attack_redirects import selection_from_dict as redirect_from_dict
+    row['secret_redirects'] = tuple(redirect_from_dict(x) for x in _list(row['secret_redirects'], 'original Secret redirects'))
     row['declaration'] = window(row['declaration'])
     row['source_kind'] = CardType(row['source_kind'])
     if row['delivery'] is not None:

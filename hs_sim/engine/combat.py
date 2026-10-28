@@ -13,6 +13,8 @@ def combat_relation_matches(attacker, defender, relation):
         return False
     if relation == 'opponent':
         return attacker.controller != defender.controller
+    if relation == 'any_characters':
+        return attacker.kind in (CardType.MINION, CardType.HERO) and defender.kind in (CardType.MINION, CardType.HERO)
     if relation == 'any_minions':
         return attacker.kind == defender.kind == CardType.MINION
     return (attacker.kind == defender.kind == CardType.MINION and

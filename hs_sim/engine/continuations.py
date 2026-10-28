@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .attack_redirects import RandomRedirectAttack
+        if type(value) is RandomRedirectAttack and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry, self.origin_events)
         from .countered_spell_secrets import CounterReturnSpell,CounterReplaceSpell
         if type(value) in (CounterReturnSpell,CounterReplaceSpell) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
@@ -796,7 +799,8 @@ class FrameCodec:
         if not is_dataclass(value) or not kind.__dataclass_params__.frozen:
             raise ValueError('Frame work and payloads must be frozen dataclasses')
         self._validate(value)
-        if kind is getattr(model, 'EndTurnSelection', None):
+        from .attack_redirects import AttackRedirectSelection
+        if kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection):
             return {'type': type_name(kind), 'fields': {
                 f.name: {'end_turn_rng': end_turn_rng_to_json(getattr(value, f.name))}
                 if f.name in ('rng_before', 'rng_after') else self.encode(getattr(value, f.name), depth + 1)
@@ -833,7 +837,8 @@ class FrameCodec:
         row = value['fields']
         if type(row) is not dict or set(row) != {f.name for f in fields(kind)}:
             raise ValueError('Frame payload fields must match the declared type')
-        if kind is getattr(model, 'EndTurnSelection', None):
+        from .attack_redirects import AttackRedirectSelection
+        if kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection):
             decoded = {}
             for name, item in row.items():
                 if name in ('rng_before', 'rng_after'):

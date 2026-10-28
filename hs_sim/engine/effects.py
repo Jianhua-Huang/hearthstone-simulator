@@ -30,6 +30,8 @@ class ForceAttack(Effect):
 
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
+        if self.combat_relation == 'any_characters':
+            raise ValueError('Character redirects must preserve an accepted original attack')
         if self.producer_link is not None:
             from .attack_substitution import SubstituteAttackLink
             if type(self.producer_link) is not SubstituteAttackLink or type(self.attacker_id) is not BoardPresenceReference:
@@ -550,11 +552,13 @@ class CombatExchange:
     def __post_init__(self):
         validate_combat_relation(self.combat_relation)
         if (type(self.excess_to_hero) is not bool or self.excess_to_hero and
-                (self.combat_relation != 'opponent' or self.attack_window_id is None or
+                (self.combat_relation not in ('opponent', 'any_characters') or self.attack_window_id is None or
                  self.weapon_id is not None or self.hero_attack is not None)):
             raise ValueError('Combat excess requires its original minion attack window')
-        if self.combat_relation != 'opponent' and self.weapon_id is not None:
+        if self.combat_relation in ('friendly_minions', 'any_minions') and self.weapon_id is not None:
             raise ValueError('Friendly minion combat cannot carry a weapon')
+        if self.combat_relation == 'any_characters' and self.attack_window_id is None:
+            raise ValueError('Character redirect combat requires its original attack window')
         _integer(self.attacker_id, 'attacker_id', 1)
         _integer(self.defender_id, 'defender_id', 1)
         _source(self.weapon_id)

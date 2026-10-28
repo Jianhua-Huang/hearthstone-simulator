@@ -96,7 +96,7 @@ class CombatDamage(Effect):
         from .model import validate_combat_relation
         validate_combat_relation(self.combat_relation)
         if (type(self.excess_to_hero) is not bool or self.excess_to_hero and
-                (not self.forced or self.combat_relation != 'opponent' or
+                (not self.forced or self.combat_relation not in ('opponent', 'any_characters') or
                  self.attack_window_id is None or self.hero_attack is not None)):
             raise ValueError('Combat excess requires its original forced minion attack')
         if self.attack_window_id is not None:
@@ -107,8 +107,10 @@ class CombatDamage(Effect):
             self.hero_attack.__post_init__()
         if type(self.forced) is not bool:
             raise ValueError('Expected forced combat flag')
-        if self.combat_relation != 'opponent' and not self.forced:
-            raise ValueError('Friendly combat requires a forced attack')
+        if self.combat_relation in ('friendly_minions', 'any_minions') and not self.forced:
+            raise ValueError('Friendly minion combat requires a forced attack')
+        if self.combat_relation == 'any_characters' and self.attack_window_id is None:
+            raise ValueError('Character redirects require their accepted original attack window')
 
 
 @dataclass(frozen=True)
@@ -150,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v797'
+CORE_EFFECTS_VERSION = 'core-effects-v798'
 
 
 class Mechanics:
@@ -3070,6 +3072,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_death_summon_entries(mechanics)
     from .countered_spell_secrets import register as register_countered_spell_secrets
     register_countered_spell_secrets(mechanics)
+    from .attack_redirects import register as register_attack_redirects
+    register_attack_redirects(mechanics)
     from .dead_minion_shuffles import register as register_dead_minion_shuffles
     register_dead_minion_shuffles(mechanics)
     from .growing_weapon_shuffles import register as register_growing_weapon_shuffles
