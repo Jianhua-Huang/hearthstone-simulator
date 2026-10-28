@@ -418,13 +418,22 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     endless_infuse_display = (row['id'] == 'REV_906t' and
         canonical(row) == '9e0f4021cf47f317ea4a6c085e01cee29a22dc765c88f7cb6c66c47d854a05f3' and
         face.get('parentId') == 75881 and display_normalizations == {'{0}': '', '{1}': ''})
+    # These two complete Ruby Spellstone rows use @ only as the separator
+    # before the upgrade label / an empty live label. Keep every rule word,
+    # both original rows and full bilingual responses; no rule branch is cut.
+    ruby_spellstone_display = (display_normalizations == {'@': ''} and
+        canonical(row) == {
+            'LOOT_103': 'a35adfbe542e2fa96577cda504a8f456f94c86204d192a3b0291328c77631259',
+            'LOOT_103t1': '8e9d42a262482cb083636fdd9b23720d545e1db65f2c0162c50a0962c05d3f71',
+        }.get(row['id']) and face.get('parentId') ==
+        (43414 if row['id'] == 'LOOT_103t1' else None))
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((jade_reprint_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display) and replacement == '' or
+            require(type(replacement) is str and ((jade_reprint_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')

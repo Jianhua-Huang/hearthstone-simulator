@@ -2309,3 +2309,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 plain临时法术发现可使用DiscoverFromPool的单一SPELL/collectible查询、原source_id及temporary_until_turn，仍为一次三选一普通手牌交付；不附加费用/重复/混合类型。CreateTemporaryCard与原minion路径保持，见[礼物及过去消费者契约](m3-past-mage-effect-consumers.md)。
+
+
+过去法师升级面使用同一原生批完整注册，族声明放在三个完整等级主体之后；法术石用原card_committed与submitted_tribes，不按当前入场后的卡面重算资格。锻造及相邻伤害沿原公共能力，本地费用和符文细时序政策见[契约](m3-past-mage-upgrade-forms.md)。

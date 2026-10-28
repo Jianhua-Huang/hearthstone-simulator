@@ -1935,3 +1935,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 过去法师十二消费者沿past_mage_effect_consumers复用原原生核心别名、当前复制、公开牌库揭示、发现召唤及生命/奥秘执行器。礼物的完整三牌域与179生产源分开绑定；真实需求只扩plain临时法术发现，见[契约](m3-past-mage-effect-consumers.md)。
+
+
+过去法师的完整等级、法术石和锻造形态沿past_mage_upgrade_forms注册；等级用独立ManaRankFamily，元素资格读取原提交事实，深呼吸组合原捕获相邻伤害批。各升级面具有完整主体，见[契约](m3-past-mage-upgrade-forms.md)。

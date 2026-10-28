@@ -1,0 +1,1343 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-past-mage-upgrade-forms-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "BAR_305",
+    "LOOT_103",
+    "TTN_477",
+    "ONY_006"
+  ],
+  "new_token_ids": [
+    "BAR_305t",
+    "BAR_305t2",
+    "LOOT_103t1",
+    "LOOT_103t2",
+    "TTN_477t1"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BAR_305",
+        "dbf_id": 62804,
+        "name": "冰风暴（等级1）",
+        "name_en": "Flurry (Rank 1)",
+        "text": "随机<b>冻结</b>一个敌方随从。<i>（当你有5点法力值时升级。）</i>",
+        "text_en": "<b>Freeze</b> a random enemy minion. <i>(Upgrades when you have 5 Mana.)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4755a4a81f7b6ed44a3d224567e1509413a398358d4812068dd0d6d54b9ab5d8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BAR_305",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "LOOT_103",
+        "dbf_id": 43414,
+        "name": "小型法术红宝石",
+        "name_en": "Lesser Ruby Spellstone",
+        "text": "随机将一张法师法术牌置入你的手牌。@<i>（使用两张元素牌后升级。）</i>",
+        "text_en": "Add 1 random Mage spell to your hand. @<i>(Play 2 Elementals to_upgrade.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "COST": 2,
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "a35adfbe542e2fa96577cda504a8f456f94c86204d192a3b0291328c77631259",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "LOOT_103",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "TTN_477",
+        "dbf_id": 98123,
+        "name": "熔火符文",
+        "name_en": "Molten Rune",
+        "text": "造成$3点伤害。随机获取一张法术牌。<b>锻造：</b>本牌施放两次。",
+        "text_en": "Deal $3 damage.\nGet a random spell.\n<b>Forge:</b> This casts twice.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 98124,
+          "SPELL_SCHOOL": 2,
+          "DECK_ACTION_COST": 2,
+          "FORGE": 1,
+          "FORGES_INTO": 98124
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "c0b483c3cc6d2395ead0abc33d015b2c3d9534d26e06690b98580bf7e8993db1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "TTN_477",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "ONY_006",
+        "dbf_id": 71229,
+        "name": "深呼吸",
+        "name_en": "Deep Breath",
+        "text": "对一个随从及相邻随从造成$@点伤害。<i>（随你手牌中其他法术牌的数量提升。）</i>",
+        "text_en": "[x]Deal $@ damage to a\nminion and its neighbors.\n<i>(Improved by number of_\nother spells in your hand.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 5,
+          "CARD_SET": 1626,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "1e54c0239a74a95cf0c0912021886bdfc69f8afd692b5f542fbfc60415beccca",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "ONY_006",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "BAR_305t",
+        "dbf_id": 62805,
+        "name": "冰风暴（等级2）",
+        "name_en": "Flurry (Rank 2)",
+        "text": "随机<b>冻结</b>两个敌方随从。<i>（当你有10点法力值时升级。）</i>",
+        "text_en": "[x]<b>Freeze</b> two random\n enemy minions. <i>(Upgrades\nwhen you have 10 Mana.)</i>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ca76c846a1ecfa79a051098f3d6bf07fa677982c465cc8167e571affbe5232ac",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BAR_305t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "BAR_305t2",
+        "dbf_id": 62806,
+        "name": "冰风暴（等级3）",
+        "name_en": "Flurry (Rank 3)",
+        "text": "随机<b>冻结</b>三个敌方随从。",
+        "text_en": "<b>Freeze</b> three random enemy minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "196f117a56f8f21fdeaa2a8e5d9f54aedab75226b9d4f94f7a31e17d6a30b127",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "BAR_305t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    },
+    {
+      "record": {
+        "id": "LOOT_103t1",
+        "dbf_id": 43412,
+        "name": "法术红宝石",
+        "name_en": "Ruby Spellstone",
+        "text": "随机将两张法师法术牌置入你的手牌。@",
+        "text_en": "Add 2 random Mage spells to your hand.\n@",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 2,
+          "COST": 2,
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "8e9d42a262482cb083636fdd9b23720d545e1db65f2c0162c50a0962c05d3f71",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "LOOT_103t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "LOOT_103t2",
+        "dbf_id": 43411,
+        "name": "大型法术红宝石",
+        "name_en": "Greater Ruby Spellstone",
+        "text": "随机将三张法师法术牌置入你的手牌。",
+        "text_en": "Add 3 random Mage spells to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1004,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "1bc38928dccfd3d6b7687793f14f20da2cf78c6ee238b97cdfaca690d95814b4",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "LOOT_103t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "TTN_477t1",
+        "dbf_id": 98124,
+        "name": "熔火符文",
+        "name_en": "Molten Rune",
+        "text": "<b>已锻造</b>\n造成$3点伤害，造成两次。随机获取一张法术牌，获取两次。",
+        "text_en": "<b>Forged</b>\nDeal $3 damage,\ntwice. Get a random\nspell, twice.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "SPELL_SCHOOL": 2,
+          "FORGED": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "b3a69653de8e466e72860173f02b3783a17474ff39552589295e8ecfda06babb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "TTN_477t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "existing_dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "BAR_305",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 62804,
+        "collectible": 1,
+        "slug": "62804-flurry-rank-1",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "冰风暴（等级1）",
+        "text": "随机<b>冻结</b>一个敌方随从。<i>（当你有5点法力值时升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8886450dcb8e19143bf654db493955ad7e7c24c6d093984bab378c00345d5e4a.png",
+        "imageGold": "",
+        "flavorText": "冰风暴。冰风暴！冰！风！暴！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41ba2ec2d1ac5dceb797ad3b8896aee13db2f76e2333a52cd36f9ad99c8839c6.png",
+        "childIds": [
+          62805,
+          62806
+        ],
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_305",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 62804,
+        "collectible": 1,
+        "slug": "62804-flurry-rank-1",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "Flurry (Rank 1)",
+        "text": "<b>Freeze</b> a random enemy minion. <i>(Upgrades when you have 5 Mana.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2db334d0096bad3f975a1db76de1449e5880b49b445795591d81e588db2f485a.png",
+        "imageGold": "",
+        "flavorText": "Flurry, Flurrier, Flurriest.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/41ba2ec2d1ac5dceb797ad3b8896aee13db2f76e2333a52cd36f9ad99c8839c6.png",
+        "childIds": [
+          62805,
+          62806
+        ],
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_103",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 43414,
+        "collectible": 1,
+        "slug": "43414-lesser-ruby-spellstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "小型法术红宝石",
+        "text": "随机将一张法师法术牌置入你的手牌。 <i>（使用两张元素牌后升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6500d77a349ac2ee9e90803d88a57ece1b2d43b581a10ad1f5b244e4cb811398.png",
+        "imageGold": "",
+        "flavorText": "“最后一枚石头毁灭了它的主人，无名的法师破解了结界。阿扎里发出绝望的咆哮，被封入虚空，再也不见踪迹。”——《魔石》",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09f0d7b8888aa6bacc154203756cfaa49229c3a1436fe190b0c37808a8116eeb.png",
+        "childIds": [
+          43412,
+          43411
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_103",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 43414,
+        "collectible": 1,
+        "slug": "43414-lesser-ruby-spellstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Lesser Ruby Spellstone",
+        "text": "Add 1 random Mage spell to your hand. <i>(Play 2 Elementals to upgrade.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a605fd041dcad6de8fa95e6375e1c862164da18fe8dcb594dd15715f5587f3c4.png",
+        "imageGold": "",
+        "flavorText": "The final stone undid its master Spun into wards by nameless caster Azari wailed a savage roar Now sealed in nether, evermore.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09f0d7b8888aa6bacc154203756cfaa49229c3a1436fe190b0c37808a8116eeb.png",
+        "childIds": [
+          43412,
+          43411
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_477",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 98123,
+        "collectible": 1,
+        "slug": "98123-molten-rune",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "熔火符文",
+        "text": "造成 3点伤害。随机获取一张法术牌。<b>锻造：</b>本牌施放两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/90294b37bb917269cbb3fe5129272d990678deaf3d978ae7e7266747a1a3d39a.png",
+        "imageGold": "",
+        "flavorText": "这是一件后上古现代现实主义新古典印象派的艺术作品。没人知道是什么意思。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/147be895084c90b89bfe2d85b07e662ab3422289aad8eef17d8a9bd133691adc.png",
+        "childIds": [
+          98124
+        ],
+        "keywordIds": [
+          266
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_477",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 98123,
+        "collectible": 1,
+        "slug": "98123-molten-rune",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "Molten Rune",
+        "text": "Deal 3 damage. Get a random spell. <b>Forge:</b> This casts twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19b64c6aab590328dd6371424611a5325e7ee4511d6ce5f649ed6059b7ac2791.png",
+        "imageGold": "",
+        "flavorText": "It's post-ancient modern realist neoclassical impressionist art. No idea what it means though.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/147be895084c90b89bfe2d85b07e662ab3422289aad8eef17d8a9bd133691adc.png",
+        "childIds": [
+          98124
+        ],
+        "keywordIds": [
+          266
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ONY_006",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 71229,
+        "collectible": 1,
+        "slug": "71229-deep-breath",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "manaCost": 5,
+        "name": "深呼吸",
+        "text": "对一个随从及相邻随从造成 点伤害。<i>（随你手牌中其他法术牌的数量提升。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b1c1e9129b168fa493c08d0170b6de2994cc892553e0f94322dabb996f8acb4.png",
+        "imageGold": "",
+        "flavorText": "听我的！“放松！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22eb825e94cf2d4233602ccb8e932781f5b5424707eaf898e35728697431d70b.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ONY_006",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 71229,
+        "collectible": 1,
+        "slug": "71229-deep-breath",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "Jaemin Kim",
+        "manaCost": 5,
+        "name": "Deep Breath",
+        "text": "Deal damage to a minion and its neighbors. <i>(Improved by number of other spells in your hand.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab8004ef8b4eb8cca7a17b810c809c0fbaf40e207369b5d3104a09cc16daf54b.png",
+        "imageGold": "",
+        "flavorText": "I SAID \"RELAX!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22eb825e94cf2d4233602ccb8e932781f5b5424707eaf898e35728697431d70b.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_305t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\62805-zh_CN.json",
+      "response_sha256": "aed28b596422a6f7f02baf4004a63dafc74f46e89799bca1716e96687d322e15",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62805&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 62805,
+        "collectible": 0,
+        "slug": "62805-flurry-rank-",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "冰风暴（等级2）",
+        "text": "随机<b>冻结</b>两个敌方随从。<i>（当你有10点法力值时升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e55dc764a32d0cef7478c3aab2dfa5fb20661e4109dac673f8ecb98d0c5d7fa.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 62804,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62805&locale=zh_CN&collectible=0",
+        "sha256": "aed28b596422a6f7f02baf4004a63dafc74f46e89799bca1716e96687d322e15",
+        "bytes": 651,
+        "observed_at": "2026-10-28T11:40:59.391374+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_305t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\62805-en_US.json",
+      "response_sha256": "08490e0e7e33c3e5d24399ee9ee4c6702e8aa36ae022c4231e7268dec7d9dc9e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62805&locale=en_US&collectible=0",
+      "face": {
+        "id": 62805,
+        "collectible": 0,
+        "slug": "62805-flurry-rank-",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "Flurry (Rank 2)",
+        "text": "<b>Freeze</b> two random enemy minions. <i>(Upgrades when you have 10 Mana.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a643e154519fe8c01cfd456e97eba57cb74cc11f7d3a4af856ad2603257ad19.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 62804,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62805&locale=en_US&collectible=0",
+        "sha256": "08490e0e7e33c3e5d24399ee9ee4c6702e8aa36ae022c4231e7268dec7d9dc9e",
+        "bytes": 636,
+        "observed_at": "2026-10-28T11:41:01.335404+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_305t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\62806-zh_CN.json",
+      "response_sha256": "4430be4444c697f4a99be7d8c14ec96f3d69526627e7002fde4806f3d2a09110",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62806&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 62806,
+        "collectible": 0,
+        "slug": "62806-flurry-rank-",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "冰风暴（等级3）",
+        "text": "随机<b>冻结</b>三个敌方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3246214a61469d0e5ea53af2c7220e15ff9e9b3cc3a3bfd4af5bce2833f7314.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 62804,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62806&locale=zh_CN&collectible=0",
+        "sha256": "4430be4444c697f4a99be7d8c14ec96f3d69526627e7002fde4806f3d2a09110",
+        "bytes": 603,
+        "observed_at": "2026-10-28T11:41:03.447917+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_305t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\62806-en_US.json",
+      "response_sha256": "cf929de9b60e0a8e0ba7801214c920cdcb446ae44626a389975fd8b12543bbd3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62806&locale=en_US&collectible=0",
+      "face": {
+        "id": 62806,
+        "collectible": 0,
+        "slug": "62806-flurry-rank-",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 0,
+        "name": "Flurry (Rank 3)",
+        "text": "<b>Freeze</b> three random enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f778b5dc21640804cac911d599792b9806fe99428fa55cbb326d0453f7f16335.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 62804,
+        "keywordIds": [
+          10
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62806&locale=en_US&collectible=0",
+        "sha256": "cf929de9b60e0a8e0ba7801214c920cdcb446ae44626a389975fd8b12543bbd3",
+        "bytes": 597,
+        "observed_at": "2026-10-28T11:41:05.790196+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_103t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\43412-zh_CN.json",
+      "response_sha256": "e44fa3f0b1a1f94c428a34cf70fd87bb6533bfaa7ca2b4eb5776f1ed55288642",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43412&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43412,
+        "collectible": 0,
+        "slug": "43412-ruby-spellstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "法术红宝石",
+        "text": "随机将两张法师法术牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6bf9a9b4c34aa602cc88cf0f423c2129ba6a04e7049dea817d43adc167a6e708.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43414,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43412&locale=zh_CN&collectible=0",
+        "sha256": "e44fa3f0b1a1f94c428a34cf70fd87bb6533bfaa7ca2b4eb5776f1ed55288642",
+        "bytes": 589,
+        "observed_at": "2026-10-28T11:41:08.102834+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_103t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\43412-en_US.json",
+      "response_sha256": "ef683dc6209296f585db15a3ddf24cebc0139c956a082b7b41f85ac3af859715",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43412&locale=en_US&collectible=0",
+      "face": {
+        "id": 43412,
+        "collectible": 0,
+        "slug": "43412-ruby-spellstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Ruby Spellstone",
+        "text": "Add 2 random Mage spells to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0503c8bb10cc52a50e5a12534eaf31b16d65439eed7f0577b768204bfa7614d8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43414,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43412&locale=en_US&collectible=0",
+        "sha256": "ef683dc6209296f585db15a3ddf24cebc0139c956a082b7b41f85ac3af859715",
+        "bytes": 576,
+        "observed_at": "2026-10-28T11:41:10.279496+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_103t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\43411-zh_CN.json",
+      "response_sha256": "c355942e70267d15fa64af50c085b4b8de62931305b94bb08d8ba9f106103d74",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43411&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43411,
+        "collectible": 0,
+        "slug": "43411-greater-ruby-spellstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "大型法术红宝石",
+        "text": "随机将三张法师法术牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4f7ababde004411d2da7a655c5fea7897c06274d9985c19b59f95412d99aa40.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43414,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43411&locale=zh_CN&collectible=0",
+        "sha256": "c355942e70267d15fa64af50c085b4b8de62931305b94bb08d8ba9f106103d74",
+        "bytes": 603,
+        "observed_at": "2026-10-28T11:41:12.656110+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_103t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\43411-en_US.json",
+      "response_sha256": "af3c3be02c45def156d8010093c3c815104ade133db5d7fb3615ecc601c0dce1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43411&locale=en_US&collectible=0",
+      "face": {
+        "id": 43411,
+        "collectible": 0,
+        "slug": "43411-greater-ruby-spellstone",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Greater Ruby Spellstone",
+        "text": "Add 3 random Mage spells to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e931b4712c84cea95b20b659322107e68e5828037dd16191d99a01edc9dbb37.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43414,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43411&locale=en_US&collectible=0",
+        "sha256": "af3c3be02c45def156d8010093c3c815104ade133db5d7fb3615ecc601c0dce1",
+        "bytes": 592,
+        "observed_at": "2026-10-28T11:41:14.599274+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_477t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98124-zh_CN.json",
+      "response_sha256": "c3e26f6b91f586bd5db7bb44452fb1ae4b49021e5e94ea835751c73d93310ff7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98124&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 98124,
+        "collectible": 0,
+        "slug": "98124-molten-rune",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "熔火符文",
+        "text": "<b>已锻造</b> 造成 3点伤害，造成两次。随机获取一张法术牌，获取两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/626f1fb183e44b24e334279876b67af2fad7a420387e40a54ad944e57cf9f54c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98123,
+        "keywordIds": [
+          268
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98124&locale=zh_CN&collectible=0",
+        "sha256": "c3e26f6b91f586bd5db7bb44452fb1ae4b49021e5e94ea835751c73d93310ff7",
+        "bytes": 653,
+        "observed_at": "2026-10-28T11:41:16.554930+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_477t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\98124-en_US.json",
+      "response_sha256": "b0e3afdc39b7525b2d4a671e49ab2206220db4d07984e08351a238c78afb884d",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98124&locale=en_US&collectible=0",
+      "face": {
+        "id": 98124,
+        "collectible": 0,
+        "slug": "98124-molten-rune",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "Molten Rune",
+        "text": "<b>Forged</b> Deal 3 damage, twice. Get a random spell, twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/18848d03f4e12fe244ca6586fc42b5a2492c2c7c012d778db2605bf1fde07f3e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 98123,
+        "keywordIds": [
+          268
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98124&locale=en_US&collectible=0",
+        "sha256": "b0e3afdc39b7525b2d4a671e49ab2206220db4d07984e08351a238c78afb884d",
+        "bytes": 617,
+        "observed_at": "2026-10-28T11:41:18.723835+00:00"
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "BAR_305": {
+      "cost": 0
+    },
+    "BAR_305t": {
+      "cost": 0
+    },
+    "BAR_305t2": {
+      "cost": 0
+    }
+  },
+  "display_normalizations": {
+    "LOOT_103": {
+      "@": ""
+    },
+    "LOOT_103t1": {
+      "@": ""
+    },
+    "ONY_006": {
+      "@": ""
+    }
+  },
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "form_families": {
+    "ranked": [
+      "BAR_305",
+      "BAR_305t",
+      "BAR_305t2"
+    ],
+    "spellstone": [
+      "LOOT_103",
+      "LOOT_103t1",
+      "LOOT_103t2"
+    ],
+    "forge": [
+      "TTN_477",
+      "TTN_477t1"
+    ]
+  },
+  "known_local_policies": [
+    "Flurry uses the existing monotone maximum-crystal 5/10 hand and deck rank family.",
+    "Ruby Spellstone counts original committed owner Elemental hand plays only; each two distinct witnesses finish one held stage. Upgrade clears local cost enchantments, following the explicit existing Spellstone policy; exact CN boundary calibration is deferred.",
+    "Mage-only random Spellstone rewards use the complete ordinary current declared pool, with replacement; they do not open the incomplete past-Mage inventory.",
+    "Forged Molten Rune follows its complete child text: two consecutive ordinary 3-damage packets, then two random spell acquisitions. One paid hand play and one enclosing CAST; fine cast-counter/timing differences remain an explicit local policy.",
+    "Deep Breath fixes base 1 plus other physical hand spells at payload entry, then one ordinary spell-damage batch over the original target and immediate active minion neighbours. Physical non-minion/dormant slots are not bridged.",
+    "Full past-Mage source binding, fixed-version/hotfix alignment and CN edge calibration remain deferred."
+  ]
+}
