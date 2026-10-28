@@ -2353,3 +2353,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 ReturnDeadMinion使用已有分配事实并接受帧状态校验，不放宽普通HAND/DECK引用；原空间接受、后来溢出与一次墓地驻留失效，以及两旧抽牌奥秘修正见[扩展契约](m3-original-death-hand-returns.md)。
+
+
+真实死亡奥秘可使用 ResurrectOneHealth 或 SummonDormantDeathCopy；普通 ResurrectMinion ABI 保持，材料仅新增有限可选入场字段，原物理回手驻留检查保持默认开启。恢复、数量、复制与休眠边界见[死亡召唤入场契约](m3-death-summon-entry-policies.md)。

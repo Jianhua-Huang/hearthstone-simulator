@@ -181,8 +181,11 @@ class CopyEntryMaterial:
     permanent_stats:SummonStats|None=None
     self_copy_death:object|None=None
     infused_damage:int|None=None
+    entry_dormant_turns:int|None=None
 
     def __post_init__(self):
+        if self.entry_dormant_turns is not None and (type(self.entry_dormant_turns)is not int or self.entry_dormant_turns!=1 or self.profile!='death_copy' or self.mode!='current'):
+            raise ValueError('Timed death-copy entry requires its original current material and one turn')
         if self.profile == 'death_copy':
             from .death_self_copies import validate_entry_shape
             validate_entry_shape(self)
@@ -323,6 +326,8 @@ def validate_material(registry,material,*,hand_copy=False):
         validate_plain_material(registry, SummonEntryMaterial(material.card_id),
                                 allow_colossal=material.profile=='board_copy')
     if material.on_summon is not None:registry.behavior(material.on_summon)
+    if material.entry_dormant_turns is not None and registry.card(material.card_id).permanent_dormancy:
+        raise ValueError('Timed death-copy entry cannot override printed permanent dormancy')
     if material.dormant_entry and registry.card(material.card_id).dormant_turns == 0:
         raise ValueError('Dormant copy requires its printed entry dormancy')
     if material.profile=='discard_copy'and not hand_copy:
@@ -437,7 +442,7 @@ def apply(r,material,entity):
     imprint_infused(r.state,entity,material.infused_damage,material.origin.entity_id)
     if material.mode=='current':
         local=material.local
-        if material.profile in ('board_copy','remembered_copy','death_copy') and not material.dormant_entry:entity.dormancy=None
+        if material.profile in ('board_copy','remembered_copy','death_copy') and not material.dormant_entry and material.entry_dormant_turns is None:entity.dormancy=None
         entity.base_attack,entity.base_health,entity.base_cost=local.base_attack,local.base_health,local.base_cost
         entity.damage,entity.corpse_value=local.damage,local.corpse_value
         source=Entity(material.origin.entity_id,material.card_id,material.origin.owner,material.origin.controller,material.origin.zone,

@@ -1979,3 +1979,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 原死亡回手绑定DeathRecord与第一次墓地驻留，复用移动/重置/费用/进手；瞬时SecretHandSpace只将有效容量交给内核，旧布尔条件与卡牌结构保持，见[死亡回手契约](m3-original-death-hand-returns.md)。
+
+
+原死亡的 1 点剩余生命复活与计时休眠复制，分别复用原 ResurrectionEntryMaterial 和 CopyEntryMaterial；赋值与休眠在首次入场通知前完成，来源及数量证明继续校验，见[死亡召唤入场契约](m3-death-summon-entry-policies.md)。

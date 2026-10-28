@@ -1,0 +1,348 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-death-summon-entry-policies-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "EX1_136",
+    "TSC_929"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "EX1_136",
+        "dbf_id": 140,
+        "name": "救赎",
+        "name_en": "Redemption",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，使其回到战场，并具有1点生命值。",
+        "text_en": "<b>Secret:</b> When a friendly minion dies, return it to life with 1 Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "SECRET": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ittoku"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "6641652461303f02069498db2ba5410b694aa609f5885a2202629ec098f59333"
+    },
+    {
+      "record": {
+        "id": "TSC_929",
+        "dbf_id": 72340,
+        "name": "紧急机动",
+        "name_en": "Emergency Maneuvers",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，召唤一个它的复制。复制会<b>休眠</b>1回合。",
+        "text_en": "<b>Secret:</b> When a friendly minion dies, summon a copy of it.\nIt's <b>Dormant</b> for 1 turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SECRET": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a1b40f657d7b878ceaf155162354291c6177fcddb86ae1e43f240807afc9c78a"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TSC_929t",
+        "dbf_id": 77245,
+        "name": "强化紧急机动",
+        "name_en": "Improved Emergency Maneuvers",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，召唤两个它的复制。复制会<b>休眠</b>1回合。",
+        "text_en": "<b>Secret:</b> When a friendly minion dies, summon two copies of it.\nThey're <b>Dormant</b> for 1 turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "SECRET": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8c1cb27f4221810756dc0ca228edd11b99dbb7da650cb991d61be543937ef092"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "EX1_136",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 140,
+        "collectible": 1,
+        "slug": "140-redemption",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Ittoku",
+        "manaCost": 1,
+        "name": "救赎",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，使其回到战场，并具有1点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9e3580ef40666b1b67a6564126494f9d8cdf178a4d980d412e439822397413fd.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0c699683c1b0766a91df67e530b671744042277a4fd659c4acfd53638672355.png",
+        "flavorText": "救赎并非是从罪恶中得以解脱，而是对生活的彻底肯定，包括其中的痛苦、折磨和荒诞。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09f31f941904259d0a608c73cf4fd5a04e42ae3a3ac62691da1615a4d3df2bf3.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          69861
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_136",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 140,
+        "collectible": 1,
+        "slug": "140-redemption",
+        "classId": 5,
+        "multiClassIds": [],
+        "spellSchoolId": 5,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Ittoku",
+        "manaCost": 1,
+        "name": "Redemption",
+        "text": "<b>Secret:</b> When a friendly minion dies, return it to life with 1 Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/21ae746d9d9161adcef713da8e0318b1b8c5fac1a35b11eed90f71ad99764f27.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0c699683c1b0766a91df67e530b671744042277a4fd659c4acfd53638672355.png",
+        "flavorText": "I am not sure how you get demptioned the first time. It’s a mystery!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09f31f941904259d0a608c73cf4fd5a04e42ae3a3ac62691da1615a4d3df2bf3.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          69861
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_929",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 72340,
+        "collectible": 1,
+        "slug": "72340-emergency-maneuvers",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 2,
+        "name": "紧急机动",
+        "text": "<b>奥秘：</b>当一个友方随从死亡时，召唤一个它的复制。复制会<b>休眠</b>1回合。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/238d6bdffc9abf87084415d9cac439e33d8033c9a678d765140c8e9127300fde.png",
+        "imageGold": "",
+        "flavorText": "桶滚动作！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b9c9471fca8da01b1b43df29750f2fc8a040723be6fa0ca0c3b961070b93dc3b.png",
+        "childIds": [
+          77245
+        ],
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_929",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 72340,
+        "collectible": 1,
+        "slug": "72340-emergency-maneuvers",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 2,
+        "name": "Emergency Maneuvers",
+        "text": "<b>Secret:</b> When a friendly minion dies, summon a copy of it. It's <b>Dormant</b> for 1 turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/950acfd19f0feeef05b1982ca8ff23a3a2985b187cc464faad178d5646fb6818.png",
+        "imageGold": "",
+        "flavorText": "DO A BARREL ROLL!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b9c9471fca8da01b1b43df29750f2fc8a040723be6fa0ca0c3b961070b93dc3b.png",
+        "childIds": [
+          77245
+        ],
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-secrets-local-reference-v1.json",
+  "reference_sha256": "cf90f4272ba8bd6cf4d054c01afd409ead939c17b60223a106c743f3d21a25bf",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Redemption creates a new printed resurrection from the original friendly DeathRecord, not a move of the old corpse. It retains printed maximum Health and assigns damage for1 remaining Health after the shared aura refresh, matching the existing Reborn entry window.",
+    "Emergency Maneuvers uses the existing full-health current death-copy material and creates1-turn dormancy through the original allocator before entry reactions; no fake self-Deathrattle invocation is manufactured.",
+    "The original minion can already have moved from its graveyard residence. Immutable death/source facts remain authoritative for these non-consuming copies; the prior physical hand-return guard is unchanged by default.",
+    "At-death buffs, silence, attachment and damage-reset semantics reuse the current death-copy contract. Exact original reaction order, printed-dormancy priority and permanent-dormancy exceptions remain explicit local boundaries.",
+    "Historical2022 first-person reports describe a printed Wildseed3-turn dormancy overriding the requested1. Current local policy explicitly uses the requested1 for supported timed copies; permanent printed dormancy is rejected before delivery rather than filtered from a pool.",
+    "TSC_929t is kept as complete read-only improved-Secret evidence. Its Tavish producer is not a current registered Standard root or verified reachable source in this batch; it is not claimed executable or silently added to the72 collectible candidate list."
+  ]
+}

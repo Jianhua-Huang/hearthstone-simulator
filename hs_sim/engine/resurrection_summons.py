@@ -37,6 +37,7 @@ class ResurrectionEntryMaterial:
     stats:SummonStats|None=None
     on_summon:str|None=None
     entry_herald_count:int|None=None
+    remaining_health:int|None=None
     def __post_init__(self):
         if type(self.death)is not DeathRecord:raise ValueError('Complete typed immutable death material required')
         self.death.__post_init__()
@@ -49,6 +50,9 @@ class ResurrectionEntryMaterial:
         if self.on_summon is not None and(type(self.on_summon)is not str or not self.on_summon):raise ValueError('Registered resurrection followup required')
         if self.entry_herald_count is not None:_integer(self.entry_herald_count,'accepted resurrection Herald count',0)
         if self.death.entity_id>=self.next_entity_id:raise ValueError('Death material contains a future original body')
+        if self.remaining_health is not None:
+            if type(self.remaining_health)is not int or self.remaining_health!=1 or self.source is None or self.stats is not None or self.on_summon is not None:
+                raise ValueError('One-health death material requires its original source and ordinary printed entry')
 
 
 def validate_face(registry,material):
@@ -72,12 +76,16 @@ def validate_material(state,registry,material,*,closed=False):
 
 def accept_entry(r,effect):
     from .summon_sources import death_record
+    from .death_summon_entries import ResurrectOneHealth
     from .herald import herald_count
     from .summon_quantities import SummonByCard,DeliverCardSummon,FinishCardSummon,accept,deliver
     validate_effect(r.state,r.registry,effect);death=death_record(r.state,effect.death_id)
-    material=ResurrectionEntryMaterial(death.card_id,death,None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id]),
+    source=(effect.cause.source if type(effect)is ResurrectOneHealth else
+        None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id]))
+    material=ResurrectionEntryMaterial(death.card_id,death,source,
         r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order,r.state.next_attachment_id,effect.stats,effect.on_summon,
-        herald_count(r.state,effect.player_id)if r.registry.card(death.card_id).herald_scaling else None)
+        herald_count(r.state,effect.player_id)if r.registry.card(death.card_id).herald_scaling else None,
+        remaining_health=1 if type(effect)is ResurrectOneHealth else None)
     request=SummonByCard(effect.player_id,(material,),effect.cause,position=effect.position,producer_link=effect.producer_link)
     accept(r,request);root=r.state.card_summon_history[-1]
     if effect.producer_link is not None:bind_entry(r,effect.producer_link,root.id)
@@ -106,6 +114,7 @@ def apply(r,material,entity,root_id,index):
     row=ResurrectionRecord(len(r.state.resurrection_history)+1,material.death.id,entity.id,entity.controller,r.state.turn,r.state.action_number,
         None if material.source is None else material.source.entity_id,material.stats,entity.entered_order,entity.zone_epoch)
     r.state.resurrection_history.append(row);r.refresh_auras()
+    if material.remaining_health is not None:entity.damage=max(0,entity.max_health-material.remaining_health)
     from .sacrifice import MinionReference
     binding=ResurrectionBodyBinding(root_id,index,row,MinionReference.capture(entity),material.on_summon,'pending'if material.on_summon is not None else'none')
     r.state.resurrection_quantity_bodies.append(binding)
@@ -405,12 +414,14 @@ def bind_entry(r,link,child_id):
 
 def validate_effect(state,registry,effect):
     from .summon_sources import Resurrect,ResurrectMinion
+    from .death_summon_entries import ResurrectOneHealth,friendly_death
     from .summon_quantities import validate_cause
     effect.__post_init__();validate_cause(state,registry,effect.cause)
     if effect.source_id is not None and effect.source_id not in state.entities:raise ValueError('Unknown original resurrection effect source')
     if effect.on_summon is not None:registry.behavior(effect.on_summon)
     if type(effect)is Resurrect and effect.death_ids is not None and set(effect.death_ids)-{x.id for x in state.death_history}:raise ValueError('Exact resurrection lost an original actual death')
-    if type(effect)is ResurrectMinion:
+    if type(effect)is ResurrectOneHealth:friendly_death(state,registry,effect.death_id,effect.cause)
+    if type(effect)in (ResurrectMinion,ResurrectOneHealth):
         if effect.death_id>=state.next_death_id:raise ValueError('Queued resurrection has future death identity')
         if effect.producer_link is not None:
             link=effect.producer_link;root=record(state,link.resurrection_batch_id);pick=root.picks[link.index]if link.index<len(root.picks)else None
@@ -423,7 +434,7 @@ def validate_child(parent,index,child):
     pick=parent.picks[index];request=child.request;position=None if parent.spec.position is None else parent.spec.position+index
     if pick.entry_root_id!=child.id or request.producer_link!=ResurrectionEntryLink(parent.id,index)or(request.player_id,request.cause,request.position)!=(parent.spec.player_id,parent.spec.cause,position)or len(request.materials)!=1 or type(request.materials[0])is not ResurrectionEntryMaterial:raise ValueError('Death child differs from original request/selection')
     material=request.materials[0];death=next(x for x in parent.basis.inventory if x.id==pick.selected)
-    if material.death!=death or(material.stats,material.on_summon,None if material.source is None else material.source.entity_id)!=(parent.spec.stats,parent.spec.on_summon,parent.spec.source_id)or child.event_cursor<=parent.event_cursor:raise ValueError('Death material differs from complete selected original death')
+    if material.remaining_health is not None or material.death!=death or(material.stats,material.on_summon,None if material.source is None else material.source.entity_id)!=(parent.spec.stats,parent.spec.on_summon,parent.spec.source_id)or child.event_cursor<=parent.event_cursor:raise ValueError('Death material differs from complete selected original death')
 
 
 def validate_link(state,child,*,closed=False):

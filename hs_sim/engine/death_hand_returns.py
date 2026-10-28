@@ -10,7 +10,7 @@ from .model import CardType,CostSpec,Zone
 from .summon_sources import death_record
 
 
-def event_death(state,event,player_id):
+def event_death(state,event,player_id,*,require_grave=True):
     """The original owner death notification, never a later same-name body."""
     if event is None or event.kind!='minion_died' or event.player_id!=player_id:return None
     data=dict(event.data);death=death_record(state,data['death_id'])
@@ -21,6 +21,8 @@ def event_death(state,event,player_id):
     if death.copy_source is None:raise ValueError('Original death return requires complete frozen minion facts')
     origin=death.copy_source.origin
     if origin.kind!=CardType.MINION:return None
+    if type(require_grave)is not bool:raise ValueError('Original death residence policy requires bool')
+    if not require_grave:return death
     e=state.entities.get(death.entity_id)
     if e is None or (e.owner,e.controller,e.card_id,e.kind,e.zone,e.zone_epoch,e.entered_order)!=(
             origin.owner,origin.controller,origin.card_id,CardType.MINION,Zone.GRAVEYARD,origin.zone_epoch+1,origin.entered_order):return None

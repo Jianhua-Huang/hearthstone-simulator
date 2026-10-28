@@ -145,6 +145,9 @@ class SummonByCard(Effect):
         if any(type(x)is ResurrectionEntryMaterial for x in self.materials):
             from .resurrection_summons import ResurrectionEntryLink
             if len(self.materials)!=1 or self.selection!='first'or self.capacity!='selection_requires_space'or self.producer_link is not None and type(self.producer_link)is not ResurrectionEntryLink:raise ValueError('Death material requires its one original entry recipe')
+            material=self.materials[0]
+            if material.remaining_health is not None and (material.death.controller!=self.player_id or material.source!=self.cause.source or self.cause.origin!='card_effect' or self.producer_link is not None):
+                raise ValueError('One-health material lost its original friendly causing entry')
         if self.selection not in ('first','random','weighted'): raise ValueError('Unknown summon selection policy')
         if type(self.weights)is not tuple:raise ValueError('Typed ordered summon weights required')
         for weight in self.weights:_integer(weight,'summon candidate weight',1)
@@ -533,7 +536,8 @@ def deliver(r,effect):
                 components=components_for_entry(r.state,r.registry,material)
             entity=r.create_entity(root.request.player_id,material.card_id,Zone.BOARD,position,components=components,
             entry_herald_count=None if root.entry_strength is None else root.entry_strength.count,
-            entry_dormant_turns=material.dormant_turns if type(material)is SummonEntryMaterial else None)
+            entry_dormant_turns=(material.dormant_turns if type(material)is SummonEntryMaterial else
+                material.entry_dormant_turns if type(material)is CopyEntryMaterial else None))
         if type(material) is PhysicalReplayEntryMaterial:
             from .offered_card_execution import apply_entry
             apply_entry(r,material,entity)
