@@ -2347,3 +2347,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 三个单候选原召唤请求表达毒蛇陷阱；board-copy仅新增带原cause的纯潜行授予，其他混合形状仍拒绝，完整身份和本地映射政策见[扩展契约](m3-past-secret-summon-copies.md)。
+
+
+非定向出牌后效果使用原PlayRecord种类，避免错误要求战吼后仍存活；原伤害来源驻留、控制数量与可作用域、完整伙伴复用和两类抽牌顺序见[扩展契约](m3-past-secret-event-effects.md)。
