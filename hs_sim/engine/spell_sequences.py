@@ -59,6 +59,23 @@ class DrawSpellBatchDeaths(SpellSequence):
 
 
 @dataclass(frozen=True)
+class DamageMinionsRepeatIfNoDeaths(DamageMinionsDrawDeaths):
+    """One first batch, followed by at most one fresh-board damage batch."""
+
+
+@dataclass(frozen=True)
+class RepeatSpellBatchIfNoDeaths(DrawSpellBatchDeaths):
+    amount:int
+
+    def __post_init__(self):
+        super().__post_init__()
+        _integer(self.amount,'second minion wave base damage',0)
+
+    def validate_in_state(self,state,registry):
+        original_wave_results(state,registry,self)
+
+
+@dataclass(frozen=True)
 class DrawWithCostReduction(Effect):
     player_id: int
     reduction: int
@@ -165,6 +182,42 @@ def draw_batch_deaths(r, request):
     return (Draw(request.player_id, count, request.source_id),) if count else ()
 
 
+def begin_repeat_if_no_deaths(r,request):
+    require_cast(r,request)
+    from .resolver import settle_health_batch
+    hits=tuple(Damage(eid,request.amount,request.source_id,DamageKind.SPELL)for eid in minions(r))
+    if not hits:return ()
+    batch_id=len(r.game._events)+1
+    work=settle_health_batch(r,hits)
+    return (*work,RepeatSpellBatchIfNoDeaths(request.player_id,request.cast_id,request.source_id,batch_id,request.amount))
+
+
+def original_wave_results(state,registry,request):
+    request.__post_init__()
+    from .spell_casts import active_cast
+    from .model import HealthFlow
+    cast=active_cast(state,request.source_id,request.player_id)
+    if (cast is None or cast.id!=request.cast_id or not cast.payload_started or
+            request.batch_id<=cast.recorded_event):
+        raise ResolutionError('Second wave lost its original active CAST and first batch window')
+    rows=tuple(row.health_result for row in state.damage_history
+        if row.health_result.batch_id==request.batch_id and row.health_result.source_id==request.source_id
+        and row.health_result.original_flow==HealthFlow.DAMAGE.value and not row.health_result.from_lifesteal)
+    if not rows or any((row.source_card_id,row.source_controller,row.base_amount,row.damage_kind)!=
+            (cast.card_id,request.player_id,request.amount,DamageKind.SPELL.value)for row in rows):
+        raise ResolutionError('Second wave changed or lost the complete original first-batch damage')
+    return rows
+
+
+def repeat_if_no_deaths(r,request):
+    require_cast(r,request)
+    results=tuple(row.payload()for row in original_wave_results(r.state,r.registry,request))
+    if any(death.cause is not None and death.cause.kind in('damage','poison')and death.cause.result in results
+            for death in r.state.death_history):return ()
+    from .effects import DamageBatch
+    return (DamageBatch(tuple(Damage(eid,request.amount,request.source_id,DamageKind.SPELL)for eid in minions(r))),)
+
+
 def draw_discount(r, request, *, card=None):
     request.__post_init__()
     if type(request)is DrawWithTemporaryCostReduction and request.expires_turn!=r.state.turn:
@@ -215,5 +268,7 @@ def register(mechanics):
             (DrawSpellBatchDeaths, draw_batch_deaths), (DrawWithCostReduction, draw_discount),
             (DrawWithTemporaryCostReduction, draw_discount),
             (DrawMatchingWithCostReduction, draw_matching_discount),
-            (DrawIfCheap, draw_if_cheap)):
+            (DrawIfCheap, draw_if_cheap),
+            (DamageMinionsRepeatIfNoDeaths,begin_repeat_if_no_deaths),
+            (RepeatSpellBatchIfNoDeaths,repeat_if_no_deaths)):
         mechanics.register(kind, handler)

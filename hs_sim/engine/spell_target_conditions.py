@@ -9,8 +9,20 @@ class UnplayedCopyTargetProfile:
     def __post_init__(self):_name(self.card_id,'native first-copy spell')
 
 
+@dataclass(frozen=True)
+class PreviousElementalTargetProfile:
+    card_id:str
+    condition:str='previous_owner_turn_elemental'
+
+    def __post_init__(self):
+        _name(self.card_id,'native previous-Elemental spell')
+        if type(self.condition)is not str or self.condition!='previous_owner_turn_elemental':
+            raise ValueError('Elemental targets require the original previous-owner-turn condition')
+
+
 def validate_profile(registry,profile):
-    if type(profile)is not UnplayedCopyTargetProfile:raise ValueError('Expected a native first-copy target profile')
+    if type(profile)not in(UnplayedCopyTargetProfile,PreviousElementalTargetProfile):
+        raise ValueError('Expected a finite native spell target profile')
     profile.__post_init__();card=registry.card(profile.card_id)
     from .targeting import target_spec
     spec=target_spec(card)
@@ -32,4 +44,9 @@ def effective_spec(state,registry,source,definition,spec):
     profile=registry.spell_target_profiles.get(definition.id)
     if profile is None:return spec
     validate_profile(registry,profile)
+    if type(profile)is PreviousElementalTargetProfile:
+        from .owner_turns import query_previous_owner_turn
+        from .model import PlayedTypeQuery
+        match=query_previous_owner_turn(state,source.controller,PlayedTypeQuery(CardType.MINION,('elemental',)))
+        return spec if match.matched else None
     return spec if no_prior_copy(state,source.controller,source.id,profile.card_id)else None

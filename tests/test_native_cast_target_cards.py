@@ -1,6 +1,7 @@
 """Original cast target facts survive actual payload movement and type changes."""
 from copy import deepcopy
 from dataclasses import replace
+from functools import lru_cache
 import json,re,unittest
 from types import SimpleNamespace
 
@@ -87,6 +88,12 @@ def registry():
     r.validate();return r
 
 
+@lru_cache(None)
+def reader_registry(role):
+    # Each role is independently built and frozen; Game states are never cached.
+    r=registry();r.freeze();return r
+
+
 class NativeCastTargetCardTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):cls.r=registry()
@@ -101,8 +108,12 @@ class NativeCastTargetCardTests(unittest.TestCase):
     def choose(self,g,key='continue'):
         q=g.state.pending_choice;g.apply(SelectChoice(q.player_id,q.id,(key,)))
     def portable(self,g):
-        s=json.loads(json.dumps(g.snapshot()));other=Game.from_snapshot(s,registry())
-        self.assertEqual(other.snapshot(),s);self.assertEqual(g.clone().snapshot(),s);self.assertEqual(replay(build_replay(g),registry()).snapshot(),s)
+        readers=tuple(reader_registry(role)for role in('read-a','read-b','read-c'))
+        reader=next(r for r in readers if r is not g.registry)
+        replay_reader=next(r for r in readers if r is not g.registry and r is not reader)
+        self.assertIsNot(reader,g.registry);self.assertIsNot(replay_reader,g.registry);self.assertIsNot(reader,replay_reader)
+        s=json.loads(json.dumps(g.snapshot()));other=Game.from_snapshot(s,reader)
+        self.assertEqual(other.snapshot(),s);self.assertEqual(g.clone().snapshot(),s);self.assertEqual(replay(build_replay(g),replay_reader).snapshot(),s)
         for p in(1,2):
             public=json.dumps(g.for_player(p).observe())+json.dumps(g.for_player(p).legal_actions())+json.dumps(g.player_events(p))
             for key in('target_origin','SourceAllocationFact','cast_history','resolution_frame','recorded_event','next_entity_id'):
@@ -110,7 +121,7 @@ class NativeCastTargetCardTests(unittest.TestCase):
         return other
     def reject(self,s):
         s['state_hash']=canonical_hash({k:v for k,v in s.items()if k not in('schema_version','events','events_hash','state_hash')})
-        with self.assertRaises(SnapshotError)as raised:Game.from_snapshot(s,registry())
+        with self.assertRaises(SnapshotError)as raised:Game.from_snapshot(s,reader_registry('reject'))
         self.assertNotIn('digest mismatch',str(raised.exception))
 
     def test_full_source_two_primary_faces_dual_classes_and_complete_metadata(self):

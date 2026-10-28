@@ -1,0 +1,444 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-mage-conditional-damage-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "OG_086",
+    "GDB_456",
+    "VAC_953"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "OG_086",
+        "dbf_id": 38413,
+        "name": "禁忌烈焰",
+        "name_en": "Forbidden Flame",
+        "text": "消耗你所有的法力值，对一个随从造成等同于所消耗法力值数量的伤害。",
+        "text_en": "Spend all your Mana. Deal that much damage to a minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 21,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "AFFECTED_BY_SPELL_POWER": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "0dc923b67b283fd19a91e1b6a9ee23c8fd761d8081ee8365ae1543bfa456f838",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "OG_086",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "GDB_456",
+        "dbf_id": 111067,
+        "name": "自燃",
+        "name_en": "Spontaneous Combustion",
+        "text": "随机对一个敌人造成$4点伤害。如果你在上个回合使用过元素牌，则可以选择目标。",
+        "text_en": "Deal $4 damage to a random enemy. If you played an Elemental last turn, choose the target.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1935,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "1b7f8cdc3fe78cbd677ff3def32ad49751f0e8d4da97d8b424e8b0a903259249",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "common",
+        "deck_identity": "GDB_456",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "VAC_953",
+        "dbf_id": 108337,
+        "name": "浪潮涌起",
+        "name_en": "Rising Waves",
+        "text": "对所有随从造成\n$2点伤害。如果没有随从死亡，再造成$2点。",
+        "text_en": "Deal $2 damage to all minions. If none die, deal $2 more.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1905,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "eb57d52781ed97ab6ee5ea0d0c77637835544b479cf150cd98ea81ad052d2777",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "VAC_953",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "OG_086",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 38413,
+        "collectible": 1,
+        "slug": "38413-forbidden-flame",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 0,
+        "name": "禁忌烈焰",
+        "text": "消耗你所有的法力值，对一个随从造成等同于所消耗法力值数量的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1406ce6c5209eeccb330f99443e3ae881e54c25b372a4112cbeea1d574b864f4.png",
+        "imageGold": "",
+        "flavorText": "警告：只有持有上古之神所颁发的侍僧执照才可以使用禁忌烈焰，否则后果自负！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c434383b946a399a5dada2ea2371675ae682758626b5f538d0e607fc0a5ddf0c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_086",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 38413,
+        "collectible": 1,
+        "slug": "38413-forbidden-flame",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 0,
+        "name": "Forbidden Flame",
+        "text": "Spend all your Mana. Deal that much damage to a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a58098579bbbe619bd1aab389903220af276dafceda090557c1d2c0c53403c67.png",
+        "imageGold": "",
+        "flavorText": "WARNING: This flame is not to be used unless you are a licensed acolyte of the Old Gods.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c434383b946a399a5dada2ea2371675ae682758626b5f538d0e607fc0a5ddf0c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_456",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 111067,
+        "collectible": 1,
+        "slug": "111067-spontaneous-combustion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 2,
+        "name": "自燃",
+        "text": "随机对一个敌人造成 4点伤害。如果你在上个回合使用过元素牌，则可以选择目标。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f7d244669ce734b4ed5f0c7737d057d2bbed126470bfc845c7cafeb0b5d5028.png",
+        "imageGold": "",
+        "flavorText": "真的好随机呀，嘻嘻XD",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69ce804da1053c44e00404a3000a5cae701bdf857e1aa9a1a22b95be9863ac1b.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_456",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 111067,
+        "collectible": 1,
+        "slug": "111067-spontaneous-combustion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 2,
+        "name": "Spontaneous Combustion",
+        "text": "Deal 4 damage to a random enemy. If you played an Elemental last turn, choose the target.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/159d776fc114b91d79d81a225f49c113ae2f9d0322194b8f0be1db758a38fbe3.png",
+        "imageGold": "",
+        "flavorText": "XD so random",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69ce804da1053c44e00404a3000a5cae701bdf857e1aa9a1a22b95be9863ac1b.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_953",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 108337,
+        "collectible": 1,
+        "slug": "108337-rising-waves",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 3,
+        "name": "浪潮涌起",
+        "text": "对所有随从造成 2点伤害。如果没有随从死亡，再造成 2点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d19b1163df07a7afc4256d7d1e343d403869fddd6c6d3c16096acca6e3d7d3b5.png",
+        "imageGold": "",
+        "flavorText": "手都埋在了沙子里，还怎么浪起来？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d7ee3f579aebb80faf69b8fa5014bcd496cd8b565d715540b6a7c4f1b3abbbf.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_953",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 108337,
+        "collectible": 1,
+        "slug": "108337-rising-waves",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 3,
+        "name": "Rising Waves",
+        "text": "Deal 2 damage to all minions. If none die, deal 2 more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a05e440a280ed246c3b37b33007f43dc8cd5f90d2a626c429b980ccd45825ec1.png",
+        "imageGold": "",
+        "flavorText": "How do you expect them to do the wave if their arms are buried in the sand??",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d7ee3f579aebb80faf69b8fa5014bcd496cd8b565d715540b6a7c4f1b3abbbf.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "numeric_normalizations": {
+    "OG_086": {
+      "cost": 0
+    }
+  },
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Forbidden Flame preserves the complete original null-cost row; both full primary faces explicitly certify printed cost zero. Damage uses the actual original all-Mana consumption record and the original active CAST target allocation, not later current mana or a new target presence.",
+    "Spontaneous Combustion uses the original latest closed own-turn submitted Elemental relation for both target enumeration and payload. Without it the spell is untargeted and deals random-enemy damage; with it an enemy character must be chosen. The enemy-only chosen domain remains an explicit local interpretation pending CN edge calibration.",
+    "Rising Waves uses one original simultaneous minion batch, then the ordinary original-batch damage/poison death relation after its checkpoint. Only if that first batch caused no minion death does a second fresh-board batch execute; independent reaction deaths are not attributed to the first batch.",
+    "Both waves remain one CAST/payment. Each ordinary wave uses shared current spell-bonus/routing/protection/death handling; empty initial boards do not invent targets or RNG. The exact secondary-reaction boundary remains a local policy.",
+    "Version/hotfix alignment and CN rule-edge calibration remain deferred; no candidates are removed according to implementation coverage."
+  ],
+  "public_research": [
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Spontaneous_Combustion",
+      "scope": "Card text and original printed enemy domain; enemy-only chosen branch is recorded locally, not claimed independently calibrated."
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/article/24166286/31-4-patch-notes",
+      "scope": "Official historical fix confirms this spell can be replayed by Tess; automatic CAST is tested as an ordinary real entry."
+    }
+  ]
+}

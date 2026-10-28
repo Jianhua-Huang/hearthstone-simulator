@@ -2324,3 +2324,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 真实任务线可用每阶段原学派键表达独立收集，奖励继续委托公共检索、发现和延后入手；原有完整奖励应按定义/程序指纹复用。阶段描述保持choice_only，永久技能伤害沿原GrantHealthRule与当前英雄命名交付；见[法师任务线与野火](m3-mage-gambit-wildfire.md)。
+
+
+资源结果回调通过原cast_id取原目标分配，再使用既有物理引用效果，勿从后来的法力或同id新驻留重建。PreviousElementalTargetProfile复用原本人回合关系；DamageMinionsRepeatIfNoDeaths/RepeatSpellBatchIfNoDeaths仅按首批实际死亡追加一次当前场面伤害，见[扩展契约](m3-mage-conditional-damage.md)。

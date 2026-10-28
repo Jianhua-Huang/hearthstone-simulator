@@ -1950,3 +1950,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 巫师的计策使用原三阶段QuestSpec和原CAST学派唯一键；两阶段描述不可打出/生成，晨拥完整原执行体及永久玩家法伤复用。野火沿原命名阶段和英雄HealthRule附件，不新增内核状态；见[契约](m3-mage-gambit-wildfire.md)。
+
+
+真实法师伤害续接读取原ManaConsumptionRecord/CAST目标分配及上一本人回合提交事实；spell_sequences新增一个首批无死亡才追加一次的有限伤害序列，死亡仍由原结算器负责。完整批次、条件目标、恢复和本地边界见[契约](m3-mage-conditional-damage.md)。
