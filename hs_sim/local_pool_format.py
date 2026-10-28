@@ -149,11 +149,13 @@ def build_cn37_local_pool_format():
     from .cards.protoss_spell_domain import local_pool as protoss_pool
     from .cards.azerite_hawk_domain import local_pool as hawk_pool
     from .cards.azerite_reward_domains import local_pools as azerite_pools
+    from .cards.excavate_local_host import local_pools as excavation_pools, profile as excavation_profile
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context)) + azerite_pools(registry,original.context)
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context)
+    excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
-        inventories=[asdict(pool) for pool in pools]))
+        inventories=[asdict(pool) for pool in pools], excavation_profiles=[asdict(excavation)]))
     target_id = FORMAT_VERSION + '-' + binding[:16]
     context = GenerationContext(target_id, original.context.mode)
     for pool in pools:
@@ -163,6 +165,7 @@ def build_cn37_local_pool_format():
     register_scope(registry,context)
     register_colossal_scope(registry,context,reviewed_member_ids=tuple(load_mech_binding()['merged_member_ids']))
     register_mech_scope(registry,context)
+    registry.register_excavation_profile(replace(excavation, target_id=target_id, mode=context.mode))
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
     return replace(original, target_id=target_id, binding_digest=binding,

@@ -1929,3 +1929,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 三个真实艾泽里特普通奖励域由azerite_reward_domains.local_pools纯准备，复用完整constructed来源和原主体；运行时资格与存储身份保持分离。完整generic别名不能缩成蝎子的法术子集，原实验上下文及所有旧scope保留。见[契约](m3-azerite-reward-domains.md)。
+
+
+完整本地发掘沿excavate_local_host准备十个原名单池及同名excavate的新目标profile，全部profile字段纳入宿主摘要，原实验profile另作全字段保全。真实低温贮藏只组合Freeze与Excavate，见[契约](m3-excavate-local-host.md)。

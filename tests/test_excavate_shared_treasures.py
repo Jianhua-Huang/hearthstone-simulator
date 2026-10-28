@@ -114,7 +114,12 @@ class ExcavateSharedTreasureTests(CardBatchTestMixin,unittest.TestCase):
         self.assertFalse(inventory['runtime_bound']);self.assertFalse(d['formal_pool_complete'])
         self.assertEqual(list(registry().excavation_profiles),[('excavate','local-2026-09-23','experimental')])
         self.assertFalse(next(iter(registry().excavation_profiles.values())).complete)
-        self.assertNotIn('WW_009',registry().cards)
+        # The original treasure batch did not register the producer. Later
+        # native registration adds it without changing this old sample profile.
+        before_producer=batch.registration_prefix(build_registry,
+            'hs_sim.cards.excavate_local_host.register_cryopreservation',lambda registry:None)
+        self.assertNotIn('WW_009',before_producer.cards)
+        self.assertIn('WW_009',registry().cards)
         from hs_sim.cards.shard_original_remainders import register_shard_original_remainders
         original=batch.registration_prefix(build_registry,'hs_sim.cards.shard_original_remainders.register_shard_original_remainders',register_shard_original_remainders)
         self.assertNotIn('DEEP_999t3',original.cards)

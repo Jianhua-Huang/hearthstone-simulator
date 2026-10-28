@@ -2303,3 +2303,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 蝎子的普通获取、牛的两次发现后召唤、鱼人的跨区保费变形可直接使用原三条主体和azerite_reward_domains.local_pools。准备器核全部成员，不按当前职业或已实现程度裁库存，不在卡牌层复制生成、发现或变形器；来源及本地费用政策见[契约](m3-azerite-reward-domains.md)。
+
+
+低温贮藏是跨系列可达依赖，不增加标准组牌根；2费冰霜及敌方角色目标沿原TargetSpec。完整发掘表用excavate_local_host.local_pools/profile，保持旧同名实验profile，不在牌层维护进度；见[契约](m3-excavate-local-host.md)。
