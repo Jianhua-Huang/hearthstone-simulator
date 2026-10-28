@@ -2294,3 +2294,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实自主传送门使用PassiveBoardObjectSpec和InstallPassiveObject，不能伪装成永久休眠或手牌投入物。原成功开门以普通附件绑定物理门；UpgradePassiveObject接受原BoardPresenceReference，每个单位标记影响未来普通入场材料。使用bound_object核显式绑定和有限无绑定寻找政策，不能让所有同名门同时响应。生命周期、公开惰性行和未校准窗口见[萨格拉斯契约](m3-sargeras-portal.md)。
+
+
+指定一方的互斗使用ForcePlayerMinionsAttackEachOther，接受原玩家和剩余BoardPresenceReference；不要按当前所有随从不断扩充攻击者，或在卡牌层重建伤害。脱困尤格的后置触发用原CastFromPool(count=2)和完整普通法术查询，触须填手直接复用真实YOG_514与原FillHandWithCard，见[契约](m3-yogg-unleashed.md)。

@@ -35,3 +35,5 @@ RandomForceAttack(
 英雄受击、候选资格、随机/强制攻击窗口及原暴怒时序仍为 M6 待校准。当前国服合法身份和正式可达池属 M0，完整来源接入属 M7。随机改打已接受攻击目标是另一项表达核查，不把新建一次强制攻击当作目标替换；完整 U44 和基础目标继续开放。
 
 随机改打错误敌人已用原抽样/零项自动回调与RedirectAttack表达，见[独立表达契约](m2-wrong-enemy-attacks.md)。不请求玩家作选择，内部计数/choice_skipped保留；原接口与上述历史阶段证据保持，该历史批次核心为prototype-v201/core-effects-v195/schema189，现行版本见两份主台账。精确CN待校准。
+
+[脱困尤格契约](m3-yogg-unleashed.md)在已有逐个随从互斗解释器增加ForcePlayerMinionsAttackEachOther，限制首次原攻击者及每次当前防御者的控制方。原双场ForceEachMinionAttack的字段、顺序和默认范围保持；新类型仍委托ForceAttack与原驻留、等待、回放和死亡管线。该有限扩展采用core784，未增加状态字段或结构schema。

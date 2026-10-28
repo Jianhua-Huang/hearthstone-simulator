@@ -1,5 +1,5 @@
 """Original-residence attacker, current enemy minions, ordinary forced combat."""
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from .board_presence import resolve_board_presence
 from .effects import Effect,ForceAttack,_player,_source
 from .model import BoardPresenceReference,CardType,_bool
@@ -23,10 +23,25 @@ class ForceEachMinionAttack(Effect):
             raise ValueError('Each-minion attack borrowed an unknown or future residence')
 
 
-def each_minion_attack(r, effect):
+@dataclass(frozen=True)
+class ForcePlayerMinionsAttackEachOther(Effect):
+    """One fixed player's original minions; current same-side minions defend."""
+    player_id: int
+    remaining: tuple[BoardPresenceReference, ...] | None = None
+
+    def __post_init__(self):
+        _player(self.player_id)
+        ForceEachMinionAttack(self.remaining).__post_init__()
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        ForceEachMinionAttack(self.remaining).validate_in_state(state)
+
+
+def _each_minion_attack(r, effect, players, producer):
     effect.validate_in_state(r.state)
     def live():
-        return tuple(BoardPresenceReference.capture(r.state, eid) for player in (1, 2) for eid in r.player(player).board
+        return tuple(BoardPresenceReference.capture(r.state, eid) for player in players for eid in r.player(player).board
             for entity in (r.state.entities[eid],) if entity.kind == CardType.MINION and entity.active and
             entity.health > 0 and not entity.doomed and r.registry.card(entity.card_id).interactable is None)
     current = live()
@@ -35,9 +50,17 @@ def each_minion_attack(r, effect):
     attacker = r.game._rng.choice(remaining)
     defender = r.game._rng.choice(tuple(ref for ref in current if ref != attacker))
     r.emit('random_choice', source_id=attacker.entity_id, target_id=defender.entity_id,
-        producer='each_minion_forced_attack', attacker_presence_id=attacker.presence_id, defender_presence_id=defender.presence_id)
+        producer=producer, attacker_presence_id=attacker.presence_id, defender_presence_id=defender.presence_id)
     return (ForceAttack(attacker, defender, combat_relation='any_minions'),
-        ForceEachMinionAttack(tuple(ref for ref in remaining if ref != attacker)))
+        replace(effect, remaining=tuple(ref for ref in remaining if ref != attacker)))
+
+
+def each_minion_attack(r, effect):
+    return _each_minion_attack(r, effect, (1, 2), 'each_minion_forced_attack')
+
+
+def player_minions_attack(r, effect):
+    return _each_minion_attack(r, effect, (effect.player_id,), 'player_minion_forced_attack')
 
 @dataclass(frozen=True)
 class AttackRandomEnemyMinion(Effect):
@@ -163,3 +186,4 @@ def register(mechanics):
     mechanics.register(AttackRandomEnemyCharacter, attack_random_character)
     mechanics.register(AttackAllOtherMinions, attack_all)
     mechanics.register(ForceEachMinionAttack, each_minion_attack)
+    mechanics.register(ForcePlayerMinionsAttackEachOther, player_minions_attack)
