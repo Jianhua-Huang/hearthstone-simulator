@@ -414,13 +414,18 @@ def automatic(r, effect, entity, from_zone, *, origin='effect', draw_id=None, re
     return (ResolveAutomaticSpell(record.id, behaviors), FinishSpellCast(record.id, target_proof, group_proof), *native_tail,*choose_tail)
 
 
-def cast_generated(r, effect, *, quest_parent_cast_id=None):
+def materialize_generated_cast(r, effect, *, quest_parent_cast_id=None):
+    """Return the actual allocated spell and its ordinary accepted CAST work."""
     effect.__post_init__(); source_exists(r, effect.source_id)
     if r.registry.card(effect.card_id).kind != CardType.SPELL:
         raise ResolutionError('CastSpell requires a spell definition')
     entity = r.create_entity(effect.player_id, effect.card_id, Zone.GRAVEYARD)
     entity.origin_entity_id = effect.source_id
-    return automatic(r, effect, entity, None, quest_parent_cast_id=quest_parent_cast_id)
+    return entity, automatic(r, effect, entity, None, quest_parent_cast_id=quest_parent_cast_id)
+
+
+def cast_generated(r, effect, *, quest_parent_cast_id=None):
+    return materialize_generated_cast(r, effect, quest_parent_cast_id=quest_parent_cast_id)[1]
 
 
 def cast_stored(r, effect):

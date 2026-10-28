@@ -853,8 +853,10 @@ class FillHandFromPool(Effect):
 
 
 def validate_delivery(effect):
-    if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck','hand_or_opponent_top','memory'):
+    if type(effect.replacement) is not bool or effect.destination not in ('hand', 'board', 'deck','hand_or_opponent_top','memory','cast'):
         raise ValueError('Invalid generation replacement or destination')
+    if effect.destination == 'cast' and type(effect) is not DiscoverFromPool:
+        raise ValueError('Direct generated CAST delivery requires its actual Secret discovery')
     if effect.destination == 'memory' or getattr(effect, 'memory_target', None) is not None:
         from .discovery_memory import validate_spec
         validate_spec(effect)
@@ -971,6 +973,9 @@ def generate_from_pool(r, effect):
 
 
 def deliver_generated(effect, selected):
+    if effect.destination == 'cast':
+        from .spell_casts import CastSpell
+        return tuple(CastSpell(effect.player_id,card_id,source_id=effect.source_id) for card_id in selected)
     if effect.temporary_until_turn is not None:
         from .temporary_cards import CreateTemporaryCard
         return tuple(CreateTemporaryCard(effect.player_id,card_id,effect.temporary_until_turn,

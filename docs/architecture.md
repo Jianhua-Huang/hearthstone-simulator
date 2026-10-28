@@ -1938,3 +1938,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 过去法师的完整等级、法术石和锻造形态沿past_mage_upgrade_forms注册；等级用独立ManaRankFamily，元素资格读取原提交事实，深呼吸组合原捕获相邻伤害批。各升级面具有完整主体，见[契约](m3-past-mage-upgrade-forms.md)。
+
+
+发现奥秘的直接施放复用原发现菜单/收据与CastSpell；materialize_generated_cast返回原分配实体及原施法队列，交付完成以实际CAST接受证明核验，原物理牌库施放保持。套圈圈和原斥候复制接入见[契约](m3-discovered-secret-casts.md)。

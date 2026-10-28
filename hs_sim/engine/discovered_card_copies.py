@@ -105,6 +105,7 @@ def fallback(r, effect, row, completion, offer, option, material):
     from .temporary_cards import CreateTemporaryCard
     from .discovery_destinations import DeliverDiscoveredSpell
     from .spell_weapons import DeliverDiscoveredSpellWeapon
+    from .spell_casts import CastSpell
     from .opening import create_hand_card
     if offer.on_select is not None:
         raise UnsupportedDefinitionError('Stale discovered copies with a custom selection continuation require its original material')
@@ -125,8 +126,8 @@ def fallback(r, effect, row, completion, offer, option, material):
             recipe.expires_turn, recipe.minimum_cost)
         mode = 'current'
         intrinsic_rewards(r, option, entity, original_source, grants=False)
-    elif type(recipe) in (DeliverDiscoveredSpell, DeliverDiscoveredSpellWeapon):
-        # Both original producer validators require a plain spell discovery.
+    elif type(recipe) in (DeliverDiscoveredSpell, DeliverDiscoveredSpellWeapon, CastSpell):
+        # Original producer validators require a plain spell discovery.
         entity = create_hand_card(r, AddToHand(effect.player_id, option.card_id, effect.source_id), defer_publication=True)
     elif material.route in ('physical', 'death', 'discard'):
         from .offered_card_execution import copy_mode

@@ -2312,3 +2312,6 @@ plain临时法术发现可使用DiscoverFromPool的单一SPELL/collectible查询
 
 
 过去法师升级面使用同一原生批完整注册，族声明放在三个完整等级主体之后；法术石用原card_committed与submitted_tribes，不按当前入场后的卡面重算资格。锻造及相邻伤害沿原公共能力，本地费用和符文细时序政策见[契约](m3-past-mage-upgrade-forms.md)。
+
+
+DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥秘的一次/两次after_each发现，不附加手牌/召唤/费用等策略；旧随机生成不开放该目的地。选择交给原CastSpell，原分配和CAST证明共用发现完成通知，见[契约](m3-discovered-secret-casts.md)。

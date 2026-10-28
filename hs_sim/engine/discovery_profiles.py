@@ -6,6 +6,17 @@ from .model import CardType, Keyword
 
 def validate_spec(spec):
     from .pools import PoolQuery
+    if spec.destination == 'cast':
+        allowed = {'player_id','pool_id','query','source_id','prompt','policy','destination','discoveries'}
+        if any(field.name not in allowed and field.default is not MISSING and
+                (getattr(spec,field.name) != field.default or
+                 type(getattr(spec,field.name)) is not type(field.default)) for field in fields(spec)):
+            raise ValueError('Direct Secret discovery cannot borrow hand, summon or reward policies')
+        if (spec.source_id is None or type(spec.discoveries) is not int or spec.discoveries not in (1,2) or
+                type(spec.query) is not PoolQuery or spec.query != PoolQuery(kinds=(CardType.SPELL,),
+                    collectible=True,class_mode='current',keywords_all=(Keyword.SECRET,))):
+            raise ValueError('Direct CAST discovery requires one or two ordinary current-class Secrets')
+        return
     if type(spec.unselected_to_hand) is not bool:
         raise ValueError('Unselected hand delivery requires an explicit boolean')
     if type(spec.summon_copies) is not int or spec.summon_copies not in (1,2):
