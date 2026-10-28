@@ -4,7 +4,7 @@ from dataclasses import dataclass, replace
 from .actions import UseInteractable
 from .effects import Effect, _integer, _player, _source
 from .errors import ResolutionError
-from .model import CardDefinition, CardType, InteractableSpec, Zone
+from .model import CardDefinition, CardType, EndTurnSpec, InteractableSpec, PassiveBoardObjectSpec, TriggerSpec, Zone
 from .nondeath_removal import RemoveFromGame, remove_from_game, removal_result
 from .owner_turns import current_owner_turn
 from .zones import CardReference
@@ -13,13 +13,15 @@ from .zones import CardReference
 def validate_definition(card):
     if card.interactable is None:
         return
-    if type(card.interactable) is not InteractableSpec:
-        raise ValueError('Expected an exact InteractableSpec')
+    if type(card.interactable) not in (InteractableSpec, PassiveBoardObjectSpec):
+        raise ValueError('Expected an exact inert board object declaration')
     card.interactable.__post_init__()
     # Only identity, printed cost and metadata vary. Every ordinary lifecycle
     # field must stay at its default, including future fields on CardDefinition.
     inert = CardDefinition(card.id, card.name, CardType.MINION, cost=card.cost,
         health=1, corpse_value=0, metadata=card.metadata, interactable=card.interactable)
+    if type(card.interactable) is PassiveBoardObjectSpec:
+        inert = replace(inert, triggers=(TriggerSpec('turn_ended', card.interactable.behavior_id, EndTurnSpec()),))
     if card != inert:
         raise ValueError('Interactable carriers require an inert one-health minion definition')
     if card.metadata is not None and card.metadata.collectible:
@@ -70,7 +72,7 @@ def use_error(state, registry, player_id, entity_id, card_entity_id):
     obj = state.entities.get(entity_id)
     if (obj is None or not obj.interactable_object or obj.zone != Zone.BOARD or
             obj.controller != player_id or obj.id not in state.players[player_id].board or
-            registry.card(obj.card_id).interactable is None):
+            type(registry.card(obj.card_id).interactable) is not InteractableSpec):
         return 'No owned interactable carrier available'
     if used_in_latest_owner_turn(state, obj):
         return 'Interactable has already been used in this owner turn'
@@ -116,7 +118,7 @@ def install(r, effect):
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Interactable installation source does not exist')
     card = r.registry.card(effect.card_id)
-    if card.interactable is None:
+    if type(card.interactable) is not InteractableSpec:
         raise ResolutionError('Installation requires an interactable definition')
     validate_definition(card)
     if len(r.player(effect.player_id).board) >= r.rules.max_board:
@@ -180,22 +182,27 @@ def validate_state(state, registry):
         if type(entity.interactable_object) is not bool:
             raise ValueError('Interactable marker must be boolean')
         definition = registry.card(entity.card_id)
+        passive = type(definition.interactable) is PassiveBoardObjectSpec
         if entity.interactable_object != (definition.interactable is not None):
             raise ValueError('Interactable marker disagrees with the original definition')
         if entity.interactable_object and (entity.zone != Zone.BOARD or entity.kind != CardType.MINION or
                 entity.base_attack or entity.base_health != 1 or entity.damage or entity.armor or
                 entity.doomed or entity.death_cause is not None or entity.silenced or entity.frozen or
-                entity.attacks_this_turn or entity.enchantments or entity.abilities or entity.components or
+                entity.attacks_this_turn or (not passive and (entity.enchantments or entity.abilities)) or entity.components or
                 entity.starship_building or entity.dormancy is not None or entity.corpse_value or
                 entity.aura_attack or entity.aura_health or entity.aura_keywords or entity.hand_aura_keywords or
                 entity.durability or entity.uses_this_turn or entity.use_limit != 1):
             raise ValueError('Interactable carrier contains ordinary combat or attachment state')
+        if passive:
+            from .passive_objects import validate_entity
+            validate_entity(registry, entity)
     for i, record in enumerate(state.interactable_history, 1):
         if type(record) is not InteractableUseRecord:
             raise ValueError('Interactable history requires its exact typed record')
         record.__post_init__()
         obj = state.entities.get(record.entity_id)
         if (record.id != i or obj is None or not obj.interactable_object or
+                type(registry.card(obj.card_id).interactable) is not InteractableSpec or
                 (obj.controller, obj.card_id, obj.zone_epoch, obj.board_presence_id) !=
                 (record.player_id, record.card_id, record.zone_epoch, record.presence_id) or
                 record.action > state.action_number or record.turn > state.turn or

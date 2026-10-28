@@ -12,7 +12,7 @@ from .costs import quote_cost
 from .model import CardType, Keyword, Zone
 
 
-VIEW_VERSION = 'player-view-v120'
+VIEW_VERSION = 'player-view-v121'
 PUBLIC_ZONES = frozenset((Zone.HERO, Zone.BOARD, Zone.WEAPON, Zone.HERO_POWER, Zone.QUEST, Zone.PLAY))
 
 # Deliberate allowlist: diagnostics, plugin events and arbitrary Event.data never
@@ -21,6 +21,7 @@ PUBLIC_EVENTS = frozenset('''counter_policy_used limited_trigger_used game_creat
     turns_scheduled skip_turns_scheduled turn_skipped
     joust_resolved galakrond_invoked cards_removed_from_game
     interactable_installed interactable_install_skipped interactable_use_started interactable_used
+    passive_object_installed passive_object_install_skipped passive_object_upgraded
     spell_cast_started spell_cast_finished spell_cast_failed
     timeline_rewound rewind_kept rewind_face_changed
     rewind_outcome_started rewind_outcome_finished card_dredged excavated imbued imbue_no_effect
@@ -327,6 +328,11 @@ class Information:
             if entity.zone in PUBLIC_ZONES or (entity.zone == Zone.HAND and entity.controller == viewer):
                 if entity.display_name is not None: result['display_name'] = entity.display_name
                 if entity.interactable_object:
+                    from .model import PassiveBoardObjectSpec
+                    if type(game.registry.card(entity.card_id).interactable) is PassiveBoardObjectSpec:
+                        from .passive_objects import units
+                        result.update(kind=CardType.MINION.value, passive_object={'upgrades': units(game.registry, entity)})
+                        return result
                     from .interactables import used_in_latest_owner_turn
                     result.update(kind=CardType.MINION.value,
                         interactable={'used': used_in_latest_owner_turn(state, entity), 'uses_per_turn': 1})

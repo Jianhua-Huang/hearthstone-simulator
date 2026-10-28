@@ -14,6 +14,7 @@ from hs_sim.engine.effects import (ChangeControl,ChoiceOption,CopyMinion,Destroy
     RequestChoice,ReturnToHand,Silence)
 from hs_sim.engine.minion_ability_power import (DoubleRemainingMinionAbilities,MinionAbilityPowerProfile,
     PREFIX as MARKER_PREFIX,marker,validate_carrier,value)
+from hs_sim.engine.information import VIEW_VERSION
 from hs_sim.engine.model import CardMetadata,Enchantment,Rarity,SecretSpec,TargetSpec,TriggerSpec
 from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMember,resolve_candidates
 from hs_sim.engine.secrets import area_count
@@ -253,7 +254,7 @@ class NorgannonNativePowerTests(CardBatchTestMixin,unittest.TestCase):
     def test_public_remaining_power_is_visible_to_both_seats_without_marker_or_source_ids(self):
         g=self.game(board=(native.NORGANNON,));self.use(g,native.SKILLS[1])
         for player in(1,2):
-            observation=g.for_player(player).observe()['observation'];self.assertEqual(observation['version'],'player-view-v120')
+            observation=g.for_player(player).observe()['observation'];self.assertEqual(observation['version'],VIEW_VERSION)
             abilities=observation['players'][0]['board'][0]['minion_abilities']
             self.assertEqual({a['ability_id']:a.get('power')for a in abilities},{native.SKILLS[0]:10,native.SKILLS[1]:None,native.SKILLS[2]:2})
             raw=json.dumps(observation)+json.dumps(g.player_events(player))

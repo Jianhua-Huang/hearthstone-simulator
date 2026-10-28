@@ -1049,6 +1049,9 @@ class Enchantment:
         if type(self.label) is str and self.label.startswith('native_minion_ability_power.'):
             from .minion_ability_power import validate_marker_shape
             validate_marker_shape(self)
+        if type(self.label) is str and self.label.startswith(('passive_object_binding.', 'passive_object_unit.')):
+            from .passive_objects import validate_marker_shape
+            validate_marker_shape(self)
         if self.infused_damage is not None:
             _int(self.infused_damage, 'intrinsic infused damage', 1)
             if self.label != 'infused_battlecry_damage' or self.remove_on_silence:
@@ -10325,6 +10328,18 @@ class InteractableSpec:
 
 
 @dataclass(frozen=True)
+class PassiveBoardObjectSpec:
+    """Untouchable board carrier with one printed owner-end body and unit upgrade."""
+    behavior_id: str
+    binding_card_id: str
+    unit_marker_id: str
+
+    def __post_init__(self):
+        for name in ('behavior_id', 'binding_card_id', 'unit_marker_id'):
+            _name(getattr(self, name), 'passive board object ' + name)
+
+
+@dataclass(frozen=True)
 class CardDefinition:
     id: str
     name: str
@@ -10410,7 +10425,7 @@ class CardDefinition:
     attack_policies: tuple[AttackPolicySpec, ...] = ()
     stat_relations: tuple[StatRelationSpec, ...] = ()
     disguised: bool = False
-    interactable: InteractableSpec | None = None
+    interactable: InteractableSpec | PassiveBoardObjectSpec | None = None
     board_minion_cost: BoardMinionCostSpec | None = None
     hand_count_cost: HandCountCostSpec | CoinHandCountCostSpec | None = None
     hero_missing_health_cost: HeroMissingHealthCostSpec | None = None

@@ -33,7 +33,7 @@ SLOTS = (('hero', Zone.HERO, False), ('hero_power', Zone.HERO_POWER, False),
          ('quests', Zone.QUEST, True), ('secrets', Zone.SECRET, True), ('hand', Zone.HAND, True))
 PRIVATE_KEYS = frozenset('state entities enchantments abilities rng_state information source_json origin_hash original_state_hash registry_fingerprint body_target_profile_id tribe_changes original_event_cursor'.split())
 
-ENTITY |= {'invoke_progress', 'preparation', 'disguised', 'play_side', 'interactable'}
+ENTITY |= {'invoke_progress', 'preparation', 'disguised', 'play_side', 'interactable', 'passive_object'}
 ENTITY |= {'base_damage'}
 ENTITY |= {'divine_shield'}
 ENTITY |= {'battlecry_form'}
@@ -43,14 +43,17 @@ ENTITY |= {'spell_recipe'}
 
 def _interactable_view(row, controller, zone):
     """Validate the existing minimal public carrier, never its hidden stats."""
-    use = row.get('interactable')
-    if (zone != Zone.BOARD or set(row) != {'ref', 'card_id', 'controller', 'zone', 'kind', 'interactable'}
+    field = 'passive_object' if 'passive_object' in row else 'interactable'
+    use = row.get(field)
+    valid_use = (type(use) is dict and set(use) == {'upgrades'} and
+        type(use['upgrades']) is int and use['upgrades'] >= 0) if field == 'passive_object' else (
+        type(use) is dict and set(use) == {'used', 'uses_per_turn'} and
+        type(use['used']) is bool and type(use['uses_per_turn']) is int and use['uses_per_turn'] == 1)
+    if (zone != Zone.BOARD or set(row) != {'ref', 'card_id', 'controller', 'zone', 'kind', field}
             or type(row['card_id']) is not str or not row['card_id'].strip()
             or type(row['controller']) is not int or row['controller'] != controller
             or row['zone'] != Zone.BOARD.value or row['kind'] != CardType.MINION.value
-            or type(use) is not dict or set(use) != {'used', 'uses_per_turn'}
-            or type(use['used']) is not bool
-            or type(use['uses_per_turn']) is not int or use['uses_per_turn'] != 1):
+            or not valid_use):
         raise ValueError('Original player interactable requires its exact minimal public BOARD view')
 
 
@@ -157,7 +160,7 @@ def decode(proof, *, require_active_player=True):
                 zone not in (Zone.HAND,Zone.BOARD,Zone.PLAY) or zone==Zone.HAND and controller!=value['viewer'] or
                 type(row['battlecry_form'])is not str or not row['battlecry_form']):
             raise ValueError('Native Battlecry form requires a visible physical minion and complete form identity')
-        if 'interactable' in row:
+        if 'interactable' in row or 'passive_object' in row:
             _interactable_view(row, controller, zone)
         if 'base_damage' in row and (row.get('kind')!=CardType.SPELL.value or type(row['base_damage'])is not int or row['base_damage']<0):
             raise ValueError('Visible native spell base damage requires its exact nonnegative value')
@@ -256,13 +259,17 @@ def validate_origin(registry, origin, source, *, history_state, play=None, prior
             inert = registry.card(fact.card_id).interactable is not None
             if inert:
                 _interactable_view(row, controller, zone)
+                from .model import PassiveBoardObjectSpec
+                passive = type(registry.card(fact.card_id).interactable) is PassiveBoardObjectSpec
+                if passive != ('passive_object' in row):
+                    raise ValueError('Original board object borrowed a different public object declaration')
                 if (fact.kind != CardType.MINION or
                         (fact.active, fact.doomed, fact.attack, fact.health, fact.max_health,
                             fact.damage, fact.durability, fact.keywords, fact.tribe_changes) !=
                         (False, False, 0, 1, 1, 0, 0, (), ())):
                     raise ValueError('Original interactable carrier contains ordinary combat facts')
             else:
-                if 'interactable' in row:
+                if 'interactable' in row or 'passive_object' in row:
                     raise ValueError('Ordinary physical card cannot borrow an interactable view')
                 expected.update(attack=fact.attack, health=fact.health, max_health=fact.max_health,
                     durability=fact.durability, keywords=sorted(k.value for k in fact.keywords))

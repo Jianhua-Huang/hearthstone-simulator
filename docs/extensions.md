@@ -2291,3 +2291,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 真实剩余技能增强声明MinionAbilityPowerProfile并返回DoubleRemainingMinionAbilities，绑定原完成事件及当前物理引用；不要按consumed数量推算尚未发生的强化，也不要把原使用者误作当前载体控制者。原附魔、复制、沉默与恢复共用生命周期，玩家只获剩余技能power，见[诺甘农契约](m3-norgannon-native-power.md)。
+
+
+真实自主传送门使用PassiveBoardObjectSpec和InstallPassiveObject，不能伪装成永久休眠或手牌投入物。原成功开门以普通附件绑定物理门；UpgradePassiveObject接受原BoardPresenceReference，每个单位标记影响未来普通入场材料。使用bound_object核显式绑定和有限无绑定寻找政策，不能让所有同名门同时响应。生命周期、公开惰性行和未校准窗口见[萨格拉斯契约](m3-sargeras-portal.md)。

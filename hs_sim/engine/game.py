@@ -534,6 +534,8 @@ class Game:
         validate_trigger_values(self)
         from .minion_ability_power import validate_game as validate_ability_power
         validate_ability_power(self)
+        from .passive_objects import validate_game as validate_passive_objects
+        validate_passive_objects(self)
         from .cost_polarities import validate_game as validate_cost_polarities
         validate_cost_polarities(self)
         from .rotating_discovery_classes import validate_game as validate_discovery_classes

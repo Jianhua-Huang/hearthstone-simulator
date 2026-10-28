@@ -3040,6 +3040,10 @@ class Registry:
                           card.on_play, card.battlecry, card.combo, card.on_use, card.on_launch, card.on_awaken, card.deathrattle, card.on_discard, card.on_destroyed,
                           *(trigger.behavior_id for trigger in (*card.triggers, *card.dormant_triggers)),
                           *(hook.behavior_id for hook in card.opening_hooks))
+            from .model import PassiveBoardObjectSpec
+            if type(card.interactable) is PassiveBoardObjectSpec:
+                if self.card(card.interactable.binding_card_id).kind != CardType.MINION:
+                    raise ValueError('Passive object binding requires its declared minion face')
             for behavior_id in references:
                 if behavior_id is not None:
                     self.behavior(behavior_id)

@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v782'
+CORE_EFFECTS_VERSION = 'core-effects-v783'
 
 
 class Mechanics:
@@ -2656,6 +2656,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_sideboards(mechanics)
     from .interactables import register as register_interactables
     register_interactables(mechanics)
+    from .passive_objects import register as register_passive_objects
+    register_passive_objects(mechanics)
     register_removal(mechanics)
     from .deck_conditions import register as register_deck_conditions
     register_deck_conditions(mechanics)

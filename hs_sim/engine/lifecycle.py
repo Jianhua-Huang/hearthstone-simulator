@@ -13,7 +13,7 @@ def attachment_id(state):
 
 
 def active_abilities(entity, kind):
-    eligible = entity.active
+    eligible = entity.active or (kind == 'trigger' and entity.interactable_object)
     if kind in ('dormant_trigger', 'board_full_awaken'):
         eligible = entity.dormancy is not None and not entity.starship_building
     elif kind in ('on_play', 'battlecry', 'combo') and entity.dormancy is not None:

@@ -87,7 +87,7 @@ class InteractablePublicInputTests(unittest.TestCase):
             g = self.game(actor=actor)
             source, proof, origin = self.inputs(g)
             self.assertEqual(self.object_row(decode(proof))['interactable'], {'used':False, 'uses_per_turn':1})
-            validate_origin(g.registry, origin, source)
+            validate_origin(g.registry, origin, source, history_state=g._state)
             validate_full_state(g._state, g.registry, source, proof)
 
     def test_already_used_carrier_remains_valid_original_input_without_hidden_combat_stats(self):
@@ -96,7 +96,7 @@ class InteractablePublicInputTests(unittest.TestCase):
         row = self.object_row(decode(proof))
         self.assertEqual(set(row), {'ref','card_id','controller','zone','kind','interactable'})
         self.assertEqual(row['interactable'], {'used':True, 'uses_per_turn':1})
-        validate_origin(g.registry, origin, source)
+        validate_origin(g.registry, origin, source, history_state=g._state)
         validate_full_state(g._state, g.registry, source, proof)
 
     def test_public_context_is_detached_and_never_exposes_inert_physical_stats(self):
@@ -152,14 +152,14 @@ class InteractablePublicInputTests(unittest.TestCase):
             row.clear(); row.update(kept, interactable={'used':False,'uses_per_turn':1})
         forged = self.altered_proof(proof, conceal)
         with self.assertRaisesRegex(ValueError, 'cannot borrow'):
-            validate_origin(g.registry, replace(origin, observation=forged), source)
+            validate_origin(g.registry, replace(origin, observation=forged), source, history_state=g._state)
 
     def test_registered_carrier_cannot_drop_the_required_minimal_use_state(self):
         g = self.game()
         source, proof, origin = self.inputs(g)
         forged = self.altered_proof(proof, lambda v:self.object_row(v).pop('interactable'))
         with self.assertRaisesRegex(ValueError, 'exact minimal'):
-            validate_origin(g.registry, replace(origin, observation=forged), source)
+            validate_origin(g.registry, replace(origin, observation=forged), source, history_state=g._state)
 
     def test_original_carrier_fact_cannot_become_active_damaged_armed_or_keyworded(self):
         g = self.game()
@@ -170,7 +170,7 @@ class InteractablePublicInputTests(unittest.TestCase):
             facts = list(origin.entities)
             facts[index] = replace(facts[index], **fields)
             with self.assertRaisesRegex(ValueError, 'ordinary combat facts'):
-                validate_origin(g.registry, replace(origin, entities=tuple(facts)), source)
+                validate_origin(g.registry, replace(origin, entities=tuple(facts)), source, history_state=g._state)
 
     def test_live_full_projection_binds_the_actual_carrier_used_state(self):
         g = self.game(invest=True)
