@@ -1,0 +1,813 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-visage-vortex-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "REV_516",
+    "TTN_480"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "REV_516",
+        "dbf_id": 78508,
+        "name": "复仇之像",
+        "name_en": "Vengeful Visage",
+        "text": "<b>奥秘：</b>在一个敌方随从攻击你的英雄后，召唤一个它的复制并使其攻击敌方英雄。",
+        "text_en": "[x]<b>Secret:</b> After an enemy\nminion attacks your hero,\nsummon a copy of it to\nattack the enemy hero.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1691,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SECRET": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "2a8242ef57e118ac4b956274861e90f1058e7fdb83337fe211ddd9cbc22d327a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "REV_516",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480",
+        "dbf_id": 98212,
+        "name": "元素激励",
+        "name_en": "Elemental Inspiration",
+        "text": "在本局对战中，你每施放过一个派系的法术，召唤一个4/5并具有一项随机<b>额外效果</b>的元素。@<i>（召唤@个）</i>",
+        "text_en": "[x]For each spell school\nyou have cast this game,\nsummon a 4/5 Vortex with\na random <b>Bonus Effect</b>.@ <i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bde9be17162e9813ab06c22293f51c89d8790eee6e3762a246b57070f967e021",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TTN_480",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t",
+        "dbf_id": 98357,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>圣盾</b>",
+        "text_en": "<b>Divine Shield</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Todd Harris"
+          }
+        ]
+      },
+      "record_sha256": "a427c51ea91d75adaceff06cf87ec68cd3eaa2c82bf710f03b1563f98027540e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t6",
+        "dbf_id": 102142,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>吸血</b>",
+        "text_en": "<b>Lifesteal</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "35a9e21bc2faf03ef0f0c4ee681f5bbd69f27eeb04bebd8596a8069dc47eaa7c",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t6",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t5",
+        "dbf_id": 102141,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>剧毒</b>",
+        "text_en": "<b>Poisonous</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "POISONOUS": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8ead7f7bf32018fc286235032d40a59ffead4afcd53a10ac12b1a9fad1f6ebf8",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t5",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t7",
+        "dbf_id": 102143,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>复生</b>",
+        "text_en": "<b>Reborn</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "REBORN": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "eebbb6e3c56805a890f7cc652b19419e483985e4763fa92e5f4f6d3d1347023f",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t7",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t2",
+        "dbf_id": 102138,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1b455d4ee721fddca39f720f9a5deb38861f272dbb682b7290636f10861fd92b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t4",
+        "dbf_id": 102140,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "9cfe4c6a80f7dfcac35b941b1b750ca603e0c8772f485c0ee58ce131b9fb054a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t4",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t1",
+        "dbf_id": 102137,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "TAUNT": 1,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "6df7a520280e6e4ae512be9b4d13d3d6725b0fb0b06470dd5bfba01774f5296a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t1",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "TTN_480t3",
+        "dbf_id": 102139,
+        "name": "始生涡流",
+        "name_en": "Primordial Vortex",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1858,
+          "WINDFURY": 1,
+          "CLASS": 4,
+          "CARDRACE": 18,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8f6ee58523b47e3ddc60365282f3a48029f051801c71c7a77d4589727815032e",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "TTN_480t3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "elemental"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "existing_dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "REV_516",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 78508,
+        "collectible": 1,
+        "slug": "78508-vengeful-visage",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "复仇之像",
+        "text": "<b>奥秘：</b>在一个敌方随从攻击你的英雄后，召唤一个它的复制并使其攻击敌方英雄。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e37dd3be155e5fc7c5349b2dc8cb7e7be6d0c0747d971b007fae4ecef4ae3397.png",
+        "imageGold": "",
+        "flavorText": "这面镜子向我们展示的正是内心中最深沉，最黑暗的欲望：打脸。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcc1d8d83bcb1718671b4fbb5fc7fcd1d87be6b59f6b198eb1026928edf29633.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          118121
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_516",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 78508,
+        "collectible": 1,
+        "slug": "78508-vengeful-visage",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Mooncolony",
+        "manaCost": 3,
+        "name": "Vengeful Visage",
+        "text": "<b>Secret:</b> After an enemy minion attacks your hero, summon a copy of it to attack the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39e8910625b93f73ad892c8f7603860e851a6403507a9b3d81e3e01f4233af2a.png",
+        "imageGold": "",
+        "flavorText": "The mirror shows us nothing less than the deepest, darkest desire of our hearts: to go face.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcc1d8d83bcb1718671b4fbb5fc7fcd1d87be6b59f6b198eb1026928edf29633.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          118121
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_480",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 98212,
+        "collectible": 1,
+        "slug": "98212-elemental-inspiration",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 4,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 7,
+        "name": "元素激励",
+        "text": "在本局对战中，你每施放过一个派系的法术，召唤一个4/5并具有一项随机<b>额外效果</b>的元素。 <i>（召唤 个）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/91914502e20ceb39b99a317c747f4061e9f878e39d1420e70503e7b289b759f9.png",
+        "imageGold": "",
+        "flavorText": "激励元素并不需要英雄技能。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2383d9ab68296fcbe8c8a8a6274c72bdae6d114aafcf2b09d908084c4b24c741.png",
+        "childIds": [
+          98357,
+          102142,
+          102141,
+          102143,
+          102138,
+          102140,
+          102137,
+          102139
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_480",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 98212,
+        "collectible": 1,
+        "slug": "98212-elemental-inspiration",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 4,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 7,
+        "name": "Elemental Inspiration",
+        "text": "For each spell school you have cast this game, summon a 4/5 Vortex with a random <b>Bonus Effect</b>. <i>( )</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a17d0cf68edf4f123c391e718891ba6ab761099b5a0571fbb39b95b48873f371.png",
+        "imageGold": "",
+        "flavorText": "No Hero Power required.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2383d9ab68296fcbe8c8a8a6274c72bdae6d114aafcf2b09d908084c4b24c741.png",
+        "childIds": [
+          98357,
+          102142,
+          102141,
+          102143,
+          102138,
+          102140,
+          102137,
+          102139
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "vortex_ids": [
+    "TTN_480t",
+    "TTN_480t6",
+    "TTN_480t5",
+    "TTN_480t7",
+    "TTN_480t2",
+    "TTN_480t4",
+    "TTN_480t1",
+    "TTN_480t3"
+  ],
+  "vortex_child_dbf_ids": [
+    98357,
+    102142,
+    102141,
+    102143,
+    102138,
+    102140,
+    102137,
+    102139
+  ],
+  "vortex_weights": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "static_token_evidence": "complete pinned local client rows plus exact full bilingual parent childIds; no separate token HTTP faces claimed",
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "display_normalizations": {
+    "TTN_480": {
+      "@": ""
+    }
+  },
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Vengeful Visage reads the unique actual completed enemy-minion attack against this player hero and requires its still-live original board entry. Original CopyMinion current material and its exact copied-delivery continuation cause a shared ForceAttack against the current enemy hero at callback acceptance. Copy/hero-change/reveal edge windows remain local policies.",
+    "Elemental Inspiration freezes the existing distinct-school-cast-count policy: own actual payload-started nonfailed casts, including automatic/repeated casts, printed registered school, no-school ignored. Countered/unstarted/failed casts do not count under this existing local query policy.",
+    "Both complete primary parent responses name the same ordered eight children. All eight full static client rows are retained and each defines exactly one actual Bonus Effect. Every original school request chooses uniformly among this full fixed order, then ordinary SummonByCard owns capacity and quantity expansion; extra deliveries retain the selected face. No printed Shield is silently retained under another random bonus.",
+    "Variant selection occurs once per original school request before the ordinary summon attempt, including full-board attempts. Later reaction casts do not increase the frozen count. These RNG/quantity/group-window policies are explicit pending CN calibration.",
+    "Version/hotfix alignment and CN edge calibration are deferred; no complete source list is cropped by implementation coverage."
+  ],
+  "public_research": [
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Elemental_Inspiration",
+      "scope": "Community card description and complete eight Bonus Effect types; exact token identities come from full local rows and pinned official parent childIds."
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/article/23999071/27-4-patch-notes",
+      "scope": "Official historical announcement identifies Elemental Inspiration wording changes as text-only; not proof of precise CN windows."
+    }
+  ]
+}

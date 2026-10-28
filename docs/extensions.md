@@ -2335,3 +2335,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 轮回/召唤结界/非公平游戏/寒冰克隆只组合原奥秘和死亡、局部费用、原伤害及原出牌材料查询，再沿完整生成池、复制、随机分支和抽牌执行。触发时点与未确认卡面/费用边缘见[契约](m3-past-mage-secret-consumers.md)。
 
 冰封秘典以InstallDeckSecrets保留原有序物理引用和已用奥秘key，逐张委托原激活器；艾泽里特矿脉以CopyCommittedHandCard读取唯一仍活跃付款证明中的原HAND材料，沿普通当前复制交付零费。原计划/证明、隐私和本地窗口见[契约](m3-secret-original-sources.md)。
+
+
+复仇之像和元素激励仅复用原攻击/复制续接、随机分支与普通召唤，不增加Effect或存档字段；原学派查询复用既有计数政策，完整八衍生物及有限主面显示核验见[接入契约](m3-visage-vortex.md)。

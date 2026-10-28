@@ -301,6 +301,9 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     if (chinese and row.get('id') == 'TSC_828' and
             canonical(row) == 'b2d471ec57b58d5f4bf7ad31d67cdb13db5b3a5f499fea1fbd19a2ccde5f386c'):
         counter_labels += ('（复原@个）',)
+    if (chinese and row.get('id') == 'TTN_480' and
+            canonical(row) == 'bde9be17162e9813ab06c22293f51c89d8790eee6e3762a246b57070f967e021'):
+        counter_labels += ('（召唤@个）',)
     # This exact ten-death Boar has no printed script-value tag. Preserve the
     # complete rule and /10 denominator; only its empty live value is absent
     # from the gallery. English also has source-only trailing layout padding.

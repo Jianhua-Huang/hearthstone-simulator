@@ -28,6 +28,17 @@ def row_for(record, registry):
                                   spell_school=registry.card(record.card_id).spell_school)
 
 
+def count_distinct_cast_schools(state, registry, player_id):
+    """Use the same finite started/nonfailed CAST policy without pricing a card."""
+    from .effects import _player
+    from .spell_casts import validate_history
+    _player(player_id)
+    validate_history(state, registry)
+    spec = PlayerSpellCountCostSpec('cost.player-distinct-school-cast-count-v1')
+    return _player_spell_count_quantity(spec, player_id,
+        tuple(row_for(record, registry) for record in state.cast_history))
+
+
 def capture(state, registry, player_id, definition, base_cost):
     validate_definition(definition)
     spec = definition.player_spell_count_cost
