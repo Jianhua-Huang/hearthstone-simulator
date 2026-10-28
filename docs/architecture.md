@@ -1941,3 +1941,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 发现奥秘的直接施放复用原发现菜单/收据与CastSpell；materialize_generated_cast返回原分配实体及原施法队列，交付完成以实际CAST接受证明核验，原物理牌库施放保持。套圈圈和原斥候复制接入见[契约](m3-discovered-secret-casts.md)。
+
+
+过去法师抽牌后续继续由physical_draw_groups绑定原槽、DrawRecord和原HAND驻留；泉水复原原账户，怨灵之书复用zones的准备/共同移动/发布弃牌，畅游海底读取原抽前材料的费用并交公共召唤。见[契约](m3-past-mage-draw-followups.md)。

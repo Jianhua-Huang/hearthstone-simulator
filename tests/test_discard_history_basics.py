@@ -132,7 +132,13 @@ class DiscardHistoryTests(unittest.TestCase):
         from dataclasses import dataclass
         @dataclass(frozen=True)
         class Retrieve(Effect):entity_id:int
-        def retrieve(r,e):r.move(r.state.entities[e.entity_id],Zone.HAND)
+        def retrieve(r,e):
+            entity=r.state.entities[e.entity_id]
+            r.move(entity,Zone.HAND)
+            # This trusted fixture seam must complete the same acquisition
+            # publication required of ordinary physical hand writers.
+            from hs_sim.engine.hand_history import publish
+            publish(r,entity.hand_entry_id)
         self.script('retrieve.physical',lambda c:(Retrieve(c.state.discard_history[0].entity_id),))
         r=registry(self.scripts);m=default_mechanics('discard-test-effects');m.register(Retrieve,retrieve)
         scenario=Scenario((PlayerSetup('warrior.hero',hand=('discard','retrieve.physical','upgrade','discard.upgraded','a'),mana=10,max_mana=10),PlayerSetup('mage.hero')),seed=37)

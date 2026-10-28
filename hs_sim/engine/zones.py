@@ -1134,7 +1134,7 @@ def destroy_deck_batch(r, effect):
     return ()
 
 
-def discard_card(r, effect, *, deathrattle_memory=None):
+def prepare_discard_card(r, effect, *, deathrattle_memory=None):
     effect.__post_init__()
     source_exists(r, effect.source_id)
     if deathrattle_memory is not None:
@@ -1153,7 +1153,10 @@ def discard_card(r, effect, *, deathrattle_memory=None):
     capture=(SourceAllocationFact.capture(r.state,entity),entity.hand_entry_id,
         SourceAllocationFact.capture(r.state,r.state.entities.get(effect.source_id)),effect.reveal,
         entity.components,entity.jade_size,deathrattle_memory,permanent_value(entity),infused_value(entity))
-    r.move(entity, Zone.GRAVEYARD)
+    return entity,capture
+
+
+def publish_discard_card(r, effect, entity, capture):
     viewers = (1, 2) if effect.reveal else (entity.controller,)
     for viewer in viewers:
         r.game._information.players[viewer].remember(entity)
@@ -1161,6 +1164,32 @@ def discard_card(r, effect, *, deathrattle_memory=None):
     r.emit('card_discarded', source_id=effect.source_id, target_id=entity.id, player_id=entity.controller,
            _discard_commit=capture)
     return effect.on_success
+
+
+def discard_card(r, effect, *, deathrattle_memory=None):
+    prepared=prepare_discard_card(r,effect,deathrattle_memory=deathrattle_memory)
+    if prepared is None:return
+    entity,capture=prepared
+    r.move(entity,Zone.GRAVEYARD)
+    return publish_discard_card(r,effect,entity,capture)
+
+
+def discard_cards(r, effects):
+    """Move all accepted plain hand recipients before publishing any discard."""
+    if (type(effects) is not tuple or any(type(e) is not DiscardCard or e.on_success for e in effects) or
+            len({e.card.entity_id for e in effects})!=len(effects) or
+            len({e.source_id for e in effects})>1):
+        raise ValueError('Discard batch requires unique plain references from one original source')
+    if len(effects)>r.rules.max_resolution_steps:
+        raise ResolutionLimitExceeded('Discard batch exceeds resolution budget')
+    prepared=[]
+    for effect in effects:
+        value=prepare_discard_card(r,effect)
+        if value is not None:prepared.append((effect,*value))
+    for effect,entity,capture in prepared:r.move(entity,Zone.GRAVEYARD)
+    work=[]
+    for effect,entity,capture in prepared:work.extend(publish_discard_card(r,effect,entity,capture))
+    return tuple(work)
 
 
 def shuffle_deck(r, effect):

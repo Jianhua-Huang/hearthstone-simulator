@@ -2315,3 +2315,6 @@ plain临时法术发现可使用DiscoverFromPool的单一SPELL/collectible查询
 
 
 DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥秘的一次/两次after_each发现，不附加手牌/召唤/费用等策略；旧随机生成不开放该目的地。选择交给原CastSpell，原分配和CAST证明共用发现完成通知，见[契约](m3-discovered-secret-casts.md)。
+
+
+原抽牌组新增两/三普通槽的法术根复原/弃牌奖励和单一排除来源法术槽的合格费用回调。费用材料沿既有CapturedCardCopyMaterial保存，回调绑定原完整组与实际draw；单张弃牌保持，批量先共同移动再发布。见[契约](m3-past-mage-draw-followups.md)。
