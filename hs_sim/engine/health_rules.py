@@ -78,6 +78,11 @@ def rule_sources(state):
                     if ability.kind == 'health_rule': validate_power_health_rule(ability)
             result.extend((ability.id, entity.id, entity.controller, ability.health_rule)
                           for ability in entity.abilities if ability.kind == 'health_rule' and not ability.consumed)
+        for entity_id in player.secrets:
+            entity=state.entities[entity_id]
+            if not entity.active or entity.doomed:continue
+            result.extend((a.id,entity.id,entity.controller,a.health_rule) for a in entity.abilities
+                if a.kind=='health_rule' and not a.consumed and a.health_rule.operation==HealthOp.SECRET_FATAL_IMMUNITY)
     return tuple(sorted(result, key=lambda row: row[0]))
 
 

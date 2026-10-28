@@ -1,0 +1,442 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-damage-fragility-ice-block-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "JAM_031",
+    "EX1_295"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "JAM_031",
+        "dbf_id": 98417,
+        "name": "回荡混响",
+        "name_en": "Reverberations",
+        "text": "召唤一个随从的复制。复制和本体都会在受到伤害后死亡。",
+        "text_en": "Summon a copy of a minion. Each one dies after taking damage.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1809,
+          "CLASS": 9,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 264,
+          "SPELL_SCHOOL": 6,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michaela Nienaber"
+          }
+        ]
+      },
+      "record_sha256": "ba8f4f67bea922f6b2c489439b013c95b473f04615877b34933786b38b27169a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage",
+          "warlock"
+        ],
+        "rarity": "rare",
+        "deck_identity": "JAM_031",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "shadow"
+    },
+    {
+      "record": {
+        "id": "EX1_295",
+        "dbf_id": 192,
+        "name": "寒冰屏障",
+        "name_en": "Ice Block",
+        "text": "<b>奥秘：</b>当你的英雄将要承受致命伤害时，防止这些伤害，并使其在本回合中<b>免疫</b>。",
+        "text_en": "<b>Secret:</b> When your hero takes fatal damage, prevent it and become <b>Immune</b> this turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SECRET": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Carl Frank"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8191ed852801d885386f94f0d2bf261111a1c04f684b5fee35cfb5b4d4c6d8a4",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "EX1_295",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "frost"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "JAM_031e",
+        "dbf_id": 98418,
+        "name": "回荡混响",
+        "name_en": "Reverberations",
+        "text": "受到伤害后死亡。",
+        "text_en": "Dies after taking damage.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1809,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "53ef36c5c512980881b6785cdbb8f935e8e51f15eda474a2916c6449d4f13fbe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "JAM_031e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "EX1_295o",
+        "dbf_id": 849,
+        "name": "寒冰屏障",
+        "name_en": "Ice Block",
+        "text": "在本回合中，你的英雄<b>免疫</b>。",
+        "text_en": "Your hero is <b>Immune</b> this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3ec242752cb0ab3df7f4678bcb35818c975feaf35a9381230e0d747dd897ebbe",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "EX1_295o",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "JAM_031",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 98417,
+        "collectible": 1,
+        "slug": "98417-reverberations",
+        "classId": 9,
+        "multiClassIds": [
+          4,
+          9
+        ],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Michaela Nienaber",
+        "manaCost": 3,
+        "name": "回荡混响",
+        "text": "召唤一个随从的复制。复制和本体都会在受到伤害后死亡。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0721387ff6715f9698c41bf2ffafa91e26d301a7807259d10b361d3549b02353.png",
+        "imageGold": "",
+        "flavorText": "虚空环境下混响效果更佳。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/db0fbd9b98d1843372b95bb271fe683d84c140c83bd2b991ba5ed8cac934ca39.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "JAM_031",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 98417,
+        "collectible": 1,
+        "slug": "98417-reverberations",
+        "classId": 9,
+        "multiClassIds": [
+          4,
+          9
+        ],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Michaela Nienaber",
+        "manaCost": 3,
+        "name": "Reverberations",
+        "text": "Summon a copy of a minion. Each one dies after taking damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe10edb4c674d28b7459ba82b9b81a09b42bdb380b7fa07de95643a0ab4fa8d5.png",
+        "imageGold": "",
+        "flavorText": "This sounds much louder in the void.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/db0fbd9b98d1843372b95bb271fe683d84c140c83bd2b991ba5ed8cac934ca39.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_295",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 192,
+        "collectible": 1,
+        "slug": "192-ice-block",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Carl Frank",
+        "manaCost": 3,
+        "name": "寒冰屏障",
+        "text": "<b>奥秘：</b>当你的英雄将要承受致命伤害时，防止这些伤害，并使其在本回合中<b>免疫</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/065d9cf598ddb336da8ce15d23c573478c3508a3f84e6a6db817793c9c8c59d4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40009b5a51d5ec4b12bb217e0e19086d49591f3085e6bfe00602506b573fabd0.png",
+        "flavorText": "法师们都很奇怪，为什么把一样东西塞进冰箱需要三个步骤？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9b8ba21cb2957ed236b2282d5ecf8fd4f7d057faab6d6e7c5cc4c01fc8e9e0b.png",
+        "keywordIds": [
+          5,
+          17
+        ],
+        "copyOfCardId": [
+          69911
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_295",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 192,
+        "collectible": 1,
+        "slug": "192-ice-block",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 4,
+        "artistName": "Carl Frank",
+        "manaCost": 3,
+        "name": "Ice Block",
+        "text": "<b>Secret:</b> When your hero takes fatal damage, prevent it and become <b>Immune</b> this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03646d09025cab3e87c6cfaf0966d01648093b671e0e88a266be06420b52602e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/40009b5a51d5ec4b12bb217e0e19086d49591f3085e6bfe00602506b573fabd0.png",
+        "flavorText": "Ice is nice, and will suffice!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d9b8ba21cb2957ed236b2282d5ecf8fd4f7d057faab6d6e7c5cc4c01fc8e9e0b.png",
+        "keywordIds": [
+          5,
+          17
+        ],
+        "copyOfCardId": [
+          69911
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Reverberations grants its original selected current minion a normal damage-dealt self-destruction trigger before ordinary current CopyMinion. Full-board failure still marks the original. Ordinary current-copy material carries that trigger to each successful copied delivery; no hidden random real/fragile split, no pair-global destruction. Grant-reaction transform windows remain local.",
+    "Ice Block is a finite printed secret incoming-damage health rule. Existing numeric routing/modifiers, shield/immunity, health floors and durability replacement precede fatal checking. Positive actual health debit that would reach zero, without health-loss replacement, consumes the original opponent-turn secret and prevents the entire packet including armor absorption.",
+    "Ordinary keyword grant expires_turn equals the actual current turn; immunity applies to later committed packets in the same simultaneous health batch. Original secret consumption and ability-grant event publication use the batch pending-event buffer; no reactions interleave inside the atomic batch. This exact predamage/reveal ordering is a local policy pending CN calibration.",
+    "Direct health loss, health setting and health payment are not damage. Own-turn lethal damage does not consume the opponent-turn secret. Complete source lists remain closed until all dependencies are ready; version/hotfix and CN edge calibration are deferred."
+  ],
+  "public_research": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/98417-reverberations",
+      "scope": "Official complete spell wording and Mage/Warlock identity; not evidence of exact grant/copy reaction windows."
+    }
+  ]
+}

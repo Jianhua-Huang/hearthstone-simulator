@@ -80,10 +80,13 @@ def set_secret(r, effect):
     activate(r, entity)
 
 
-def consume(r, entity, event_kind):
+def consume(r, entity, event_kind, *, pending_events=None):
     entity.secret_instance_id = None
     r.move(entity, Zone.GRAVEYARD)
-    r.emit(event_kind, source_id=entity.id, player_id=entity.controller)
+    if pending_events is None:
+        r.emit(event_kind, source_id=entity.id, player_id=entity.controller)
+    else:
+        pending_events.append((event_kind,dict(source_id=entity.id,player_id=entity.controller)))
 
 
 def remove(r, effect):

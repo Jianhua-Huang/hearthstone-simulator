@@ -246,6 +246,7 @@ class HealthOp(StrEnum):
     NATURE_GROWTH = 'nature_growth'
     NATURE_SUMMON = 'nature_summon'
     BLIGHT_SHUFFLE = 'blight_shuffle'
+    SECRET_FATAL_IMMUNITY = 'secret_fatal_immunity'
     REDIRECT = 'redirect'
     CONVERT = 'convert'
 
@@ -280,7 +281,7 @@ class HealthRule:
         if self.operation != HealthOp.SCALE and self.denominator != 1:
             raise ValueError('Only scaling rules have a denominator')
         if self.operation in (HealthOp.PREVENT, HealthOp.SPELL_IMMUNITY, HealthOp.REDIRECT, HealthOp.CONVERT, HealthOp.WEAPON_DURABILITY,
-                              HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON,HealthOp.BLIGHT_SHUFFLE) and self.amount != 0:
+                              HealthOp.NATURE_GROWTH,HealthOp.NATURE_SUMMON,HealthOp.BLIGHT_SHUFFLE,HealthOp.SECRET_FATAL_IMMUNITY) and self.amount != 0:
             raise ValueError('Routing, conversion and prevention have no numeric operand')
         if self.operation == HealthOp.SPELL_IMMUNITY and (
                 self.flow != HealthFlow.DAMAGE or self.layer != HealthLayer.TARGET or
@@ -300,6 +301,12 @@ class HealthRule:
                 self.target_kinds != (CardType.HERO,) or self.damage_kinds or
                 self.healing_kinds or self.schools or self.redirect_to is not None):
             raise ValueError('Weapon durability replacement requires its exact incoming friendly-hero damage profile')
+        if self.operation == HealthOp.SECRET_FATAL_IMMUNITY and (
+                self.flow!=HealthFlow.DAMAGE or self.layer!=HealthLayer.TARGET or
+                self.source_relation!='any' or self.target_relation!='friendly' or
+                self.target_kinds!=(CardType.HERO,) or self.damage_kinds or
+                self.healing_kinds or self.schools or self.redirect_to is not None):
+            raise ValueError('Fatal secret requires its exact incoming friendly-hero damage profile')
         if self.operation == HealthOp.BLIGHT_SHUFFLE and (
                 self.flow!=HealthFlow.DAMAGE or self.layer!=HealthLayer.SOURCE or self.source_relation!='self' or
                 self.target_relation!='any' or self.target_kinds!=(CardType.HERO,) or self.damage_kinds or
@@ -12176,6 +12183,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 validate_school_spell_damage_carrier(registry, entity.card_id, entity.kind, attachments, entity.components)
                 from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
                 validate_weapon_damage_carrier(registry, entity.card_id, entity.kind, attachments)
+                from .fatal_damage_secrets import validate_carrier as validate_fatal_secret_carrier
+                validate_fatal_secret_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .shield_durability import validate_carrier as validate_shield_hit_carrier
                 validate_shield_hit_carrier(registry,entity.card_id,entity.kind,attachments)
                 from .nature_damage_replacements import validate_carrier as validate_nature_damage_carrier
@@ -12389,6 +12398,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
         validate_school_spell_damage_carrier(registry, record.card_id, kind, record.abilities, record.components)
         from .weapon_damage_replacement import validate_carrier as validate_weapon_damage_carrier
         validate_weapon_damage_carrier(registry, record.card_id, kind, record.abilities)
+        from .fatal_damage_secrets import validate_carrier as validate_fatal_secret_carrier
+        validate_fatal_secret_carrier(registry,record.card_id,kind,record.abilities)
         from .shield_durability import validate_carrier as validate_shield_hit_carrier
         validate_shield_hit_carrier(registry,record.card_id,kind,record.abilities)
         from .nature_damage_replacements import validate_carrier as validate_nature_damage_carrier

@@ -150,7 +150,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v792'
+CORE_EFFECTS_VERSION = 'core-effects-v793'
 
 
 class Mechanics:
@@ -1247,6 +1247,14 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
                                   reason='rule_prevention', **packet.event_data())))
             outcome(prevention='rule_prevention')
             return 0
+        from .fatal_damage_secrets import prevent as prevent_fatal_damage
+        fatal_guard=prevent_fatal_damage(r,state,rules,packet,target,result,pending_events)
+        if fatal_guard is not None:
+            packet=replace(packet,amount=0,prevented=True,rule_ids=(*packet.rule_ids,fatal_guard))
+            pending_events.append(('damage_prevented',dict(source_id=packet.source_id,target_id=target.id,
+                reason='rule_prevention',**packet.event_data())))
+            outcome(prevention='rule_prevention')
+            return 0
         source = r.state.entities.get(packet.source_id)
         if (result.dealt and packet.damage_kind == DamageKind.MINION_ABILITY and source is not None
                 and Keyword.STEALTH in source.keywords):
@@ -1338,6 +1346,8 @@ def heal_batch(r, effect):
 
 
 def grant_health_rule(r, effect):
+    if effect.rule.operation==HealthOp.SECRET_FATAL_IMMUNITY:
+        raise ResolutionError('Fatal damage prevention requires its original printed secret declaration')
     if effect.rule.operation==HealthOp.BLIGHT_SHUFFLE:
         raise ResolutionError('Blight replacement requires its original printed minion declaration')
     if effect.rule.operation == HealthOp.SHIELD_HITS:
@@ -2089,7 +2099,7 @@ def grant_ability(r, effect):
     _grant_to(r, effect, entity)
 
 
-def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None, consumed_card_id=None):
+def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None, consumed_card_id=None, refresh=True):
     """Install ordinary ability material after the caller binds the recipient."""
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     if entity.id != effect.target_id or pending and (entity.kind != CardType.MINION or entity.zone != Zone.PLAY):
@@ -2141,7 +2151,8 @@ def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=No
         r.registry.behavior(fields['behavior_id'])
     ability = AbilityInstance(attachment_id(r.state), kind, **fields)
     entity.abilities.append(ability)
-    r.refresh_auras()
+    if refresh:r.refresh_auras()
+    else:refresh_entity(entity)
     if notify:
         r.emit('ability_granted', target_id=entity.id, source_id=effect.source_id,
                ability_id=ability.id, ability_kind=kind)

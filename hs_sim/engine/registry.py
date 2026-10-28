@@ -2476,7 +2476,9 @@ class Registry:
             raise ValueError('Spell schools require a spell definition and SpellSchool')
         if not isinstance(card.health_rules, tuple) or any(not isinstance(rule, HealthRule) for rule in card.health_rules):
             raise ValueError('health_rules must be a tuple of HealthRule')
-        if card.health_rules and card.kind not in (CardType.HERO, CardType.MINION, CardType.WEAPON):
+        if (card.health_rules and card.kind not in (CardType.HERO, CardType.MINION, CardType.WEAPON) and
+                not (card.kind==CardType.SPELL and card.secret is not None and
+                     all(rule.operation.value=='secret_fatal_immunity' for rule in card.health_rules))):
             raise ValueError('Health rules require an in-play aura holder')
         from .health_floors import validate_face as validate_floor_face
         if any(rule.operation.value == 'floor' for rule in card.health_rules):
@@ -2642,6 +2644,8 @@ class Registry:
         validate_school_spell_damage_definition(card)
         from .weapon_damage_replacement import validate_definition as validate_weapon_damage_definition
         validate_weapon_damage_definition(card)
+        from .fatal_damage_secrets import validate_definition as validate_fatal_secret_definition
+        validate_fatal_secret_definition(card)
         from .shield_durability import validate_definition as validate_shield_hit_definition
         validate_shield_hit_definition(card)
         from .nature_damage_replacements import validate_definition as validate_nature_damage_definition
