@@ -7,10 +7,10 @@ from .model import (CardType, ChooseBranchSelection, Keyword, SummonStats,
                     validate_reborn_policy, validate_summon_stats)
 
 
-# Only the basic keyword grants required by known constructed Dark Gifts.
+# Basic Dark Gift grants and Shadow Clone's actual pre-entry Stealth.
 # Other stored grants keep their own existing API; this is not an effect program.
 MINION_CREATION_KEYWORDS = frozenset((Keyword.TAUNT, Keyword.DIVINE_SHIELD,
-    Keyword.CHARGE, Keyword.WINDFURY, Keyword.REBORN, Keyword.LIFESTEAL, Keyword.ELUSIVE))
+    Keyword.CHARGE, Keyword.WINDFURY, Keyword.REBORN, Keyword.LIFESTEAL, Keyword.ELUSIVE, Keyword.STEALTH))
 
 
 @dataclass(frozen=True)

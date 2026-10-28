@@ -2344,3 +2344,6 @@ DiscoverFromPool的destination=cast仅接受原来源、当前职业可收藏奥
 
 
 过去奥秘接入复用原秘密区、来源收据和普通属性/抽牌/伤害；完整72身份参考与145通过主面/一名称冲突分开记录，不以局部21法师子集开放来源，见[扩展契约](m3-past-secret-base-effects.md)。
+
+
+三个单候选原召唤请求表达毒蛇陷阱；board-copy仅新增带原cause的纯潜行授予，其他混合形状仍拒绝，完整身份和本地映射政策见[扩展契约](m3-past-secret-summon-copies.md)。
