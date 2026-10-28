@@ -1957,3 +1957,5 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 真实火球滚滚/燃烧共用DamageMinionExcess的原棋盘邻位分配、一次来源预算与公共健康批；冲击波按原HealthResult超杀回调生成完整Mage域奖励。阻挡、随机窗口、恢复及待国服边界见[契约](m3-mage-excess-overkill.md)。
 
 点燃式新副本成长用GrowingDamageProfile和原CAST冻结的GrowingSpellDamageValue表达，普通伤害后经create_deck_card在发布前安装基础值加一；复制、重放、校验与信息边界见[契约](m3-ignite-native-growth.md)。
+
+轮回/召唤结界/非公平游戏/寒冰克隆只组合原奥秘和死亡、局部费用、原伤害及原出牌材料查询，再沿完整生成池、复制、随机分支和抽牌执行。触发时点与未确认卡面/费用边缘见[契约](m3-past-mage-secret-consumers.md)。
