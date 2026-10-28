@@ -2300,3 +2300,6 @@ TIME_711的独立一费来源绑定完整原候选，GenerationScope.current_cla
 
 
 完整鹰奖励沿azerite_hawk_domain.local_pool核全部原依赖，追加到本地格式来源投影；不要覆盖原实验样本、改战吼或把候选按实现程度过滤。沿用专用池调用名，凭目标/模式/版本区分完整新域，显式TITAN例外仍由原主体声明，见[契约](m3-azerite-hawk-domain.md)。
+
+
+蝎子的普通获取、牛的两次发现后召唤、鱼人的跨区保费变形可直接使用原三条主体和azerite_reward_domains.local_pools。准备器核全部成员，不按当前职业或已实现程度裁库存，不在卡牌层复制生成、发现或变形器；来源及本地费用政策见[契约](m3-azerite-reward-domains.md)。

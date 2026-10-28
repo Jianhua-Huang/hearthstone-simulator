@@ -148,8 +148,9 @@ def build_cn37_local_pool_format():
     past_pools = merge_mech_pools(registry,original.context,past_pools)
     from .cards.protoss_spell_domain import local_pool as protoss_pool
     from .cards.azerite_hawk_domain import local_pool as hawk_pool
+    from .cards.azerite_reward_domains import local_pools as azerite_pools
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context))
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context)) + azerite_pools(registry,original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
         inventories=[asdict(pool) for pool in pools]))

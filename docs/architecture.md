@@ -1926,3 +1926,6 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 [完整鹰奖励域](m3-azerite-hawk-domain.md)只追加本地专用池宿主下的十二成员声明，原战吼、TITAN例外和一费普通生成不变。旧单成员实验上下文和所有原卡牌定义保持；真实发掘profile及其它职业奖励域仍独立验收，无新内核或保存字段。
+
+
+三个真实艾泽里特普通奖励域由azerite_reward_domains.local_pools纯准备，复用完整constructed来源和原主体；运行时资格与存储身份保持分离。完整generic别名不能缩成蝎子的法术子集，原实验上下文及所有旧scope保留。见[契约](m3-azerite-reward-domains.md)。
