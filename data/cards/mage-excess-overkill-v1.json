@@ -1,0 +1,487 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-mage-excess-overkill-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "DRG_321",
+    "SCH_348",
+    "TRL_317"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "DRG_321",
+        "dbf_id": 55276,
+        "name": "火球滚滚",
+        "name_en": "Rolling Fireball",
+        "text": "对一个随从造成$8点伤害，超过其生命值的伤害将由左侧或右侧的随从承担。",
+        "text_en": "Deal $8 damage to a minion. Any excess damage continues to\nthe left or right.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1347,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "2cdf475fb10b08df72117e6081d57b626093c909f75b913c4ea6909e6f68d8f8",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "DRG_321",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "SCH_348",
+        "dbf_id": 59540,
+        "name": "燃烧",
+        "name_en": "Combustion",
+        "text": "对一个随从造成$4点伤害，相邻的随从均会受到超过其生命值的伤害。",
+        "text_en": "[x]Deal $4 damage to\na minion. Any excess\ndamages both neighbors.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1443,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & A. Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "ec441c841f9d7640bea4a10dd03b5328a08913c53d451b3ebd3ae2b9aa196f4b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "SCH_348",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    },
+    {
+      "record": {
+        "id": "TRL_317",
+        "dbf_id": 50086,
+        "name": "冲击波",
+        "name_en": "Blast Wave",
+        "text": "对所有随从造成$2点伤害。<b>超杀</b>：随机将一张法师法术牌置入你的手牌。",
+        "text_en": "Deal $2 damage to_all minions.\n<b>Overkill</b>: Add a random Mage spell to your hand.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1129,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "OVERKILL": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Axer"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "5cdf53561456b87a88f92cd19131e551276fa1915d419c55a20e74c86be6ef37",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TRL_317",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "existing_dependencies": [],
+  "official_observations": [
+    {
+      "card_id": "DRG_321",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 55276,
+        "collectible": 1,
+        "slug": "55276-rolling-fireball",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 4,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 5,
+        "name": "火球滚滚",
+        "text": "对一个随从造成 8点伤害，超过其生命值的伤害将由左侧或右侧的随从承担。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b0c2220aab8cc46edcb8a71f2cdd78fb416b8a3f90c731a78c8d8c9719098be.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/19e4849f6d5b61d34de2ba10239be69e6ccca816a99ec215a614fed90819e722.png",
+        "flavorText": "他们为什么不往前后跑呢？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/096eff1709faaccb248a215725bc9d09da453c8ae63f0265770175c00c30fb7a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_321",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 55276,
+        "collectible": 1,
+        "slug": "55276-rolling-fireball",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 4,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 5,
+        "name": "Rolling Fireball",
+        "text": "Deal 8 damage to a minion. Any excess damage continues to the left or right.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/90a000dba039e3b64a3ed56e94ab191ef46f5e2ccfa6edbe7826c50b218d4d82.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6cdfec8b6c45ecb4e6bd05bac3d192f8e64e21ddcc04f1f7ac5a8fef42410b6.png",
+        "flavorText": "Why don't they ever run perpendicular?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/096eff1709faaccb248a215725bc9d09da453c8ae63f0265770175c00c30fb7a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_348",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 59540,
+        "collectible": 1,
+        "slug": "59540-combustion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & A. Zemskov",
+        "manaCost": 3,
+        "name": "燃烧",
+        "text": "对一个随从造成 4点伤害，相邻的随从均会受到超过其生命值的伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9f5793fe93abdca101e9be6f76ecae980cbc94703dc5c367f9faccec3a9f39e.png",
+        "imageGold": "",
+        "flavorText": "萨莉有三个朋友，都是白银之手新兵，并以任意次序站成一排。在施放这个法术后，她还剩几个朋友？（请在空白处作答。）",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d3910cb1b9bcb8f4e6aaf8387e238c1da1ab08dfbc473e10449433624aa1a3c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_348",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 59540,
+        "collectible": 1,
+        "slug": "59540-combustion",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 4,
+        "artistName": "L. Lullabi & A. Zemskov",
+        "manaCost": 3,
+        "name": "Combustion",
+        "text": "Deal 4 damage to a minion. Any excess damages both neighbors.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c5090064b43f84589fe9051399c7a793838d5a75a680d533941d36224fb5bc6c.png",
+        "imageGold": "",
+        "flavorText": "Sally is friends with three Silverhand Recruits conveniently standing in a line. After casting this spell, how many friends does she have left? (Show your work.)",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d3910cb1b9bcb8f4e6aaf8387e238c1da1ab08dfbc473e10449433624aa1a3c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_317",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 50086,
+        "collectible": 1,
+        "slug": "50086-blast-wave",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1129,
+        "rarityId": 4,
+        "artistName": "J. Axer",
+        "manaCost": 5,
+        "name": "冲击波",
+        "text": "对所有随从造成 2点伤害。<b>超杀</b>：随机将一张法师法术牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2b3362487662098259f49fda1c78e27577cd4ec1c8b0ac3a52e6339b1af19319.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74cd4c925bf958ecc7b96ada81dcdea030c96ded36eaec151314d501d5cff2f3.png",
+        "flavorText": "如果感到燥热你就挥挥手！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9521f26b99189080bf92bb3f9d3b8458f5810d84012e01941b2ba1058f03dbba.png",
+        "keywordIds": [
+          61
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TRL_317",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 50086,
+        "collectible": 1,
+        "slug": "50086-blast-wave",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1129,
+        "rarityId": 4,
+        "artistName": "J. Axer",
+        "manaCost": 5,
+        "name": "Blast Wave",
+        "text": "Deal 2 damage to all minions. <b>Overkill</b>: Add a random Mage spell to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2726017711419ec1c7fa998d8a562d362bedc94b66f28c5c04859b1d101876aa.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/84f36d0a8603633e5418bc56a4f91bdc0a14d2ad2940f371d08857a7bdab441b.png",
+        "flavorText": "If you’re burning and you know it, wave your hands!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9521f26b99189080bf92bb3f9d3b8458f5810d84012e01941b2ba1058f03dbba.png",
+        "keywordIds": [
+          61
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Rolling Fireball partitions one source-adjusted budget by current Health along one direction on the original board. Choose left/right once only when both physical sides exist; illegal Dormant or Location/interactable slots stop propagation, following official patch 27.6. No deathrattle-created recipient joins the original simultaneous batch.",
+    "Combustion deals its full source-adjusted amount to the original target, and max(0,budget-original Health) independently to each original immediate legal neighbor. Neither immunity/Divine Shield nor recipient multipliers recalculate this excess. One budget includes Spell Damage once; original tag 349 is preserved as source data, not interpreted as whole-spell immunity.",
+    "Blast Wave uses original SPELL HealthResult Overkill conditions: own turn, actual damage greater than positive original Health, no prevention or previously doomed target. Each actual original result generates one random Mage spell from the ordinary full source domain. Original callbacks and reward timing are local policy pending CN edge calibration.",
+    "Ignite native growing base damage is explicitly deferred to the next incremental implementation, not treated as a supported blank spell.",
+    "Version/hotfix alignment and CN edge calibration remain deferred; no source membership is cropped by implementation coverage."
+  ],
+  "public_research": [
+    {
+      "url": "https://news.blizzard.com/en-gb/article/23989479/27-6-patch-notes",
+      "scope": "Official Rolling Fireball propagation stops at illegal Dormant/Location slots."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/rolling-fireball-and-moarg-artificer/29940/1",
+      "scope": "Player observations about one source budget and recipient multipliers; local interpretation, not Blizzard staff verification."
+    },
+    {
+      "url": "https://eu.forums.blizzard.com/en/hearthstone/t/piercing-shot-divine-shield-interaction/5998/4",
+      "scope": "Player comparison of excess by original Health despite protection; local boundary policy."
+    }
+  ]
+}

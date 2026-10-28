@@ -60,6 +60,9 @@ def random_enemy_minion(r, request):
 
 
 def prepare_partition(state, registry, request, rules):
+    from .adjacent_excess_damage import DamageMinionExcess, prepare_partition as prepare_adjacent
+    if type(request) is DamageMinionExcess:
+        return prepare_adjacent(state, registry, request, rules)
     request.__post_init__()
     source = state.entities.get(request.source_id)
     source_kind = CardType.SPELL if request.kind == DamageKind.SPELL else CardType.LOCATION
@@ -115,3 +118,5 @@ def resolve(r, request):
 def register(mechanics):
     mechanics.register(DamageExcessToHero, resolve)
     mechanics.register(RandomEnemyMinionExcessDamage, random_enemy_minion)
+    from .adjacent_excess_damage import register as register_adjacent
+    register_adjacent(mechanics)
