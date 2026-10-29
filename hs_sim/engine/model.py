@@ -4419,6 +4419,35 @@ class BoardMinionCostSpec:
         """Finite native selector; not another serialized declaration field."""
         return ('elemental',) if self.profile_id == 'cost.board-friendly-elementals-v1' else ()
 
+    @property
+    def per_minion(self):
+        return 1
+
+
+@dataclass(frozen=True)
+class TreantBoardMinionCostSpec:
+    """Two mana per friendly board member of the complete fixed Treant family."""
+    card_ids: tuple[str, ...]
+    profile_id: str = 'cost.board-friendly-treants-v1'
+
+    def __post_init__(self):
+        if type(self.card_ids) is not tuple or not self.card_ids:
+            raise ValueError('Board Treant pricing requires its complete immutable identity group')
+        for card_id in self.card_ids: _name(card_id, 'board Treant identity')
+        if tuple(sorted(set(self.card_ids))) != self.card_ids:
+            raise ValueError('Board Treant identities must be unique and canonically ordered')
+        if self.profile_id != 'cost.board-friendly-treants-v1' or type(self.profile_id) is not str:
+            raise ValueError('Unsupported board Treant pricing profile')
+
+    @property
+    def scope(self): return 'friendly'
+
+    @property
+    def tribes_any(self): return ()
+
+    @property
+    def per_minion(self): return 2
+
 
 @dataclass(frozen=True)
 class BoardMinionCostRow:
@@ -4434,7 +4463,7 @@ class BoardMinionCostRow:
 
 @dataclass(frozen=True)
 class BoardMinionCostFact:
-    spec: BoardMinionCostSpec
+    spec: BoardMinionCostSpec | TreantBoardMinionCostSpec
     player_id: int
     next_entity_id: int
     boards: tuple[tuple[BoardMinionCostRow, ...], tuple[BoardMinionCostRow, ...]]
@@ -4444,7 +4473,7 @@ class BoardMinionCostFact:
     next_attachment_id: int | None = field(default=None,kw_only=True)
 
     def __post_init__(self):
-        if type(self.spec) is not BoardMinionCostSpec:
+        if type(self.spec) not in (BoardMinionCostSpec, TreantBoardMinionCostSpec):
             raise ValueError('Board cost requires its complete declaration')
         self.spec.__post_init__()
         if type(self.player_id) is not int or self.player_id not in (1, 2):
@@ -4476,7 +4505,7 @@ class BoardMinionCostFact:
             _int(getattr(self, name), 'board cost '+name, 0)
         maximum = len(identities) if self.spec.scope == 'all' else len(self.boards[
             self.player_id - 1 if self.spec.scope == 'friendly' else 2 - self.player_id])
-        if self.quantity > maximum or self.after != max(0, self.before - self.quantity):
+        if self.quantity > maximum or self.after != max(0, self.before - self.quantity * self.spec.per_minion):
             raise ValueError('Board cost result differs from its complete count operation')
 
 
@@ -10525,7 +10554,7 @@ class CardDefinition:
     stat_relations: tuple[StatRelationSpec, ...] = ()
     disguised: bool = False
     interactable: InteractableSpec | PassiveBoardObjectSpec | None = None
-    board_minion_cost: BoardMinionCostSpec | None = None
+    board_minion_cost: BoardMinionCostSpec | TreantBoardMinionCostSpec | None = None
     hand_count_cost: HandCountCostSpec | CoinHandCountCostSpec | None = None
     hero_missing_health_cost: HeroMissingHealthCostSpec | None = None
     player_spell_count_cost: PlayerSpellCountCostSpec | None = None

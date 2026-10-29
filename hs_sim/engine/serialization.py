@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 633
+SNAPSHOT_SCHEMA_VERSION = 634
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -933,7 +933,7 @@ def _intrinsic_spec_from_dict(value):
 
 
 def _intrinsic_stage_from_dict(value):
-    from .model import (IntrinsicCostSpec, IntrinsicCostStageFact, BoardMinionCostSpec,
+    from .model import (IntrinsicCostSpec, IntrinsicCostStageFact, BoardMinionCostSpec, TreantBoardMinionCostSpec,
                         BoardMinionCostFact, BoardMinionCostRow, HandCountCostSpec, HandCountCostFact,
                         HeroMissingHealthCostSpec, HeroMissingHealthCostFact,
                         PlayerSpellCountCostSpec, PlayerSpellCountCostRow, PlayerSpellCountCostFact,
@@ -1028,7 +1028,12 @@ def _intrinsic_stage_from_dict(value):
     row['operations'] = tuple(operations)
     if row['board_minions'] is not None:
         board = _row(row['board_minions'], BoardMinionCostFact)
-        board['spec'] = BoardMinionCostSpec(**_row(board['spec'], BoardMinionCostSpec))
+        if type(board['spec']) is dict and board['spec'].get('profile_id') == 'cost.board-friendly-treants-v1':
+            spec = _row(board['spec'], TreantBoardMinionCostSpec)
+            spec['card_ids'] = tuple(_list(spec['card_ids'], 'complete original board Treant identities'))
+            board['spec'] = TreantBoardMinionCostSpec(**spec)
+        else:
+            board['spec'] = BoardMinionCostSpec(**_row(board['spec'], BoardMinionCostSpec))
         def board_row(value):
             entry = _row(value,BoardMinionCostRow)
             if entry['tribe_changes'] is not None:

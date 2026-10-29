@@ -1,5 +1,5 @@
 """Finite pure board-count price operand, without persistent cost modifiers."""
-from .model import (BoardMinionCostSpec, BoardMinionCostRow, BoardMinionCostFact,
+from .model import (BoardMinionCostSpec, TreantBoardMinionCostSpec, BoardMinionCostRow, BoardMinionCostFact,
                     CardType, Zone)
 from .card_conditions import UnknownCardFactError
 from .tribes import tribe_changes,tribe_state_for
@@ -9,17 +9,20 @@ def validate_definition(definition):
     spec = definition.board_minion_cost
     if spec is None:
         return
-    if type(spec) is not BoardMinionCostSpec:
-        raise ValueError('Expected BoardMinionCostSpec')
+    if type(spec) not in (BoardMinionCostSpec, TreantBoardMinionCostSpec):
+        raise ValueError('Expected a complete finite board minion cost declaration')
     spec.__post_init__()
     if definition.kind not in (CardType.MINION, CardType.SPELL) or not definition.hand_playable or definition.starship_for or definition.interactable:
         raise ValueError('Board minion cost belongs to an ordinary physical minion or spell')
+    if type(spec) is TreantBoardMinionCostSpec and definition.kind != CardType.SPELL:
+        raise ValueError('Native per-Treant board pricing belongs to an ordinary spell')
 
 
 def quantity(registry, boards, spec, player_id):
     # Validate every declared face, including the unselected side and inert
     # objects. Zero cost and friendly scope cannot conceal an unknown row.
     spec.__post_init__()
+    treants = type(spec) is TreantBoardMinionCostSpec
     filtered = bool(spec.tribes_any)
     selected = (1,2) if spec.scope == 'all' else (player_id if spec.scope == 'friendly' else 3-player_id,)
     count = 0
@@ -31,6 +34,7 @@ def quantity(registry, boards, spec, player_id):
             if needs_tribes != (row.tribe_changes is not None):
                 raise ValueError('Board price changed its complete selected tribe operands')
             matches = ordinary
+            if treants: matches = ordinary and row.card_id in spec.card_ids
             if needs_tribes:
                 current = tribe_state_for(registry,row.card_id,row.tribe_changes)
                 if current is None:raise UnknownCardFactError('Unknown current board tribe identity: '+row.card_id)
@@ -59,7 +63,7 @@ def capture(state, registry, player_id, definition, base_cost):
     boards = tuple(boards)
     count = quantity(registry, boards, spec, player_id)
     return BoardMinionCostFact(spec, player_id, state.next_entity_id, boards,
-        count, base_cost, max(0, base_cost - count),
+        count, base_cost, max(0, base_cost - count * spec.per_minion),
         next_attachment_id=state.next_attachment_id if spec.tribes_any else None)
 
 

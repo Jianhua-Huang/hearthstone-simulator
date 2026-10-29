@@ -1,0 +1,4656 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-past-nature-draw-growth-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "DEEP_026",
+        "dbf_id": 102426,
+        "name": "大地坠饰",
+        "name_en": "Pendant of Earth",
+        "text": "从你的牌库中<b>发现</b>一张随从牌，为你的英雄恢复等同于其法力值消耗的生命值。",
+        "text_en": "[x]<b>Discover</b> a minion\n from your deck. Restore\nHealth to your hero\nequal to its Cost.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1892,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "MULTIPLE_CLASSES": 34,
+          "AFFECTED_BY_HEALING_DOES_DAMAGE": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ursula Dorada"
+          }
+        ]
+      },
+      "record_sha256": "3f94d6451a3667fdf1f82905468484db7331e108385f65150b47a7d243fbddc1",
+      "definition_sha256": "f921c22502535920871ba362ac5e963a7a15386763b4146b56c80f3e53ef069b"
+    },
+    {
+      "record": {
+        "id": "DMF_058",
+        "dbf_id": 61450,
+        "name": "日蚀",
+        "name_en": "Solar Eclipse",
+        "text": "在本回合中，你施放的下一个法术将施放两次。",
+        "text_en": "The next spell you cast this turn casts twice.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1466,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jun Yan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2f120b175a81bc47a4faa8aaf36e96dbd32da706926e7c549b45a36561781ce7",
+      "definition_sha256": "e7e688454b14746bc317478893c0d812122e19720615f41481f5d7c5f28a98ab"
+    },
+    {
+      "record": {
+        "id": "DRG_314",
+        "dbf_id": 55036,
+        "name": "空气栽培",
+        "name_en": "Aeroponics",
+        "text": "抽两张牌。你每控制一个树人，本牌的法力值消耗便减少（2）点。",
+        "text_en": "Draw 2 cards.\nCosts (2) less for each Treant you control.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1347,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 56371,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Nielson"
+          }
+        ]
+      },
+      "record_sha256": "cd1f92ac2cc48901ccf420f9a66ed30944e47a5bfda36106d4d03293d6664a4c",
+      "definition_sha256": "40c725ca01edd72e411c6b909c6f4f638919b89b8adcf704f38b94c3f2da83fa"
+    },
+    {
+      "record": {
+        "id": "LOOT_051",
+        "dbf_id": 43288,
+        "name": "小型法术玉石",
+        "name_en": "Lesser Jasper Spellstone",
+        "text": "对一个随从造成$2点伤害。@<i>（获得3点护甲值后升级。）</i>",
+        "text_en": "Deal $2 damage to a minion. @<i>(Gain 3 Armor to upgrade.)</i>",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "292",
+              "name": "ARMOR",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6a51b9d0451ad81dad61a3773f2bde2204f6e6deb89612bb2e022e7e99cb6934",
+      "definition_sha256": "f4209a4eba98920c5d9b97d9f137d3d9087086517382c1a9a52fdf21987af704"
+    },
+    {
+      "record": {
+        "id": "MAW_024",
+        "dbf_id": 79748,
+        "name": "私法程序",
+        "name_en": "Dew Process",
+        "text": "在本局对战的剩余时间内，玩家会在其回合开始时额外抽一张牌。",
+        "text_en": "[x]For the rest of the game,\nplayers draw an extra card\nat the start of their turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "a2ad7898625938e292dd929153df67fd00bab3b5e007fe34a71c5634d581318c",
+      "definition_sha256": "0d1dc3a27d7325b08e9cb109595595d0fe1ea6dac38116bd3d786af5fffb7930"
+    },
+    {
+      "record": {
+        "id": "MIS_301",
+        "dbf_id": 108617,
+        "name": "豆蔓疯长",
+        "name_en": "Overgrown Beanstalk",
+        "text": "召唤一个2/2的树人。你每控制一个树人，抽一张牌。",
+        "text_en": "Summon a 2/2 Treant. Draw a card for each Treant you control.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1897,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 108618,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "210e4ae9a811dbe8968d398155458916764aec1a044f7e402e5fd954a6aaa2b3",
+      "definition_sha256": "aa7641fefdef2ed933f6834f0e758aab07357f1e4021a5556ee1fbd678474f7f"
+    },
+    {
+      "record": {
+        "id": "REV_311",
+        "dbf_id": 77562,
+        "name": "夜影花蕾",
+        "name_en": "Nightshade Bud",
+        "text": "<b>抉择：</b>从你的牌库中<b>发现</b>一张随从牌并召唤；或者一张法术牌并施放。",
+        "text_en": "<b>Choose One - </b><b>Discover</b> a minion from your deck to summon;\nor a spell to cast.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "CHOOSE_ONE": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michaela Nienaber"
+          }
+        ]
+      },
+      "record_sha256": "fb243148060cde34de7a5bed7b7650aaaf88e7dcb23bc3706844dbb70c800cc7",
+      "definition_sha256": "0a7df898c7531f059c33f633bc2d8ec5fe740034fdbdc4a4802f5890b0c202f1"
+    },
+    {
+      "record": {
+        "id": "REV_365",
+        "dbf_id": 78509,
+        "name": "万灵之召",
+        "name_en": "Convoke the Spirits",
+        "text": "随机施放8个德鲁伊法术<i>（目标随机而定）</i>。",
+        "text_en": "[x]Cast 8 random\nDruid spells <i>(targets\nchosen randomly)</i>.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "8c2cd801768c17b36f7dae13b95be28b1e5369eab1add2acf4714061725fd38d",
+      "definition_sha256": "831c124b1773189b3072746309de148f6db9f7cb95907d55a62e34899a49d666"
+    },
+    {
+      "record": {
+        "id": "SCH_612",
+        "dbf_id": 59542,
+        "name": "雕琢符文",
+        "name_en": "Runic Carvings",
+        "text": "<b>抉择：</b>召唤四个2/2的树人图腾；或者<b>过载：</b>（2）召唤四个2/2并具有<b>突袭</b>的树人图腾。",
+        "text_en": "<b>Choose One -</b> Summon four 2/2 Treant Totems; or <b>Overload:</b> (2) to summon them with <b>Rush</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "MULTIPLE_CLASSES": 130,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "727b331b78aa93b6daeb3662e4278b2af063c215de5ccfb20a3667a6e028b8ad",
+      "definition_sha256": "7a56ffe772f5ebc62d7ae9a60ddba60dbb9d155377937e70dc09e81468ce9358"
+    },
+    {
+      "record": {
+        "id": "SW_437",
+        "dbf_id": 64385,
+        "name": "堆肥",
+        "name_en": "Composting",
+        "text": "使你的所有随从获得“<b>亡语：</b>抽一张牌。”",
+        "text_en": "Give your minions\n\"<b>Deathrattle:</b> Draw\n__a card.\"",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michaela Nienaber"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "64c926e97f8d20078a661dc0617ef1fc000a656b5a6b8f92b8edef1e063d378b",
+      "definition_sha256": "c68a3f69e42684ac2b64a7e2cfce30ca199cafc902dc209d7cc1b3788ab3ca1e"
+    },
+    {
+      "record": {
+        "id": "TSC_651",
+        "dbf_id": 73464,
+        "name": "海草卷击",
+        "name_en": "Seaweed Strike",
+        "text": "对一个随从造成$4点伤害。如果你在本牌在你手中时使用过纳迦牌，使你的英雄在本回合中获得+4攻击力。",
+        "text_en": "[x]Deal $4 damage to a minion.\nIf you played a Naga while\nholding this, also give your\nhero +4 Attack this turn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "afbb0100bd8f24cd2127126871622ed6425c800f1512f9da00dce411b1ee3767",
+      "definition_sha256": "d0e7c68d3f4503754332ded6518baf4e1d18eb11b1198c7a550814bce66afcc5"
+    },
+    {
+      "record": {
+        "id": "WORK_024",
+        "dbf_id": 110786,
+        "name": "蛮熊搬家",
+        "name_en": "Handle with Bear",
+        "text": "获取两张3/3并具有<b>嘲讽</b>的熊，其每在你手牌中一回合便获得+1/+1。",
+        "text_en": "[x]Get two 3/3 Bears\nwith <b>Taunt</b>. Each turn\nthey are in your hand,\nthey gain +1/+1.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1905,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "1d8dbe6259a028080c3f4e5068cc2911bb8ab047a7747ad018d3111ff5e679da",
+      "definition_sha256": "eeded1efbed8b88c6217834db042fc69601fd466ca65c87db07f0afa7ba0e085"
+    },
+    {
+      "record": {
+        "id": "WORK_050",
+        "dbf_id": 110882,
+        "name": "安戈洛宣传单",
+        "name_en": "Un'Goro Brochure",
+        "text": "抽两张随从牌，使其获得+2/+2。\n<i>（每回合翻面。）</i>",
+        "text_en": "[x]Draw two minions.\nGive them +2/+2.\n<i>(Flips each turn.)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1905,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 112389,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 112389,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "6479e740698e8f2fdda67b53a266b3b6151cd81441423e29a84130980f8c023c",
+      "definition_sha256": "b80aaf765196e1fcdc045dc7e98cc2721442dee46aa37aeebd3eaaf255719e18"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "LOOT_051t1",
+        "dbf_id": 43289,
+        "name": "法术玉石",
+        "name_en": "Jasper Spellstone",
+        "text": "对一个随从造成$4点伤害。@",
+        "text_en": "Deal $4 damage to a minion. @",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "292",
+              "name": "ARMOR",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "80de0ebf1935dbe37bf2a981b2f386c15b9cef11e2688b5733060ab89f9fd3c7",
+      "definition_sha256": "14129678753f0b83b82f0b011b666418a51b863eccae46dc4caac826d1f79180"
+    },
+    {
+      "record": {
+        "id": "LOOT_051t2",
+        "dbf_id": 43290,
+        "name": "大型法术玉石",
+        "name_en": "Greater Jasper Spellstone",
+        "text": "对一个随从造成$6点伤害。",
+        "text_en": "Deal $6 damage to a minion.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "0fd853e10117cff92b98101e9a28b30ae420d063981dd546b7baf56f2a092378",
+      "definition_sha256": "b47a5071015ef155b906ef5eaa990c5c1f7b9611090121745d4da7bd733cd627"
+    },
+    {
+      "record": {
+        "id": "MIS_301t",
+        "dbf_id": 108618,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "2831": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "acd0955ca5592674db48059fb0c5a311850454abe03786e7b8d8ce89ad9a06ef",
+      "definition_sha256": "2d9a0abfb9c9f5416342795c35e6fa058a89ac93e23a97d67feb1e61f1a5a4b8"
+    },
+    {
+      "record": {
+        "id": "SCH_612a",
+        "dbf_id": 59543,
+        "name": "呼叫增援",
+        "name_en": "Call to Aid",
+        "text": "召唤四个2/2的树人图腾。",
+        "text_en": "Summon four 2/2 Treant Totems.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "MULTIPLE_CLASSES": 130,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "1e97e9ab4a61947a362b24ca938a949b7feac0e6569ebc4284967a7604e8ab27",
+      "definition_sha256": "a99c3f0f0c34a95c384ae91623b8aa1ffbc0d0eaf458b8c496f5480c7e8b2377"
+    },
+    {
+      "record": {
+        "id": "SCH_612b",
+        "dbf_id": 59544,
+        "name": "警醒森林",
+        "name_en": "Alarm the Forest",
+        "text": "召唤四个2/2并具有<b>突袭</b>的树人图腾。<b>过载：</b>（2）",
+        "text_en": "Summon four 2/2 Treant Totems with <b>Rush</b>.\n<b>Overload:</b> (2)",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "OVERLOAD": 2,
+          "MULTIPLE_CLASSES": 130,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ec5aba2537d3bb71470f0a69f5d14a30cb98c45d399f0e25a45abc9a35f316bc",
+      "definition_sha256": "00943c16e3da3d36a1c5950708cdf4975a76872284a900bd53f87aadf4b80fd3"
+    },
+    {
+      "record": {
+        "id": "SCH_612t",
+        "dbf_id": 59552,
+        "name": "树人图腾",
+        "name_en": "Treant Totem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "MULTIPLE_CLASSES": 130,
+          "2831": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "8cabbb713fe496a904fde6c2c7a83f347d662ef843352de3f5bdd0507bef5c39",
+      "definition_sha256": "c92fee75cbd22aa121ee9d44b9886eac50044497cd7d342349a4ded926d3fc38"
+    },
+    {
+      "record": {
+        "id": "WORK_024t",
+        "dbf_id": 110787,
+        "name": "稳重的小熊",
+        "name_en": "Careful Bear",
+        "text": "<b>嘲讽</b>\n在你的回合开始时，如果本随从在你的手牌中，获得+1/+1。",
+        "text_en": "<b>Taunt</b>\nAt the start of your turn,\nif this is in your hand, gain +1/+1.",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1905,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "497c94cedf84afbfae5de7278174b16c5c31ab707f58bff9b3ab0479b6923bc3",
+      "definition_sha256": "48f61c5bed2421dd279fcd139228ca8d43993cea50eb405bda9ac1b103603cb3"
+    },
+    {
+      "record": {
+        "id": "WORK_050t",
+        "dbf_id": 112389,
+        "name": "达拉然宣传单",
+        "name_en": "Dalaran Brochure",
+        "text": "抽两张法术牌，其法力值消耗\n减少（1）点。\n<i>（每回合翻面。）</i>",
+        "text_en": "[x]Draw two spells.\nThey cost (1) less.\n<i>(Flips each turn.)</i>",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1905,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 110882,
+          "SPELL_SCHOOL": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          }
+        ]
+      },
+      "record_sha256": "19a55a1811fef226c241092cedbf31dcc6982e2528c3d72a9c53b5b708050e28",
+      "definition_sha256": "0f06b938f2df66cb6a6bc7dcd305be35f5cc9653a36650b0cffb0439791dd03e"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CATA_131",
+        "dbf_id": 122967,
+        "name": "费伍德树人",
+        "name_en": "Felwood Treant",
+        "text": "<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。<i>（还剩{0}点！）</i>@<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。<i>（已经就绪！）</i>@<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。",
+        "text_en": "[x]<b>Battlecry:</b> Gain a temporary\nMana Crystal. If you spent 4\nMana while holding this, it's\n___permanent. <i>({0} left!)</i>@[x]<b>Battlecry:</b> Gain a temporary\nMana Crystal. If you spent 4\nMana while holding this, it's\n___permanent. <i>(Ready!)</i>@[x]<b>Battlecry:</b> Gain a temporary\nMana Crystal. If you spent\n4 Mana while holding this,\nit's permanent.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 4,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "2831": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "e9a7d2b538912965186fc3d807fe700b6ccde73f85c9320c1919067a3950f861",
+      "definition_sha256": "dde813e17960b5f0f472011b0fe2023985881ca6ecdb3e008a7b157835692782",
+      "pool_card_sha256": "a9ea393d82911596ccd83d742e34a80a943628728ec42cda719eb550005d1224"
+    },
+    {
+      "record": {
+        "id": "CATA_134t3",
+        "dbf_id": 126886,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "008bc388dcfa2da3030aba8b78994ccfc05c6638118b2d5ef088ec28467a2275",
+      "definition_sha256": "c0b02aadc6e53fc1d4eebdfe94311315341d95d91f363b8f6fd6de3c44a3a520",
+      "pool_card_sha256": "7b0d2a97e00b6cc1585fb6c024bfe69e2629abd41fe6997870e10047a2f28cab"
+    },
+    {
+      "record": {
+        "id": "CORE_REV_365",
+        "dbf_id": 118100,
+        "name": "万灵之召",
+        "name_en": "Convoke the Spirits",
+        "text": "随机施放8个德鲁伊法术<i>（目标随机而定）</i>。",
+        "text_en": "[x]Cast 8 random\nDruid spells <i>(targets\nchosen randomly)</i>.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1810,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "858": 78509,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 78509,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "78509",
+              "type": "Int",
+              "value": "78509"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "755d4378f79a82202f4c481f31a97465e0650d853fa8c2f17bd41b722256c57e",
+      "definition_sha256": "ca31e617950930836dacb39b26545b88d7dbabd7201e89ab006cf5388ae6bb68",
+      "pool_card_sha256": "4477566a3c0bc744c6b7c50c09a53faf0cfda07d53d852eda2bfb50adebb0770"
+    },
+    {
+      "record": {
+        "id": "DAL_256t2",
+        "dbf_id": 53302,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "be255a6ea74395fb07f4eed9e769c65b5ec480cbec474459965e60f5c99f2ac2",
+      "definition_sha256": "1b5dca7bc4162424f6d3f7982267312ec9463f6db067518c0940fc8592d628d5",
+      "pool_card_sha256": "f3e1405c9aa3f7d51aaae4fcb11ce5265e5bda06de3e7735a12d3e49dda14e74"
+    },
+    {
+      "record": {
+        "id": "DMF_061t2",
+        "dbf_id": 61465,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1466,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "MAR Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "c731ad50028e66819b8eb4c56832598c4bff0f68d8daf85c4dc6fd23b2595449",
+      "definition_sha256": "8ec240beef2a17415988717bd4323864e5ccb9787d028232609b5ab1d22056a3",
+      "pool_card_sha256": "2f1c7f7d7f291a64ce984200ad5864725ee1fde0296f1674fe83901c25b7527f"
+    },
+    {
+      "record": {
+        "id": "DRG_311t",
+        "dbf_id": 56371,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "2831": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Nielson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "0c251cb12be6e5d6932beca2779856c5040f762aaabae47d4f39e6111653d35a",
+      "definition_sha256": "a04f5705d7e8fb5da860c7a7366680ff4f3ef36275bbfff6668dbaaabcd5a8dc",
+      "pool_card_sha256": "e31fc6c1636ea01e6b3b69742837c6aa1c1175af4f0bdbe532ebd385e33ff816"
+    },
+    {
+      "record": {
+        "id": "EDR_271t",
+        "dbf_id": 117400,
+        "name": "生机树人",
+        "name_en": "Treant of Life",
+        "text": "<b>亡语：</b>随机获取一张自然法术牌。",
+        "text_en": "<b>Deathrattle:</b> Get a\nrandom Nature spell.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1946,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "2831": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tee Fuyuan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "b3b440381e1bbe9b430ea838365d352e024cad142560e6fa8cfc0b18ca3d0940",
+      "definition_sha256": "0df61978fc365c975627106e46c6c516fd170efa4d13ee63165889053e600e12",
+      "pool_card_sha256": "ebb69a91138e88c538a78167ee6f6816c61c1c18129f86f9b5a978ce50a0e660"
+    },
+    {
+      "record": {
+        "id": "EDR_495",
+        "dbf_id": 115027,
+        "name": "扭曲的树人",
+        "name_en": "Twisted Treant",
+        "text": "<b>亡语：</b>使每个玩家手牌中的随机一张随从牌获得-2攻击力。",
+        "text_en": "<b>Deathrattle:</b> Give a random minion in each player's hand -2 Attack.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2831": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "f09d0d93a61a1afa3e89ecc4e2a79f07277c148256a2827956f694465c8f87e4",
+      "definition_sha256": "b75add259429544f745d453acd73783619e0a70a5ca3e635880fb241d944e532",
+      "pool_card_sha256": "dfeac2c063005451d478fa033e1e3418fc4e8210221af34d639f53077c217ba0"
+    },
+    {
+      "record": {
+        "id": "EDR_861",
+        "dbf_id": 116292,
+        "name": "宁静树人",
+        "name_en": "Tranquil Treant",
+        "text": "<b>亡语：</b>&双方玩家各获得一个空的法力水晶。",
+        "text_en": "<b>Deathrattle:</b>& Both\nplayers gain an empty Mana Crystal.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "2831": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "e35ba75c258279c70af15b3c35d0a6f4dfc4bb5fc15105c0da66c9c62c7b4847",
+      "definition_sha256": "4b15a569e9caca08f84dd1efff1ae17db89a910b037638f3537ba51580db0446",
+      "pool_card_sha256": "133dc6bcfd14bc8063b3fa2bf0087fd8bf990fc49fd8514340ac78060db563fb"
+    },
+    {
+      "record": {
+        "id": "END_009t",
+        "dbf_id": 121108,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "MINI_SET": 1,
+          "2831": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "880969d7c3a020ba850381137a6b321276a95032af47c749905080108849ff56",
+      "definition_sha256": "faf0750a9b6f162209b97302cb144242d62f093d50f4467efbb9c8dcd8d3dc4c",
+      "pool_card_sha256": "2f93a9150f0cc342bf93530c92662b367f3a55825965e30aa99d4a939c28e913"
+    },
+    {
+      "record": {
+        "id": "ETC_373t",
+        "dbf_id": 91248,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "2fededbaf8b81623716c64e9f81f9ab1852db021d3f5657cbd5d7fdd54515917",
+      "definition_sha256": "f0e57e05079a8cde6030f40e6487f839e1eab9747b4b79770f13e32146fa5cc0",
+      "pool_card_sha256": "e352e26072f900cf2024d0ac6bcf0ec1622f52f54d7d6f4174dbdf5bc1dc0d81"
+    },
+    {
+      "record": {
+        "id": "EX1_158t",
+        "dbf_id": 600,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "2831": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "97488c888449248a30ae41353cf9d2e7956e9a6ba424bc0d95cb3d949056bfae",
+      "definition_sha256": "bc34b12a2eb8b83bc804c93b3a87284d88ddec3221579cdf55c1b1f359fb35bb",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "EX1_tk9",
+        "dbf_id": 358,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6,
+          "2831": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "003d3b3514d4ac094d5f42821d922fa91f006c614a2b5e4eb121c802ab0ff202",
+      "definition_sha256": "b6071b6093eac10617e4484297b5b1a61317a7aa082b78722aa6f63f98c51404",
+      "pool_card_sha256": "8461f04b5f47ca77b2fca135ff402cd143e253f0a2a22cc842337bedf3833cbc"
+    },
+    {
+      "record": {
+        "id": "FP1_019t",
+        "dbf_id": 1803,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 12,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 12,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "7f3adcfb5a88b045ad5a7c33c2b6c7437f3d29d5846799e086766877ffcfa29f",
+      "definition_sha256": "f6517063a17403e1c3d4ecf1cc51df0869f26f43d6a0d031ce1425d014549156",
+      "pool_card_sha256": "b55316e7d0dfca1aab09393d15adb5be088a10eb9ab1ce56ba4d47cb2aa9a7bb"
+    },
+    {
+      "record": {
+        "id": "GIL_663t",
+        "dbf_id": 48911,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1125,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Prescott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "31d72bac3940801565bbfbab3bfb4c8d5fcd1824079144548553409ea71df2c7",
+      "definition_sha256": "0148a43016dff6081640e41a2315a5404c4332193099be04132640beb2af44e8",
+      "pool_card_sha256": "5d5b0e7d03ab0c5e3ea186e502342ce84bcbc5e01587501fd07141bf4c1d4168"
+    },
+    {
+      "record": {
+        "id": "MEND_046t",
+        "dbf_id": 130722,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "<b>战吼：</b>施放\n{0}。",
+        "text_en": "<b>Battlecry:</b> Cast {0}.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1980,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "2831": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "270e5645ef9e6516bbe8b66af518eda5b2c8a4822ba05f27df830b46678c8b6a",
+      "definition_sha256": "5a4447863586a0127abaaee1060668af75e20338549558618651d242f981a7cc",
+      "pool_card_sha256": "aa1dfb0671d9e305ce1316502df2f82f9060ff13ed338f56555075b2bf45ff2a"
+    },
+    {
+      "record": {
+        "id": "REV_311t",
+        "dbf_id": 84430,
+        "name": "日间绽放",
+        "name_en": "Sunlight Blossom",
+        "text": "从你的牌库中<b>发现</b>一张法术牌并施放。",
+        "text_en": "<b>Discover</b> a spell from\nyour deck to cast.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "575b608ac319c8a8107720ea4c74729dab63aea76123909bfb91f539029eb08f",
+      "definition_sha256": "2e9d41cbae7e7bb12c81474802942dfd03caf4668fe097da0d9e751447584b41",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "REV_311t2",
+        "dbf_id": 84432,
+        "name": "月下绽放",
+        "name_en": "Moonlight Blossom",
+        "text": "从你的牌库中<b>发现</b>一张随从牌并召唤。",
+        "text_en": "[x]<b>Discover</b> a minion from\nyour deck to summon.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "0150c7f355f8b72adb9257fb2c4ea0dd204041734d96c19a22986cf64785b2ff",
+      "definition_sha256": "e6069962d959d1079cd4c9abfcccce8061dd216235f99a3eb78102ef1ba1a594",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "REV_336t2",
+        "dbf_id": 86213,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6,
+          "2831": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Nielson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "b37b8160c49a09fae4aaf9922a6a58b01190692b0a7b00d7ffff3cc97e88ef93",
+      "definition_sha256": "acd61128d29395e4a6005f90bd81d6969549863be42060291a939b2dcbe6870c",
+      "pool_card_sha256": "17603d461bca3e2671bb97f51412b92974e52b748f77477f0124d612fcf14040"
+    },
+    {
+      "record": {
+        "id": "SW_422t",
+        "dbf_id": 68188,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1578,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jialuan Li"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "c69b7ad1b772bb69fe2ae7a051651c6024929c030bc2990c0da9115def71afa2",
+      "definition_sha256": "be719d1bb8433d87754d0cc6bc6c04dc4001946bbad126829f168f44e2d6c8df",
+      "pool_card_sha256": "a596ae28f8bcde520e690fb0b78b27c50997a2f9f043c0634534d27887a544a8"
+    },
+    {
+      "record": {
+        "id": "TLC_230t",
+        "dbf_id": 118492,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1952,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "3bacdda6aa284cb15a80420a5ea70fb3bbfea5a810739698123eb04aac280f4e",
+      "definition_sha256": "58bcc3fec93512bda858c1dcdb076c0b58f1beaf8ed22e40354bc1b39741a09c",
+      "pool_card_sha256": "02990c541ed30ddf9ec312c246bc35abb47efd2427c2580d8d366c90271f5442"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "DMF_058e",
+        "dbf_id": 61458,
+        "name": "日光增效",
+        "name_en": "Solar Empowerment",
+        "text": "在本回合中，你的下一个法术将施放两次。",
+        "text_en": "Your next spell this turn casts twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1466,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8ca33a0198fd179c1f3dc6879a969406b46be82b8f4c140073a8977611460932"
+    },
+    {
+      "record": {
+        "id": "DMF_058o",
+        "dbf_id": 61459,
+        "name": "日光增效",
+        "name_en": "Solar Empowerment",
+        "text": "在本回合中，你的下一个法术将施放两次。",
+        "text_en": "Your next spell this turn casts twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1466,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "CANT_BE_SILENCED": 1,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "46ea06a177fc6f47fd75a113980669b3b3e9821be73730bf11430aefc9bc4560"
+    },
+    {
+      "record": {
+        "id": "EDR_500",
+        "dbf_id": 120511,
+        "name": "奔逃树人",
+        "name_en": "Fleeing Treant",
+        "text": "<b><b>战吼：</b>灌注</b>你的英雄技能。你的下一个英雄技能法力值消耗为（0）点。",
+        "text_en": "[x]<b><b>Battlecry:</b> Imbue</b>\n your Hero Power.\n Your next one costs (0).",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1946,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1,
+          "1724": 1,
+          "2831": 1,
+          "CARES_ABOUT_IMBUE_CARDS": 1
+        },
+        "card_set_id": 1946,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kevin Sidharta"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "3626",
+              "name": "IMBUE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8d16239f1a6cad2ab2c97a1ffe8bea6545d6308b92765c2854184d38a76e7f10"
+    },
+    {
+      "record": {
+        "id": "EX1_573t",
+        "dbf_id": 678,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "d6b9516d3e117a9b473758a4bcd238d24ea554c4d159bb7ca08f065246d7af52"
+    },
+    {
+      "record": {
+        "id": "FB_Champs_EX1_tk9",
+        "dbf_id": 48859,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "<b>冲锋</b>",
+        "text_en": "<b>Charge</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 18,
+          "CHARGE": 1,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "251": 6,
+          "TAG_ONE_TURN_EFFECT": 1,
+          "2831": 1
+        },
+        "card_set_id": 18,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "5b70c6af734aef024be13da62cb010f90997fa9f371844eed1fa5cf30cd4c0a6"
+    },
+    {
+      "record": {
+        "id": "JAM_028",
+        "dbf_id": 94798,
+        "name": "鲜血树人",
+        "name_en": "Blood Treant",
+        "text": "消耗生命值，而非法力值。",
+        "text_en": "Costs Health instead\nof Mana.",
+        "cost": 5,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 258,
+          "MINI_SET": 1,
+          "2831": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ian Ameling"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "1d2598544aa2bde866d572118bfe44e8034fafc0c33248d129611ecaf14bd73f"
+    },
+    {
+      "record": {
+        "id": "SW_437e",
+        "dbf_id": 65544,
+        "name": "肥料充足",
+        "name_en": "Fertilizer",
+        "text": "<b>亡语：</b>抽一张牌。",
+        "text_en": "<b>Deathrattle:</b> Draw a card.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1578,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "8361129f042b0224abf378d8e4268d8caceab25f3864bc35c79f768507b6cc0f"
+    },
+    {
+      "record": {
+        "id": "TSC_651e",
+        "dbf_id": 79736,
+        "name": "爆发生长",
+        "name_en": "Explosive",
+        "text": "在本回合中+4攻击力。",
+        "text_en": "+4 Attack this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1658,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "cd4135f5e147b6f52f8bc8f1d0aa6234e7584c794d418dfff120433e1e4f8ee0"
+    },
+    {
+      "record": {
+        "id": "TTN_950t2",
+        "dbf_id": 99806,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "2831": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "51e21cb1d3234a465bd411c949f0cc1f71471313beb5fb3ce4d880fc85f65c15"
+    },
+    {
+      "record": {
+        "id": "ULD_137t",
+        "dbf_id": 54541,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1158,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "049594568b39f79810cc61b49442ac01dcfbbae49be92a09ea33228925b1bb68"
+    },
+    {
+      "record": {
+        "id": "UNG_111t1",
+        "dbf_id": 41432,
+        "name": "法力树人",
+        "name_en": "Mana Treant",
+        "text": "<b>亡语：</b>获得一个空的法力水晶。",
+        "text_en": "<b>Deathrattle:</b> Gain an empty Mana Crystal.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "2831": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Gaser"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "b7fd2c5c8b0d4ada26f33951a292ce36958a6c1f2cd433d3433ee74e7c7180b2"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_tk9",
+        "dbf_id": 70071,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1646,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6,
+          "2831": 1
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "c979c578f91624dfc7a7a5de2eb3ce581566356f2f828722bc699f933c6fa2e1"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_tk9b",
+        "dbf_id": 71310,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "<b>冲锋</b>，在回合结束时，消灭本随从。",
+        "text_en": "<b>Charge</b>. At the end of the turn, destroy this minion.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1646,
+          "CHARGE": 1,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6,
+          "2831": 1
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "3fc66ef82abe6d2b3d2bb4d3a88bdb10d72113791201c4680e4da90d98c1ad08"
+    },
+    {
+      "record": {
+        "id": "WORK_024te",
+        "dbf_id": 110788,
+        "name": "稳重",
+        "name_en": "Careful",
+        "text": "属性值提高。",
+        "text_en": "Increased stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f30e08c698567e5701284ae632323edc8582ee44f9fcebe5265f38e671206ab5"
+    },
+    {
+      "record": {
+        "id": "WORK_050e",
+        "dbf_id": 112388,
+        "name": "非凡终点",
+        "name_en": "Exotic Destination",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "4857d02b38ec1fec7bdb3e0d3faf57d9d3a6f83443b650e71207d5389ac95ed5"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "DEEP_026",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 102426,
+        "collectible": 1,
+        "slug": "102426-pendant-of-earth",
+        "classId": 6,
+        "multiClassIds": [
+          2,
+          6
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Ursula Dorada",
+        "manaCost": 3,
+        "name": "大地坠饰",
+        "text": "从你的牌库中<b>发现</b>一张随从牌，为你的英雄恢复等同于其法力值消耗的生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44a1774b520d9c09259f5b887858e14d91b7a45cd744f7b7d8f92b6884b1f936.png",
+        "imageGold": "",
+        "flavorText": "大——地——坠——饰——之——力！！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdca7ec409c42d701d6298cc17f923924bf71ccdccda1efac90d5ad94a2fcff2.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_026",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 102426,
+        "collectible": 1,
+        "slug": "102426-pendant-of-earth",
+        "classId": 6,
+        "multiClassIds": [
+          2,
+          6
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Ursula Dorada",
+        "manaCost": 3,
+        "name": "Pendant of Earth",
+        "text": "<b>Discover</b> a minion from your deck. Restore Health to your hero equal to its Cost.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6a2f8f4c73a709baa21ce772a72d798bb2a57a78643579ef5df8111e60154db2.png",
+        "imageGold": "",
+        "flavorText": "Eaaaarrrrthhhhhh Pendaaaannnttttt Poweeerrrrrrrrrrr!!!!!!!!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdca7ec409c42d701d6298cc17f923924bf71ccdccda1efac90d5ad94a2fcff2.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_058",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 61450,
+        "collectible": 1,
+        "slug": "61450-solar-eclipse",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Jun Yan",
+        "manaCost": 2,
+        "name": "日蚀",
+        "text": "在本回合中，你施放的下一个法术将施放两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dea752472bfb0d6ededb0f296409733e34e4861d8e15e584f115e08705e337f0.png",
+        "imageGold": "",
+        "flavorText": "当月亮运行到太阳和艾泽拉斯之间时发生的现象。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f975c11e71c27a59a828e36072d0ef97e9793487c2f76c8dc68f8539d740f0b.png",
+        "copyOfCardId": [
+          102185
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_058",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 61450,
+        "collectible": 1,
+        "slug": "61450-solar-eclipse",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Jun Yan",
+        "manaCost": 2,
+        "name": "Solar Eclipse",
+        "text": "The next spell you cast this turn casts twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce53f60846ac7c5f852e9c84e9d1a645cc649c352f07d47f14092c387c02ce49.png",
+        "imageGold": "",
+        "flavorText": "When the Moon is between the Sun and the Azeroth.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f975c11e71c27a59a828e36072d0ef97e9793487c2f76c8dc68f8539d740f0b.png",
+        "copyOfCardId": [
+          102185
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_314",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 55036,
+        "collectible": 1,
+        "slug": "55036-aeroponics",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Sam Nielson",
+        "manaCost": 5,
+        "name": "空气栽培",
+        "text": "抽两张牌。你每控制一个树人，本牌的法力值消耗便减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1faf372f537fe45469a4a7e46fb521408b851453cf34a094a5e3054967b1a9ed.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/03343067dd7f5c497f07f715d621b9b374da6319198f04bd43c4fab9828060a3.png",
+        "flavorText": "优秀的种子总能广为流传。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01f1348a5ac3a2fa59b84524f548c82963a3ac003936bf8065f7d62e24202730.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_314",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 55036,
+        "collectible": 1,
+        "slug": "55036-aeroponics",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Sam Nielson",
+        "manaCost": 5,
+        "name": "Aeroponics",
+        "text": "Draw 2 cards. Costs (2) less for each Treant you control.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a3f20da8b7e64bf19f6a59a5ae957577cda65d5865f63a8ffdb14d50fcb1686.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d5b6a778da1439c038dd223c7ca593e5ec1a2e63e3387c6839d767ca48736e5.png",
+        "flavorText": "Good seeds can go far.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/01f1348a5ac3a2fa59b84524f548c82963a3ac003936bf8065f7d62e24202730.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_051",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 43288,
+        "collectible": 1,
+        "slug": "43288-lesser-jasper-spellstone",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "armor": 1,
+        "name": "小型法术玉石",
+        "text": "对一个随从造成 2点伤害。 <i>（获得3点护甲值后升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca6246f325d72dc2b6b3986384b174da2dc67a8e7227a381aad0ea0cfde189eb.png",
+        "imageGold": "",
+        "flavorText": "“古老森林中的精灵们用魔石抵抗恶魔的诅咒。阴影散去，但仇恨仍在，脆弱的灵魂遭到扭曲。精灵长出了角与蹄，他们的森林开始燃烧。”——《魔石》",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c19c372df121b71992144384f71cd61067dc843e8e100db5c5b3c825be548beb.png",
+        "childIds": [
+          43289,
+          43290
+        ],
+        "copyOfCardId": [
+          111352
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_051",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 43288,
+        "collectible": 1,
+        "slug": "43288-lesser-jasper-spellstone",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "armor": 1,
+        "name": "Lesser Jasper Spellstone",
+        "text": "Deal 2 damage to a minion. <i>(Gain 3 Armor to upgrade.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/817b90c1ef7193fd55545703dd014fc7d758d0e4cc393153b88e79b35351fe25.png",
+        "imageGold": "",
+        "flavorText": "In ancient woods, elves fought the curse The demon’s shadow to disperse But hatred raged and frail souls turned Now horned and hooved their forests burned.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c19c372df121b71992144384f71cd61067dc843e8e100db5c5b3c825be548beb.png",
+        "childIds": [
+          43289,
+          43290
+        ],
+        "copyOfCardId": [
+          111352
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MAW_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 79748,
+        "collectible": 1,
+        "slug": "79748-dew-process",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 4,
+        "name": "私法程序",
+        "text": "在本局对战的剩余时间内，玩家会在其回合开始时额外抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/379c494ed5e1e4b7912b1ba7291ac4e22fd56851d65c48a51ceddd72087acb22.png",
+        "imageGold": "",
+        "flavorText": "法夜的司法：以泉谋私。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c493a8cd017ae64b5495c68daba6ee0044a320db1a069c0839aaa3f233582474.png",
+        "copyOfCardId": [
+          118034
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MAW_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 79748,
+        "collectible": 1,
+        "slug": "79748-dew-process",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 4,
+        "name": "Dew Process",
+        "text": "For the rest of the game, players draw an extra card at the start of their turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22c4bdc5599442382b1cba99aacfeaf9cb9f7e423c5737b0267cd04bbdf40ea5.png",
+        "imageGold": "",
+        "flavorText": "All part of dewing your dew diligence.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c493a8cd017ae64b5495c68daba6ee0044a320db1a069c0839aaa3f233582474.png",
+        "copyOfCardId": [
+          118034
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_301",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 108617,
+        "collectible": 1,
+        "slug": "108617-overgrown-beanstalk",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 3,
+        "name": "豆蔓疯长",
+        "text": "召唤一个2/2的树人。你每控制一个树人，抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f119135f24694a2fadf99d849bc6daba835b5a37e19b25f5acb847e4d17375f.png",
+        "imageGold": "",
+        "flavorText": "你需要训练，学习，结课，才能爬上豆蔓。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f9d471e3ac8ae0a4621dd250360f74b5e582d26650b80dcb954a62786b9d2dc.png",
+        "childIds": [
+          108618
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MIS_301",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 108617,
+        "collectible": 1,
+        "slug": "108617-overgrown-beanstalk",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 3,
+        "artistName": "Daniil Kudriavtsev",
+        "manaCost": 3,
+        "name": "Overgrown Beanstalk",
+        "text": "Summon a 2/2 Treant. Draw a card for each Treant you control.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a647a67b868ccb016879402a5536390e8766da48e113f696cc71f177b2fad1d.png",
+        "imageGold": "",
+        "flavorText": "You'd need to be pretty jacked to climb this.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f9d471e3ac8ae0a4621dd250360f74b5e582d26650b80dcb954a62786b9d2dc.png",
+        "childIds": [
+          108618
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_311",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 77562,
+        "collectible": 1,
+        "slug": "77562-nightshade-bud",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Michaela Nienaber",
+        "manaCost": 8,
+        "name": "夜影花蕾",
+        "text": "<b>抉择：</b>从你的牌库中<b>发现</b>一张随从牌并召唤；或者一张法术牌并施放。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/74684bad0433129aff42ec06840a4dc8712b163f2eb6e4c26c32e4a329eb102e.png",
+        "imageGold": "",
+        "flavorText": "光照条件需要半阴。但实际生长靠的还是阳的那一半。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0fb5cf751c4f2a39e704c7fb67df0247e014599e068c7086d018ecfe973750e.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          118078
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_311",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 77562,
+        "collectible": 1,
+        "slug": "77562-nightshade-bud",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 3,
+        "artistName": "Michaela Nienaber",
+        "manaCost": 8,
+        "name": "Nightshade Bud",
+        "text": "<b>Choose One - </b><b>Discover</b> a minion from your deck to summon; or a spell to cast.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c407aca43d07404b0fa6073c99c6b7ee30609bff4fac4be9769ae7e7ca7c6e1c.png",
+        "imageGold": "",
+        "flavorText": "It actually thrives in partial sunlight.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a0fb5cf751c4f2a39e704c7fb67df0247e014599e068c7086d018ecfe973750e.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          118078
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_365",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 78509,
+        "collectible": 1,
+        "slug": "78509-convoke-the-spirits",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Jim Nelson",
+        "manaCost": 10,
+        "name": "万灵之召",
+        "text": "随机施放8个德鲁伊法术<i>（目标随机而定）</i>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/475739074ff096b4fbd84300750db9a7dc4aba06f59ee143f66a65ab903798a9.png",
+        "imageGold": "",
+        "flavorText": "每当热门八卦出现，万灵总会聚在一起。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a345dd6cff5233b3f82744931e6c711bb23f1e7293cf9f2ef85ae0cf7ece021.png",
+        "copyOfCardId": [
+          118100
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_365",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 78509,
+        "collectible": 1,
+        "slug": "78509-convoke-the-spirits",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Jim Nelson",
+        "manaCost": 10,
+        "name": "Convoke the Spirits",
+        "text": "Cast 8 random Druid spells <i>(targets chosen randomly)</i>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f812229550d6d4c906e87921d0f4bf386704c3b2eceef359cac69be1c40b0727.png",
+        "imageGold": "",
+        "flavorText": "The spirits prefer to convoke when there's some hot gossip to discuss.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a345dd6cff5233b3f82744931e6c711bb23f1e7293cf9f2ef85ae0cf7ece021.png",
+        "copyOfCardId": [
+          118100
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_612",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 59542,
+        "collectible": 1,
+        "slug": "59542-runic-carvings",
+        "classId": 2,
+        "multiClassIds": [
+          2,
+          8
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 6,
+        "name": "雕琢符文",
+        "text": "<b>抉择：</b>召唤四个2/2的树人图腾；或者<b>过载：</b>（2）召唤四个2/2并具有<b>突袭</b>的树人图腾。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbaa36b50bbb7e9f18d3ed01470bf79fd149686713ba59eda1104db99d0e116c.png",
+        "imageGold": "",
+        "flavorText": "“多美的图腾，就这么被你刻毁了……真是符了！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51c032182291cd9579006793811279fe88aa90c67d92dd17d0b8cbf8f287dc19.png",
+        "keywordIds": [
+          14,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_612",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 59542,
+        "collectible": 1,
+        "slug": "59542-runic-carvings",
+        "classId": 2,
+        "multiClassIds": [
+          2,
+          8
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 6,
+        "name": "Runic Carvings",
+        "text": "<b>Choose One -</b> Summon four 2/2 Treant Totems; or <b>Overload:</b> (2) to summon them with <b>Rush</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f33c40a3304c81488ea85510b723ee2ce795064bcdf9dce5385cb5ac144980b.png",
+        "imageGold": "",
+        "flavorText": "\"That totem was beautiful… and you runed it!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/51c032182291cd9579006793811279fe88aa90c67d92dd17d0b8cbf8f287dc19.png",
+        "keywordIds": [
+          14,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_437",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 64385,
+        "collectible": 1,
+        "slug": "64385-composting",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 4,
+        "artistName": "Michaela Nienaber",
+        "manaCost": 2,
+        "name": "堆肥",
+        "text": "使你的所有随从获得“<b>亡语：</b>抽一张牌。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f983c6c6943aed929a7b52696552fea6e08e5d70478c7e422dde3b74d77ca62b.png",
+        "imageGold": "",
+        "flavorText": "树人的一生：鞠躬尽瘁，死而不已。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94da6e12e64e0ad9dfe55908f60f3791ba5959c3e3c83e8457683694e5fb4811.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_437",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 64385,
+        "collectible": 1,
+        "slug": "64385-composting",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 4,
+        "artistName": "Michaela Nienaber",
+        "manaCost": 2,
+        "name": "Composting",
+        "text": "Give your minions \"<b>Deathrattle:</b> Draw a card.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/059058e23cbd5f590f54c34c695994d25a70771d6b2624a505fdf4015a5d5a29.png",
+        "imageGold": "",
+        "flavorText": "The Treants really give their bodies to the cause.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/94da6e12e64e0ad9dfe55908f60f3791ba5959c3e3c83e8457683694e5fb4811.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_651",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 73464,
+        "collectible": 1,
+        "slug": "73464-seaweed-strike",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 3,
+        "name": "海草卷击",
+        "text": "对一个随从造成 4点伤害。如果你在本牌在你手中时使用过纳迦牌，使你的英雄在本回合中获得+4攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3271bd8ae2a0fdbdfee99e1077fa76bd8bbe294441d809aa1954461c220db8c7.png",
+        "imageGold": "",
+        "flavorText": "即便是机械鱼，也摆脱不了缠在海草里的结局。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07c434c62c3621d740e7cd237806209423619e739a39715272701bba76a0c943.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TSC_651",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 73464,
+        "collectible": 1,
+        "slug": "73464-seaweed-strike",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 3,
+        "name": "Seaweed Strike",
+        "text": "Deal 4 damage to a minion. If you played a Naga while holding this, also give your hero +4 Attack this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ccaffd356dc2c16ba64ce58267047388b18998543adda181032c786dc9bb148b.png",
+        "imageGold": "",
+        "flavorText": "Even as mechs, fish will still end up wrapped in seaweed.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/07c434c62c3621d740e7cd237806209423619e739a39715272701bba76a0c943.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_024",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 110786,
+        "collectible": 1,
+        "slug": "110786-handle-with-bear",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "蛮熊搬家",
+        "text": "获取两张3/3并具有<b>嘲讽</b>的熊，其每在你手牌中一回合便获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6831964f6d53189fb106ffd0e62a486749853c30c56994c872f8633a4ec77175.png",
+        "imageGold": "",
+        "flavorText": "我们的搬家双熊保证会把你的行李尽快送达。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfd43375f33d8dec7336ceb620bb88e80a59d4dba6880c67d2c4e32d01ea5965.png",
+        "childIds": [
+          110787
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_024",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 110786,
+        "collectible": 1,
+        "slug": "110786-handle-with-bear",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "Handle with Bear",
+        "text": "Get two 3/3 Bears with <b>Taunt</b>. Each turn they are in your hand, they gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96367e553254dce5569bbd34dba91dd947b564d406fa80dcb606d1bc6ac7fb61.png",
+        "imageGold": "",
+        "flavorText": "We guarantee your luggage will arrive at the speed of bear.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cfd43375f33d8dec7336ceb620bb88e80a59d4dba6880c67d2c4e32d01ea5965.png",
+        "childIds": [
+          110787
+        ],
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_050",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 110882,
+        "collectible": 1,
+        "slug": "110882-ungoro-brochure",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 4,
+        "name": "安戈洛宣传单",
+        "text": "抽两张随从牌，使其获得+2/+2。 <i>（每回合翻面。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6aae36fc5b45126977d61a4df151ca0aa6d7bbe44d957c8322373953093730a.png",
+        "imageGold": "",
+        "flavorText": "这款安戈洛套餐包含始祖龟体验之旅！至于什么魔暴龙嘛，不必在意。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb6cd5bf9e9461050c5136eb9ead5388a0935d02e3a08a710735ab285c291ae7.png",
+        "childIds": [
+          112389
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_050",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 110882,
+        "collectible": 1,
+        "slug": "110882-ungoro-brochure",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 4,
+        "name": "Un'Goro Brochure",
+        "text": "Draw two minions. Give them +2/+2. <i>(Flips each turn.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0757a0fc3126f824542a763d1a507fba35bcc5b1c9f9f8de8c679df36cc61405.png",
+        "imageGold": "",
+        "flavorText": "Our Un'Goro package includes the Tortollan travel tour! Just don't mind the Devilsaurs.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb6cd5bf9e9461050c5136eb9ead5388a0935d02e3a08a710735ab285c291ae7.png",
+        "childIds": [
+          112389
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_051t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\43289-zh_CN.json",
+      "response_sha256": "bcf36ecef346d358ce6248dd023bc36ace13c4fafdbe1024ae8401708f8b1233",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43289&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43289,
+        "collectible": 0,
+        "slug": "43289-jasper-spellstone",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "armor": 1,
+        "name": "法术玉石",
+        "text": "对一个随从造成 4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a229f93846b983e1ade0d9765b78356315723ed3dd24994e4fdd9782b628ad1.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43288,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43289&locale=zh_CN&collectible=0",
+        "sha256": "bcf36ecef346d358ce6248dd023bc36ace13c4fafdbe1024ae8401708f8b1233",
+        "bytes": 580,
+        "observed_at": "2026-10-29T16:25:00.705179+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_051t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\43289-en_US.json",
+      "response_sha256": "d553f638625657b4895f91e4275be82beec445b3cf55b6996727683e7082436a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43289&locale=en_US&collectible=0",
+      "face": {
+        "id": 43289,
+        "collectible": 0,
+        "slug": "43289-jasper-spellstone",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "armor": 1,
+        "name": "Jasper Spellstone",
+        "text": "Deal 4 damage to a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d517ebaa566546f535ce2fd6ad5c2597fbcc87ee41e844fd557037e819e8b11.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43288,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43289&locale=en_US&collectible=0",
+        "sha256": "d553f638625657b4895f91e4275be82beec445b3cf55b6996727683e7082436a",
+        "bytes": 576,
+        "observed_at": "2026-10-29T16:25:00.680317+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_051t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\43290-zh_CN.json",
+      "response_sha256": "7ec27e67d095974881ce8ea01dbc040fb0f5eafa33c0a84837cdbc1ad3d419a7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43290&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43290,
+        "collectible": 0,
+        "slug": "43290-greater-jasper-spellstone",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "name": "大型法术玉石",
+        "text": "对一个随从造成 6点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e930052725ad4106368cc946c785ee0624f6b6cd7cb453a19eaf341fd9eb57dc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43288,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43290&locale=zh_CN&collectible=0",
+        "sha256": "7ec27e67d095974881ce8ea01dbc040fb0f5eafa33c0a84837cdbc1ad3d419a7",
+        "bytes": 584,
+        "observed_at": "2026-10-29T16:25:00.708183+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_051t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\43290-en_US.json",
+      "response_sha256": "00f0ac99144806ccfdbb8e6c576327b613a618a5283cf56537518acbc22aa1be",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43290&locale=en_US&collectible=0",
+      "face": {
+        "id": 43290,
+        "collectible": 0,
+        "slug": "43290-greater-jasper-spellstone",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 1,
+        "name": "Greater Jasper Spellstone",
+        "text": "Deal 6 damage to a minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14c1dc8a51e30885ee1f3a24505c87c5b0094ef9599e836fc34815bd74934416.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43288,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43290&locale=en_US&collectible=0",
+        "sha256": "00f0ac99144806ccfdbb8e6c576327b613a618a5283cf56537518acbc22aa1be",
+        "bytes": 582,
+        "observed_at": "2026-10-29T16:25:00.352458+00:00"
+      }
+    },
+    {
+      "card_id": "MIS_301t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\108618-zh_CN.json",
+      "response_sha256": "33ab3bee3e9382dc4fb6450a178047e812f52693ecf9b67d6767a7a9f5eaf9b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=108618&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 108618,
+        "collectible": 0,
+        "slug": "108618-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "树人",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c99f45d82b2dd2d7640cbc97a18941b4c6c59793395fc554f67d89e5a87fa3b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 108617,
+        "copyOfCardId": [
+          53302,
+          54541,
+          358,
+          70071,
+          86213,
+          99806,
+          1803,
+          48911,
+          56371,
+          600,
+          678,
+          91248,
+          61465,
+          68188,
+          71310
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=108618&locale=zh_CN&collectible=0",
+        "sha256": "33ab3bee3e9382dc4fb6450a178047e812f52693ecf9b67d6767a7a9f5eaf9b7",
+        "bytes": 636,
+        "observed_at": "2026-10-29T16:25:02.357577+00:00"
+      }
+    },
+    {
+      "card_id": "MIS_301t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\108618-en_US.json",
+      "response_sha256": "84d8abc2bfbd1311c003d8423ced9100672fc97366bbdce60f9d11f286220d7a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=108618&locale=en_US&collectible=0",
+      "face": {
+        "id": 108618,
+        "collectible": 0,
+        "slug": "108618-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1897,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Treant",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca2a9a01d3f31872446360ce83e3d5534c203ebcee051a93edf856704693e67f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 108617,
+        "copyOfCardId": [
+          53302,
+          54541,
+          358,
+          70071,
+          86213,
+          99806,
+          1803,
+          48911,
+          56371,
+          600,
+          678,
+          91248,
+          61465,
+          68188,
+          71310
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=108618&locale=en_US&collectible=0",
+        "sha256": "84d8abc2bfbd1311c003d8423ced9100672fc97366bbdce60f9d11f286220d7a",
+        "bytes": 636,
+        "observed_at": "2026-10-29T16:25:03.063347+00:00"
+      }
+    },
+    {
+      "card_id": "WORK_024t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\110787-zh_CN.json",
+      "response_sha256": "3eb4398dd12a65811e46d8bc9b1afa5735aae10b0a0ff2096fd96ba41b8af221",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=110787&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 110787,
+        "collectible": 0,
+        "slug": "110787-careful-bear",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Jakub Kasper",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "稳重的小熊",
+        "text": "<b>嘲讽</b> 在你的回合开始时，如果本随从在你的手牌中，获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36b3b46370db6cb1b1b0b70fd56ae5eb26da74acb6a800e0e1889a09425f1e69.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 110786,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=110787&locale=zh_CN&collectible=0",
+        "sha256": "3eb4398dd12a65811e46d8bc9b1afa5735aae10b0a0ff2096fd96ba41b8af221",
+        "bytes": 671,
+        "observed_at": "2026-10-29T16:25:09.377491+00:00"
+      }
+    },
+    {
+      "card_id": "WORK_024t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\110787-en_US.json",
+      "response_sha256": "5d4f58d0b4d583b27643587fc39f87aff53bcb983878f0862ef8a7808e5b87d9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=110787&locale=en_US&collectible=0",
+      "face": {
+        "id": 110787,
+        "collectible": 0,
+        "slug": "110787-careful-bear",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1905,
+        "rarityId": null,
+        "artistName": "Jakub Kasper",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Careful Bear",
+        "text": "<b>Taunt</b> At the start of your turn, if this is in your hand, gain +1/+1.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a67f4809d52f11dd9c3748633c5d3286875c6f982dd9d6173f5d22b9206d0b9f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 110786,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=110787&locale=en_US&collectible=0",
+        "sha256": "5d4f58d0b4d583b27643587fc39f87aff53bcb983878f0862ef8a7808e5b87d9",
+        "bytes": 653,
+        "observed_at": "2026-10-29T16:25:09.599287+00:00"
+      }
+    },
+    {
+      "card_id": "WORK_050t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\112389-zh_CN.json",
+      "response_sha256": "3fcfddf45931c99e8ce00942cae27831bd1694008a23832ba2fc104883ee7c6e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=112389&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 112389,
+        "collectible": 0,
+        "slug": "112389-dalaran-brochure",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 4,
+        "name": "达拉然宣传单",
+        "text": "抽两张法术牌，其法力值消耗 减少（1）点。 <i>（每回合翻面。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f80a02d3c4b6ae823ddd83f92679e9e6ac3bc254885083b2e5e48a960ccf924.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 110882,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=112389&locale=zh_CN&collectible=0",
+        "sha256": "3fcfddf45931c99e8ce00942cae27831bd1694008a23832ba2fc104883ee7c6e",
+        "bytes": 642,
+        "observed_at": "2026-10-29T16:25:09.525248+00:00"
+      }
+    },
+    {
+      "card_id": "WORK_050t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k662-past-nature-draw-growth\\official-noncollectible-01\\112389-en_US.json",
+      "response_sha256": "52fdc1558ffd42322b58501ab8d18daff0e21a09d9674801500c09e27cc7e5f1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=112389&locale=en_US&collectible=0",
+      "face": {
+        "id": 112389,
+        "collectible": 0,
+        "slug": "112389-dalaran-brochure",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 4,
+        "name": "Dalaran Brochure",
+        "text": "Draw two spells. They cost (1) less. <i>(Flips each turn.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1575f35af5f79de97ee8a8a92bf9f87d4721fcf5bb540cb4fd84fe20f2be2a53.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 110882,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=112389&locale=en_US&collectible=0",
+        "sha256": "52fdc1558ffd42322b58501ab8d18daff0e21a09d9674801500c09e27cc7e5f1",
+        "bytes": 611,
+        "observed_at": "2026-10-29T16:25:09.400851+00:00"
+      }
+    }
+  ],
+  "unconfirmed_primary_faces": [
+    {
+      "card_id": "REV_311t",
+      "locale": "zh_CN",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/84430-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=84430&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:02.969415+00:00"
+      }
+    },
+    {
+      "card_id": "REV_311t",
+      "locale": "en_US",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/84430-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=84430&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:02.860404+00:00"
+      }
+    },
+    {
+      "card_id": "REV_311t2",
+      "locale": "zh_CN",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/84432-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=84432&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:04.691136+00:00"
+      }
+    },
+    {
+      "card_id": "REV_311t2",
+      "locale": "en_US",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/84432-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=84432&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:05.170789+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_612a",
+      "locale": "zh_CN",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/59543-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59543&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:05.186583+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_612a",
+      "locale": "en_US",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/59543-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59543&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:05.332178+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_612b",
+      "locale": "zh_CN",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/59544-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59544&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:07.034641+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_612b",
+      "locale": "en_US",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/59544-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59544&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:07.240613+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_612t",
+      "locale": "zh_CN",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/59552-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59552&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:07.435966+00:00"
+      }
+    },
+    {
+      "card_id": "SCH_612t",
+      "locale": "en_US",
+      "error": "Missing or ambiguous cached primary face",
+      "response_file": "outputs/card-integration-20261014/k662-past-nature-draw-growth/official-noncollectible-01/59552-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=59552&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T16:25:07.469581+00:00"
+      }
+    }
+  ],
+  "treant_member_ids": [
+    "CATA_131",
+    "CATA_134t3",
+    "DAL_256t2",
+    "DMF_061t2",
+    "DRG_311t",
+    "EDR_271t",
+    "EDR_495",
+    "EDR_500",
+    "EDR_861",
+    "END_009t",
+    "ETC_373t",
+    "EX1_158t",
+    "EX1_573t",
+    "EX1_tk9",
+    "FB_Champs_EX1_tk9",
+    "FP1_019t",
+    "GIL_663t",
+    "JAM_028",
+    "MEND_046t",
+    "MIS_301t",
+    "REV_336t2",
+    "SCH_612t",
+    "SW_422t",
+    "TLC_230t",
+    "TTN_950t2",
+    "ULD_137t",
+    "UNG_111t1",
+    "VAN_EX1_tk9",
+    "VAN_EX1_tk9b"
+  ],
+  "treant_inventory_basis": {
+    "numeric_tag": "2831",
+    "value": 1,
+    "complete_fixed_source_count": 29,
+    "matches_prior_family": "data/cards/past-summon-prices-v1.json",
+    "uses_localized_names": false,
+    "uses_registered_coverage": false
+  },
+  "complete_druid_Nature_inventory": [
+    "AT_037",
+    "AT_044",
+    "BAR_533",
+    "BAR_536",
+    "BAR_549",
+    "BOT_054",
+    "BOT_404",
+    "BOT_420",
+    "BOT_444",
+    "BT_128",
+    "BT_129",
+    "BT_130",
+    "BT_132",
+    "CFM_713",
+    "CS2_007",
+    "CS2_009",
+    "CS2_013",
+    "DAL_256",
+    "DAL_350",
+    "DAL_351",
+    "DAL_352",
+    "DEEP_026",
+    "DMF_058",
+    "DMF_732",
+    "DRG_311",
+    "DRG_314",
+    "DRG_315",
+    "DRG_318",
+    "ETC_373",
+    "ETC_387",
+    "EX1_154",
+    "EX1_155",
+    "EX1_158",
+    "EX1_161",
+    "EX1_164",
+    "EX1_169",
+    "EX1_183",
+    "EX1_571",
+    "FP1_019",
+    "GIL_553",
+    "GIL_663",
+    "GVG_031",
+    "GVG_033",
+    "GVG_041",
+    "ICC_054",
+    "KAR_075",
+    "LOOT_047",
+    "LOOT_051",
+    "LOOT_309",
+    "MAW_024",
+    "MIS_301",
+    "NX2_011",
+    "OG_195",
+    "REV_307",
+    "REV_311",
+    "REV_313",
+    "REV_336",
+    "REV_365",
+    "RLK_655",
+    "SCH_333",
+    "SCH_427",
+    "SCH_612",
+    "SW_422",
+    "SW_437",
+    "TOY_805",
+    "TRL_254",
+    "TSC_650",
+    "TSC_651",
+    "TSC_656",
+    "TTN_930",
+    "TTN_951",
+    "TTN_954",
+    "TTN_955",
+    "ULD_135",
+    "ULD_273",
+    "UNG_103",
+    "UNG_108",
+    "UNG_111",
+    "VAC_508",
+    "WON_014",
+    "WORK_024",
+    "WORK_050",
+    "WW_818",
+    "WW_823",
+    "YOP_026"
+  ],
+  "original_missing_native_ids": [
+    "DEEP_026",
+    "DMF_058",
+    "DRG_314",
+    "ETC_387",
+    "LOOT_051",
+    "MAW_024",
+    "MIS_301",
+    "REV_311",
+    "REV_365",
+    "RLK_655",
+    "SCH_612",
+    "SW_437",
+    "TSC_651",
+    "TTN_930",
+    "TTN_951",
+    "UNG_111",
+    "VAC_508",
+    "WORK_024",
+    "WORK_050"
+  ],
+  "rule_references": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/59542-runic-carvings",
+      "scope": "printed dual-class choice and Overload text"
+    },
+    {
+      "url": "https://twitter.com/Celestalon/status/1287797374425788416",
+      "via": "https://beerbrick.com/2020/07/14/scholomance-academy/",
+      "scope": "Developer answer quoted by secondary source: combine executes four ordinary then four Rush attempts plus Overload2. Primary inaccessible403.",
+      "official_cn_calibration": false
+    },
+    {
+      "url": "https://eu.forums.blizzard.com/en/hearthstone/t/several-types-of-treants/12569",
+      "scope": "Player report only: all-type minions are not Treants. Executable identity basis remains the complete fixed numeric-marker inventory.",
+      "official_cn_calibration": false
+    }
+  ],
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_rules": {
+    "deck_heal_cost": "Freeze selected original deck local cost before ordinary materialization, then heal the hero after delivery. Hand intrinsic/player discounts are not retroactive. Exact CN replacement windows deferred.",
+    "treant_board_price": "Complete fixed29 IDs, current face, ordinary friendly board rows, two mana each. Preserve both full ordered boards and the existing board-count policy including Dormant minions. Tribe-all and names do not qualify. Exact CN scope edges deferred.",
+    "brochure_flip": "Reuse harmonic policy: actual holder turn_ended while in hand only. Native Arcane alternate retained. Precise CN flip window deferred.",
+    "brochure_draws": "The two actual original SPELL-query roots receive their own local discount only while the same hand residence remains valid. Draw-cast replacement children and reaction extras are excluded. Existing explicit same-entity draw transformations keep their original residence policy.",
+    "dew_start": "One permanent independent program per effect; both actual turn_started players receive an ordinary draw before normal start draw through existing pipeline. Relative CN trigger order deferred.",
+    "spellstone_upgrade": "Actual armor event amount and clear_local. Excess stays within current stage; no carry into next stage on the same event.",
+    "convoke_source": "Use unchanged CORE_REV_365 behavior and complete constructed.cards Druid spell query. Unknown reachable effects stay explicit failures; no candidate trimming."
+  }
+}
