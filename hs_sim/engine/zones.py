@@ -624,6 +624,7 @@ class DrawMatching(Effect):
     owner_id: int | None = None
     card_ids: tuple[str, ...] = ()
     on_empty: tuple[Effect, ...] = ()
+    cost_basis: str = 'printed'
 
     def __post_init__(self):
         _player(self.player_id); filter_value(self.query); _source(self.source_id)
@@ -632,6 +633,12 @@ class DrawMatching(Effect):
         from .pools import ids
         ids(self.card_ids, 'positive physical draw card IDs', unique=True)
         success_value(self.on_empty)
+        if type(self.cost_basis) is not str or self.cost_basis not in ('printed', 'local'):
+            raise ValueError('Unknown physical draw Cost basis')
+        if self.cost_basis == 'local' and (self.source_id is None or
+                self.owner_id not in (None, self.player_id) or
+                self.query.min_cost is None and self.query.max_cost is None):
+            raise ValueError('Local-cost draw requires an attributed bounded own-deck query')
         if self.on_empty and (self.count != 1 or self.empty_deck != 'skip'):
             raise ValueError('Empty matching-draw fallback requires one skip-on-empty attempt')
         if self.selection not in ('random', 'first', 'highest_cost', 'lowest_cost') or self.empty_deck not in ('skip', 'fatigue'):
@@ -1227,7 +1234,7 @@ def reorder_zone(r, effect, *, source_id=None):
     r.emit('deck_reordered' if effect.zone == Zone.DECK else 'hand_reordered', player_id=effect.player_id, source_id=source_id)
 
 
-def zone_candidates(r, owner_id, zone, query, player_id, source_id=None):
+def zone_candidates(r, owner_id, zone, query, player_id, source_id=None, *, cost_basis='printed'):
     filter_value(query); card_zone(zone)
     source_exists(r, source_id)
     current_class = None
@@ -1247,7 +1254,9 @@ def zone_candidates(r, owner_id, zone, query, player_id, source_id=None):
         definition = printed_definition(r.registry, entity)
         if entity.card_id in excluded:
             continue
-        if matches_metadata(query, card_id=entity.card_id, kind=definition.kind, cost=definition.cost,
+        from .costs import local_cost
+        cost = max(0, local_cost(entity)[0]) if cost_basis == 'local' else definition.cost
+        if matches_metadata(query, card_id=entity.card_id, kind=definition.kind, cost=cost,
                 meta=definition.metadata, spell_school=definition.spell_school,
                 keywords=definition.keywords, current_class=current_class,
                 printed_battlecry=definition.battlecry is not None,
@@ -1265,7 +1274,8 @@ def matching_card(r, effect):
     destroying = type(effect) is DestroyDeckMatching
     zone = Zone.DECK if drawing or destroying else Zone.HAND
     owner = effect.owner_id if drawing and effect.owner_id is not None else effect.player_id
-    candidates = zone_candidates(r, owner, zone, effect.query, effect.player_id, effect.source_id)
+    candidates = zone_candidates(r, owner, zone, effect.query, effect.player_id, effect.source_id,
+        cost_basis=effect.cost_basis if drawing else 'printed')
     if drawing and effect.card_ids:
         for cid in effect.card_ids: r.registry.card(cid)
         candidates = tuple(c for c in candidates if c.card_id in effect.card_ids)

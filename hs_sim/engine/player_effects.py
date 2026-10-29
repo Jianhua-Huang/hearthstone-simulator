@@ -407,7 +407,7 @@ def manual_play_allowed(state, registry, player_id, card_kind):
 
 def due_turn_rules(state, registry, turn):
     return tuple((player.id, effect) for player in state.players.values() for effect in player.player_effects
-                 if registry.player_effect(effect.spec_id).kind in ('turn_rule','next_spell_damage','next_healing_damage','next_power_damage') and effect.created_turn <= turn)
+                 if registry.player_effect(effect.spec_id).kind in ('turn_rule','turn_trigger','next_spell_damage','next_healing_damage','next_power_damage') and effect.created_turn <= turn)
 
 
 def expire_turn_rules(r, turn):

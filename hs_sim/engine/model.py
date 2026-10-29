@@ -9232,6 +9232,12 @@ class PlayerEffectSpec:
                 raise ValueError('Turn rules cannot combine other player effect text')
         elif self.target_policy is not None or self.allowed_card_types:
             raise ValueError('Target and manual play policies require an independent current-turn rule')
+        if self.kind == 'turn_trigger' and (not self.triggers or any((self.spell_damage,
+                self.auras, self.deathrattle_repeats, self.end_turn_repeats, self.producer_quantities,
+                self.keyword_auras, self.target_policy, self.allowed_card_types,
+                self.opponent_spell_cost, self.spell_effects, self.capture_health_source,
+                self.stored_spell, self.next_spell_cost_reduction))):
+            raise ValueError('Current-turn listeners require independent nonempty event triggers')
         if type(self.keyword_auras) is not tuple or any(type(a) not in
                 (PlayerKeywordAuraSpec,PlayerKeywordConditionAuraSpec) for a in self.keyword_auras):
             raise ValueError('Player keyword auras require immutable typed declarations')
@@ -9245,9 +9251,9 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('ritual', 'persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
+        if self.kind not in ('ritual', 'persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'turn_trigger', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
             raise ValueError('Unsupported player effect kind')
-        if self.kind in ('persistent', 'turn_rule', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
+        if self.kind in ('persistent', 'turn_rule', 'turn_trigger', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
                 raise ValueError('Whole-game effects have no countdown or expiry')
         else:
@@ -12022,7 +12028,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             validate_cost_binding(state, registry, player.id, effect)
             from .hand_inspection import validate_program as validate_hand_investigation
             validate_hand_investigation(state, registry, player.id, effect)
-            if spec.kind in ('turn_rule','next_spell_damage','next_healing_damage','next_power_damage') and effect.created_turn != state.turn:
+            if spec.kind in ('turn_rule','turn_trigger','next_spell_damage','next_healing_damage','next_power_damage') and effect.created_turn != state.turn:
                 raise ValueError('Current-turn target rule cannot survive into another actual turn')
             from .repeat_source_conditions import validate_source_declaration
             for repeat in spec.end_turn_repeats:

@@ -349,7 +349,9 @@ class PastNatureBasicTests(CardBatchTestMixin, unittest.TestCase):
         self.play(g, 'REV_307', g.state.players[2].hero_id)
         self.play(g, 'YOP_026')
         self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].board], ['REV_336t2', 'DMF_061t2', 'DMF_061t2'])
-        self.assertEqual(len(f.registry.cards), 3264)
+        for row in native.load_batch()['cards'] + native.load_batch()['dependencies']:
+            self.assertEqual(canonical_digest(asdict(f.registry.card(row['record']['id']))),
+                row['definition_sha256'])
         with self.assertRaises(UnsupportedDefinitionError):
             resolve_candidates(f.registry, f.context, PAST_POOL, QUERIES[WO],
                 current_class=CardClass.DRUID, source_card_id=WO, exclude_source_by_rule=True)
