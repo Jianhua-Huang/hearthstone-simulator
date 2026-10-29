@@ -86,8 +86,17 @@ def local_pool(registry,context):
         members=tuple(PoolMember(cid)for cid in d['merged_member_ids']))
 
 
-def register_scopes(registry,context):
+def register_scopes(registry,context,*,reviewed_pool=None):
     d=load_batch();expected=local_pool(registry,context);pool=registry.pool(NATURE_PAST_POOL,context)
+    if reviewed_pool is not None:
+        if (type(reviewed_pool)is not type(expected)or reviewed_pool.id!=expected.id or
+                reviewed_pool.target_id!=context.target_id or reviewed_pool.mode!=context.mode or
+                not reviewed_pool.complete or reviewed_pool.excluded_card_ids or
+                reviewed_pool.members[:len(expected.members)]!=expected.members or
+                not reviewed_pool.version.endswith(':'+expected.version)or
+                len({m.card_id for m in reviewed_pool.members})!=len(reviewed_pool.members)):
+            raise TargetValidationError('Priest Nature extension must retain its complete original prefix and source roles')
+        expected=reviewed_pool
     if pool!=replace(expected,version=context.target_id+':'+expected.version):
         raise TargetValidationError('Priest Nature cannot borrow or crop a rebound original inventory')
     for view in d['views']:

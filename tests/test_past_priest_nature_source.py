@@ -124,7 +124,9 @@ class PriestNatureSourceTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_complete_priest_and_five_independently_empty_candidate_views(self):
         h=host();d=native.load_batch();p=h.registry.pool(NATURE_PAST_POOL,h.context)
-        self.assertEqual(p.members,tuple(PoolMember(cid)for cid in d['merged_member_ids']))
+        self.assertEqual(p.members[:86],tuple(PoolMember(cid)for cid in d['merged_member_ids']))
+        from hs_sim.cards.past_rogue_nature_source import ROOTS
+        self.assertEqual(p.members[86:],tuple(PoolMember(cid)for cid in ROOTS))
         for view in d['views']:
             values=resolve_candidates(h.registry,h.context,p.id,QUERIES[WO],current_class=CardClass(view['current_class']),
                 source_card_id=WO,exclude_source_by_rule=True)
@@ -141,7 +143,8 @@ class PriestNatureSourceTests(CardBatchTestMixin,unittest.TestCase):
                 {'version':'borrowed'},{'complete':False},{'target_id':'other-context'}):
             with self.subTest(patch=tuple(patch)):
                 q=Proxy();q.changed=replace(p,**patch)
-                with self.assertRaises(TargetValidationError):native.register_scopes(q,h.context)
+                from hs_sim.cards.past_rogue_nature_source import local_pool
+                with self.assertRaises(TargetValidationError):native.register_scopes(q,h.context,reviewed_pool=local_pool(h.registry,h.context))
 
     def test_late_native_member_failure_registers_no_partial_scopes(self):
         h=host();calls=[]

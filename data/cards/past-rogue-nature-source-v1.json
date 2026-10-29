@@ -1,0 +1,2629 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-rogue-past-nature-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BAR_318",
+        "dbf_id": 62889,
+        "name": "银叶草药膏",
+        "name_en": "Silverleaf Poison",
+        "text": "使你的武器获得“在你的英雄攻击后，抽一张牌。”",
+        "text_en": "[x]Give your weapon\n\"After your hero attacks,\ndraw a card.\"",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1525,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "1623": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "5",
+              "type": "Int",
+              "value": "5"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "a480013251f6522b386a3108791d13a66ba049ae3eb74b8859a8c998062c72bc",
+      "definition_sha256": "6a3a9333f48b71c7bd5e953fbc7de892898aedf058f3afd9b392952c5fd93e95",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "BAR_321",
+        "dbf_id": 62892,
+        "name": "麻痹药膏",
+        "name_en": "Paralytic Poison",
+        "text": "使你的武器获得+1攻击力和“你的英雄在攻击时<b>免疫</b>。”",
+        "text_en": "[x]Give your weapon +1\nAttack and \"Your hero is\n<b>Immune</b> while attacking.\"",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1525,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "1623": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Allsop"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "240",
+              "name": "IMMUNE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6e8dc3714ce7bc94ac3e110650bed8626dcc70a098b3e14b40f446902e5e4e42",
+      "definition_sha256": "d8d258b726fbcdbeca71d6760908730b00dcf0a1200c06d95db4ce7434bff96c",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "CS2_074",
+        "dbf_id": 459,
+        "name": "致命药膏",
+        "name_en": "Deadly Poison",
+        "text": "使你的武器获得+2攻击力。",
+        "text_en": "Give your weapon +2_Attack.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1635,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "1623": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Trevor Jacobs"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "2ee3aea6fa9d75c340fccc80b3caa0b8fd1498bd75525ce9d85f16c28e82223b",
+      "definition_sha256": "35d7dce40dde5afc237fe2144e1b20f0f8753cf6c111c67c7e7b1cbd1ff4d683",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "ICC_221",
+        "dbf_id": 42665,
+        "name": "吸血药膏",
+        "name_en": "Leeching Poison",
+        "text": "在本回合中，你的武器获得\n<b>吸血</b>。",
+        "text_en": "Give your weapon <b>Lifesteal</b> this turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1001,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "1623": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Thompson"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "685",
+              "name": "LIFESTEAL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4cddcba172839512ac6bddaaf33986dcbe3347b3087f079a1813c6658c3483ef",
+      "definition_sha256": "f84b7770331fd7df37d94cf9b5b3b9b57288ef9b66843ce9111583634bd6cce2",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "UNG_057",
+        "dbf_id": 41207,
+        "name": "刀瓣齐射",
+        "name_en": "Razorpetal Volley",
+        "text": "将两张可造成2点伤害的“刀瓣”置入你的手牌。",
+        "text_en": "Add two Razorpetals to_your hand that deal_2 damage.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 41206,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 41206,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Chanchai Luechaiwattanasopon"
+          }
+        ]
+      },
+      "record_sha256": "ffffb90dabb0d31528b3a3488d9e1fd9d6d631cf5cb8649661516a90fce6916f",
+      "definition_sha256": "c597dad4055ee854d06fbdd8cf874d55bdb9b8087fe3d67af37f3dd728809064",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "UNG_060",
+        "dbf_id": 41212,
+        "name": "拟态豆荚",
+        "name_en": "Mimic Pod",
+        "text": "抽一张牌，然后将一张它的复制置入你的手牌。",
+        "text_en": "Draw a card, then add a copy of it to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "75280550d51347dc37d9dca84fe96788106d396e80b5d651002643df7f46b2b3",
+      "definition_sha256": "2b3f15fb3419003bdd57ca9155588499cd6227d4773634ea62d53f34be8d4f5a",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "UNG_823",
+        "dbf_id": 41834,
+        "name": "浸毒武器",
+        "name_en": "Envenom Weapon",
+        "text": "使你的武器获得<b>剧毒</b>。",
+        "text_en": "Give your weapon <b>Poisonous</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "54a569bec16f6df12ef918f083867b9e639d8188cf6c6ed7314505af8819498a",
+      "definition_sha256": "9b996638382e1a1fc21a32ee51bdab06db06bf547314784c7b1c81341104568f",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "UNG_856",
+        "dbf_id": 42011,
+        "name": "孢子致幻",
+        "name_en": "Spore Hallucination",
+        "text": "<b>发现</b>一张你对手职业的卡牌。",
+        "text_en": "<b>Discover</b> a card from your opponent's class.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daria Tuzova"
+          }
+        ]
+      },
+      "record_sha256": "4c36da9718a736ab475764886488ef13fee9c29a0e7c467959d4c09830c7a1c4",
+      "definition_sha256": "55fb8c43d54e01cfc38921d43c10e2638fd289dd50b208fa837ec6e8d488ca02",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "YOP_015",
+        "dbf_id": 61953,
+        "name": "氮素药膏",
+        "name_en": "Nitroboost Poison",
+        "text": "使一个随从获得+2攻击力。<b>腐蚀：</b>并使你的武器获得+2攻击力。",
+        "text_en": "Give a minion +2 Attack.\n<b>Corrupt:</b> And your weapon.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 576,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 62001,
+          "CORRUPT": 1,
+          "1623": 1,
+          "SPELL_SCHOOL": 4,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "738fee9a7064a1018007e445df3955c3b0c2cc60870ca5e3e6ce9dc07283c5b6",
+      "definition_sha256": "58d387b93468c92ca37fe769b27c7624ec8b24654a9285b3d8e254f8a434f27d",
+      "pool_metadata_present_before": false
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "UNG_057t1",
+        "dbf_id": 41206,
+        "name": "刀瓣",
+        "name_en": "Razorpetal",
+        "text": "造成$2点伤害。",
+        "text_en": "Deal $2 damage.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 7,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "251": 2,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Akkapoj Thawornsathitwong"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "f150cd415a90110c1af920234cfe20d01264116c2b172ac5711ecc1f7594f0d2",
+      "definition_sha256": "092ba6e89e3a3f5bb48a6ff6065c8b6180a190d87fb1a63964882aee434586f5",
+      "pool_metadata_present_before": false
+    },
+    {
+      "record": {
+        "id": "YOP_015t",
+        "dbf_id": 62001,
+        "name": "氮素药膏",
+        "name_en": "Nitroboost Poison",
+        "text": "<b>已腐蚀</b>\n使一个随从和你的武器获得+2攻击力。",
+        "text_en": "<b>Corrupted</b>\nGive a minion and your weapon +2 Attack.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "MULTIPLE_CLASSES": 576,
+          "CORRUPTED_CARD": 1,
+          "1623": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "7d4907dcbc92ef312b2f2cf124f3fbbaf02d9b4a310d7b31634d35e8f296f732",
+      "definition_sha256": "5d49bc248655356d081294015a90b55f322bbcf5442f15494dc0a7ced45fb126",
+      "pool_metadata_present_before": false
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BAR_318e",
+        "dbf_id": 62896,
+        "name": "银叶草药膏",
+        "name_en": "Silverleaf Poison",
+        "text": "在你的英雄攻击后，抽一张牌。",
+        "text_en": "After your hero attacks, draw a card.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1525,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3ea8dacb95d4365a02a17734c685fa33f7d4d4d42bb986a5c887696d87b8dac7"
+    },
+    {
+      "record": {
+        "id": "BAR_321e",
+        "dbf_id": 62900,
+        "name": "麻痹药膏",
+        "name_en": "Paralytic Poison",
+        "text": "+1攻击力和攻击时<b>免疫</b>。",
+        "text_en": "+1 Attack and <b>Immune</b> while attacking.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 7,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b1e55b042d8dbc7c672ec5be047171fa92673fd383b1745ad676ab0991ec85b0"
+    },
+    {
+      "record": {
+        "id": "CS2_074e",
+        "dbf_id": 1739,
+        "name": "致命药膏",
+        "name_en": "Deadly Poison",
+        "text": "+2攻击力。",
+        "text_en": "+2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "10b8112062e8b46247789e47f67554587a185a05093f23a007d41c1696149811"
+    },
+    {
+      "record": {
+        "id": "ICC_221e",
+        "dbf_id": 42664,
+        "name": "吸血之毒",
+        "name_en": "Leeching Poison",
+        "text": "在本回合中拥有<b>吸血</b>。",
+        "text_en": "Has <b>Lifesteal</b> this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1001,
+          "CLASS": 7,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_BIRTH_VISUAL": 1,
+          "ENCHANTMENT_IDLE_VISUAL": 1,
+          "TAG_ONE_TURN_EFFECT": 1,
+          "LIFESTEAL": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3d987cb5630254e2071a835db93f3af1012dadb3a657bdf13aefc8309f3c2f3e"
+    },
+    {
+      "record": {
+        "id": "UNG_823e",
+        "dbf_id": 47082,
+        "name": "浸毒",
+        "name_en": "Envenomed",
+        "text": "<b>剧毒</b>",
+        "text_en": "<b>Poisonous</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "POISONOUS": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "67abe98ca228a5b3ee091828dbe7ed8f302bd76e8b356e6b86ffcb8663d5ae9d"
+    },
+    {
+      "record": {
+        "id": "YOP_015e",
+        "dbf_id": 62002,
+        "name": "氮素药膏",
+        "name_en": "Nitroboost Poison",
+        "text": "+2攻击力。",
+        "text_en": "+2 Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7e7dcdd891d0ea91e7951b95c2b64d69bec010ef54ecef391b5d19339941c487"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BAR_318",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 62889,
+        "collectible": 1,
+        "slug": "62889-silverleaf-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 1,
+        "name": "银叶草药膏",
+        "text": "使你的武器获得“在你的英雄攻击后，抽一张牌。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec96608d4247e4701f5470b5861efdb869962e9fb421cfc519e36f9fe0af8fd2.png",
+        "imageGold": "",
+        "flavorText": "卡扎库斯下药的方式越来越直接了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b1170e600dc30c2a4f568bd1d685a6f2e50f5774cea9bf3efd565f77d8c8e42.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_318",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 62889,
+        "collectible": 1,
+        "slug": "62889-silverleaf-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 1,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 1,
+        "name": "Silverleaf Poison",
+        "text": "Give your weapon \"After your hero attacks, draw a card.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/710f5923f91e2d66e290e12bc3947c7a418cd14d5b9333914a4273a68b321a8b.png",
+        "imageGold": "",
+        "flavorText": "Kazakus has taken to a more direct approach in recent times.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5b1170e600dc30c2a4f568bd1d685a6f2e50f5774cea9bf3efd565f77d8c8e42.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_321",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 62892,
+        "collectible": 1,
+        "slug": "62892-paralytic-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "manaCost": 1,
+        "name": "麻痹药膏",
+        "text": "使你的武器获得+1攻击力和“你的英雄在攻击时<b>免疫</b>。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd2bdc18c85005dc6f928541d093250708be3b982a045ca5e2054827fd2ca3ed.png",
+        "imageGold": "",
+        "flavorText": "其实只要锤子就够了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a50695d91f283e02e9ac335b5291ae04c619146bbed772579e70d23a67f08af.png",
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_321",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 62892,
+        "collectible": 1,
+        "slug": "62892-paralytic-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "manaCost": 1,
+        "name": "Paralytic Poison",
+        "text": "Give your weapon +1 Attack and \"Your hero is <b>Immune</b> while attacking.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3952f51313e5f184a375771b5b0371d366c386fbc7ffa94f05978993d6222fe4.png",
+        "imageGold": "",
+        "flavorText": "The hammer is overkill.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a50695d91f283e02e9ac335b5291ae04c619146bbed772579e70d23a67f08af.png",
+        "keywordIds": [
+          17
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_074",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 459,
+        "collectible": 1,
+        "slug": "459-deadly-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Trevor Jacobs",
+        "manaCost": 1,
+        "name": "致命药膏",
+        "text": "使你的武器获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/20e0323318811eb82cf634c711b8df1de2a66a98bdd4c482db6fe801e53e1e78.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b626faf3575889a9fedaddb7f6c291a7280596f5ccb54dff5bbff62df2cdc0be.png",
+        "flavorText": "潜行者们都小心翼翼地保守着制毒的秘密，唯恐法师们把毒药用在他们的法术之中。毒性箭？剧毒之雨？毒元素？听上去就很可怕。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b1f8e9abc1154c229a63e67dca24ced53bd8e1f54288822cac60ab948c45eb8.png",
+        "copyOfCardId": [
+          68349,
+          69522
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_074",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 459,
+        "collectible": 1,
+        "slug": "459-deadly-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Trevor Jacobs",
+        "manaCost": 1,
+        "name": "Deadly Poison",
+        "text": "Give your weapon +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33baa6f8c72f0a86d7aa1f37be8cca25d9302af6a2416741246744d7cd97eb03.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b626faf3575889a9fedaddb7f6c291a7280596f5ccb54dff5bbff62df2cdc0be.png",
+        "flavorText": "Rogues guard the secrets to poison-making carefully, lest magi start incorporating poison into their spells. Poisonbolt? Rain of Poison? Poison Elemental? Nobody wants that.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b1f8e9abc1154c229a63e67dca24ced53bd8e1f54288822cac60ab948c45eb8.png",
+        "copyOfCardId": [
+          68349,
+          69522
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_221",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 42665,
+        "collectible": 1,
+        "slug": "42665-leeching-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Ben Thompson",
+        "manaCost": 1,
+        "name": "吸血药膏",
+        "text": "在本回合中，你的武器获得 <b>吸血</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/436d40693ee958d2f9cbeaaa15cca7bd0683a9529247f53b3e1f4d0a4b61e650.png",
+        "imageGold": "",
+        "flavorText": "本品为纯天然制剂，未添加任何有毒有害物质。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eee38bb4495d5c90bf7c14c1051508256b60b102da6b883678f1473f7e25f4c4.png",
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          95721
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_221",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 42665,
+        "collectible": 1,
+        "slug": "42665-leeching-poison",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 1,
+        "artistName": "Ben Thompson",
+        "manaCost": 1,
+        "name": "Leeching Poison",
+        "text": "Give your weapon <b>Lifesteal</b> this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8841bb7b201bebe0abeeb8e7bab81fe30d1fcba634f5d11ce90cdb2e60c084c.png",
+        "imageGold": "",
+        "flavorText": "No actual leeches were harmed in the creation of this card.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eee38bb4495d5c90bf7c14c1051508256b60b102da6b883678f1473f7e25f4c4.png",
+        "keywordIds": [
+          38
+        ],
+        "copyOfCardId": [
+          95721
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_057",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 41207,
+        "collectible": 1,
+        "slug": "41207-razorpetal-volley",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Chanchai Luechaiwattanasopon",
+        "manaCost": 2,
+        "name": "刀瓣齐射",
+        "text": "将两张可造成2点伤害的“刀瓣”置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5d844cd3f1da1780fc69756cd0a642039ef24c8b445cf450ecc6c99f2c1b1ec4.png",
+        "imageGold": "",
+        "flavorText": "经常不洗澡的人，会有头皮屑。经常不洗澡的花…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab2a54fffd139cb9d93d47345ca091ab7004258989373a8cda29d99e4fe2beb1.png",
+        "childIds": [
+          41206
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_057",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 41207,
+        "collectible": 1,
+        "slug": "41207-razorpetal-volley",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Chanchai Luechaiwattanasopon",
+        "manaCost": 2,
+        "name": "Razorpetal Volley",
+        "text": "Add two Razorpetals to your hand that deal 2 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e56167394265459ae5a58c71315f9060f00061346158eb849512ec37a162f2ba.png",
+        "imageGold": "",
+        "flavorText": "The result of a fundamental misunderstanding of the phrase \"flower power\".",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab2a54fffd139cb9d93d47345ca091ab7004258989373a8cda29d99e4fe2beb1.png",
+        "childIds": [
+          41206
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_060",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 41212,
+        "collectible": 1,
+        "slug": "41212-mimic-pod",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "拟态豆荚",
+        "text": "抽一张牌，然后将一张它的复制置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c57ac4857be8557328b8c019559c6e6c617b2cffd99af4b35f69ca571992958e.png",
+        "imageGold": "",
+        "flavorText": "妈妈常说，吃啥补啥！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4eaa62610175b79b62c175d47066ad3949efb7ccee315280f2f60c022f4acdbe.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_060",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 41212,
+        "collectible": 1,
+        "slug": "41212-mimic-pod",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Mimic Pod",
+        "text": "Draw a card, then add a copy of it to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/62dc3664f10528bb6a15c823505dfa7945bf0b7ec2c4184d6c881297da9e7945.png",
+        "imageGold": "",
+        "flavorText": "Jinx!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4eaa62610175b79b62c175d47066ad3949efb7ccee315280f2f60c022f4acdbe.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_823",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 41834,
+        "collectible": 1,
+        "slug": "41834-envenom-weapon",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 2,
+        "name": "浸毒武器",
+        "text": "使你的武器获得<b>剧毒</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d086fe94580a2498bc6145cd0ffee8e424f4ffae34415625b3305be68908f3ca.png",
+        "imageGold": "",
+        "flavorText": "毒液取自安戈洛的当地植物，威力惊人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d3357cc68790780cd7dde436334702be18f83ddca616f5eb2acd62430c0484f.png",
+        "keywordIds": [
+          32
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_823",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 41834,
+        "collectible": 1,
+        "slug": "41834-envenom-weapon",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Mauricio Herrera",
+        "manaCost": 2,
+        "name": "Envenom Weapon",
+        "text": "Give your weapon <b>Poisonous</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d42fbc8e308bd86e4707dd815b85a9f18c36703d5c9965f1d708aeee1e11f3b8.png",
+        "imageGold": "",
+        "flavorText": "Like Deadly Poison, but deadlier.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9d3357cc68790780cd7dde436334702be18f83ddca616f5eb2acd62430c0484f.png",
+        "keywordIds": [
+          32
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_856",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 42011,
+        "collectible": 1,
+        "slug": "42011-spore-hallucination",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Daria Tuzova",
+        "manaCost": 1,
+        "name": "孢子致幻",
+        "text": "<b>发现</b>一张你对手职业的卡牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5db3cd7ce1940edf297fb0da20f8db95de5c1cc87e5a083100e94b2673fa280b.png",
+        "imageGold": "",
+        "flavorText": "是好的那种幻觉。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6ca946ed203cc24fe1df294f678fdc52e7b2406b1a3ac3569b752fe183dfe35.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_856",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 42011,
+        "collectible": 1,
+        "slug": "42011-spore-hallucination",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 1,
+        "artistName": "Daria Tuzova",
+        "manaCost": 1,
+        "name": "Spore Hallucination",
+        "text": "<b>Discover</b> a card from your opponent's class.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bbb19776744ea15da06ae8b5d83ff40eabed079b0b155bacb56e5f4abd80d0c0.png",
+        "imageGold": "",
+        "flavorText": "It's the good kind of hallucination.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e6ca946ed203cc24fe1df294f678fdc52e7b2406b1a3ac3569b752fe183dfe35.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOP_015",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 61953,
+        "collectible": 1,
+        "slug": "61953-nitroboost-poison",
+        "classId": 12,
+        "multiClassIds": [
+          7,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "manaCost": 2,
+        "name": "氮素药膏",
+        "text": "使一个随从获得+2攻击力。<b>腐蚀：</b>并使你的武器获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1ecd357561da71298d1ee0e54ce3a8c987a01cde3300054ee846ccd3b4836ee.png",
+        "imageGold": "",
+        "flavorText": "倒进油箱里的冰牛奶并不能提供氮气加速，但用来做胜利纪念甜点却是一流。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/766bd29caaa69f19423614dc4736dbff27d3f3ea8d3535dad4e3990b08fce2e4.png",
+        "childIds": [
+          62001
+        ],
+        "keywordIds": [
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOP_015",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 61953,
+        "collectible": 1,
+        "slug": "61953-nitroboost-poison",
+        "classId": 12,
+        "multiClassIds": [
+          7,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "manaCost": 2,
+        "name": "Nitroboost Poison",
+        "text": "Give a minion +2 Attack. <b>Corrupt:</b> And your weapon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff116ca182dba9abd549842479096d860bd50f65af541d4109f21c104c2612cc.png",
+        "imageGold": "",
+        "flavorText": "Pouring iced milk into your vehicle's fuel tank does NOT provide a Nitro boost, but it does go great with your victory cookies.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/766bd29caaa69f19423614dc4736dbff27d3f3ea8d3535dad4e3990b08fce2e4.png",
+        "childIds": [
+          62001
+        ],
+        "keywordIds": [
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_057t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k666-rogue-nature-weapon-copies\\official-noncollectible-01\\41206-zh_CN.json",
+      "response_sha256": "af2d254d42533c171d19fff618eb9ee330afafb3f38d29d163ed5bb2776c0d43",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41206&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 41206,
+        "collectible": 0,
+        "slug": "41206-razorpetal",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Akkapoj Thawornsathitwong",
+        "manaCost": 1,
+        "name": "刀瓣",
+        "text": "造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df5464de6c32d6c800edff1cb875abba26a5acccdda5744ef0ed3eab842cef56.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41207,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41206&locale=zh_CN&collectible=0",
+        "sha256": "af2d254d42533c171d19fff618eb9ee330afafb3f38d29d163ed5bb2776c0d43",
+        "bytes": 558,
+        "observed_at": "2026-10-29T20:26:58.396021+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_057t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k666-rogue-nature-weapon-copies\\official-noncollectible-01\\41206-en_US.json",
+      "response_sha256": "f7103d1e4e92a1fc2c3050acc4ef636b2acb44378166834ef879318b0f32a784",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41206&locale=en_US&collectible=0",
+      "face": {
+        "id": 41206,
+        "collectible": 0,
+        "slug": "41206-razorpetal",
+        "classId": 7,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Akkapoj Thawornsathitwong",
+        "manaCost": 1,
+        "name": "Razorpetal",
+        "text": "Deal 2 damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/86564bd3823e7e1b15dd55f5e9508c3e978882c53aebacbe8d55aa1a83ed1523.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41207,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41206&locale=en_US&collectible=0",
+        "sha256": "f7103d1e4e92a1fc2c3050acc4ef636b2acb44378166834ef879318b0f32a784",
+        "bytes": 556,
+        "observed_at": "2026-10-29T20:26:58.332691+00:00"
+      }
+    },
+    {
+      "card_id": "YOP_015t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k666-rogue-nature-weapon-copies\\official-noncollectible-01\\62001-zh_CN.json",
+      "response_sha256": "c1ac33cb325fd4de4773ea9f05211d72460d49e96098c26b82f20aab0bb2a13b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62001&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 62001,
+        "collectible": 0,
+        "slug": "62001-nitroboost-poison",
+        "classId": 12,
+        "multiClassIds": [
+          7,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "manaCost": 2,
+        "name": "氮素药膏",
+        "text": "<b>已腐蚀</b> 使一个随从和你的武器获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb9de61855f6fa2f21b1c91536192646a331fcdb3bea6c3da21ea06d731f4bb0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 61953,
+        "keywordIds": [
+          98
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62001&locale=zh_CN&collectible=0",
+        "sha256": "c1ac33cb325fd4de4773ea9f05211d72460d49e96098c26b82f20aab0bb2a13b",
+        "bytes": 627,
+        "observed_at": "2026-10-29T20:27:00.405469+00:00"
+      }
+    },
+    {
+      "card_id": "YOP_015t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k666-rogue-nature-weapon-copies\\official-noncollectible-01\\62001-en_US.json",
+      "response_sha256": "ac62fc9a6c4d9c5d227b2524a0d0f50d6323a30059b48f603a0f1a4d1633a30f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=62001&locale=en_US&collectible=0",
+      "face": {
+        "id": 62001,
+        "collectible": 0,
+        "slug": "62001-nitroboost-poison",
+        "classId": 12,
+        "multiClassIds": [
+          7,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "manaCost": 2,
+        "name": "Nitroboost Poison",
+        "text": "<b>Corrupted</b> Give a minion and your weapon +2 Attack.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3c6776713a3351dac849429e356e921880ae8398246a0d68070d277b5fbf9b3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 61953,
+        "keywordIds": [
+          98
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=62001&locale=en_US&collectible=0",
+        "sha256": "ac62fc9a6c4d9c5d227b2524a0d0f50d6323a30059b48f603a0f1a4d1633a30f",
+        "bytes": 622,
+        "observed_at": "2026-10-29T20:27:00.788343+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "primary_faces_not_requested": [
+    "BAR_318e",
+    "BAR_321e",
+    "CS2_074e",
+    "ICC_221e",
+    "UNG_823e",
+    "YOP_015e"
+  ],
+  "source_card_id": "TIME_013",
+  "pool_id": "constructed.local-past-nature.druid-reference-v1",
+  "query": {
+    "kinds": [
+      "spell"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "current",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [
+      "nature"
+    ],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "actual_rogue_ids": [
+    "BAR_318",
+    "BAR_321",
+    "CS2_074",
+    "ICC_221",
+    "UNG_057",
+    "UNG_060",
+    "UNG_823",
+    "UNG_856",
+    "YOP_015"
+  ],
+  "original_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "original_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_member_ids": [
+    "AT_037",
+    "AT_044",
+    "BAR_533",
+    "BAR_536",
+    "BAR_549",
+    "BOT_054",
+    "BOT_404",
+    "BOT_420",
+    "BOT_444",
+    "BT_128",
+    "BT_129",
+    "BT_130",
+    "BT_132",
+    "CFM_713",
+    "CS2_007",
+    "CS2_009",
+    "CS2_013",
+    "DAL_256",
+    "DAL_350",
+    "DAL_351",
+    "DAL_352",
+    "DEEP_026",
+    "DMF_058",
+    "DMF_732",
+    "DRG_311",
+    "DRG_314",
+    "DRG_315",
+    "DRG_318",
+    "ETC_373",
+    "ETC_387",
+    "EX1_154",
+    "EX1_155",
+    "EX1_158",
+    "EX1_161",
+    "EX1_164",
+    "EX1_169",
+    "EX1_183",
+    "EX1_571",
+    "FP1_019",
+    "GIL_553",
+    "GIL_663",
+    "GVG_031",
+    "GVG_033",
+    "GVG_041",
+    "ICC_054",
+    "KAR_075",
+    "LOOT_047",
+    "LOOT_051",
+    "LOOT_309",
+    "MAW_024",
+    "MIS_301",
+    "NX2_011",
+    "OG_195",
+    "REV_307",
+    "REV_311",
+    "REV_313",
+    "REV_336",
+    "REV_365",
+    "RLK_655",
+    "SCH_333",
+    "SCH_427",
+    "SCH_612",
+    "SW_422",
+    "SW_437",
+    "TOY_805",
+    "TRL_254",
+    "TSC_650",
+    "TSC_651",
+    "TSC_656",
+    "TTN_930",
+    "TTN_951",
+    "TTN_954",
+    "TTN_955",
+    "ULD_135",
+    "ULD_273",
+    "UNG_103",
+    "UNG_108",
+    "UNG_111",
+    "VAC_508",
+    "WON_014",
+    "WORK_024",
+    "WORK_050",
+    "WW_818",
+    "WW_823",
+    "YOP_026",
+    "TSC_209"
+  ],
+  "merged_member_ids": [
+    "AT_037",
+    "AT_044",
+    "BAR_533",
+    "BAR_536",
+    "BAR_549",
+    "BOT_054",
+    "BOT_404",
+    "BOT_420",
+    "BOT_444",
+    "BT_128",
+    "BT_129",
+    "BT_130",
+    "BT_132",
+    "CFM_713",
+    "CS2_007",
+    "CS2_009",
+    "CS2_013",
+    "DAL_256",
+    "DAL_350",
+    "DAL_351",
+    "DAL_352",
+    "DEEP_026",
+    "DMF_058",
+    "DMF_732",
+    "DRG_311",
+    "DRG_314",
+    "DRG_315",
+    "DRG_318",
+    "ETC_373",
+    "ETC_387",
+    "EX1_154",
+    "EX1_155",
+    "EX1_158",
+    "EX1_161",
+    "EX1_164",
+    "EX1_169",
+    "EX1_183",
+    "EX1_571",
+    "FP1_019",
+    "GIL_553",
+    "GIL_663",
+    "GVG_031",
+    "GVG_033",
+    "GVG_041",
+    "ICC_054",
+    "KAR_075",
+    "LOOT_047",
+    "LOOT_051",
+    "LOOT_309",
+    "MAW_024",
+    "MIS_301",
+    "NX2_011",
+    "OG_195",
+    "REV_307",
+    "REV_311",
+    "REV_313",
+    "REV_336",
+    "REV_365",
+    "RLK_655",
+    "SCH_333",
+    "SCH_427",
+    "SCH_612",
+    "SW_422",
+    "SW_437",
+    "TOY_805",
+    "TRL_254",
+    "TSC_650",
+    "TSC_651",
+    "TSC_656",
+    "TTN_930",
+    "TTN_951",
+    "TTN_954",
+    "TTN_955",
+    "ULD_135",
+    "ULD_273",
+    "UNG_103",
+    "UNG_108",
+    "UNG_111",
+    "VAC_508",
+    "WON_014",
+    "WORK_024",
+    "WORK_050",
+    "WW_818",
+    "WW_823",
+    "YOP_026",
+    "TSC_209",
+    "BAR_318",
+    "BAR_321",
+    "CS2_074",
+    "ICC_221",
+    "UNG_057",
+    "UNG_060",
+    "UNG_823",
+    "UNG_856",
+    "YOP_015"
+  ],
+  "member_weight": 1,
+  "member_role": "card",
+  "native_pins": [
+    {
+      "card_id": "AT_037",
+      "definition_sha256": "dac6a26c49d36c0ac83959f82312bc63202a3c6b816d40f83001cbde507c4d08",
+      "pool_card_sha256": "53e159e45114faaf00a036ab071832697acc8e0f2d2e13a37092125127379310"
+    },
+    {
+      "card_id": "AT_044",
+      "definition_sha256": "888b9532f181518087ba89aad260063528b75716cafda113402d376a8301650e",
+      "pool_card_sha256": "457b96deaca3bac8cbfa5a9a943cd38d3ebc8396c61e41496ed5c678cefc70b3"
+    },
+    {
+      "card_id": "BAR_533",
+      "definition_sha256": "5bc382d20b3a3c9f0b8cb739817e1e2efe962b1819f983c488f915c170c7a0ec",
+      "pool_card_sha256": "c9ef233822aaea9abff551a7456392d158c8c91c7201fadac1ca2d2981e97ab5"
+    },
+    {
+      "card_id": "BAR_536",
+      "definition_sha256": "016889c2565d5b9e0ccf853a061106cc1ae11aaddff8adeb8a33235e8be95699",
+      "pool_card_sha256": "30e32a1583f8ca62cc6c4b658f2f7537e0e778c86a6cb1a2c12036eee9ab121f"
+    },
+    {
+      "card_id": "BAR_549",
+      "definition_sha256": "2d01ac976001973994904466a19d25d9873d94c1a05847ae2f9b78ce81601109",
+      "pool_card_sha256": "ff2df81c1e4a62a31b3bf063e94308a65f258aa750fe4d0f46b68cf1dfee9df2"
+    },
+    {
+      "card_id": "BOT_054",
+      "definition_sha256": "6ebb5681ba495a4b0184940949752cefcfa2f5414c8a2f4a25be2bb6ace7112e",
+      "pool_card_sha256": "0ff0aac1e7e5abf1c34a87ff93b71a68ba05ae7e13dbd3e0d7efc4454882c2bd"
+    },
+    {
+      "card_id": "BOT_404",
+      "definition_sha256": "cd68f9fd2191a409c21dd45a5cdf1b9a0bbad133eda7dba30f8125966e522505",
+      "pool_card_sha256": "2101802644461bf5a4262f0c434247a93ac9ddf72bed1cea6401747cd7163759"
+    },
+    {
+      "card_id": "BOT_420",
+      "definition_sha256": "a0b61504a0dd937c241854dcea6e5074b5193830401f6ef4b2bd571a8122c318",
+      "pool_card_sha256": "a1699610646aa027c9a2f5d190457dd9b81794ffdf7602fd57963be86a2905dd"
+    },
+    {
+      "card_id": "BOT_444",
+      "definition_sha256": "4038f44724b03bd21cee19f0d621ba6575a8ae340ae0a7ba99c126b85b64308f",
+      "pool_card_sha256": "4d42dab2dbb854d091d967f672498f43753ea58fd27809f29a7cb7f17fe65a17"
+    },
+    {
+      "card_id": "BT_128",
+      "definition_sha256": "b947b593e8f93121e777eec9d66576370d8a7122a6485905a09a78ff02cb2cd1",
+      "pool_card_sha256": "7629114aa10c752d8254bd4a4237b67d4d6b8cd7bf0f0b836b6d70dd239a7415"
+    },
+    {
+      "card_id": "BT_129",
+      "definition_sha256": "110f452f8f33dd9cee19da099d73761252fc989ee2b66e92d9b86c3b35972ab8",
+      "pool_card_sha256": "a73e01a123b3ed379ae409e037a3b441c3eb9f06fbf645a7e621e82369d1c972"
+    },
+    {
+      "card_id": "BT_130",
+      "definition_sha256": "716675344d607b027d6a75da8c03e3916bb653e98034de431dbecf6ea8c1c24f",
+      "pool_card_sha256": "b69c68eed175ccee1d64c10c67e5c068321aef2fde96ac22ba1e6ba6208c7757"
+    },
+    {
+      "card_id": "BT_132",
+      "definition_sha256": "d24db569a2a168a9890d4e628693a3dc2305f7c95e1de71b9736f706a4f77030",
+      "pool_card_sha256": "3ca950dd29de7760329c46051e2cf583c085f3ac6dd91d07eb2bf84b97035734"
+    },
+    {
+      "card_id": "CFM_713",
+      "definition_sha256": "e62d1b5b6e60dfdd42238f7da089204e68f39a3a896a3f68fb6650be384f3f6a",
+      "pool_card_sha256": "2b12600153d0cca595f47814f892a9ba04195cfb4ad0d1bca4aa5c7ddee64dd7"
+    },
+    {
+      "card_id": "CS2_007",
+      "definition_sha256": "f96e4e1283cd305db137ec5f475a60501a1e74d1ea46fbe092afbf6c6389b171",
+      "pool_card_sha256": "530f46240de1a1fa6c47a187f459f3d8ab532370eb147b92ac405417d63e814c"
+    },
+    {
+      "card_id": "CS2_009",
+      "definition_sha256": "fa070d37e176db043f857e277072ff3ffe181da93d09c2618860e01772f8517a",
+      "pool_card_sha256": "2b250fe9bb417569ecd9ead02ad1d8845fb9faabae518aa10533071d9d8527f6"
+    },
+    {
+      "card_id": "CS2_013",
+      "definition_sha256": "8a4ef1c9a88bd0b94163aeb9d748aabebdbdfa542f637bb5b1bdb42b19b0997f",
+      "pool_card_sha256": "86cc6394e80e56c8196ac39d2fd5c627259defee088c5fcc898a270ea51ed872"
+    },
+    {
+      "card_id": "DAL_256",
+      "definition_sha256": "14a7792a2e0dd02cbf157704583b0d6b1d5c28b3de7368a69d0ea0878089e8ec",
+      "pool_card_sha256": "34f8e1ef9f4f1ea07f3ab13f70688891de5479c2ed7f1ed15d48632a8d60f428"
+    },
+    {
+      "card_id": "DAL_350",
+      "definition_sha256": "2a5d99e5668750e744128c443eb3b9baa71d151c8b91486eb1465cac4e664078",
+      "pool_card_sha256": "4739a0cdbc15966711089e5882d7726936113ab040f018440437c541ff1737bd"
+    },
+    {
+      "card_id": "DAL_351",
+      "definition_sha256": "b4086ed1acd064184b3159a59792fe24e4e9f7cb9b7f18adf5b4228c22011d4e",
+      "pool_card_sha256": "f32a2fa0816ec70c05221505fdc96d4ff4cc73a26597bed9bbb3fc3269bb71d8"
+    },
+    {
+      "card_id": "DAL_352",
+      "definition_sha256": "1344888c2163e36cf91389b7d62c6160fc8ae3c74edef828427eb876afae15a9",
+      "pool_card_sha256": "2e63ec9f2f9ca3dafa603545f7074a8017c3d99bbb0083376757e178a92c4028"
+    },
+    {
+      "card_id": "DEEP_026",
+      "definition_sha256": "f921c22502535920871ba362ac5e963a7a15386763b4146b56c80f3e53ef069b",
+      "pool_card_sha256": "cbd63698c9aae83724371b74c639310e63a835797d66a0a0d5aeb268811fa1b1"
+    },
+    {
+      "card_id": "DMF_058",
+      "definition_sha256": "e7e688454b14746bc317478893c0d812122e19720615f41481f5d7c5f28a98ab",
+      "pool_card_sha256": "18e423268cade8b979bfac6a7d0ace93a6f1bf91dd101c00733d7ef08db409f4"
+    },
+    {
+      "card_id": "DMF_732",
+      "definition_sha256": "6cfed4e8de4a1512159c77240cdf027d783af9eec9dee794c64dbcf5d70bfc18",
+      "pool_card_sha256": "142ff7a688741e1ee314cdea492f275af3bf8019e6d505d9e23220796ded79ce"
+    },
+    {
+      "card_id": "DRG_311",
+      "definition_sha256": "53b9e0d53f09b9e62009707abd1fb48284a53db615890d4873cee9aab32ea573",
+      "pool_card_sha256": "1168fc4b0205d1d431f1dab89c63f2867da610a983d29c0a4062ee79c5816872"
+    },
+    {
+      "card_id": "DRG_314",
+      "definition_sha256": "40c725ca01edd72e411c6b909c6f4f638919b89b8adcf704f38b94c3f2da83fa",
+      "pool_card_sha256": "f40d5de3a4ab3aeccca88a154be962b819eeeff7991ebbcde1ac2814f5a79f85"
+    },
+    {
+      "card_id": "DRG_315",
+      "definition_sha256": "e66e25070ff7d6ba44f976e7b0f11c25604fc8b1c0de6ef476b98049eaa9e43f",
+      "pool_card_sha256": "cd7ae708c701ad83fe21d196e377db68a7224351bbe89daa0c2b87abe01e47ed"
+    },
+    {
+      "card_id": "DRG_318",
+      "definition_sha256": "979436000dbae14c48afce0aee9672ac54a1c131e90578e2dc32a2e595a9a810",
+      "pool_card_sha256": "eba26997d3e17584786e7a71e37071a65a1fe7930336e2ab32fad91f3a6c9485"
+    },
+    {
+      "card_id": "ETC_373",
+      "definition_sha256": "5aa6f971ddb6ec7a9ab2de6c61557148f40658ac3e9f9e9bf3822cbd1c9dccde",
+      "pool_card_sha256": "42016c43bdebdb5912ac61c78c7b1bb1e81b00d51cac40d2e6409d30ee95038b"
+    },
+    {
+      "card_id": "ETC_387",
+      "definition_sha256": "d25d7d2b03b6341424c48b3591d3b5671885b29252e9fd067a94bb759a78ae38",
+      "pool_card_sha256": "c38720c4f4220455fa6f1f77f5fcbdf0e365be4ea1fc4155b5fa15429daf1904"
+    },
+    {
+      "card_id": "EX1_154",
+      "definition_sha256": "1c7c5c6ecd30fb182530326e8aaa36bc3fd5a6eaa0ccdc450ee4a655592cd930",
+      "pool_card_sha256": "769bb98fe96559a09a2274bb12bf00034879cf2a32c5e4522dfd70c9aa09b88c"
+    },
+    {
+      "card_id": "EX1_155",
+      "definition_sha256": "c2e8d750fbf03a074e734b923a096d4b14ab12b8d8d5b8ac358a1dd01b7fd4c4",
+      "pool_card_sha256": "9c10ec02370ff44bbb16aa920b99faaa1ad30245481cafda9f1b2a266e903e2b"
+    },
+    {
+      "card_id": "EX1_158",
+      "definition_sha256": "5f5f8dd2e706b00d0d68a5cbf96d180f2e591d9621e582cf12a0f44136761fcc",
+      "pool_card_sha256": "ffe7de80938c41586027a7c5a1f3939c18f49f1d2c08c890e969efcf4a8d9f5d"
+    },
+    {
+      "card_id": "EX1_161",
+      "definition_sha256": "b431c1d247b78ec1bb05e8bce03c444bca7b8b25dd76a9858e32bb85e160ef4e",
+      "pool_card_sha256": "1c227b6df0a4f2b98dd47d7acd5240ce58c1a85edf3aa744cf63cec2c7d4d80b"
+    },
+    {
+      "card_id": "EX1_164",
+      "definition_sha256": "8c7f9e8ac24b18a55dcbea04437318d5ae0f58acb82f9ac3f53047ec776aab38",
+      "pool_card_sha256": "462f805b07ad71e761bd8354da7e60673da8359f54131a763beb92062b84e80a"
+    },
+    {
+      "card_id": "EX1_169",
+      "definition_sha256": "57b8aac5c8ec33d018548916db1c24402cac0a91a98bbf1af980a04d227642fa",
+      "pool_card_sha256": "7d3ffe72ff345af0592520fd7f7032e3492722bc6b3c9d2bc67693e17e9289e3"
+    },
+    {
+      "card_id": "EX1_183",
+      "definition_sha256": "24ef50ff21d1a8e7503c7fd3554a5da7f8bb6f52fc7ce7d8492b7c272cdcbcc0",
+      "pool_card_sha256": "8342969e2a116df9a2a94d4507d7176ba80311915e422febae868f20ea6911b9"
+    },
+    {
+      "card_id": "EX1_571",
+      "definition_sha256": "c1502a9c2264f8491565161bc88a468d9a56dfbd34259931e302625d2d9a7f5f",
+      "pool_card_sha256": "9a1e9ae0418311a52dfdb1b66b47011291538bbfc0125c985e20420ce1460c2a"
+    },
+    {
+      "card_id": "FP1_019",
+      "definition_sha256": "ab9ba11de75d1dd5deee3aa3f250c818e3eaeb521531134b45877af79addd4e0",
+      "pool_card_sha256": "9efe7bab4a9acedc22cd3405d60a3ea01ad9a0de8b962222d680e8b3128dfc25"
+    },
+    {
+      "card_id": "GIL_553",
+      "definition_sha256": "469d3dcf1bb71a71891c37a766fc626c862e3030a599aacd298d7aedf0bacd03",
+      "pool_card_sha256": "76cbcaad79e57a2650fcf923632d595ebdac9e4bb1b3fbf021e9642260069abf"
+    },
+    {
+      "card_id": "GIL_663",
+      "definition_sha256": "86b638348504c37f3ff8d96a1c828c851d14ce174140d8e1cf4b2647626f2b4c",
+      "pool_card_sha256": "5b2ba69294f439e76a0b2ed926c2b89090bbb3edf32374c4e8df77af365a1940"
+    },
+    {
+      "card_id": "GVG_031",
+      "definition_sha256": "b0fe53ec92f288feab5d1979afa274ad0fdec2017ffb6f4989d29d1e51854431",
+      "pool_card_sha256": "25cb50db6e7eb7f43f9d7dcf5eceedb5a3b03c678f6ac3b493265763964e0940"
+    },
+    {
+      "card_id": "GVG_033",
+      "definition_sha256": "22e6e1c52ac89cd57eeede3ea72284cc3b47f6c611838e7a5ac63490b8afc28b",
+      "pool_card_sha256": "64e1fddda20897ca0fe9a4e08a0b19d0c9d01814bec95c7b103c836cddfc385e"
+    },
+    {
+      "card_id": "GVG_041",
+      "definition_sha256": "335d079fbc5862b4d327a21cc44b80fceadeb6160e2af327d01ef8241bf44aed",
+      "pool_card_sha256": "60d5e86450e113aacb1f016a0cafc61910a0b1288a909dd3897ba009119460c9"
+    },
+    {
+      "card_id": "ICC_054",
+      "definition_sha256": "005727e7d8b60bb827449750e93deb87b77f12b6d9ae8c7843357ccbe55af1ec",
+      "pool_card_sha256": "6065fb6fa5b2f7529c8bdc7813567b3731d00b820ac4aa5ee4cbda7a017d955a"
+    },
+    {
+      "card_id": "KAR_075",
+      "definition_sha256": "5a03cc016663d93c0ef2328f2b98eb12d88c49caea5a9642b461da4bfba1126c",
+      "pool_card_sha256": "a0d7346fdb0fd5616d81324aaa3e7d43ba351ae51335ddfd96e4ddb19bafcdc1"
+    },
+    {
+      "card_id": "LOOT_047",
+      "definition_sha256": "7a182722dc1bda577ee13f0125ce2f9d610b78acbd8d097e1c9e2be0278d5d51",
+      "pool_card_sha256": "bbb04ea14ce1ac7b5c7c41f4ca5f4375092348757fbf18e4a44be8f2d882c400"
+    },
+    {
+      "card_id": "LOOT_051",
+      "definition_sha256": "f4209a4eba98920c5d9b97d9f137d3d9087086517382c1a9a52fdf21987af704",
+      "pool_card_sha256": "c8543ba36686ff7c8aa4a2b02307a7d1091e282e9ee5ae459681c743224df79f"
+    },
+    {
+      "card_id": "LOOT_309",
+      "definition_sha256": "07301374e577d14fdb681f20ced0dd64c2bc6c4ec67bc76dfa3454f7f22a7197",
+      "pool_card_sha256": "145d65ed83618e270cade2e27b32cb41d9481c8bb79420852020ad6e7979d870"
+    },
+    {
+      "card_id": "MAW_024",
+      "definition_sha256": "0d1dc3a27d7325b08e9cb109595595d0fe1ea6dac38116bd3d786af5fffb7930",
+      "pool_card_sha256": "03c0c48ba06ff1ff6dec88ce49e8432d58fdaa9bcb31ab333080b50cbe222fe7"
+    },
+    {
+      "card_id": "MIS_301",
+      "definition_sha256": "aa7641fefdef2ed933f6834f0e758aab07357f1e4021a5556ee1fbd678474f7f",
+      "pool_card_sha256": "a9bb419d5697cde40c6e3d1ea4c5defc61a2196b0f32ec15141c08d4406e3bf2"
+    },
+    {
+      "card_id": "NX2_011",
+      "definition_sha256": "ff0969b1e82318b0e5f7338a3e4ae84450c8cb5203bd3ef296480921ba896bdf",
+      "pool_card_sha256": "726674f14009eca1d0887c24f2055ff21b5904c44e606ee2c9f9d09c2cf3ad45"
+    },
+    {
+      "card_id": "OG_195",
+      "definition_sha256": "b3fba7ee6ba5677e5f53e43397aa6ed073104da832fe769aec32a9f4cbbac61c",
+      "pool_card_sha256": "70ded8a6bf0e51f7f2872bf04f0e4e214288f7756dbc768c2d4029f8757f5b6f"
+    },
+    {
+      "card_id": "REV_307",
+      "definition_sha256": "fc750ce9bef1a41502ebee95f38a3891bbc247b43d14db5c06724d7706214512",
+      "pool_card_sha256": "b4703986ce9fcbcb0c845bf6165c5ebc2eaec46bbc87dfa7783c85eadff23c15"
+    },
+    {
+      "card_id": "REV_311",
+      "definition_sha256": "0a7df898c7531f059c33f633bc2d8ec5fe740034fdbdc4a4802f5890b0c202f1",
+      "pool_card_sha256": "bf37b3ad1270210c6465f6f26fc462685576d757f1f2e87cf27723cacc7902b5"
+    },
+    {
+      "card_id": "REV_313",
+      "definition_sha256": "a6149bae87b101734e562129fceec1e9fdf785f7816407445208c2d53eec66c1",
+      "pool_card_sha256": "c2a0efb09b49924e9d2930eaaaa4f7ea4f83524b179e6601b2ec917ad254604a"
+    },
+    {
+      "card_id": "REV_336",
+      "definition_sha256": "2a662a5ef6b3047cf912065d6ef5b5e24a69e5b0f0bee9c57c6a60593d35e5db",
+      "pool_card_sha256": "e2435c84d370cd66b5ccebc29342c6e297ab1e5d85e0c01ff9838edf60c46bbc"
+    },
+    {
+      "card_id": "REV_365",
+      "definition_sha256": "831c124b1773189b3072746309de148f6db9f7cb95907d55a62e34899a49d666",
+      "pool_card_sha256": "166bc57e7334b4b9fe4730bc2376dc66e0b41cff6a880c370de65a3986c3e131"
+    },
+    {
+      "card_id": "RLK_655",
+      "definition_sha256": "da673c416c2b19277f907a57b7041fb9c582e9e26456b191034f902fcdcfc330",
+      "pool_card_sha256": "b9797b735c5dce37ad1d2f92404c35ca7dcee127bcffac6647069f8450006d41"
+    },
+    {
+      "card_id": "SCH_333",
+      "definition_sha256": "5fa09ba25b9a66fa3a49dc3573a92bdc53cd4ff47dbd91de63b4ee2f58171f46",
+      "pool_card_sha256": "e863f34201e8e2324c19f3191e776e84a5817ea9bf894f971ad743cfe3902e51"
+    },
+    {
+      "card_id": "SCH_427",
+      "definition_sha256": "b06351c70b4e5d957c9873d9782d60d95e3af86299708f10aad2057b3eac13b4",
+      "pool_card_sha256": "075bfe403e67df9cc6baae47128b4d7f9a34ae97b14fdae2639a1af675f85d4a"
+    },
+    {
+      "card_id": "SCH_612",
+      "definition_sha256": "7a56ffe772f5ebc62d7ae9a60ddba60dbb9d155377937e70dc09e81468ce9358",
+      "pool_card_sha256": "3631945cfc0c7cb1a0859e5a2aeddd7995d6ba90fa2144f1571008f9b73a0a69"
+    },
+    {
+      "card_id": "SW_422",
+      "definition_sha256": "b51fe12ec77ed27bf699c673d440bb135469d410dcf9d06ae3cff06c87ac2772",
+      "pool_card_sha256": "3c18d7d38066422c7b9ecbf2b9667489e508d9ae460a1eaed305b0aa5a8de24c"
+    },
+    {
+      "card_id": "SW_437",
+      "definition_sha256": "c68a3f69e42684ac2b64a7e2cfce30ca199cafc902dc209d7cc1b3788ab3ca1e",
+      "pool_card_sha256": "8da2f11a509ba8bdd328e22579a835fba7551f96a69c910d38568c61463dc485"
+    },
+    {
+      "card_id": "TOY_805",
+      "definition_sha256": "ce884c704ea1a08909fb621d838a6d10ce217096f0f97e5daf0cc32f5c8033db",
+      "pool_card_sha256": "da280b286bfc279022124a3a1eccf37e2ab2e4171edacf9991b84598140d3fef"
+    },
+    {
+      "card_id": "TRL_254",
+      "definition_sha256": "2fc948de09bf9af4cd61e39a564b0a08c59bbc710a73a33e9e3300d3f35d9621",
+      "pool_card_sha256": "98df07d9804501ae384ebb569a89c063e9747ca0c66b260179a2334a0ae0f3b8"
+    },
+    {
+      "card_id": "TSC_650",
+      "definition_sha256": "fb3376a02ce861b0dfdfb73caa4de74e4b23c85ec0f787a9dc6317402d5c2b58",
+      "pool_card_sha256": "5c31fcb9457d9bead72c3e12aa4c25818f0710d5b798e0855b5e7221ffc31a48"
+    },
+    {
+      "card_id": "TSC_651",
+      "definition_sha256": "d0e7c68d3f4503754332ded6518baf4e1d18eb11b1198c7a550814bce66afcc5",
+      "pool_card_sha256": "5f4eb7392b97aa0738abec04160401d005ea491cf8509a45a484882b41b77d0b"
+    },
+    {
+      "card_id": "TSC_656",
+      "definition_sha256": "1f3b9d7233ca049fba9c66b6ed0be2edb69d1852eb4d0ea4fd980206b7199fd6",
+      "pool_card_sha256": "936d0c13cbce6f97e558f6979845663b5e086e0e95c8aa585df21effd2b691ce"
+    },
+    {
+      "card_id": "TTN_930",
+      "definition_sha256": "bb8462879928d28085426cfe19cf46c528c17dd9faa67b81b4b3894557df5684",
+      "pool_card_sha256": "b61ee2c978ca7ead62ca9d53f1c39c6f3d2df3bd941c727c0df80c091ebcee4c"
+    },
+    {
+      "card_id": "TTN_951",
+      "definition_sha256": "b0faec0c58e255bd589c498559c19b5869a5b0f789523e0f37024270c695b530",
+      "pool_card_sha256": "1737a6aa688cea5399038766e6c285bcc5e3f77b977b982d877c5d684dbff160"
+    },
+    {
+      "card_id": "TTN_954",
+      "definition_sha256": "081e921d758658afe2cb746e6f5715f1636c4e18dba8e7a5e269802dae82299f",
+      "pool_card_sha256": "a15911beba11ed9c1a998cd26aad90c06d61ff36a7950358c96cab347564b378"
+    },
+    {
+      "card_id": "TTN_955",
+      "definition_sha256": "6d98862013a82753fdfa8fc868b04dd01f780310f746b8e7cddaa91575b02f48",
+      "pool_card_sha256": "3fd181bde06648c17f59b47642df970f7c1b02f32e90f0f5276873d8ee3adb56"
+    },
+    {
+      "card_id": "ULD_135",
+      "definition_sha256": "325c0e686e4f91f6cb8f81208951082b7384adc8af37165d17be7d9942e8a6ce",
+      "pool_card_sha256": "e8c8b445119251ea0789e49261b1305cf036ec7eda972e235d67ce37c2a5388d"
+    },
+    {
+      "card_id": "ULD_273",
+      "definition_sha256": "c31d3f5c6d6901ff200c7678044c38d974efaff2e0bbd16a9f1d70f273181a34",
+      "pool_card_sha256": "b39dd17e025c25ce83caa76e87fd7934fdbd32d49a977ea0c2d78f0be105f2f2"
+    },
+    {
+      "card_id": "UNG_103",
+      "definition_sha256": "0579e1d50bee835ca537afcd5d877fcc98d36e96d95aafae5e1f7a43c9c95f93",
+      "pool_card_sha256": "f1ff7c814e7993a9f6c64ea2d62bba24bf6c49302a3d077059520be5e76069ab"
+    },
+    {
+      "card_id": "UNG_108",
+      "definition_sha256": "fc8d3ddc4fe5707cba6f98328f6055a3689be0a5dfcc76719a67c3b83c39cfc2",
+      "pool_card_sha256": "7691e93027753428980eefa2e5c41c7389d7e1e91d9e335fbddf82101bacf3a2"
+    },
+    {
+      "card_id": "UNG_111",
+      "definition_sha256": "6c7812d0957a8f2fc60bd3c02c6fe43a64c364ce1a2c2aa65537f0da1a7e58bf",
+      "pool_card_sha256": "f75b1de02711cd4fb27cea0e77dc87904677e2a67dc23e26d14dc8aa01513fa4"
+    },
+    {
+      "card_id": "VAC_508",
+      "definition_sha256": "01bca98566c59de5279dad29cf1b41a3c2e8aa58d5ed84f07006011af6efcb59",
+      "pool_card_sha256": "54ad54077c09730f55a06927900efa0974dad6ac4e5eb71e9e6d518378720e50"
+    },
+    {
+      "card_id": "WON_014",
+      "definition_sha256": "9cb33ea16965f9d40f3235bfa803d60f4575cc2f258e55288097d83c82fad9e7",
+      "pool_card_sha256": "d456576ebcb83edc4ed6d076419344a48c6cdd0799e75ac307600dbdc3951c8e"
+    },
+    {
+      "card_id": "WORK_024",
+      "definition_sha256": "eeded1efbed8b88c6217834db042fc69601fd466ca65c87db07f0afa7ba0e085",
+      "pool_card_sha256": "8cc2e65e684cbe5fe40eaedd3f43bcb5c56d3c5988aad6b7f9feb5271d747925"
+    },
+    {
+      "card_id": "WORK_050",
+      "definition_sha256": "b80aaf765196e1fcdc045dc7e98cc2721442dee46aa37aeebd3eaaf255719e18",
+      "pool_card_sha256": "199ca80365318d66df28c4d4eba85031c70057eb6e792875f5ca0fec2e607168"
+    },
+    {
+      "card_id": "WW_818",
+      "definition_sha256": "b942a286c78a27cda4bb1b81fa70786bbd8175e85bb646a6a6cd462f460ac00a",
+      "pool_card_sha256": "fa0f91adce6cfdb613ff94405a737a49ac500a374be5f14fd8da9413098908fe"
+    },
+    {
+      "card_id": "WW_823",
+      "definition_sha256": "6ec1e0def6423c39ee5b4c8d9928f8695e08926dd7f527244d2e36895e969102",
+      "pool_card_sha256": "b2768f6f058b74120ea63d1f953d058774aba7391726cb2ab27ad4f53a95e28a"
+    },
+    {
+      "card_id": "YOP_026",
+      "definition_sha256": "9ba6e0f3408b84032e792a39815551a9e2580b9aab237e0599e8b4c7105ccb11",
+      "pool_card_sha256": "0ac127ae366a68a9dd97dd4dd304a07a4325737ee279ee07d427b30d80efbc09"
+    },
+    {
+      "card_id": "TSC_209",
+      "definition_sha256": "dd49cdb16a79239898d7c44943c3b086f61c25f45d60e0c506e1da85d119e0fa",
+      "pool_card_sha256": "55122cd617d76c66646e4bedc1cd65b806d0a383be0828638eaa1189930490c1"
+    },
+    {
+      "card_id": "BAR_318",
+      "definition_sha256": "6a3a9333f48b71c7bd5e953fbc7de892898aedf058f3afd9b392952c5fd93e95",
+      "pool_card_sha256": "abbd5abbc3e540e79e2f1666e3cc51d31ff11d7fb5f32a9ddd25c3c629d6011c"
+    },
+    {
+      "card_id": "BAR_321",
+      "definition_sha256": "d8d258b726fbcdbeca71d6760908730b00dcf0a1200c06d95db4ce7434bff96c",
+      "pool_card_sha256": "7b81f9b3487e8150927da41d9168b29f7ec9f4ed781fa7164f1dfb6ddd3826de"
+    },
+    {
+      "card_id": "CS2_074",
+      "definition_sha256": "35d7dce40dde5afc237fe2144e1b20f0f8753cf6c111c67c7e7b1cbd1ff4d683",
+      "pool_card_sha256": "becd7503361eed91ff7e6035e2efdd2e6d98e3e531a8a55b409a4aae2b6db5e8"
+    },
+    {
+      "card_id": "ICC_221",
+      "definition_sha256": "f84b7770331fd7df37d94cf9b5b3b9b57288ef9b66843ce9111583634bd6cce2",
+      "pool_card_sha256": "f19de7657e715d2027bea3bdb66b11df78924dbb7a4d1594bf13cc163e786cb5"
+    },
+    {
+      "card_id": "UNG_057",
+      "definition_sha256": "c597dad4055ee854d06fbdd8cf874d55bdb9b8087fe3d67af37f3dd728809064",
+      "pool_card_sha256": "ee508cb3d8ae6811d8c17d702d0ce25a46932b4aba1f7405d7459e73bd1ded7c"
+    },
+    {
+      "card_id": "UNG_060",
+      "definition_sha256": "2b3f15fb3419003bdd57ca9155588499cd6227d4773634ea62d53f34be8d4f5a",
+      "pool_card_sha256": "a6556181c1a831b7a7c58e3695371a4aede3aaf17415f3248fd1512abf6b868e"
+    },
+    {
+      "card_id": "UNG_823",
+      "definition_sha256": "9b996638382e1a1fc21a32ee51bdab06db06bf547314784c7b1c81341104568f",
+      "pool_card_sha256": "7a20d2c3b440829239cb744f5801dd7aede8145eeb7d9358876ccf88d3717261"
+    },
+    {
+      "card_id": "UNG_856",
+      "definition_sha256": "55fb8c43d54e01cfc38921d43c10e2638fd289dd50b208fa837ec6e8d488ca02",
+      "pool_card_sha256": "ecd53dc196112d694451ef16a81ab57477effbb257f1ea1a5859420c0401f2d8"
+    },
+    {
+      "card_id": "YOP_015",
+      "definition_sha256": "58d387b93468c92ca37fe769b27c7624ec8b24654a9285b3d8e254f8a434f27d",
+      "pool_card_sha256": "bced388ac409b9c3fbea48a82477a8a03d618fedf6c59e49115790fa72153ac0"
+    }
+  ],
+  "full_original_union_member_count": 174,
+  "full_union_records_reference": "original_source_document.full_union_records",
+  "membership_uses_executable_coverage": false,
+  "new_standard_roots": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "weapons": "grant to the current physical equipped weapon, retain existing attack-completion and residence semantics",
+    "temporary_lifesteal": "expires at the current global turn end by existing keyword expiry",
+    "silverleaf": "each real weapon grant draws once after its actual hero attack, including its final durability use",
+    "mimic_pod": "one original actual physical draw; copy_self reuses captured current-copy material including burn/draw-cast policy",
+    "hallucination": "capture actual opponent hero_class; original standard constructed.cards pool and exact class query; never infer another class",
+    "nitro": "base minion +2 Attack; real Corrupt face uses the same original physical upgrade and adds current weapon +2 when present"
+  },
+  "uncertainties": [
+    "Mimic Pod retains the established physical draw-copy capture timing; exact live-server draw-trigger/transform boundaries remain uncalibrated.",
+    "Weapon grants retain existing physical carrier, replacement, final-wear and attack-stage local contracts.",
+    "Full Warrior/ Shaman views are not opened by the dual-class YOP_015 addition; all original nonempty unreviewed scopes still reject.",
+    "Past-set definition, uniform local weights and version/CN differences retain original explicit local policies."
+  ]
+}

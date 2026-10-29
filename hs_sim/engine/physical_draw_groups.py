@@ -22,7 +22,7 @@ from .zones import CardReference, CopyCard, ModifyStoredCost, MoveCard, referenc
 
 SPELL_COST_FOLLOWUP = 'qualified_spell_cost_followup'
 QUALIFIED_FOLLOWUPS = frozenset(('qualified_non_minion_followup', 'qualified_both_minions_followup', SPELL_COST_FOLLOWUP))
-COPY_REWARDS = frozenset(('copy_other', 'discover_spell_copy', SPELL_COST_FOLLOWUP))
+COPY_REWARDS = frozenset(('copy_other', 'copy_self', 'discover_spell_copy', SPELL_COST_FOLLOWUP))
 
 
 @dataclass(frozen=True)
@@ -66,7 +66,7 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
@@ -457,8 +457,9 @@ def finish(r, request):
         return (GrantKeyword(source.id, Keyword.CHARGE, request.source_id),)
     results = []; options = []
     for row in request.arrivals:
-        if reward.kind=='copy_other':
-            if row.copy is not None: results.append(CopyCard(row.copy,3-request.player_id,Zone.HAND,mode='current',source_id=request.source_id))
+        if reward.kind in ('copy_other','copy_self'):
+            recipient=request.player_id if reward.kind=='copy_self'else 3-request.player_id
+            if row.copy is not None: results.append(CopyCard(row.copy,recipient,Zone.HAND,mode='current',source_id=request.source_id))
             continue
         if row.hand is None or reference_entity(r, row.hand) is None: continue
         ref = row.hand
