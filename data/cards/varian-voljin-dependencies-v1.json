@@ -1,0 +1,345 @@
+{
+  "schema": 1,
+  "batch": "K656-remaining-actual-Varian-Voljin-dependencies",
+  "policy_id": "cn37-local-varian-voljin-native-dependencies-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "AT_072",
+        "dbf_id": 2760,
+        "name": "瓦里安·乌瑞恩",
+        "name_en": "Varian Wrynn",
+        "text": "<b>战吼：</b>抽三张牌。将抽到的随从牌直接置入战场。",
+        "text_en": "<b>Battlecry:</b> Draw 3 cards.\nPut any minions you drew directly into the battlefield.",
+        "cost": 10,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 15,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          }
+        ]
+      },
+      "record_sha256": "c91d9fd9f272a093cb3877ac02701c76875b96219b9fc4da0a717d5398ad71f7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "AT_072",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "e27b22ee795a1274f111ba3e6b2be075d32e80b21ec7eb333333a10ea2e417bd",
+      "recipe": {
+        "kind": "three_current_top_minion_or_draw_slots"
+      }
+    },
+    {
+      "record": {
+        "id": "BAR_080",
+        "dbf_id": 62176,
+        "name": "暗影猎手沃金",
+        "name_en": "Shadow Hunter Vol'jin",
+        "text": "<b>战吼：</b>选择一个随从，与其拥有者手牌中的随机一个随从交换。",
+        "text_en": "<b>Battlecry:</b> Choose a minion. Swap it with a random one in its owner's hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1525,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steven Prescott"
+          }
+        ]
+      },
+      "record_sha256": "18a5d9eff2388a8120d91e0a7cc72e0ee1b4ac30f6cf5b385b8b642a81ddb4cd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BAR_080",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "d09165ca632a773f581358d3153bae78f5c33eeca9d7a2ec27fe00cc1a9d1bb7",
+      "recipe": {
+        "kind": "original_target_controller_hand_swap"
+      }
+    }
+  ],
+  "dependencies": [],
+  "existing_dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "AT_072",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 2760,
+        "collectible": 1,
+        "slug": "2760-varian-wrynn",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "瓦里安·乌瑞恩",
+        "text": "<b>战吼：</b>抽三张牌。将抽到的随从牌直接置入战场。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d9cd40320c86e31a4130b03594a4337857d9fbd37d2b9d9cd6f626f65f73fb3.png",
+        "imageGold": "",
+        "flavorText": "联盟的统治者！安度因的父亲！同时他还喜欢玩竞技模式，场均12胜。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/699e7440a32fc6063b72e0e7a4291bf47c56a46252367806aa4d715f58729a79.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_072",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 2760,
+        "collectible": 1,
+        "slug": "2760-varian-wrynn",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "Varian Wrynn",
+        "text": "<b>Battlecry:</b> Draw 3 cards. Put any minions you drew directly into the battlefield.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10768502ea2438abe55a7a623bb977ac01b1503a66cc19e013069c3ea811caaf.png",
+        "imageGold": "",
+        "flavorText": "Leader of the Alliance! Father of Anduin! Also he likes to play Arena, and he averages 12 wins.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/699e7440a32fc6063b72e0e7a4291bf47c56a46252367806aa4d715f58729a79.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_080",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 62176,
+        "collectible": 1,
+        "slug": "62176-shadow-hunter-voljin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 5,
+        "artistName": "Steven Prescott",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "暗影猎手沃金",
+        "text": "<b>战吼：</b>选择一个随从，与其拥有者手牌中的随机一个随从交换。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d350dd22b3904c2fe9b478f6bbff81b8c2d379ee8f882204212956f2598ca86.png",
+        "imageGold": "",
+        "flavorText": "在赞达拉巨魔的路演里，你可看不到这么精彩的交换大戏。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36ac8ce6c4df78705d3102e1ab00e7ee9dfececc8ba9ff720c4650fd481e6b51.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_080",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 62176,
+        "collectible": 1,
+        "slug": "62176-shadow-hunter-voljin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 5,
+        "artistName": "Steven Prescott",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Shadow Hunter Vol'jin",
+        "text": "<b>Battlecry:</b> Choose a minion. Swap it with a random one in its owner's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc71a89279f4895a1d3385e1d7fe1d5ff573f4125959e907a515e4e0acfd0ace.png",
+        "imageGold": "",
+        "flavorText": "You wouldn’t see this swap-meet on the Zandalari Roadshow.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36ac8ce6c4df78705d3102e1ab00e7ee9dfececc8ba9ff720c4650fd481e6b51.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "parent_source_document": "data/cards/legacy-champion-dependencies-v1.json",
+  "parent_source_document_canonical_sha256": "2423823df804b949c9157ee1240881bd86e414aa671e6f07a6c9b6691580e3ac",
+  "new_standard_roots": [],
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "public_effects": [
+    "hs_sim.engine.recruit_summons.RecruitTopMinionOrDraw",
+    "hs_sim.engine.minion_hand_swaps.SwapWithControllerHand"
+  ],
+  "slot_count": 3,
+  "known_policies": [
+    "Varian uses three sequential original deck-top routes; minions enter directly if there is space, otherwise the ordinary draw path handles hand, fatigue and replacement draws",
+    "Direct minion entry does not emit an original hand draw or a hand acquisition; it never executes Battlecry",
+    "Voljin owner-hand is interpreted as the selected minion current controller hand at actual acceptance; immutable original owner remains unchanged",
+    "The existing physical equal-weight single random selection, reset-on-return, quantity acceptance and notification ordering are retained; exact CN boundary timing remains uncalibrated",
+    "WON_113 and Toki full Mage source remain closed until the parent source and its explicit inventories are bound"
+  ],
+  "community_rule_sources": [
+    {
+      "url": "https://www.hearthpwn.com/cards/22342-warian-wrynn",
+      "role": "Community card page linking original developer clarification; reports full-hand direct entry and full-board hand fallback"
+    },
+    {
+      "url": "https://www.hearthpwn.com/forums/hearthstone-general/general-discussion/56166-card-mechanics-interactions-clarifications",
+      "role": "Community transcription reports sequential summons and no hand-copy for direct entries"
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Advanced_rulebook",
+      "role": "Community rulebook distinguishes original Varian slots from replacement draws"
+    }
+  ],
+  "original_developer_tweets_fetch_status": "Three linked CM_Whirthun original pages returned 403 during K655; no direct original text claimed"
+}

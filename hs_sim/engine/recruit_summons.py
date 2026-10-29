@@ -6,12 +6,12 @@ Quantity, ownership of extras and insertion policy await CN calibration.
 """
 from __future__ import annotations
 from .model import SummonStats
-from dataclasses import asdict,dataclass,fields,is_dataclass,replace
+from dataclasses import asdict,dataclass,field,fields,is_dataclass,replace
 import json
 from random import Random
 from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate_allocation
 from .copy_materials import CopyEntryMaterial
-from .effects import Effect,_behavior,_integer,_player
+from .effects import Draw,Effect,_behavior,_integer,_player
 from .errors import ResolutionError,ResolutionLimitExceeded
 from .model import CardClass,CardType,GameState,Zone,validate_end_turn_rng
 from .sacrifice import MinionReference,live_minion,reference_value
@@ -24,7 +24,10 @@ class RecruitEntryMaterial:
     copy:CopyEntryMaterial
     on_summon:str|None=None
     swap_minion:MinionReference|None=None
+    swap_with_controller_hand:bool=field(default=False,kw_only=True)
     def __post_init__(self):
+        if type(self.swap_with_controller_hand)is not bool or self.swap_with_controller_hand and self.swap_minion is None:
+            raise ValueError('Controller-hand material requires its original swap target')
         from .zones import CardReference
         if type(self.reference)is not CardReference or type(self.copy)is not CopyEntryMaterial:raise ValueError('Typed physical first/extra recruit material required')
         if self.swap_minion is not None:
@@ -48,13 +51,13 @@ def validate_material(state,registry,material,*,closed=False):
     if material.on_summon is not None:registry.behavior(material.on_summon)
 
 
-def first_body(r,material,player_id,position):
+def first_body(r,material,player_id,position,*,source_id=None):
     from .zones import reference_entity
     entity=reference_entity(r,material.reference)
     if entity is None:raise ResolutionError('Accepted first recruit lost its physical source before delivery')
     if material.swap_minion is not None:
         from .minion_hand_swaps import return_partner
-        position=return_partner(r,material,player_id)
+        position=return_partner(r,material,player_id,source_id=source_id)
     if entity.controller!=player_id:
         getattr(r.player(entity.controller),entity.zone.value).remove(entity.id)
         entity.controller=player_id;getattr(r.player(player_id),entity.zone.value).append(entity.id)
@@ -75,7 +78,7 @@ def validate_delivery(material,delivery,player_id):
 def accept_entry(r,effect,source):
     from .summon_quantities import SummonByCard,DeliverCardSummon,FinishCardSummon,accept,deliver
     validate_effect(r.state,r.registry,effect)
-    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon,effect.swap_minion)
+    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon,effect.swap_minion,swap_with_controller_hand=effect.swap_with_controller_hand)
     position=effect.position
     if effect.swap_minion is not None:
         body=live_minion(r.state,effect.swap_minion)
@@ -85,6 +88,38 @@ def accept_entry(r,effect,source):
     accept(r,request);child=r.state.card_summon_history[-1]
     if effect.producer_link is not None:bind_entry(r,effect.producer_link,child.id)
     return (*deliver(r,DeliverCardSummon(child.id,0)),FinishCardSummon(child.id))
+
+
+@dataclass(frozen=True)
+class RecruitTopMinionOrDraw(Effect):
+    """One current deck-top slot; direct minion entry bypasses the hand."""
+    player_id:int
+    cause:object
+
+    def __post_init__(self):
+        from .summon_quantities import SummonCause
+        _player(self.player_id)
+        if type(self.cause)is not SummonCause:
+            raise ValueError('Top-card route requires its original minion summon cause')
+        self.cause.__post_init__()
+        if self.cause.player_id!=self.player_id or self.cause.origin!='card_effect' or self.cause.source.kind!=CardType.MINION:
+            raise ValueError('Top-card route requires the original minion effect and own deck')
+
+    def validate_in_state(self,state,registry):
+        from .summon_quantities import validate_cause
+        self.__post_init__();validate_cause(state,registry,self.cause)
+
+
+def recruit_top_or_draw(r,effect):
+    from .colossal import SummonStoredCard,summon_stored
+    from .zones import CardReference
+    effect.validate_in_state(r.state,r.registry)
+    player=r.player(effect.player_id)
+    if player.deck and len(player.board)<r.rules.max_board:
+        entity=r.state.entities[player.deck[0]]
+        if entity.kind==CardType.MINION:
+            return summon_stored(r,SummonStoredCard(CardReference.capture(entity),effect.player_id,cause=effect.cause))
+    return(Draw(effect.player_id,source_id=effect.cause.source.entity_id),)
 
 
 @dataclass(frozen=True)
@@ -526,8 +561,8 @@ def validate_frame_references(state,registry,value):
     from .continuations import FrameCodec
     def visit(item,scope,depth):
         if depth>FrameCodec.MAX_DEPTH:raise ValueError('Physical recruit frame depth exceeded')
-        from .minion_hand_swaps import SwapWithOpponentHand
-        if type(item)is SwapWithOpponentHand:item.validate_in_state(scope,registry);return
+        from .minion_hand_swaps import SwapWithOpponentHand,SwapWithControllerHand
+        if type(item)in(SwapWithOpponentHand,SwapWithControllerHand,RecruitTopMinionOrDraw):item.validate_in_state(scope,registry);return
         if type(item)is SummonFromStoredCandidates:validate_stored_candidates(scope,registry,item);return
         if type(item)in(SummonStoredCard,SummonFromZone)and item.cause is not None:validate_effect(scope,registry,item);return
         if type(item)is ContinueRecruit:
@@ -654,5 +689,6 @@ def register(mechanics):
     from .pools import PoolQuery
     for cls in(RecruitEntryMaterial,RecruitCandidateFact,RecruitBasis,RecruitEntryLink,RecruitRound,RecruitRecord):mechanics.register_payload_type(cls)
     # Original repeated SummonFromZone was a real checkpoint; keep this one real.
+    mechanics.register(RecruitTopMinionOrDraw,recruit_top_or_draw)
     mechanics.register(ContinueRecruit,continue_producer)
     mechanics.register(ContinueRecruitedMinion,continue_recruited_minion)

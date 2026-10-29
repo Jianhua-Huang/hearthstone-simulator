@@ -9,12 +9,18 @@ from .sacrifice import MinionReference, live_minion, reference_value
 from .summon_quantities import SummonCause, validate_cause
 
 
-def validate_pair(minion, cause):
+def validate_pair(minion, cause, *, controller_hand=False):
+    if type(controller_hand) is not bool:
+        raise ValueError('Hand-swap scope requires an exact boolean')
     reference_value(minion)
     if type(cause) is not SummonCause:
         raise ValueError('Hand swap requires its typed original summon cause')
     cause.__post_init__()
     a = cause.source
+    if controller_hand:
+        if a.kind != CardType.MINION or cause.origin != 'card_effect':
+            raise ValueError('Controller-hand swap requires its original minion effect cause')
+        return
     if (a.entity_id, a.controller, a.card_id, a.zone_epoch, a.entered_order,
             a.kind, a.zone, cause.player_id, cause.origin) != (
             minion.entity_id, minion.player_id, minion.card_id, minion.zone_epoch,
@@ -37,6 +43,14 @@ class SwapWithOpponentHand(Effect):
             raise ValueError('Hand swap requires an ordinary playable minion')
 
 
+@dataclass(frozen=True)
+class SwapWithControllerHand(SwapWithOpponentHand):
+    """Exchange the selected original with its current controller's hand."""
+
+    def __post_init__(self):
+        validate_pair(self.minion, self.cause, controller_hand=True)
+
+
 def swap_random(r, effect):
     from .colossal import SummonStoredCard, summon_stored
     from .zones import zone_candidates
@@ -44,7 +58,9 @@ def swap_random(r, effect):
     body = live_minion(r.state, effect.minion)
     if body is None or len(r.player(body.controller).board) - 1 >= r.rules.max_board:
         return ()
-    choices = zone_candidates(r, 3 - body.controller, Zone.HAND,
+    controller_hand = type(effect) is SwapWithControllerHand
+    hand_player = body.controller if controller_hand else 3 - body.controller
+    choices = zone_candidates(r, hand_player, Zone.HAND,
         PoolQuery(kinds=(CardType.MINION,)), body.controller, body.id)
     if not choices:
         return ()  # No return, no reveal and no random draw without a partner.
@@ -52,7 +68,7 @@ def swap_random(r, effect):
     # Selection and first movement share a handler. Reactions never replace the
     # selected physical partner or fill the reserved slot between the two.
     return summon_stored(r, SummonStoredCard(chosen, body.controller,
-        cause=effect.cause, swap_minion=effect.minion))
+        cause=effect.cause, swap_minion=effect.minion, swap_with_controller_hand=controller_hand))
 
 
 def validate_material(state, registry, material):
@@ -70,9 +86,10 @@ def validate_material(state, registry, material):
 def validate_recipe(request, material):
     if material.swap_minion is None:
         return
-    validate_pair(material.swap_minion, request.cause)
+    validate_pair(material.swap_minion, request.cause, controller_hand=material.swap_with_controller_hand)
+    hand_player = request.player_id if material.swap_with_controller_hand else 3 - request.player_id
     if (request.player_id != material.swap_minion.player_id or
-            material.reference.player_id != 3 - request.player_id or
+            material.reference.player_id != hand_player or
             material.reference.zone != Zone.HAND or request.producer_link is not None):
         raise ValueError('Hand swap changed its original opposing hand or entry recipe')
 
@@ -88,7 +105,7 @@ def entry_has_space(r, request, index=0):
         and len(board) - 1 < r.rules.max_board)
 
 
-def return_partner(r, material, player_id):
+def return_partner(r, material, player_id, *, source_id=None):
     """Commit the outgoing original without publishing an intermediate hand."""
     from .hand_history import enter_hand
     from .lifecycle import reset_to_definition
@@ -101,7 +118,7 @@ def return_partner(r, material, player_id):
     r.player(player_id).hand.remove(entity.id)
     entity.controller = material.reference.player_id
     r.player(entity.controller).hand.append(entity.id)
-    enter_hand(r.state, entity, Zone.BOARD, 'return', source_id=ref.entity_id)
+    enter_hand(r.state, entity, Zone.BOARD, 'return', source_id=ref.entity_id if source_id is None else source_id)
     reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry,
         preserve_jade=True)
     return position
@@ -109,3 +126,4 @@ def return_partner(r, material, player_id):
 
 def register(mechanics):
     mechanics.register(SwapWithOpponentHand, swap_random)
+    mechanics.register(SwapWithControllerHand, swap_random)

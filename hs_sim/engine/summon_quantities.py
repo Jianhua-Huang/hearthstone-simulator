@@ -527,7 +527,7 @@ def deliver(r,effect):
     else:
         if type(material)is RecruitEntryMaterial and effect.index==0:
             from .recruit_summons import first_body
-            entity=first_body(r,material,root.request.player_id,position)
+            entity=first_body(r,material,root.request.player_id,position,source_id=root.request.cause.source.entity_id)
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import create_body
             entity=create_body(r,material,root.request.player_id,position)

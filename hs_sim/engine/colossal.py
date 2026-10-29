@@ -1,5 +1,5 @@
 """Resumable entry expansion; bodies and appendages remain independent minions."""
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 
 from .effects import Effect, _behavior, _integer, _player
 from .errors import ResolutionError
@@ -17,12 +17,17 @@ class SummonStoredCard(Effect):
     producer_link: object = None
     on_summon: str | None = None
     swap_minion: object = None
+    swap_with_controller_hand: bool = field(default=False, kw_only=True)
 
     def __post_init__(self):
+        if type(self.swap_with_controller_hand) is not bool or self.swap_with_controller_hand and self.swap_minion is None:
+            raise ValueError('Controller-hand mode requires one original swap target')
         if self.swap_minion is not None:
             from .minion_hand_swaps import validate_pair
-            validate_pair(self.swap_minion, self.cause)
-            if (self.card.zone != Zone.HAND or self.card.player_id != 3 - self.player_id or
+            validate_pair(self.swap_minion, self.cause, controller_hand=self.swap_with_controller_hand)
+            hand_player = self.player_id if self.swap_with_controller_hand else 3 - self.player_id
+            if (self.card.zone != Zone.HAND or self.card.player_id != hand_player or
+                    self.player_id != self.swap_minion.player_id or
                     self.producer_link is not None or self.stats is not None or self.on_summon is not None):
                 raise ValueError('Hand swap requires one original plain opposing-hand entry')
         if self.on_summon is not None:
