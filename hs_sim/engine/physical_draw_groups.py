@@ -66,7 +66,7 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'destroy_drawn_after_ends') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
@@ -81,7 +81,7 @@ class DrawGroupReward:
             if self.kind not in QUALIFIED_FOLLOWUPS:
                 raise ValueError('Only qualified selected rewards carry an original target')
         _integer(self.amount, 'draw reward amount', 0)
-        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'lock_all', 'refresh_drawn_spells')) != (self.amount > 0):
+        if self.kind!='set_cost_all'and(self.kind in ('cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'lock_all', 'refresh_drawn_spells', 'destroy_drawn_after_ends')) != (self.amount > 0):
             raise ValueError('Draw reward amount differs from its operation')
 
 
@@ -149,6 +149,9 @@ class DrawPhysicalGroup(Effect):
         if self.reward.kind == 'discover_spell_copy' and (
                 self.kindred_pair or self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,))),)*3):
             raise ValueError('Original spell-copy discovery requires exactly three matching spell slots')
+        if self.reward.kind == 'destroy_drawn_after_ends' and (
+                self.kindred_pair or self.slots != (DrawGroupSlot(),)*3 or self.reward.amount != 3):
+            raise ValueError('Burndown requires its three original ordinary draws and three owner ends')
 
 
 @dataclass(frozen=True)
@@ -380,6 +383,10 @@ def capture(r, request):
 def finish(r, request):
     reward = request.reward
     if reward.kind == 'none': return ()
+    if reward.kind == 'destroy_drawn_after_ends':
+        from .hand_deadlines import ScheduleHandRemoval
+        return (ScheduleHandRemoval(request.player_id,reward.amount,request.source_id,'destroy',
+            cards=tuple(row.hand for row in request.arrivals if row.hand is not None)),)
     if reward.kind == 'refresh_drawn_spells':
         from .effects import RefreshMana
         return tuple(RefreshMana(request.player_id,reward.amount) for row in request.arrivals

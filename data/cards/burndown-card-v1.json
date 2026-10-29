@@ -1,0 +1,307 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-burndown-original-draws-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "WORK_026",
+        "dbf_id": 110795,
+        "name": "失火",
+        "name_en": "Burndown",
+        "text": "抽三张牌并将其点燃。3回合后，摧毁其中仍在手中的牌。",
+        "text_en": "[x]Draw 3 cards and\nlight them on fire.\nIn 3 turns, any still\n__in hand are destroyed!",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1905,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "0145afa61acf6b03029111f9947870cbd73621fe493db1c11edea82058a71ba1",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "WORK_026",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "WORK_026e",
+        "dbf_id": 113338,
+        "name": "就这样吧",
+        "name_en": "This is Fine",
+        "text": "3回合后，摧毁对手的着火的牌。",
+        "text_en": "In 3 turns, destroy the opponent's cards that are on fire.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f7d061cb885ddc41d557ec265ecc70f74a68bc6e202f595535fe0b22320b1a0d",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "WORK_026e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WORK_026e2",
+        "dbf_id": 113340,
+        "name": "就这样吧",
+        "name_en": "This is Fine",
+        "text": "这张牌着火了！",
+        "text_en": "This card is on fire!",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "59150d86f13e2535f7c15be728d9c882d096503975126fe7dd96aabcf1ca81c7",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "WORK_026e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "WORK_026e3",
+        "dbf_id": 123428,
+        "name": "火焰包围",
+        "name_en": "Engulfed in Flame",
+        "text": "这张牌着火了！",
+        "text_en": "This card is on fire!",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "CARD_SET": 1905,
+          "CLASS": 9,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f40a73b976e8ca2d088170e1de4b2999ee16cec3f7e69840131b847e6a2e7438",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "warlock"
+        ],
+        "rarity": "none",
+        "deck_identity": "WORK_026e3",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "WORK_026",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 110795,
+        "collectible": 1,
+        "slug": "110795-burndown",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 3,
+        "name": "失火",
+        "text": "抽三张牌并将其点燃。3回合后，摧毁其中仍在手中的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/363e6aef3d76a716b8b67446acea8df552650fa1b0b7f938679c89f9db970d0e.png",
+        "imageGold": "",
+        "flavorText": "你信吗，我牌库里接下来的3张牌都是火焰牌。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53452c0e13bcfec11c30626fc907534ff2da9645ca1858dc844912401d8a43fa.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WORK_026",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 110795,
+        "collectible": 1,
+        "slug": "110795-burndown",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 2,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 3,
+        "artistName": "Edgar Hidalgo",
+        "manaCost": 3,
+        "name": "Burndown",
+        "text": "Draw 3 cards and light them on fire. In 3 turns, any still in hand are destroyed!",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4de9ba1ff31d21f4239b1923959f119c85b1c80993f08a3efe122db2e096eac.png",
+        "imageGold": "",
+        "flavorText": "Trust me, the next 3 cards in my deck are FIRE.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53452c0e13bcfec11c30626fc907534ff2da9645ca1858dc844912401d8a43fa.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_policies": [
+    "Use the existing three natural owner-end clock, including the casting turn when its end has not yet been accepted; opponent ends do not advance it.",
+    "Bind the original three DrawPhysicalGroup roots to each completed replacement-chain final physical hand arrival. Burn/fatigue/non-hand terminal outcomes and unrelated reaction draws are not borrowed. Shenanigans transformed actual hand outcomes follow the existing draw beneficiary contract.",
+    "Arm one destroy deadline after the original group finishes. A card that departs, reenters or changes face escapes the existing strict hand-residence deadline; exact immediate ignition/cast-when-drawn and transformation boundaries remain CN-pending."
+  ]
+}
