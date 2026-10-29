@@ -59,6 +59,9 @@ def validate_ability(state,registry,ability):
 
 def validate_copy_memory(state, registry, memory, *, closed=False):
     memory.__post_init__()
+    if memory.custody is not None:
+        from .kidnap_custody import validate_custody
+        validate_custody(state, registry, memory.custody, closed=closed)
     for link in memory.targeted_spells:
         validate_targeted_spell(state, registry, link, closed=closed)
     if memory.cost_links:

@@ -187,7 +187,13 @@ def validate_mana_consumption_events(state,events):
     from .hero_health_history import effective_events
     events=tuple(effective_events(events))
     resolved=[]
+    quoted=set()
     for index,event in enumerate(events):
+        from .mana_exhaustion import validate_payment_event
+        payment_key=(event.source_id,event.player_id,event.action)
+        validate_payment_event(state,event,bind_hand=payment_key not in quoted)
+        if event.kind in ('mana_spent','health_spent','opponent_health_spent','armor_spent','corpses_spent'):
+            quoted.add(payment_key)
         row=mana_consumption_result(event)
         if row is None: continue
         if row.id>len(state.mana_consumption_history) or state.mana_consumption_history[row.id-1]!=row:

@@ -565,6 +565,7 @@ def _pay_quote(r, player, source, quote, *, exclude_held_source=False):
     if (quote.entity_id, quote.player_id) != (source.id, player.id):
         raise ResolutionError('Payment quote has a different payer or source')
     from .payment_projection import payment_plan, apply_resource_writes, consume_quoted_modifiers
+    mana_before = player.mana
     plan = payment_plan(r.state, quote)
     apply_resource_writes(r.state, plan.resource_writes)
     # HEALTH resource writes/growth precede these events. Cost uses still remain.
@@ -573,9 +574,11 @@ def _pay_quote(r, player, source, quote, *, exclude_held_source=False):
     # Compact global cost-use facts include every paid entry, not just Spells.
     consume_quoted_modifiers(r.state, quote, origin='payment', exclude_held_source=exclude_held_source)
     # Original expenditure event; corpse payments include their committed account row.
+    from .mana_exhaustion import payment_payload
+    mana_payload = payment_payload(mana_before, player.mana, quote.amount) if quote.payment == PaymentType.MANA else {}
     r.emit(f'{quote.payment.value}_spent', source_id=source.id, player_id=player.id,
            amount=quote.amount, modifier_ids=quote.modifier_ids, consumed_ids=quote.consumable_ids,
-           **dict(plan.hero_health_data),
+           **dict(plan.hero_health_data), **mana_payload,
            _corpse_spend_record=None if plan.corpse_spend_id is None else r.state.corpse_spend_history[plan.corpse_spend_id-1])
 
 

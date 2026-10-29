@@ -534,6 +534,12 @@ class FrameCodec:
             validate_split_acceptance(value, self.registry)
         if type(value) is SplitPacketProof:
             validate_packet_proof(value, self.registry)
+        from .kidnap_custody import StoredMinionCustody, KidnapPlayedMinion, ReturnSackCaptive, validate_custody
+        if self.origin_state is not None:
+            if type(value) is StoredMinionCustody:
+                validate_custody(self.origin_state, self.registry, value)
+            elif type(value) in (KidnapPlayedMinion, ReturnSackCaptive):
+                value.validate_in_state(self.origin_state, self.registry)
         from .sacrifice import DestroyCapturedMinion
         if type(value) is DestroyCapturedMinion and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
@@ -579,6 +585,8 @@ class FrameCodec:
             from .resources import armor_loss_result, mana_consumption_result
             armor_loss_result(value)
             mana_consumption_result(value)
+            from .mana_exhaustion import payment_available
+            payment_available(value)
             if value.kind=='hero_health_set':
                 from .hero_health_history import validate_health_set_event
                 validate_health_set_event(value)

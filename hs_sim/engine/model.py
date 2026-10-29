@@ -2864,7 +2864,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2966,9 +2966,18 @@ class DeathrattleMemory:
     summon_copy: object | None = None
     cost_links: tuple[RememberedCost, ...] = ()
     targeted_spells: tuple[RememberedTargetSpell, ...] = ()
+    custody: object | None = None
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        if self.custody is not None:
+            from .kidnap_custody import StoredMinionCustody
+            if self.spec.kind != 'custody_return' or type(self.custody) is not StoredMinionCustody:
+                raise ValueError('Original captive memory requires its finite typed return profile')
+            self.custody.__post_init__()
+        if self.spec.kind == 'custody_return' and any((self.growth_steps, self.draws, self.discard_ids,
+                self.dormancies, self.discoveries, self.hand_entry_ids, self.summon_copy, self.cost_links, self.targeted_spells)):
+            raise ValueError('Original captive memory cannot mix unrelated native payloads')
         if (type(self.targeted_spells) is not tuple or
                 any(type(x) is not RememberedTargetSpell for x in self.targeted_spells)):
             raise ValueError('Targeted spell memory requires immutable original cast links')

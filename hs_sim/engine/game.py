@@ -732,6 +732,8 @@ class Game:
         validate_outcome_boundary(self)
         from .minion_plays import validate_boundary as validate_minion_play_boundary
         validate_minion_play_boundary(self)
+        from .kidnap_custody import validate_boundary as validate_custody_boundary
+        validate_custody_boundary(self)
         if self._state.status == 'playing' and self._frame is None and self._state.action_windows:
             raise ValueError('Unsettled action window at action boundary')
         if self._frame is None and any(not p.completed and not p.interrupted for p in self._state.play_history):

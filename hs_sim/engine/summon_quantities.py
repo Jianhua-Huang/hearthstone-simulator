@@ -72,7 +72,9 @@ class SummonEntryMaterial:
         from .model import validate_summon_stats
         if self.deathrattle_memory is not None:
             if (type(self.deathrattle_memory) is not DeathrattleMemory or
-                    self.deathrattle_memory.spec.kind != 'copy_summon' or self.deathrattle_memory.summon_copy is None
+                    self.deathrattle_memory.spec.kind not in ('copy_summon','custody_return') or
+                    self.deathrattle_memory.spec.kind == 'copy_summon' and self.deathrattle_memory.summon_copy is None or
+                    self.deathrattle_memory.spec.kind == 'custody_return' and self.deathrattle_memory.custody is None
                     or any((self.stats, self.deathrattles, self.keywords, self.dormant_turns, self.on_summon, self.entry_grant))):
                 raise ValueError('Seeded Deathrattle entry requires one plain original copy memory')
             self.deathrattle_memory.__post_init__()
@@ -455,8 +457,12 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         if type(material)is SummonEntryMaterial and material.deathrattle_memory is not None:
             from .deathrattle_memory import validate_copy_memory
             validate_copy_memory(state, registry, material.deathrattle_memory, closed=closed)
-            if material.deathrattle_memory.summon_copy.origin.controller != request.cause.player_id:
-                raise ValueError('Seeded copy memory lost its original friendly minion selection')
+            if material.deathrattle_memory.spec.kind == 'copy_summon':
+                if material.deathrattle_memory.summon_copy.origin.controller != request.cause.player_id:
+                    raise ValueError('Seeded copy memory lost its original friendly minion selection')
+            else:
+                from .kidnap_custody import validate_recipe
+                validate_recipe(state, registry, request, material, closed=closed)
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)

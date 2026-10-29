@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 623
+SNAPSHOT_SCHEMA_VERSION = 624
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -110,6 +110,9 @@ def deathrattle_memory_from_dict(value):
     if memory['summon_copy'] is not None:
         from .copy_materials import CopyEntryMaterial, from_dict
         memory['summon_copy'] = from_dict(CopyEntryMaterial, memory['summon_copy'])
+    if memory['custody'] is not None:
+        from .kidnap_custody import custody_from_dict
+        memory['custody'] = custody_from_dict(memory['custody'])
     return DeathrattleMemory(**memory)
 
 
