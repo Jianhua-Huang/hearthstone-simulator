@@ -70,6 +70,13 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .summoned_attack_targets import TransformAttackedMinion
+        if type(value) is TransformAttackedMinion and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry,self.origin_events)
+        from .pools import SummonFromPool
+        if type(value) is SummonFromPool and value.attack_window is not None and self.origin_state is not None:
+            from .summoned_attack_targets import validate_request
+            validate_request(self.origin_state,self.registry,value,self.origin_events)
         from .attack_redirects import RandomRedirectAttack
         if type(value) is RandomRedirectAttack and self.origin_state is not None:
             value.validate_in_state(self.origin_state, self.registry, self.origin_events)

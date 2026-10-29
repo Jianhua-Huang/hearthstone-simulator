@@ -13,7 +13,7 @@ from .card_creation import CreatedMinionGrant,validate_pool_entry_grant,minion_g
 from .producer_amounts import AcceptedProducerAmount,ProducerAmountDecision,capture as capture_amount,validate_record as validate_amount_record,request_profile
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError,ResolutionLimitExceeded
-from .model import CardAbilityCondition,CardClass,CardType,GameState,Keyword,Rarity,SpellSchool,Zone,validate_end_turn_rng
+from .model import CardAbilityCondition,CardClass,CardType,GameState,Keyword,Rarity,SpellSchool,Zone,ActionWindow,validate_end_turn_rng
 from .pools import GenerationContext,GenerationPolicy,PoolMember,PoolQuery,resolve_candidates,sample_candidates,validate_pool_entry_keywords
 from .summon_quantities import SummonByCard,SummonCause,SummonEntryMaterial,accept as accept_entry,validate_cause,validate_material
 
@@ -34,8 +34,14 @@ class PoolSummonBasis:
     entry_grant:CreatedMinionGrant|None=None
     on_summon:str|None=None
     followup_policy:str='live_friendly'
+    attack_window:ActionWindow|None=None
 
     def __post_init__(self):
+        if self.attack_window is not None:
+            if self.source is None or self.on_summon is not None or self.entry_keywords or self.entry_dormant_turns is not None or self.entry_grant is not None:
+                raise ValueError('Summoned defender needs a plain source-bound pool basis')
+            from .summoned_attack_targets import validate_shape
+            validate_shape(self.attack_window, self.source)
         if type(self.followup_policy)is not str or self.followup_policy not in('live_friendly','original_delivery'):
             raise ValueError('Unknown original pool followup policy')
         if self.followup_policy=='original_delivery'and self.on_summon is None:
@@ -71,11 +77,11 @@ class PoolSummonBasis:
         if len({x.card_id for x in self.candidates})!=len(self.candidates):raise ValueError('Duplicate canonical pool entry')
 
     @classmethod
-    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None,on_summon=None,followup_policy='live_friendly'):
+    def capture(cls,r,effect,candidates,*,entry_keywords=(),entry_dormant_turns=None,on_summon=None,followup_policy='live_friendly',attack_window=None):
         context=r.game._generation_context;pool=r.registry.pool(effect.pool_id,context)
         source=None if effect.source_id is None else SourceAllocationFact.capture(r.state,r.state.entities[effect.source_id])
         hero_class=r.player(effect.player_id).hero_class if effect.query.class_mode in ('current','other')else None
-        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None),on_summon,followup_policy)
+        return cls(effect.player_id,effect.pool_id,pool.version,context,effect.query,effect.policy,source,hero_class,candidates,entry_keywords,entry_dormant_turns,getattr(effect,'entry_grant',None),on_summon,followup_policy,attack_window)
 
 
 def entry_material(basis,card_id):
@@ -89,6 +95,9 @@ def validate_basis(state,registry,basis,*,closed=False):
     from .starting_generation import validate_context
     validate_context(basis.context, state)
     if basis.source is not None:validate_allocation(state,registry,basis.source,closed=closed)
+    if basis.attack_window is not None:
+        from .summoned_attack_targets import validate_binding
+        validate_binding(state,registry,basis.attack_window,basis.source,basis.player_id,closed=closed)
     if registry.pool(basis.pool_id,basis.context).version!=basis.pool_version:raise ValueError('Original pool version differs from registered inventory')
     rows=resolve_candidates(registry,basis.context,basis.pool_id,basis.query,current_class=basis.hero_class,
         source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
@@ -106,6 +115,11 @@ def choose_weighted(rng,materials,weights):
 def validate_weighted_request(state,registry,request,*,closed=False):
     if type(request.pool_basis)is not PoolSummonBasis:raise ValueError('Weighted summon requires its complete original pool basis')
     validate_basis(state,registry,request.pool_basis,closed=closed)
+    if request.pool_basis.attack_window is not None:
+        cause=request.cause.source;source=request.pool_basis.source
+        if (request.cause.player_id!=request.pool_basis.player_id or
+                replace(source,next_entity_id=cause.next_entity_id,next_order=cause.next_order)!=cause):
+            raise ValueError('Summoned defender changed its original causing physical source or player')
     if request.pool_basis.on_summon is not None and (
             request.cause.source.entity_id!=request.pool_basis.source.entity_id or
             request.cause.player_id!=request.pool_basis.player_id):
@@ -510,6 +524,8 @@ def from_dict(cls,value):
         row['candidates']=tuple(PoolMember(**_row(x,PoolMember))for x in row['candidates'])
         row['entry_keywords']=tuple(Keyword(k)for k in row['entry_keywords'])
         row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
+        from .summoned_attack_targets import window_from_dict
+        row['attack_window']=window_from_dict(row['attack_window'])
     elif cls is PoolSummonBatchSpec:
         row['cause']=entry_from_dict(SummonCause,row['cause']);row['basis']=from_dict(PoolSummonBasis,row['basis'])
         if row['fill_capacity']is not None:

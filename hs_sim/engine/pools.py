@@ -11,7 +11,7 @@ from dataclasses import dataclass, replace
 from .construction import ids, integer, name
 from .effects import AddToHand, ChoiceOption, Effect, RequestChoice, Summon, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardAbilityCondition, CardClass, CardDefinition, CardMetadata, CardType, CostSpec, Keyword, Rarity, SpellSchool, SummonStats, validate_minion_subtypes
+from .model import CardAbilityCondition, CardClass, CardDefinition, CardMetadata, CardType, CostSpec, Keyword, Rarity, SpellSchool, SummonStats, ActionWindow, validate_minion_subtypes
 from .card_conditions import UnknownCardFactError, matches_ability_values
 from .summon_quantities import SummonCause
 
@@ -1101,8 +1101,16 @@ class SummonFromPool(Effect):
     entry_dormant_turns: int | None = None
     on_summon: str | None = None
     followup_policy: str = 'live_friendly'
+    attack_window: ActionWindow | None = None
 
     def __post_init__(self):
+        if self.attack_window is not None:
+            if (type(self.cause) is not SummonCause or self.source_id != self.cause.source.entity_id or
+                    self.cause.player_id != self.player_id or self.on_summon is not None or self.entry_keywords or
+                    self.entry_dormant_turns is not None):
+                raise ValueError('Summoned attack target requires its plain original attributed pool entry')
+            from .summoned_attack_targets import validate_shape
+            validate_shape(self.attack_window, self.cause.source)
         if type(self.followup_policy) is not str or self.followup_policy not in ('live_friendly','original_delivery'):
             raise ValueError('Unknown original pool delivery followup policy')
         if self.followup_policy == 'original_delivery' and self.on_summon is None:
@@ -1143,6 +1151,9 @@ def summon_from_pool(r,effect,*,producer_link=None):
             raise ValueError('Budget pool entry requires its typed original attribution and link')
     if effect.cause is None:reject_ambiguous(r)
     effect.__post_init__()
+    if effect.attack_window is not None:
+        from .summoned_attack_targets import live_request
+        if not live_request(r, effect): return ()
     rows=generation_candidates(r,effect.request())
     # Validate all eligible content even if there is no board space.
     if not rows and effect.empty=='error':raise ResolutionError('Empty summon pool')
@@ -1151,7 +1162,7 @@ def summon_from_pool(r,effect,*,producer_link=None):
         from .pool_summons import PoolSummonBasis, entry_material
         basis=PoolSummonBasis.capture(r,effect.request(),rows,entry_keywords=effect.entry_keywords,
             entry_dormant_turns=effect.entry_dormant_turns,on_summon=effect.on_summon,
-            followup_policy=effect.followup_policy)
+            followup_policy=effect.followup_policy,attack_window=effect.attack_window)
         return accept(r,SummonByCard(effect.player_id,tuple(entry_material(basis,m.card_id)for m in rows),effect.cause,
             'weighted',position=effect.position,weights=tuple(m.weight for m in rows),pool_basis=basis,producer_link=producer_link))
     if len(r.player(effect.player_id).board)>=r.rules.max_board:

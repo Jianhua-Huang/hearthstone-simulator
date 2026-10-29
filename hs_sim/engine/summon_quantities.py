@@ -578,6 +578,9 @@ def deliver(r,effect):
             seed_entry(r, material, entity)
         result=CardSummonDelivery(effect.index,'delivered',SourceAllocationFact.capture(r.state,entity))
     update(r.state,root,deliveries=(*root.deliveries,result))
+    if entity is not None:
+        from .summoned_attack_targets import redirect_delivery
+        redirect_delivery(r,record(r.state,root.id),effect.index,entity)
     continuation=()
     if entity is not None:
         if type(material)is ResurrectionEntryMaterial:
