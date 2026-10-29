@@ -566,8 +566,13 @@ class DiscoverFromPool(Effect):
     repeat_until_seen: bool = False
     unselected_to_hand: bool = False
     swap_costs: bool = False
+    cast_affordable_copy: bool = False
 
     def __post_init__(self):
+        if type(self.cast_affordable_copy) is not bool:raise ValueError('Affordable discovered copy requires a boolean')
+        if self.cast_affordable_copy:
+            from .discovered_spell_casts import validate_spec as validate_affordable_copy
+            validate_affordable_copy(self)
         if type(self.swap_costs)is not bool:raise ValueError('Discovery cost swap requires a boolean')
         if self.swap_costs:
             from .discovery_cost_swaps import validate_spec as validate_cost_swap

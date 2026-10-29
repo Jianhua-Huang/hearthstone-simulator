@@ -1,0 +1,155 @@
+{
+  "schema": 1,
+  "dependencies": [],
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policy_id": "cn37-local-void-scripture-copy-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "YOG_507",
+        "dbf_id": 100995,
+        "name": "虚空经文",
+        "name_en": "Void Scripture",
+        "text": "<b>发现</b>一张法术牌。如果你有足够的法力值使用发现的法术牌，则随机对一个敌人施放它的复制。",
+        "text_en": "<b>Discover</b> a spell.\nIf you have enough Mana to play it, cast a copy of it at a random enemy.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 6,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "32a5b16044fbec43ea1118f50c907ae1449064032cc0646d3ed5dc51f7563f35"
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "YOG_507",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 100995,
+        "collectible": 1,
+        "slug": "100995-void-scripture",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "manaCost": 2,
+        "name": "虚空经文",
+        "text": "<b>发现</b>一张法术牌。如果你有足够的法力值使用发现的法术牌，则随机对一个敌人施放它的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92da1b1d886e6e3614e61f89bf19268a58feae89956b119188f5500e9822fe33.png",
+        "imageGold": "",
+        "flavorText": "在上古之神眼中只是“补充文件”。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3caaefc5aff8496cc4ed6d229caaafad6b504244396902a438a71f83b364b269.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_507",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 100995,
+        "collectible": 1,
+        "slug": "100995-void-scripture",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 6,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "manaCost": 2,
+        "name": "Void Scripture",
+        "text": "<b>Discover</b> a spell. If you have enough Mana to play it, cast a copy of it at a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8277cc6ceacadf8c372b9f1c2d82fee8ec01be5191b36f1c6fb4c11ec55a3f7.png",
+        "imageGold": "",
+        "flavorText": "The Old Gods like to think of them as \"Addendums.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3caaefc5aff8496cc4ed6d229caaafad6b504244396902a438a71f83b364b269.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "local_policies": [
+    "After original delivery and its reactions, compare remaining Mana with the full current quote without payment or consuming a next-spell cost modifier. The numerical Mana comparison is used even for a non-Mana payment quote; this edge is not CN calibrated.",
+    "A continuously resident original selected hand card supplies current complete stored copy material. Burned, departed, reacquired or transformed recipients use the original selected printed face and a generated quote, never another same-name card.",
+    "Use the existing ENEMY_IF_AVAILABLE automatic target policy, falling back to the ordinary legal domain only if no enemy is legal. Untargeted spells and automatic discoveries retain their ordinary behavior.",
+    "The cast copy never occupies hand or deck. Official 28.0 explicitly requires that immediately casting a selected Secret does not reveal it.",
+    "Exact post-discovery timing, stale/burned recipient handling and alternate payment edges remain documented local policies; no official complete-pool or CN calibration claim."
+  ]
+}

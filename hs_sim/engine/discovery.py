@@ -617,10 +617,16 @@ def resolve_discovery(r, effect):
         delivery=(MaterializeDiscoveredCard(committed.result,prepare_cost_swap(r,continued)),)
     else:delivery=deliver_pick(spec,committed,r.registry) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
-    return (*delivery,*healing,continued)
+    followup=()
+    if spec.cast_affordable_copy:
+        from .discovered_spell_casts import prepare as prepare_affordable_copy
+        followup=(prepare_affordable_copy(r,effect),)
+    return (*delivery,*healing,*followup,continued)
 
 
 def validate_boundary(game):
+    from .discovered_spell_casts import validate_boundary as validate_affordable_copies
+    validate_affordable_copies(game)
     from .discovery_discounts import validate_boundary as validate_discounts
     validate_discounts(game)
     from .discovery_memory import validate_boundary as validate_memory_boundary

@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v809'
+CORE_EFFECTS_VERSION = 'core-effects-v810'
 
 
 class Mechanics:
@@ -2746,6 +2746,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_secret_expirations(mechanics)
     from .discovery_cost_swaps import register as register_discovery_cost_swaps
     register_discovery_cost_swaps(mechanics)
+    from .discovered_spell_casts import register as register_discovered_spell_casts
+    register_discovered_spell_casts(mechanics)
     register_interrupts(mechanics)
     from .counter_policies import register as register_counter_policies
     register_counter_policies(mechanics)
