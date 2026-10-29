@@ -8379,15 +8379,20 @@ class TemporaryHeroPowerReturn:
 class SpellManaBudgetLink:
     """One sequential printed-mana pick, connected to its actual prior CAST."""
     pool_id: str
-    school: SpellSchool
+    school: SpellSchool | None
     budget: int
     remaining: int
     source_card_id: str
     previous_cast_id: int | None = None
+    mage_cast_id: int | None = None
 
     def __post_init__(self):
         _name(self.pool_id,'spell mana pool');_name(self.source_card_id,'original budget source')
-        if type(self.school) is not SpellSchool:raise ValueError('Spell budget requires a printed school')
+        if self.mage_cast_id is None:
+            if type(self.school) is not SpellSchool:raise ValueError('Spell budget requires a printed school')
+        elif self.school is not None or self.budget!=20:
+            raise ValueError('Mage spell budget requires its original twenty-mana CAST and no school filter')
+        _optional_id(self.mage_cast_id,'original Mage budget CAST')
         _int(self.budget,'initial spell mana',1);_int(self.remaining,'remaining spell mana',1)
         if self.remaining>self.budget:raise ValueError('Remaining spell mana exceeds its original budget')
         _optional_id(self.previous_cast_id,'previous original budget cast')

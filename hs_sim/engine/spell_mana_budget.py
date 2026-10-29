@@ -5,7 +5,7 @@ import json
 from .effects import Effect, _integer, _player, _source
 from .errors import ResolutionError
 from .lifecycle import active_abilities
-from .model import CardType, HealthOp, SpellManaBudgetLink, SpellSchool
+from .model import CardClass, CardType, HealthOp, SpellManaBudgetLink, SpellSchool
 from .pools import PoolQuery, resolve_candidates, sample_candidates
 
 
@@ -13,15 +13,21 @@ from .pools import PoolQuery, resolve_candidates, sample_candidates
 class CastManaWorth(Effect):
     player_id: int
     pool_id: str
-    school: SpellSchool
+    school: SpellSchool | None
     amount: int
     source_id: int
     source_card_id: str
+    mage_cast_id: int | None = None
 
     def __post_init__(self):
         _player(self.player_id);_source(self.source_id)
         if self.source_id is None:raise ValueError('Spell budget requires its original physical caster')
-        SpellManaBudgetLink(self.pool_id,self.school,self.amount,self.amount,self.source_card_id)
+        SpellManaBudgetLink(self.pool_id,self.school,self.amount,self.amount,self.source_card_id,mage_cast_id=self.mage_cast_id)
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__()
+        link=SpellManaBudgetLink(self.pool_id,self.school,self.amount,self.amount,self.source_card_id,mage_cast_id=self.mage_cast_id)
+        mage_origin(state,registry,link,self.player_id,self.source_id,active=True)
 
 
 @dataclass(frozen=True)
@@ -46,8 +52,28 @@ def blocks_enemy_spell(target,definition):
 
 
 def query(school,remaining):
+    if school is None:
+        return PoolQuery(kinds=(CardType.SPELL,),collectible=True,min_cost=0,max_cost=remaining,
+            class_mode='specified',classes=(CardClass.MAGE,),include_neutral=False)
     return PoolQuery(kinds=(CardType.SPELL,),collectible=True,min_cost=0,max_cost=remaining,
         spell_schools=(school,))
+
+
+def mage_origin(state,registry,link,player_id,source_id,*,active=False):
+    if link.mage_cast_id is None:return None
+    from .spell_casts import active_cast,cast_record
+    original=cast_record(state,link.mage_cast_id);source=registry.card(link.source_card_id)
+    if (source.kind!=CardType.SPELL or source.metadata is None or CardClass.MAGE not in source.metadata.classes or
+            (original.source_id,original.card_id,original.player_id)!=(source_id,link.source_card_id,player_id)or
+            not original.payload_started or original.failure is not None):
+        raise ValueError('Mage budget lost its original actual Mage spell CAST')
+    if active and (original.completed or original.interrupted or active_cast(state,source_id,player_id)!=original):
+        raise ValueError('Mage budget must continue inside its original active spell')
+    return original
+
+
+def matches_domain(card,link):
+    return CardClass.MAGE in card.metadata.classes if link.mage_cast_id is not None else card.spell_school==link.school
 
 
 def candidates(registry,context,link,player_id,remaining=None):
@@ -56,7 +82,7 @@ def candidates(registry,context,link,player_id,remaining=None):
         source_card_id=link.source_card_id,player_id=player_id,exclude_source_by_rule=True)
     for row in rows:
         card=registry.card(row.card_id)
-        if card.kind!=CardType.SPELL or not card.hand_playable or card.choice_only or card.spell_school!=link.school:
+        if card.kind!=CardType.SPELL or not card.hand_playable or card.choice_only or not matches_domain(registry.pool_card(row.card_id),link):
             raise ValueError('Every eligible budget spell requires its complete original executable face')
     return rows
 
@@ -69,16 +95,19 @@ def validate_record(state,registry,record):
     record.__post_init__();link=record.mana_budget
     if link is None:return
     source=registry.card(link.source_card_id)
-    if source.kind!=CardType.MINION or record.caster_id not in state.entities:
+    if record.caster_id not in state.entities or link.mage_cast_id is None and source.kind!=CardType.MINION:
         raise ValueError('Spell budget lost its original minion source')
+    original=mage_origin(state,registry,link,record.player_id,record.caster_id)
+    if original is not None and (original.id>=record.id or original.turn!=record.turn or original.action>record.action):
+        raise ValueError('Mage budget child preceded or left its original spell interval')
     card=registry.pool_card(record.card_id)
-    if card.kind!=CardType.SPELL or card.spell_school!=link.school or card.cost>link.remaining:
+    if card.kind!=CardType.SPELL or not matches_domain(card,link) or card.cost>link.remaining:
         raise ValueError('Actual spell differs from its original printed-mana budget')
     if link.previous_cast_id is None:return
     previous=state.cast_history[link.previous_cast_id-1];parent=previous.mana_budget
     if (parent is None or not previous.completed or previous.interrupted or
-            (previous.player_id,previous.caster_id,parent.pool_id,parent.school,parent.budget,parent.source_card_id)!=
-            (record.player_id,record.caster_id,link.pool_id,link.school,link.budget,link.source_card_id) or
+            (previous.player_id,previous.caster_id,parent.pool_id,parent.school,parent.budget,parent.source_card_id,parent.mage_cast_id)!=
+            (record.player_id,record.caster_id,link.pool_id,link.school,link.budget,link.source_card_id,link.mage_cast_id) or
             remaining_after(registry,previous)!=link.remaining):
         raise ValueError('Spell budget lost its complete actual preceding CAST and printed remainder')
 
@@ -89,6 +118,7 @@ def receipt(record):
 
 
 def accept(r,player_id,source_id,link):
+    mage_origin(r.state,r.registry,link,player_id,source_id,active=True)
     rows=candidates(r.registry,r.game._generation_context,link,player_id)
     if not rows:return ()
     selected,=sample_candidates(r.game._rng,rows,1,replacement=True)
@@ -103,9 +133,9 @@ def accept(r,player_id,source_id,link):
 
 
 def start(r,effect):
-    effect.__post_init__()
+    effect.validate_in_state(r.state,r.registry)
     return accept(r,effect.player_id,effect.source_id,SpellManaBudgetLink(effect.pool_id,effect.school,
-        effect.amount,effect.amount,effect.source_card_id))
+        effect.amount,effect.amount,effect.source_card_id,mage_cast_id=effect.mage_cast_id))
 
 
 def continue_budget(r,effect):
@@ -115,13 +145,13 @@ def continue_budget(r,effect):
     if remaining==0:return ()
     link=record.mana_budget
     return accept(r,record.player_id,record.caster_id,SpellManaBudgetLink(link.pool_id,link.school,
-        link.budget,remaining,link.source_card_id,record.id))
+        link.budget,remaining,link.source_card_id,record.id,link.mage_cast_id))
 
 
 def link_from_dict(value):
     if value is None:return None
     from .serialization import _row
-    row=_row(value,SpellManaBudgetLink);row['school']=SpellSchool(row['school'])
+    row=_row(value,SpellManaBudgetLink);row['school']=None if row['school'] is None else SpellSchool(row['school'])
     return SpellManaBudgetLink(**row)
 
 
@@ -134,14 +164,27 @@ def validate_boundary(game):
         controls=[w for w in (*frame.prefix,*frame.continuation,
             *(w for o in frame.options for w in o.effects)) if type(w) is ContinueSpellManaWorth]
     if not rows and not controls:return
+    mage_ids={c.mana_budget.mage_cast_id for c in rows.values()if c.mana_budget.mage_cast_id is not None}
+    mage_finishes={key:[]for key in mage_ids}
+    if mage_ids:
+        from .hero_health_history import effective_events
+        for event in effective_events(game.events):
+            key=dict(event.data).get('cast_id')if event.kind=='spell_cast_finished'else None
+            if key in mage_finishes:mage_finishes[key].append(event.sequence)
     children={};cached={}
     def pool(record,remaining):
         link=record.mana_budget
-        key=(link.pool_id,link.school,link.source_card_id,record.player_id,remaining)
+        key=(link.pool_id,link.school,link.source_card_id,link.mage_cast_id,record.player_id,remaining)
         if key not in cached:cached[key]=candidates(registry,game._generation_context,link,record.player_id,remaining)
         return cached[key]
     for record in rows.values():
         validate_record(state,registry,record)
+        mage_id=record.mana_budget.mage_cast_id
+        if mage_id is not None:
+            original=state.cast_history[mage_id-1];finishes=mage_finishes[mage_id]
+            if (len(finishes)>1 or original.completed and len(finishes)!=1 or
+                    finishes and record.recorded_event>=finishes[0]):
+                raise ValueError('Budget child borrowed an already finished original Mage CAST')
         if record.card_id not in {m.card_id for m in pool(record,record.mana_budget.remaining)}:
             raise ValueError('Budget CAST outside its original complete eligible pool')
         previous=record.mana_budget.previous_cast_id
