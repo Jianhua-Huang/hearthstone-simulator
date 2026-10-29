@@ -260,6 +260,20 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         require(len(states) == 2 and display(states[0].replace('{0}的', '') if chinese else
             states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
             'Restored Swarmer lost either complete equivalent rule body')
+    # These two complete Lightning rows have the same live/plain rule pair.
+    # The original gallery selects one form; the restored gallery keeps both.
+    jade_lightning_display = (canonical(row) == {
+            'CFM_707': 'b4c7bd75bbad8bbc446d7bab7dcb9ae944915056c973cee8df121260c8aa0e6f',
+            'WON_082': '6984495c86c5ae7f73d22d9e579d8281dc9ecd6bf18767b64a4e14e1da6fe3bd',
+        }.get(row.get('id')) and row['tags'].get('COLLECTION_RELATED_CARD_DATABASE_ID') == 42098 and
+        display_normalizations == (({'{0}': ''} if chinese else {}) if row['id'] == 'CFM_707' else
+            ({'@': '', '{0}': ''} if chinese else {'@': '', '{0}': '', '{1}': ''})))
+    if jade_lightning_display:
+        require(len(states) == 2 and display(states[0].replace('{0}的', '') if chinese else
+            states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
+            'Jade Lightning lost an equivalent complete damage/summon rule body')
+        if row['id'] == 'CFM_707':
+            raw_text = states[0 if chinese else 1]
     # This exact source repeats one rule in initial/ready/plain UI forms.
     # The gallery shows the initial form with its explicit printed threshold.
     # Check all complete bodies; never discard a different alternate effect.
@@ -445,16 +459,16 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((jade_reprint_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display or jasper_spellstone_display) and replacement == '' or
+            require(type(replacement) is str and ((jade_reprint_display or jade_lightning_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display or jasper_spellstone_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_reprint_display or jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
+                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_reprint_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_reprint_display or jade_lightning_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif marker == '<b>圣盾</b>。<b>嘲讽</b>。':

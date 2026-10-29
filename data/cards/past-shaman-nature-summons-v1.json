@@ -1,0 +1,3725 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-shaman-nature-summons-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BOT_451",
+        "dbf_id": 49052,
+        "name": "流电爆裂",
+        "name_en": "Voltaic Burst",
+        "text": "召唤两个1/1并具有<b>突袭</b>的“火花”。<b>过载：</b>（1）",
+        "text_en": "Summon two 1/1 Sparks with <b>Rush</b>. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 48557,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cef4a31b4a1c2c967fc7a43f827fb0ff2cd8978823f9fa02059ef6ca1970328a",
+      "definition_sha256": "8b7d6309a22452318a76f6461397e3fff5cfa1a40d7c224c35eed624c6f23b82",
+      "pool_card_sha256": "c00833ae52194a737b8af4b74846fad86f06db78e1fc60f07b9f1b0e0d3a6ef3"
+    },
+    {
+      "record": {
+        "id": "EX1_248",
+        "dbf_id": 238,
+        "name": "野性狼魂",
+        "name_en": "Feral Spirit",
+        "text": "召唤两只2/3并具有<b>嘲讽</b>的幽灵狼。<b>过载：</b>（1）",
+        "text_en": "Summon two 2/3 Spirit Wolves with <b>Taunt</b>. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 533,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Clint Langley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "023251194f28c1b7bd72073026ba1de217eac0cdbb2fa30e744d9b8d735b628d",
+      "definition_sha256": "67d70eaa8a41b7aeaebc4fa02f8b43bb16303541e102c71243bf60584212f475",
+      "pool_card_sha256": "044eef668f7dfca8c9360ebd88294beed618514c2ca096c8e23ce5a173144420"
+    },
+    {
+      "record": {
+        "id": "TID_005",
+        "dbf_id": 75590,
+        "name": "耐普图隆的指令",
+        "name_en": "Command of Neptulon",
+        "text": "召唤两个5/4并具有<b>突袭</b>的元素。<b>过载：</b>（1）",
+        "text_en": "Summon two 5/4 Elementals with <b>Rush</b>.\n<b>Overload:</b> (1)",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1658,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 75591,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1,
+          "2731": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8498bb165ca84f6cda6b042bf365082a2064f533be215bff5c584f114bc1c3f5",
+      "definition_sha256": "13faef8f75a26213946af6d4775b19b8826b9508283e67ab78087e6e9ea9a7b4",
+      "pool_card_sha256": "fa2fd90dc64a89f072df28932811fcf6914d84144f770c2355e0aafebdebb38e"
+    },
+    {
+      "record": {
+        "id": "TTN_722",
+        "dbf_id": 97671,
+        "name": "潮流逆转",
+        "name_en": "Turn the Tides",
+        "text": "在本回合中，使你的英雄获得+3攻击力。召唤一个3/3并具有<b>突袭</b>的元素。<b>过载：</b>（1）",
+        "text_en": "[x]Give your hero +3 Attack\nthis turn. Summon a 3/3\nElemental with <b>Rush</b>.\n<b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 97673,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "170acefe76961a4a44c216bbcfe6fa3168ea88fb50e448937364c7a4f24bc060",
+      "definition_sha256": "67f42f46efea932c4722ac597799bc2050e05c2db94e5e4fdf1854f506af68d6",
+      "pool_card_sha256": "7f794ee06e00199aa4875ce6a2ba7e2af7da1fdafdd3e8f95867aca1d2f0edaa"
+    },
+    {
+      "record": {
+        "id": "TOY_508",
+        "dbf_id": 103336,
+        "name": "立体书",
+        "name_en": "Pop-Up Book",
+        "text": "造成$2点伤害。召唤两只0/1并具有<b>嘲讽</b>的青蛙。",
+        "text_en": "Deal $2 damage. Summon two 0/1 Frogs with <b>Taunt</b>.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 548,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6213cdd86821834a772965b005d6af708249e75946bb1dcaa1cbeec84f4b4cc0",
+      "definition_sha256": "5439bda6ca3bd39a8d7c77f382de3af92905c1b5b767a79a2bf19d0e95672c14",
+      "pool_card_sha256": "6c1b2d1126c4e44c666988cd3c40d025e9a188da58e157a3187c59e93d756de4"
+    },
+    {
+      "record": {
+        "id": "YOD_041",
+        "dbf_id": 56292,
+        "name": "风暴之眼",
+        "name_en": "Eye of the Storm",
+        "text": "召唤三个5/6并具有<b>嘲讽</b>的元素。\n<b>过载：</b>（3）",
+        "text_en": "Summon three 5/6 Elementals with <b>Taunt</b>. <b>Overload:</b> (3)",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1403,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 56291,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1403,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9646accf5da0dff044bc308a968234bd40c540d9f4bf72b71c71fa3d29596cbc",
+      "definition_sha256": "bbb38fc1fa103a651191869860fb10a52d1825417802840ea02866f9baf39f47",
+      "pool_card_sha256": "f64fce9a8035bdffdebee3f1425150c08e9f63f61b17068ea29a057124076ab0"
+    },
+    {
+      "record": {
+        "id": "WW_090",
+        "dbf_id": 102059,
+        "name": "巨型风滚草！",
+        "name_en": "Giant Tumbleweed!!!",
+        "text": "对所有随从造成$6点伤害。召唤一个6/6的风滚草。",
+        "text_en": "Deal $6 damage to all minions. Summon a 6/6 Tumbleweed.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1892,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "ac992eea5cb0b193353a0a5e0b18b9cad824423d6947f7b02360b3559debcbdb",
+      "definition_sha256": "016c6ac0339b079307e5710d232937582536557b6b18a737df0623850c2464e9",
+      "pool_card_sha256": "f46ad6c9fb11566fe2c21d07c2acc31287daae519f78da54a92fb9d8386e342b"
+    },
+    {
+      "record": {
+        "id": "CFM_707",
+        "dbf_id": 40455,
+        "name": "青玉闪电",
+        "name_en": "Jade Lightning",
+        "text": "造成$3点伤害，召唤一个{0}的<b>青玉魔像</b>。@造成$3点伤害，召唤一个<b>青玉魔像</b>。",
+        "text_en": "Deal $3 damage. Summon a{1} {0} <b>Jade Golem</b>.@Deal $3 damage. Summon a <b>Jade Golem</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 25,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b4c7bd75bbad8bbc446d7bab7dcb9ae944915056c973cee8df121260c8aa0e6f",
+      "definition_sha256": "586519e17cf1d0835f9bd2b316342e5145ccfe0e7b54ff47c085d01c5ea586db",
+      "pool_card_sha256": "865dcbf182bfc8c38d4c57fd3a2e3000ebe3d07b0b3c2483b23a5276ee99aa19"
+    },
+    {
+      "record": {
+        "id": "WON_082",
+        "dbf_id": 102624,
+        "name": "青玉闪电",
+        "name_en": "Jade Lightning",
+        "text": "造成$3点伤害，召唤一个{0}的<b>青玉魔像</b>。@造成$3点伤害，召唤一个<b>青玉魔像</b>。",
+        "text_en": "Deal $3 damage. Summon a{1} {0} <b>Jade Golem</b>.@Deal $3 damage. Summon a <b>Jade Golem</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1898,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 40455,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40455",
+              "type": "Int",
+              "value": "40455"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6984495c86c5ae7f73d22d9e579d8281dc9ecd6bf18767b64a4e14e1da6fe3bd",
+      "definition_sha256": "aa930ab2c2e1b8894cadf9b56ae26cbe012278d97313e55be786f45386be19ef",
+      "pool_card_sha256": "05f142ce2071ec372583fde0cff4625feb7282e9858d2f89129ab7d3857263a0"
+    },
+    {
+      "record": {
+        "id": "EX1_246",
+        "dbf_id": 766,
+        "name": "妖术",
+        "name_en": "Hex",
+        "text": "使一个随从变形成为一只0/1并具有<b>嘲讽</b>的青蛙。",
+        "text_en": "Transform a minion into a 0/1 Frog with <b>Taunt</b>.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 548,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Hui"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "10636a1ee34935e23567f489bfae9fb69bdba2792b3843d3e172e61b056e6332",
+      "definition_sha256": "2f70cb9769be2cf38a3a9ff89355288c076c3be274f76c565d2d0f5ee70f5c86",
+      "pool_card_sha256": "60cad123f5973dbc947efe4836d4c9256afb7de911674df6768c76db229e5f0d"
+    },
+    {
+      "record": {
+        "id": "BT_100",
+        "dbf_id": 56411,
+        "name": "毒蛇神殿传送门",
+        "name_en": "Serpentshrine Portal",
+        "text": "造成$3点伤害。随机召唤一个法力值消耗为（3）的随从。<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage.\nSummon a random\n3-Cost minion.\n<b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gustav Schmidt"
+          }
+        ]
+      },
+      "record_sha256": "03cfea8ea3ccfe23173006320b2dd260cff121ba1f2f7a445e17010dabb135b0",
+      "definition_sha256": "49240e807c69ee78e44599048614055997f6c431ca3d1578a2ffd14579257361",
+      "pool_card_sha256": "336bd5e6cd0d9ab8cf42a1b13cbad2688ecf9825b393f558d403a5fd4e6c53e2"
+    },
+    {
+      "record": {
+        "id": "KAR_073",
+        "dbf_id": 39712,
+        "name": "大漩涡传送门",
+        "name_en": "Maelstrom Portal",
+        "text": "对所有敌方随从造成$1点伤害。随机召唤一个法力值消耗为（1）的随从。",
+        "text_en": "Deal_$1_damage to_all_enemy_minions. Summon_a_random\n1-Cost minion.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 23,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daria Tuzova"
+          }
+        ]
+      },
+      "record_sha256": "573061e7d43adb3dca79957ae2eb3a288fb741d64f622f51767f53b8efccb9f7",
+      "definition_sha256": "c18ad70f660274115632ba604d86f6b556996aadc737d20d548f439e88b3ebcc",
+      "pool_card_sha256": "d3e7dfeac1409fcf610ec11e2c81d4573427c49b4ddf893a6584d23e280c0a88"
+    },
+    {
+      "record": {
+        "id": "DMF_701",
+        "dbf_id": 61223,
+        "name": "深水炸弹",
+        "name_en": "Dunk Tank",
+        "text": "造成$4点伤害。<b>腐蚀：</b>再对所有敌方随从造成$2点伤害。",
+        "text_en": "Deal $4 damage.\n<b>Corrupt:</b> Then deal $2 damage to all enemy minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1466,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 61655,
+          "CORRUPT": 1,
+          "SPELL_SCHOOL": 4,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "6011246f6f16423c9894a783c87a5b34e6ecbac0ea3f1346b0dc7f24e1416472",
+      "definition_sha256": "5b16c9f3501ab8c71bdf4e5b3649c0299652393dfef79277e7d4db2ec927449a",
+      "pool_card_sha256": "904669d1d270643246f90e88d193d1b445aa73ab05d94901bdd0544d726ed3ac"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "TID_005t",
+        "dbf_id": 75591,
+        "name": "水流亡魂",
+        "name_en": "Water Revenant",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1658,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "aafd6de2ae9e08b010f0538574a01120c07c71f3055c2eeb77c71dad7577571a",
+      "definition_sha256": "c5140dd9024e55559018bfe335fa750f1633567d670c34bd44bd197627f178ec",
+      "pool_card_sha256": "a986e7e89a74b773b0ad8b6241cc7d61867e837b94414788dc04ba68e5effc4a"
+    },
+    {
+      "record": {
+        "id": "TTN_833t",
+        "dbf_id": 97673,
+        "name": "幼体水波",
+        "name_en": "Waveling",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daniil Kudriavtsev"
+          }
+        ]
+      },
+      "record_sha256": "fd29c5005ffc7c554359affe751311de1d82b4c04eb4c8cc97f699f8269734a5",
+      "definition_sha256": "55e37868bf09b96b3b6f16942e9a3129ac60684f612df4d1376b215473949179",
+      "pool_card_sha256": "95281fb5bb099d818d385b4ea9bf4acf04c4345464d717a3c4336fc0e5bd1198"
+    },
+    {
+      "record": {
+        "id": "YOD_041t",
+        "dbf_id": 56291,
+        "name": "拦路风暴",
+        "name_en": "Stormblocker",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 5,
+        "attack": 5,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1403,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 1403,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "e7d7e1dc9b3ee01e697954c9dbb4aee12075bf56d8504352a32cd920f658e720",
+      "definition_sha256": "e9fb3df461d47ea6825e85ffaf4ce14969c42346c5cc7e7e7e3a22adb9573afb",
+      "pool_card_sha256": "149067e61889019dc6b029d1a29e840ee1dc2db679372d94b3e3b0bb6f2139f7"
+    },
+    {
+      "record": {
+        "id": "WW_090t",
+        "dbf_id": 102060,
+        "name": "风滚草",
+        "name_en": "Tumbleweed",
+        "text": "",
+        "text_en": "",
+        "cost": 6,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 6,
+          "CARD_SET": 1892,
+          "CLASS": 8,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "2491ab86e0b9da8608e3a56961618827f7cc399a6cdd0bec0f6a4401cd92ec36",
+      "definition_sha256": "fae904a51e9bd978100813354c26fcdf07dc4567caf8b1758c691980b0a243af",
+      "pool_card_sha256": "d8de29131dc995dc0d476a0115d5ef2e08428e059af62a27efdff13b2cc1c851"
+    },
+    {
+      "record": {
+        "id": "DMF_701t",
+        "dbf_id": 61655,
+        "name": "深水炸弹",
+        "name_en": "Dunk Tank",
+        "text": "<b>已腐蚀</b>\n造成$4点伤害，再对所有敌方随从造成$2点\n伤害。",
+        "text_en": "<b>Corrupted</b>\nDeal $4 damage, then\ndeal $2 damage to all enemy minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1466,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "CORRUPTED_CARD": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "8bc1493e49350cb87df526a356be0a8f809a6894072c8d98448a6c8ecf37db38",
+      "definition_sha256": "a7d0dc43dc27e8fc48e7a30c215b43897318da00f605a3d60ed772f2de802ade",
+      "pool_card_sha256": "bcdf0120d7af4ce99430c6be44e2670f8c887b5ae29e975f405ec74d4b78d373"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "BOT_102t",
+        "dbf_id": 48557,
+        "name": "火花",
+        "name_en": "Spark",
+        "text": "<b>突袭</b>",
+        "text_en": "<b>Rush</b>",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 12,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RUSH": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L Chanchai"
+          }
+        ]
+      },
+      "record_sha256": "57c2dd62d9c91a9286f7bd983637498aa370344f3d76a6993244183513a25217",
+      "definition_sha256": "dc6b9307c5e3c05ca889e5afb1ad6b60cf1df5f28e771f98df4399d08a167289",
+      "pool_card_sha256": "f6071ede7bb1001abc922571fb51e6f48971916e96d7d546842aaffd30cd0a50"
+    },
+    {
+      "record": {
+        "id": "EX1_tk11",
+        "dbf_id": 533,
+        "name": "幽灵狼",
+        "name_en": "Spirit Wolf",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 11,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6,
+          "2542": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2542",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2542"
+          }
+        ]
+      },
+      "record_sha256": "8b52370579441f9e7af6775283bcb2f6db9758437c62fd8e62cf6e07e0a6efaf",
+      "definition_sha256": "c044b5f25ecb23612037b773f51a88724f352c8c3264c664ca4ccdbac7cf40db",
+      "pool_card_sha256": "81d96be14e7ec839f1223da7ba3ffcc27c3369f5979be9b452bf8373ef805780"
+    },
+    {
+      "record": {
+        "id": "hexfrog",
+        "dbf_id": 548,
+        "name": "青蛙",
+        "name_en": "Frog",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": null,
+        "attack": null,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "CARD_SET": 1635,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 6
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "3b97d4e6189180decf930a4f481725d8f3e19d34f8bb13a9b11dfb974f036323",
+      "definition_sha256": "c6b40da75cfb48d53fdf494cafae3c2dcaae3b7d412719d62e8460349740fac9",
+      "pool_card_sha256": "267ae4f7f40f20535705e186a8d45c0b93b0dcdc0608bc2d507664aa0349f638"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t01",
+        "dbf_id": 42098,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "78c8443f33c9c8ba15220b9db1c7881483a2db8f8bc959acaa5a75ddf44ab757",
+      "definition_sha256": "99ec6aea6f3102d66f22beae70d0602473351539f2f08290e2a585541c51373c",
+      "pool_card_sha256": "0610e9a145bd38efad981e56201b3890a3e3fb9340efb0fb5f362599b447efc0"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t04",
+        "dbf_id": 42101,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "925d15129f419325f6ee58aa284d41b710c77a7cf7a1ee0d66163799e98942bd",
+      "definition_sha256": "70412b34681220dd528148d141152c9a67ed0ef27858a3e68cb43d1df4f510fc",
+      "pool_card_sha256": "0469abe261bb94b2387361bd13d454bf14d1a322216530c0306678b6caeb1b6f"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t07",
+        "dbf_id": 42104,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f0aa23e5c37caac6e277f5263e52cb403d3bed1502ce0cd50018e885d5c73644",
+      "definition_sha256": "2921cfd56307ad161f100e1f911f0dd752c528cd7c3a8bfba74d17f1c192ece3",
+      "pool_card_sha256": "1a0686ef94d9a2475cf03adf4980157b0efc7ed01e55074ee75fa9d928b17179"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t20",
+        "dbf_id": 42128,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 10,
+        "attack": 20,
+        "health": 20,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 20,
+          "ATK": 20,
+          "COST": 10,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4d04bea823cb0299600870ef858f9dda7a21d2c165002eb695337b005ae63be1",
+      "definition_sha256": "b3b676eec9e5701d125a107c02d63848defdf476d40eb90f196fe084306c1833",
+      "pool_card_sha256": "47c2e54d94e76b63fb11abf18489dd8e8dfe36d87026b0614095a885deb4a909"
+    },
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838",
+      "pool_card_sha256": "42ab3eb29dde806fee20d9d987f465b5cefe27d093cadaac0ec0c28e6cb36d6a"
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "BOT_451",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 49052,
+        "collectible": 1,
+        "slug": "49052-voltaic-burst",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "流电爆裂",
+        "text": "召唤两个1/1并具有<b>突袭</b>的“火花”。<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9998abd3e89a4e4a406147e4542344d4c2498a06b7106f04ec6b384145f883b0.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f60437368224d0c4495494f6b41c77500c2f9932734365a0eac4c25079e385f.png",
+        "flavorText": "电路负载过多就成了过载。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1287c90204c305e1d30e06bc100d0a4a8f72501356ba106a302edd12e57d92c5.png",
+        "keywordIds": [
+          14,
+          53
+        ],
+        "copyOfCardId": [
+          106323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_451",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 49052,
+        "collectible": 1,
+        "slug": "49052-voltaic-burst",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "Voltaic Burst",
+        "text": "Summon two 1/1 Sparks with <b>Rush</b>. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dacca4cf0b16505f9e640f52674c490142916bd2511e2712e182a1dcb0c69d97.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e16be7f7084161c63722f0ec38f7dcc1852910b18352a03e8b0df2eb269ee5b8.png",
+        "flavorText": "Batteries have three components: Cathode, Anode, and Overload.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1287c90204c305e1d30e06bc100d0a4a8f72501356ba106a302edd12e57d92c5.png",
+        "keywordIds": [
+          14,
+          53
+        ],
+        "copyOfCardId": [
+          106323
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_248",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 238,
+        "collectible": 1,
+        "slug": "238-feral-spirit",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 3,
+        "artistName": "Clint Langley",
+        "manaCost": 3,
+        "name": "野性狼魂",
+        "text": "召唤两只2/3并具有<b>嘲讽</b>的幽灵狼。<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8171f43702a08769b021b3309afeaae8a632c8c3968d7601698cbca02c81f521.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a36ff575f872e3f023b8f252e3ab48ac8e98bbfad2d29582de112646d31cd8ad.png",
+        "flavorText": "幽灵狼只是普通的狼而已，它们擅长发出吓人的寒光。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4757911472da3faadbc1ba1f2ef2862c4055f8896d4c611458fe5b1e24f827f.png",
+        "keywordIds": [
+          1,
+          14
+        ],
+        "copyOfCardId": [
+          69626,
+          69897
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_248",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 238,
+        "collectible": 1,
+        "slug": "238-feral-spirit",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 3,
+        "artistName": "Clint Langley",
+        "manaCost": 3,
+        "name": "Feral Spirit",
+        "text": "Summon two 2/3 Spirit Wolves with <b>Taunt</b>. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3656f83f840a25b407e0a8315f9a1ba62c52816220d93a8075fde3c6c288cfb.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a36ff575f872e3f023b8f252e3ab48ac8e98bbfad2d29582de112646d31cd8ad.png",
+        "flavorText": "Spirit wolves are like regular wolves with pom-poms.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4757911472da3faadbc1ba1f2ef2862c4055f8896d4c611458fe5b1e24f827f.png",
+        "keywordIds": [
+          1,
+          14
+        ],
+        "copyOfCardId": [
+          69626,
+          69897
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_005",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 75590,
+        "collectible": 1,
+        "slug": "75590-command-of-neptulon",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 5,
+        "name": "耐普图隆的指令",
+        "text": "召唤两个5/4并具有<b>突袭</b>的元素。<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4be57dab217c8414a97eb84538225851985d61adb6097ec756d86e6843d52603.png",
+        "imageGold": "",
+        "flavorText": "“亡魂走到F6。将军了，厄祖玛特！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36de290bd7ef28f004523b6d4d82e5705f9dc8ccba1967d0cd974c483803a7b6.png",
+        "childIds": [
+          75591
+        ],
+        "keywordIds": [
+          14,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_005",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 75590,
+        "collectible": 1,
+        "slug": "75590-command-of-neptulon",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 5,
+        "name": "Command of Neptulon",
+        "text": "Summon two 5/4 Elementals with <b>Rush</b>. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/161649652ade039213240932f7765973d5f165d92b4bc612dc6d9464bb6ce182.png",
+        "imageGold": "",
+        "flavorText": "\"REVENANT TO F6. CHECKMATE, OZUMAT!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36de290bd7ef28f004523b6d4d82e5705f9dc8ccba1967d0cd974c483803a7b6.png",
+        "childIds": [
+          75591
+        ],
+        "keywordIds": [
+          14,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_722",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 97671,
+        "collectible": 1,
+        "slug": "97671-turn-the-tides",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "潮流逆转",
+        "text": "在本回合中，使你的英雄获得+3攻击力。召唤一个3/3并具有<b>突袭</b>的元素。<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a7bde2faece23ea7f4c604f72066b68f58557d5a2544a459ca3c57a702d29fb.png",
+        "imageGold": "",
+        "flavorText": "流 潮",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c8b94c26cfabb10c141a94ae2c3d48a747a85c7221c39e266283d7f13eeea2d.png",
+        "keywordIds": [
+          14,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_722",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 97671,
+        "collectible": 1,
+        "slug": "97671-turn-the-tides",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "Turn the Tides",
+        "text": "Give your hero +3 Attack this turn. Summon a 3/3 Elemental with <b>Rush</b>. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ce4f071c8c18e8656cb803866a02c435056a40f2bdef6377fbc7e2c905a545b.png",
+        "imageGold": "",
+        "flavorText": "T I D E S",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4c8b94c26cfabb10c141a94ae2c3d48a747a85c7221c39e266283d7f13eeea2d.png",
+        "keywordIds": [
+          14,
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_508",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 103336,
+        "collectible": 1,
+        "slug": "103336-pop-up-book",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "立体书",
+        "text": "造成 2点伤害。召唤两只0/1并具有<b>嘲讽</b>的青蛙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c1244e46926510c786c96ef369b2249eab4287e70eb634ea59e24e26ad692ffd.png",
+        "imageGold": "",
+        "flavorText": "什么是体书？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/162161154e6ae12ea83a0bf343122fee3c4dee1a6bd0da608d50185294cbdec5.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_508",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 103336,
+        "collectible": 1,
+        "slug": "103336-pop-up-book",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "manaCost": 1,
+        "name": "Pop-Up Book",
+        "text": "Deal 2 damage. Summon two 0/1 Frogs with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93d993fd3d3bc855be6842bfda7f95ad18df5867cd41ea2c40ca86e7cc2d33cb.png",
+        "imageGold": "",
+        "flavorText": "What's up-book?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/162161154e6ae12ea83a0bf343122fee3c4dee1a6bd0da608d50185294cbdec5.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_041",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 56292,
+        "collectible": 1,
+        "slug": "56292-eye-of-the-storm",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1403,
+        "rarityId": 1,
+        "artistName": "Evgeniy Dlinnov",
+        "manaCost": 10,
+        "name": "风暴之眼",
+        "text": "召唤三个5/6并具有<b>嘲讽</b>的元素。 <b>过载：</b>（3）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e29a28baa8be0e468af54720ecff91c0f3cf1b5ea2a377506bf3e2a0f5de1353.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4a9dc730a3e93c94d6c9acd470767cd0c8f194f58c707bb629ca55b5d7189da.png",
+        "flavorText": "眼中窥暴，可知其全，剩下的部分我实在不想看了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e85782a4301b52a899d9004a4ae847203226de54e8c09e8cbed961861c85b989.png",
+        "childIds": [
+          56291
+        ],
+        "keywordIds": [
+          1,
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_041",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 56292,
+        "collectible": 1,
+        "slug": "56292-eye-of-the-storm",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1403,
+        "rarityId": 1,
+        "artistName": "Evgeniy Dlinnov",
+        "manaCost": 10,
+        "name": "Eye of the Storm",
+        "text": "Summon three 5/6 Elementals with <b>Taunt</b>. <b>Overload:</b> (3)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e419977f3c5d3470f9d06934d26b5d93d7aa3d5fac8bee9a78ed89663157f1e1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf05ace8b85bf91610e4455286120ee83235478a385cbcd48bb6d46a0befba91.png",
+        "flavorText": "If that's the eye, I would hate to see the rest of the storm.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e85782a4301b52a899d9004a4ae847203226de54e8c09e8cbed961861c85b989.png",
+        "childIds": [
+          56291
+        ],
+        "keywordIds": [
+          1,
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_090",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 102059,
+        "collectible": 1,
+        "slug": "102059-giant-tumbleweed",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "manaCost": 7,
+        "name": "巨型风滚草！",
+        "text": "对所有随从造成 6点伤害。召唤一个6/6的风滚草。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/964d1c6a791acce9adf9ae563b60b5f31c889c6f9f02cc366dc903f29b7349b8.png",
+        "imageGold": "",
+        "flavorText": "除了把荒芜之地搅个稀巴烂，斯卡尔最大的爱好是保龄球。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c067e0a72e23cc1c7d177e2078b5329c1d4c551075eaa0feded339851514f947.png",
+        "childIds": [
+          102060
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_090",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 102059,
+        "collectible": 1,
+        "slug": "102059-giant-tumbleweed",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "manaCost": 7,
+        "name": "Giant Tumbleweed!!!",
+        "text": "Deal 6 damage to all minions. Summon a 6/6 Tumbleweed.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fe62ddc3d5662ad425600b779578b7f4c7363b9b45dd09c50f68bc221afd592.png",
+        "imageGold": "",
+        "flavorText": "Skarr's second-biggest hobby after laying waste to the Badlands is bowling.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c067e0a72e23cc1c7d177e2078b5329c1d4c551075eaa0feded339851514f947.png",
+        "childIds": [
+          102060
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_707",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 40455,
+        "collectible": 1,
+        "slug": "40455-jade-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Phil Saunders",
+        "manaCost": 3,
+        "name": "青玉闪电",
+        "text": "造成 3点伤害，召唤一个 的<b>青玉魔像</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b0d2a6c54c5c65b0188c9582363d0bcea7bb178e2209be0b85664d35b7b36ff9.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9979eaaff5351f46e5c7aebdac76edf2b355379c42b347f4fad9a6335275aa00.png",
+        "flavorText": "你是电，你是光，你是唯一的传奇！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef20d9e1a0365eb298aa347edae4dc56d80fc160a61aa063ac39fc791f531e06.png",
+        "keywordIds": [
+          26
+        ],
+        "copyOfCardId": [
+          102624
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_707",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 40455,
+        "collectible": 1,
+        "slug": "40455-jade-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Phil Saunders",
+        "manaCost": 3,
+        "name": "Jade Lightning",
+        "text": "Deal 3 damage. Summon a <b>Jade Golem</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/85bea5743f7e2c60561f4915e12ac31ee246f67cd9dc016ec1a4bc8538237566.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2380888cf25a411c5704f3315e887f9b7b93d3764213ea033174154b922492a4.png",
+        "flavorText": "Jade Lightning, goooo Jade Lightning!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef20d9e1a0365eb298aa347edae4dc56d80fc160a61aa063ac39fc791f531e06.png",
+        "keywordIds": [
+          26
+        ],
+        "copyOfCardId": [
+          102624
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_082",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 102624,
+        "collectible": 1,
+        "slug": "102624-jade-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Phil Saunders",
+        "manaCost": 3,
+        "name": "青玉闪电",
+        "text": "造成 3点伤害，召唤一个 的<b>青玉魔像</b>。 造成 3点伤害，召唤一个<b>青玉魔像</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1cc47cdb581e1be90ec27e1c16cdf2e48bec46a0c913b33e034c6bcd2ee6b782.png",
+        "imageGold": "",
+        "flavorText": "你是电，你是光，你是唯一的传奇！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/047a981f630a06b0f236299a50ac8b777a1008c2e8e98d608fdc7eda9e52bcb7.png",
+        "keywordIds": [
+          26
+        ],
+        "copyOfCardId": [
+          40455
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_082",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 102624,
+        "collectible": 1,
+        "slug": "102624-jade-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Phil Saunders",
+        "manaCost": 3,
+        "name": "Jade Lightning",
+        "text": "Deal 3 damage. Summon a <b>Jade Golem</b>. Deal 3 damage. Summon a <b>Jade Golem</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fbb4c10d0f3065eeedb123858a0312bea1347bd940265d55e704922eae7c919d.png",
+        "imageGold": "",
+        "flavorText": "Jade Lightning, goooo Jade Lightning!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/047a981f630a06b0f236299a50ac8b777a1008c2e8e98d608fdc7eda9e52bcb7.png",
+        "keywordIds": [
+          26
+        ],
+        "copyOfCardId": [
+          40455
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_246",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 766,
+        "collectible": 1,
+        "slug": "766-hex",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Steve Hui",
+        "manaCost": 3,
+        "name": "妖术",
+        "text": "使一个随从变形成为一只0/1并具有<b>嘲讽</b>的青蛙。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8824182f974d3cc74bbbef53b6908c54a9bbfdb32754b2b25a4c276eb0d3ec64.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89c763f45cc5db78265e2388be1bfd4af0b2d4b21ee34e94c6bd6c6b1c2f2c13.png",
+        "flavorText": "如果你对一个鱼人使用妖术...其实结果也没什么变化，对不对？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3c1ec46dfffdf70c140b24c0e62d59b61a7b706eb8dc8b7d26ed8b8594cd21c.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68455,
+          69551
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_246",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 766,
+        "collectible": 1,
+        "slug": "766-hex",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Steve Hui",
+        "manaCost": 3,
+        "name": "Hex",
+        "text": "Transform a minion into a 0/1 Frog with <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7b902b782057d64e6e9ea14b55f11b5e9e527ce41079d04fb5b292d91cad2870.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89c763f45cc5db78265e2388be1bfd4af0b2d4b21ee34e94c6bd6c6b1c2f2c13.png",
+        "flavorText": "If you Hex a Murloc... it really isn't much of a change, is it?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3c1ec46dfffdf70c140b24c0e62d59b61a7b706eb8dc8b7d26ed8b8594cd21c.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68455,
+          69551
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_100",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 56411,
+        "collectible": 1,
+        "slug": "56411-serpentshrine-portal",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Gustav Schmidt",
+        "manaCost": 3,
+        "name": "毒蛇神殿传送门",
+        "text": "造成 3点伤害。随机召唤一个法力值消耗为（3）的随从。<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c56c925c22d05d6985cb829fd5753bf3b7f43c3cb52f033287d213a611687a1.png",
+        "imageGold": "",
+        "flavorText": "外域下水道的雅称。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38e3ded9b3f4df99a2f1aeb3f0bd4d67914cafd8379ae3c66cfcb8c5ac662534.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          75542
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_100",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 56411,
+        "collectible": 1,
+        "slug": "56411-serpentshrine-portal",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 1,
+        "artistName": "Gustav Schmidt",
+        "manaCost": 3,
+        "name": "Serpentshrine Portal",
+        "text": "Deal 3 damage. Summon a random 3-Cost minion. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d4f76d217057207c2f36aa67b071c9df004f1117e0eaabfd189f8021fa650d56.png",
+        "imageGold": "",
+        "flavorText": "This is why you never flush a three-cost minion.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38e3ded9b3f4df99a2f1aeb3f0bd4d67914cafd8379ae3c66cfcb8c5ac662534.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          75542
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "KAR_073",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 39712,
+        "collectible": 1,
+        "slug": "39712-maelstrom-portal",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 23,
+        "rarityId": 3,
+        "artistName": "Daria Tuzova",
+        "manaCost": 2,
+        "name": "大漩涡传送门",
+        "text": "对所有敌方随从造成 1点伤害。随机召唤一个法力值消耗为（1）的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a2056a468e4de50720220f816fd1f8bd5a243cc141786b394db9964aecdef3dd.png",
+        "imageGold": "",
+        "flavorText": "坊间传闻这是当下最热门的一个度假胜地，旱鸭子和深海恐惧者谢绝前往！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/762711bf0195759afb0cb75d73dc3e2d372ecd1f648fd471641ed301fbd8f3d0.png",
+        "copyOfCardId": [
+          76295
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "KAR_073",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 39712,
+        "collectible": 1,
+        "slug": "39712-maelstrom-portal",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 23,
+        "rarityId": 3,
+        "artistName": "Daria Tuzova",
+        "manaCost": 2,
+        "name": "Maelstrom Portal",
+        "text": "Deal 1 damage to all enemy minions. Summon a random 1-Cost minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8acab443e52fcaa40a4f0c0fe28f606755e0a4b166bf5cbd13b7958905234e4.png",
+        "imageGold": "",
+        "flavorText": "They bill this as a popular resort attraction, but they try and get your money up front.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/762711bf0195759afb0cb75d73dc3e2d372ecd1f648fd471641ed301fbd8f3d0.png",
+        "copyOfCardId": [
+          76295
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_701",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 61223,
+        "collectible": 1,
+        "slug": "61223-dunk-tank",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 4,
+        "name": "深水炸弹",
+        "text": "造成 4点伤害。<b>腐蚀：</b>再对所有敌方随从造成 2点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/688d1e48127c6fe5daafe7ce6e84b5881bb8f2c0a5891b2fcb7b30f7f545398e.png",
+        "imageGold": "",
+        "flavorText": "腐蚀，其实就是拉你下水。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ed648206978377607197d964efad4598264947d7f4644606b0aecc33b35113f.png",
+        "childIds": [
+          61655
+        ],
+        "keywordIds": [
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DMF_701",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 61223,
+        "collectible": 1,
+        "slug": "61223-dunk-tank",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 4,
+        "name": "Dunk Tank",
+        "text": "Deal 4 damage. <b>Corrupt:</b> Then deal 2 damage to all enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5684cc314d4c78d0889fc5432b9739029adff2d640c256c8330ead32dff538e9.png",
+        "imageGold": "",
+        "flavorText": "\"When I said bring a tank to the dungeon, this is not what I had in mind!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ed648206978377607197d964efad4598264947d7f4644606b0aecc33b35113f.png",
+        "childIds": [
+          61655
+        ],
+        "keywordIds": [
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_005t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\75591-zh_CN.json",
+      "response_sha256": "61e38f3a5fec73c8b37b95a0b534129b38c566600b87203164818afbf6ec096c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=75591&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 75591,
+        "collectible": 0,
+        "slug": "75591-water-revenant",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "水流亡魂",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f92f93e7991d67636322460374752dba4efedbb955794f1a191b472ea8dbc1c7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75590,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=75591&locale=zh_CN&collectible=0",
+        "sha256": "61e38f3a5fec73c8b37b95a0b534129b38c566600b87203164818afbf6ec096c",
+        "bytes": 589,
+        "observed_at": "2026-10-29T22:31:56.592429+00:00"
+      }
+    },
+    {
+      "card_id": "TID_005t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\75591-en_US.json",
+      "response_sha256": "3caa2ff2ad969144e3b75cf44eff3bbbb1700cd9f8cfc8d138336fa87bdeb896",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=75591&locale=en_US&collectible=0",
+      "face": {
+        "id": 75591,
+        "collectible": 0,
+        "slug": "75591-water-revenant",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1658,
+        "rarityId": null,
+        "artistName": "BOSi Studio",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 4,
+        "name": "Water Revenant",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c3ea90c5af7a82c169d4722c7f5d25e9852acb80fec550a354823776cafc3e3f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 75590,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=75591&locale=en_US&collectible=0",
+        "sha256": "3caa2ff2ad969144e3b75cf44eff3bbbb1700cd9f8cfc8d138336fa87bdeb896",
+        "bytes": 589,
+        "observed_at": "2026-10-29T22:31:58.507782+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_833t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\97673-zh_CN.json",
+      "response_sha256": "40ee9a292022dee99b576c975cf77c17089edcde1bcaf628cc2ad1ebc77443dd",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97673&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97673,
+        "collectible": 0,
+        "slug": "97673-waveling",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "幼体水波",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d79b23f0bdd2c27ca05cf51dec20487cae0d921147c7d717eee3a7168ac2230c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97473,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97673&locale=zh_CN&collectible=0",
+        "sha256": "40ee9a292022dee99b576c975cf77c17089edcde1bcaf628cc2ad1ebc77443dd",
+        "bytes": 590,
+        "observed_at": "2026-10-29T22:32:00.590309+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_833t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\97673-en_US.json",
+      "response_sha256": "d681daa6005de543463ae04b0ef66c6802e4bd320ae29ab2cfed96e714d680a7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97673&locale=en_US&collectible=0",
+      "face": {
+        "id": 97673,
+        "collectible": 0,
+        "slug": "97673-waveling",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1858,
+        "rarityId": null,
+        "artistName": "Daniil Kudriavtsev",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Waveling",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8668d50fa2785fb23283ff54523570394f6a0587ba91edc2eadc3a2aeb34f557.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97473,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97673&locale=en_US&collectible=0",
+        "sha256": "d681daa6005de543463ae04b0ef66c6802e4bd320ae29ab2cfed96e714d680a7",
+        "bytes": 584,
+        "observed_at": "2026-10-29T22:32:03.033576+00:00"
+      }
+    },
+    {
+      "card_id": "YOD_041t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\56291-zh_CN.json",
+      "response_sha256": "dcb633e4de6d60f8597946473a000f0b3b0df50c5e239e74fafd57aaf28576f2",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=56291&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 56291,
+        "collectible": 0,
+        "slug": "56291-stormblocker",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1403,
+        "rarityId": null,
+        "artistName": "Evgeniy Dlinnov",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "拦路风暴",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/330c0281729862d045fd54c7818a64a9895e69402a933b359ad32fa047b674b6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/398fc1f5c6f28601645aeb09fc5007b1b5ff57ab9399b94c685f49a9f146fc49.png",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 56292,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=56291&locale=zh_CN&collectible=0",
+        "sha256": "dcb633e4de6d60f8597946473a000f0b3b0df50c5e239e74fafd57aaf28576f2",
+        "bytes": 708,
+        "observed_at": "2026-10-29T22:32:05.472377+00:00"
+      }
+    },
+    {
+      "card_id": "YOD_041t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\56291-en_US.json",
+      "response_sha256": "a239c830593bb9beaf045cc2897046fa8bc4ca2420add816f358891f179a0471",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=56291&locale=en_US&collectible=0",
+      "face": {
+        "id": 56291,
+        "collectible": 0,
+        "slug": "56291-stormblocker",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1403,
+        "rarityId": null,
+        "artistName": "Evgeniy Dlinnov",
+        "health": 6,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Stormblocker",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6e76c4e61d15b1a967b7278c65f58b90b6978c19edff8a64df0f988065833ed2.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/398fc1f5c6f28601645aeb09fc5007b1b5ff57ab9399b94c685f49a9f146fc49.png",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 56292,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=56291&locale=en_US&collectible=0",
+        "sha256": "a239c830593bb9beaf045cc2897046fa8bc4ca2420add816f358891f179a0471",
+        "bytes": 707,
+        "observed_at": "2026-10-29T22:32:07.801470+00:00"
+      }
+    },
+    {
+      "card_id": "WW_090t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\102060-zh_CN.json",
+      "response_sha256": "57a01005699d8af9986aa69f401a92cd1fee4802d0df6329994de07c3a74f55a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=102060&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 102060,
+        "collectible": 0,
+        "slug": "102060-tumbleweed",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "风滚草",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f77963939d0bcca4b92d071cd3ace250b1b0eb3b3df30233702ed427b8601a25.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 102059,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=102060&locale=zh_CN&collectible=0",
+        "sha256": "57a01005699d8af9986aa69f401a92cd1fee4802d0df6329994de07c3a74f55a",
+        "bytes": 535,
+        "observed_at": "2026-10-29T22:32:10.105689+00:00"
+      }
+    },
+    {
+      "card_id": "WW_090t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\102060-en_US.json",
+      "response_sha256": "e3e5693d828fc5b376e953b9b826bf9952ad5073a55b2b606336400361d5f581",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=102060&locale=en_US&collectible=0",
+      "face": {
+        "id": 102060,
+        "collectible": 0,
+        "slug": "102060-tumbleweed",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1892,
+        "rarityId": null,
+        "artistName": "Mooncolony",
+        "health": 6,
+        "attack": 6,
+        "manaCost": 6,
+        "name": "Tumbleweed",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dbe74f1b4dbdf3cf84fcdc76c3b582c542d1ff9e66d1ad10cafbbe52cf4c46bb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 102059,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=102060&locale=en_US&collectible=0",
+        "sha256": "e3e5693d828fc5b376e953b9b826bf9952ad5073a55b2b606336400361d5f581",
+        "bytes": 536,
+        "observed_at": "2026-10-29T22:32:12.135959+00:00"
+      }
+    },
+    {
+      "card_id": "DMF_701t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\61655-zh_CN.json",
+      "response_sha256": "06f6974ace58f78163d319cb2f13f565d2819fd990f873e8c49043c599f49a3b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=61655&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 61655,
+        "collectible": 0,
+        "slug": "61655-dunk-tank",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 4,
+        "name": "深水炸弹",
+        "text": "<b>已腐蚀</b> 造成 4点伤害，再对所有敌方随从造成 2点 伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30d7e512d7252f6159d7358fd4ac61fe2141bc71bf284329c4fa38c2ed1fb4eb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 61223,
+        "keywordIds": [
+          98
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=61655&locale=zh_CN&collectible=0",
+        "sha256": "06f6974ace58f78163d319cb2f13f565d2819fd990f873e8c49043c599f49a3b",
+        "bytes": 627,
+        "observed_at": "2026-10-29T22:32:14.338968+00:00"
+      }
+    },
+    {
+      "card_id": "DMF_701t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\61655-en_US.json",
+      "response_sha256": "08b5e765da73d7d2225ddfcc56efe89fd76fac6fbb4b3fe07f37783a4cd23aa4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=61655&locale=en_US&collectible=0",
+      "face": {
+        "id": 61655,
+        "collectible": 0,
+        "slug": "61655-dunk-tank",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Jim Nelson",
+        "manaCost": 4,
+        "name": "Dunk Tank",
+        "text": "<b>Corrupted</b> Deal 4 damage, then deal 2 damage to all enemy minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcf40fe92da22154e36b14646430a2578484f0a877c35425fe44848f926d006f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 61223,
+        "keywordIds": [
+          98
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=61655&locale=en_US&collectible=0",
+        "sha256": "08b5e765da73d7d2225ddfcc56efe89fd76fac6fbb4b3fe07f37783a4cd23aa4",
+        "bytes": 614,
+        "observed_at": "2026-10-29T22:32:16.684668+00:00"
+      }
+    },
+    {
+      "card_id": "BOT_102t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\48557-zh_CN.json",
+      "response_sha256": "8bb7a291c1331520dbaf162b688697aa54998898bf7484773ad5961317c10d2e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=48557&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 48557,
+        "collectible": 0,
+        "slug": "48557-spark",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": null,
+        "artistName": "L Chanchai",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "火花",
+        "text": "<b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/432cd7ae22d669f3e2373ffeccaa815ecfe2633755a0602a7dbb62ccd7f539c2.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 47979,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=48557&locale=zh_CN&collectible=0",
+        "sha256": "8bb7a291c1331520dbaf162b688697aa54998898bf7484773ad5961317c10d2e",
+        "bytes": 575,
+        "observed_at": "2026-10-29T22:32:18.614734+00:00"
+      }
+    },
+    {
+      "card_id": "BOT_102t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\48557-en_US.json",
+      "response_sha256": "7af37556e4de42fb33aa39a26a1680f4cbe53e8507ed1d79dbf2c49277f322ed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=48557&locale=en_US&collectible=0",
+      "face": {
+        "id": 48557,
+        "collectible": 0,
+        "slug": "48557-spark",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 18,
+        "cardTypeId": 4,
+        "cardSetId": 1127,
+        "rarityId": null,
+        "artistName": "L Chanchai",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Spark",
+        "text": "<b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/56f27dce94467a22fe7d7784042a5819689ec951f1bf147e151f796d59d3c00d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 47979,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=48557&locale=en_US&collectible=0",
+        "sha256": "7af37556e4de42fb33aa39a26a1680f4cbe53e8507ed1d79dbf2c49277f322ed",
+        "bytes": 572,
+        "observed_at": "2026-10-29T22:32:21.005251+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_tk11",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\533-zh_CN.json",
+      "response_sha256": "53d0fda3d94bc6a92eb3442a5956aa76a297a2b6cf50414c5aae90ed4b02f67f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=533&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 533,
+        "collectible": 0,
+        "slug": "533-spirit-wolf",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "幽灵狼",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffce43d25f8aef5485d9bbb229d9812f31b4f4e81d876901be653066199bad11.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          70065
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=533&locale=zh_CN&collectible=0",
+        "sha256": "53d0fda3d94bc6a92eb3442a5956aa76a297a2b6cf50414c5aae90ed4b02f67f",
+        "bytes": 592,
+        "observed_at": "2026-10-29T22:32:23.210061+00:00"
+      }
+    },
+    {
+      "card_id": "EX1_tk11",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\533-en_US.json",
+      "response_sha256": "a027fa82fdccab3bea2aa8b72ca0c7a5a81f94a77e5bcce5b4bdde2a5a26d6ab",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=533&locale=en_US&collectible=0",
+      "face": {
+        "id": 533,
+        "collectible": 0,
+        "slug": "533-spirit-wolf",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "multiTypeIds": [
+          20
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": null,
+        "artistName": null,
+        "health": 3,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Spirit Wolf",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4bdfedd6e4ee2135823c4a09c21022533b2e36037d091ef37b76597bef57d8dc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          70065
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=533&locale=en_US&collectible=0",
+        "sha256": "a027fa82fdccab3bea2aa8b72ca0c7a5a81f94a77e5bcce5b4bdde2a5a26d6ab",
+        "bytes": 593,
+        "observed_at": "2026-10-29T22:32:25.426037+00:00"
+      }
+    },
+    {
+      "card_id": "hexfrog",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\548-zh_CN.json",
+      "response_sha256": "a0eab62ce993a4ccf6a873102a3ee7758b109e18edebd1fa5ddf10189a4c5d07",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=548&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 548,
+        "collectible": 0,
+        "slug": "548-frog",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 0,
+        "manaCost": 0,
+        "name": "青蛙",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/08dc40ba9e2914749713aee27e51dcf56efd9b734aab9bdfa2a3171963cd5fc3.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=548&locale=zh_CN&collectible=0",
+        "sha256": "a0eab62ce993a4ccf6a873102a3ee7758b109e18edebd1fa5ddf10189a4c5d07",
+        "bytes": 658,
+        "observed_at": "2026-10-29T22:32:27.502683+00:00"
+      }
+    },
+    {
+      "card_id": "hexfrog",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\548-en_US.json",
+      "response_sha256": "9a19d700f75f9b659f172d51473cf6439306dfd10f6c5f25e0b5fe3c5e8f0ed9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=548&locale=en_US&collectible=0",
+      "face": {
+        "id": 548,
+        "collectible": 0,
+        "slug": "548-frog",
+        "classId": 8,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1635,
+        "rarityId": null,
+        "artistName": null,
+        "health": 1,
+        "attack": 0,
+        "manaCost": 0,
+        "name": "Frog",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a2caaa561a49aeecb4b58aff48e2077d441b0640b8e231612ce6dd385752fc7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8a60b28b4a9bb70748ce68815582bbde7a0c2ebfdf70988adb51da88c5d655fc.jpg",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=548&locale=en_US&collectible=0",
+        "sha256": "9a19d700f75f9b659f172d51473cf6439306dfd10f6c5f25e0b5fe3c5e8f0ed9",
+        "bytes": 655,
+        "observed_at": "2026-10-29T22:32:29.849299+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t01",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42098-zh_CN.json",
+      "response_sha256": "6f8153340eecab3ec1727ce80b2be20ea5414e11ebcf6b7045f6c21095de6457",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42098,
+        "collectible": 0,
+        "slug": "42098-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/872ff7ae21abd570e90a43e7c54afb18be8881f34c9ca9ba90443e727fc38b88.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=zh_CN&collectible=0",
+        "sha256": "6f8153340eecab3ec1727ce80b2be20ea5414e11ebcf6b7045f6c21095de6457",
+        "bytes": 543,
+        "observed_at": "2026-10-29T22:32:31.766375+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t01",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42098-en_US.json",
+      "response_sha256": "e9384c6279ec4e34a9d83437233d65177030e1c010c931c278839790e5166fd3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=en_US&collectible=0",
+      "face": {
+        "id": 42098,
+        "collectible": 0,
+        "slug": "42098-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 1,
+        "attack": 1,
+        "manaCost": 1,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b15b33fa8a69d0c69da614885b42c6e200298ca9de6dc765177ffab3be140ccb.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42098&locale=en_US&collectible=0",
+        "sha256": "e9384c6279ec4e34a9d83437233d65177030e1c010c931c278839790e5166fd3",
+        "bytes": 541,
+        "observed_at": "2026-10-29T22:32:33.984348+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_712_t04",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42101-zh_CN.json",
+      "response_sha256": "51ebb1d4d5e73418f398eb111b3490ea2f76e5bb19bf616b02fcb3d6923d03d6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42101,
+        "collectible": 0,
+        "slug": "42101-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ee2406a5fa01789643111ad591c84a003deccaeaf6270deb94a3bb31513e6002.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=zh_CN&collectible=0",
+        "sha256": "51ebb1d4d5e73418f398eb111b3490ea2f76e5bb19bf616b02fcb3d6923d03d6",
+        "bytes": 543,
+        "observed_at": "2026-10-29T22:35:25.611419+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t04",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42101-en_US.json",
+      "response_sha256": "dad65fc6d17cfc19c19d91be177cc924d0977ab7e4c9e97e3e6f3b4ed62e6487",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=en_US&collectible=0",
+      "face": {
+        "id": 42101,
+        "collectible": 0,
+        "slug": "42101-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 4,
+        "attack": 4,
+        "manaCost": 4,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7a05b5f949d354bb31a99cac3535ded033df3a57dc31dd62fbb3392c6917036a.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42101&locale=en_US&collectible=0",
+        "sha256": "dad65fc6d17cfc19c19d91be177cc924d0977ab7e4c9e97e3e6f3b4ed62e6487",
+        "bytes": 541,
+        "observed_at": "2026-10-29T22:35:27.801108+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t07",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42104-zh_CN.json",
+      "response_sha256": "3e69f9d2705fa4e32f90ff9bd13551cb32031d62754d4c41bb83a037dde185d3",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42104,
+        "collectible": 0,
+        "slug": "42104-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2d0af8583222bb2355f1b2bd5b42bebef4add3dff70e831df03d593cce1bbd7c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=zh_CN&collectible=0",
+        "sha256": "3e69f9d2705fa4e32f90ff9bd13551cb32031d62754d4c41bb83a037dde185d3",
+        "bytes": 543,
+        "observed_at": "2026-10-29T22:35:29.703166+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t07",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42104-en_US.json",
+      "response_sha256": "fda06475539d03c9c3b88a852f6fb4485e69c3dc000750ccc47f92eb3c512c36",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=en_US&collectible=0",
+      "face": {
+        "id": 42104,
+        "collectible": 0,
+        "slug": "42104-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e01e85cf990ca4b2ee46907bcde91159f6137954440344d14c20d34854bc46b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42104&locale=en_US&collectible=0",
+        "sha256": "fda06475539d03c9c3b88a852f6fb4485e69c3dc000750ccc47f92eb3c512c36",
+        "bytes": 541,
+        "observed_at": "2026-10-29T22:35:31.650463+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t20",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42128-zh_CN.json",
+      "response_sha256": "bf19432a03c75bb9a3652f1ec20a3c256f91c17a7a2d0ee248302cf5e898ce57",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 42128,
+        "collectible": 0,
+        "slug": "42128-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "青玉魔像",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/517672df5d20d186075f019c3d24cfe0fc6893fef6251bc416091be739d7b67f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=zh_CN&collectible=0",
+        "sha256": "bf19432a03c75bb9a3652f1ec20a3c256f91c17a7a2d0ee248302cf5e898ce57",
+        "bytes": 546,
+        "observed_at": "2026-10-29T22:35:33.782330+00:00"
+      }
+    },
+    {
+      "card_id": "CFM_712_t20",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k671-shaman-nature-summons\\official-noncollectible-01\\42128-en_US.json",
+      "response_sha256": "1d950e043624aa9f7c793b66d169e32192a3314d2a25ff64b11151c28fc7e262",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=en_US&collectible=0",
+      "face": {
+        "id": 42128,
+        "collectible": 0,
+        "slug": "42128-jade-golem",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 25,
+        "rarityId": null,
+        "artistName": "Konstantin Turovec",
+        "health": 20,
+        "attack": 20,
+        "manaCost": 10,
+        "name": "Jade Golem",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b71c236abf92c0e09891e995ecc13545d7c9ce6b1b7cfaa8cfb38542d3606c8c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=42128&locale=en_US&collectible=0",
+        "sha256": "1d950e043624aa9f7c793b66d169e32192a3314d2a25ff64b11151c28fc7e262",
+        "bytes": 544,
+        "observed_at": "2026-10-29T22:35:35.970222+00:00"
+      }
+    }
+  ],
+  "display_normalizations": {
+    "CFM_707": {
+      "zh_CN": {
+        "{0}": ""
+      },
+      "en_US": {}
+    },
+    "WON_082": {
+      "zh_CN": {
+        "@": "",
+        "{0}": ""
+      },
+      "en_US": {
+        "@": "",
+        "{0}": "",
+        "{1}": ""
+      }
+    }
+  },
+  "numeric_normalizations": {
+    "hexfrog": {
+      "cost": 0,
+      "attack": 0
+    }
+  },
+  "jade_family": {
+    "profile": {
+      "id": "jade.classic",
+      "version": "jade-basics-v1",
+      "forms": [
+        "CFM_712_t01",
+        "CFM_712_t04",
+        "CFM_712_t07",
+        "CFM_712_t20"
+      ]
+    },
+    "canonical_sha256": "793e73381747667e1d5237d91abf9efd433f96d666b842f3377a5725773b2398"
+  },
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "BOT_451",
+    "EX1_248",
+    "TID_005",
+    "TTN_722",
+    "TOY_508",
+    "YOD_041",
+    "WW_090",
+    "CFM_707",
+    "WON_082",
+    "EX1_246",
+    "BT_100",
+    "KAR_073",
+    "DMF_701",
+    "TID_005t",
+    "TTN_833t",
+    "YOD_041t",
+    "WW_090t",
+    "DMF_701t"
+  ],
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "summon": "Complete fixed named original tokens, shared actual SummonCause and ordinary sequential SummonByCard requests; Overload before accepted native body tuple.",
+    "portals": "Original damage then attributed ordinary constructed.cards collectible MINION cost1/3 pool request, without executable-coverage filtering.",
+    "jade": "Distinct original CFM_707/WON_082 faces each deal3 once and use existing complete classic shared Jade family/growth policy; all four existing artwork templates preserved.",
+    "corrupt": "Actual held original card upgrade through ordinary higher-cost hand play; upgraded face damage then fresh ordinary enemy minion group after the normal checkpoint.",
+    "hex": "Actual original hexfrog face and public Transform, not silence/destroy/resurrection."
+  },
+  "uncertainties": [
+    "Exact CN overload-notification/quantity and damage-summon checkpoint edges retain existing explicit local policies.",
+    "Jade continues its existing classic artwork/growth/full-board-attempt profile; no new universal quantity or lifecycle claim.",
+    "No formal pool, hotfix/version or CN edge calibration claim."
+  ]
+}
