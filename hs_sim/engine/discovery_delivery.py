@@ -24,7 +24,8 @@ def recipe_types():
     from .spell_weapons import DeliverDiscoveredSpellWeapon
     from .hero_power_discovery import InstallDiscoveredHeroPower
     from .spell_casts import CastSpell, CastStoredSpell
-    return (AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower,CastStoredSpell,CastSpell)
+    from .discovery_cost_swaps import DeliverCostSwappedSpell
+    return (DeliverCostSwappedSpell, AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower,CastStoredSpell,CastSpell)
 
 
 def recipe_face(request):
@@ -192,7 +193,10 @@ def materialize(r, effect):
     from .spell_weapons import DeliverDiscoveredSpellWeapon,materialize as materialize_weapon
     from .hero_power_discovery import InstallDiscoveredHeroPower, materialize as materialize_skill
     from .spell_casts import CastSpell, CastStoredSpell, cast_stored, materialize_generated_cast
-    if type(request) is AddToHand:
+    from .discovery_cost_swaps import DeliverCostSwappedSpell,materialize as materialize_cost_swap
+    if type(request)is DeliverCostSwappedSpell:
+        entity=materialize_cost_swap(r,request)
+    elif type(request) is AddToHand:
         from .opening import create_hand_card
         entity = create_hand_card(r, request)
     elif type(request) is AddToDeck:
@@ -277,6 +281,8 @@ def resurrect(r, effect):
 
 def validate_completion(state, registry, completion, *, closed=False):
     completion.__post_init__(); require_original_result(state, completion.result)
+    from .discovery_cost_swaps import validate_completion as validate_cost_swap_completion
+    validate_cost_swap_completion(state,registry,completion)
     from .discovery_destinations import validate_completion as validate_destination_completion
     validate_destination_completion(completion,registry)
     from .opponent_deck_gift_copy import validate_completion as validate_copy_completion

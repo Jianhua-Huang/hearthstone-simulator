@@ -1,0 +1,487 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-paired-discovery-finale-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "RLK_546",
+        "dbf_id": 84752,
+        "name": "广阔智慧",
+        "name_en": "Vast Wisdom",
+        "text": "<b>发现</b>两张法力值消耗小于或等于（3）点的法术牌。交换其法力值消耗。",
+        "text_en": "<b>Discover</b> two spells that cost (3) or less. Swap their Costs.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1776,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "415",
+              "name": "DISCOVER",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "90efe00b3ee2e9a71cece1dbe141d76fc0831307e37ae2b185ffb94e3416028d",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "rare",
+        "deck_identity": "RLK_546",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ETC_206",
+        "dbf_id": 97361,
+        "name": "巅峰无限",
+        "name_en": "Infinitize the Maxitude",
+        "text": "<b>发现</b>一张法术牌，其法力值消耗减少（1）点。<b>压轴：</b>在回合结束时将本牌移回你的手牌。",
+        "text_en": "<b>Discover</b> a spell.\nReduce its Cost by (1).\n<b>Finale:</b> Return this to\nyour hand at end of turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "ELITE": 1,
+          "CARD_SET": 1809,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "FINALE": 1,
+          "4128": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Porubov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4128",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4128"
+          }
+        ]
+      },
+      "record_sha256": "7e6a65947b78333300f7f12632bcabccddf345e0391b02198885bc1b5e761595",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "ETC_206",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "RLK_546e",
+        "dbf_id": 89807,
+        "name": "无尽智慧",
+        "name_en": "Infinite Wisdom",
+        "text": "这张卡牌的法力值消耗被交换过。",
+        "text_en": "This card's cost is swapped.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a6ef7b40546c5ce16502314c1aae2f715cec065281f9196d9e5f24c0ae5d4f2a",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "RLK_546e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ETC_206e",
+        "dbf_id": 97845,
+        "name": "巅峰无限",
+        "name_en": "Infinitize the Maxitude",
+        "text": "在你的回合结束时，获取一张震撼全场。",
+        "text_en": "At the end of your turn, get a Rock the House.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1809,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "dfaef7c28bed83ce7758cfc630ea8a8305c3dae99e05c15b8cffd7d0e52c7b02",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "ETC_206e",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    {
+      "record": {
+        "id": "ETC_206e2",
+        "dbf_id": 104589,
+        "name": "无限",
+        "name_en": "Infinitized",
+        "text": "法力值消耗减少（1）点。",
+        "text_en": "Costs (1) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1809,
+          "CLASS": 4,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "def5b8938dae108fe0d9ff4ac57108fa3acd5efd5539f448bf88e4e8f17a43b2",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "none",
+        "deck_identity": "ETC_206e2",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "ETC_206",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 97361,
+        "collectible": 1,
+        "slug": "97361-infinitize-the-maxitude",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 5,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 2,
+        "name": "巅峰无限",
+        "text": "<b>发现</b>一张法术牌，其法力值消耗减少（1）点。<b>压轴：</b>在回合结束时将本牌移回你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e1a785513c9d98dae5f8a6d56511216fc25a10b5a92e9a55f33ead50c415bc9.png",
+        "imageGold": "",
+        "flavorText": "如果你的作品是纯音乐，那么词句不通也就没什么关系了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dee6927ec2217de8e7f748960245fd9cf506d23370ebb0ce5689fcfde6816ecc.png",
+        "keywordIds": [
+          21,
+          255
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_206",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 97361,
+        "collectible": 1,
+        "slug": "97361-infinitize-the-maxitude",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 5,
+        "artistName": "Konstantin Porubov",
+        "manaCost": 2,
+        "name": "Infinitize the Maxitude",
+        "text": "<b>Discover</b> a spell. Reduce its Cost by (1). <b>Finale:</b> Return this to your hand at end of turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b9094186bda7830c3703630755ce69d80718d71b70180ce568667b3598400a3e.png",
+        "imageGold": "",
+        "flavorText": "When your music is instrumental, it doesn't matter if the words make no sense.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dee6927ec2217de8e7f748960245fd9cf506d23370ebb0ce5689fcfde6816ecc.png",
+        "keywordIds": [
+          21,
+          255
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_546",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 84752,
+        "collectible": 1,
+        "slug": "84752-vast-wisdom",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 2,
+        "name": "广阔智慧",
+        "text": "<b>发现</b>两张法力值消耗小于或等于（3）点的法术牌。交换其法力值消耗。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3c21fbd43c523d8ba66c7756ad1679a629c90ffab309ed079bf976c0e07296e1.png",
+        "imageGold": "",
+        "flavorText": "我太聪明了，我会数三！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05bc46bbd3770c136097dcfbef66adc85206715be9f689318b25ebf2d03f5455.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_546",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 84752,
+        "collectible": 1,
+        "slug": "84752-vast-wisdom",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 2,
+        "name": "Vast Wisdom",
+        "text": "<b>Discover</b> two spells that cost (3) or less. Swap their Costs.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef612e3e91cc2092a14df2d25387fc202b3d8a12d5a89ff340b616c03a8f1a72.png",
+        "imageGold": "",
+        "flavorText": "My wisdom is SO vast that I can count up to THREE!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/05bc46bbd3770c136097dcfbef66adc85206715be9f689318b25ebf2d03f5455.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "new_standard_roots": [],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "pair_query": {
+    "kinds": [
+      "spell"
+    ],
+    "min_cost": null,
+    "max_cost": 3,
+    "collectible": true,
+    "class_mode": "current",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "local_policies": [
+    "First ordinary discovery is delivered before the second menu; keep the original acquisition instead of selecting by later name.",
+    "Freeze full actual first physical/generated and second generated quotations at the second selection; exchange local amounts and retain shared external modifiers. Historical external-cost anomalies, a departed/burned first recipient and exact reaction order remain CN-pending.",
+    "Finale schedules the original spent spell before discovery and returns it through ReturnSpentSpell at natural end cleanup before temporary-card expiry. Existing automatic-Finale policy remains unchanged."
+  ]
+}

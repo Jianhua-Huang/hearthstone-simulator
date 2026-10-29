@@ -724,6 +724,8 @@ class Game:
         validate_draw_boundary(self)
         from .secret_expirations import validate_boundary as validate_secret_expiration_boundary
         validate_secret_expiration_boundary(self)
+        from .discovery_cost_swaps import validate_boundary as validate_discovery_cost_swap_boundary
+        validate_discovery_cost_swap_boundary(self)
         from .hand_history import validate_publications
         validate_publications(self)
         from .spell_history import validate_boundary as validate_spell_batch_boundary

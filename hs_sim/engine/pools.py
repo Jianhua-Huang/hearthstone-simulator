@@ -565,8 +565,13 @@ class DiscoverFromPool(Effect):
     entry_keywords: tuple[Keyword, ...] = ()
     repeat_until_seen: bool = False
     unselected_to_hand: bool = False
+    swap_costs: bool = False
 
     def __post_init__(self):
+        if type(self.swap_costs)is not bool:raise ValueError('Discovery cost swap requires a boolean')
+        if self.swap_costs:
+            from .discovery_cost_swaps import validate_spec as validate_cost_swap
+            validate_cost_swap(self)
         from .discovery_profiles import validate_spec as validate_finite_discovery
         validate_finite_discovery(self)
         if self.spell_weapon_card_id is not None:

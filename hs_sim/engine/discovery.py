@@ -611,6 +611,10 @@ def resolve_discovery(r, effect):
     elif spec.destination=='hand_or_opponent_top':
         from .discovery_destinations import begin
         delivery=begin(r,effect)
+    elif spec.swap_costs and len(continued.selections)==2:
+        from .discovery_cost_swaps import prepare as prepare_cost_swap
+        from .discovery_delivery import MaterializeDiscoveredCard
+        delivery=(MaterializeDiscoveredCard(committed.result,prepare_cost_swap(r,continued)),)
     else:delivery=deliver_pick(spec,committed,r.registry) if spec.delivery=='after_each' else ()
     healing=(HealHeroFromDiscoveredSpell(effect,r.game._generation_context),)if spec.heal_hero_by_printed_cost else()
     return (*delivery,*healing,continued)

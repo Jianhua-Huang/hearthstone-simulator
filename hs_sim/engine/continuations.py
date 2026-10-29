@@ -70,6 +70,9 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .discovery_cost_swaps import DeliverCostSwappedSpell
+        if self.origin_state is not None:
+            if type(value)is DeliverCostSwappedSpell:value.validate_in_state(self.origin_state,self.registry,self.origin_events)
         from .secret_expirations import ExpireSecret,SecretExpiry,validate_value as validate_secret_expiry,validate_batch as validate_secret_batch
         from .spell_history import CastFromPool
         if self.origin_state is not None:
