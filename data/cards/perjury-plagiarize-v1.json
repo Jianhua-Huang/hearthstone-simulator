@@ -1,0 +1,298 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-perjury-plagiarize-v1",
+  "cards": [],
+  "collectible_leaf_ids": [
+    "MAW_018",
+    "SCH_706"
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "MAW_018",
+        "dbf_id": 79607,
+        "name": "伪证",
+        "name_en": "Perjury",
+        "text": "<b>奥秘：</b>当你的回合开始时，<b>发现</b>并施放另一职业的一个<b>奥秘</b>。",
+        "text_en": "[x]<b>Secret:</b> When your\nturn starts, <b>Discover</b>\nand cast a <b>Secret</b> from\nanother class.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1691,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "SECRET": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ludo Lullabi"
+          }
+        ]
+      },
+      "record_sha256": "da701db84616b31f52437bd4fa44252edb31165974bd638c0cae265ec0ddf760"
+    },
+    {
+      "record": {
+        "id": "SCH_706",
+        "dbf_id": 59877,
+        "name": "抄袭",
+        "name_en": "Plagiarize",
+        "text": "<b>奥秘：</b>在你对手的回合结束时，将其使用的卡牌的复制置入你的手牌。",
+        "text_en": "<b>Secret:</b> At the end of your opponent's turn, add copies of the cards they played to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1443,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "SECRET": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "d5801563a82da8cc326864786793dbae939300ea40176e0c027446cb9574351c"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "MAW_018",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 79607,
+        "collectible": 1,
+        "slug": "79607-perjury",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Ludo Lullabi",
+        "manaCost": 2,
+        "name": "伪证",
+        "text": "<b>奥秘：</b>当你的回合开始时，<b>发现</b>并施放另一职业的一个<b>奥秘</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d0afdcd6a2cf93d3a3b1391abdd51d186b3a202eebc981af719b0ee0acd33acc.png",
+        "imageGold": "",
+        "flavorText": "骗子做的伪证，还是伪证。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14cd764b9210abb69376a31ec5397c631b5d3bc632380efee7a4101b554ac7c7.png",
+        "keywordIds": [
+          5,
+          21
+        ],
+        "copyOfCardId": [
+          118028
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "MAW_018",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 79607,
+        "collectible": 1,
+        "slug": "79607-perjury",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Ludo Lullabi",
+        "manaCost": 2,
+        "name": "Perjury",
+        "text": "<b>Secret:</b> When your turn starts, <b>Discover</b> and cast a <b>Secret</b> from another class.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cedd43359a833b9e765e0830167247048ac4ac602c489f3d82870c41e4587efa.png",
+        "imageGold": "",
+        "flavorText": "By Liar be Perjured!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14cd764b9210abb69376a31ec5397c631b5d3bc632380efee7a4101b554ac7c7.png",
+        "keywordIds": [
+          5,
+          21
+        ],
+        "copyOfCardId": [
+          118028
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_706",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 59877,
+        "collectible": 1,
+        "slug": "59877-plagiarize",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 2,
+        "name": "抄袭",
+        "text": "<b>奥秘：</b>在你对手的回合结束时，将其使用的卡牌的复制置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7689e814d93f5ffa665a1d6c9831daa01b0c6f13e9d1ce59b61aacf56cec0e07.png",
+        "imageGold": "",
+        "flavorText": "所谓抄袭，不过是“合理”地利用了你的资源。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe6a5e2ba47b998ab8cd7a278d5e3dbd13be3699a45000ef1f4e9d380353e34d.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          102204
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_706",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 59877,
+        "collectible": 1,
+        "slug": "59877-plagiarize",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 2,
+        "name": "Plagiarize",
+        "text": "<b>Secret:</b> At the end of your opponent's turn, add copies of the cards they played to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/76f805400b67fc977ee3425f24d6a161efc5367d1b5ba0a5dc8cec9714cff815.png",
+        "imageGold": "",
+        "flavorText": "Copying is just using your resources wisely.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe6a5e2ba47b998ab8cd7a278d5e3dbd13be3699a45000ef1f4e9d380353e34d.png",
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          102204
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_document": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "reference_document": "data/cards/past-secrets-local-reference-v1.json",
+  "reference_sha256": "cf90f4272ba8bd6cf4d054c01afd409ead939c17b60223a106c743f3d21a25bf",
+  "new_standard_roots": [],
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "known_local_policies": [
+    "Perjury freezes the current hero class at each accepted ordinary other-class Secret discovery; the complete bound pool retains duplicates already active and capacity failures, and the selected result uses ordinary free CAST without hand entry.",
+    "Plagiarize uses only the ending opponent actual current-turn physical hand plays, including countered plays and repeated physical plays, in ledger order; generated CASTs, summons, powers, trade and forge are absent.",
+    "Copy printed original submitted identities; existing minion intrinsic recipes retain their composition and intrinsic data. Do not preserve local discounts, buffs or later face/control/zone changes. Non-minions use their committed FrozenPlayedFaceFact with ordinary copy provenance and overflow.",
+    "An empty relevant turn does not reveal Plagiarize, consistent with historical player reports. Full hand uses existing SecretHandSpace; full-hand exact CN behavior, reveal-reaction ordering and special intrinsic non-minion material remain explicit uncalibrated local boundaries."
+  ],
+  "public_observations": [
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/why-doesnt-plagiarize-also-keep-mana-reduction-costs-like-mind-vision-does/40238",
+      "date": "2020-08-28/29",
+      "kind": "first-person player report on Blizzard forum",
+      "supports": "Base costs and base growing-spell values; not official CN certification"
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/plagiarise-secret-why-does-it-not-trigger-if-i-play-nothing/42889",
+      "date": "2020-10-17/18",
+      "kind": "first-person player report on Blizzard forum",
+      "supports": "No reveal when opponent uses only a hero power and plays no card; not official CN certification"
+    }
+  ]
+}

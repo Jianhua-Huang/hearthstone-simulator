@@ -13,7 +13,7 @@ from .construction import integer, name
 from .effects import AddToHand, ChoiceOption, Draw, Effect, RequestChoice, _player, _source, validate_generated_cost
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .lifecycle import copy_attachments, reset_to_definition
-from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, SummonStats, Zone, validate_summon_stats, CardPreview, ChoiceResult
+from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, FrozenPlayedFaceFact, SummonStats, Zone, validate_summon_stats, CardPreview, ChoiceResult
 from .sacrifice import MinionReference, live_minion
 from .pools import PoolQuery, matches_metadata
 from .card_conditions import has_battlecry
@@ -213,7 +213,7 @@ class MoveCard(Effect):
 
 @dataclass(frozen=True)
 class CopyCard(Effect):
-    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord | PlayedMinionCopyMaterial
+    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord | PlayedMinionCopyMaterial | FrozenPlayedFaceFact
     player_id: int
     destination: Zone = Zone.HAND
     mode: str = 'current'
@@ -235,6 +235,12 @@ class CopyCard(Effect):
         if type(self.card) is PlayedMinionCopyMaterial:
             self.card.__post_init__()
             if self.mode != 'base': raise ValueError('Played minion history permits only its printed base copy')
+        elif type(self.card) is FrozenPlayedFaceFact:
+            self.card.__post_init__()
+            if (self.card.kind == CardType.MINION or self.mode != 'base' or self.destination != Zone.HAND or
+                    self.position != 'random' or self.source_id is None or self.stats is not None or
+                    self.cost is not None or self.expires_turn is not None):
+                raise ValueError('Played non-minion face copies require original printed hand delivery')
         elif type(self.card)is DiscardRecord:
             self.card.__post_init__()
             if self.mode!='base':raise ValueError('Discard occurrence copies require the original printed recipe')
@@ -972,6 +978,9 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
     material=effect.card if type(effect.card)is CopyEntryMaterial else None
     if type(effect.card) is PlayedMinionCopyMaterial:
         from .played_minion_copies import original_entity
+        source = original_entity(r.state, r.registry, effect.card)
+    elif type(effect.card) is FrozenPlayedFaceFact:
+        from .played_card_copies import original_entity
         source = original_entity(r.state, r.registry, effect.card)
     elif type(effect.card)is CapturedCardCopyMaterial:
         validate_captured_card_copy(r.state,r.registry,effect.card)

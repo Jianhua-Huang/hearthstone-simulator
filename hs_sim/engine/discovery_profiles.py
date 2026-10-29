@@ -13,9 +13,10 @@ def validate_spec(spec):
                  type(getattr(spec,field.name)) is not type(field.default)) for field in fields(spec)):
             raise ValueError('Direct Secret discovery cannot borrow hand, summon or reward policies')
         if (spec.source_id is None or type(spec.discoveries) is not int or spec.discoveries not in (1,2) or
-                type(spec.query) is not PoolQuery or spec.query != PoolQuery(kinds=(CardType.SPELL,),
-                    collectible=True,class_mode='current',keywords_all=(Keyword.SECRET,))):
-            raise ValueError('Direct CAST discovery requires one or two ordinary current-class Secrets')
+                type(spec.query) is not PoolQuery or spec.query not in tuple(PoolQuery(kinds=(CardType.SPELL,),
+                    collectible=True,class_mode=mode,keywords_all=(Keyword.SECRET,))for mode in ('current','other')) or
+                spec.query.class_mode == 'other' and spec.discoveries != 1):
+            raise ValueError('Direct CAST discovery requires current-class Secrets or one other-class Secret')
         return
     if type(spec.unselected_to_hand) is not bool:
         raise ValueError('Unselected hand delivery requires an explicit boolean')

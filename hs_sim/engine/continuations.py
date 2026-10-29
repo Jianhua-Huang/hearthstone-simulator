@@ -408,6 +408,9 @@ class FrameCodec:
         if (type(value) is DamageReturningSpell or type(value) is ReturnSpentSpell and value.native_value is not None) and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
         from .zones import CopyCard
+        if type(value) is CopyCard and type(value.card) is model.FrozenPlayedFaceFact and self.origin_state is not None:
+            from .played_card_copies import original_entity
+            original_entity(self.origin_state, self.registry, value.card)
         from .discard_history import DiscardRecord,validate_base_copy
         if type(value) is CopyCard and type(value.card) is DiscardRecord and self.origin_state is not None:
             validate_base_copy(self.origin_state,self.registry,value.card)
