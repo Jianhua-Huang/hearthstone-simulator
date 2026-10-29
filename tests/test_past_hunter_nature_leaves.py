@@ -241,9 +241,9 @@ class HunterNatureLeavesTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(len(rewards),1);allowed=resolve_candidates(g.registry,h.context,'constructed.cards',native.BEASTS,current_class=g.state.players[1].hero_class)
         self.assertIn(rewards[0].card_id,[v.card_id for v in allowed]);self.portable(g)
 
-    def test_hunter_full_source_remains_explicitly_unbound(self):
+    def test_unreviewed_shaman_full_source_remains_explicitly_unbound(self):
         self.mode='host';h=host();deck=('CORE_EX1_169',)*15
-        g=Game.from_scenario(Scenario((PlayerSetup('HERO_05',hand=('CORE_EX1_169',),board=(WO,),deck=deck,mana=10,max_mana=10),
+        g=Game.from_scenario(Scenario((PlayerSetup('HERO_02',hand=('CORE_EX1_169',),board=(WO,),deck=deck,mana=10,max_mana=10),
             PlayerSetup('HERO_08',deck=deck,mana=10,max_mana=10)),seed=668,generation_context=h.context),h.registry)
         saved=deepcopy(g.snapshot())
         with self.assertRaises(ResolutionError):self.play(g,'CORE_EX1_169')

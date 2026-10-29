@@ -1,0 +1,2586 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-hunter-past-nature-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "AV_333",
+        "dbf_id": 70103,
+        "name": "复活宠物",
+        "name_en": "Revive Pet",
+        "text": "<b>发现</b>一只在本局对战中死亡的友方野兽，并召唤该随从。",
+        "text_en": "<b>Discover</b> a friendly Beast that died this game. Summon it.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1626,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "a425f0af59931ec4ca66f3eca24a8bfdc7c0bf72d2979d4bf8eee96893db3d41",
+      "definition_sha256": "8ae5c1e857169063039c2ece529f27c7f1f7a689b04bfc62fad5aaf4c03b1936"
+    },
+    {
+      "record": {
+        "id": "REV_361",
+        "dbf_id": 78416,
+        "name": "野性之魂",
+        "name_en": "Wild Spirits",
+        "text": "召唤两个不同的<b>休眠</b>灵种。使你的灵种提前1回合唤醒。",
+        "text_en": "[x]Summon two different \n<b>Dormant</b> Wildseeds. \nMake your Wildseeds \nawaken 1 turn sooner.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 3,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "837297d65b4099ce64ad2b2e09824235f82fa75576ce82c932c24d21c77a7c27",
+      "definition_sha256": "22c92c6c538b0dcea6e8178d969656cf033cce94399173902ff9c6ca4f51d619"
+    },
+    {
+      "record": {
+        "id": "TID_075",
+        "dbf_id": 76225,
+        "name": "螺壳射击",
+        "name_en": "Shellshot",
+        "text": "随机对一个敌方随从造成$3点伤害。重复此效果，每次伤害减少1点。",
+        "text_en": "[x]Deal $3 damage to a\nrandom enemy minion.\nRepeat this with 1\nless damage.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1658,
+          "CLASS": 3,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "3e8ac861251c297b9afcc9423b4521f6a9970bf7cf97d186ddef863a17a85e9e",
+      "definition_sha256": "d326165cfefe4b228640540949b639808bb1ee70099a5c785a5075e2a71edf45"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "REV_360t",
+        "dbf_id": 78406,
+        "name": "狐灵之种",
+        "name_en": "Fox Spirit Wildseed",
+        "text": "<b>休眠</b>1回合。\n<b>突袭</b>",
+        "text_en": "<b>Dormant</b> for 1 turn.\n<b>Rush</b>",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RUSH": 1,
+          "1652": 1,
+          "2534": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f0bc7d5fd43dd084a1a0d1ea04409e211f7d6be5db759195aae8d2055f1af1a9",
+      "definition_sha256": "dcd199b1bfe42135d2ca3e31b8182c4c238cb284dd42e60fb3c3920bc909b00e"
+    },
+    {
+      "record": {
+        "id": "REV_360t1",
+        "dbf_id": 78408,
+        "name": "熊灵之种",
+        "name_en": "Bear Spirit Wildseed",
+        "text": "<b>休眠</b>2回合。<b>嘲讽</b>",
+        "text_en": "<b>Dormant</b> for 2 turns.\n<b>Taunt</b>",
+        "cost": 2,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1691,
+          "TAUNT": 1,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "1652": 1,
+          "2534": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e1140e6433738cd57a72aed4cc5a0a62806887529757b056066cd1ed47162998",
+      "definition_sha256": "3b3fa30df06059d38a8c12d3661d199dddb60d6ef9374ff77ea39c8bed90fdbe"
+    },
+    {
+      "record": {
+        "id": "REV_360t2",
+        "dbf_id": 78410,
+        "name": "鹿灵之种",
+        "name_en": "Stag Spirit Wildseed",
+        "text": "<b>休眠</b>3回合。唤醒时，装备一把4/2的巨弓。",
+        "text_en": "<b>Dormant</b> for 3 turns. \nWhen this awakens, equip a 4/2 Greatbow.",
+        "cost": 3,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 3,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "1652": 1,
+          "2534": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1652",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1652"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2534",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2534"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1518",
+              "name": "DORMANT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3882b2cc6f3e2342927a515a909beba2ef714c114ad212e964a6d1ff56754e9a",
+      "definition_sha256": "ce6e5ab064611bee6dc38e18cc67cca4f5abdecd3c00c3f45cd08464433f3b69"
+    },
+    {
+      "record": {
+        "id": "REV_360t4",
+        "dbf_id": 78502,
+        "name": "鹿角灵弓",
+        "name_en": "Stagpoint Wildbow",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 4,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "175cdac5083af59d4bc394932bf8c4c53b823a9752ffc3e8b2873f6029b2bff2",
+      "definition_sha256": "aad25634fa85afda9e65a2aeb5d3167ee921517dd7090aa449136670ae88d131"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "REV_360te",
+        "dbf_id": 78407,
+        "name": "年少的灵种",
+        "name_en": "Young Wildseed",
+        "text": "<b>休眠</b>。\n@回合后唤醒。",
+        "text_en": "<b>Dormant</b>. Awaken in @ |4(turn, turns).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 1,
+          "DORMANT_AWAKEN_CONDITION_ENCHANT": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "47138f2bf4e8aabb00035ba547fc3527ccc8701d83143748dd9594075f28c586"
+    },
+    {
+      "record": {
+        "id": "REV_360t1e",
+        "dbf_id": 78409,
+        "name": "成年的灵种",
+        "name_en": "Mature Wildseed",
+        "text": "<b>休眠</b>。\n@回合后唤醒。",
+        "text_en": "<b>Dormant</b>. Awaken in @ |4(turn, turns).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 2,
+          "DORMANT_AWAKEN_CONDITION_ENCHANT": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7887559a7ff72db336ea96e8fb893c5dfa02f2639e155e14a2dd75b74e72ea8e"
+    },
+    {
+      "record": {
+        "id": "REV_360t2e",
+        "dbf_id": 78413,
+        "name": "年长的灵种",
+        "name_en": "Elder Wildseed",
+        "text": "<b>休眠</b>。\n@回合后唤醒。",
+        "text_en": "<b>Dormant</b>. Awaken in @ |4(turn, turns).",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1691,
+          "CLASS": 3,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 3,
+          "DORMANT_AWAKEN_CONDITION_ENCHANT": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7b086deebb89df09afa4003824a3951274dcb783c8cd7b8f51c0a719bdde9636"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "DRG_006",
+        "dbf_id": 54922,
+        "name": "腐蚀吐息",
+        "name_en": "Corrosive Breath",
+        "text": "对一个随从造成$3点伤害。如果你的手牌中有龙牌，还会命中敌方英雄。",
+        "text_en": "[x]Deal $3 damage to a\nminion. If you're holding\na Dragon, it also hits\nthe enemy hero.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1347,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Allsop"
+          }
+        ]
+      },
+      "record_sha256": "2064d0f18c61389dbc7f3a105c841c67f237228a2179228703148b02ad18da19",
+      "definition_sha256": "fe752706caa628290d463541faca0017c1e580a3039dc5e06751464de7d8d104"
+    },
+    {
+      "record": {
+        "id": "GVG_073",
+        "dbf_id": 2041,
+        "name": "眼镜蛇射击",
+        "name_en": "Cobra Shot",
+        "text": "对一个随从和敌方英雄造成$3点伤害。",
+        "text_en": "Deal $3 damage to\na minion and the\nenemy hero.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 13,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Howard Lyon"
+          }
+        ]
+      },
+      "record_sha256": "d43f1c40d0a9a7bc85039a6d04c6eb497f3dd50d2c1e0238362b4f8912941449",
+      "definition_sha256": "dc6704ac1b01670163bd03c752c4e0375f31101176760e21ac27168d9d75a280"
+    },
+    {
+      "record": {
+        "id": "ICC_049",
+        "dbf_id": 42648,
+        "name": "剧毒箭矢",
+        "name_en": "Toxic Arrow",
+        "text": "对一个随从造成$2点伤害，如果它依然存活，则使其获得<b>剧毒</b>。",
+        "text_en": "Deal $2 damage to a minion. If it survives, give it <b>Poisonous</b>.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1001,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "363",
+              "name": "POISONOUS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "dae50c8f8a81b80d3765ba2589eb848c4dd64c3ee2023b81b46266b97cbf8676",
+      "definition_sha256": "95ec8b226fc51416179f028311f7922012f81142529028e1a07facc106c9330e"
+    },
+    {
+      "record": {
+        "id": "LOOT_080",
+        "dbf_id": 43363,
+        "name": "小型法术翡翠",
+        "name_en": "Lesser Emerald Spellstone",
+        "text": "召唤两只3/3的狼。<i>（使用一个<b>奥秘</b>后升级。）</i>",
+        "text_en": "Summon two 3/3_Wolves. <i>(Play a <b>Secret</b> to upgrade.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1004,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Joe Wilson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "219",
+              "name": "SECRET",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "a1f146409a2c8d8ae2c18ea8b306a6b499cafe567313b6039272e114e5292a96",
+      "definition_sha256": "a19e2a71b20859ce9929a76c3c414b3e8500840c2d0172063fd4598ade63897a"
+    },
+    {
+      "record": {
+        "id": "OG_045",
+        "dbf_id": 38329,
+        "name": "寄生感染",
+        "name_en": "Infest",
+        "text": "使你的所有随从获得\n“<b>亡语：</b>随机将一张野兽牌置入你的手牌”。",
+        "text_en": "Give your minions \"<b>Deathrattle:</b> Add a random Beast to your hand.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 21,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8d8a8f057158f02354c3a71353b785841af2aeabd3d540fdca72aae8af99ca11",
+      "definition_sha256": "fbdfdd5e07a479d76d31af908900de719d36ee60c2bfb77f27505b87ec983999"
+    },
+    {
+      "record": {
+        "id": "WON_306",
+        "dbf_id": 103196,
+        "name": "眼镜蛇射击",
+        "name_en": "Cobra Shot",
+        "text": "对一个随从和敌方英雄造成$3点伤害。",
+        "text_en": "Deal $3 damage to\na minion and the\nenemy hero.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1898,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 2041,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Howard Lyon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2041",
+              "type": "Int",
+              "value": "2041"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "14548ec53ed756333176ffe477e59ae6b8c16d7fe73e82093d72a09ad29373ad",
+      "definition_sha256": "973f0554cd1216577be0963e76f01b15bc6e3753f84231663244bfa0db4f6739"
+    },
+    {
+      "record": {
+        "id": "LOOT_080t2",
+        "dbf_id": 43362,
+        "name": "法术翡翠",
+        "name_en": "Emerald Spellstone",
+        "text": "召唤三只3/3的狼。<i>（使用一个<b>奥秘</b>后升级。）</i>",
+        "text_en": "Summon three 3/3_Wolves. <i>(Play a <b>Secret</b> to upgrade.)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1004,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Joe Wilson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "219",
+              "name": "SECRET",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b292ec56c4e10c7112464f42cb9e2887166d9d4a5907e3daf25b05cb7c7932a9",
+      "definition_sha256": "544f96ff2f0c27b5d05ce88e5cb5027ed674e1a42d3eaa220ae196905007d1dd"
+    },
+    {
+      "record": {
+        "id": "LOOT_080t3",
+        "dbf_id": 43361,
+        "name": "大型法术翡翠",
+        "name_en": "Greater Emerald Spellstone",
+        "text": "召唤四只3/3的狼。",
+        "text_en": "Summon four 3/3_Wolves.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1004,
+          "CLASS": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Joe Wilson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "219",
+              "name": "SECRET",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "df8bb1d3ac6eb505ccdce9b0a934403c8d702135df86eab052fa672d870f12cb",
+      "definition_sha256": "2d5dbf6104f69c6e40fd47df54b62b8af4f513c487e8d1da5491b94351cbc32f"
+    },
+    {
+      "record": {
+        "id": "LOOT_077t",
+        "dbf_id": 46446,
+        "name": "狼",
+        "name_en": "Wolf",
+        "text": "",
+        "text_en": "",
+        "cost": 3,
+        "attack": 3,
+        "health": 3,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 3,
+          "COST": 3,
+          "CARD_SET": 1004,
+          "CLASS": 3,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "6ffce0e82977f15739be40be5911620bcddd9eeb46839f95cc02ace775e0f7e8",
+      "definition_sha256": "94384631eb26ae652cc40b636408f069aee2a8574dd85f3cec2edd66de199306"
+    },
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "AV_333",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 70103,
+        "collectible": 1,
+        "slug": "70103-revive-pet",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 3,
+        "name": "复活宠物",
+        "text": "<b>发现</b>一只在本局对战中死亡的友方野兽，并召唤该随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/259eea3e45229aa9a9447eb9aa7f8d48a7875f9358790a9e95a9a3fb82a8d1df.png",
+        "imageGold": "",
+        "flavorText": "最好的朋友其实从未远离。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4fc9835593fbc9e3b72761dcbcb8cc6221b51e7f9d220beeb209e3ff740e3d2.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AV_333",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 70103,
+        "collectible": 1,
+        "slug": "70103-revive-pet",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 3,
+        "name": "Revive Pet",
+        "text": "<b>Discover</b> a friendly Beast that died this game. Summon it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/93af70f6755a3281af8b397989d28ef6cf34cb0c3331e08358e40aca627e980d.png",
+        "imageGold": "",
+        "flavorText": "Best friends never really leave.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e4fc9835593fbc9e3b72761dcbcb8cc6221b51e7f9d220beeb209e3ff740e3d2.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_361",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 78416,
+        "collectible": 1,
+        "slug": "78416-wild-spirits",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "野性之魂",
+        "text": "召唤两个不同的<b>休眠</b>灵种。使你的灵种提前1回合唤醒。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab85c6911c9b543bdf39d52a387296d034b2905a25949b23c016e96be7301186.png",
+        "imageGold": "",
+        "flavorText": "这是张刚刚发布的新卡牌，没那么狂野！所以它应该是标准之魂！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31dad82f3f116293718959c610a91d1b87732d5ddeebf0c8901364d0dcb801c5.png",
+        "childIds": [
+          78406,
+          78408,
+          78410,
+          78502
+        ],
+        "copyOfCardId": [
+          118096
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_361",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 78416,
+        "collectible": 1,
+        "slug": "78416-wild-spirits",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Konstantin Turovec",
+        "manaCost": 3,
+        "name": "Wild Spirits",
+        "text": "Summon two different <b>Dormant</b> Wildseeds. Make your Wildseeds awaken 1 turn sooner.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e991ee8eaf29c18564c5c64d1f0d110bdd9cf0d90cf4725e8515b7a6c0ead71f.png",
+        "imageGold": "",
+        "flavorText": "Wait, this card just released! It should be Standard Spirits!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/31dad82f3f116293718959c610a91d1b87732d5ddeebf0c8901364d0dcb801c5.png",
+        "childIds": [
+          78406,
+          78408,
+          78410,
+          78502
+        ],
+        "copyOfCardId": [
+          118096
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_075",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 76225,
+        "collectible": 1,
+        "slug": "76225-shellshot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "螺壳射击",
+        "text": "随机对一个敌方随从造成 3点伤害。重复此效果，每次伤害减少1点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb4db17213b7463e10b62d125b342993d6124dc141c6ea4aabc04aa11076373c.png",
+        "imageGold": "",
+        "flavorText": "精度胜于准度。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7e735f0fb2441894a4e491240d3966a5d67b86dae7a4a2317b6230b4310b8d7.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TID_075",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 76225,
+        "collectible": 1,
+        "slug": "76225-shellshot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1658,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "Shellshot",
+        "text": "Deal 3 damage to a random enemy minion. Repeat this with 1 less damage.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fe77a36414d2a2a16388d38946df9f380878f0e6dbb71179b8abb7ea99a0a6e6.png",
+        "imageGold": "",
+        "flavorText": "Precision over accuracy.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7e735f0fb2441894a4e491240d3966a5d67b86dae7a4a2317b6230b4310b8d7.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_360t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78406-zh_CN.json",
+      "response_sha256": "7e060cdecdf0a7a975139f372659c4331c207e44bc23212d9c88ee3e295513ab",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78406&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 78406,
+        "collectible": 0,
+        "slug": "78406-fox-spirit-wildseed",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "狐灵之种",
+        "text": "<b>休眠</b>1回合。 <b>突袭</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2801480f2a7b5a88965d7269c7ffe9f675c3c08cc310b58247a80f1999619abd.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78406&locale=zh_CN&collectible=0",
+        "sha256": "7e060cdecdf0a7a975139f372659c4331c207e44bc23212d9c88ee3e295513ab",
+        "bytes": 638,
+        "observed_at": "2026-10-29T21:48:23.959561+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78406-en_US.json",
+      "response_sha256": "078d4f5d6e69170be4c31ec48235e9ef60797fc1a70a7080612eb39f76daefed",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78406&locale=en_US&collectible=0",
+      "face": {
+        "id": 78406,
+        "collectible": 0,
+        "slug": "78406-fox-spirit-wildseed",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "health": 1,
+        "attack": 3,
+        "manaCost": 1,
+        "name": "Fox Spirit Wildseed",
+        "text": "<b>Dormant</b> for 1 turn. <b>Rush</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0a4a08ad7cdbb04849b39c92d8fc5c76b42ca437967bb70a2def6e33f97653d8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "keywordIds": [
+          53
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78406&locale=en_US&collectible=0",
+        "sha256": "078d4f5d6e69170be4c31ec48235e9ef60797fc1a70a7080612eb39f76daefed",
+        "bytes": 646,
+        "observed_at": "2026-10-29T21:48:26.337583+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78408-zh_CN.json",
+      "response_sha256": "8b8c3ebf281ce4da30ee1d5222f5b01ec614e2ead5782fec87fc6975b0f2914c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78408&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 78408,
+        "collectible": 0,
+        "slug": "78408-bear-spirit-wildseed",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "熊灵之种",
+        "text": "<b>休眠</b>2回合。<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3fca66bfd0d7e1bf3e0bacb8c9b593072ced104a52a7ee432c81d8bf9faae488.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78408&locale=zh_CN&collectible=0",
+        "sha256": "8b8c3ebf281ce4da30ee1d5222f5b01ec614e2ead5782fec87fc6975b0f2914c",
+        "bytes": 637,
+        "observed_at": "2026-10-29T21:48:28.257195+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78408-en_US.json",
+      "response_sha256": "036b657cc7eaaac5f2a013a46799d8926886ebe1862ca1dff31f16682bbf9120",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78408&locale=en_US&collectible=0",
+      "face": {
+        "id": 78408,
+        "collectible": 0,
+        "slug": "78408-bear-spirit-wildseed",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "health": 5,
+        "attack": 2,
+        "manaCost": 2,
+        "name": "Bear Spirit Wildseed",
+        "text": "<b>Dormant</b> for 2 turns. <b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce71d6237399366496279bb35155e84ce9333cd3b735f19a7ae91aec185cb8f4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78408&locale=en_US&collectible=0",
+        "sha256": "036b657cc7eaaac5f2a013a46799d8926886ebe1862ca1dff31f16682bbf9120",
+        "bytes": 649,
+        "observed_at": "2026-10-29T21:48:30.553392+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78410-zh_CN.json",
+      "response_sha256": "e90936277d7220dff0156992ed816a9c59171ef896dd163b2eadfab7082d626b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78410&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 78410,
+        "collectible": 0,
+        "slug": "78410-stag-spirit-wildseed",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 3,
+        "name": "鹿灵之种",
+        "text": "<b>休眠</b>3回合。唤醒时，装备一把4/2的巨弓。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f3d8df57dd1b2f119375eff6f0d8554b27b1a5ec8185e3294cc89e26bcee401.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78410&locale=zh_CN&collectible=0",
+        "sha256": "e90936277d7220dff0156992ed816a9c59171ef896dd163b2eadfab7082d626b",
+        "bytes": 646,
+        "observed_at": "2026-10-29T21:48:32.527144+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78410-en_US.json",
+      "response_sha256": "8d262666e1e0437329d298164afbe49d21a55eee2cd3a842992707027a0c625a",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78410&locale=en_US&collectible=0",
+      "face": {
+        "id": 78410,
+        "collectible": 0,
+        "slug": "78410-stag-spirit-wildseed",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "multiTypeIds": [
+          11
+        ],
+        "cardTypeId": 4,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Melvin Chan",
+        "health": 4,
+        "attack": 5,
+        "manaCost": 3,
+        "name": "Stag Spirit Wildseed",
+        "text": "<b>Dormant</b> for 3 turns. When this awakens, equip a 4/2 Greatbow.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d681b2924684835dcce527c690f97c74a9829f8381008a650590e4985c85bd0b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78410&locale=en_US&collectible=0",
+        "sha256": "8d262666e1e0437329d298164afbe49d21a55eee2cd3a842992707027a0c625a",
+        "bytes": 660,
+        "observed_at": "2026-10-29T21:48:34.445409+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78502-zh_CN.json",
+      "response_sha256": "a80af0a63b2d3a1c793bf725554c34ec2667902760bf8121f57a92967fda1605",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78502&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 78502,
+        "collectible": 0,
+        "slug": "78502-stagpoint-wildbow",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Vladimir Kafanov",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "鹿角灵弓",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd3765bd3e797953428a02f0dace65bad411e209fac9f1987c579e2db87613cc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78502&locale=zh_CN&collectible=0",
+        "sha256": "a80af0a63b2d3a1c793bf725554c34ec2667902760bf8121f57a92967fda1605",
+        "bytes": 548,
+        "observed_at": "2026-10-29T21:48:36.820638+00:00"
+      }
+    },
+    {
+      "card_id": "REV_360t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k669-hunter-nature-source\\official-noncollectible-01\\78502-en_US.json",
+      "response_sha256": "11467a34919a1559c60f8aa8359969e816c9d4c28a3b2d7fd13ab48cef0a5796",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=78502&locale=en_US&collectible=0",
+      "face": {
+        "id": 78502,
+        "collectible": 0,
+        "slug": "78502-stagpoint-wildbow",
+        "classId": 3,
+        "multiClassIds": [],
+        "cardTypeId": 7,
+        "cardSetId": 1691,
+        "rarityId": null,
+        "artistName": "Vladimir Kafanov",
+        "health": 2,
+        "attack": 4,
+        "manaCost": 3,
+        "name": "Stagpoint Wildbow",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2bdb82990b1c81997d9d7d3cadbdd70a09d6b7d50fbad695fccdfe93990e513.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 78412,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=78502&locale=en_US&collectible=0",
+        "sha256": "11467a34919a1559c60f8aa8359969e816c9d4c28a3b2d7fd13ab48cef0a5796",
+        "bytes": 553,
+        "observed_at": "2026-10-29T21:48:38.731599+00:00"
+      }
+    },
+    {
+      "card_id": "DRG_006",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 54922,
+        "collectible": 1,
+        "slug": "54922-corrosive-breath",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Dave Allsop",
+        "manaCost": 2,
+        "name": "腐蚀吐息",
+        "text": "对一个随从造成 3点伤害。如果你的手牌中有龙牌，还会命中敌方英雄。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fafe0b528bc98f439758f91ee146e732ccbadcf6954f27cceacba1b0ccafe915.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd69c5cd682c9ed1f14aeec73fb42dd913af8bc0c71eb71d8a8401361265e569.png",
+        "flavorText": "来一口新鲜的恐惧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/413287ea5ce1effd3f1fd4dad67e43ca8f4dcae1525db7002142b11f5f94787e.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_006",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 54922,
+        "collectible": 1,
+        "slug": "54922-corrosive-breath",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 1,
+        "artistName": "Dave Allsop",
+        "manaCost": 2,
+        "name": "Corrosive Breath",
+        "text": "Deal 3 damage to a minion. If you're holding a Dragon, it also hits the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a72b6411e147d6415667f09db0619b5609f774a04fdd657e621eb57dbc086be7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4ec43a0c42df25d3863c13ae0872afc4faa977bc284e75f1ed48e295f75b117b.png",
+        "flavorText": "It's a breath of fresh terror!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/413287ea5ce1effd3f1fd4dad67e43ca8f4dcae1525db7002142b11f5f94787e.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_073",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 2041,
+        "collectible": 1,
+        "slug": "2041-cobra-shot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Howard Lyon",
+        "manaCost": 4,
+        "name": "眼镜蛇射击",
+        "text": "对一个随从和敌方英雄造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f91b9021cc966ed2db88136e670b510da55a9e94b9dd80759083a6dfed5864a.png",
+        "imageGold": "",
+        "flavorText": "戴眼镜的蛇当然会瞄的更准一点。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f3860ee4b054cf08cfc486ea056832ed2938e2b5ef1f2578064de0f43edde97.png",
+        "copyOfCardId": [
+          103196
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_073",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 2041,
+        "collectible": 1,
+        "slug": "2041-cobra-shot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Howard Lyon",
+        "manaCost": 4,
+        "name": "Cobra Shot",
+        "text": "Deal 3 damage to a minion and the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fe683a9f4cf94e9b70db171a866974e60ab5c231131d236e6efcb6239be0284.png",
+        "imageGold": "",
+        "flavorText": "\"Cobra Shot\" hurts way, way, way more than \"Cobra Cuddle.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7f3860ee4b054cf08cfc486ea056832ed2938e2b5ef1f2578064de0f43edde97.png",
+        "copyOfCardId": [
+          103196
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_049",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 42648,
+        "collectible": 1,
+        "slug": "42648-toxic-arrow",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "剧毒箭矢",
+        "text": "对一个随从造成 2点伤害，如果它依然存活，则使其获得<b>剧毒</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c12d1f092c7f20f467062e03ba09f968ac3bb1f9a3bfdba283ea2910c54167e8.png",
+        "imageGold": "",
+        "flavorText": "熬过痛苦，你就会更狠毒。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6442e2439ec55068e1ed79aa7b219848a304a4b1467f7fd53ed323206e0f32fd.png",
+        "keywordIds": [
+          32
+        ],
+        "copyOfCardId": [
+          95769
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_049",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 42648,
+        "collectible": 1,
+        "slug": "42648-toxic-arrow",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Toxic Arrow",
+        "text": "Deal 2 damage to a minion. If it survives, give it <b>Poisonous</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d3ba2c158136f967594cc06411a62eac4f4dbdf6ac494a4b0f753a2102a47c0.png",
+        "imageGold": "",
+        "flavorText": "What doesn't kill you makes you toxic.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6442e2439ec55068e1ed79aa7b219848a304a4b1467f7fd53ed323206e0f32fd.png",
+        "keywordIds": [
+          32
+        ],
+        "copyOfCardId": [
+          95769
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_080",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 43363,
+        "collectible": 1,
+        "slug": "43363-lesser-emerald-spellstone",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Joe Wilson",
+        "manaCost": 5,
+        "name": "小型法术翡翠",
+        "text": "召唤两只3/3的狼。<i>（使用一个<b>奥秘</b>后升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3841b47631e48c940dc82c01e852f9b3898aff9be7c039e5cbed6fb89ed6bcb.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b1600e216c8596b44e3cefe6d87f4fe1bd4d8baa5490e9df8ad34aab6406ef8.png",
+        "flavorText": "“牛头人得到了这块绿色的石头，想要用它的力量拯救自己的土地。他们释放了心中的怒火，族群却从此失落。究竟谁是猎手，谁又是野兽？”——《魔石》",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/358e23e657f4b7980d3910289cb7b487c2a14782d0b363a5dec07372d4dae008.png",
+        "childIds": [
+          43362,
+          43361,
+          46446
+        ],
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          111360,
+          55789
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_080",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 43363,
+        "collectible": 1,
+        "slug": "43363-lesser-emerald-spellstone",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Joe Wilson",
+        "manaCost": 5,
+        "name": "Lesser Emerald Spellstone",
+        "text": "Summon two 3/3 Wolves. <i>(Play a <b>Secret</b> to upgrade.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15a1b48cd3fc3e85b6f2889ee4a0903e189d52099037482b94296c10b272b491.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3b1600e216c8596b44e3cefe6d87f4fe1bd4d8baa5490e9df8ad34aab6406ef8.png",
+        "flavorText": "An emerald stone for Tauren hands Who sought its strength to save their lands Their tribes now lost, their rage released Who’s hunting now? And who’s the beast?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/358e23e657f4b7980d3910289cb7b487c2a14782d0b363a5dec07372d4dae008.png",
+        "childIds": [
+          43362,
+          43361,
+          46446
+        ],
+        "keywordIds": [
+          5
+        ],
+        "copyOfCardId": [
+          111360,
+          55789
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_045",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 38329,
+        "collectible": 1,
+        "slug": "38329-infest",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 3,
+        "name": "寄生感染",
+        "text": "使你的所有随从获得 “<b>亡语：</b>随机将一张野兽牌置入你的手牌”。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5fd9be3f0067f0fac9f580c6c48e960677036576e633129c209c85d4b4058baf.png",
+        "imageGold": "",
+        "flavorText": "作为寄生虫最有趣的一刻就是破肚而出时吓宿主一跳……好吧，他们已经是死人了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d68a788ceee7d8496a9bd08a96d67c0bc05c53458375b95c9b16065673e4e120.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_045",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 38329,
+        "collectible": 1,
+        "slug": "38329-infest",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 3,
+        "artistName": "Anton Zemskov",
+        "manaCost": 3,
+        "name": "Infest",
+        "text": "Give your minions \"<b>Deathrattle:</b> Add a random Beast to your hand.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f5cd4c005f389151a16d11d38c49bd690d68aa163d7be99eda7e6a5192c8419a.png",
+        "imageGold": "",
+        "flavorText": "The best part is the look on their face when you jump out of the cake! Err… corpse.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d68a788ceee7d8496a9bd08a96d67c0bc05c53458375b95c9b16065673e4e120.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_306",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 103196,
+        "collectible": 1,
+        "slug": "103196-cobra-shot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Howard Lyon",
+        "manaCost": 4,
+        "name": "眼镜蛇射击",
+        "text": "对一个随从和敌方英雄造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9707d7e98b649284672274b4b617de7641956b53aa5816f94be48a47ae66c5f4.png",
+        "imageGold": "",
+        "flavorText": "戴眼镜的蛇当然会瞄的更准一点。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fdfe52714d645d4744e2e2a51ae1921eec52b0a21a16da1cdf4d643f67000147.png",
+        "copyOfCardId": [
+          2041
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_306",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 103196,
+        "collectible": 1,
+        "slug": "103196-cobra-shot",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Howard Lyon",
+        "manaCost": 4,
+        "name": "Cobra Shot",
+        "text": "Deal 3 damage to a minion and the enemy hero.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7b1fefb2cff08c134ce2395cc6c3279c48a3a476cad2c6d099223d1f3cb5b70.png",
+        "imageGold": "",
+        "flavorText": "\"Cobra Shot\" hurts way, way, way more than \"Cobra Cuddle.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fdfe52714d645d4744e2e2a51ae1921eec52b0a21a16da1cdf4d643f67000147.png",
+        "copyOfCardId": [
+          2041
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_080t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k668-hunter-nature-leaves\\official-noncollectible-01\\43362-zh_CN.json",
+      "response_sha256": "2d0f18f05515b4b9e5711dcc7cbf4461ca865d85f0ac979fcad162e8ef7fe2b8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43362&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43362,
+        "collectible": 0,
+        "slug": "43362-emerald-spellstone",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Joe Wilson",
+        "manaCost": 5,
+        "name": "法术翡翠",
+        "text": "召唤三只3/3的狼。<i>（使用一个<b>奥秘</b>后升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffd0b3c7b44a08d96aea26da2c60027e7b5fc913a10f34159cfba07c459fb253.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43363,
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43362&locale=zh_CN&collectible=0",
+        "sha256": "2d0f18f05515b4b9e5711dcc7cbf4461ca865d85f0ac979fcad162e8ef7fe2b8",
+        "bytes": 627,
+        "observed_at": "2026-10-29T21:35:17.517430+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_080t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k668-hunter-nature-leaves\\official-noncollectible-01\\43362-en_US.json",
+      "response_sha256": "82c9ac117b0973a84bbc1376125a69d481c5d1452f4c0378529675e5f748e601",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43362&locale=en_US&collectible=0",
+      "face": {
+        "id": 43362,
+        "collectible": 0,
+        "slug": "43362-emerald-spellstone",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Joe Wilson",
+        "manaCost": 5,
+        "name": "Emerald Spellstone",
+        "text": "Summon three 3/3 Wolves. <i>(Play a <b>Secret</b> to upgrade.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f07b8f76f6499883c39c7d61c950a45bad97c38d874e2309d3a3cbbadcd16e7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43363,
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43362&locale=en_US&collectible=0",
+        "sha256": "82c9ac117b0973a84bbc1376125a69d481c5d1452f4c0378529675e5f748e601",
+        "bytes": 625,
+        "observed_at": "2026-10-29T21:35:19.691126+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_080t3",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k668-hunter-nature-leaves\\official-noncollectible-01\\43361-zh_CN.json",
+      "response_sha256": "e5c845a0e651af4a78826debe5784ea8d24675b4ed9aee0a8a12d2b9a3fbe844",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43361&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43361,
+        "collectible": 0,
+        "slug": "43361-greater-emerald-spellstone",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Joe Wilson",
+        "manaCost": 5,
+        "name": "大型法术翡翠",
+        "text": "召唤四只3/3的狼。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/be17bdbde7719f859026d9d932c4b068eaadcbbf3d14357465971023adb1c7c8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43363,
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43361&locale=zh_CN&collectible=0",
+        "sha256": "e5c845a0e651af4a78826debe5784ea8d24675b4ed9aee0a8a12d2b9a3fbe844",
+        "bytes": 591,
+        "observed_at": "2026-10-29T21:35:21.609488+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_080t3",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k668-hunter-nature-leaves\\official-noncollectible-01\\43361-en_US.json",
+      "response_sha256": "8094f370a42b5a84ed945748ae899cad906e683fb923acacb53a4b6c238f6254",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43361&locale=en_US&collectible=0",
+      "face": {
+        "id": 43361,
+        "collectible": 0,
+        "slug": "43361-greater-emerald-spellstone",
+        "classId": 3,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Joe Wilson",
+        "manaCost": 5,
+        "name": "Greater Emerald Spellstone",
+        "text": "Summon four 3/3 Wolves.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/033f0e8510a55a51465f21919f43c6ad577e8a3d22dd6e3cba97f23281ee3f1f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43363,
+        "keywordIds": [
+          5
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43361&locale=en_US&collectible=0",
+        "sha256": "8094f370a42b5a84ed945748ae899cad906e683fb923acacb53a4b6c238f6254",
+        "bytes": 598,
+        "observed_at": "2026-10-29T21:35:23.776643+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_077t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k668-hunter-nature-leaves\\official-noncollectible-01\\46446-zh_CN.json",
+      "response_sha256": "4de1a330fa7e3753bce618200289ca5ae4acdf2b2ef5663b1838471a8fa1242f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=46446&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 46446,
+        "collectible": 0,
+        "slug": "46446-wolf",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": null,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "狼",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ef42dfe1eac3f7fae615572d3030cec8a8c71af5ac1f31fc666d43c6a804d6e8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43357,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=46446&locale=zh_CN&collectible=0",
+        "sha256": "4de1a330fa7e3753bce618200289ca5ae4acdf2b2ef5663b1838471a8fa1242f",
+        "bytes": 543,
+        "observed_at": "2026-10-29T21:35:25.683377+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_077t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k668-hunter-nature-leaves\\official-noncollectible-01\\46446-en_US.json",
+      "response_sha256": "e90c7c3475f275ed055c84fac9996b7c59ffb458867a5b18f0a0c70e8bb9c9cb",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=46446&locale=en_US&collectible=0",
+      "face": {
+        "id": 46446,
+        "collectible": 0,
+        "slug": "46446-wolf",
+        "classId": 3,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1004,
+        "rarityId": null,
+        "artistName": "Arthur Bozonnet",
+        "health": 3,
+        "attack": 3,
+        "manaCost": 3,
+        "name": "Wolf",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d817c713e77a60c92f2c22d8b2026d1fc362f8afe5747c36f4025656aa8ba03.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43357,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=46446&locale=en_US&collectible=0",
+        "sha256": "e90c7c3475f275ed055c84fac9996b7c59ffb458867a5b18f0a0c70e8bb9c9cb",
+        "bytes": 544,
+        "observed_at": "2026-10-29T21:35:27.612387+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_card_id": "TIME_013",
+  "pool_id": "constructed.local-past-nature.hunter-reference-v1",
+  "wildseed_pool_id": "constructed.local-wildseeds.hunter-reference-v1",
+  "query": {
+    "kinds": [
+      "spell"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "current",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [
+      "nature"
+    ],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "seed_query": {
+    "kinds": [
+      "minion"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": false,
+    "class_mode": "any",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "member_ids": [
+    "AV_333",
+    "DRG_006",
+    "GVG_073",
+    "ICC_049",
+    "LOOT_080",
+    "OG_045",
+    "REV_361",
+    "TID_075",
+    "WON_306"
+  ],
+  "seed_ids": [
+    "REV_360t",
+    "REV_360t1",
+    "REV_360t2"
+  ],
+  "native_pins": [
+    {
+      "card_id": "AV_333",
+      "definition_sha256": "8ae5c1e857169063039c2ece529f27c7f1f7a689b04bfc62fad5aaf4c03b1936",
+      "pool_card_sha256": "edcace980a78164f6d40bc7da57e64d89cc9a6121b38b5c8740a224868b8c003"
+    },
+    {
+      "card_id": "DRG_006",
+      "definition_sha256": "fe752706caa628290d463541faca0017c1e580a3039dc5e06751464de7d8d104",
+      "pool_card_sha256": "096ac6d44391ae2124b80757e01ae998a6bc546b17b61c83098fef7da2f3c33e"
+    },
+    {
+      "card_id": "GVG_073",
+      "definition_sha256": "dc6704ac1b01670163bd03c752c4e0375f31101176760e21ac27168d9d75a280",
+      "pool_card_sha256": "b0b6d86bdcc0ccdff0970a310b16a937a731f93532831b716b5ba90b74640677"
+    },
+    {
+      "card_id": "ICC_049",
+      "definition_sha256": "95ec8b226fc51416179f028311f7922012f81142529028e1a07facc106c9330e",
+      "pool_card_sha256": "2a1d1c9f69220625f77befce2ae1afa6e07c649fea39d7ef195b661ec89deb09"
+    },
+    {
+      "card_id": "LOOT_080",
+      "definition_sha256": "a19e2a71b20859ce9929a76c3c414b3e8500840c2d0172063fd4598ade63897a",
+      "pool_card_sha256": "f0bae2388858887c51cc6f5ffa2d383bbf03a5c9658794a02b3ce2a896acc9c9"
+    },
+    {
+      "card_id": "OG_045",
+      "definition_sha256": "fbdfdd5e07a479d76d31af908900de719d36ee60c2bfb77f27505b87ec983999",
+      "pool_card_sha256": "59103a4c3454423f9234b2919d289423378a83c5496be89e14bef3f0f7c26db9"
+    },
+    {
+      "card_id": "REV_361",
+      "definition_sha256": "22c92c6c538b0dcea6e8178d969656cf033cce94399173902ff9c6ca4f51d619",
+      "pool_card_sha256": "e8549f98b122ce734f2cedf9e7e62cc6eeef1a525142a98477b5533c173eb8bd"
+    },
+    {
+      "card_id": "TID_075",
+      "definition_sha256": "d326165cfefe4b228640540949b639808bb1ee70099a5c785a5075e2a71edf45",
+      "pool_card_sha256": "e30d8d3499989929a8594c622873b618fac490ed5a874344fba8d6a9f80323cc"
+    },
+    {
+      "card_id": "WON_306",
+      "definition_sha256": "973f0554cd1216577be0963e76f01b15bc6e3753f84231663244bfa0db4f6739",
+      "pool_card_sha256": "2c051ea9190a04b4fc1c408b75958a196b4124ae17a768b1263fcc2070c53f39"
+    },
+    {
+      "card_id": "REV_360t",
+      "definition_sha256": "dcd199b1bfe42135d2ca3e31b8182c4c238cb284dd42e60fb3c3920bc909b00e",
+      "pool_card_sha256": "8a8a3024cb6d37ae1502ed703fd1ecc181a51269ae37187e04e279f47612e691"
+    },
+    {
+      "card_id": "REV_360t1",
+      "definition_sha256": "3b3fa30df06059d38a8c12d3661d199dddb60d6ef9374ff77ea39c8bed90fdbe",
+      "pool_card_sha256": "7417f3a692d3b6198a456d45564e50ce28faa43783e156b443a0f9765ae01e04"
+    },
+    {
+      "card_id": "REV_360t2",
+      "definition_sha256": "ce6e5ab064611bee6dc38e18cc67cca4f5abdecd3c00c3f45cd08464433f3b69",
+      "pool_card_sha256": "3a88447230fa9503e4c4b0f7270d9a4bef50cdf9500eaf1e4598a89caa0f1bed"
+    },
+    {
+      "card_id": "REV_360t4",
+      "definition_sha256": "aad25634fa85afda9e65a2aeb5d3167ee921517dd7090aa449136670ae88d131",
+      "pool_card_sha256": "4a7ab7483f4fa63151da677cbf751e8640bbb9f70091b2a776f424246e1765c9"
+    }
+  ],
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "full_union_member_count": 174,
+  "old_95_container_and_warrior_pool_unchanged": true,
+  "complete_for_declared_source_view": true,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "member_role": "card",
+  "member_weight": 1,
+  "policies": {
+    "pet": "Original friendly at-death controller; existing printed-death Beast query, group by original card identity with one unit weight and retain first matching original DeathRecord; common sample_size=3 CARD_DISCOVERY and attributed ResurrectMinion.",
+    "wildseeds": "Complete three named printed minions; common attributed GenerateFromPool selects two different identities without replacement once, then ordinary entry/quantity/capacity. After both original entries, capture all current friendly named dormant seed instances and advance each original countdown once.",
+    "shellshot": "One actual CAST; each step queries new active living enemy minions and current actual-cast Spell Damage. Positive base3+bonus-step is handed to ordinary SPELL damage with its bonus already included; ordinary multipliers/routing/shields/deaths apply and next step follows their checkpoint."
+  },
+  "uncertainties": [
+    "Dead-Beast tribe changes, same-ID multiple death weighting/material preference and exact CN discovery/quantity windows retain explicit existing local policies.",
+    "Shellshot bonus changes during reactions and multipliers after the repeat-count number are local uncalibrated policies; ordinary bonus increases repeat count, immunity/prevention does not stop a positive-number chain.",
+    "Wildseed membership and names follow fixed original rows plus complete primary bilingual token faces; precise awaken/extra-summon timing and RNG capacity policy remain existing local behavior.",
+    "No formal full-pool, hotfix or CN edge calibration claim."
+  ]
+}
