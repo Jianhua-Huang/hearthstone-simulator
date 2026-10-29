@@ -503,7 +503,7 @@ def matches_cost_values(spec, definition, current_battlecry, *, abilities=None):
         return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids) and
             matches_ability_values(spec.ability,printed=printed,current=current))
     return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids)
-            and (spec.ability is None or (matches_ability(spec.ability, definition) if spec.ability.ability in ('outcast', 'secret', 'fire_spell', 'protoss')
+            and (spec.ability is None or (matches_ability(spec.ability, definition) if spec.ability.ability in ('outcast', 'secret', 'fire_spell', 'nature_spell', 'protoss')
                 else matches_ability_values(spec.ability,
                 printed=definition.battlecry is not None,
                 current=definition.battlecry is not None if current_battlecry is None else current_battlecry))))

@@ -1,0 +1,1563 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-shaman-life-draw-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "FP1_025",
+        "dbf_id": 1809,
+        "name": "转生",
+        "name_en": "Reincarnate",
+        "text": "消灭一个随从，然后将其复活，并具有所有生命值。",
+        "text_en": "Destroy a minion,\nthen return it to life with full Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 12,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 12,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          }
+        ]
+      },
+      "record_sha256": "7c9d101ee30751a6ea23a95369298c378890a08e0304f1e2244c864b392407fd",
+      "definition_sha256": "057f417a1ffe810b9a839e7c9971dd2de78f47459cb595ed8df61d66e84a944f",
+      "pool_card_sha256": "17519a8649d6f1ae0a7692ec907eaa9d040629b0a2e01e9508a1dc30c002a36f"
+    },
+    {
+      "record": {
+        "id": "WON_335",
+        "dbf_id": 103238,
+        "name": "转生",
+        "name_en": "Reincarnate",
+        "text": "消灭一个随从，然后将其复活，并具有所有生命值。",
+        "text_en": "Destroy a minion,\nthen return it to life with full Health.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1898,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "858": 1809,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1809",
+              "type": "Int",
+              "value": "1809"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "a3198d1d2fa82d72a7c8bc8b22c636b4d19ac041b81ee4c8fc19668b74b39cfa",
+      "definition_sha256": "652e901b5df64e9b1fadef003b90e7ef7d90582e6ddc84387d662cd3227448fc",
+      "pool_card_sha256": "4c17c96eb6bf38e33d090200eaf297be43a1e1897b84d8b135f07673cd5eb487"
+    },
+    {
+      "record": {
+        "id": "BT_101",
+        "dbf_id": 56412,
+        "name": "鲜活孢子",
+        "name_en": "Vivid Spores",
+        "text": "使你的所有随从获得“<b>亡语</b>：再次召唤本随从。”",
+        "text_en": "Give your minions \"<b>Deathrattle:</b> Resummon this minion.\"",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1414,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "814ba5658e6ffa77fccc8a8f01b81ed159af91c0a292cc4dad8233ddca194569",
+      "definition_sha256": "2667f513f7954979060ff3311c9f3cdbd0efb4f1065bd19ae00fb9e9f450812f",
+      "pool_card_sha256": "fbeb7471aa5d5ce817cd8bacd48bf12fe38284956c8a11814e06c5ac3ea1b3a6"
+    },
+    {
+      "record": {
+        "id": "UNG_956",
+        "dbf_id": 41879,
+        "name": "灵魂回响",
+        "name_en": "Spirit Echo",
+        "text": "使你的所有随从获得“<b>亡语：</b>将本随从移回你的手牌”。",
+        "text_en": "Give your minions \"<b>Deathrattle:</b> Return _this to your hand.\"",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 27,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "0884e4e5443fe5ce690f9f168d6e5a2a88adb763a2da1fcd93a27c4dce3c4b2a",
+      "definition_sha256": "5597161f9074593f7e53611c836c53eaf2def973214475a78023e3da14fb120b",
+      "pool_card_sha256": "209326929182d3ed5042eba079de72b6c8dc2ae0934ab2173e9cdd61534b8059"
+    },
+    {
+      "record": {
+        "id": "DAL_432",
+        "dbf_id": 52421,
+        "name": "女巫杂酿",
+        "name_en": "Witch's Brew",
+        "text": "恢复#4点生命值。在本回合可以重复使用。",
+        "text_en": "Restore #4 Health. Repeatable this turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1130,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "NON_KEYWORD_ECHO": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "d278416a53859f780045f336d3f0f29be2f48362cd97e25c9f55a01798e75b24",
+      "definition_sha256": "f08a71dfd7c291091b5d775d912fd371a9d67f373cb25f05d289fca17f5d7c28",
+      "pool_card_sha256": "504a94b86f9a659b134336acb0d4ccb75c87c735fa1f70f304dac3e0a546d75a"
+    },
+    {
+      "record": {
+        "id": "TOY_506",
+        "dbf_id": 103330,
+        "name": "很久以前……",
+        "name_en": "Once Upon a Time...",
+        "text": "随机召唤法力\n值消耗为（3）的野兽，龙，元素和鱼人各一个。",
+        "text_en": "Summon a random\n3-Cost Beast, Dragon,\nElemental, and Murloc.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eva Widermann"
+          }
+        ]
+      },
+      "record_sha256": "fb042237db109581eed448b869bdd4b7ccf32aa6be73032e4a39aaf9e4a8feb2",
+      "definition_sha256": "367e41ec15bdf648d4754a14e40c89c330e913dfc2e41a87c18c618eb450b2cd",
+      "pool_card_sha256": "aaa4df4291bc91a734f7b8ad0969d9c360f54bb8e0cdbe844ead20c57f2c2924"
+    },
+    {
+      "record": {
+        "id": "BOT_093",
+        "dbf_id": 48051,
+        "name": "元素反应",
+        "name_en": "Elementary Reaction",
+        "text": "抽一张牌。如果你在上个回合使用过元素牌，则复制抽到的牌。",
+        "text_en": "Draw a card. Copy it if_you played an Elemental last turn.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1127,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Wu"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "c2604b5ec0b2d56b9f3dc1c7e62dc9c65d8493978c8aa961dc326a412eb6016f",
+      "definition_sha256": "6bcbf02a236477e6eba93cbb933dd8da87fa0e90533cd2776b335936bf38ed7e",
+      "pool_card_sha256": "83aa85d02c43f5c6c6965c8b5d0448232e195f81dde363a277f562535e9caad9"
+    },
+    {
+      "record": {
+        "id": "TTN_830",
+        "dbf_id": 97354,
+        "name": "须臾闪电",
+        "name_en": "Flash of Lightning",
+        "text": "抽一张牌。下个回合，你的自然法术牌法力值消耗减少（1）点。",
+        "text_en": "Draw a card.\nNext turn, your Nature spells cost (1) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "37fbac0590017bbe82b4347bac4beabadfe96824fe07a71f1015ecd60f6fe425",
+      "definition_sha256": "342a213098f87b360fe8d60c97d4192326f13718a74658ad19d766ec068c0a37",
+      "pool_card_sha256": "8a99e6855b59f57695bb8f898d241e93c699f872ae89f2f3e6b920d4aa21edad"
+    },
+    {
+      "record": {
+        "id": "GDB_445",
+        "dbf_id": 110872,
+        "name": "陨石风暴",
+        "name_en": "Meteor Storm",
+        "text": "对所有随从造成$5点伤害。将5张小行星洗入你的牌库。",
+        "text_en": "Deal $5 damage\nto all minions.\nShuffle 5 Asteroids\ninto your deck.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1935,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "e8e7721371e5b2dd6e27eb9a048d5c15d2997a9254f96819e59bfc9319e79b36",
+      "definition_sha256": "78f52c85098b4e0684b9ebd7424a0f38a3b823120ff0a4079abc5623e9025d21",
+      "pool_card_sha256": "2d0e619ba4eeb868745762f183e43f2617561188933e8fd34bcfdd4b8d91713b"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "GDB_430",
+        "dbf_id": 110737,
+        "name": "小行星",
+        "name_en": "Asteroid",
+        "text": "<b>抽到时施放</b>\n随机对一个敌人造成$@点伤害。",
+        "text_en": "<b>Casts When Drawn</b>\nDeal $@ damage to a random enemy.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "CASTS_WHEN_DRAWN": 1,
+          "1724": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1724",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1724"
+          }
+        ]
+      },
+      "record_sha256": "039f4c3ca20422ab2dfbd33ae057e3448da7ee23ec247c77f667fa73405c3be2",
+      "definition_sha256": "347b0bda4b9f8083a57d390837cd481ee218dbf367107a4c126d29da4830be8b",
+      "pool_card_sha256": "d9c773c27facfe36dc3433983569884e3104e5ae62bf89d8573382b9dbafec2b"
+    }
+  ],
+  "evidence_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "FP1_025",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 1809,
+        "collectible": 1,
+        "slug": "1809-reincarnate",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 12,
+        "rarityId": 1,
+        "artistName": "Dan Scott",
+        "manaCost": 1,
+        "name": "转生",
+        "text": "消灭一个随从，然后将其复活，并具有所有生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/feef51a25675f8faadf96635f320bdb978d6efe83f849f58db943a3015b729e0.png",
+        "imageGold": "",
+        "flavorText": "这和出生时没什么两样，除了你生下来就是个成年人，除了你一秒钟之前还是个死人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ff8b642d86a634f385eef91b3844f4cca78b1e853b1f49e71d68a6b6b897351.png",
+        "copyOfCardId": [
+          103238
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "FP1_025",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 1809,
+        "collectible": 1,
+        "slug": "1809-reincarnate",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 12,
+        "rarityId": 1,
+        "artistName": "Dan Scott",
+        "manaCost": 1,
+        "name": "Reincarnate",
+        "text": "Destroy a minion, then return it to life with full Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f627b6068f8255c9b7fdfcfb44b4909ce5cbdbabf03d1124bcea797ac82ae525.png",
+        "imageGold": "",
+        "flavorText": "It's like birth, except you're an adult and you were just dead a second ago.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2ff8b642d86a634f385eef91b3844f4cca78b1e853b1f49e71d68a6b6b897351.png",
+        "copyOfCardId": [
+          103238
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_335",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 103238,
+        "collectible": 1,
+        "slug": "103238-reincarnate",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Dan Scott",
+        "manaCost": 1,
+        "name": "转生",
+        "text": "消灭一个随从，然后将其复活，并具有所有生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/269dc97f1742637a7910b3f5678510b9013875c10bf77867c0912a070d317c40.png",
+        "imageGold": "",
+        "flavorText": "这和出生时没什么两样，除了你生下来就是个成年人，除了你一秒钟之前还是个死人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e23c1d8e1819af6fdfde4333b91714c0c2bb2b0fc2f524faa07d5d4684a28c6.png",
+        "copyOfCardId": [
+          1809
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_335",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 103238,
+        "collectible": 1,
+        "slug": "103238-reincarnate",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 1,
+        "artistName": "Dan Scott",
+        "manaCost": 1,
+        "name": "Reincarnate",
+        "text": "Destroy a minion, then return it to life with full Health.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1099c3933031958092c7eafab23bac6b8e716b8616358144434f381d5c9b8eb.png",
+        "imageGold": "",
+        "flavorText": "It's like birth, except you're an adult and you were just dead a second ago.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8e23c1d8e1819af6fdfde4333b91714c0c2bb2b0fc2f524faa07d5d4684a28c6.png",
+        "copyOfCardId": [
+          1809
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_101",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 56412,
+        "collectible": 1,
+        "slug": "56412-vivid-spores",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Max Grecke",
+        "manaCost": 4,
+        "name": "鲜活孢子",
+        "text": "使你的所有随从获得“<b>亡语</b>：再次召唤本随从。”",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d39451479df99291a0a5f6ac3ac008471bbe0e0c933e0a9152687aee9b98e65b.png",
+        "imageGold": "",
+        "flavorText": "兄弟，我总是感觉……死亡其实是由我们的幻觉构成的，你明白吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3c11235f7b528a680f39a1c8147d2aac534a9db1ed9ce7e6dcbafb81fdeea45.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_101",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 56412,
+        "collectible": 1,
+        "slug": "56412-vivid-spores",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Max Grecke",
+        "manaCost": 4,
+        "name": "Vivid Spores",
+        "text": "Give your minions \"<b>Deathrattle:</b> Resummon this minion.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4098c83970dc0194cec603e82c7acc024f19753f04c789810f5c4924dc6b8766.png",
+        "imageGold": "",
+        "flavorText": "Hey man, I just feel like... death is just a construct of our imaginations, ya know?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3c11235f7b528a680f39a1c8147d2aac534a9db1ed9ce7e6dcbafb81fdeea45.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_956",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 41879,
+        "collectible": 1,
+        "slug": "41879-spirit-echo",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "灵魂回响",
+        "text": "使你的所有随从获得“<b>亡语：</b>将本随从移回你的手牌”。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bdd93c7bda869be5164aa05229443548989fde3328041bb831397678c54c9fd8.png",
+        "imageGold": "",
+        "flavorText": "死亡不是终点，而是新的开始。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3a6cb22ae8c5f5b77944011c15c33e3bf9af285e69bf963974d82384d48cedd.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_956",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 41879,
+        "collectible": 1,
+        "slug": "41879-spirit-echo",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "Spirit Echo",
+        "text": "Give your minions \"<b>Deathrattle:</b> Return this to your hand.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb5ad8b557770b2bb7f3decc6667dd9648e463f6ef5c7920626fe0eac8502889.png",
+        "imageGold": "",
+        "flavorText": "I guess you can say they’re… “soul survivors.”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3a6cb22ae8c5f5b77944011c15c33e3bf9af285e69bf963974d82384d48cedd.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_432",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 52421,
+        "collectible": 1,
+        "slug": "52421-witchs-brew",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "女巫杂酿",
+        "text": "恢复 4点生命值。在本回合可以重复使用。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7855834bd09e1c07800ed1751b4aef4dacc3a369b9a291991a582ff93b9449b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c249cc46d27efecd58791f0da29c0055d43e3a579989c2d8cd37d2fe86292d22.png",
+        "flavorText": "隔汤有眼！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d634959ae6ca513c120ec1d1b6f3d28f060dda8135e1af036614ef647bb672cb.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_432",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 52421,
+        "collectible": 1,
+        "slug": "52421-witchs-brew",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 4,
+        "artistName": "Jakub Kasper",
+        "manaCost": 2,
+        "name": "Witch's Brew",
+        "text": "Restore 4 Health. Repeatable this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aed55801e1bf71370b31d423941f5bf421e7dd5fe5d3d6263cf9b8ef35f11856.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fd22019bcb15165c715be13b91e408fcfaafade1f4c3a39bc2f5f088151f2472.png",
+        "flavorText": "The swill has eyes!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d634959ae6ca513c120ec1d1b6f3d28f060dda8135e1af036614ef647bb672cb.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_506",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 103330,
+        "collectible": 1,
+        "slug": "103330-once-upon-a-time",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Eva Widermann",
+        "manaCost": 6,
+        "name": "很久以前……",
+        "text": "随机召唤法力 值消耗为（3）的野兽，龙，元素和鱼人各一个。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72642e65e79cfadcf6d426d2283069517abd38d1530624b6fdec1a986422694e.png",
+        "imageGold": "",
+        "flavorText": "……有一只小小的松鼠受命前去击败恶龙，它在土灵朋友的帮助下救出了鱼人公主。讲完了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dc74096a699c1f5ec4aedb94f86276782e9d45f847c26f372a9cd88ca0fca2d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TOY_506",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 103330,
+        "collectible": 1,
+        "slug": "103330-once-upon-a-time",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Eva Widermann",
+        "manaCost": 6,
+        "name": "Once Upon a Time...",
+        "text": "Summon a random 3-Cost Beast, Dragon, Elemental, and Murloc.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/369217e0c2553398bbebf966f565231abd0a7270d8c0b24228150551451ff991.png",
+        "imageGold": "",
+        "flavorText": "...There was a humble little squirrel on a quest to defeat an evil dragon. With the help of its earthen friend, it saved the murloc princess from danger. The end.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8dc74096a699c1f5ec4aedb94f86276782e9d45f847c26f372a9cd88ca0fca2d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_093",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 48051,
+        "collectible": 1,
+        "slug": "48051-elementary-reaction",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Wayne Wu",
+        "manaCost": 2,
+        "name": "元素反应",
+        "text": "抽一张牌。如果你在上个回合使用过元素牌，则复制抽到的牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/488de6d629288e27cf1a53e0aecb1d433d5c01d9ec6c04db77a492c4a93a9c36.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/04061d8ce0749e06224275e004cc672f9a59fe641c04ed37e9e2657a01ce7400.png",
+        "flavorText": "哎哟我这暴脾气。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4d5d5ad036d1bd651e716db5a744812b67768737439a5fb37202e41539f10aa.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_093",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 48051,
+        "collectible": 1,
+        "slug": "48051-elementary-reaction",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Wayne Wu",
+        "manaCost": 2,
+        "name": "Elementary Reaction",
+        "text": "Draw a card. Copy it if you played an Elemental last turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57d2fd46bcaaf2a4d13ffa4e25cc5702cb48c91f19a50a175a419425f2838d60.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb983c5b8c62a66199e3c2db4cf90d659bf7ed74fdf60438dd684021ed6722e3.png",
+        "flavorText": "It's just a Tempest Tantrum.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4d5d5ad036d1bd651e716db5a744812b67768737439a5fb37202e41539f10aa.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_830",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 97354,
+        "collectible": 1,
+        "slug": "97354-flash-of-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 2,
+        "name": "须臾闪电",
+        "text": "抽一张牌。下个回合，你的自然法术牌法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/783df1beeba6f4198a9ad5312e85eca63b22964a805be441cb91ca5761762dc9.png",
+        "imageGold": "",
+        "flavorText": "快闪……英雄阵亡！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4642cc2548d6f4a50e0f7fcab77ba8bbd6f4af5149847623bf342a874e4b29f3.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_830",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 97354,
+        "collectible": 1,
+        "slug": "97354-flash-of-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 4,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 2,
+        "name": "Flash of Lightning",
+        "text": "Draw a card. Next turn, your Nature spells cost (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6d2ecd88d4813f5230859e14579e1d4eaff05c8bfb64bd4b3b5c18ebe7fc0025.png",
+        "imageGold": "",
+        "flavorText": "FLASH! AAAAAAAAA",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4642cc2548d6f4a50e0f7fcab77ba8bbd6f4af5149847623bf342a874e4b29f3.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_445",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 110872,
+        "collectible": 1,
+        "slug": "110872-meteor-storm",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 6,
+        "name": "陨石风暴",
+        "text": "对所有随从造成 5点伤害。将5张小行星洗入你的牌库。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3c835bcc8d49a0efdbb3fef6120786f86d8d839d6530b75ebacdf25bb57e814.png",
+        "imageGold": "",
+        "flavorText": "“长官，目前连续抽到所有小行星的几率约为1/3720！”“少跟我说什么几率！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b7a215526542fa4a1d8f68f35d3d2292f3286c79442320536ac252599a07f891.png",
+        "childIds": [
+          110737
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_445",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 110872,
+        "collectible": 1,
+        "slug": "110872-meteor-storm",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 6,
+        "name": "Meteor Storm",
+        "text": "Deal 5 damage to all minions. Shuffle 5 Asteroids into your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd8f512ccc871cb4e77ef2a62517c0b874dd67a6b552cc91165b544c11394cff.png",
+        "imageGold": "",
+        "flavorText": "\"Sir, the possibility of successfully drawing all of your Asteroids in a row are approximately 3,720:1!\" \"Never tell me the odds!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b7a215526542fa4a1d8f68f35d3d2292f3286c79442320536ac252599a07f891.png",
+        "childIds": [
+          110737
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GDB_430",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k674-shaman-life-draw\\official-noncollectible-01\\110737-zh_CN.json",
+      "response_sha256": "be5a4bfdf2d64a9a73a1b4e04143fb9ba1751da526dfe7a6391915b6ef8154c9",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=110737&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 110737,
+        "collectible": 0,
+        "slug": "110737-asteroid",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": null,
+        "artistName": "Brian Despain",
+        "manaCost": 1,
+        "name": "小行星",
+        "text": "<b>抽到时施放</b> 随机对一个敌人造成 点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8118acd47e85f76fc2b4fa454a05ecd2f8627aa01a74d7826c2fcd5e86c03a70.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=110737&locale=zh_CN&collectible=0",
+        "sha256": "be5a4bfdf2d64a9a73a1b4e04143fb9ba1751da526dfe7a6391915b6ef8154c9",
+        "bytes": 578,
+        "observed_at": "2026-10-29T23:19:16.578846+00:00"
+      }
+    },
+    {
+      "card_id": "GDB_430",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k674-shaman-life-draw\\official-noncollectible-01\\110737-en_US.json",
+      "response_sha256": "ac71edfa6d71960a1e97659e05250bb1c758e5838487c555c39c5dc16e3e36ca",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=110737&locale=en_US&collectible=0",
+      "face": {
+        "id": 110737,
+        "collectible": 0,
+        "slug": "110737-asteroid",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": null,
+        "artistName": "Brian Despain",
+        "manaCost": 1,
+        "name": "Asteroid",
+        "text": "<b>Casts When Drawn</b> Deal damage to a random enemy.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f348b625b83fded9c6acfb8934cd68e8d0d3ba17e8aef5b3597abf64ff0ca6e4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "keywordIds": [
+          72
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=110737&locale=en_US&collectible=0",
+        "sha256": "ac71edfa6d71960a1e97659e05250bb1c758e5838487c555c39c5dc16e3e36ca",
+        "bytes": 568,
+        "observed_at": "2026-10-29T23:23:15.263248+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {},
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "FP1_025",
+    "WON_335",
+    "BT_101",
+    "UNG_956",
+    "DAL_432",
+    "TOY_506",
+    "BOT_093",
+    "TTN_830",
+    "GDB_445",
+    "GDB_430"
+  ],
+  "pending_profile_sha256": "45e21e456c2e317eaf59b11d539a874dc5ee28ea73516d117f10bac029958a06",
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "rule_sources": [
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Reincarnate",
+      "policy": "Original printed fresh copy, rightmost position; death reactions and capacity precede return."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Template%3ASpirit_Echo_notes",
+      "policy": "Live trigger returns the original physical minion; no duplicate."
+    },
+    {
+      "url": "https://www.kilkku.com/oldguardian/2017/05/journey-to-ungoro-card-spotlight-spirit-echo/",
+      "policy": "Repeated Spirit Echo grants return one original physical card, not multiple copies."
+    }
+  ],
+  "policies": {
+    "resummon": "Original base-resummon material captured before destruction; native components/Jade/permanent facts retained, ordinary local buffs reset; no hand-play or Battlecry.",
+    "death": "Living Spores natural actual death delegates ResurrectMinion; other live/stored trigger captures original base material. Spirit Echo moves one original natural graveyard or current board/deck source.",
+    "repeat": "Witch Brew HandRepeatSpec(echo=False); ordinary current-turn temporary copies with no Echo-specific one-Mana floor.",
+    "draw": "Actual previous closed own Elemental hand-play predicate; one normal physical top draw and existing copy_self arrival material.",
+    "future_price": "Draw first, install original pending turn-start program, consume on next actual own start and apply printed Nature-only original cost modifier until that turn end.",
+    "asteroid": "Raw base2 plus existing per-card original spell_effect_values; ordinary random enemy SPELL damage and actual CastWhenDrawn/replacement. Original gallery omits dynamic number; raw retained."
+  },
+  "uncertainties": [
+    "Shared reaction, retained intrinsic composite state, arrival copying of draw-cast chains and return/Deathrattle interleaving policies remain local and uncalibrated.",
+    "Other Asteroid-number producer cards are separate native consumers; this batch adds the actual Meteor Storm and all Asteroids it generates.",
+    "Full Shaman71 source stays unbound; version/hotfix and CN edge calibration deferred."
+  ]
+}

@@ -201,7 +201,7 @@ class CopyEntryMaterial:
             from .permanent_minion_stats import value
             if value(self.local)!=self.permanent_stats:raise ValueError('Current copy lost its original permanent base')
         if (type(self.stored_components)is not tuple or any(type(x)is not str or not x for x in self.stored_components)
-                or self.stored_components and (self.profile not in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy','death_copy') or self.mode!='current')):
+                or self.stored_components and not(self.profile=='base_resummon' and self.mode=='base') and (self.profile not in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy','death_copy') or self.mode!='current')):
             raise ValueError('Stored composition requires its current physical minion recipe')
         validate_minion_grant(self.minion_grant)
         if self.minion_grant is None:
@@ -228,10 +228,11 @@ class CopyEntryMaterial:
         if type(self.origin)is not SourceAllocationFact:raise ValueError('Copy material requires original physical allocation')
         self.origin.__post_init__()
         if self.origin.card_id!=self.card_id or self.origin.kind!=CardType.MINION:raise ValueError('Copy material differs from its physical minion face')
-        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
+        if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy','base_resummon')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
         if self.profile in ('remembered_copy','remembered_hand_copy') and (self.mode!='current' or self.stats is not None):
             raise ValueError('Remembered copy requires its full original current minion recipe')
-        zones=(Zone.BOARD,)if self.profile in ('board_copy','remembered_copy','death_copy')else(Zone.HAND,)if self.profile=='remembered_hand_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
+        if self.profile=='base_resummon' and (self.mode!='base' or self.stats is not None or self.on_summon is not None or self.minion_grant is not None):raise ValueError('Base resummon requires original printed minion material without extra grants')
+        zones=(Zone.BOARD,Zone.HAND,Zone.DECK)if self.profile=='base_resummon'else(Zone.BOARD,)if self.profile in ('board_copy','remembered_copy','death_copy')else(Zone.HAND,)if self.profile=='remembered_hand_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
         if self.origin.zone not in zones:raise ValueError('Copy recipe has another original zone')
         for n,floor in (('captured_turn',1),('captured_action',0),('next_attachment_id',1)):_integer(getattr(self,n),'copy material '+n,floor)
         if (self.mode=='current')!=(self.local is not None):raise ValueError('Copy local state differs from current/base recipe')
@@ -266,7 +267,7 @@ class CopyEntryMaterial:
 
     @classmethod
     def capture(cls,state,source,profile,mode,stats=None,*,registry=None,player_id=None,discard=None,on_summon=None,minion_grant=None,grant_source_id=None):
-        if source.components and profile!='discard_summon_copy' and not(profile in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy')and mode=='current'):
+        if source.components and profile!='discard_summon_copy' and not(profile=='base_resummon'and mode=='base') and not(profile in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy')and mode=='current'):
             raise ValueError('Composite copy material is unsupported by this ordinary profile')
         if profile in ('discard_copy','discard_summon_copy'):
             from .discard_history import validate_material,validate_base_copy
@@ -289,7 +290,7 @@ class CopyEntryMaterial:
             permanent_stats=permanent_value(source),infused_damage=infused_value(source))
         if on_summon is not None:result=replace(result,on_summon=on_summon)
         if minion_grant is not None:result=replace(result,minion_grant=minion_grant,grant_source_id=grant_source_id)
-        if profile in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy')and mode=='current':result=replace(result,stored_components=source.components)
+        if profile in ('board_copy','stored_copy','remembered_copy','remembered_hand_copy')and mode=='current' or profile=='base_resummon'and mode=='base':result=replace(result,stored_components=source.components)
         if profile in ('discard_copy','discard_summon_copy'):validate_scope(state,registry,result,hand_copy=profile=='discard_copy')
         return result
 
@@ -306,10 +307,10 @@ def validate_material(registry,material,*,hand_copy=False):
         validate_ability_power(registry,material.card_id,registry.card(material.card_id).kind,material.local.enchantments)
         from .passive_objects import validate_carrier as validate_passive_markers
         validate_passive_markers(registry,material.card_id,registry.card(material.card_id).kind,material.local.enchantments)
-    if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy','death_copy') or material.profile=='board_copy' and material.mode=='current':
+    if material.profile in ('stored_copy','remembered_copy','remembered_hand_copy','death_copy','base_resummon') or material.profile=='board_copy' and material.mode=='current':
         card=registry.card(material.card_id)
         from .crafted_faces import composition_shape
-        if (card.kind!=CardType.MINION or not card.hand_playable and material.profile not in ('board_copy','death_copy') or
+        if (card.kind!=CardType.MINION or not card.hand_playable and material.profile not in ('board_copy','death_copy','base_resummon') or
                 card.choice_only or not composition_shape(card,material.components)):
             raise ValueError('Stored entry lost its complete physical minion or composition')
         for cid in material.components:

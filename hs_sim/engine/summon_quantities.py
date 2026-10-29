@@ -165,6 +165,12 @@ class SummonByCard(Effect):
                 not(random_copies or len(self.materials)==1 and self.selection=='first') or
                 self.producer_link is not None or self.capacity!='selection_requires_space'):
             raise ValueError('Copy material requires a deterministic entry or equal physical current-board candidates')
+        for material in self.materials:
+            if type(material)is CopyEntryMaterial and material.profile=='base_resummon' and (
+                    type(self.cause)is not SummonCause or material.origin.controller!=self.player_id or
+                    (material.captured_turn,material.captured_action,material.origin.next_entity_id,material.origin.next_order)!=(
+                        self.cause.turn,self.cause.action,self.cause.source.next_entity_id,self.cause.source.next_order)):
+                raise ValueError('Base resummon lost its original recipient or common source/material capture window')
         if any(type(x)is RecruitEntryMaterial for x in self.materials):
             from .recruit_summons import RecruitEntryLink
             if len(self.materials)!=1 or self.selection!='first'or self.capacity!='selection_requires_space'or self.producer_link is not None and type(self.producer_link)is not RecruitEntryLink:raise ValueError('Physical recruit material requires its one original first/extra recipe')
@@ -721,7 +727,7 @@ def validate_record(state,registry,root,*,closed=False,original_cast_event=None)
         if type(material)is ResurrectionEntryMaterial and(material.captured_turn,material.captured_action,material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):raise ValueError('Death material is not from actual entry acceptance window')
         copy_material=material.copy if type(material)is RecruitEntryMaterial else material
         if type(copy_material)is CopyEntryMaterial:
-            if copy_material.profile in ('discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy'):
+            if copy_material.profile in ('discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy','base_resummon'):
                 if (copy_material.captured_turn>plan.turn or copy_material.captured_action>plan.action or
                         copy_material.next_attachment_id>plan.next_attachment_id):
                     raise ValueError('Original discarded material is newer than its summon acceptance')

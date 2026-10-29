@@ -36,9 +36,10 @@ def matches_ability(condition, definition, entity=None):
     condition.__post_init__()
     if entity is not None and (entity.card_id, entity.kind) != (definition.id, definition.kind):
         raise ValueError('Card condition instance and definition disagree')
-    if condition.ability in ('fire_spell', 'protoss'):
-        if condition.ability == 'fire_spell':
-            printed = definition.kind == CardType.SPELL and definition.spell_school == SpellSchool.FIRE
+    if condition.ability in ('fire_spell', 'nature_spell', 'protoss'):
+        if condition.ability in ('fire_spell', 'nature_spell'):
+            school = SpellSchool.FIRE if condition.ability == 'fire_spell' else SpellSchool.NATURE
+            printed = definition.kind == CardType.SPELL and definition.spell_school == school
         else:
             meta = definition.metadata
             printed = None if meta is None or meta.factions is None else 'protoss' in meta.factions

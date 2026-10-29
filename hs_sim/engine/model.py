@@ -590,7 +590,7 @@ class CardAbilityCondition:
     basis: str = 'current'
 
     def __post_init__(self):
-        if type(self.ability) is not str or self.ability not in ('battlecry', 'outcast', 'secret', 'spell_damage', 'fire_spell', 'protoss'):
+        if type(self.ability) is not str or self.ability not in ('battlecry', 'outcast', 'secret', 'spell_damage', 'fire_spell', 'nature_spell', 'protoss'):
             raise ValueError('Unsupported card ability condition')
         _bool(self.present, 'card ability presence')
         if type(self.basis) is not str or self.basis not in ('current', 'printed'):
@@ -599,7 +599,7 @@ class CardAbilityCondition:
             raise ValueError('Outcast cost identity requires the printed card, not hand-position activation')
         if self.ability == 'secret' and self.basis != 'printed':
             raise ValueError('Secret cost identity requires its printed native declaration')
-        if self.ability in ('fire_spell', 'protoss') and (self.basis != 'printed' or not self.present):
+        if self.ability in ('fire_spell', 'nature_spell', 'protoss') and (self.basis != 'printed' or not self.present):
             raise ValueError('Native school/faction price requires positive printed identity')
 
 

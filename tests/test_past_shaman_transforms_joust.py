@@ -14,6 +14,8 @@ from hs_sim.engine import EndTurn,Game,IllegalAction,PlayerSetup,ResolutionError
 from hs_sim.engine.cross_zone import LEGENDARY_BOARD_QUERY,MinionScope,TransformMinionsInZones
 from hs_sim.engine.effects import ChoiceOption,Damage,Destroy,InvokeBehavior,RandomDamage,RequestChoice
 from hs_sim.engine.errors import SnapshotError
+from hs_sim.engine.resolver import CORE_EFFECTS_VERSION
+from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
 from hs_sim.engine.model import CardDefinition,CardType,Keyword,Rarity,TriggerSpec,Zone
 from hs_sim.engine.pools import GenerationContext,PoolCard,PoolDefinition,PoolMember,PoolQuery,resolve_candidates,sample_candidates
 from hs_sim.local_pool_format import build_cn37_local_pool_format
@@ -180,8 +182,8 @@ class ShamanTransformsJoustTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_current_codec_roundtrips_new_policy_and_rejects_previous_schema(self):
         g=self.game((STORM,),board=(A,A),enemy=(WATCH,));self.play(g,STORM);saved=deepcopy(g.snapshot())
-        self.assertEqual(saved['schema_version'],640);self.assertEqual(saved['mechanics_version']['version'],'core-effects-v820');self.portable(g)
-        saved['schema_version']=639
+        self.assertEqual(saved['schema_version'],SNAPSHOT_SCHEMA_VERSION);self.assertEqual(saved['mechanics_version']['version'],CORE_EFFECTS_VERSION);self.portable(g)
+        saved['schema_version']=SNAPSHOT_SCHEMA_VERSION-1
         with self.assertRaises(SnapshotError):Game.from_snapshot(saved,fixture('writer'))
 
     def test_real_standard_storm_and_healing_wave_keep_complete_host_and_recovery(self):
