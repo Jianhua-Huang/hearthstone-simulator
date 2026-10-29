@@ -13,7 +13,7 @@ from .construction import integer, name
 from .effects import AddToHand, ChoiceOption, Draw, Effect, RequestChoice, _player, _source, validate_generated_cost
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .lifecycle import copy_attachments, reset_to_definition
-from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, FrozenPlayedFaceFact, SummonStats, Zone, validate_summon_stats, CardPreview, ChoiceResult
+from .model import CardClass, CardType, CostSpec, ChooseBranchSelection, DeathRecord, Entity, FrozenPlayedFaceFact, Keyword, SummonStats, Zone, validate_summon_stats, CardPreview, ChoiceResult
 from .sacrifice import MinionReference, live_minion
 from .pools import PoolQuery, matches_metadata
 from .card_conditions import has_battlecry
@@ -223,8 +223,13 @@ class CopyCard(Effect):
     cost: CostSpec | None = None
     expires_turn: int | None = None
     cast_when_drawn: bool = False
+    required_keyword: Keyword | None = None
 
     def __post_init__(self):
+        if self.required_keyword is not None and (type(self.required_keyword) is not Keyword or
+                type(self.card) is not MinionReference or self.destination != Zone.HAND or
+                self.mode != 'current' or self.source_id is None):
+            raise ValueError('Keyword-conditioned copies require an attributed current board-minion hand copy')
         if type(self.cast_when_drawn) is not bool:
             raise ValueError('Copied draw-cast declaration must be boolean')
         if self.cast_when_drawn and (type(self.card) is not CapturedCardCopyMaterial or
@@ -1022,6 +1027,8 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
         source = live_minion(r.state, effect.card)
         if source is None:
             r.emit('zone_target_skipped', target_id=effect.card.entity_id, reason='captured_minion_departed')
+            return
+        if getattr(effect, 'required_keyword', None) is not None and effect.required_keyword not in source.keywords:
             return
     else:
         source=reference_entity(r,effect.card)

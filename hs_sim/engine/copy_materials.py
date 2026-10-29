@@ -211,11 +211,11 @@ class CopyEntryMaterial:
             if self.profile not in ('stored_copy','board_copy') or self.grant_source_id>=self.origin.next_entity_id:
                 raise ValueError('Copy entry grant requires its accepted stored copy and original source')
             if self.profile=='board_copy' and (self.mode!='current' or self.minion_grant.attack<0 or self.minion_grant.health<0 or
-                    self.minion_grant.keywords not in ((),(Keyword.STEALTH,)) or
+                    self.minion_grant.keywords not in ((),(Keyword.STEALTH,),(Keyword.TAUNT,)) or
                     self.minion_grant.keywords and (self.minion_grant.attack or self.minion_grant.health) or
                     self.minion_grant.reborn_policy is not None or
                     self.minion_grant.identity is not None or self.minion_grant.special is not None):
-                raise ValueError('Board copy entry grant requires plain current-copy stat growth or pure Stealth')
+                raise ValueError('Board copy entry grant requires plain current-copy stat growth or pure Stealth/Taunt')
         if self.on_summon is not None:
             from .effects import _behavior
             _behavior(self.on_summon)

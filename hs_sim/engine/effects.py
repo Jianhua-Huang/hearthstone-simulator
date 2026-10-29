@@ -1222,10 +1222,10 @@ class CopyMinion(Effect):
         if self.minion_grant is not None:
             grant = self.minion_grant
             if (self.mode != 'current' or self.cause is None or grant.attack < 0 or grant.health < 0 or
-                    grant.keywords not in ((),(Keyword.STEALTH,)) or
+                    grant.keywords not in ((),(Keyword.STEALTH,),(Keyword.TAUNT,)) or
                     grant.keywords and (grant.attack or grant.health) or
                     grant.reborn_policy is not None or grant.identity is not None or grant.special is not None):
-                raise ValueError('Board copy entry grant requires plain current-copy stat growth or pure Stealth and its original cause')
+                raise ValueError('Board copy entry grant requires plain current-copy stat growth or pure Stealth/Taunt and its original cause')
         if self.on_summon is not None:
             _behavior(self.on_summon)
             if self.cause is None: raise ValueError('Copy followup requires original card attribution')

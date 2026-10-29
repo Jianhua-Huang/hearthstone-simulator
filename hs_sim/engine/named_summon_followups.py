@@ -69,7 +69,9 @@ def continue_named_minion(r, effect):
         _capture=False)
     from .pool_summons import PoolSummonBasis
     basis = root.request.pool_basis
-    original_delivery = type(basis) is PoolSummonBasis and basis.followup_policy == 'original_delivery'
+    material = root.request.materials[root.selected]
+    original_delivery = material.followup_policy == 'original_delivery' or (
+        type(basis) is PoolSummonBasis and basis.followup_policy == 'original_delivery')
     entity = resolve_board_presence(r.state, effect.beneficiary)
     if not original_delivery and (entity is None or not entity.active or entity.health <= 0 or entity.doomed or entity.controller != root.request.player_id):
         r.stale(effect, effect.beneficiary.entity_id)

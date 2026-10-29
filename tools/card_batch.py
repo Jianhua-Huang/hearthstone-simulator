@@ -241,8 +241,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # Swarmer's two complete client displays express the same native rule.
     # The Chinese gallery uses the live-stat form; English uses the plain form.
     # Pin both original bodies, rather than dropping an arbitrary @ branch.
-    jade_swarmer_display = (row.get('id') == 'CFM_691' and
-        canonical(row) == '5767a40eb13001a89dbfb9f238caf43d9575d5c961414cd7384a282af441227a' and
+    jade_swarmer_display = (canonical(row) == {
+        'CFM_691': '5767a40eb13001a89dbfb9f238caf43d9575d5c961414cd7384a282af441227a',
+        'CFM_713': 'be26c7e816dd0695a08faf0d4edb54caf42347dd260dfc7dae75b49504aed31d',
+        }.get(row.get('id')) and
         display_normalizations == ({'{0}': ''} if chinese else {}))
     if jade_swarmer_display:
         require(len(states) == 2 and display(states[0].replace('{0}的', '') if chinese else

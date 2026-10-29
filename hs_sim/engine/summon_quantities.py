@@ -67,9 +67,14 @@ class SummonEntryMaterial:
     on_summon: str | None = None
     entry_grant: CreatedMinionGrant | None = None
     deathrattle_memory: DeathrattleMemory | None = None
+    followup_policy: str = 'live_friendly'
 
     def __post_init__(self):
         from .model import validate_summon_stats
+        if type(self.followup_policy) is not str or self.followup_policy not in ('live_friendly', 'original_delivery'):
+            raise ValueError('Unknown named-minion continuation policy')
+        if self.followup_policy == 'original_delivery' and self.on_summon is None:
+            raise ValueError('Original-delivery named continuation requires an explicit behavior')
         if self.deathrattle_memory is not None:
             if (type(self.deathrattle_memory) is not DeathrattleMemory or
                     self.deathrattle_memory.spec.kind not in ('copy_summon','custody_return') or

@@ -1,0 +1,3284 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-past-nature-copy-discovery-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BAR_549",
+        "dbf_id": 63114,
+        "name": "尖壳印记",
+        "name_en": "Mark of the Spikeshell",
+        "text": "使一个随从获得+2/+2。如果该随从拥有<b>嘲讽</b>，则将该随从的一张复制置入你的手牌。",
+        "text_en": "Give a minion +2/+2.\nIf it has <b>Taunt</b>, add a copy of it to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Peter Stapleton"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "73dcf9ae4c3dfc108feec79ce1d49714f854414c9e445f4f7df80f63a60a19de",
+      "definition_sha256": "2d01ac976001973994904466a19d25d9873d94c1a05847ae2f9b78ce81601109"
+    },
+    {
+      "record": {
+        "id": "BT_128",
+        "dbf_id": 56677,
+        "name": "真菌宝藏",
+        "name_en": "Fungal Fortunes",
+        "text": "抽三张牌。\n弃掉抽到的所有随从牌。",
+        "text_en": "Draw 3 cards. Discard any minions drawn.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "6d403fe39536e637505a0158d716e29119d73fd48fb66a99497da72b91605688",
+      "definition_sha256": "b947b593e8f93121e777eec9d66576370d8a7122a6485905a09a78ff02cb2cd1"
+    },
+    {
+      "record": {
+        "id": "BT_129",
+        "dbf_id": 56678,
+        "name": "萌芽分裂",
+        "name_en": "Germination",
+        "text": "召唤一个友方随从的复制。使复制获得<b>嘲讽</b>。",
+        "text_en": "Summon a copy of a friendly minion.\nGive the copy <b>Taunt</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1414,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5f8a6edfc4dfeea86eb81632a26e848b04fc60e4a72e884dac59d9a9e412223d",
+      "definition_sha256": "110f452f8f33dd9cee19da099d73761252fc989ee2b66e92d9b86c3b35972ab8"
+    },
+    {
+      "record": {
+        "id": "CFM_713",
+        "dbf_id": 40523,
+        "name": "青玉绽放",
+        "name_en": "Jade Blossom",
+        "text": "召唤一个{0}的<b>青玉魔像</b>，获得一个空的法力水晶。@召唤一个<b>青玉魔像</b>，获得一个空的法力水晶。",
+        "text_en": "Summon a{1} {0} <b>Jade Golem</b>. Gain an empty Mana Crystal.@Summon a <b>Jade Golem</b>. Gain an empty Mana Crystal.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 25,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "be26c7e816dd0695a08faf0d4edb54caf42347dd260dfc7dae75b49504aed31d",
+      "definition_sha256": "e62d1b5b6e60dfdd42238f7da089204e68f39a3a896a3f68fb6650be384f3f6a"
+    },
+    {
+      "record": {
+        "id": "DAL_352",
+        "dbf_id": 51781,
+        "name": "晶歌传送门",
+        "name_en": "Crystalsong Portal",
+        "text": "<b>发现</b>一张德鲁伊随从牌。如果你的手牌中没有随从牌，改为保留全部三张牌。",
+        "text_en": "<b>Discover</b> a Druid minion. If your hand\nhas no minions, keep\nall 3 instead.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1130,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "ba32870ec28e6c5849379a2360c83ebbf94b13e1c89c6f74e3609bf3792ba3ae",
+      "definition_sha256": "1344888c2163e36cf91389b7d62c6160fc8ae3c74edef828427eb876afae15a9"
+    },
+    {
+      "record": {
+        "id": "DRG_315",
+        "dbf_id": 55035,
+        "name": "森然巨化",
+        "name_en": "Embiggen",
+        "text": "使你牌库中的所有随从牌获得+2/+2，且法力值消耗增加（1）点<i>（最高不超过10点）</i>。",
+        "text_en": "Give all minions in your deck +2/+2. They cost (1) more <i>(up to 10)</i>.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1347,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kagi"
+          }
+        ]
+      },
+      "record_sha256": "89591eb385b59728f1cf586c68bd435ef8f0e75f21bf34cc4bb7961b7550dfb0",
+      "definition_sha256": "e66e25070ff7d6ba44f976e7b0f11c25604fc8b1c0de6ef476b98049eaa9e43f"
+    },
+    {
+      "record": {
+        "id": "FP1_019",
+        "dbf_id": 1802,
+        "name": "剧毒之种",
+        "name_en": "Poison Seeds",
+        "text": "消灭所有随从，并召唤等量的2/2树人代替他们。",
+        "text_en": "Destroy all minions and summon 2/2 Treants to replace them.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 12,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1803,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 12,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brian Despain"
+          }
+        ]
+      },
+      "record_sha256": "33e9699a10bc986c53293843468b5f17dc23b61a0b75d4d49bbd95ba53199a93",
+      "definition_sha256": "ab9ba11de75d1dd5deee3aa3f250c818e3eaeb521531134b45877af79addd4e0"
+    },
+    {
+      "record": {
+        "id": "ICC_054",
+        "dbf_id": 42656,
+        "name": "传播瘟疫",
+        "name_en": "Spreading Plague",
+        "text": "召唤一只1/5并具有<b>嘲讽</b>的甲虫。如果你的对手拥有的随从更多，则再次施放该法术。",
+        "text_en": "Summon a 1/5 Scarab with <b>Taunt</b>. If your_opponent has more minions, cast this again.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1001,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 45301,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Alexandrov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cc4f23ba3a0e618a2a1f0f50fe851c482227482db7c58a98c7e72cf5c21c435f",
+      "definition_sha256": "005727e7d8b60bb827449750e93deb87b77f12b6d9ae8c7843357ccbe55af1ec"
+    },
+    {
+      "record": {
+        "id": "REV_313",
+        "dbf_id": 77654,
+        "name": "安插证据",
+        "name_en": "Planted Evidence",
+        "text": "<b>发现</b>一张法术牌。在本回合中，其法力值消耗减少（2）点。",
+        "text_en": "<b>Discover</b> a spell. It costs (2) less this turn.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          }
+        ]
+      },
+      "record_sha256": "edfb2a5d36a5815c6d0f3c571891f58d9e586ba0a231cbdafc537a7b99888a47",
+      "definition_sha256": "a6149bae87b101734e562129fceec1e9fdf785f7816407445208c2d53eec66c1"
+    },
+    {
+      "record": {
+        "id": "SCH_333",
+        "dbf_id": 59163,
+        "name": "自然研习",
+        "name_en": "Nature Studies",
+        "text": "<b>发现</b>一张法术牌。你的下一张法术牌法力值消耗减少（1）点。",
+        "text_en": "<b>Discover</b> a spell. Your next one costs (1) less.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "SPELL_SCHOOL": 4,
+          "DISCOVER_STUDIES_VISUAL": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "SARIYA"
+          }
+        ]
+      },
+      "record_sha256": "a4ceeed97e9d7ce04a2f2c54721ac85aad3f91482dfc3f6c44d498ec997f7320",
+      "definition_sha256": "5fa09ba25b9a66fa3a49dc3573a92bdc53cd4ff47dbd91de63b4ee2f58171f46"
+    },
+    {
+      "record": {
+        "id": "TTN_955",
+        "dbf_id": 100093,
+        "name": "生命缚誓者的礼物",
+        "name_en": "Lifebinder's Gift",
+        "text": "<b>抉择：</b>随机获取2张自然法术牌；或者使你手牌中法术牌的法力值消耗减少（1）点。",
+        "text_en": "<b>Choose One -</b> Get 2 random Nature spells; or Reduce the Cost of spells in your hand by (1).",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "fa70bf4520b464b05422150094042ad434aab43e17d66e340d8b21eeb14b87df",
+      "definition_sha256": "6d98862013a82753fdfa8fc868b04dd01f780310f746b8e7cddaa91575b02f48"
+    },
+    {
+      "record": {
+        "id": "UNG_103",
+        "dbf_id": 40991,
+        "name": "生长孢子",
+        "name_en": "Evolving Spores",
+        "text": "<b>进化</b>你所有的随从。",
+        "text_en": "<b>Adapt</b> your minions.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 27,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grace Liu"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "546",
+              "name": "ADAPT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ff2bd811d8bfed89d875a49305cc33a165cf7d4e0e1121303e63588872335e2c",
+      "definition_sha256": "0579e1d50bee835ca537afcd5d877fcc98d36e96d95aafae5e1f7a43c9c95f93"
+    },
+    {
+      "record": {
+        "id": "WW_818",
+        "dbf_id": 101976,
+        "name": "仙人掌构造术",
+        "name_en": "Cactus Construct",
+        "text": "<b>发现</b>一张法力值消耗为（2）的随从牌，召唤一个它的1/2的复制。",
+        "text_en": "<b>Discover</b> a 2-Cost minion. Summon a 1/2 copy of it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1892,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Timur Shevtsov"
+          }
+        ]
+      },
+      "record_sha256": "5e1374af87bbae10f53c0a1732da9ce64fb3516f5568fbb5b95b275cafd39763",
+      "definition_sha256": "b942a286c78a27cda4bb1b81fa70786bbd8175e85bb646a6a6cd462f460ac00a"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "FP1_019t",
+        "dbf_id": 1803,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 12,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2831": 1
+        },
+        "card_set_id": 12,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "7f3adcfb5a88b045ad5a7c33c2b6c7437f3d29d5846799e086766877ffcfa29f",
+      "definition_sha256": "f6517063a17403e1c3d4ecf1cc51df0869f26f43d6a0d031ce1425d014549156"
+    },
+    {
+      "record": {
+        "id": "ICC_832t4",
+        "dbf_id": 45301,
+        "name": "硬壳圣甲虫",
+        "name_en": "Scarab Beetle",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": 2,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 1,
+          "COST": 2,
+          "CARD_SET": 1001,
+          "TAUNT": 1,
+          "CLASS": 2,
+          "CARDRACE": 20,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "da92d5247deb13372dcb5bbcc0867edf2c1b5aa0d68a2a5e73dd369ca1818ead",
+      "definition_sha256": "a9e76cd31103a94f09e01d149893a2cf304b32c5d1af53df2ba4392eccf7984c"
+    },
+    {
+      "record": {
+        "id": "TTN_955A",
+        "dbf_id": 100094,
+        "name": "生命缚誓者的绽放",
+        "name_en": "Lifebinder's Bloom",
+        "text": "随机获取2张自然法术牌。",
+        "text_en": "Get 2 random\nNature spells.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "7ce85fc4b530d124b48af0eae0eda8924ba6cc7bbbae1b9dd9c3dced317039d2",
+      "definition_sha256": "736b1c916cf2403fab2edac9aa97cb64fd2c0fa5c5ecbe795374977688d51cba"
+    },
+    {
+      "record": {
+        "id": "TTN_955B",
+        "dbf_id": 100095,
+        "name": "生命缚誓者的生长",
+        "name_en": "Lifebinder's Growth",
+        "text": "使你手牌中法术牌的法力值消耗减少（1）点。",
+        "text_en": "Reduce the Cost\nof spells in your\nhand by (1).",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "2303fbbe9c0b8d88fd5ece18e003ee5afc08e01fd6604bb244816cb3bab7087d",
+      "definition_sha256": "479b0d9dd901c51b83709e6c6264a4cd8bcd4fdf1b34a0379eedb6a68aae7b5f"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "UNG_999t3",
+        "dbf_id": 41058,
+        "name": "烈焰利爪",
+        "name_en": "Flaming Claws",
+        "text": "+3攻击力",
+        "text_en": "+3 Attack",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Garrett Hanna"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "6c1df7158c7d2597ffc59590354e5406aa2ce2bc41bfbcf05e8e30e9efd0a5d4",
+      "definition_sha256": "9296eed4c5e5212c2a5e2d6f1a79569bfd77bcb45f2ba295bf40d1dc7eb06efb",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t4",
+        "dbf_id": 41059,
+        "name": "岩质甲壳",
+        "name_en": "Rocky Carapace",
+        "text": "+3生命值",
+        "text_en": "+3 Health",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "e4c99584484d5e929def6fc8747dd13e2b5f5e15f75f24cb5971a9c2a36283b0",
+      "definition_sha256": "143b66b9c19ee2414d1f5656c36b3a06f8c048e9d7992fba243f6b2184c24021",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t14",
+        "dbf_id": 41691,
+        "name": "火山之力",
+        "name_en": "Volcanic Might",
+        "text": "+1/+1",
+        "text_en": "+1/+1",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rudy Siswanto"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "4a48e41256d61a109badd4415817714965f84907339eeec6edcaeb2ed3c7833b",
+      "definition_sha256": "565f1606df9911a1cf33903fe7184821d3c3fed1f4544d92d791241f7f77d9e3",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t6",
+        "dbf_id": 41061,
+        "name": "巨型体态",
+        "name_en": "Massive",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "9d1e4e71f5c51cd78c2915b850e2147477185e5525d9f01b6359de7025ea2340",
+      "definition_sha256": "20f5be50f47c8df634fbff7b69be7b4bf351ec0d8f61b3083151715d2e6cfe8c",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t7",
+        "dbf_id": 41062,
+        "name": "闪电之速",
+        "name_en": "Lightning Speed",
+        "text": "<b>风怒</b>",
+        "text_en": "<b>Windfury</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "WINDFURY": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "e0894b44c29309c2dcf2abe1fb3e91305de238bcdc3cfdc5ae1c9bfcf339f923",
+      "definition_sha256": "8e5a03cb9ba634fa409737588ea02ce7bc58ff46201ec77947fe9d0e7584a56c",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t8",
+        "dbf_id": 41063,
+        "name": "爆裂护盾",
+        "name_en": "Crackling Shield",
+        "text": "<b>圣盾</b>",
+        "text_en": "<b>Divine Shield</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "41507fe882957a545d53115774c107a2eddce1298cd8a39846de48297f9b99b7",
+      "definition_sha256": "8136719f1def4d2643dd9b3d4b444c81af6a97d101f966596f3d84be351613b4",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t13",
+        "dbf_id": 41211,
+        "name": "毒液喷吐",
+        "name_en": "Poison Spit",
+        "text": "<b>剧毒</b>",
+        "text_en": "<b>Poisonous</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "POISONOUS": 1,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "a22eb18f01d0befc06dc7b6991161ddf6bb3e46dec6ead5f7e4ce2f196d6df35",
+      "definition_sha256": "11de0c2079b602e6f3de5f65fa1577a8b9aefda1e639afee9ffc58aec1835ff9",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t5",
+        "dbf_id": 41060,
+        "name": "液态外膜",
+        "name_en": "Liquid Membrane",
+        "text": "<b>扰魔</b>",
+        "text_en": "<b>Elusive</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1,
+          "ELUSIVE": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "a6e63c395597d87fd70ee2fa3c58c9786ec22ad72dbbb92bb8f81274cb30ff9c",
+      "definition_sha256": "2a901f151cd823ce3ad715104006085bd46232654cd314fc053c0b2f176ba476",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t10",
+        "dbf_id": 41054,
+        "name": "氤氲迷雾",
+        "name_en": "Shrouding Mist",
+        "text": "获得<b>潜行</b>直到你的下个回合。",
+        "text_en": "<b>Stealth</b> until your next turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "STEALTH": 1,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Slawomir Maniak"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "87b2f0226952ef114ef5966369697bbab9f93b033fa50af18df37d98911f97eb",
+      "definition_sha256": "d69da69eeb7caa2552a419ff65fa559255d5eff2ac63a6b67993ee9b18244ae9",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t2",
+        "dbf_id": 41057,
+        "name": "活性孢子",
+        "name_en": "Living Spores",
+        "text": "<b>亡语：</b>召唤两个1/1的植物。",
+        "text_en": "<b>Deathrattle:</b> Summon two 1/1 Plants.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "DEATHRATTLE": 1,
+          "HIDE_COST": 1,
+          "1200": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1200",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1200"
+          }
+        ]
+      },
+      "record_sha256": "b3c4449d569b921ea6eb18d180284fa4c299c2545b94e460573cc2d3e9b93772",
+      "definition_sha256": "44206a789ee9eb58a2f11879bcd3d324de4d27792b8547abfb036653b6ce59f0",
+      "pool_card_sha256": null
+    },
+    {
+      "record": {
+        "id": "UNG_999t2t1",
+        "dbf_id": 41067,
+        "name": "植物",
+        "name_en": "Plant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "TECH_LEVEL": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "768f8e463590b138bbf12324a4900ca0aa9e3f7e15cb0b82ffe4c993aa53171d",
+      "definition_sha256": "46ce9802e2a995e4e4ec6992d9118ec7c765d43474038c37de80f09b2365c843",
+      "pool_card_sha256": "7ab7834314bf2f9990850b2e1994c6df61d7a05e587d3b2de0cc4dd6c5af4c2d"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t01",
+        "dbf_id": 42098,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 1,
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "78c8443f33c9c8ba15220b9db1c7881483a2db8f8bc959acaa5a75ddf44ab757",
+      "definition_sha256": "99ec6aea6f3102d66f22beae70d0602473351539f2f08290e2a585541c51373c",
+      "pool_card_sha256": "0610e9a145bd38efad981e56201b3890a3e3fb9340efb0fb5f362599b447efc0"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t04",
+        "dbf_id": 42101,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "925d15129f419325f6ee58aa284d41b710c77a7cf7a1ee0d66163799e98942bd",
+      "definition_sha256": "70412b34681220dd528148d141152c9a67ed0ef27858a3e68cb43d1df4f510fc",
+      "pool_card_sha256": "0469abe261bb94b2387361bd13d454bf14d1a322216530c0306678b6caeb1b6f"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t07",
+        "dbf_id": 42104,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "f0aa23e5c37caac6e277f5263e52cb403d3bed1502ce0cd50018e885d5c73644",
+      "definition_sha256": "2921cfd56307ad161f100e1f911f0dd752c528cd7c3a8bfba74d17f1c192ece3",
+      "pool_card_sha256": "1a0686ef94d9a2475cf03adf4980157b0efc7ed01e55074ee75fa9d928b17179"
+    },
+    {
+      "record": {
+        "id": "CFM_712_t20",
+        "dbf_id": 42128,
+        "name": "青玉魔像",
+        "name_en": "Jade Golem",
+        "text": "",
+        "text_en": "",
+        "cost": 10,
+        "attack": 20,
+        "health": 20,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 20,
+          "ATK": 20,
+          "COST": 10,
+          "CARD_SET": 25,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "2428": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2428",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2428"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4d04bea823cb0299600870ef858f9dda7a21d2c165002eb695337b005ae63be1",
+      "definition_sha256": "b3b676eec9e5701d125a107c02d63848defdf476d40eb90f196fe084306c1833",
+      "pool_card_sha256": "47c2e54d94e76b63fb11abf18489dd8e8dfe36d87026b0614095a885deb4a909"
+    }
+  ],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "BAR_549e",
+        "dbf_id": 63115,
+        "name": "坚固甲壳",
+        "name_en": "Everbark",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1525,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "fc1e307d056af7508766069fe91097e0df3f9f4be37327e34d5f62d204325188"
+    },
+    {
+      "record": {
+        "id": "BT_129e",
+        "dbf_id": 56679,
+        "name": "有丝分裂",
+        "name_en": "Mitosis",
+        "text": "<b>嘲讽</b>",
+        "text_en": "<b>Taunt</b>",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1414,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b1145d60f9659dafa32f219fadebf92745a54249e79dd3a37d3b1c0a4e28a20b"
+    },
+    {
+      "record": {
+        "id": "DRG_315e",
+        "dbf_id": 55043,
+        "name": "身材巨化",
+        "name_en": "Embiggened",
+        "text": "+2/+2。",
+        "text_en": "+2/+2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1347,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "3599162ef6dacc44b6ef7274cd27391dffee47528b06964968e972bfe90b6401"
+    },
+    {
+      "record": {
+        "id": "DRG_315e2",
+        "dbf_id": 55044,
+        "name": "费用巨化",
+        "name_en": "Costly Embiggening",
+        "text": "法力值消耗增加（1）点。",
+        "text_en": "Costs (1) more.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1347,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "dd7f1b4638fd6100f3c4a7398c223629eedbf187b9545ec6baf606e340e51f0b"
+    },
+    {
+      "record": {
+        "id": "REV_313e",
+        "dbf_id": 77655,
+        "name": "收获法术",
+        "name_en": "Ripe Spell",
+        "text": "在本回合中，法力值消耗减少（2）点。",
+        "text_en": "Costs (2) less this turn.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1691,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1d85729c325aacf2c85dd91f322a8b148a180410fe011dbf1d258d15442bf14e"
+    },
+    {
+      "record": {
+        "id": "SCH_333e",
+        "dbf_id": 60329,
+        "name": "自然研习",
+        "name_en": "Nature Studies",
+        "text": "你的下一张法术牌法力值消耗减少（1）点。",
+        "text_en": "Your next spell costs (1) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "AURA": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "c62b64faee26ef1dd3c07853811768a0f518c2222d9fb491ec03207fcca4c754"
+    },
+    {
+      "record": {
+        "id": "SCH_333e2",
+        "dbf_id": 60330,
+        "name": "研习自然",
+        "name_en": "Studying Nature",
+        "text": "法力值消耗减少（1）点。",
+        "text_en": "Costs (1) less.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "ce5d3a38cc3047520395fb1c8338d8a0a76d611b5d4bca375d1c049453373e5f"
+    },
+    {
+      "record": {
+        "id": "TTN_955Be",
+        "dbf_id": 101995,
+        "name": "生命缚誓者的生长",
+        "name_en": "Lifebinder's Growth",
+        "text": "法力值消耗减少（1）点。",
+        "text_en": "Costs (1) less",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "70bf22dcc19990c43fc5822b8156d09f5762bb26ebd814e13f553e42f1ce1612"
+    },
+    {
+      "record": {
+        "id": "WW_818e",
+        "dbf_id": 101983,
+        "name": "小东西",
+        "name_en": "Wittle",
+        "text": "属性值变为1/2。",
+        "text_en": "Stats set to 1/2.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1892,
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "6b85426ab5beb3d167b2200c40327046eae5a709a7ab347e0411704aa27ae2de"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BAR_549",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 63114,
+        "collectible": 1,
+        "slug": "63114-mark-of-the-spikeshell",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Peter Stapleton",
+        "manaCost": 2,
+        "name": "尖壳印记",
+        "text": "使一个随从获得+2/+2。如果该随从拥有<b>嘲讽</b>，则将该随从的一张复制置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0c177c9205389c822cfb2b7799a7b69d63c8e0afffa2c6875d49cd5250b93652.png",
+        "imageGold": "",
+        "flavorText": "“我绝对符合龟龟俱乐部的入会龟定。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce8eb6e79b048add629355307eb5c98ea5525027dda373dfc33004de5930de92.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_549",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 63114,
+        "collectible": 1,
+        "slug": "63114-mark-of-the-spikeshell",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 3,
+        "artistName": "Peter Stapleton",
+        "manaCost": 2,
+        "name": "Mark of the Spikeshell",
+        "text": "Give a minion +2/+2. If it has <b>Taunt</b>, add a copy of it to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/97a2b4f1a7a61cf994b95b07ed05d40d67fada747ee2251982a1bf03c3ccf01c.png",
+        "imageGold": "",
+        "flavorText": "\"I'm DEFINITELY turtle-y enough for the turtle club.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ce8eb6e79b048add629355307eb5c98ea5525027dda373dfc33004de5930de92.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_128",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 56677,
+        "collectible": 1,
+        "slug": "56677-fungal-fortunes",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "真菌宝藏",
+        "text": "抽三张牌。 弃掉抽到的所有随从牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4478cb5b3f3f9821e85e5eb53fe31882a1bd45bf5ef8a88220eff25abc6509c.png",
+        "imageGold": "",
+        "flavorText": "弃牌时，没有一个随从是无菇的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c01fb2021622f53e16b8db0c4db5d02946594cee270a2307a20665dd6c20ceec.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_128",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 56677,
+        "collectible": 1,
+        "slug": "56677-fungal-fortunes",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Matt Dixon",
+        "manaCost": 3,
+        "name": "Fungal Fortunes",
+        "text": "Draw 3 cards. Discard any minions drawn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d414c3301ea42ae661ec81eb667a1ace07287b6f986ec45dca087056f1757a81.png",
+        "imageGold": "",
+        "flavorText": "Far superior to a beanstalk boondoggle.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c01fb2021622f53e16b8db0c4db5d02946594cee270a2307a20665dd6c20ceec.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_129",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 56678,
+        "collectible": 1,
+        "slug": "56678-germination",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Max Grecke",
+        "manaCost": 4,
+        "name": "萌芽分裂",
+        "text": "召唤一个友方随从的复制。使复制获得<b>嘲讽</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6ed9ed912427b2bde69505fee9aec0326bf85a5fdf094e4b315b0a4bbd823e95.png",
+        "imageGold": "",
+        "flavorText": "我开始后悔问孢子人是怎么来的了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95616138d4ce052c24e2b5c3c40645cc2017a7a9e4a4efc9eaebf0cb13c70ba7.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_129",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 56678,
+        "collectible": 1,
+        "slug": "56678-germination",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Max Grecke",
+        "manaCost": 4,
+        "name": "Germination",
+        "text": "Summon a copy of a friendly minion. Give the copy <b>Taunt</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58a57298669e85c0ed086a341b2ca7e415a2322b03cb3f7c80d969369f644947.png",
+        "imageGold": "",
+        "flavorText": "I regret asking how sporelings are made.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/95616138d4ce052c24e2b5c3c40645cc2017a7a9e4a4efc9eaebf0cb13c70ba7.png",
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_713",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 40523,
+        "collectible": 1,
+        "slug": "40523-jade-blossom",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "青玉绽放",
+        "text": "召唤一个 的<b>青玉魔像</b>，获得一个空的法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4583fac8075d3f13797eece3457737b3e5cab67875cf22a685d6fd35c7a25057.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b4be494883e9a18eb23ddb0494a3aad804816fd6d66730b40ded755d7fe654f9.png",
+        "flavorText": "据说在玉莲花下冥想有助于提升智慧，除非你是花粉过敏者。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa8a88c973a3376f1740993ba7d4f013c5695da9c3c22225b766ed7247d77b4a.png",
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_713",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 40523,
+        "collectible": 1,
+        "slug": "40523-jade-blossom",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 1,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "Jade Blossom",
+        "text": "Summon a <b>Jade Golem</b>. Gain an empty Mana Crystal.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/613b2001020134eb638f253d30426cee80f50386cc417968d5881b843afc770b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/357593c0589a0b0fca54874eba808d4af55852e329dee135800f38f08438451d.png",
+        "flavorText": "Meditating under a jade blossom is said to grant you wisdom, unless you have a pollen allergy.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa8a88c973a3376f1740993ba7d4f013c5695da9c3c22225b766ed7247d77b4a.png",
+        "keywordIds": [
+          26
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_352",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 51781,
+        "collectible": 1,
+        "slug": "51781-crystalsong-portal",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 4,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 2,
+        "name": "晶歌传送门",
+        "text": "<b>发现</b>一张德鲁伊随从牌。如果你的手牌中没有随从牌，改为保留全部三张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d4344f379afa1795f5f9d586e1af0d0860c92b42751e34a8d60146f2f630571.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7baa0ac412cdb1dde2544edd3a4f8add00b1205dcce4231fa5daa1dde602dabf.png",
+        "flavorText": "变形晶刚，出发！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f725db945454d0706b63f370e0871fbc66292c05576549ec32a815cee352c25e.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_352",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 51781,
+        "collectible": 1,
+        "slug": "51781-crystalsong-portal",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 4,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 2,
+        "name": "Crystalsong Portal",
+        "text": "<b>Discover</b> a Druid minion. If your hand has no minions, keep all 3 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb82631ba3c0c333bae247832161fd5090f74a0770d6250b877f87d1ed4ca0a5.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9564bdec4d11898324b7068fa5fc95ee540a3d37d7ec8e2945dcce31b22e7287.png",
+        "flavorText": "Experience the draw of the wild!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f725db945454d0706b63f370e0871fbc66292c05576549ec32a815cee352c25e.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_315",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 55035,
+        "collectible": 1,
+        "slug": "55035-embiggen",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 4,
+        "artistName": "Kagi",
+        "manaCost": 0,
+        "name": "森然巨化",
+        "text": "使你牌库中的所有随从牌获得+2/+2，且法力值消耗增加（1）点<i>（最高不超过10点）</i>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/471f766645aae039c17360ee95d8e4dbee5ef09c9deb578bd01589749a492d9c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcd696d733dd582fdce43b26093db6bfa9c1a288cd3cfbf52df16d4cbac2fcae.png",
+        "flavorText": "咕长老，收了神通吧！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d5727224aa7670805780bad9042a5eb193c2cb5a5d477417a48dd182a3e7fbe.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_315",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 55035,
+        "collectible": 1,
+        "slug": "55035-embiggen",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 4,
+        "artistName": "Kagi",
+        "manaCost": 0,
+        "name": "Embiggen",
+        "text": "Give all minions in your deck +2/+2. They cost (1) more <i>(up to 10)</i>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/83a0c7846e1fd73482d9f3987fcfc2fed33fe936c0784bf8706a1fe2b7518b76.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ad6468d1c3b5e9bddc27c3a2e0b4c55cd82db2c8418e7a44afd96fbcfbaf7a0.png",
+        "flavorText": "Did you set it to \"wumbo?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d5727224aa7670805780bad9042a5eb193c2cb5a5d477417a48dd182a3e7fbe.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "FP1_019",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 1802,
+        "collectible": 1,
+        "slug": "1802-poison-seeds",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 12,
+        "rarityId": 1,
+        "artistName": "Brian Despain",
+        "manaCost": 4,
+        "name": "剧毒之种",
+        "text": "消灭所有随从，并召唤等量的2/2树人代替他们。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f17ea5afb3d2f6f8554ef4e9ac5c9d46499348d776f1d27f84b6789f3706dc71.png",
+        "imageGold": "",
+        "flavorText": "把植物种在地上是保护环境，种在敌人身体里就是另外一回事情了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57e68a0a5de662901e1e6e24a3f8e24276a8021a3a25b867ea86e59475021750.png",
+        "childIds": [
+          1803
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "FP1_019",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 1802,
+        "collectible": 1,
+        "slug": "1802-poison-seeds",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 12,
+        "rarityId": 1,
+        "artistName": "Brian Despain",
+        "manaCost": 4,
+        "name": "Poison Seeds",
+        "text": "Destroy all minions and summon 2/2 Treants to replace them.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88872321d5fa99f20150a6d0bc24a70277e86da6e537faa47edfe36d2c490df2.png",
+        "imageGold": "",
+        "flavorText": "\"Poisonseed Bagel\" is the least popular bagel at McTiggin's Druidic Bagel Emporium.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57e68a0a5de662901e1e6e24a3f8e24276a8021a3a25b867ea86e59475021750.png",
+        "childIds": [
+          1803
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_054",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 42656,
+        "collectible": 1,
+        "slug": "42656-spreading-plague",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 3,
+        "artistName": "Alex Alexandrov",
+        "manaCost": 6,
+        "name": "传播瘟疫",
+        "text": "召唤一只1/5并具有<b>嘲讽</b>的甲虫。如果你的对手拥有的随从更多，则再次施放该法术。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4e5d83a2210bf93ea47e1c23ce6432228ea6281056a14ee2b6dd08c382f72ebd.png",
+        "imageGold": "",
+        "flavorText": "我一直以为瘟疫都是苍蝇老鼠在传播，可没想到你是这样的精灵。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/575abf04121cafbcd49409ba87708bdfa2c3c06c8479c17edc7845d43f2345c4.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          95760
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ICC_054",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 42656,
+        "collectible": 1,
+        "slug": "42656-spreading-plague",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1001,
+        "rarityId": 3,
+        "artistName": "Alex Alexandrov",
+        "manaCost": 6,
+        "name": "Spreading Plague",
+        "text": "Summon a 1/5 Scarab with <b>Taunt</b>. If your opponent has more minions, cast this again.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b88d08efa5275f015de3e8e7579dd829cd1c453c5ce19a4b9b9f30d69502033f.png",
+        "imageGold": "",
+        "flavorText": "In the past, plagues were spread by mice or fleas. These days they're spread by elves.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/575abf04121cafbcd49409ba87708bdfa2c3c06c8479c17edc7845d43f2345c4.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          95760
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_313",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 77654,
+        "collectible": 1,
+        "slug": "77654-planted-evidence",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 1,
+        "name": "安插证据",
+        "text": "<b>发现</b>一张法术牌。在本回合中，其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/464d71dd5b8fa24bf2ee1ae22ee81613d49b00e9a9bd776d67c77f5ef877b530.png",
+        "imageGold": "",
+        "flavorText": "按你的说法，这不是自然死亡？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6170e61d5c02942e75de7e7b7d4577351f538fb8bc67deeb884fb09e7072662.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          118079
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_313",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 77654,
+        "collectible": 1,
+        "slug": "77654-planted-evidence",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Ramzy Kamen",
+        "manaCost": 1,
+        "name": "Planted Evidence",
+        "text": "<b>Discover</b> a spell. It costs (2) less this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/402dc811315ed930735e9c43c01a25565a3134fef932ff02b5b9544a84bcdb3b.png",
+        "imageGold": "",
+        "flavorText": "So you're telling me this wasn't Natural Causes?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c6170e61d5c02942e75de7e7b7d4577351f538fb8bc67deeb884fb09e7072662.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          118079
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_333",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 59163,
+        "collectible": 1,
+        "slug": "59163-nature-studies",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "SARIYA",
+        "manaCost": 1,
+        "name": "自然研习",
+        "text": "<b>发现</b>一张法术牌。你的下一张法术牌法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9cad203f9441fece229df1ecfc00f0f5cbcaadf5c053961bfb93236bcf553b30.png",
+        "imageGold": "",
+        "flavorText": "“我有一本初版的！看看，看这上面的年轮。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ee9e7822b0b7498f0ad9a614e507b1d358d1b8e7834aea3f58ac15632434264.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          73084,
+          90645
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SCH_333",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 59163,
+        "collectible": 1,
+        "slug": "59163-nature-studies",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1443,
+        "rarityId": 1,
+        "artistName": "SARIYA",
+        "manaCost": 1,
+        "name": "Nature Studies",
+        "text": "<b>Discover</b> a spell. Your next one costs (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebfc44b446d1f504a620a8c0fb2f28b787daeda8e6f2862629b346ac17373a2a.png",
+        "imageGold": "",
+        "flavorText": "\"I have a first edition! Go ahead, count the rings.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ee9e7822b0b7498f0ad9a614e507b1d358d1b8e7834aea3f58ac15632434264.png",
+        "keywordIds": [
+          21
+        ],
+        "copyOfCardId": [
+          73084,
+          90645
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_955",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 100093,
+        "collectible": 1,
+        "slug": "100093-lifebinders-gift",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "BOSi Studio",
+        "manaCost": 2,
+        "name": "生命缚誓者的礼物",
+        "text": "<b>抉择：</b>随机获取2张自然法术牌；或者使你手牌中法术牌的法力值消耗减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29e127c3477f25a38c69f2cb5b0412453ed1d281f6c2b0dc477d39b435c13be3.png",
+        "imageGold": "",
+        "flavorText": "当时的人们疯狂追逐着自然法术，但没人注意到花朵之外的泡沫即将破裂。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f706be90b8fab1a75254467cb9460ee3e40c0ff4826b22082a65b257bd695e13.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_955",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 100093,
+        "collectible": 1,
+        "slug": "100093-lifebinders-gift",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "BOSi Studio",
+        "manaCost": 2,
+        "name": "Lifebinder's Gift",
+        "text": "<b>Choose One -</b> Get 2 random Nature spells; or Reduce the Cost of spells in your hand by (1).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4f7e13f75100128ebc9a877d1d33adb4ed2330937327e64fa39a19cf3d784853.png",
+        "imageGold": "",
+        "flavorText": "Everyone's investing in Nature spells these days, but that bubble is about to burst.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f706be90b8fab1a75254467cb9460ee3e40c0ff4826b22082a65b257bd695e13.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_103",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 40991,
+        "collectible": 1,
+        "slug": "40991-evolving-spores",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Grace Liu",
+        "manaCost": 3,
+        "name": "生长孢子",
+        "text": "<b>进化</b>你所有的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7a7e2d3dab2501063f974268fc61f0961f0b925ff9809b718151242378e8401.png",
+        "imageGold": "",
+        "flavorText": "那些能让你变大的蘑菇通常都装在标有“？”的箱子里。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/02738975dfc50febdcd6110f06f5231b07e71090bb0d2a45cfd2c1e0a40ecedd.png",
+        "childIds": [
+          41058,
+          41059,
+          41691,
+          41061,
+          41063,
+          41062,
+          41211,
+          41060,
+          41054,
+          41057,
+          41067
+        ],
+        "keywordIds": [
+          34
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_103",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 40991,
+        "collectible": 1,
+        "slug": "40991-evolving-spores",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 3,
+        "artistName": "Grace Liu",
+        "manaCost": 3,
+        "name": "Evolving Spores",
+        "text": "<b>Adapt</b> your minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aa389e82bcb4f3d3719c0b8dbd8672f0dc3ca9c2d919e9fdd24f44083f001caf.png",
+        "imageGold": "",
+        "flavorText": "The most powerful mushrooms are commonly found in boxes marked with \"?\".",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/02738975dfc50febdcd6110f06f5231b07e71090bb0d2a45cfd2c1e0a40ecedd.png",
+        "childIds": [
+          41058,
+          41059,
+          41691,
+          41061,
+          41063,
+          41062,
+          41211,
+          41060,
+          41054,
+          41057,
+          41067
+        ],
+        "keywordIds": [
+          34
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_818",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 101976,
+        "collectible": 1,
+        "slug": "101976-cactus-construct",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 1,
+        "name": "仙人掌构造术",
+        "text": "<b>发现</b>一张法力值消耗为（2）的随从牌，召唤一个它的1/2的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3296940fe70a7ce1c0e8c5ffd40c25d4c664461fc6fb87c1b33c02d203c3cf0b.png",
+        "imageGold": "",
+        "flavorText": "“我不是玛法里奥！ 我是仙人掌大王！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5cff121d0ea5c674255b59c11835f9a9fe4d4df9a99f802432241d890a6d4562.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_818",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 101976,
+        "collectible": 1,
+        "slug": "101976-cactus-construct",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Timur Shevtsov",
+        "manaCost": 1,
+        "name": "Cactus Construct",
+        "text": "<b>Discover</b> a 2-Cost minion. Summon a 1/2 copy of it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/869be03579ac3d77d338cabdc971a092ae7a3fd17d208a4dfca2ed8720c43727.png",
+        "imageGold": "",
+        "flavorText": "\"I am not Malfurion! I am CACTUS LORD!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5cff121d0ea5c674255b59c11835f9a9fe4d4df9a99f802432241d890a6d4562.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "FP1_019t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k661-past-nature-copy-discovery\\official-noncollectible-01\\1803-zh_CN.json",
+      "response_sha256": "2176a57bfe2dce857ab6701c57bd8533a15235436e5c54f88f86f28aa1d8ede0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1803&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 1803,
+        "collectible": 0,
+        "slug": "1803-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 12,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "树人",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a7adb5085c584a6ba34f1c599a66d5f974c2bdbc19036489588ff4b6661d090d.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 1802,
+        "copyOfCardId": [
+          53302,
+          54541,
+          358,
+          70071,
+          86213,
+          99806,
+          600,
+          678,
+          91248,
+          108618,
+          48911,
+          61465,
+          56371,
+          68188,
+          71310
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1803&locale=zh_CN&collectible=0",
+        "sha256": "2176a57bfe2dce857ab6701c57bd8533a15235436e5c54f88f86f28aa1d8ede0",
+        "bytes": 614,
+        "observed_at": "2026-10-29T14:53:49.575443+00:00"
+      }
+    },
+    {
+      "card_id": "FP1_019t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k661-past-nature-copy-discovery\\official-noncollectible-01\\1803-en_US.json",
+      "response_sha256": "33174db28ad5c6645f8cb397c6613ebce60810937d044c4ee6ecd6f0eb17f3c4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=1803&locale=en_US&collectible=0",
+      "face": {
+        "id": 1803,
+        "collectible": 0,
+        "slug": "1803-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 12,
+        "rarityId": null,
+        "artistName": null,
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Treant",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b5c22e480d32dc3302473bbe6c17ee3164331fcd9134d41ec3f707e712398c8f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 1802,
+        "copyOfCardId": [
+          53302,
+          54541,
+          358,
+          70071,
+          86213,
+          99806,
+          600,
+          678,
+          91248,
+          108618,
+          48911,
+          61465,
+          56371,
+          68188,
+          71310
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=1803&locale=en_US&collectible=0",
+        "sha256": "33174db28ad5c6645f8cb397c6613ebce60810937d044c4ee6ecd6f0eb17f3c4",
+        "bytes": 614,
+        "observed_at": "2026-10-29T14:53:49.465727+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_832t4",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k661-past-nature-copy-discovery\\official-noncollectible-01\\45301-zh_CN.json",
+      "response_sha256": "3074795f52cddc9220d4a542a208e08c7982fdfc2ad0380c83a8353e9f190841",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=45301&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 45301,
+        "collectible": 0,
+        "slug": "45301-scarab-beetle",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": null,
+        "artistName": null,
+        "health": 5,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "硬壳圣甲虫",
+        "text": "<b>嘲讽</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a813df404f8155334469f2107a7109b5648d5901a888ccc6e08bc80d26c88dea.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43417,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=45301&locale=zh_CN&collectible=0",
+        "sha256": "3074795f52cddc9220d4a542a208e08c7982fdfc2ad0380c83a8353e9f190841",
+        "bytes": 581,
+        "observed_at": "2026-10-29T14:53:50.011950+00:00"
+      }
+    },
+    {
+      "card_id": "ICC_832t4",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k661-past-nature-copy-discovery\\official-noncollectible-01\\45301-en_US.json",
+      "response_sha256": "dcdaad0d64a1b4898cfbb0d64e4147683b4f93f0064dae94a4021f56492e4897",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=45301&locale=en_US&collectible=0",
+      "face": {
+        "id": 45301,
+        "collectible": 0,
+        "slug": "45301-scarab-beetle",
+        "classId": 2,
+        "multiClassIds": [],
+        "minionTypeId": 20,
+        "cardTypeId": 4,
+        "cardSetId": 1001,
+        "rarityId": null,
+        "artistName": null,
+        "health": 5,
+        "attack": 1,
+        "manaCost": 2,
+        "name": "Scarab Beetle",
+        "text": "<b>Taunt</b>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ec3ef3cf9cef298cdea32ced20e48017d0881b72e208ba3b61c9bbe0b0b97ebc.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43417,
+        "keywordIds": [
+          1
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=45301&locale=en_US&collectible=0",
+        "sha256": "dcdaad0d64a1b4898cfbb0d64e4147683b4f93f0064dae94a4021f56492e4897",
+        "bytes": 578,
+        "observed_at": "2026-10-29T14:53:49.641802+00:00"
+      }
+    }
+  ],
+  "complete_druid_Nature_inventory": [
+    "AT_037",
+    "AT_044",
+    "BAR_533",
+    "BAR_536",
+    "BAR_549",
+    "BOT_054",
+    "BOT_404",
+    "BOT_420",
+    "BOT_444",
+    "BT_128",
+    "BT_129",
+    "BT_130",
+    "BT_132",
+    "CFM_713",
+    "CS2_007",
+    "CS2_009",
+    "CS2_013",
+    "DAL_256",
+    "DAL_350",
+    "DAL_351",
+    "DAL_352",
+    "DEEP_026",
+    "DMF_058",
+    "DMF_732",
+    "DRG_311",
+    "DRG_314",
+    "DRG_315",
+    "DRG_318",
+    "ETC_373",
+    "ETC_387",
+    "EX1_154",
+    "EX1_155",
+    "EX1_158",
+    "EX1_161",
+    "EX1_164",
+    "EX1_169",
+    "EX1_183",
+    "EX1_571",
+    "FP1_019",
+    "GIL_553",
+    "GIL_663",
+    "GVG_031",
+    "GVG_033",
+    "GVG_041",
+    "ICC_054",
+    "KAR_075",
+    "LOOT_047",
+    "LOOT_051",
+    "LOOT_309",
+    "MAW_024",
+    "MIS_301",
+    "NX2_011",
+    "OG_195",
+    "REV_307",
+    "REV_311",
+    "REV_313",
+    "REV_336",
+    "REV_365",
+    "RLK_655",
+    "SCH_333",
+    "SCH_427",
+    "SCH_612",
+    "SW_422",
+    "SW_437",
+    "TOY_805",
+    "TRL_254",
+    "TSC_650",
+    "TSC_651",
+    "TSC_656",
+    "TTN_930",
+    "TTN_951",
+    "TTN_954",
+    "TTN_955",
+    "ULD_135",
+    "ULD_273",
+    "UNG_103",
+    "UNG_108",
+    "UNG_111",
+    "VAC_508",
+    "WON_014",
+    "WORK_024",
+    "WORK_050",
+    "WW_818",
+    "WW_823",
+    "YOP_026"
+  ],
+  "original_missing_native_ids": [
+    "BAR_549",
+    "BT_128",
+    "BT_129",
+    "CFM_713",
+    "DAL_352",
+    "DEEP_026",
+    "DMF_058",
+    "DRG_314",
+    "DRG_315",
+    "ETC_387",
+    "FP1_019",
+    "ICC_054",
+    "LOOT_051",
+    "MAW_024",
+    "MIS_301",
+    "REV_311",
+    "REV_313",
+    "REV_365",
+    "RLK_655",
+    "SCH_333",
+    "SCH_612",
+    "SW_437",
+    "TSC_651",
+    "TTN_930",
+    "TTN_951",
+    "TTN_955",
+    "UNG_103",
+    "UNG_111",
+    "VAC_508",
+    "WORK_024",
+    "WORK_050",
+    "WW_818"
+  ],
+  "display_normalizations": {
+    "CFM_713": {
+      "zh_CN": {
+        "{0}": ""
+      },
+      "en_US": {}
+    }
+  },
+  "numeric_normalizations": {
+    "DRG_315": {
+      "cost": 0
+    }
+  },
+  "choice_faces_primary_status": "TTN_955A/B retained complete original rows; direct primary responses lack matching faces, raw fetch receipts retained",
+  "source_policies": {
+    "crystalsong_keep": "no-choice distinct generation of up to three Druid minions, matching existing Font policy; discover-synergy boundary not CN calibrated",
+    "gift_combined": "get two Nature spells then reduce all currently held spells, including successful new arrivals",
+    "poison_seeds": "capture original active minion counts, destroy one batch, finish deaths, then caster and opponent named Treants subject to ordinary capacity; existing Core Cairne slot boundary still deferred",
+    "plague": "after each successfully delivered named Scarab and its reactions re-evaluate actual living active minion counts; no additional CAST; failed entry has no repeat",
+    "draw_discard": "same original physical three-draw group policy as Book of Specters, discard only original live minion arrivals; child CWD draws are not original arrivals",
+    "manual_board_gate": "ordinary spell legality is inherited; no presumed hero-power/location requires_board_space flag is added to spells. Manual full-board requirement remains outside this native effect calibration."
+  },
+  "rules_sources": [
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Template%3ASpreading_Plague_notes",
+      "claim": "each Scarab and its triggers precedes next comparison; repeated effects do not add player CASTs"
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/hc6pin",
+      "claim": "player-observed Fungal Fortunes ignores a minion drawn by a CWD portal child draw"
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/new-druid-epic-spell-crystalsong-portal-updated/1991",
+      "claim": "Crystalsong is explicit Druid minion scope, keep three only with no held minions"
+    }
+  ],
+  "new_standard_roots": [],
+  "membership_uses_executable_coverage": false,
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}
