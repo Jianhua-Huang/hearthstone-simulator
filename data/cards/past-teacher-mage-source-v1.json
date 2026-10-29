@@ -1,0 +1,1827 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-teacher-mage-complete-view-v1",
+  "source_card_id": "TIME_704",
+  "pool_id": "constructed.past.spells",
+  "original_source_document": "data/cards/past-source-scoped-inventories-v1.json",
+  "original_source_document_sha256": "0516f6e572a0a861efac2a9be4793ae5db9af170a7acec3d65240254dd71bd92",
+  "original_source_record": {
+    "record": {
+      "id": "TIME_704",
+      "dbf_id": 120761,
+      "name": "上层精灵教师",
+      "name_en": "Highborne Mentor",
+      "text": "<b>战吼：</b>获取一张2/2的小学生。<b>发现</b>一个来自过去的法力值消耗大于或等于（7）点的法术，教会小学生。",
+      "text_en": "[x]<b>Battlecry:</b> Get a 2/2 Pupil.\n<b>Discover</b> a spell that costs\n(7) or more from the past\nto teach it.",
+      "cost": 7,
+      "attack": 6,
+      "health": 6,
+      "type": "MINION",
+      "collectible": true,
+      "tags": {
+        "HEALTH": 6,
+        "ATK": 6,
+        "COST": 7,
+        "CARD_SET": 1957,
+        "CLASS": 2,
+        "CARDTYPE": 4,
+        "RARITY": 4,
+        "BATTLECRY": 1,
+        "COLLECTIBLE": 1,
+        "DISCOVER": 1,
+        "USE_DISCOVER_VISUALS": 1,
+        "HAS_SIGNATURE_QUALITY": 1
+      },
+      "card_set_id": 1957,
+      "source_entity_version": "2",
+      "reference_tags": [],
+      "power_keyword_tags": [],
+      "related_dbf_ids": [],
+      "xml_card_references": [],
+      "unmapped_xml_nodes": [
+        {
+          "tag": "Tag",
+          "attributes": {
+            "enumID": "342",
+            "name": "ARTISTNAME",
+            "type": "String"
+          },
+          "text": "Sergey Tsvelykh"
+        }
+      ]
+    },
+    "record_sha256": "ee830b280d190f5b63558aa4588e726a0f20d523b660bdc56c923c3b979dd042",
+    "metadata": {
+      "collectible": true,
+      "classes": [
+        "druid"
+      ],
+      "rarity": "epic",
+      "deck_identity": "TIME_704",
+      "max_copies": null,
+      "runes": {
+        "blood": 0,
+        "frost": 0,
+        "unholy": 0
+      },
+      "tribes": [],
+      "factions": [],
+      "subtypes": []
+    },
+    "spell_school": null,
+    "definition_sha256": "5b1c0b5389ff727959b2db835c371771956521f0aa3e0daa88e83c8bc1daf87e"
+  },
+  "mage_reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+  "mage_reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+  "fixed_catalog": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "fixed_catalog_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "past_set_policy": {
+    "policy": "Visible official Wild set slugs minus visible Standard set slugs, including their explicit numeric aliasSetIds. Candidate only; Past meaning, reprints/duplicate weighting, CN exclusions remain unverified.",
+    "set_ids": [
+      3,
+      4,
+      12,
+      13,
+      14,
+      15,
+      20,
+      21,
+      23,
+      25,
+      27,
+      1001,
+      1004,
+      1125,
+      1127,
+      1129,
+      1130,
+      1158,
+      1347,
+      1403,
+      1414,
+      1443,
+      1463,
+      1466,
+      1525,
+      1578,
+      1626,
+      1635,
+      1658,
+      1691,
+      1776,
+      1809,
+      1858,
+      1869,
+      1892,
+      1897,
+      1898,
+      1905,
+      1935
+    ],
+    "reference_source": "outputs/card-integration-20261014/k454-past-one-cost-source/expanded-past-onecost-inventory-candidate-02.json",
+    "reference_sha256": "fa7275a7f8131e1d0ac57017f89dc2a0e4f857d482a7579c0b9b3d894289527e"
+  },
+  "mage_member_ids": [
+    "AV_218",
+    "AV_283",
+    "AV_290",
+    "BOT_257",
+    "BT_072",
+    "CFM_623",
+    "CS2_032",
+    "DAL_578",
+    "DMF_103",
+    "DMF_104",
+    "EX1_279",
+    "GDB_301",
+    "ICC_086",
+    "KAR_076",
+    "ONY_029",
+    "RLK_544",
+    "RLK_590",
+    "TOY_372",
+    "TOY_378",
+    "TTN_480",
+    "ULD_216",
+    "VAC_509",
+    "WORK_012",
+    "WW_427"
+  ],
+  "mage_complete_raw_records": [
+    {
+      "record": {
+        "id": "AV_218",
+        "dbf_id": 67224,
+        "name": "群体变形",
+        "name_en": "Mass Polymorph",
+        "text": "使所有随从变形成为1/1的绵羊。",
+        "text_en": "Transform all minions into 1/1 Sheep.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1626,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 72677,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "88c2ed4a4834f69b045afb123441e6d1b14324786e60dc965a7fd8e6b4c7ee3e"
+    },
+    {
+      "record": {
+        "id": "AV_283",
+        "dbf_id": 70011,
+        "name": "大法师的符文",
+        "name_en": "Rune of the Archmage",
+        "text": "对敌人施放消耗总计20点法力值的法师法术。",
+        "text_en": "[x]Cast 20 Mana worth of\nMage spells at enemies.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1626,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "905bef94e408930dde809b353fe912a98239b51a39b51e85ed492b2ff2ae8675"
+    },
+    {
+      "record": {
+        "id": "AV_290",
+        "dbf_id": 70204,
+        "name": "冰血哨塔",
+        "name_en": "Iceblood Tower",
+        "text": "在你的回合结束时，随机从你的牌库中施放另一个法术。持续3回合。",
+        "text_en": "[x]At the end of your turn,\ncast another spell from\nyour deck. Lasts 3 turns.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1626,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "OBJECTIVE": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Paick & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "7ce71583d6058633969348db2189b1b80a603036997ae925c4677e12aa923916"
+    },
+    {
+      "record": {
+        "id": "BOT_257",
+        "dbf_id": 48198,
+        "name": "露娜的口袋银河",
+        "name_en": "Luna's Pocket Galaxy",
+        "text": "使你牌库中所有随从牌的法力值消耗变为（1）点。",
+        "text_en": "Change the Cost of minions in your\ndeck to (1).",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1127,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "49a06d483b6409ea645cb3482f78946cb2e9ef3495ffe0d2f7c80e34a60e3fc7"
+    },
+    {
+      "record": {
+        "id": "BT_072",
+        "dbf_id": 57950,
+        "name": "深度冻结",
+        "name_en": "Deep Freeze",
+        "text": "<b>冻结</b>一个敌人。召唤两个3/6的水元素。",
+        "text_en": "<b>Freeze</b> an enemy. Summon two 3/6 Water Elementals.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1414,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "FREEZE": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 395,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jim Nelson"
+          }
+        ]
+      },
+      "record_sha256": "4bb01f2e2a69eb54072684ddb7cd62bd07e6bbff58f1ad556f3eccb4f97f8329"
+    },
+    {
+      "record": {
+        "id": "CFM_623",
+        "dbf_id": 40411,
+        "name": "强能奥术飞弹",
+        "name_en": "Greater Arcane Missiles",
+        "text": "随机对敌人发射三枚飞弹，每枚飞弹造成$3点伤害。",
+        "text_en": "Shoot three missiles at random enemies that deal $3 damage each.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 25,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Zagumennyy"
+          }
+        ]
+      },
+      "record_sha256": "6bd51e164b12365bf2532b58f70ea3802f1880b06e98b6acb55384a58c1869ec"
+    },
+    {
+      "record": {
+        "id": "CS2_032",
+        "dbf_id": 1004,
+        "name": "烈焰风暴",
+        "name_en": "Flamestrike",
+        "text": "对所有敌方随从造成$5点伤害。",
+        "text_en": "Deal $5 damage to all enemy minions.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Romain De Santi"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "dc588d4844b9120e859788a50d2f21316787541e3f5966cb3609d40b393b92cd"
+    },
+    {
+      "record": {
+        "id": "DAL_578",
+        "dbf_id": 52640,
+        "name": "创世之力",
+        "name_en": "Power of Creation",
+        "text": "<b>发现</b>一张法力值消耗为（6）的随从牌。召唤两个它的\n复制。",
+        "text_en": "<b>Discover</b> a 6-Cost minion. Summon two copies of it.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1130,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "c0691810f780da709169e6edf454e14641f85bc07e67a3f9cc91784577302566"
+    },
+    {
+      "record": {
+        "id": "DMF_103",
+        "dbf_id": 61179,
+        "name": "克苏恩面具",
+        "name_en": "Mask of C'Thun",
+        "text": "造成$10点伤害，随机分配到所有敌人身上。",
+        "text_en": "Deal $10 damage randomly split among all enemies.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1466,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ware Lee"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "4d83bb4be87dd43861ab10f093ede66f93e0dd36d6077688be85e07fa7eca472"
+    },
+    {
+      "record": {
+        "id": "DMF_104",
+        "dbf_id": 61180,
+        "name": "华丽谢幕",
+        "name_en": "Grand Finale",
+        "text": "召唤一个8/8的元素。你在上个回合每使用一张元素牌，重复一次。",
+        "text_en": "Summon an 8/8 Elemental. Repeat for each Elemental you played last turn.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1466,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 61695,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "E. Li & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "79186357e29f54c73f957ba36359e83f892af7b4b1bf1c565a0fc3853cfa8a58"
+    },
+    {
+      "record": {
+        "id": "EX1_279",
+        "dbf_id": 1087,
+        "name": "炎爆术",
+        "name_en": "Pyroblast",
+        "text": "造成$10点伤害。",
+        "text_en": "Deal $10 damage.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "b1bcc6a00131654a702542b137bef6bec0773cb4e1930d132c07e9421ab100da"
+    },
+    {
+      "record": {
+        "id": "GDB_301",
+        "dbf_id": 111896,
+        "name": "超级新星",
+        "name_en": "Supernova",
+        "text": "用随机火焰法术牌填满你的手牌。这些法术牌的法力值消耗为（1）点。",
+        "text_en": "Fill your hand with random Fire spells. They cost (1).",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1935,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "b893dd1895f59870b5eb2be2e60f88576f5d79626f97d7e21fa6183c4683aa47"
+    },
+    {
+      "record": {
+        "id": "ICC_086",
+        "dbf_id": 42760,
+        "name": "冰封秘典",
+        "name_en": "Glacial Mysteries",
+        "text": "将每种不同的<b>奥秘</b>从你的牌库中置入战场。",
+        "text_en": "Put one of each <b>Secret</b> from your deck into\nthe battlefield.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1001,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "219",
+              "name": "SECRET",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "df6b079349b9007eac3634fdc5a9dd9f318191660f29e500d6d6fb87cbb9d444"
+    },
+    {
+      "record": {
+        "id": "KAR_076",
+        "dbf_id": 39715,
+        "name": "火焰之地传送门",
+        "name_en": "Firelands Portal",
+        "text": "造成$6点伤害。随机召唤一个法力值消耗为（6）的随从。",
+        "text_en": "Deal $6 damage. Summon a random\n6-Cost minion.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 23,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 23,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gustav Schmidt"
+          }
+        ]
+      },
+      "record_sha256": "15132c6340a4cafd2856ca51a94ec9e9a08c38838284c3a5125f3c760d0623b2"
+    },
+    {
+      "record": {
+        "id": "ONY_029",
+        "dbf_id": 71290,
+        "name": "龙火护符",
+        "name_en": "Drakefire Amulet",
+        "text": "<b>可交易</b>\n<b>发现</b>并召唤两条龙。",
+        "text_en": "<b>Tradeable</b>\n<b>Discover</b> 2 Dragons. Summon them.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1626,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 2,
+          "TRADEABLE": 1,
+          "DECK_ACTION_COST": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mark Zug"
+          }
+        ]
+      },
+      "record_sha256": "41b662cc322aa34b10dddf1a1c8816ad9d0f6490f186aff21bad713a69bd98d3"
+    },
+    {
+      "record": {
+        "id": "RLK_544",
+        "dbf_id": 84428,
+        "name": "奥术防御者",
+        "name_en": "Arcane Defenders",
+        "text": "召唤两个5/6并具有<b>嘲讽</b>和<b>扰魔</b>的魔像。",
+        "text_en": "Summon two\n5/6 Golems with\n<b>Taunt</b> and <b>Elusive</b>.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1776,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 84427,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "1211",
+              "name": "ELUSIVE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cd4076952c507b051d3ea86bfbb95dd35dc1c89e27cd81b7a6b0d1b16d9fee29"
+    },
+    {
+      "record": {
+        "id": "RLK_590",
+        "dbf_id": 86228,
+        "name": "太阳之井",
+        "name_en": "The Sunwell",
+        "text": "用随机法术牌填满你的手牌。你每有一张其他手牌，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Fill your hand with random spells. Costs (1) less for each other card in your hand.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michaela Nienaber"
+          }
+        ]
+      },
+      "record_sha256": "b88da191ca6526c05b4ce1852ecb0b6aa5b82b2cb93f068de44f264ffb4e6426"
+    },
+    {
+      "record": {
+        "id": "TOY_372",
+        "dbf_id": 103270,
+        "name": "匣中古神",
+        "name_en": "Yogg in the Box",
+        "text": "随机施放5个法术。如果你的牌库里没有随从牌，则这些法术的法力值消耗大于或等于（5）点。",
+        "text_en": "Cast 5 random spells. If your deck has no minions, the spells cast cost (5) or more.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1897,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "ac1a5ffa9bbda515b2a619895885443e1d18b54c2aae8fe7c1910fd76a061eb4"
+    },
+    {
+      "record": {
+        "id": "TOY_378",
+        "dbf_id": 103354,
+        "name": "星空投影球",
+        "name_en": "The Galactic Projection Orb",
+        "text": "再次施放你在本局对战中施放过的法术，每种法力值消耗各随机一个。<i>（尽可能以敌人为目标）</i>",
+        "text_en": "Recast a random spell of each Cost you've cast this game <i>(targets enemies if possible)</i>.",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 1897,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DONT_PICK_FROM_SUBSETS": 1,
+          "960": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Stone"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "960",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "960"
+          }
+        ]
+      },
+      "record_sha256": "88c64b32fe5c3248da465958aad771dcb14d1d342feb4e95f5aa9ba81ab5ee62"
+    },
+    {
+      "record": {
+        "id": "TTN_480",
+        "dbf_id": 98212,
+        "name": "元素激励",
+        "name_en": "Elemental Inspiration",
+        "text": "在本局对战中，你每施放过一个派系的法术，召唤一个4/5并具有一项随机<b>额外效果</b>的元素。@<i>（召唤@个）</i>",
+        "text_en": "[x]For each spell school\nyou have cast this game,\nsummon a 4/5 Vortex with\na random <b>Bonus Effect</b>.@ <i>(@)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1858,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edgar Hidalgo"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "2934",
+              "name": "BONUS_EFFECTS",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bde9be17162e9813ab06c22293f51c89d8790eee6e3762a246b57070f967e021"
+    },
+    {
+      "record": {
+        "id": "ULD_216",
+        "dbf_id": 53442,
+        "name": "尤格-萨隆的谜之匣",
+        "name_en": "Puzzle Box of Yogg-Saron",
+        "text": "随机施放10个法术<i>（目标随机而定）</i>。",
+        "text_en": "Cast 10 random spells <i>(targets chosen randomly).</i>",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1158,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 6
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kagi"
+          }
+        ]
+      },
+      "record_sha256": "e1e690fa78edf2c744a6ac9ac44c41ffee1af673c888d577cd9a7ced02b6eea2"
+    },
+    {
+      "record": {
+        "id": "VAC_509",
+        "dbf_id": 105797,
+        "name": "海啸",
+        "name_en": "Tsunami",
+        "text": "召唤三个3/6的可以<b>冻结</b>攻击目标的水元素，并使其随机攻击敌人。",
+        "text_en": "Summon three\n3/6 Water Elementals\nthat <b>Freeze</b>. They attack random enemies.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1905,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 3,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "208",
+              "name": "FREEZE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "aca326affc0001b03448c7e0b42e2ac259caabc69325bf2bbd1f54d1e2239a7c"
+    },
+    {
+      "record": {
+        "id": "WORK_012",
+        "dbf_id": 110794,
+        "name": "抱团",
+        "name_en": "Huddle Up",
+        "text": "用随机纳迦填满你的面板。",
+        "text_en": "Fill your board with random Naga.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1905,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "7dd4a98f24e28db0a9f60a5ec5aff60154d611c7e8f4d87dfe26596b2f59e7fc"
+    },
+    {
+      "record": {
+        "id": "WW_427",
+        "dbf_id": 101876,
+        "name": "夕阳漫射",
+        "name_en": "Sunset Volley",
+        "text": "造成$10点伤害，随机分配到所有敌人身上。随机召唤一个法力值消耗为（10）的随从。",
+        "text_en": "Deal $10 damage randomly split among\nall enemies. Summon a random 10-Cost minion.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "CARD_SET": 1892,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "8552a93ba28f8aa431ee8af8117d60ff1177c1841a2221e87d43b5faef5229c0"
+    }
+  ],
+  "original_member_ids": [
+    "DEEP_028",
+    "ETC_373",
+    "GDB_857",
+    "OG_195",
+    "ONY_021",
+    "SCH_610",
+    "TSC_656",
+    "ULD_273",
+    "BAR_539",
+    "CORE_REV_311",
+    "DAL_256",
+    "DMF_732",
+    "EX1_183",
+    "TTN_954",
+    "VAC_907",
+    "VAC_948",
+    "GVG_033",
+    "RLK_590",
+    "CORE_ICC_085",
+    "CORE_REV_365",
+    "SCH_609"
+  ],
+  "merged_member_ids": [
+    "DEEP_028",
+    "ETC_373",
+    "GDB_857",
+    "OG_195",
+    "ONY_021",
+    "SCH_610",
+    "TSC_656",
+    "ULD_273",
+    "BAR_539",
+    "CORE_REV_311",
+    "DAL_256",
+    "DMF_732",
+    "EX1_183",
+    "TTN_954",
+    "VAC_907",
+    "VAC_948",
+    "GVG_033",
+    "RLK_590",
+    "CORE_ICC_085",
+    "CORE_REV_365",
+    "SCH_609",
+    "AV_218",
+    "AV_283",
+    "AV_290",
+    "BOT_257",
+    "BT_072",
+    "CFM_623",
+    "CS2_032",
+    "DAL_578",
+    "DMF_103",
+    "DMF_104",
+    "EX1_279",
+    "GDB_301",
+    "ICC_086",
+    "KAR_076",
+    "ONY_029",
+    "RLK_544",
+    "TOY_372",
+    "TOY_378",
+    "TTN_480",
+    "ULD_216",
+    "VAC_509",
+    "WORK_012",
+    "WW_427"
+  ],
+  "member_weight": 1,
+  "query": {
+    "kinds": [
+      "spell"
+    ],
+    "min_cost": 7,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "current",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "druid_actual": [
+    {
+      "card_id": "BAR_539",
+      "weight": 1
+    },
+    {
+      "card_id": "CORE_ICC_085",
+      "weight": 1
+    },
+    {
+      "card_id": "CORE_REV_311",
+      "weight": 1
+    },
+    {
+      "card_id": "CORE_REV_365",
+      "weight": 1
+    },
+    {
+      "card_id": "DAL_256",
+      "weight": 1
+    },
+    {
+      "card_id": "DEEP_028",
+      "weight": 1
+    },
+    {
+      "card_id": "DMF_732",
+      "weight": 1
+    },
+    {
+      "card_id": "ETC_373",
+      "weight": 1
+    },
+    {
+      "card_id": "EX1_183",
+      "weight": 1
+    },
+    {
+      "card_id": "GDB_857",
+      "weight": 1
+    },
+    {
+      "card_id": "GVG_033",
+      "weight": 1
+    },
+    {
+      "card_id": "OG_195",
+      "weight": 1
+    },
+    {
+      "card_id": "ONY_021",
+      "weight": 1
+    },
+    {
+      "card_id": "RLK_590",
+      "weight": 1
+    },
+    {
+      "card_id": "SCH_609",
+      "weight": 1
+    },
+    {
+      "card_id": "SCH_610",
+      "weight": 1
+    },
+    {
+      "card_id": "TSC_656",
+      "weight": 1
+    },
+    {
+      "card_id": "TTN_954",
+      "weight": 1
+    },
+    {
+      "card_id": "ULD_273",
+      "weight": 1
+    },
+    {
+      "card_id": "VAC_907",
+      "weight": 1
+    },
+    {
+      "card_id": "VAC_948",
+      "weight": 1
+    }
+  ],
+  "mage_actual": [
+    {
+      "card_id": "AV_218",
+      "weight": 1
+    },
+    {
+      "card_id": "AV_283",
+      "weight": 1
+    },
+    {
+      "card_id": "AV_290",
+      "weight": 1
+    },
+    {
+      "card_id": "BOT_257",
+      "weight": 1
+    },
+    {
+      "card_id": "BT_072",
+      "weight": 1
+    },
+    {
+      "card_id": "CFM_623",
+      "weight": 1
+    },
+    {
+      "card_id": "CS2_032",
+      "weight": 1
+    },
+    {
+      "card_id": "DAL_578",
+      "weight": 1
+    },
+    {
+      "card_id": "DMF_103",
+      "weight": 1
+    },
+    {
+      "card_id": "DMF_104",
+      "weight": 1
+    },
+    {
+      "card_id": "EX1_279",
+      "weight": 1
+    },
+    {
+      "card_id": "GDB_301",
+      "weight": 1
+    },
+    {
+      "card_id": "ICC_086",
+      "weight": 1
+    },
+    {
+      "card_id": "KAR_076",
+      "weight": 1
+    },
+    {
+      "card_id": "ONY_029",
+      "weight": 1
+    },
+    {
+      "card_id": "RLK_544",
+      "weight": 1
+    },
+    {
+      "card_id": "RLK_590",
+      "weight": 1
+    },
+    {
+      "card_id": "TOY_372",
+      "weight": 1
+    },
+    {
+      "card_id": "TOY_378",
+      "weight": 1
+    },
+    {
+      "card_id": "TTN_480",
+      "weight": 1
+    },
+    {
+      "card_id": "ULD_216",
+      "weight": 1
+    },
+    {
+      "card_id": "VAC_509",
+      "weight": 1
+    },
+    {
+      "card_id": "WORK_012",
+      "weight": 1
+    },
+    {
+      "card_id": "WW_427",
+      "weight": 1
+    }
+  ],
+  "native_pins": [
+    {
+      "card_id": "DEEP_028",
+      "definition_sha256": "8efae5707e167058bdf545bb74dd102572f568039763e8cc694ce206d2e51b08",
+      "pool_card_sha256": "7ad4a3e8e9539b3cf10f2e334672c18ebee7c343224252747bbe475046360928"
+    },
+    {
+      "card_id": "ETC_373",
+      "definition_sha256": "5aa6f971ddb6ec7a9ab2de6c61557148f40658ac3e9f9e9bf3822cbd1c9dccde",
+      "pool_card_sha256": "42016c43bdebdb5912ac61c78c7b1bb1e81b00d51cac40d2e6409d30ee95038b"
+    },
+    {
+      "card_id": "GDB_857",
+      "definition_sha256": "82a0def4d5e19ea9e6b0d8fb08e61728af6b2b8140c9f1152316e245c05bbc26",
+      "pool_card_sha256": "c5fd1d4ff57a91b1795355a461c77e1f10db2f51a558dc6a6e88a6ec1102ec33"
+    },
+    {
+      "card_id": "OG_195",
+      "definition_sha256": "b3fba7ee6ba5677e5f53e43397aa6ed073104da832fe769aec32a9f4cbbac61c",
+      "pool_card_sha256": "70ded8a6bf0e51f7f2872bf04f0e4e214288f7756dbc768c2d4029f8757f5b6f"
+    },
+    {
+      "card_id": "ONY_021",
+      "definition_sha256": "e5912bb19f7337c89989b9b81b5a78dbf511a4c3e39beaef54ceb6e31469caf9",
+      "pool_card_sha256": "c0d70a9e6b1b6b0dbaaaa934ac194bef698a60a030ae614bd028c6e1649b2280"
+    },
+    {
+      "card_id": "SCH_610",
+      "definition_sha256": "0d19cdb3aa7b32a1a09d6c5a672030ee57d4f8145ea1db8eba5b6071ad4f6d85",
+      "pool_card_sha256": "0d72da7a6e73dfe67406f79a2122119808f5c6a7a518d55bef2d64199ca3b760"
+    },
+    {
+      "card_id": "TSC_656",
+      "definition_sha256": "1f3b9d7233ca049fba9c66b6ed0be2edb69d1852eb4d0ea4fd980206b7199fd6",
+      "pool_card_sha256": "936d0c13cbce6f97e558f6979845663b5e086e0e95c8aa585df21effd2b691ce"
+    },
+    {
+      "card_id": "ULD_273",
+      "definition_sha256": "c31d3f5c6d6901ff200c7678044c38d974efaff2e0bbd16a9f1d70f273181a34",
+      "pool_card_sha256": "b39dd17e025c25ce83caa76e87fd7934fdbd32d49a977ea0c2d78f0be105f2f2"
+    },
+    {
+      "card_id": "BAR_539",
+      "definition_sha256": "865c7220fcebe7d8e3c678c59338f012b23a55f73678129041eeae4a29547eee",
+      "pool_card_sha256": "2c53dc8f334caaca64e08489bd52fb188362a78a9742fcd2c4b3c26040ace357"
+    },
+    {
+      "card_id": "CORE_REV_311",
+      "definition_sha256": "669982573bc510134099fcc667601183b5139bdeeeb7901cb63cf0ff3e1b1bc9",
+      "pool_card_sha256": "cd210b503d3607f46193217f80aa8d83609ffd0aad6800d483228b6d92505ca4"
+    },
+    {
+      "card_id": "DAL_256",
+      "definition_sha256": "14a7792a2e0dd02cbf157704583b0d6b1d5c28b3de7368a69d0ea0878089e8ec",
+      "pool_card_sha256": "34f8e1ef9f4f1ea07f3ab13f70688891de5479c2ed7f1ed15d48632a8d60f428"
+    },
+    {
+      "card_id": "DMF_732",
+      "definition_sha256": "6cfed4e8de4a1512159c77240cdf027d783af9eec9dee794c64dbcf5d70bfc18",
+      "pool_card_sha256": "142ff7a688741e1ee314cdea492f275af3bf8019e6d505d9e23220796ded79ce"
+    },
+    {
+      "card_id": "EX1_183",
+      "definition_sha256": "24ef50ff21d1a8e7503c7fd3554a5da7f8bb6f52fc7ce7d8492b7c272cdcbcc0",
+      "pool_card_sha256": "8342969e2a116df9a2a94d4507d7176ba80311915e422febae868f20ea6911b9"
+    },
+    {
+      "card_id": "TTN_954",
+      "definition_sha256": "081e921d758658afe2cb746e6f5715f1636c4e18dba8e7a5e269802dae82299f",
+      "pool_card_sha256": "a15911beba11ed9c1a998cd26aad90c06d61ff36a7950358c96cab347564b378"
+    },
+    {
+      "card_id": "VAC_907",
+      "definition_sha256": "10514a5459a5d28e867483838291cd1f351d74379e0d43dfdfd642cd3f167397",
+      "pool_card_sha256": "803b970191be818727bfe4cdb6b3277e802f65c65a995a2a56c7bbd661d5035a"
+    },
+    {
+      "card_id": "VAC_948",
+      "definition_sha256": "88b4c424f0cc43235f199cfe12757b94343743941522e47b28d371955e5eabf9",
+      "pool_card_sha256": "6698933edbbe04658d5cf7bf0c41322ef489af148edb5f79957142a4965b4e8e"
+    },
+    {
+      "card_id": "GVG_033",
+      "definition_sha256": "22e6e1c52ac89cd57eeede3ea72284cc3b47f6c611838e7a5ac63490b8afc28b",
+      "pool_card_sha256": "64e1fddda20897ca0fe9a4e08a0b19d0c9d01814bec95c7b103c836cddfc385e"
+    },
+    {
+      "card_id": "RLK_590",
+      "definition_sha256": "f168db1feb5ff0ab0675bf766f52b109d1b29ab5d738b20e9817593a7b28942d",
+      "pool_card_sha256": "2c5ccf4b6f53ac3f82019c59677aa3763a9bfc1efc292e91aa1cd28a9d8d96c3"
+    },
+    {
+      "card_id": "CORE_ICC_085",
+      "definition_sha256": "100454fa29a36acd37af499440dbd3de8719a72b3ff27dec1d8695c08b5af1af",
+      "pool_card_sha256": "fb837de35451f4e1aa80fb0ca0deaca318ee7eb4cc54968bc4373ab165b41d70"
+    },
+    {
+      "card_id": "CORE_REV_365",
+      "definition_sha256": "ca31e617950930836dacb39b26545b88d7dbabd7201e89ab006cf5388ae6bb68",
+      "pool_card_sha256": "4477566a3c0bc744c6b7c50c09a53faf0cfda07d53d852eda2bfb50adebb0770"
+    },
+    {
+      "card_id": "SCH_609",
+      "definition_sha256": "94a1472b5668d64ca8ccc16652e0e81886d2dd72267ac22c9dbf28bdffef2da2",
+      "pool_card_sha256": "02eadbc8920b6d9f40967ee44fc9ea21f606aca3d80de50b57824f4d7be35b35"
+    },
+    {
+      "card_id": "AV_218",
+      "definition_sha256": "c776aeee63f0e62a09c0e9c7d4c373e8d3d962a5c419231c1e2bb3f0ae30c493",
+      "pool_card_sha256": "d19ce16de7f1c4d9c21f22a1af6e32671a90c483837500609e35389cf9b7a6e2"
+    },
+    {
+      "card_id": "AV_283",
+      "definition_sha256": "ab9d801946ede834921e9ce270744b074e3df10e823d5635f60bcb35cf3add45",
+      "pool_card_sha256": "a5a045304cead688e94be4afd69d4c3fc076acdc30a725ab2ab4605506ad0a46"
+    },
+    {
+      "card_id": "AV_290",
+      "definition_sha256": "672ab8a3950c3a06ad4ffae0c81795d456d7b835a99a40bf5353958ecc2dfa7e",
+      "pool_card_sha256": "96ae3e80b7d8b88c8567dc2425f05e685f0951eb943cba3d8504ca2c01272e6d"
+    },
+    {
+      "card_id": "BOT_257",
+      "definition_sha256": "4720399b315ab2cc4cb553127106657a8e84da996f2015060f59decad935febd",
+      "pool_card_sha256": "13ffe15d1da44809bd6463ba221a956d11c55b6c85321945f7c1e17cc6e0d356"
+    },
+    {
+      "card_id": "BT_072",
+      "definition_sha256": "e360e650d9af77c3200b2bff63b9a569b7094c34710155d60a5f0e592f0dbf8d",
+      "pool_card_sha256": "49f7d4dc08b30b78d527bff03db54b7d67c330aa97e63afb7ef1d3c5a95ea997"
+    },
+    {
+      "card_id": "CFM_623",
+      "definition_sha256": "fbc87fed6ed45952484ead975a3b7e3e9bd2a8b1d850f651cde4021ee8b35661",
+      "pool_card_sha256": "a1e346a6970dacbcf8d5af64595c4ffec03fc8b26fcaa9ed74ad697e36fcd186"
+    },
+    {
+      "card_id": "CS2_032",
+      "definition_sha256": "deb6708e579af5ba5e2b980a57f13bddf957ccf9d88a3f2a8ac1c4e8c7127d03",
+      "pool_card_sha256": "6a2aa76dfd5c4c498eeb91684c7a24e89c044b6b7ce98006146c90361734b677"
+    },
+    {
+      "card_id": "DAL_578",
+      "definition_sha256": "8b0ff3445fb394d3d869e3896def69ad7944c119d408125b858db196e4418aea",
+      "pool_card_sha256": "aa46253ee615b32a3996e7ef3d5657700b86174553aceb9963f3740c329c5882"
+    },
+    {
+      "card_id": "DMF_103",
+      "definition_sha256": "caa04fe2848e2eb5a9f6696b12da5bd2029a97bf3a1532c4604ea7f4d87d080c",
+      "pool_card_sha256": "ca2d996aae99a787c66fbe671f9cf67fbbe51880158edcd85f57af60781fff0f"
+    },
+    {
+      "card_id": "DMF_104",
+      "definition_sha256": "274b6e27710c619a1c300dc6e4b5de924acfbf6662af21789ecc803eb138715c",
+      "pool_card_sha256": "4fe3b044dcfea5e2d97027d86a910a614fd45fb71574f12e865c0bc803dd62ae"
+    },
+    {
+      "card_id": "EX1_279",
+      "definition_sha256": "8eaf42f8aaa8250b26521939916e1852ecf97f4cc3eafb371d3685bb4807b603",
+      "pool_card_sha256": "98bbe9789605ac6b2f71b13f9e385c6d8a1c41c8b05b8db52090b6a347d3b188"
+    },
+    {
+      "card_id": "GDB_301",
+      "definition_sha256": "8c5999d04d03bf8444f31ca8a80504142ab325cbd2e6b931e86c41249cb1b477",
+      "pool_card_sha256": "6a01b7fa4613fc8a717b568830190c2636a0c7fa5fcdbe3742e7d02984c963eb"
+    },
+    {
+      "card_id": "ICC_086",
+      "definition_sha256": "fc9787510b951f64327a90c6390f73f33b7b024c0a1380752a453223aec316d6",
+      "pool_card_sha256": "6b46549c717d58b811be6f075266d7142d6e6e68b9d2b4cbf30f345fcacb07e1"
+    },
+    {
+      "card_id": "KAR_076",
+      "definition_sha256": "4271b896e3ea0de4148fbcd690910f6933f5940d44ae4bd5a22964b08f3989d5",
+      "pool_card_sha256": "702779232c5a7a9772688e73122b2b68cb0ec599849b5efdd1eb5ea9c79a0653"
+    },
+    {
+      "card_id": "ONY_029",
+      "definition_sha256": "94192fed9cbeb47ead2172d69f1019cfa64f84c483e9cb81c92615a801a805c1",
+      "pool_card_sha256": "eee82d4e63fe8f9dc7e5d2316e58d2ae599ff1892ba226348c8fa3d0c3a524fa"
+    },
+    {
+      "card_id": "RLK_544",
+      "definition_sha256": "98ad72684ed0fc9db11a68e6538bfd6b3af8081607815ff3baf3b1f96fe00e13",
+      "pool_card_sha256": "a1d521d160e60bec15ca8f378d57246806786ff33d37ac69a72410190ec657d8"
+    },
+    {
+      "card_id": "TOY_372",
+      "definition_sha256": "40f7ce8e8606287537ca30203ed9c325f36f5175b122bdc7a7ae68313367d305",
+      "pool_card_sha256": "2e99d575bebf38ec746ac2c869a4eeb9cb00f5e12050ad9429dcd6a4295af684"
+    },
+    {
+      "card_id": "TOY_378",
+      "definition_sha256": "7e6dad20f10386d5036f72d89bb56ee89d578b2be0869b6b8f2d4c9ffdc325c1",
+      "pool_card_sha256": "6a1af4483c359eb72b8f4261198c5e558cc07cfec25f8f6708aa682549b6dbae"
+    },
+    {
+      "card_id": "TTN_480",
+      "definition_sha256": "b9379091e98a55ed132b550f00c682257fb20b1b7c4a94bf792ac4e08ff61503",
+      "pool_card_sha256": "76177e7d825bf06d4c8ea9a7ed394bdd888cd02b849fc23f96c240996fcdf732"
+    },
+    {
+      "card_id": "ULD_216",
+      "definition_sha256": "08c476abbcc388e46d9e380a4ba8af7c32606f12f5ac4bfd5063312a08258f15",
+      "pool_card_sha256": "c371d840b2be73337d28b14a7ad4102af3f78415913a980a672b4df2b495ab89"
+    },
+    {
+      "card_id": "VAC_509",
+      "definition_sha256": "9a7fdfb7aa4e7fe6b42e7a29c0cac8da32a0317953528d6d903035ec92865d6c",
+      "pool_card_sha256": "b5957b1ad19900078a4ee4feaed3a07f612ab86c386f20ef93d52b62866fba42"
+    },
+    {
+      "card_id": "WORK_012",
+      "definition_sha256": "50f1e9176be06db449977eb4744ae016b0bac6828adcd30e76daca93a239076c",
+      "pool_card_sha256": "8b1b9fe6a6fbe8213df5dd702c1cb0c129ff9668be4d98ea4819dbccc61cc1c0"
+    },
+    {
+      "card_id": "WW_427",
+      "definition_sha256": "40d1ad13dc41dad76daae3a368d487e5787dada92484b669f0e8cfdf2cb4cac7",
+      "pool_card_sha256": "984c37c8dba0cbd2c9767b6a58cd2fbbefcf7b735aa6d2d2e52297215b8c0232"
+    }
+  ],
+  "new_standard_roots": [],
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "unreviewed_current_classes": [
+    "death_knight",
+    "demon_hunter",
+    "hunter",
+    "paladin",
+    "priest",
+    "rogue",
+    "shaman",
+    "warlock",
+    "warrior"
+  ],
+  "local_policies": [
+    "Merge the independently known original Druid21 inventory with the complete fixed-source current-Mage >=7 spell view24, keeping original order and weight1; overlap Sunwell remains one physical candidate.",
+    "Preserve exact original Druid teacher result and register only the additional Mage source/query. Unknown classes, Toki and other unrestricted queries remain rejected.",
+    "Current-class metadata includes neutral spells. Full raw snapshot inspection found two neutral past spells; only the9mana Sunwell qualifies for this >=7 query. WON_113 is4mana and remains a separate necessary unimplemented dependency for unrestricted Toki.",
+    "Do not infer actual Toki support from the earlier Mage-only179 reference or the resulting union. That source needs the complete181 inventory including WON_113 and its champion dependencies."
+  ]
+}

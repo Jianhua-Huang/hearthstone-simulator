@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v13.json'
-MANIFEST_HASH = '5a9d3f396df82c5b670add36708996c40f2875701f996e6a31b2130d8d6c7ce8'
-FORMAT_VERSION = 'cn37-local-special-pools-v13'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v14.json'
+MANIFEST_HASH = '7a93d75eba8a777c47bfa7c76f11421cf5996998814219fcdabe41acb04d5515'
+FORMAT_VERSION = 'cn37-local-special-pools-v14'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -55,7 +55,7 @@ def load_bindings():
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     previous = value['previous_manifest']
-    if previous['path'] != 'data/cards/local-special-pool-bindings-v12.json':
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v13.json':
         raise TargetValidationError('Past Mech host requires its original complete predecessor manifest')
     prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
     if (canonical_digest(prior) != previous['canonical_sha256'] or any(
@@ -93,6 +93,13 @@ def load_bindings():
         member_ids=d['member_ids'],complete_for_declared_source_view=True,formal_pool_complete=False)for d in spells['domains']]
     if value['mage_arcane_spell_bindings']!=expected or set(d['pool_id']for d in expected)&set(names+scoped+[disco['pool_id']]):
         raise TargetValidationError('Past spell host lost a complete original source, class inventory or separate pool role')
+    from .cards.past_teacher_mage_source import BATCH_PATH as TEACHER_PATH,load_batch as load_mage_teacher
+    teacher=load_mage_teacher()
+    if value['teacher_mage_binding']!=dict(source_document=TEACHER_PATH.relative_to(ROOT).as_posix(),
+            source_document_canonical_sha256=canonical_digest(teacher),source_card_id='TIME_704',
+            pool_id='constructed.past.spells',original_member_count=21,mage_member_count=24,merged_member_count=44,
+            complete_for_declared_source_view=True,formal_pool_complete=False):
+        raise TargetValidationError('Mage teacher host lost its complete source view or original Druid inventory')
     return value
 
 
@@ -162,6 +169,8 @@ def build_cn37_local_pool_format():
     for metadata in metadata_additions: registry.register_pool_card(metadata)
     past_pools = merge_pools(registry,original.context,local_pools(registry,original.context))
     past_pools = merge_mech_pools(registry,original.context,past_pools)
+    from .cards.past_teacher_mage_source import merge_pools as merge_mage_teacher,register_scope as register_mage_teacher
+    past_pools = merge_mage_teacher(registry,original.context,past_pools)
     from .cards.protoss_spell_domain import local_pool as protoss_pool
     from .cards.azerite_hawk_domain import local_pool as hawk_pool
     from .cards.azerite_reward_domains import local_pools as azerite_pools
@@ -186,6 +195,7 @@ def build_cn37_local_pool_format():
     register_mech_scope(registry,context)
     register_disco_scope(registry,context)
     register_past_spell_scopes(registry,context)
+    register_mage_teacher(registry,context)
     registry.register_excavation_profile(replace(excavation, target_id=target_id, mode=context.mode))
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
