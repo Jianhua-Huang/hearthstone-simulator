@@ -273,8 +273,8 @@ class RogueNatureSourceTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(self.ids(g).count('UNG_057t1'),2);self.assertIsNotNone(g.state.pending_choice)
         self.finish(g);self.portable(g)
 
-    def test_shared_warrior_member_does_not_open_an_incomplete_class_view(self):
-        g=self.actual(hero='HERO_01');saved=deepcopy(g.snapshot())
+    def test_unreviewed_shaman_cannot_use_an_implemented_subset(self):
+        g=self.actual(hero='HERO_02');saved=deepcopy(g.snapshot())
         with self.assertRaises(ResolutionError):self.play(g,'CORE_EX1_169')
         self.assertEqual(g.snapshot(),saved)
 

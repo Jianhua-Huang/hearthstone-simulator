@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v817'
+CORE_EFFECTS_VERSION = 'core-effects-v818'
 
 
 class Mechanics:
@@ -2757,6 +2757,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_cross_zone(mechanics)
     from .minion_copy_destruction import register as register_minion_copy_destruction
     register_minion_copy_destruction(mechanics)
+    from .previous_turn_spell_costs import register as register_previous_cast_price
+    register_previous_cast_price(mechanics)
     register_hand_progress(mechanics)
     from .hand_choice_followups import register as register_hand_followups
     register_hand_followups(mechanics)

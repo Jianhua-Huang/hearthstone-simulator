@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v18.json'
-MANIFEST_HASH = 'f19ae8ec78bc63fb585b20ce0cc9491c83ef15aa3d3702cdf3b0b43ae3af021b'
-FORMAT_VERSION = 'cn37-local-special-pools-v18'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v19.json'
+MANIFEST_HASH = '0eaec64935479d7d0f0bd37932b443e7c89404ba35163950448cdc499ffb881d'
+FORMAT_VERSION = 'cn37-local-special-pools-v19'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -45,6 +45,13 @@ def load_bindings():
             pool_id=rogue['pool_id'],current_class='rogue',original_member_count=86,merged_member_count=95,
             actual_member_ids=rogue['actual_rogue_ids'],complete_for_declared_source_view=True,formal_pool_complete=False):
         raise TargetValidationError('Rogue Nature source document changed')
+    from .cards.past_warrior_nature_source import BATCH_PATH as WARRIOR_PATH,load_batch as load_warrior
+    warrior=load_warrior()
+    if value['warrior_nature_binding']!=dict(source_document=WARRIOR_PATH.relative_to(ROOT).as_posix(),
+            source_document_canonical_sha256=canonical_digest(warrior),source_card_id='TIME_013',
+            pool_id=warrior['pool_id'],current_class='warrior',member_ids=warrior['member_ids'],member_count=3,
+            complete_for_declared_source_view=True,formal_pool_complete=False):
+        raise TargetValidationError('Warrior Nature source document changed')
     if (canonical_digest(value) != MANIFEST_HASH or value['schema'] != 1 or
             value['formal_pool_complete'] is not False or not value['bindings']):
         raise TargetValidationError('Local special pools require their reviewed complete manifest')
@@ -77,7 +84,7 @@ def load_bindings():
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     previous = value['previous_manifest']
-    if previous['path'] != 'data/cards/local-special-pool-bindings-v17.json':
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v18.json':
         raise TargetValidationError('Local source host requires its original complete predecessor manifest')
     prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
     if (canonical_digest(prior) != previous['canonical_sha256'] or any(
@@ -226,9 +233,10 @@ def build_cn37_local_pool_format():
     from .cards.past_druid_nature_source import register_scope as register_nature_scope
     from .cards.past_priest_nature_source import register_scopes as register_priest_nature_scopes
     from .cards.past_rogue_nature_source import local_pool as nature_pool,register_scope as register_rogue_nature_scope
+    from .cards.past_warrior_nature_source import local_pool as warrior_nature_pool,register_scope as register_warrior_nature_scope
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
         one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context) + champion_pools(registry,original.context)
-    pools=pools+(nature_pool(registry,original.context),)
+    pools=pools+(nature_pool(registry,original.context),warrior_nature_pool(registry,original.context))
     excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
@@ -250,6 +258,7 @@ def build_cn37_local_pool_format():
     register_nature_scope(registry,context,reviewed_pool=nature_pool(registry,context))
     register_priest_nature_scopes(registry,context,reviewed_pool=nature_pool(registry,context))
     register_rogue_nature_scope(registry,context)
+    register_warrior_nature_scope(registry,context)
     registry.register_excavation_profile(replace(excavation, target_id=target_id, mode=context.mode))
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()

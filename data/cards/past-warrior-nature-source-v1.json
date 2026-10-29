@@ -1,0 +1,639 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-warrior-past-nature-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "DEEP_010",
+        "dbf_id": 102175,
+        "name": "余震",
+        "name_en": "Aftershocks",
+        "text": "对所有随从造成$1点伤害，造成三次。如果你在上个回合施放过法术，则法力值消耗减少（2）点。",
+        "text_en": "Deal $1 damage to all minions, three times. Costs (2) less if you cast a spell last turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1892,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 640,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "76564bf60c09c78a28a883f91ee910ef8b737124946b2620e77394e14de592a8",
+      "definition_sha256": "fbd871c29c2950bed83e459548df461512743a3c70f87120df0a7ffe77a6dfa7"
+    },
+    {
+      "record": {
+        "id": "UNG_927",
+        "dbf_id": 41407,
+        "name": "基因转接",
+        "name_en": "Sudden Genesis",
+        "text": "复制所有受伤的友方随从。",
+        "text_en": "Summon copies of your damaged minions.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 27,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "f699d50b8775c09033c8a70487cc7f3ccd3dfce88ca5d8581ede76604c95493d",
+      "definition_sha256": "b00b64a0917dcc32aadaed053ea1ee1af42067256d0c8a54524c4f17abc1c7db"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "YOP_015",
+        "dbf_id": 61953,
+        "name": "氮素药膏",
+        "name_en": "Nitroboost Poison",
+        "text": "使一个随从获得+2攻击力。<b>腐蚀：</b>并使你的武器获得+2攻击力。",
+        "text_en": "Give a minion +2 Attack.\n<b>Corrupt:</b> And your weapon.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 576,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 62001,
+          "CORRUPT": 1,
+          "1623": 1,
+          "SPELL_SCHOOL": 4,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1623",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1623"
+          }
+        ]
+      },
+      "record_sha256": "738fee9a7064a1018007e445df3955c3b0c2cc60870ca5e3e6ce9dc07283c5b6",
+      "definition_sha256": "58d387b93468c92ca37fe769b27c7624ec8b24654a9285b3d8e254f8a434f27d"
+    },
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "DEEP_010",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 102175,
+        "collectible": 1,
+        "slug": "102175-aftershocks",
+        "classId": 10,
+        "multiClassIds": [
+          8,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 4,
+        "name": "余震",
+        "text": "对所有随从造成 1点伤害，造成三次。如果你在上个回合施放过法术，则法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3ebe4af73224a1c6fef656b92677ad0b96fd84a2805ba3c6153f18a7dcc4c373.png",
+        "imageGold": "",
+        "flavorText": "他们看起来大受震撼！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca584cbc5bb33dab8495dfa3d761e5aaf5567f2edd6ad50b663990cce6daaca4.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_010",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 102175,
+        "collectible": 1,
+        "slug": "102175-aftershocks",
+        "classId": 10,
+        "multiClassIds": [
+          8,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 4,
+        "name": "Aftershocks",
+        "text": "Deal 1 damage to all minions, three times. Costs (2) less if you cast a spell last turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4043a87531060ff2b3e1aea1859f70a72aaff3abe0601dfdf49d43ed7ff77c9b.png",
+        "imageGold": "",
+        "flavorText": "They look shocked right now!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca584cbc5bb33dab8495dfa3d761e5aaf5567f2edd6ad50b663990cce6daaca4.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_927",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 41407,
+        "collectible": 1,
+        "slug": "41407-sudden-genesis",
+        "classId": 10,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 4,
+        "name": "基因转接",
+        "text": "复制所有受伤的友方随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f94a808a92de6a6f5b3d4157898509347d03eb22a640f566873fb5c8a328ef1f.png",
+        "imageGold": "",
+        "flavorText": "有些伤会让你变成另外一个人。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a819d031e568dc40e2c2365b73262a277956a8206bfca9cc59116a98ac9bb93d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_927",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 41407,
+        "collectible": 1,
+        "slug": "41407-sudden-genesis",
+        "classId": 10,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 4,
+        "name": "Sudden Genesis",
+        "text": "Summon copies of your damaged minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3521ecafa9ddfc580ffe461a000a9cdfccecf0f317929ecc7606a7cdca96ac93.png",
+        "imageGold": "",
+        "flavorText": "Being hurt can make you another person.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a819d031e568dc40e2c2365b73262a277956a8206bfca9cc59116a98ac9bb93d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOP_015",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 61953,
+        "collectible": 1,
+        "slug": "61953-nitroboost-poison",
+        "classId": 12,
+        "multiClassIds": [
+          7,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "manaCost": 2,
+        "name": "氮素药膏",
+        "text": "使一个随从获得+2攻击力。<b>腐蚀：</b>并使你的武器获得+2攻击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f1ecd357561da71298d1ee0e54ce3a8c987a01cde3300054ee846ccd3b4836ee.png",
+        "imageGold": "",
+        "flavorText": "倒进油箱里的冰牛奶并不能提供氮气加速，但用来做胜利纪念甜点却是一流。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/766bd29caaa69f19423614dc4736dbff27d3f3ea8d3535dad4e3990b08fce2e4.png",
+        "childIds": [
+          62001
+        ],
+        "keywordIds": [
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOP_015",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 61953,
+        "collectible": 1,
+        "slug": "61953-nitroboost-poison",
+        "classId": 12,
+        "multiClassIds": [
+          7,
+          10
+        ],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 1,
+        "artistName": "Paul Mafayon",
+        "manaCost": 2,
+        "name": "Nitroboost Poison",
+        "text": "Give a minion +2 Attack. <b>Corrupt:</b> And your weapon.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff116ca182dba9abd549842479096d860bd50f65af541d4109f21c104c2612cc.png",
+        "imageGold": "",
+        "flavorText": "Pouring iced milk into your vehicle's fuel tank does NOT provide a Nitro boost, but it does go great with your victory cookies.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/766bd29caaa69f19423614dc4736dbff27d3f3ea8d3535dad4e3990b08fce2e4.png",
+        "childIds": [
+          62001
+        ],
+        "keywordIds": [
+          91
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "source_card_id": "TIME_013",
+  "pool_id": "constructed.local-past-nature.warrior-reference-v1",
+  "query": {
+    "kinds": [
+      "spell"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "current",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [],
+    "tribes_any": [],
+    "spell_schools": [
+      "nature"
+    ],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "member_ids": [
+    "DEEP_010",
+    "UNG_927",
+    "YOP_015"
+  ],
+  "member_weight": 1,
+  "member_role": "card",
+  "native_pins": [
+    {
+      "card_id": "DEEP_010",
+      "definition_sha256": "fbd871c29c2950bed83e459548df461512743a3c70f87120df0a7ffe77a6dfa7",
+      "pool_card_sha256": "27a2d62e3f685b4140b0db7508d7b0c15757ec3bb3e397acc64e4261b6759cdd"
+    },
+    {
+      "card_id": "UNG_927",
+      "definition_sha256": "b00b64a0917dcc32aadaed053ea1ee1af42067256d0c8a54524c4f17abc1c7db",
+      "pool_card_sha256": "d82ae57100ad1411a4cfbb4ab05fa8c843e66b0bc90dfaf4cbb08b27c1ea1b2b"
+    },
+    {
+      "card_id": "YOP_015",
+      "definition_sha256": "58d387b93468c92ca37fe769b27c7624ec8b24654a9285b3d8e254f8a434f27d",
+      "pool_card_sha256": "bced388ac409b9c3fbea48a82477a8a03d618fedf6c59e49115790fa72153ac0"
+    }
+  ],
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "full_union_member_count": 174,
+  "old_95_container_unchanged": true,
+  "source_order_policy": "Separate full Warrior view retains original DEEP_010,UNG_927,YOP_015 order; old95 retains original full order.",
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "previous_spell_price": "Any-school actual payload-started/nonfailed CASTs, including repeat/automatic/draw/history, in the latest closed own interval; exact stable complete cast prefix through its turn.",
+    "previous_spell_material": "Compact existing PlayerSpellCountCostRow values, original owner interval/query boundary and next_entity_id; no recursive source-cost CAST records.",
+    "pulses": "Three fresh ordinary all-active-minion DamageBatch bodies, with native reactions/death checkpoints between them.",
+    "damaged_group": "Freeze initial active ordinary damaged friendly BoardPresenceReferences once; ordinary current CopyMinion/SummonCause owns each actual summon, capacity and lifetime."
+  },
+  "uncertainties": [
+    "Previous-own-interval and started/nonfailed CAST qualification retain an explicit local policy; countered/fizzled attempts do not qualify, later interruption does not retract an accepted payload.",
+    "Exact CN end-window/automatic casting and damage/copy ordering edges remain uncalibrated; existing generic checkpoints, spell damage and current-copy policies are retained.",
+    "No official full-pool or hotfix alignment claim; original past-set and unit weight reference policy remains."
+  ]
+}

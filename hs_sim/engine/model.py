@@ -5820,7 +5820,7 @@ class IntrinsicCostSpec:
         _int(self.minimum, 'intrinsic cost minimum', 0)
         if self.set_to is not None: _int(self.set_to, 'intrinsic cost set', 0)
         if type(self.condition) is not str or self.condition not in (
-                'previous_owner_turn_type', 'previous_owner_turn_elemental', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
+                'previous_owner_turn_type', 'previous_owner_turn_elemental', 'previous_owner_turn_spell_cast', 'hero_healed_this_turn', 'current_deck_count', 'permanent_mana_at_least', 'hand_other_class',
                 'hand_other_dragon', 'board_dormant_minion', 'board_no_minions', 'turn_holy_and_shadow',
                 'hand_edge', 'controlled_legendary', 'controlled_card', 'own_deck_shuffle_count', 'own_location_use_count', 'card_discovered_this_turn', 'held_opponent_copy'):
             raise ValueError('Unsupported intrinsic cost declaration policy')
@@ -5861,7 +5861,10 @@ class IntrinsicCostSpec:
             raise ValueError('Shuffle count requires the finite one-per-operation discount')
         if self.condition == 'card_discovered_this_turn' and (self.delta != 0 or self.set_to != 0 or self.minimum != 0):
             raise ValueError('Discovery price supports the real conditional zero-cost assignment')
-        history = ('hand.held-opponent-copy-play-v1' if self.condition == 'held_opponent_copy' else
+        if self.condition == 'previous_owner_turn_spell_cast' and (self.delta >= 0 or self.set_to is not None or self.minimum != 0):
+            raise ValueError('Previous own spell-cast price requires one flat discount')
+        history = ('casts.previous-closed-owner-v1' if self.condition == 'previous_owner_turn_spell_cast' else
+                   'hand.held-opponent-copy-play-v1' if self.condition == 'held_opponent_copy' else
                    'location.activations-game-v1' if self.condition == 'own_location_use_count' else
                    'deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
                    'deck.current-count-v1' if self.condition == 'current_deck_count' else
@@ -6088,6 +6091,45 @@ class OwnerTurnQueryBoundaryFact:
             raise ValueError('Intrinsic query requires an explicit opening identity')
         if (self.opening_stage is not None and self.opening_stage != 'complete') != (self.owner_history_length == 0):
             raise ValueError('Intrinsic quotation phase disagrees with genuine owner history')
+
+
+@dataclass(frozen=True)
+class PreviousOwnerSpellCastMatch:
+    """Compact complete CAST prefix through the last closed own interval."""
+    player_id: int
+    boundary: OwnerTurnQueryBoundaryFact
+    owner_turn: OwnerTurnRecord | None
+    next_entity_id: int
+    rows: tuple[PlayerSpellCountCostRow, ...]
+    matched: bool
+
+    def __post_init__(self):
+        if type(self.player_id) is not int or self.player_id not in (1,2):
+            raise ValueError('Previous spell casts require the actual payer')
+        if type(self.boundary) is not OwnerTurnQueryBoundaryFact:
+            raise ValueError('Previous spell casts require the complete original query boundary')
+        self.boundary.__post_init__();_int(self.next_entity_id,'previous cast allocation prefix',1)
+        _bool(self.matched,'previous own spell-cast result')
+        if type(self.rows) is not tuple or any(type(row)is not PlayerSpellCountCostRow for row in self.rows):
+            raise ValueError('Previous spell casts require complete immutable compact rows')
+        if self.owner_turn is None:
+            if self.rows or self.matched:raise ValueError('No previous own interval cannot invent spell casts')
+            return
+        record=self.owner_turn
+        if type(record)is not OwnerTurnRecord:raise ValueError('Previous spell casts require the original owner interval')
+        record.__post_init__()
+        if (not record.closed or record.player_id!=self.player_id or record.id>self.boundary.owner_history_length or
+                record.turn>self.boundary.turn or record.closed_action>self.boundary.action):
+            raise ValueError('Previous spell casts borrowed an open, foreign or future interval')
+        previous_turn=previous_action=0
+        for index,row in enumerate(self.rows,1):
+            row.__post_init__()
+            if (row.id!=index or row.source_id>=self.next_entity_id or row.turn>record.turn or
+                    row.action>record.closed_action or row.turn<previous_turn or row.action<previous_action):
+                raise ValueError('Previous spell casts lost the complete original chronological allocation prefix')
+            previous_turn,previous_action=row.turn,row.action
+        actual=any(row.player_id==self.player_id and row.turn==record.turn and row.payload_started and row.failure is None for row in self.rows)
+        if self.matched!=actual:raise ValueError('Previous own spell-cast result differs from its original complete rows')
 
 
 @dataclass(frozen=True)
@@ -6368,7 +6410,7 @@ class IntrinsicCostStageFact:
     amount: int
     boundary: OwnerTurnQueryBoundaryFact
     rules: tuple[IntrinsicCostSpec, ...]
-    condition_facts: tuple[PreviousOwnerTurnMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch | LocationUseCostMatch | HeldOpponentCopyMatch, ...]
+    condition_facts: tuple[PreviousOwnerTurnMatch | PreviousOwnerSpellCastMatch | HeroHealedTurnMatch | CardDiscoveredTurnMatch | CurrentDeckCountMatch | PermanentManaMatch | HandOtherClassMatch | CostPresenceMatch | DeckShuffleCostMatch | LocationUseCostMatch | HeldOpponentCopyMatch, ...]
     operations: tuple[IntrinsicCostOperationFact, ...]
     board_minions: BoardMinionCostFact | None = None
     hand_cards: HandCountCostFact | CoinHandCountCostFact | None = None
@@ -6639,7 +6681,8 @@ class IntrinsicCostStageFact:
                 raise ValueError('Multiple intrinsic formulas require a real reviewed source')
         if type(self.rules) is not tuple or any(type(rule) is not IntrinsicCostSpec for rule in self.rules):
             raise ValueError('Intrinsic stage requires complete immutable rules')
-        condition_cls = (HeldOpponentCopyMatch if self.rules and self.rules[0].condition == 'held_opponent_copy' else
+        condition_cls = (PreviousOwnerSpellCastMatch if self.rules and self.rules[0].condition == 'previous_owner_turn_spell_cast' else
+                         HeldOpponentCopyMatch if self.rules and self.rules[0].condition == 'held_opponent_copy' else
                          LocationUseCostMatch if self.rules and self.rules[0].condition == 'own_location_use_count' else
                          DeckShuffleCostMatch if self.rules and self.rules[0].condition == 'own_deck_shuffle_count' else
                          CardDiscoveredTurnMatch if self.rules and self.rules[0].condition == 'card_discovered_this_turn' else
@@ -6716,6 +6759,15 @@ class IntrinsicCostStageFact:
         if any(f.player_id != self.player_id for f in self.condition_facts):
             raise ValueError('Intrinsic stage borrowed another payer history')
         for condition in self.condition_facts:
+            if type(condition) is PreviousOwnerSpellCastMatch:
+                if (self.kind!=CardType.SPELL or len(self.rules)!=1 or condition.boundary!=self.boundary or
+                        any(getattr(self,name)is not None for name in ('board_minions','hand_cards','hero_missing_health',
+                            'player_spells','player_hero_powers','player_spell_mana','minion_deaths','player_overload',
+                            'player_played_class','hero_health_changes','player_draws','weapon_attack','player_armor',
+                            'player_summons','player_elemental_streak','player_corpses','hero_damage_taken',
+                            'player_spell_damage','player_character_attacks'))):
+                    raise ValueError('Previous spell-cast price changed its independent physical Spell or original window')
+                continue
             if type(condition) is HeldOpponentCopyMatch:
                 if (self.kind != CardType.SPELL or len(self.rules) != 1 or
                         (condition.turn, condition.action, condition.next_play_id) !=

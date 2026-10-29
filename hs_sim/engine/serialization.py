@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 637
+SNAPSHOT_SCHEMA_VERSION = 638
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -959,7 +959,10 @@ def _intrinsic_stage_from_dict(value):
     row['boundary'] = OwnerTurnQueryBoundaryFact(**boundary)
     row['rules'] = tuple(_intrinsic_spec_from_dict(v) for v in _list(row['rules'], 'intrinsic rules'))
     from .model import PRESENCE_COST_CONDITIONS
-    if row['rules'] and row['rules'][0].condition in PRESENCE_COST_CONDITIONS:
+    if row['rules'] and row['rules'][0].condition == 'previous_owner_turn_spell_cast':
+        from .previous_turn_spell_costs import from_dict as previous_cast_from_dict
+        row['condition_facts']=tuple(previous_cast_from_dict(v)for v in _list(row['condition_facts'],'previous own spell-cast conditions'))
+    elif row['rules'] and row['rules'][0].condition in PRESENCE_COST_CONDITIONS:
         from .cost_presence import from_dict
         row['condition_facts'] = tuple(from_dict(v) for v in _list(row['condition_facts'],'original presence conditions'))
     elif row['rules'] and row['rules'][0].condition == 'current_deck_count':
