@@ -1,0 +1,1381 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-shaman-transforms-joust-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BOT_245",
+        "dbf_id": 48161,
+        "name": "风暴聚合器",
+        "name_en": "The Storm Bringer",
+        "text": "随机将你的所有随从变形成为<b>传说</b>随从。",
+        "text_en": "Transform your minions into random <b>Legendary</b> minions.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 1127,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "J. Paick & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "3b1947b1e81b7871cc50a3b6b8688fc57fd8558624b335e67218f4095efe461c",
+      "definition_sha256": "40e0a906b5a59338ff4aac3da7681f4f783fa9314f9e97b44935e4847e791127",
+      "pool_card_sha256": "0188a1df46b7e6da77be6b4a1522a7826495ded095e50fdf0ffe0c5ed7c06710"
+    },
+    {
+      "record": {
+        "id": "CFM_696",
+        "dbf_id": 40694,
+        "name": "衰变",
+        "name_en": "Devolve",
+        "text": "随机将所有\n敌方随从变形成为法力值消耗减少（1）点的随从。",
+        "text_en": "Transform all enemy minions into random ones that cost (1) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 25,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sean McNally"
+          }
+        ]
+      },
+      "record_sha256": "799ede5429116e12864bc48147df675332bf7b48eb7b562bc25bb813374ee5d0",
+      "definition_sha256": "76c7dbca50a2471304a79c45c9feade7f8eb7c006cc1bf84a0c52fc88762f746",
+      "pool_card_sha256": "63be6e1368edbd53e20dbe23bc25ec582c3e119c7dafdf7cd94efe24f09fbdc0"
+    },
+    {
+      "record": {
+        "id": "DAL_071",
+        "dbf_id": 52148,
+        "name": "突变",
+        "name_en": "Mutate",
+        "text": "将一个友方随从随机变形成为一个法力值消耗增加（1）点的随从。",
+        "text_en": "Transform a friendly minion into a random one that costs (1) more.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1130,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Andrew Hou"
+          }
+        ]
+      },
+      "record_sha256": "4bf9abfbc97fddf819def2c4b1a28547f966c4d89486251fbc095eeae3727de3",
+      "definition_sha256": "474d35d5839466b157287fa49822da6d64c647faefac41eeae0cc8dc309a39af",
+      "pool_card_sha256": "f1c2797af3adcbbc170644619a857eb5a208bac6eb7092bd986dfb32232bc9f6"
+    },
+    {
+      "record": {
+        "id": "LOOT_504",
+        "dbf_id": 46303,
+        "name": "不稳定的异变",
+        "name_en": "Unstable Evolution",
+        "text": "<b>回响</b>\n将一个友方随从随机变形成为一个法力值消耗增加（1）点的随从。",
+        "text_en": "<b>Echo</b>\nTransform a friendly minion into one that costs (1) more.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1004,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "ECHO": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tooth"
+          }
+        ]
+      },
+      "record_sha256": "7b1e880d6420a1f6d9ff975ab0fd1624d0c4bebafab2ea9e7fc6cd5278a2dac0",
+      "definition_sha256": "abe3050a0a275dbbefb2081fa4ff1a97a1ce535658415f1c08ad7a05c749b119",
+      "pool_card_sha256": "4ad1f4998f70b94cc425faccf4383a5b5d8d46a0ba910b40d6a601fd508537dc"
+    },
+    {
+      "record": {
+        "id": "OG_027",
+        "dbf_id": 38266,
+        "name": "异变",
+        "name_en": "Evolve",
+        "text": "随机将你的\n所有随从变形成为法力值消耗增加（1）点的随从。",
+        "text_en": "Transform your minions into random minions that cost (1) more.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 21,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "608e71dec0a35fe328b5179b0107953664d3894aa0d798f35cb75d4cad06a3c9",
+      "definition_sha256": "1202337fa00ded091397f957c9c7f8c00ca945999dba21fbc6e4e3eb9bd57176",
+      "pool_card_sha256": "dceec343fc6edbc622e7785797bdfd3b8e23f16c27190829817265bc000f5bcc"
+    },
+    {
+      "record": {
+        "id": "REV_924",
+        "dbf_id": 76982,
+        "name": "始源之潮",
+        "name_en": "Primordial Wave",
+        "text": "将敌方随从变形成为法力值消耗减少（1）点的随从，将友方随从变形成为法力值消耗增加（1）点的随从。",
+        "text_en": "[x]Transform enemy minions \ninto ones that cost (1) less \nand friendly minions into \nones that cost (1) more.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1691,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "78c4425eba199c98d6b8116ce9ab0a9f897f95ea73de43e9127eb007bc17a17c",
+      "definition_sha256": "68b55dd7385e0bf735914744918cccc5b1dfc7d60ca5748bc36a20641b7998bf",
+      "pool_card_sha256": "73daf4b68efb90c45fbcce2e7c53d4429c40f89ac59176b5dc1e80db5c62ca84"
+    },
+    {
+      "record": {
+        "id": "YOD_020",
+        "dbf_id": 56098,
+        "name": "惊爆异变",
+        "name_en": "Explosive Evolution",
+        "text": "将一个随从随机变形成为一个法力值消耗增加（3）点的\n随从。",
+        "text_en": "Transform a minion into a random one that costs (3) more.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1403,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1403,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rafael Zanchetin"
+          }
+        ]
+      },
+      "record_sha256": "5f973702f157bf39188faf4a4370702769fb482e75767ec09aad129af7348729",
+      "definition_sha256": "eb9f289d28cda22fecba7ca2dd690a16e5344dbd5ca1bc12ccb159a2cf555001",
+      "pool_card_sha256": "06958c3b11f1e65d7e8253ca308f5b17511c3636974385190f695f4a07a7ef40"
+    },
+    {
+      "record": {
+        "id": "AT_048",
+        "dbf_id": 2612,
+        "name": "治疗波",
+        "name_en": "Healing Wave",
+        "text": "恢复#8点生命值。揭示双方牌库里的一张随从牌。如果你的牌法力值\n消耗较大，改为恢复#16点生命值。",
+        "text_en": "Restore #8 Health. Reveal a minion in each deck. If yours costs more, restore #16 instead.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "9bc3e3d4558886ce4e7969809ce5ae34a638fa6df89b8ceae911306419adcfa9",
+      "definition_sha256": "1249d88b630645da2de18e7b759f07ee900f1d81e75170b940a048c2521430e2",
+      "pool_card_sha256": "084dd0c2f33682912caa19c3f17b54a04d5637fdc053df67453b445dc4eccd23"
+    },
+    {
+      "record": {
+        "id": "WON_320",
+        "dbf_id": 103223,
+        "name": "治疗波",
+        "name_en": "Healing Wave",
+        "text": "恢复#8点生命值。揭示双方牌库里的一张随从牌。如果你的牌法力值\n消耗较大，改为恢复#16点生命值。",
+        "text_en": "Restore #8 Health. Reveal a minion in each deck. If yours costs more, restore #16 instead.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1898,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "858": 2612,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2612",
+              "type": "Int",
+              "value": "2612"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "df77f93689690b38f0408b58ee999d00220bcc7b38641c375038ba2d975ff86e",
+      "definition_sha256": "afa80e481e79c3e35e264505f426c882967dd22ed64fef3b7327c676e3eeee44",
+      "pool_card_sha256": "67c327b6673b41c1d67320062d43e4aebd7e9c3bee79cea9eed8006934b27470"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BOT_245",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-13.json",
+      "response_sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+      "face": {
+        "id": 48161,
+        "collectible": 1,
+        "slug": "48161-the-storm-bringer",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 5,
+        "artistName": "J. Paick & K. Turovec",
+        "manaCost": 6,
+        "name": "风暴聚合器",
+        "text": "随机将你的所有随从变形成为<b>传说</b>随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7e9fd50d6e3dde815402799b0c77818664325e38473015136d0400504423f399.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0d2362475b8a1c614dcb666bafc511761dccc8f55cd247133e8718eb3f7322fe.png",
+        "flavorText": "伊莱克特拉终于可以在家办公了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a78e21b0afdeacc045ad9f6181a7467636ae205be4501b1c8ef19fda85f74f03.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 401926,
+        "sha256": "8d408fedf1ecb0ed6f6f96adc95da53826efc4e8cc10e829504659e28bf71126",
+        "response_date": "Fri, 23 Oct 2026 08:25:00 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_245",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 48161,
+        "collectible": 1,
+        "slug": "48161-the-storm-bringer",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 5,
+        "artistName": "J. Paick & K. Turovec",
+        "manaCost": 6,
+        "name": "The Storm Bringer",
+        "text": "Transform your minions into random <b>Legendary</b> minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/39c31572226a9208d03bc90cda6206879fe9fa96a7d9f8470caf0de09d537473.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd75ec0a83abe981a41c9c0a6f5de719f8bbce116b044956f6655cc4d16c17ae.png",
+        "flavorText": "Finally, Electra can work from home.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a78e21b0afdeacc045ad9f6181a7467636ae205be4501b1c8ef19fda85f74f03.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_696",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 40694,
+        "collectible": 1,
+        "slug": "40694-devolve",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Sean McNally",
+        "manaCost": 2,
+        "name": "衰变",
+        "text": "随机将所有 敌方随从变形成为法力值消耗减少（1）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/850bc2eac434849d0c5a94ffd97a4eef75b38ffc99fdac6baf94ccc0436a6ac9.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ccd7a281152da18fb41d1a87c673fcccbf5bb7d2710e8340d34776bf3f1de3c6.png",
+        "flavorText": "鱼人宣称，该技能充分表明所有物种的祖先都是鱼人！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e6a2830f527d24a7e582c64f7d02c0efd5799218fe8d0b07a83789cdd12fb2f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CFM_696",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 40694,
+        "collectible": 1,
+        "slug": "40694-devolve",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 25,
+        "rarityId": 3,
+        "artistName": "Sean McNally",
+        "manaCost": 2,
+        "name": "Devolve",
+        "text": "Transform all enemy minions into random ones that cost (1) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1089fca29b5e1af1dd576168262ce0e817dd6aba45df0803d56750591f126dc1.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc6dcc8982f192282d87199787f93e9e1a5e2378d95fd25241236e48397dd70d.png",
+        "flavorText": "Ragnaros looked down. He looked like some kind of War Golem. \"WHAT HAVE YOU DONE TO ME,\" he yelled. But all that came out was a deep grinding sound. He began to cry.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e6a2830f527d24a7e582c64f7d02c0efd5799218fe8d0b07a83789cdd12fb2f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_071",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 52148,
+        "collectible": 1,
+        "slug": "52148-mutate",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "manaCost": 0,
+        "name": "突变",
+        "text": "将一个友方随从随机变形成为一个法力值消耗增加（1）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6f44066c0298921c203c5c4c9c1c4cc062059dffc519313d5aef78dfa17b1c6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/421ea96e6681adc25e56d034c510dd314c6aca710ff600368ca84e079228b478.png",
+        "flavorText": "想得到预期的突变结果？除非鱼人都会飞！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/055f633b5a04dd995773329e144f4e7d8d921836820598f8a0ca108e486d7136.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_071",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 52148,
+        "collectible": 1,
+        "slug": "52148-mutate",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 1,
+        "artistName": "Andrew Hou",
+        "manaCost": 0,
+        "name": "Mutate",
+        "text": "Transform a friendly minion into a random one that costs (1) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b3f2d4aa32f88c1a3e7c1dc091590650cbb83b904e5013630929287e07fec1c4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e73b232d37f941659d9c414a22c906ef5f5b56bc979e1dad691c46652ad6570.png",
+        "flavorText": "You'll get the transformation you want when murlocs fly.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/055f633b5a04dd995773329e144f4e7d8d921836820598f8a0ca108e486d7136.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_504",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 46303,
+        "collectible": 1,
+        "slug": "46303-unstable-evolution",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 4,
+        "artistName": "Tooth",
+        "manaCost": 1,
+        "name": "不稳定的异变",
+        "text": "<b>回响</b> 将一个友方随从随机变形成为一个法力值消耗增加（1）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7c084d1a2fb80e0e3cd093f232898fe966852c521c13690170e96ea183a0ac86.png",
+        "imageGold": "",
+        "flavorText": "它们长得真快。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/146195080c95cd29ac32c0d8466f96bd59841c1caeb399af9614564a41b24ead.png",
+        "childIds": [
+          45904
+        ],
+        "keywordIds": [
+          52
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_504",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 46303,
+        "collectible": 1,
+        "slug": "46303-unstable-evolution",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 4,
+        "artistName": "Tooth",
+        "manaCost": 1,
+        "name": "Unstable Evolution",
+        "text": "<b>Echo</b> Transform a friendly minion into one that costs (1) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/217ecef845d709d2c102840154ef18ae52b56949379475395e6541900ade24b3.png",
+        "imageGold": "",
+        "flavorText": "They grow up so fast.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/146195080c95cd29ac32c0d8466f96bd59841c1caeb399af9614564a41b24ead.png",
+        "childIds": [
+          45904
+        ],
+        "keywordIds": [
+          52
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_027",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 38266,
+        "collectible": 1,
+        "slug": "38266-evolve",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 3,
+        "artistName": "Luca Zontini",
+        "manaCost": 1,
+        "name": "异变",
+        "text": "随机将你的 所有随从变形成为法力值消耗增加（1）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/02e5ef3654e2ac003732a6c5ef0b4238811115d4210502c4072a6e2d65ef661d.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8cd455fd57f00adde04d94e54b97b106e07f9720280256a1f93c9aefbac6cdaa.png",
+        "flavorText": "诡异的眼球，黏滑的触须，阴阳怪气的语调……这种变化不要也罢。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22055282e2d1b0c74053012fd0ce567e0c68717741ca64a516277bd96bd1feab.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_027",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 38266,
+        "collectible": 1,
+        "slug": "38266-evolve",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 3,
+        "artistName": "Luca Zontini",
+        "manaCost": 1,
+        "name": "Evolve",
+        "text": "Transform your minions into random minions that cost (1) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/11f08ef422db487b64a80147e95fc76db3b15c37afc3b125f260ffa494c16928.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8cd455fd57f00adde04d94e54b97b106e07f9720280256a1f93c9aefbac6cdaa.png",
+        "flavorText": "So you say you want an evolution. Well, you know. We all want to change the board.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22055282e2d1b0c74053012fd0ce567e0c68717741ca64a516277bd96bd1feab.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_924",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 76982,
+        "collectible": 1,
+        "slug": "76982-primordial-wave",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "始源之潮",
+        "text": "将敌方随从变形成为法力值消耗减少（1）点的随从，将友方随从变形成为法力值消耗增加（1）点的随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d03b363974959f333e3c5e6f99c572f1875f4f19e7c2228e4a9c63eb598149aa.png",
+        "imageGold": "",
+        "flavorText": "有味道的插画，有味道的名字。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9920e74cd95002d2cbc9b70af13d0ffc9d2a6066986a1cb3544633e3f02d5148.png",
+        "copyOfCardId": [
+          118148
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_924",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 76982,
+        "collectible": 1,
+        "slug": "76982-primordial-wave",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "Primordial Wave",
+        "text": "Transform enemy minions into ones that cost (1) less and friendly minions into ones that cost (1) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e9d2e19014d2c09dae4716b0781fb6f48fe8f8f68ab31b472b5945f13f14ef26.png",
+        "imageGold": "",
+        "flavorText": "A primordial hello to you too!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9920e74cd95002d2cbc9b70af13d0ffc9d2a6066986a1cb3544633e3f02d5148.png",
+        "copyOfCardId": [
+          118148
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_020",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 56098,
+        "collectible": 1,
+        "slug": "56098-explosive-evolution",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1403,
+        "rarityId": 1,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 2,
+        "name": "惊爆异变",
+        "text": "将一个随从随机变形成为一个法力值消耗增加（3）点的 随从。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bf9422973ca74b3bda88b5a9bc2b67a5b55068f5290ba579baeb195be13a0bf7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c3c6c991f961770009f2c0b02aea4629e5d1f0ec978ab33960480ca4ce55777.png",
+        "flavorText": "一起为地精的实验助一臂之力！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd08a9a5d6b556f6987f530976265d5b98d99da46382981d457db59ca0bd130c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOD_020",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 56098,
+        "collectible": 1,
+        "slug": "56098-explosive-evolution",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1403,
+        "rarityId": 1,
+        "artistName": "Rafael Zanchetin",
+        "manaCost": 2,
+        "name": "Explosive Evolution",
+        "text": "Transform a minion into a random one that costs (3) more.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/18155bae12a0b35fe1d245ddc108a030d1e92be187ae33db274165914b4e78ad.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/13167175f04aea1bf9d814155400fc22025152f12e651e17da7f1c546a895fd2.png",
+        "flavorText": "Let's give a big hand for goblin experimentation!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cd08a9a5d6b556f6987f530976265d5b98d99da46382981d457db59ca0bd130c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_048",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 2612,
+        "collectible": 1,
+        "slug": "2612-healing-wave",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Luca Zontini",
+        "manaCost": 3,
+        "name": "治疗波",
+        "text": "恢复 8点生命值。揭示双方牌库里的一张随从牌。如果你的牌法力值 消耗较大，改为恢复 16点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3cd6f6dde61dd390e20f7c201625e13949c16bad186e725a63bfdbcd2b40897b.png",
+        "imageGold": "",
+        "flavorText": "恢复系萨满最钟爱的技能之一。治疗效果出众，广受盟友好评。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f6cea02572d228d9a4a7fe72e1e3d03b02de703af8142e433506f146f089bf1.png",
+        "copyOfCardId": [
+          103223
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_048",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 2612,
+        "collectible": 1,
+        "slug": "2612-healing-wave",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 3,
+        "artistName": "Luca Zontini",
+        "manaCost": 3,
+        "name": "Healing Wave",
+        "text": "Restore 8 Health. Reveal a minion in each deck. If yours costs more, restore 16 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffb5c4449e19cee6792cd09e294b356059f8c8207e7ecce6a478fcda7f965c40.png",
+        "imageGold": "",
+        "flavorText": "Favored by shaman who study the art of restoration and healing, this spell would feel smug, if it had feelings.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f6cea02572d228d9a4a7fe72e1e3d03b02de703af8142e433506f146f089bf1.png",
+        "copyOfCardId": [
+          103223
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_320",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 103223,
+        "collectible": 1,
+        "slug": "103223-healing-wave",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Luca Zontini",
+        "manaCost": 3,
+        "name": "治疗波",
+        "text": "恢复 8点生命值。揭示双方牌库里的一张随从牌。如果你的牌法力值 消耗较大，改为恢复 16点生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d5f5467fa6b201a2c4ff48bde6b585d245f1626295099525b33e50e2d61423c.png",
+        "imageGold": "",
+        "flavorText": "恢复系萨满最钟爱的技能之一。治疗效果出众，广受盟友好评。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f6cea02572d228d9a4a7fe72e1e3d03b02de703af8142e433506f146f089bf1.png",
+        "copyOfCardId": [
+          2612
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_320",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 103223,
+        "collectible": 1,
+        "slug": "103223-healing-wave",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1898,
+        "rarityId": 3,
+        "artistName": "Luca Zontini",
+        "manaCost": 3,
+        "name": "Healing Wave",
+        "text": "Restore 8 Health. Reveal a minion in each deck. If yours costs more, restore 16 instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/60e70dda72a6b59b1b6322391a8952cb728080e9dc678d6a658bc2bbd663cf03.png",
+        "imageGold": "",
+        "flavorText": "Favored by shaman who study the art of restoration and healing, this spell would feel smug, if it had feelings.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f6cea02572d228d9a4a7fe72e1e3d03b02de703af8142e433506f146f089bf1.png",
+        "copyOfCardId": [
+          2612
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "DAL_071": {
+      "cost": 0
+    }
+  },
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "BOT_245",
+    "CFM_696",
+    "DAL_071",
+    "LOOT_504",
+    "OG_027",
+    "REV_924",
+    "YOD_020",
+    "AT_048",
+    "WON_320"
+  ],
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "legendary": "Original active friendly board; complete collectible Legendary view without source cost tier. Original captured board references, full pool validation and ordinary per-recipient sampling/transform.",
+    "costs": "Existing printed source cost, Evolve10 cap/above10 tier and Devolve lower-available-tier policy unchanged; real Echo uses ordinary temporary hand material/payment/expiry.",
+    "groups": "Primordial Wave first enemy Devolve group then friendly Evolve group via existing staged board producer.",
+    "joust": "Original physical minion reveal from both decks, original stored costs, strict own greater comparison and existing empty-deck policy. Original target then ordinary8/16 SPELL healing."
+  },
+  "uncertainties": [
+    "Source/current face, zero-tier fallback and two-sided transformation interleavings keep existing explicit local policies, not CN calibration.",
+    "Original full71 source remains unbound; no executable subset pool.",
+    "Current frozen sources only: patch/hotfix and CN edge calibration deferred."
+  ]
+}

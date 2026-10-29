@@ -7,12 +7,15 @@ from .construction import integer, name
 from .effects import Effect, GrantDeathrattle, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .hand_upgrades import BuffStoredCard
-from .model import CardClass, CardType, CostSpec, SummonStats, Zone, validate_end_turn_rng, validate_summon_stats
+from .model import CardClass, CardType, CostSpec, Rarity, SummonStats, Zone, validate_end_turn_rng, validate_summon_stats
 from .pools import (GenerationContext, GenerationPolicy, PoolMember, PoolQuery, matches_metadata,
                     resolve_candidates, sample_candidates, validate_policy)
 from .sacrifice import MinionReference, BuffCapturedMinion, live_minion
 from .zones import CardReference, reference_entity, source_exists
 from .card_conditions import has_battlecry
+
+LEGENDARY_BOARD_QUERY = PoolQuery(kinds=(CardType.MINION,), collectible=True,
+                                  rarities=(Rarity.LEGENDARY,))
 
 
 @dataclass(frozen=True)
@@ -597,8 +600,12 @@ class TransformMinionsInZones(Effect):
         self.query.__post_init__()
         if self.query.kinds not in ((),(CardType.MINION,)) or self.query.min_cost is not None or self.query.max_cost is not None:
             raise ValueError('Transformation determines its own minion cost tier')
-        if self.cost_basis not in ('printed','local') or self.retain_cost_basis not in (None,'printed','local'):
+        if self.cost_basis not in ('printed','local','none') or self.retain_cost_basis not in (None,'printed','local'):
             raise ValueError('Invalid transformation cost basis')
+        if self.cost_basis == 'none' and (self.cost_delta != 0 or self.query != LEGENDARY_BOARD_QUERY or
+                self.scope.zones != (Zone.BOARD,) or self.retain_cost_basis is not None or
+                self.deathrattle_behavior_id is not None or self.source_id is None):
+            raise ValueError('Untiered transformation requires its sourced complete Legendary board policy')
         if self.empty not in ('skip','error'):raise ValueError('Invalid empty transformation pool policy')
         if self.deathrattle_behavior_id is not None:
             name(self.deathrattle_behavior_id, 'original transformation Deathrattle')
@@ -626,7 +633,10 @@ class TransformPoolTarget(Effect):
         validate_policy(self.policy)
         if type(self.query) is not PoolQuery:raise ValueError('Expected captured pool query')
         self.query.__post_init__()
-        if self.query.kinds!=(CardType.MINION,) or self.query.min_cost is None or self.query.min_cost!=self.query.max_cost:
+        fixed_tier = self.query.kinds == (CardType.MINION,) and self.query.min_cost is not None and self.query.min_cost == self.query.max_cost
+        full_legendary = (self.query == LEGENDARY_BOARD_QUERY and type(self.target) is MinionReference and
+            self.source_id is not None and self.retained_cost is None and self.deathrattle_grant is None)
+        if not fixed_tier and not full_legendary:
             raise ValueError('Captured transformation requires one minion cost tier')
         if (self.query.class_mode in ('current','other')) != (self.hero_class is not None):
             raise ValueError('Captured transformation class disagrees with query')
@@ -693,7 +703,7 @@ def prepare_transforms(r,effect,refs):
             raise ResolutionError('Transformation requires a captured minion')
         entity=current_target(r,ref)
         if entity is None:continue
-        cost=transformed_cost_tier(cost_value(r.registry,entity,effect.cost_basis),effect.cost_delta)
+        cost=None if effect.cost_basis == 'none' else transformed_cost_tier(cost_value(r.registry,entity,effect.cost_basis),effect.cost_delta)
         retained=cost_value(r.registry,entity,effect.retain_cost_basis) if effect.retain_cost_basis is not None else None
         grant = None
         if effect.deathrattle_behavior_id is not None:
@@ -702,7 +712,8 @@ def prepare_transforms(r,effect,refs):
             material = CopyEntryMaterial.capture(r.state, entity, 'remembered_copy', 'current', registry=r.registry)
             grant = GrantDeathrattle(entity.id, effect.deathrattle_behavior_id, effect.source_id,
                 deathrattle_memory=DeathrattleMemory(NativeDeathrattleSpec('copy_summon'), summon_copy=material))
-        step=TransformPoolTarget(ref,effect.pool_id,replace(effect.query,kinds=(CardType.MINION,),min_cost=cost,max_cost=cost),
+        query=effect.query if cost is None else replace(effect.query,kinds=(CardType.MINION,),min_cost=cost,max_cost=cost)
+        step=TransformPoolTarget(ref,effect.pool_id,query,
              effect.policy,effect.player_id,hero_class,source_card_id,effect.source_id,retained,effect.empty,grant)
         if effect.cost_delta < 0:
             # Visit only costs that physically occur in this immutable pool.
