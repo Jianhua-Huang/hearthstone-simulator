@@ -154,7 +154,7 @@ class VarianVoljinDependenciesTests(CardBatchTestMixin, unittest.TestCase):
         self.assertIn(target, g.state.players[1].hand); self.assertIn(hand_partner, g.state.players[1].board)
         self.assertEqual(g.state.players[1].mana, 45); self.assertEqual(len(g.state.play_history), 2)
         self.assertEqual(len(g.state.card_summon_history), 4)
-        self.assertTrue(set(native.CARDS).isdisjoint(f.root_card_ids)); self.assertNotIn('WON_113', f.registry.cards)
+        self.assertTrue(set(native.CARDS).isdisjoint(f.root_card_ids)); self.assertIn('WON_113', f.registry.cards)
         saved = g.snapshot(); reader = host('reader').registry
         self.assertEqual(Game.from_snapshot(saved, reader).snapshot(), saved)
 

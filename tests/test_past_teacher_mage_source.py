@@ -50,9 +50,9 @@ class MageTeacherSourceTests(CardBatchTestMixin,unittest.TestCase):
 
     def pick(self,g,cid):self.choose(g,next(o.id for o in g.state.pending_choice.options if o.card_id==cid))
 
-    def test_complete_original_rows_pins_and_ordered_44_member_union(self):
+    def test_complete_original_rows_pins_and_ordered_44_member_prefix(self):
         d=native.load_batch();f=fixture();p=f.registry.pool(native.POOL,f.context)
-        self.assertEqual([v.card_id for v in p.members],d['merged_member_ids']);self.assertEqual(len(p.members),44)
+        self.assertEqual([v.card_id for v in p.members[:44]],d['merged_member_ids']);self.assertEqual(len(p.members),201)
         self.assertEqual([v.card_id for v in p.members[:21]],d['original_member_ids']);self.assertTrue(all(v.weight==1 for v in p.members))
         native.validate_native(f.registry,d);self.assertFalse(p.excluded_card_ids);self.assertFalse(d['formal_pool_complete']or d['cn_calibrated'])
 
@@ -64,12 +64,12 @@ class MageTeacherSourceTests(CardBatchTestMixin,unittest.TestCase):
                 self.assertEqual([asdict(v)for v in rows],d[key])
         self.assertIn('RLK_590',d['mage_member_ids']);self.assertNotIn('WON_113',d['mage_member_ids'])
 
-    def test_other_classes_and_unrestricted_toki_stay_explicitly_closed(self):
+    def test_other_classes_and_unreviewed_toki_class_stay_explicitly_closed(self):
         f=fixture()
         for hero in(CardClass.ROGUE,CardClass.WARRIOR):
             with self.subTest(hero=hero),self.assertRaises(UnsupportedDefinitionError):
                 resolve_candidates(f.registry,f.context,native.POOL,native.QUERY,current_class=hero,source_card_id=CARD,exclude_source_by_rule=True)
-        g=self.game(card='TIME_861');before=g.snapshot()
+        g=self.game(card='TIME_861',hero='HERO_03');before=g.snapshot()
         with self.assertRaises(ResolutionError):self.play(g,'TIME_861')
         self.assertEqual(g.snapshot(),before)
 
@@ -94,7 +94,7 @@ class MageTeacherSourceTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(g.snapshot(),before);self.choose(g);self.choose(r);self.assertEqual(g.snapshot(),r.snapshot())
         self.pick(g,'EX1_279');self.pick(r,'EX1_279');self.assertEqual(g.snapshot(),r.snapshot());self.portable(g)
 
-    def test_manifest_preserves_every_v13_predecessor_declaration(self):
+    def test_manifest_preserves_every_v14_predecessor_declaration(self):
         current=load_bindings();old=json.loads((ROOT/current['previous_manifest']['path']).read_text(encoding='utf8'))
         self.assertEqual(canonical_digest(old),current['previous_manifest']['canonical_sha256'])
         for key,value in old.items():

@@ -92,7 +92,7 @@ class PastSourceScopedPoolTests(CardBatchTestMixin,unittest.TestCase):
         for item in load_batch()['inventories']:
             pool=fmt.registry.pool(item['id'],fmt.context)
             self.assertEqual([m.card_id for m in pool.members if m.card_id in item['member_ids']],item['member_ids'])
-            self.assertEqual(len(pool.members),72 if item['id']=='constructed.past.cards' else 44)
+            self.assertEqual(len(pool.members),72 if item['id']=='constructed.past.cards' else 201)
             self.assertTrue(all(m.weight==1 for m in pool.members));self.assertTrue(pool.complete)
             self.assertEqual([m.card_id for m in members(fmt,item['source_card_id'])],sorted(item['member_ids']))
         self.assertTrue({TEACHER,FRONTIER}<={s.source_card_id for s in fmt.registry.generation_scopes.values()})
@@ -167,7 +167,7 @@ class PastSourceScopedPoolTests(CardBatchTestMixin,unittest.TestCase):
                 if mode=='transform_teacher':self.portable(g)
 
     def test_real_unknown_hero_views_and_other_producers_fail_atomically_before_selection(self):
-        for source,hero in ((TEACHER,'HERO_03'),(FRONTIER,'HERO_08'),('TIME_861','HERO_08'),(UNKNOWN,'HERO_06')):
+        for source,hero in ((TEACHER,'HERO_03'),(FRONTIER,'HERO_08'),('TIME_861','HERO_03'),(UNKNOWN,'HERO_06')):
             with self.subTest(source=source,hero=hero):
                 g=self.game((source,),hero=hero);before=g.snapshot()
                 with self.assertRaisesRegex(ResolutionError,'Unreviewed generation scope'):self.play(g,source)

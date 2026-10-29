@@ -135,7 +135,7 @@ class LegacyChampionDependenciesTests(CardBatchTestMixin, unittest.TestCase):
         self.assertEqual(r.card(ANTONIDAS).triggers[0].event, 'spell_cast_started')
         self.assertIn('undead', r.card(SYLVANAS).metadata.tribes)
 
-    def test_real_local_host_plays_six_exact_legacy_faces_without_opening_incomplete_source(self):
+    def test_real_local_host_plays_six_exact_legacy_faces_with_complete_source_available(self):
         f = host(); g = Game.from_scenario(Scenario((PlayerSetup('HERO_08', hand=native.CARDS,
             mana=60, max_mana=60, mana_cap=60), PlayerSetup('HERO_08')), seed=655,
             generation_context=f.context), f.registry)
@@ -144,8 +144,8 @@ class LegacyChampionDependenciesTests(CardBatchTestMixin, unittest.TestCase):
         self.assertEqual([g.state.entities[i].card_id for i in g.state.players[1].board], list(native.CARDS))
         self.assertEqual(g.state.players[1].mana, 18)
         self.assertTrue(set(native.CARDS).isdisjoint(f.root_card_ids))
-        for missing in ('WON_113', 'AT_072', 'BAR_080'):
-            self.assertNotIn(missing, f.registry.cards)
+        for dependency in ('WON_113', 'AT_072', 'BAR_080'):
+            self.assertIn(dependency, f.registry.cards)
 
     def test_tirion_shield_and_real_death_equip_exact_ashbringer_replacing_old_weapon(self):
         g = self.game(hand=(TIRION, HIT, KILL), weapon='EX1_383t')

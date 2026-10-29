@@ -1,0 +1,2227 @@
+{
+  "schema": 1,
+  "batch": "K657-complete-known-faction-source-and-Toki-Mage-binding",
+  "policy_id": "cn37-local-complete-known-champions-source-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "WON_113",
+        "dbf_id": 102657,
+        "name": "艾泽拉斯的勇士",
+        "name_en": "Champions of Azeroth",
+        "text": "选择联盟或部落，获取2张该阵营的<b>传说</b>勇士并使其法力值消耗减少（2）点。",
+        "text_en": "[x]Choose Alliance or Horde.\nGet 2 of their <b>Legendary</b>\nChampions and reduce\ntheir Costs by (2).",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 12,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ludo Lullabi"
+          }
+        ]
+      },
+      "record_sha256": "6bb75fb382bff99df038f1c0c512cc40ba9f391a6827ff1a1a866825db1fc218",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "epic",
+        "deck_identity": "WON_113",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "eb9923a68c7978678b4324dc6c577465ce3679f7b31c1dd0ec710cd8d6c8e874"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "WON_113a",
+        "dbf_id": 118312,
+        "name": "为了联盟！",
+        "name_en": "For the Alliance!",
+        "text": "随机获取2张<b>传说</b>联盟勇士并使其法力值消耗减少（2）点。",
+        "text_en": "[x]Get 2 random <b>Legendary</b>\nAlliance Champions and\n reduce their Costs by (2).",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "c3715c0078de441232d59658421df543298b8dd7569ccd323dd4283a38b6d35b",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "WON_113a",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "5dcc0b2776c3337acc917083c9747fdac8636915002707eb43d2bcf00e88db5a"
+    },
+    {
+      "record": {
+        "id": "WON_113b",
+        "dbf_id": 118313,
+        "name": "为了部落！",
+        "name_en": "For the Horde!",
+        "text": "随机获取2张<b>传说</b>部落勇士并使其法力值消耗减少（2）点。",
+        "text_en": "[x]Get 2 random <b>Legendary</b>\nHorde Champions and\n reduce their Costs by (2).",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1941,
+          "CLASS": 12,
+          "CARDTYPE": 5
+        },
+        "card_set_id": 1941,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          }
+        ]
+      },
+      "record_sha256": "afbe6b0f82af9c99efe98bce614569cb1a881fcba371877e170c498b544ffa83",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "WON_113b",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "704232257616ac1be2c48cb7e3575696b830156dbb7b0a0c5bfd836b9c0261b4"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "AT_072",
+        "dbf_id": 2760,
+        "name": "瓦里安·乌瑞恩",
+        "name_en": "Varian Wrynn",
+        "text": "<b>战吼：</b>抽三张牌。将抽到的随从牌直接置入战场。",
+        "text_en": "<b>Battlecry:</b> Draw 3 cards.\nPut any minions you drew directly into the battlefield.",
+        "cost": 10,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 10,
+          "ELITE": 1,
+          "CARD_SET": 15,
+          "CLASS": 10,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          }
+        ]
+      },
+      "record_sha256": "c91d9fd9f272a093cb3877ac02701c76875b96219b9fc4da0a717d5398ad71f7",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "AT_072",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "e27b22ee795a1274f111ba3e6b2be075d32e80b21ec7eb333333a10ea2e417bd",
+      "pool_card_sha256": "b744188e5a2ac29953873d9025b440eaeaf62d77d315b2e151e7a6df4b211fe8"
+    },
+    {
+      "record": {
+        "id": "EX1_383",
+        "dbf_id": 890,
+        "name": "提里奥·弗丁",
+        "name_en": "Tirion Fordring",
+        "text": "<b>圣盾</b>。<b>嘲讽</b>。<b>亡语：</b>&装备一把5/3的灰烬使者。",
+        "text_en": "<b>Divine Shield</b>, <b>Taunt</b> <b>Deathrattle:</b>& Equip a 5/3_Ashbringer.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "DIVINE_SHIELD": 1,
+          "CLASS": 5,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 1730,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brom"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "53173759ca19f2ac17884efa0c3645b6f03af4807d8357431157f70afdcb6d6b",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EX1_383",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "64a568b3b13824cc06f6f5bc026a38befb7be7a6fd40d7050fb28a3a9bee38e2",
+      "pool_card_sha256": "2087be4f2b0d86fe95b340ae249f25922f90f10c62c4714eaa75d90427382b55"
+    },
+    {
+      "record": {
+        "id": "EX1_559",
+        "dbf_id": 1080,
+        "name": "大法师安东尼达斯",
+        "name_en": "Archmage Antonidas",
+        "text": "每当你施放一个法术，&将一张“火球术”法术牌置入你的手牌。",
+        "text_en": "Whenever you cast a spell,& add a 'Fireball' spell to_your hand.",
+        "cost": 7,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 315,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4930": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "90ff2dbb8a5a2c78376e287745a8cdde5f9809efa80a53a1d3e6cc076c8a0941",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EX1_559",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "f671a4ce82163a9c034eb9714fcbaaf2db16f184899635e092335467632e4b1d",
+      "pool_card_sha256": "a751ca73c7fb2c686c2a038632fcd73986a5cd4a021fe83d833b896f8e4a1719"
+    },
+    {
+      "record": {
+        "id": "LOE_077",
+        "dbf_id": 2949,
+        "name": "布莱恩·铜须",
+        "name_en": "Brann Bronzebeard",
+        "text": "你的<b>战吼</b>会触发\n两次。",
+        "text_en": "Your <b>Battlecries</b> trigger twice.",
+        "cost": 3,
+        "attack": 2,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 2,
+          "COST": 3,
+          "ELITE": 1,
+          "CARD_SET": 20,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 20,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sam Nielson"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "218",
+              "name": "BATTLECRY",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "6c32e613fe0b8239f7fa8ab1e6c56392211d74168ef41e2ba25e7cfb9751f574",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "LOE_077",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "2e0a9d0a6af0115df99cf547994cf248247a9be4f9e46030f7b44ca7e5c8eadb",
+      "pool_card_sha256": "fa6bd131e1c92d863bf35c93150369c8f0f13a21b80be02cc509a43961774974"
+    },
+    {
+      "record": {
+        "id": "EX1_350",
+        "dbf_id": 9,
+        "name": "先知维伦",
+        "name_en": "Prophet Velen",
+        "text": "使你的法术和英雄技能的伤害和治疗效果翻倍。",
+        "text_en": "Double the damage and healing of your spells and Hero Power.",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 6,
+          "CARDRACE": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "251": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wei Wang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "b0aa5cfea6e0b63f51ed5c4d882ce24190d2ed7bea6dd6d46f3832000e44a3c0",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "priest"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EX1_350",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "draenei"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "4b0dd663c4bf7d250894a5aa4c340011da6fb9e6498c8739580352082ba28fe1",
+      "pool_card_sha256": "7778775635467117c30362bdec6535c43919d066e049a546d2a2080a67f67f00"
+    },
+    {
+      "record": {
+        "id": "EX1_414",
+        "dbf_id": 338,
+        "name": "格罗玛什·地狱咆哮",
+        "name_en": "Grommash Hellscream",
+        "text": "<b>冲锋</b>\n受伤时拥有+6攻\n击力。",
+        "text_en": "<b>Charge</b>\nHas +6 Attack while damaged.",
+        "cost": 8,
+        "attack": 4,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 4,
+          "COST": 8,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CHARGE": 1,
+          "CLASS": 10,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "ENRAGED": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "30b6940c0e0693598ed825a80d8ffa180efc9432ee9410598300e2e3b5302e20",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "warrior"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EX1_414",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "82ec1cdd5431df1912e314c57cb8d087313fa2d6ba3c5ce1758a9011b1231190",
+      "pool_card_sha256": "03dc8aab3a715be87c2d490e299e6588b8260b774b76db036c4dacf315065fb1"
+    },
+    {
+      "record": {
+        "id": "EX1_016",
+        "dbf_id": 1721,
+        "name": "希尔瓦娜斯·风行者",
+        "name_en": "Sylvanas Windrunner",
+        "text": "<b>亡语：</b>随机夺取一个敌方随从的控制权。",
+        "text_en": "<b>Deathrattle:</b> Take\ncontrol of a random\nenemy minion.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "CARDRACE": 11,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Glenn Rane"
+          }
+        ]
+      },
+      "record_sha256": "303832141e7858d89d1e35cf92025be5c0ed5e4470a33128a9fe28909d97d5dd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EX1_016",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [
+          "undead"
+        ],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "9ac00b2723a0b76e5fd44c6486ab15742a0ec3dc304f7c0c4bd0096931f0b030",
+      "pool_card_sha256": "8355d17089e492b4ff2deb4cfc9aa32276324f5af78c5c8f3e76e5c8898a2595"
+    },
+    {
+      "record": {
+        "id": "EX1_110",
+        "dbf_id": 420,
+        "name": "凯恩·血蹄",
+        "name_en": "Cairne Bloodhoof",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>&召唤一个5/5的贝恩·血蹄。",
+        "text_en": "[x]<b>Taunt</b>\n<b>Deathrattle:</b>& Summon a\n5/5 Baine Bloodhoof.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 6,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 12,
+          "FACTION": 2,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "DEATHRATTLE": 1,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 318,
+          "CRAFTABLE_OUTPUT_POWER": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Wayne Reynolds"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "9539a21a4ea67fa4e136c8cd9171904e855791e6559034a2a47c9d6ff7f05315",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "EX1_110",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "fc23447af413011d6e50ef07b8653d4d78b856055e99f4059a876fbf4b291502",
+      "pool_card_sha256": "2afc3139a795bc90f91372e321dfa35557e679cc3595754f46b786eede207d34"
+    },
+    {
+      "record": {
+        "id": "RLK_593",
+        "dbf_id": 86383,
+        "name": "洛瑟玛·塞隆",
+        "name_en": "Lor'themar Theron",
+        "text": "<b>战吼：</b>\n使你牌库中所有随从牌的属性值翻倍。",
+        "text_en": "<b>Battlecry:</b> Double the stats of all minions in your deck.",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Grafit Studio"
+          }
+        ]
+      },
+      "record_sha256": "7778330a5225d35682ed155d61f5d72f8da59aa90384711e948e2c2757fd05d2",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "RLK_593",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "b2423ea6c5250b336c1938c8680631f24226dcc27925b597922e32990b5c0258",
+      "pool_card_sha256": "1cabc6c25e586e138b6b58e6814ba8b6c8b9a0eb48b997c38f0566f7582573b6"
+    },
+    {
+      "record": {
+        "id": "BAR_080",
+        "dbf_id": 62176,
+        "name": "暗影猎手沃金",
+        "name_en": "Shadow Hunter Vol'jin",
+        "text": "<b>战吼：</b>选择一个随从，与其拥有者手牌中的随机一个随从交换。",
+        "text_en": "<b>Battlecry:</b> Choose a minion. Swap it with a random one in its owner's hand.",
+        "cost": 5,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1525,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steven Prescott"
+          }
+        ]
+      },
+      "record_sha256": "18a5d9eff2388a8120d91e0a7cc72e0ee1b4ac30f6cf5b385b8b642a81ddb4cd",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "BAR_080",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "d09165ca632a773f581358d3153bae78f5c33eeca9d7a2ec27fe00cc1a9d1bb7",
+      "pool_card_sha256": "dc836a3ed521b351045b383a684844966a6cc31bc8594e856a5e97878887533b"
+    },
+    {
+      "record": {
+        "id": "EX1_383t",
+        "dbf_id": 1730,
+        "name": "灰烬使者",
+        "name_en": "Ashbringer",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 5,
+          "CARDTYPE": 7
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "714bfc5baf263a6f3bc455200b4631ac0458db37acec600f654ccc84099cbdcd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "paladin"
+        ],
+        "rarity": "none",
+        "deck_identity": "EX1_383t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "6c9b086a6154dec01abd982b222835ab852fdb4be58dfe28bc6f87c84b74e9ec",
+      "pool_card_sha256": "123cc8b6bdeffca313addc88d95cbd062678399574b0208b71dac445b2e26394"
+    },
+    {
+      "record": {
+        "id": "EX1_110t",
+        "dbf_id": 318,
+        "name": "贝恩·血蹄",
+        "name_en": "Baine Bloodhoof",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 3,
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "ENCHANTMENT_BIRTH_VISUAL": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "cafa703f92592d837c19286018872985111790f68204fb6d100842957bd6d2cd",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "none",
+        "deck_identity": "EX1_110t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null,
+      "definition_sha256": "31f31a6868635f18005894a295c68b534777d491f0c827155b9cf7a32204e5d1",
+      "pool_card_sha256": "3b8534c538a46e5f3d9fdbe4774d3596d4af1f71ea0a3b7763b49a75fc953e3c"
+    },
+    {
+      "record": {
+        "id": "CS2_029",
+        "dbf_id": 315,
+        "name": "火球术",
+        "name_en": "Fireball",
+        "text": "造成$6点伤害。",
+        "text_en": "Deal $6 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1635,
+          "CLASS": 4,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 3,
+          "268": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "3"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "268",
+              "name": "DevState",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "268"
+          }
+        ]
+      },
+      "record_sha256": "e5d6003a35de8d5a7cc21d1744d22d3aa569b62ef5085f523727966459d54996",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "mage"
+        ],
+        "rarity": "free",
+        "deck_identity": "CS2_029",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "fire",
+      "definition_sha256": "00f3568b9f3302d8ea2b14459f5612ca6ae167dafeb14ecf424b5d506cc79088",
+      "pool_card_sha256": "a0310e1481b164a48426ececa2ada20424fdab4246b4d68d6b93c302d8617266"
+    }
+  ],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "WON_113",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 102657,
+        "collectible": 1,
+        "slug": "102657-champions-of-azeroth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 4,
+        "artistName": "Ludo Lullabi",
+        "manaCost": 4,
+        "name": "艾泽拉斯的勇士",
+        "text": "选择联盟或部落，获取2张该阵营的<b>传说</b>勇士并使其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/52e81bdf872f543078540d572624b513e925c529feef74973e05a3acd509bd32.png",
+        "imageGold": "",
+        "flavorText": "我们是勇士……魔兽世界的勇士！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7426be7f12c1b46aa6ed1ac1576cbcb6f0ea843e641f0dfb27211ca7c6caf670.png",
+        "childIds": [
+          2760,
+          890,
+          1080,
+          2949,
+          9,
+          338,
+          1721,
+          420,
+          86383,
+          62176,
+          1730,
+          318
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WON_113",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 102657,
+        "collectible": 1,
+        "slug": "102657-champions-of-azeroth",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 4,
+        "artistName": "Ludo Lullabi",
+        "manaCost": 4,
+        "name": "Champions of Azeroth",
+        "text": "Choose Alliance or Horde. Get 2 of their <b>Legendary</b> Champions and reduce their Costs by (2).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b9311c4976ed451cb342d49a1f60aab6af0c429e2557a576e331869445b1c32.png",
+        "imageGold": "",
+        "flavorText": "Weeee are the champions of the Wooorld… of Warcraft!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7426be7f12c1b46aa6ed1ac1576cbcb6f0ea843e641f0dfb27211ca7c6caf670.png",
+        "childIds": [
+          2760,
+          890,
+          1080,
+          2949,
+          9,
+          338,
+          1721,
+          420,
+          86383,
+          62176,
+          1730,
+          318
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_072",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 2760,
+        "collectible": 1,
+        "slug": "2760-varian-wrynn",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "瓦里安·乌瑞恩",
+        "text": "<b>战吼：</b>抽三张牌。将抽到的随从牌直接置入战场。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8d9cd40320c86e31a4130b03594a4337857d9fbd37d2b9d9cd6f626f65f73fb3.png",
+        "imageGold": "",
+        "flavorText": "联盟的统治者！安度因的父亲！同时他还喜欢玩竞技模式，场均12胜。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/699e7440a32fc6063b72e0e7a4291bf47c56a46252367806aa4d715f58729a79.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_072",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 2760,
+        "collectible": 1,
+        "slug": "2760-varian-wrynn",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 15,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 10,
+        "name": "Varian Wrynn",
+        "text": "<b>Battlecry:</b> Draw 3 cards. Put any minions you drew directly into the battlefield.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/10768502ea2438abe55a7a623bb977ac01b1503a66cc19e013069c3ea811caaf.png",
+        "imageGold": "",
+        "flavorText": "Leader of the Alliance! Father of Anduin! Also he likes to play Arena, and he averages 12 wins.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/699e7440a32fc6063b72e0e7a4291bf47c56a46252367806aa4d715f58729a79.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_383",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 890,
+        "collectible": 1,
+        "slug": "890-tirion-fordring",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Brom",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "提里奥·弗丁",
+        "text": "<b>圣盾</b>，<b>嘲讽</b>，<b>亡语：</b>装备一把5/3的 灰烬使者。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dded2767967992cc5deb99a2d88923f83cda43ae9fc1b3a4b839fef615ce632c.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5683d3189d225e61484838b0ea5b02f0112f747b49e9c6e4b08cccf6344d20f4.png",
+        "flavorText": "如果你还没听过《提里奥·弗丁主题曲》，那是因为它还没被谱写出来。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/962fdb3448c5b75acb6f65537afa64382127b45143b631124a8877ce4da0c1c6.png",
+        "childIds": [
+          1730
+        ],
+        "keywordIds": [
+          1,
+          3,
+          12
+        ],
+        "copyOfCardId": [
+          69613,
+          69942
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_383",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 890,
+        "collectible": 1,
+        "slug": "890-tirion-fordring",
+        "classId": 5,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Brom",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Tirion Fordring",
+        "text": "<b><b>Divine Shield</b>,</b> <b>Taunt</b> <b>Deathrattle:</b> Equip a 5/3 Ashbringer.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f96f5f72a14cf1138c80b794ba72c840eb7e268722ed2afe1954f6e20a30e884.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5683d3189d225e61484838b0ea5b02f0112f747b49e9c6e4b08cccf6344d20f4.png",
+        "flavorText": "If you haven't heard the Tirion Fordring theme song, it's because it doesn't exist.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/962fdb3448c5b75acb6f65537afa64382127b45143b631124a8877ce4da0c1c6.png",
+        "childIds": [
+          1730
+        ],
+        "keywordIds": [
+          1,
+          3,
+          12
+        ],
+        "copyOfCardId": [
+          69613,
+          69942
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_559",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 1080,
+        "collectible": 1,
+        "slug": "1080-archmage-antonidas",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "大法师安东尼达斯",
+        "text": "每当你施放一个法术，将一张“火球术”法术牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2a81c890216d549ec50a17d15ca226a0b7a2115fb14d3d2259c813663f14a79.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30a73ff94d4f1a223f5e20a5fd953f4ae95a97c6828ba092293c4ca71a16e09e.png",
+        "flavorText": "肯瑞托的首席法师，达拉然最伟大的子民，安东尼达斯在被巫妖王阿尔萨斯杀死之前，曾是吉安娜的导师。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e75f24de4b95a013e04f9c98e333b57cf146c45d4368053338ecc74922ce3b6d.png",
+        "copyOfCardId": [
+          69975,
+          120426
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_559",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 1080,
+        "collectible": 1,
+        "slug": "1080-archmage-antonidas",
+        "classId": 4,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 7,
+        "attack": 5,
+        "manaCost": 7,
+        "name": "Archmage Antonidas",
+        "text": "Whenever you cast a spell, add a 'Fireball' spell to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8c7ba065f8abafbbaedd80a33d4da06817b01aa78f21917f10e54bbafa1cbf63.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/30a73ff94d4f1a223f5e20a5fd953f4ae95a97c6828ba092293c4ca71a16e09e.png",
+        "flavorText": "Antonidas was the Grand Magus of the Kirin Tor, and Jaina's mentor. This was a big step up from being Grand Magus of Jelly Donuts.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e75f24de4b95a013e04f9c98e333b57cf146c45d4368053338ecc74922ce3b6d.png",
+        "copyOfCardId": [
+          69975,
+          120426
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOE_077",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 2949,
+        "collectible": 1,
+        "slug": "2949-brann-bronzebeard",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 20,
+        "rarityId": 5,
+        "artistName": "Sam Nielson",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "布莱恩·铜须",
+        "text": "你的<b>战吼</b>会触发 两次。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3095211387ce31890707697475c26d92623de034130a798fab9ba55059a29532.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69678bdfbf46d02126a48b646e671e5808d19182962c53a0a28b3a1d2a5e1e05.png",
+        "flavorText": "自从铁炉堡的国王麦格尼华丽登场后，布莱恩也想像哥哥那样出一套英雄皮肤。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0d4aad7ab2d2586745ff11f50977e06f0aa7d5797a4d70c3ffed204bafac677.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          76312
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOE_077",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 2949,
+        "collectible": 1,
+        "slug": "2949-brann-bronzebeard",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 20,
+        "rarityId": 5,
+        "artistName": "Sam Nielson",
+        "health": 4,
+        "attack": 2,
+        "manaCost": 3,
+        "name": "Brann Bronzebeard",
+        "text": "Your <b>Battlecries</b> trigger twice.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/234f8a43d9d72912555c49d98b079708a661a76255c9f7baeeae92a6cd6ab6d7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/69678bdfbf46d02126a48b646e671e5808d19182962c53a0a28b3a1d2a5e1e05.png",
+        "flavorText": "Contains 75% more fiber than his brother Magni!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c0d4aad7ab2d2586745ff11f50977e06f0aa7d5797a4d70c3ffed204bafac677.png",
+        "keywordIds": [
+          8
+        ],
+        "copyOfCardId": [
+          76312
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_350",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 9,
+        "collectible": 1,
+        "slug": "9-prophet-velen",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "先知维伦",
+        "text": "使你的法术和英雄技能的伤害和治疗效果翻倍。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/82523ba1f20a147504aff5018efc317838ea66d2a8ba1e54cfe0e5d20b22abf0.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a462cc7464e7d773b47aa2f681cc33b0593b3cee9c68d79c2684cdaafa111259.png",
+        "flavorText": "他被逐出了他的家园，他的兄弟们都变成了邪恶的主宰......但是除此之外，他好像也没有什么别的可以抱怨的了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/939d16ba15f490cee067c589e1bcf8c1a36ba5e6b244bac9a341a09fa2a7820c.png",
+        "copyOfCardId": [
+          69933
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_350",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 9,
+        "collectible": 1,
+        "slug": "9-prophet-velen",
+        "classId": 6,
+        "multiClassIds": [],
+        "minionTypeId": 2,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Wei Wang",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Prophet Velen",
+        "text": "Double the damage and healing of your spells and Hero Power.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4fc7e11ab101ec207f80417ab222fa499d23de61724b8fe856ea9f8808bcc14a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a462cc7464e7d773b47aa2f681cc33b0593b3cee9c68d79c2684cdaafa111259.png",
+        "flavorText": "He's been exiled from his home, and all his brothers turned evil, but otherwise he doesn't have a lot to complain about.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/939d16ba15f490cee067c589e1bcf8c1a36ba5e6b244bac9a341a09fa2a7820c.png",
+        "copyOfCardId": [
+          69933
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_414",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 338,
+        "collectible": 1,
+        "slug": "338-grommash-hellscream",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Glenn Rane",
+        "health": 9,
+        "attack": 4,
+        "manaCost": 8,
+        "name": "格罗玛什·地狱咆哮",
+        "text": "<b>冲锋</b> 受伤时拥有+6攻 击力。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/57e6418811847b04519f8a36e1370188d9b096dcf5b69f087699aa4819c89564.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22f6165bf47e15bdc2bab6c1fac10d085237350b5ae7d1577024ef6cd44d6eda.png",
+        "flavorText": "灰谷南方，来自地狱的咆哮还在回响。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/182942d376e1c15942c963c3151a39f99ad5c552bdee03a72a1087527d84e723.png",
+        "keywordIds": [
+          4
+        ],
+        "copyOfCardId": [
+          69643,
+          69958
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_414",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 338,
+        "collectible": 1,
+        "slug": "338-grommash-hellscream",
+        "classId": 10,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Glenn Rane",
+        "health": 9,
+        "attack": 4,
+        "manaCost": 8,
+        "name": "Grommash Hellscream",
+        "text": "<b>Charge</b> Has +6 Attack while damaged.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8bdf4220d1a6e3e925d2d52e4eb4a3dc0638ca0acffceccf6bcb1782c3600709.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/22f6165bf47e15bdc2bab6c1fac10d085237350b5ae7d1577024ef6cd44d6eda.png",
+        "flavorText": "Grommash drank the tainted blood of Mannoroth, dooming the orcs to green skin and red eyes! Maybe not his best decision.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/182942d376e1c15942c963c3151a39f99ad5c552bdee03a72a1087527d84e723.png",
+        "keywordIds": [
+          4
+        ],
+        "copyOfCardId": [
+          69643,
+          69958
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_016",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 1721,
+        "collectible": 1,
+        "slug": "1721-sylvanas-windrunner",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Glenn Rane",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 6,
+        "name": "希尔瓦娜斯·风行者",
+        "text": "<b>亡语：</b>随机夺取一个敌方随从的控制权。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb4b3c3798aa2b2685e020ae93e47637802b53e86ad22ee2c8138cece8d4db16.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/739138d019bb4b9279096917e117ea21a1c18ff6ad54f6471c85426031c6f1de.png",
+        "flavorText": "没有人比女王更渴望真正地死去。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7667a3fbc96d7706517e7346c6e41682d9b4fb346026d4996a2ff0b231932527.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          69815,
+          111463
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_016",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 1721,
+        "collectible": 1,
+        "slug": "1721-sylvanas-windrunner",
+        "classId": 12,
+        "multiClassIds": [],
+        "minionTypeId": 11,
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Glenn Rane",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 6,
+        "name": "Sylvanas Windrunner",
+        "text": "<b>Deathrattle:</b> Take control of a random enemy minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e1efbe473f62345e2618d45e77f057e9129931ea5f46935d511232c7986b7e07.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/739138d019bb4b9279096917e117ea21a1c18ff6ad54f6471c85426031c6f1de.png",
+        "flavorText": "Sylvanas was turned into the Banshee Queen by Arthas, but he probably should have just killed her because it just pissed her off.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7667a3fbc96d7706517e7346c6e41682d9b4fb346026d4996a2ff0b231932527.png",
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          69815,
+          111463
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_110",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 420,
+        "collectible": 1,
+        "slug": "420-cairne-bloodhoof",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 6,
+        "name": "凯恩·血蹄",
+        "text": "<b>嘲讽</b>。<b>亡语：</b>召唤一个5/5的贝恩·血蹄。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09ab35b4d31c7acebfc0153bab644ffd7ab67dee88ea2a96380a813d7a8b463a.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e4db4aa372c1dd60be68fb1ca8909758c4ee42a314d04eeec6de714c58efca5.png",
+        "flavorText": "凯恩被加尔鲁什杀害了，所以...别把这张牌放在战士的套牌里，这完全说不通。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dae7e478bbcbf16716836670cc39ca751dd2e2d56bd7a30ba30fa2b7d0e57536.png",
+        "childIds": [
+          318
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          69667,
+          69851
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_110",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 420,
+        "collectible": 1,
+        "slug": "420-cairne-bloodhoof",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 3,
+        "rarityId": 5,
+        "artistName": "Wayne Reynolds",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 6,
+        "name": "Cairne Bloodhoof",
+        "text": "<b>Taunt</b> <b>Deathrattle:</b> Summon a 5/5 Baine Bloodhoof.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a6049240ca0aba75b99e88d10c0c90f6bf84f2dfc2a220086b07a4c0226a5baf.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2e4db4aa372c1dd60be68fb1ca8909758c4ee42a314d04eeec6de714c58efca5.png",
+        "flavorText": "Cairne was killed by Garrosh, so... don't put this guy in a Warrior deck. It's pretty insensitive.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dae7e478bbcbf16716836670cc39ca751dd2e2d56bd7a30ba30fa2b7d0e57536.png",
+        "childIds": [
+          318
+        ],
+        "keywordIds": [
+          1,
+          12
+        ],
+        "copyOfCardId": [
+          69667,
+          69851
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_593",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 86383,
+        "collectible": 1,
+        "slug": "86383-lorthemar-theron",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "Grafit Studio",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "洛瑟玛·塞隆",
+        "text": "<b>战吼：</b> 使你牌库中所有随从牌的属性值翻倍。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb363b9b51ce737654b8a32d81d606cd9f5aecc04b237cc5037b88d189b8bc6f.png",
+        "imageGold": "",
+        "flavorText": "他一生之中最神鳍的成就，就是把鱼人宝宝强化成了2/2。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c677b9994b61347835c2f285739ac4e2e781b5c18f5561a83c81de61e79fb904.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_593",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 86383,
+        "collectible": 1,
+        "slug": "86383-lorthemar-theron",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1776,
+        "rarityId": 5,
+        "artistName": "Grafit Studio",
+        "health": 7,
+        "attack": 7,
+        "manaCost": 7,
+        "name": "Lor'themar Theron",
+        "text": "<b>Battlecry:</b> Double the stats of all minions in your deck.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8f9226e8c3411d2eef59969c821774cdbce483e7c03c3659919e9a416f36ec21.png",
+        "imageGold": "",
+        "flavorText": "Out of all his life accomplishments, making a 2/2 Tinyfin is his finest.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c677b9994b61347835c2f285739ac4e2e781b5c18f5561a83c81de61e79fb904.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_080",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 62176,
+        "collectible": 1,
+        "slug": "62176-shadow-hunter-voljin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 5,
+        "artistName": "Steven Prescott",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "暗影猎手沃金",
+        "text": "<b>战吼：</b>选择一个随从，与其拥有者手牌中的随机一个随从交换。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3d350dd22b3904c2fe9b478f6bbff81b8c2d379ee8f882204212956f2598ca86.png",
+        "imageGold": "",
+        "flavorText": "在赞达拉巨魔的路演里，你可看不到这么精彩的交换大戏。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36ac8ce6c4df78705d3102e1ab00e7ee9dfececc8ba9ff720c4650fd481e6b51.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_080",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 62176,
+        "collectible": 1,
+        "slug": "62176-shadow-hunter-voljin",
+        "classId": 12,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1525,
+        "rarityId": 5,
+        "artistName": "Steven Prescott",
+        "health": 6,
+        "attack": 3,
+        "manaCost": 5,
+        "name": "Shadow Hunter Vol'jin",
+        "text": "<b>Battlecry:</b> Choose a minion. Swap it with a random one in its owner's hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dc71a89279f4895a1d3385e1d7fe1d5ff573f4125959e907a515e4e0acfd0ace.png",
+        "imageGold": "",
+        "flavorText": "You wouldn’t see this swap-meet on the Zandalari Roadshow.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/36ac8ce6c4df78705d3102e1ab00e7ee9dfececc8ba9ff720c4650fd481e6b51.png",
+        "keywordIds": [
+          8
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "parent_child_ids": [
+    2760,
+    890,
+    1080,
+    2949,
+    9,
+    338,
+    1721,
+    420,
+    86383,
+    62176,
+    1730,
+    318
+  ],
+  "metadata_ids": [
+    "LOE_077"
+  ],
+  "query": {
+    "kinds": [
+      "minion"
+    ],
+    "min_cost": null,
+    "max_cost": null,
+    "collectible": true,
+    "class_mode": "any",
+    "classes": [],
+    "include_neutral": true,
+    "rarities": [
+      "legendary"
+    ],
+    "tribes_any": [],
+    "spell_schools": [],
+    "keywords_all": [],
+    "exclude_card_ids": [],
+    "exclude_source": false,
+    "factions_any": [],
+    "ability": null,
+    "subtypes_any": [],
+    "deathrattle": null,
+    "choose_one": null,
+    "any_of": [],
+    "runes_any": [],
+    "attack_parity": null,
+    "card_ids": [],
+    "attack_equals": null,
+    "keywords_none": []
+  },
+  "domains": [
+    {
+      "role": "alliance",
+      "choice_card_id": "WON_113a",
+      "pool_id": "constructed.champions_of_azeroth.alliance",
+      "member_ids": [
+        "AT_072",
+        "EX1_383",
+        "EX1_559",
+        "LOE_077",
+        "EX1_350"
+      ],
+      "weight": 1,
+      "actual_ids": [
+        "AT_072",
+        "EX1_350",
+        "EX1_383",
+        "EX1_559",
+        "LOE_077"
+      ],
+      "replacement": true,
+      "generated_count": 2,
+      "cost_delta": -2,
+      "complete_for_declared_inventory": true,
+      "formal_pool_complete": false
+    },
+    {
+      "role": "horde",
+      "choice_card_id": "WON_113b",
+      "pool_id": "constructed.champions_of_azeroth.horde",
+      "member_ids": [
+        "EX1_414",
+        "EX1_016",
+        "EX1_110",
+        "RLK_593",
+        "BAR_080"
+      ],
+      "weight": 1,
+      "actual_ids": [
+        "BAR_080",
+        "EX1_016",
+        "EX1_110",
+        "EX1_414",
+        "RLK_593"
+      ],
+      "replacement": true,
+      "generated_count": 2,
+      "cost_delta": -2,
+      "complete_for_declared_inventory": true,
+      "formal_pool_complete": false
+    }
+  ],
+  "new_standard_roots": [],
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_role_policy": "Original ordered primary parent child identities and character factions support the explicit five/five split; direct official subpool assignments were not retrieved",
+  "local_replacement_policy": "Two independent ordinary random generations, with replacement, at one printed weight per identity; official replacement/uniqueness not certified",
+  "choice_face_evidence": "Complete raw WON_113a/b; K654 direct official requests returned 404. These are choice-only displays and never physical generated spells.",
+  "official_origin": "https://news.blizzard.com/en-us/article/24149389/31-0-patch-notes",
+  "known_limits": [
+    "Exact CN subpool/replacement and reaction boundaries remain local uncalibrated policies",
+    "Existing individual champion rules retain their previously recorded local boundaries",
+    "This source does not certify the full past domain or any unreviewed current-class Toki view"
+  ]
+}

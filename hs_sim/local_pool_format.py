@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v14.json'
-MANIFEST_HASH = '7a93d75eba8a777c47bfa7c76f11421cf5996998814219fcdabe41acb04d5515'
-FORMAT_VERSION = 'cn37-local-special-pools-v14'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v15.json'
+MANIFEST_HASH = 'eabf39650ad7a98cd21b1229a9f7a56a968a3c53bd42ec837b14f50d06990837'
+FORMAT_VERSION = 'cn37-local-special-pools-v15'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -55,8 +55,8 @@ def load_bindings():
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     previous = value['previous_manifest']
-    if previous['path'] != 'data/cards/local-special-pool-bindings-v13.json':
-        raise TargetValidationError('Past Mech host requires its original complete predecessor manifest')
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v14.json':
+        raise TargetValidationError('Local source host requires its original complete predecessor manifest')
     prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
     if (canonical_digest(prior) != previous['canonical_sha256'] or any(
             value.get(k) != v for k,v in prior.items() if k not in ('policy_id','accepted_on','previous_manifest'))):
@@ -100,6 +100,26 @@ def load_bindings():
             pool_id='constructed.past.spells',original_member_count=21,mage_member_count=24,merged_member_count=44,
             complete_for_declared_source_view=True,formal_pool_complete=False):
         raise TargetValidationError('Mage teacher host lost its complete source view or original Druid inventory')
+    from .cards.champions_of_azeroth import BATCH_PATH as CHAMPIONS_PATH,load_batch as load_champions
+    champions=load_champions()
+    champion_binding=dict(source_document=CHAMPIONS_PATH.relative_to(ROOT).as_posix(),
+        source_document_canonical_sha256=canonical_digest(champions),source_card_id='WON_113',
+        pool_ids=[d['pool_id']for d in champions['domains']],
+        choice_card_ids=[d['choice_card_id']for d in champions['domains']],
+        member_ids_by_pool=[d['member_ids']for d in champions['domains']],member_count=10,
+        complete_for_declared_source_view=True,formal_pool_complete=False)
+    reserved=set(names+scoped+list(ORDINARY_POOLS)+value['unresolved_pool_ids']+
+        [pack['pool_id'],rajh['pool_id'],disco['pool_id']]+zombeast['pool_ids']+[d['pool_id']for d in expected])
+    if value['champions_binding']!=champion_binding or set(champion_binding['pool_ids'])&reserved:
+        raise TargetValidationError('Champion host lost a complete faction role or overlaps another source domain')
+    from .cards.toki_mage_source import BATCH_PATH as TOKI_PATH,load_batch as load_toki_mage
+    toki=load_toki_mage()
+    if value['toki_mage_binding']!=dict(source_document=TOKI_PATH.relative_to(ROOT).as_posix(),
+            source_document_canonical_sha256=canonical_digest(toki),source_card_id='TIME_861',
+            pool_id='constructed.past.spells',current_class='mage',original_mage_reference_count=179,
+            mage_neutral_member_count=181,prior_merged_member_count=44,merged_member_count=201,
+            actual_eligible_count=178,complete_for_declared_source_view=True,formal_pool_complete=False):
+        raise TargetValidationError('Toki host lost its complete Mage/neutral inventory or source scope')
     return value
 
 
@@ -171,15 +191,18 @@ def build_cn37_local_pool_format():
     past_pools = merge_mech_pools(registry,original.context,past_pools)
     from .cards.past_teacher_mage_source import merge_pools as merge_mage_teacher,register_scope as register_mage_teacher
     past_pools = merge_mage_teacher(registry,original.context,past_pools)
+    from .cards.toki_mage_source import merge_pools as merge_toki_mage,register_scope as register_toki_mage,load_batch as load_toki_mage
+    past_pools = merge_toki_mage(registry,original.context,past_pools)
     from .cards.protoss_spell_domain import local_pool as protoss_pool
     from .cards.azerite_hawk_domain import local_pool as hawk_pool
     from .cards.azerite_reward_domains import local_pools as azerite_pools
     from .cards.excavate_local_host import local_pools as excavation_pools, profile as excavation_profile
     from .cards.disco_past_secrets import local_pool as disco_pool,register_scope as register_disco_scope
     from .cards.past_mage_arcane_source_cards import local_pools as past_spell_pools,register_scopes as register_past_spell_scopes
+    from .cards.champions_of_azeroth import local_pools as champion_pools,register_scopes as register_champion_scopes
     from .cards.past_mage_effect_consumers import gift_pool
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context)
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context) + champion_pools(registry,original.context)
     excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
@@ -195,7 +218,9 @@ def build_cn37_local_pool_format():
     register_mech_scope(registry,context)
     register_disco_scope(registry,context)
     register_past_spell_scopes(registry,context)
-    register_mage_teacher(registry,context)
+    register_mage_teacher(registry,context,reviewed_member_ids=tuple(load_toki_mage()['merged_member_ids']))
+    register_champion_scopes(registry,context)
+    register_toki_mage(registry,context)
     registry.register_excavation_profile(replace(excavation, target_id=target_id, mode=context.mode))
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()
