@@ -448,6 +448,12 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
             require((jade_reprint_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
+        elif marker == '<b>圣盾</b>。<b>嘲讽</b>。':
+            require(chinese and row.get('id') == 'EX1_383' and
+                    canonical(row) == '53173759ca19f2ac17884efa0c3645b6f03af4807d8357431157f70afdcb6d6b' and
+                    raw_text.startswith(marker) and raw_text.count(marker) == 1 and
+                    replacement == '<b>圣盾</b>，<b>嘲讽</b>，' and display_normalizations == {marker: replacement},
+                    'Tirion keyword separators require the exact complete row and Chinese declaration')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and
