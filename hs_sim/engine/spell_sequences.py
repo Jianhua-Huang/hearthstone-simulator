@@ -218,22 +218,42 @@ def repeat_if_no_deaths(r,request):
     return (DamageBatch(tuple(Damage(eid,request.amount,request.source_id,DamageKind.SPELL)for eid in minions(r))),)
 
 
+@dataclass(frozen=True)
+class FinishDrawDiscount(Effect):
+    request:DrawWithCostReduction
+    draw_id:int
+
+    def __post_init__(self):
+        if type(self.request)not in(DrawWithCostReduction,DrawWithTemporaryCostReduction,DrawMatchingWithCostReduction):
+            raise ValueError('Draw discount requires its original finite request')
+        self.request.__post_init__();_integer(self.draw_id,'original discounted draw',1)
+
+    def validate_in_state(self,state,registry):
+        from .draw_casts import draw_record
+        self.__post_init__();row=draw_record(state,self.draw_id)
+        if (row.player_id,row.source_id,row.parent_id)!=(self.request.player_id,self.request.source_id,None):
+            raise ValueError('Draw discount borrowed another original physical draw')
+
+
+def finish_draw_discount(r,effect):
+    from .draw_casts import draw_record
+    from .draw_transformations import hand_reference
+    from .zones import ModifyStoredCost
+    effect.validate_in_state(r.state,r.registry);request=effect.request
+    reference=hand_reference(r.state,draw_record(r.state,effect.draw_id),completed=True)
+    return ()if reference is None else(ModifyStoredCost(reference,CostSpec(delta=-request.reduction),request.source_id,
+        expires_turn=getattr(request,'expires_turn',None)),)
+
+
 def draw_discount(r, request, *, card=None):
     request.__post_init__()
     if type(request)is DrawWithTemporaryCostReduction and request.expires_turn!=r.state.turn:
         raise ResolutionError('Temporary draw reduction requires its original current turn')
     from .draw_casts import draw_one
-    from .zones import CardReference, ModifyStoredCost
     index = len(r.state.draw_history)
     work = draw_one(r, request.player_id, card=card, source_id=request.source_id)
     record = r.state.draw_history[index]
-    if record.outcome != 'hand':
-        return work
-    reference = CardReference.capture(r.state.entities[record.entity_id])
-    if reference.zone != Zone.HAND:
-        raise ResolutionError('Successful physical draw lacks its original hand arrival')
-    return (*work, ModifyStoredCost(reference, CostSpec(delta=-request.reduction), request.source_id,
-        expires_turn=getattr(request,'expires_turn',None)))
+    return (*work,FinishDrawDiscount(request,record.id))
 
 
 def draw_matching_discount(r, request):
@@ -263,6 +283,7 @@ def draw_if_cheap(r, request):
 
 
 def register(mechanics):
+    mechanics.register(FinishDrawDiscount,finish_draw_discount)
     for kind, handler in ((DecreasingMinionDamage, begin_decreasing),
             (MinionDamageWave, decreasing_wave), (DamageMinionsDrawDeaths, damage_then_draw),
             (DrawSpellBatchDeaths, draw_batch_deaths), (DrawWithCostReduction, draw_discount),

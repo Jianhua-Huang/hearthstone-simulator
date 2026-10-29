@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 625
+SNAPSHOT_SCHEMA_VERSION = 626
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1216,6 +1216,9 @@ def _draw_from_dict(value):
         row['cast_grant'] = draw_grant_from_dict(row['cast_grant'])
     if row['spec'] is not None:
         row['spec'] = CastWhenDrawnSpec(**_row(row['spec'], CastWhenDrawnSpec))
+    from .draw_transformations import observer_from_dict, transformation_from_dict
+    row['observer'] = None if row['observer'] is None else observer_from_dict(row['observer'])
+    row['transformation'] = None if row['transformation'] is None else transformation_from_dict(row['transformation'])
     return DrawRecord(**row)
 
 

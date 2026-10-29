@@ -70,6 +70,15 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .draw_transformations import TransformDrawnCard,DrawTransformation,validate_transformation
+        if type(value)is TransformDrawnCard and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry,self.origin_events)
+        if type(value)is DrawTransformation and self.origin_state is not None:
+            validate_transformation(self.origin_state,self.registry,value)
+        from .draw_beneficiaries import CaptureMatchingDraw
+        from .spell_sequences import FinishDrawDiscount
+        if type(value)in(CaptureMatchingDraw,FinishDrawDiscount)and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .summoned_attack_targets import TransformAttackedMinion
         if type(value) is TransformAttackedMinion and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry,self.origin_events)

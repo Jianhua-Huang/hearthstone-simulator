@@ -201,9 +201,8 @@ class CapturePhysicalDrawGroup(ContinuePhysicalDrawGroup):
 def arrival_reference(state, root_id, hand_cursor):
     """Follow only this root's replacement chain, then its original entry.
 
-    Draw records and successful draw hand entries are synchronously appended
-    in the same order. Their prefix relation disambiguates a physical card
-    that leaves hand and is drawn again during the original draw's reactions.
+    Each accepted draw binds its actual hand entry. Explicit transformations
+    carry their resulting residence without borrowing a later reacquisition.
     """
     root = record = draw_record(state, root_id)
     if not root.completed: raise ValueError('Physical draw reward precedes root completion')
@@ -212,15 +211,11 @@ def arrival_reference(state, root_id, hand_cursor):
         if child.parent_id != record.id or not child.completed: raise ValueError('Physical draw lost its completed replacement chain')
         record = child
     if hand_cursor > len(state.hand_entries): raise ValueError('Physical draw borrowed a future hand-entry cursor')
-    if record.outcome != 'hand': return None
-    draws = tuple(row for row in state.draw_history[root_id-1:record.id] if row.outcome == 'hand')
-    entries = tuple(row for row in state.hand_entries[hand_cursor:] if row.reason == 'draw')
-    if len(entries) < len(draws): raise ValueError('Physical draw lost its successful original hand acquisition')
-    for row, entry in zip(draws, entries):
-        if (row.entity_id, row.card_id, row.player_id, row.turn, row.action) != (entry.entity_id, entry.card_id, entry.player_id, entry.turn, entry.action):
-            raise ValueError('Physical draw changed its original ordered draw/hand-entry prefix')
-    entry = entries[len(draws)-1]
-    return CardReference(entry.entity_id, entry.player_id, Zone.HAND, entry.card_id, entry.zone_epoch)
+    if record.outcome != 'hand' and record.transformation is None: return None
+    from .draw_transformations import hand_reference
+    if record.hand_entry_id is not None and record.hand_entry_id<=hand_cursor:
+        raise ValueError('Physical draw borrowed a hand entry before its accepted group')
+    return hand_reference(state,record,completed=True)
 
 
 def validate_material(state, registry, request, *, completed=False):
@@ -395,9 +390,8 @@ def finish(r, request):
         targets=tuple(DiscardCard(row.hand,request.source_id) for row in request.arrivals
             if row.draw_id is not None and row.hand is not None and
             reference_entity(r,row.hand) is not None and
-            (record:=draw_record(r.state,row.draw_id)).outcome=='hand' and
-            (record.entity_id,record.card_id)==(row.hand.entity_id,row.hand.card_id) and
-            r.registry.card(record.card_id).kind==CardType.SPELL)
+            ((record:=draw_record(r.state,row.draw_id)).outcome=='hand' or record.transformation is not None) and
+            record.entity_id==row.hand.entity_id and r.registry.card(row.hand.card_id).kind==CardType.SPELL)
         return discard_cards(r,targets)
     if reward.kind == 'discover_spell_copy':
         from .draw_group_discoveries import discover
@@ -440,11 +434,14 @@ def finish(r, request):
         elif reward.kind=='set_cost_all':
             effect=ModifyStoredCost(ref,CostSpec(set_to=reward.amount),request.source_id)
         elif reward.kind=='set_stats_cost_all':
-            effect=SetStoredMinionStats(ref,reward.amount,reward.amount,request.source_id,CostSpec(set_to=reward.amount))
+            if r.registry.card(ref.card_id).kind!=CardType.MINION:
+                effect=ModifyStoredCost(ref,CostSpec(set_to=reward.amount),request.source_id)
+            else:effect=SetStoredMinionStats(ref,reward.amount,reward.amount,request.source_id,CostSpec(set_to=reward.amount))
         elif reward.kind=='set_drawn_minion_stats':
             if r.registry.card(ref.card_id).kind!=CardType.MINION:continue
             effect=SetStoredMinionStats(ref,reward.amount,reward.amount,request.source_id)
         elif reward.kind == 'buff_all':
+            if r.registry.card(ref.card_id).kind!=CardType.MINION:continue
             effect = BuffStoredCard(ref, reward.amount, reward.amount, request.source_id)
         elif reward.kind == 'lock_all':
             from .hand_play_locks import LockHandCard

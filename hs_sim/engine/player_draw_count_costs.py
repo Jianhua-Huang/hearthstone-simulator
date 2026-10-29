@@ -50,13 +50,15 @@ def validate_fact(registry, definition, fact):
     for row in fact.records:
         if row.card_id is not None:
             face = registry.card(row.card_id)
-            if row.outcome == 'cast' and (face.kind != CardType.SPELL or face.cast_when_drawn != row.spec):
+            if row.outcome == 'cast' and (face.kind != CardType.SPELL or row.cast_grant is None and face.cast_when_drawn != row.spec):
                 raise ValueError('Draw price changed an original automatic draw declaration')
 
 
 def _phases(row):
     if row.outcome != 'cast':
         return ('drawing', 'done')
+    if row.transformation is not None:
+        return ('pending_cast','converted','after_draw','done')
     return ('pending_cast', 'casting', *(('pending_replacement', 'replacing')
             if row.spec.replacement else ()), 'after_draw', 'done')
 
@@ -72,7 +74,9 @@ def validate_prefix(fact, state, registry):
         if (old.interrupted and old != new or
                 old.cast_id is not None and old.cast_id != new.cast_id or
                 old.replacement_id is not None and old.replacement_id != new.replacement_id or
-                _phases(old).index(new.phase) < _phases(old).index(old.phase) or
+                old.hand_entry_id is not None and old.hand_entry_id!=new.hand_entry_id or
+                old.transformation is not None and old.transformation!=new.transformation or
+                _phases(new).index(new.phase) < _phases(new).index(old.phase) or
                 replace(old, phase=new.phase, cast_id=new.cast_id, replacement_id=new.replacement_id,
-                    interrupted=new.interrupted) != new):
+                    interrupted=new.interrupted,hand_entry_id=new.hand_entry_id,transformation=new.transformation) != new):
             raise ValueError('Draw price rewrote an original physical draw or reversed legal progress')

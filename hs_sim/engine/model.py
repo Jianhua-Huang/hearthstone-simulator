@@ -8599,11 +8599,14 @@ class DrawRecord:
     phase: str = 'drawing'
     interrupted: bool = False
     cast_grant: object | None = None
+    hand_entry_id: int | None = None
+    observer: object | None = None
+    transformation: object | None = None
 
     def __post_init__(self):
         for name in ('id', 'player_id', 'turn'): _int(getattr(self,name), name, 1)
         _int(self.action, 'draw action', 0)
-        for name in ('entity_id', 'source_id', 'parent_id', 'replacement_id', 'cast_id'):
+        for name in ('entity_id', 'source_id', 'parent_id', 'replacement_id', 'cast_id', 'hand_entry_id'):
             _optional_id(getattr(self,name), name)
         if self.card_id is not None: _name(self.card_id, 'drawn card')
         if self.player_id not in (1,2) or self.outcome not in ('hand','burned','cast','fatigue'):
@@ -8611,8 +8614,26 @@ class DrawRecord:
         if self.outcome == 'fatigue':
             if self.entity_id is not None or self.card_id is not None: raise ValueError('Fatigue cannot name a drawn card')
         elif self.entity_id is None or self.card_id is None: raise ValueError('Physical draw requires a card')
-        if self.phase not in ('drawing','pending_cast','casting','pending_replacement','replacing','after_draw','done'):
+        if self.phase not in ('drawing','pending_cast','casting','converted','pending_replacement','replacing','after_draw','done'):
             raise ValueError('Invalid draw phase')
+        if self.observer is not None:
+            from .deathrattle_memory import DrawForDeathrattle
+            if type(self.observer) is not DrawForDeathrattle:
+                raise ValueError('Draw observer requires its original native draw-link request')
+            self.observer.__post_init__()
+            if self.outcome not in ('hand','cast') or (self.observer.player_id,self.observer.reference.entity_id)!=(self.player_id,self.source_id):
+                raise ValueError('Draw observer borrowed another physical source or recipient')
+        if self.transformation is not None:
+            from .draw_transformations import DrawTransformation
+            if type(self.transformation) is not DrawTransformation:
+                raise ValueError('Draw transformation requires its full original physical receipt')
+            self.transformation.__post_init__()
+            if self.outcome not in ('hand','cast') or self.transformation.draw_id!=self.id or self.transformation.hand_entry_id!=self.hand_entry_id:
+                raise ValueError('Draw transformation changed its original draw or actual entry')
+        elif self.phase=='converted':
+            raise ValueError('Only an actual transformed draw may use the converted phase')
+        if self.hand_entry_id is not None and (self.outcome not in ('hand','cast') or self.outcome=='cast' and self.transformation is None):
+            raise ValueError('Only actual original hand arrival may carry a draw entry')
         if self.outcome == 'cast':
             if type(self.spec) is not CastWhenDrawnSpec or self.phase == 'drawing': raise ValueError('Draw-cast requires its declaration')
             self.spec.__post_init__()
@@ -8623,7 +8644,10 @@ class DrawRecord:
                 self.cast_grant.__post_init__()
                 if (self.cast_grant.origin.entity_id, self.cast_grant.origin.card_id) != (self.entity_id, self.card_id):
                     raise ValueError('Draw cast grant borrowed another original card')
-            if (self.phase == 'pending_cast') != (self.cast_id is None): raise ValueError('Invalid draw cast phase')
+            if self.transformation is None:
+                if (self.phase == 'pending_cast') != (self.cast_id is None): raise ValueError('Invalid draw cast phase')
+            elif self.cast_id is not None or self.replacement_id is not None or self.phase not in ('pending_cast','converted','after_draw','done'):
+                raise ValueError('Transformed draw cannot cast or replace its original spell')
             if not self.spec.replacement and (self.replacement_id is not None or self.phase in ('pending_replacement','replacing')):
                 raise ValueError('Unexpected replacement draw')
         elif self.spec is not None or self.cast_id is not None or self.replacement_id is not None or self.cast_grant is not None or self.phase not in ('drawing','done'):

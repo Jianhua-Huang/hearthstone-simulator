@@ -13,9 +13,14 @@ def validate_link(state,link):
     from .draw_casts import draw_record
     from .hand_history import hand_entry
     draw=draw_record(state,link.draw_id);entry=hand_entry(state,link.hand_entry_id)
-    if (draw.outcome!='hand'or(draw.entity_id,draw.source_id)!=(link.entity_id,link.source_id)or
-            (entry.entity_id,entry.player_id,entry.card_id,entry.turn,entry.action,entry.reason)!=
-            (link.entity_id,draw.player_id,draw.card_id,draw.turn,draw.action,'draw')or
+    transformed=draw.transformation if draw.outcome=='cast' else None
+    face=draw.card_id if transformed is None else transformed.after.card_id
+    turn=draw.turn if transformed is None else transformed.turn
+    action=draw.action if transformed is None else transformed.action
+    if (draw.outcome!='hand'and(transformed is None or transformed.after.zone!=Zone.HAND)or
+            draw.hand_entry_id!=link.hand_entry_id or(draw.entity_id,draw.source_id)!=(link.entity_id,link.source_id)or
+            (entry.entity_id,entry.player_id,entry.card_id,entry.turn,entry.action,entry.reason,entry.source_id)!=
+            (link.entity_id,draw.player_id,face,turn,action,'draw',draw.source_id)or
             link.source_id not in state.entities):
         raise ValueError('Remembered draw differs from its original physical acquisition')
     return draw,entry

@@ -100,7 +100,7 @@ def validate_boundary(game):
         if KEY not in data: continue
         row = rows.get(data.get('draw_id'))
         if (event.kind != 'card_drawn' or row is None or row.id in seen or
-                set(data) != {'draw_id', 'casts_when_drawn', KEY} or data['casts_when_drawn'] is not True or
+                set(data) != ({'draw_id', 'casts_when_drawn', KEY} | ({'_draw_observer'} if row.observer is not None else set())) or data['casts_when_drawn'] is not True or
                 type(data[KEY]) is not str or from_dict(json.loads(data[KEY])) != row.cast_grant or
                 (event.source_id, event.target_id, event.player_id, event.action) !=
                 (row.source_id, row.entity_id, row.player_id, row.action)):

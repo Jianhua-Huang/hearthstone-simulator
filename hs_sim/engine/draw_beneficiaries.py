@@ -54,15 +54,38 @@ class FinishMatchingDraws(DrawFollowupRequest):
         super().__post_init__();links_value(self.draws,self.player_id)
 
 
-def validate(r,request):
-    request.__post_init__();source_exists(r,request.source_id);r.registry.behavior(request.behavior_id)
+@dataclass(frozen=True)
+class CaptureMatchingDraw(Effect):
+    request:ContinueMatchingDraws
+    draw_id:int
+
+    def __post_init__(self):
+        if type(self.request)is not ContinueMatchingDraws:raise ValueError('Matching capture requires its original continuation')
+        self.request.__post_init__();_integer(self.draw_id,'matching original draw',1)
+        if self.request.remaining<1:raise ValueError('Matching capture requires an accepted draw slot')
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__();validate_request(state,registry,self.request)
+        row=draw_record(state,self.draw_id)
+        if (row.player_id,row.source_id,row.parent_id)!=(self.request.player_id,self.request.source_id,None):
+            raise ValueError('Matching capture borrowed another original draw')
+
+
+def validate_request(state,registry,request):
+    request.__post_init__()
+    if request.source_id not in state.entities:raise ResolutionError('Draw followup source does not exist')
+    registry.behavior(request.behavior_id)
+    from .draw_transformations import hand_reference
     for number,card in getattr(request,'draws',()):
-        record=draw_record(r.state,number);r.registry.card(card.card_id)
-        if (record.player_id,record.source_id,record.entity_id,record.card_id,record.outcome)!=(
-                request.player_id,request.source_id,card.entity_id,card.card_id,'hand')or not record.completed:
-            raise ResolutionError('Draw beneficiary lost its original completed physical draw')
-        entity=r.state.entities.get(card.entity_id)
+        record=draw_record(state,number);registry.card(card.card_id)
+        if (record.player_id,record.source_id)!=(request.player_id,request.source_id)or not record.completed or hand_reference(state,record)!=card:
+            raise ResolutionError('Draw beneficiary lost its original completed physical arrival')
+        entity=state.entities.get(card.entity_id)
         if entity is None or card.zone_epoch>entity.zone_epoch:raise ResolutionError('Draw beneficiary has an impossible residency')
+
+
+def validate(r,request):
+    validate_request(r.state,r.registry,request)
 
 
 def begin(r,request):
@@ -78,10 +101,17 @@ def advance(r,request):
     candidates=zone_candidates(r,request.player_id,Zone.DECK,request.query,request.player_id,request.source_id)
     if not candidates:return (FinishMatchingDraws(request.player_id,request.query,request.source_id,request.behavior_id,request.draws),)
     index=len(r.state.draw_history);work=draw_one(r,request.player_id,card=r.game._rng.choice(candidates),source_id=request.source_id)
-    record=r.state.draw_history[index];links=request.draws
-    if record.outcome=='hand':
-        links=(*links,(record.id,CardReference.capture(r.state.entities[record.entity_id])))
-    return (*work,ContinueMatchingDraws(request.player_id,request.query,request.source_id,request.behavior_id,request.remaining-1,links))
+    record=r.state.draw_history[index]
+    return (*work,CaptureMatchingDraw(request,record.id))
+
+
+def capture(r,effect):
+    from .draw_transformations import hand_reference
+    effect.validate_in_state(r.state,r.registry);request=effect.request;row=draw_record(r.state,effect.draw_id)
+    reference=hand_reference(r.state,row,completed=True);links=request.draws
+    if reference is not None and(not request.query.kinds or r.registry.card(reference.card_id).kind in request.query.kinds):
+        links=(*links,(row.id,reference))
+    return (ContinueMatchingDraws(request.player_id,request.query,request.source_id,request.behavior_id,request.remaining-1,links),)
 
 
 def finish(r,request):
@@ -97,6 +127,7 @@ def finish(r,request):
 
 
 def register(mechanics):
+    mechanics.register(CaptureMatchingDraw,capture)
     mechanics.register(DrawMatchingWithFollowup,begin)
     mechanics.register(ContinueMatchingDraws,advance)
     mechanics.register(FinishMatchingDraws,finish)

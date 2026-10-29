@@ -99,7 +99,8 @@ def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=F
         outcome = 'cast' if spec is not None else 'hand'
     record = DrawRecord(len(r.state.draw_history)+1, player_id, r.state.turn, r.state.action_number,
         outcome, entity.id if entity else None, entity.card_id if entity else None,
-        source_id, parent_id, spec=spec, phase='pending_cast' if spec else 'drawing', cast_grant=grant)
+        source_id, parent_id, spec=spec, phase='pending_cast' if spec else 'drawing', cast_grant=grant,
+        observer=deathrattle_memory if outcome in ('hand','cast') else None)
     r.state.draw_history.append(record)
     if parent_id is not None:
         parent = require_phase(r,parent_id,'replacing')
@@ -126,8 +127,9 @@ def draw_one(r, player_id, *, card=None, source_id=None, parent_id=None, reset=F
         r.move(entity,Zone.GRAVEYARD,controller_id=player_id,draw_id=record.id)
     # A drawn spell is a draw, but never a successful hand acquisition.
     from .draw_cast_grants import event_data as grant_event_data
+    from .draw_transformations import observer_event_data
     r.emit('card_drawn',source_id=source_id,target_id=entity.id,player_id=player_id,
-           draw_id=record.id,casts_when_drawn=True,**grant_event_data(grant))
+           draw_id=record.id,casts_when_drawn=True,**grant_event_data(grant),**observer_event_data(record))
     return (CastDrawnSpell(record.id),AfterDrawnSpell(record.id),FinishDraw(record.id))
 
 
@@ -138,6 +140,9 @@ def note_cast(r, draw_id, cast_id):
 
 def cast(r, effect):
     record = require_phase(r,effect.draw_id,'pending_cast')
+    if record.transformation is not None:
+        update(r.state,record,phase='converted')
+        return ()
     entity = r.state.entities[record.entity_id]
     if (entity.card_id,entity.controller,entity.zone) != (record.card_id,record.player_id,Zone.GRAVEYARD):
         raise ResolutionError('Drawn spell left its captured cast position')
@@ -147,6 +152,11 @@ def cast(r, effect):
 
 
 def after_cast(r, effect):
+    record = draw_record(r.state,effect.draw_id)
+    if record.transformation is not None:
+        require_phase(r,record.id,'converted')
+        update(r.state,record,phase='after_draw')
+        return ()
     record = require_phase(r,effect.draw_id,'casting')
     from .spell_casts import cast_record
     if not cast_record(r.state,record.cast_id).completed:
@@ -208,6 +218,8 @@ def validate_history(state, registry):
                 record.interrupted and state.status == 'playing'):
             raise ValueError('Invalid draw provenance or chronology')
         if record.card_id is not None: registry.card(record.card_id)
+        from .draw_transformations import validate_draw_links
+        validate_draw_links(state,registry,record)
         if record.parent_id is not None:
             parent = draw_record(state,record.parent_id)
             if (parent.replacement_id != record.id or parent.outcome != 'cast' or
@@ -230,7 +242,7 @@ def validate_history(state, registry):
                     raise ValueError('Unexpected replacement child')
                 if record.phase in ('after_draw','done') and not child.completed:
                     raise ValueError('Draw settled before its replacement')
-            elif record.spec.replacement and record.phase in ('replacing','after_draw','done'):
+            elif record.transformation is None and record.spec.replacement and record.phase in ('replacing','after_draw','done'):
                 raise ValueError('Missing replacement draw')
         last_turn,last_action = record.turn,record.action
     for cast in state.cast_history:
@@ -246,6 +258,8 @@ def validate_boundary(game):
     for record in pending:
         if record.phase == 'pending_cast':
             expected.extend((CastDrawnSpell(record.id),AfterDrawnSpell(record.id)))
+        elif record.phase == 'converted':
+            expected.append(AfterDrawnSpell(record.id))
         elif record.phase == 'casting':
             expected.append(AfterDrawnSpell(record.id))
             from .spell_casts import cast_record, FinishSpellCast
@@ -262,9 +276,13 @@ def validate_boundary(game):
         raise ValueError('Draw phase and continuation markers disagree')
     from .draw_cast_grants import validate_boundary as validate_granted_boundary
     validate_granted_boundary(game)
+    from .draw_transformations import validate_boundary as validate_transformations
+    validate_transformations(game)
 
 
 def register(mechanics):
+    from .draw_transformations import register as register_transformations
+    register_transformations(mechanics)
     from .draw_cast_grants import GrantedDrawCastBasis
     mechanics.register_payload_type(GrantedDrawCastBasis)
     for effect,handler in ((CastDrawnSpell,cast),(AfterDrawnSpell,after_cast),

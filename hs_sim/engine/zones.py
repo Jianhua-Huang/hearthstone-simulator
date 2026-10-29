@@ -940,11 +940,18 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     if destination == Zone.HAND:
         from .hand_history import enter_hand
         enter_hand(r.state, entity, previous_zone, 'draw' if effect.draw else 'move', source_id=effect.source_id)
+        if draw_id is not None:
+            from .draw_casts import draw_record,update
+            update(r.state,draw_record(r.state,draw_id),hand_entry_id=entity.hand_entry_id)
         if deathrattle_memory is not None:
             if not effect.draw or draw_id is None:raise ResolutionError('Deathrattle linkage requires an actual physical draw')
             from .deathrattle_memory import remember_draw
             remember_draw(r,deathrattle_memory,draw_id,entity)
     data = {'draw_id': draw_id} if draw_id is not None else {}
+    if draw_id is not None and destination==Zone.HAND:
+        from .draw_transformations import observer_event_data,HAND_ENTRY_KEY
+        data[HAND_ENTRY_KEY]=entity.hand_entry_id
+        data.update(observer_event_data(draw_record(r.state,draw_id)))
     if destination == Zone.DECK:
         data['_deck_insertion_mode']=('reorder' if previous_zone==Zone.DECK and previous_controller==player.id else effect.position if type(effect.position)is str else 'index')
     if destination==Zone.GRAVEYARD:
