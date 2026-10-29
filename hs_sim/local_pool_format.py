@@ -15,9 +15,9 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v12.json'
-MANIFEST_HASH = 'ac7e82ae9a9d82c7a9a76fb64ad814bfb965c2f21e77e5b999e6554e0038c260'
-FORMAT_VERSION = 'cn37-local-special-pools-v12'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v13.json'
+MANIFEST_HASH = '5a9d3f396df82c5b670add36708996c40f2875701f996e6a31b2130d8d6c7ce8'
+FORMAT_VERSION = 'cn37-local-special-pools-v13'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
@@ -55,7 +55,7 @@ def load_bindings():
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     previous = value['previous_manifest']
-    if previous['path'] != 'data/cards/local-special-pool-bindings-v11.json':
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v12.json':
         raise TargetValidationError('Past Mech host requires its original complete predecessor manifest')
     prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
     if (canonical_digest(prior) != previous['canonical_sha256'] or any(
@@ -84,6 +84,15 @@ def load_bindings():
             (disco['source_card_id'],disco['pool_id'],disco['member_count'])!=('WON_040',data['pool_id'],72) or
             disco['member_ids']!=data['member_ids'] or disco['complete_for_declared_source_view']is not True or disco['formal_pool_complete']is not False):
         raise TargetValidationError('Disco host lost its complete original source binding')
+    from .cards.past_mage_arcane_source_cards import BATCH_PATH as SPELL_PATH,load_batch as load_spell_sources
+    spells=load_spell_sources()
+    expected=[dict(source_document=SPELL_PATH.relative_to(ROOT).as_posix(),
+        source_document_canonical_sha256=canonical_digest(spells),reference_document=d['reference_document'],
+        reference_sha256=d['reference_sha256'],source_card_id=d['source_card_id'],pool_id=d['pool_id'],
+        original_reference_pool_id=d['original_reference_pool_id'],member_count=len(d['member_ids']),
+        member_ids=d['member_ids'],complete_for_declared_source_view=True,formal_pool_complete=False)for d in spells['domains']]
+    if value['mage_arcane_spell_bindings']!=expected or set(d['pool_id']for d in expected)&set(names+scoped+[disco['pool_id']]):
+        raise TargetValidationError('Past spell host lost a complete original source, class inventory or separate pool role')
     return value
 
 
@@ -158,9 +167,10 @@ def build_cn37_local_pool_format():
     from .cards.azerite_reward_domains import local_pools as azerite_pools
     from .cards.excavate_local_host import local_pools as excavation_pools, profile as excavation_profile
     from .cards.disco_past_secrets import local_pool as disco_pool,register_scope as register_disco_scope
+    from .cards.past_mage_arcane_source_cards import local_pools as past_spell_pools,register_scopes as register_past_spell_scopes
     from .cards.past_mage_effect_consumers import gift_pool
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
-        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),)
+        one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context)
     excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
@@ -175,6 +185,7 @@ def build_cn37_local_pool_format():
     register_colossal_scope(registry,context,reviewed_member_ids=tuple(load_mech_binding()['merged_member_ids']))
     register_mech_scope(registry,context)
     register_disco_scope(registry,context)
+    register_past_spell_scopes(registry,context)
     registry.register_excavation_profile(replace(excavation, target_id=target_id, mode=context.mode))
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()

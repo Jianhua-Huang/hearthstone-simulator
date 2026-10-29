@@ -1,0 +1,2525 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-complete-past-mage-arcane-sources-v1",
+  "cards": [
+    {
+      "record": {
+        "id": "NX2_001",
+        "dbf_id": 86438,
+        "name": "撕裂现实",
+        "name_en": "Tear Reality",
+        "text": "随机将2张来自过去的法师法术牌置入你的手牌，其法力值消耗减少（2）点。",
+        "text_en": "[x]Add 2 random\nMage spells from the\npast to your hand.\nThey cost (2) less.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1776,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "13d49895e9cf6566d977670b7d4e6bd2f3e000392abffb58fb175cfd68b8b8d1"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "REV_601",
+        "dbf_id": 84354,
+        "name": "冰冻之触",
+        "name_en": "Frozen Touch",
+        "text": "造成$3点伤害。<b>注能（@）：</b>将一张冰冻之触置入你的\n手牌。",
+        "text_en": "Deal $3 damage.\n<b>Infuse (@):</b> Add a Frozen Touch to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 2,
+          "CARD_SET": 1691,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 84355,
+          "SPELL_SCHOOL": 3,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 2,
+          "INFUSE": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "2cb94f51da0a868cd5113f934c2b10141748dd071ea36673b2b6117599c58443"
+    },
+    {
+      "record": {
+        "id": "RLK_843",
+        "dbf_id": 86274,
+        "name": "奥术箭",
+        "name_en": "Arcane Bolt",
+        "text": "造成$2点伤害。<b>法力渴求（8）：</b>改为造成$3点伤害。",
+        "text_en": "Deal $2 damage. <b>Manathirst (8):</b> Deal $3 damage instead.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "MANATHIRST": 8
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "39e6f9c704db760b9fdc203a91a230e936a19d3d98a31024500b18382b7d71f7"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "official_observations": [
+    {
+      "card_id": "NX2_001",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 86438,
+        "collectible": 1,
+        "slug": "86438-tear-reality",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "manaCost": 4,
+        "name": "撕裂现实",
+        "text": "随机将2张来自过去的法师法术牌置入你的手牌，其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/556aa6dda88e76a2f1d0856f6cb5ea76ae264dd372ab6316cc9c3571513a123f.png",
+        "imageGold": "",
+        "flavorText": "有一次，我开出了一张黑色的花，一张会笑的壶，还有一张初版龙希尔闪卡。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49101a294c40b4c3b36f4f7241f0becc0cbc29c9fdd14897791ba708421c715c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "NX2_001",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 86438,
+        "collectible": 1,
+        "slug": "86438-tear-reality",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Vika Yarova",
+        "manaCost": 4,
+        "name": "Tear Reality",
+        "text": "Add 2 random Mage spells from the past to your hand. They cost (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/db851718eb52cb06199198e6403b7bad5fdc4825a3482c84a48a20b6032f23f6.png",
+        "imageGold": "",
+        "flavorText": "One time it gave me a black flower, a smiling pot, and a foil first edition Dracthyr.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/49101a294c40b4c3b36f4f7241f0becc0cbc29c9fdd14897791ba708421c715c.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_601",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 84354,
+        "collectible": 1,
+        "slug": "84354-frozen-touch",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "manaCost": 2,
+        "name": "冰冻之触",
+        "text": "造成 3点伤害。<b>注能（ ）：</b>将一张冰冻之触置入你的 手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ff7dc4100c039f914c176e96939823796a81c6480f5d6f21021b06de8132a1e9.png",
+        "imageGold": "",
+        "flavorText": "这难道就是鲍勃讲的，他给死亡骑士倒酒时的情形？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7504e428b82dbb102a9e5f41424ff7cf8d5de2e3816f0ef92c1ae1ff138f5334.png",
+        "childIds": [
+          84355
+        ],
+        "keywordIds": [
+          238
+        ],
+        "copyOfCardId": [
+          118123
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "REV_601",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 84354,
+        "collectible": 1,
+        "slug": "84354-frozen-touch",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 3,
+        "cardTypeId": 5,
+        "cardSetId": 1691,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "manaCost": 2,
+        "name": "Frozen Touch",
+        "text": "Deal 3 damage. <b>Infuse ( ):</b> Add a Frozen Touch to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1b6a527642103ab3c144d65eda5f64b5feabba0d2fd528e3f598ead8c29abd86.png",
+        "imageGold": "",
+        "flavorText": "Is this what Bob was talking about when he said he served a drink to a Death Knight once?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7504e428b82dbb102a9e5f41424ff7cf8d5de2e3816f0ef92c1ae1ff138f5334.png",
+        "childIds": [
+          84355
+        ],
+        "keywordIds": [
+          238
+        ],
+        "copyOfCardId": [
+          118123
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_843",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 86274,
+        "collectible": 1,
+        "slug": "86274-arcane-bolt",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 1,
+        "name": "奥术箭",
+        "text": "造成 2点伤害。<b>法力渴求（8）：</b>改为造成 3点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/354a90b9dbb9aad43a0b9c13d2b55ff1ea40563c17008b3d19a1b2227f5420a4.png",
+        "imageGold": "",
+        "flavorText": "你等着，等到我有8点法力值的时候！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e95668e1165554a716b7c0406d086ca1de7ec2cb1745108b06e4e7e7a6dab611.png",
+        "keywordIds": [
+          257
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_843",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 86274,
+        "collectible": 1,
+        "slug": "86274-arcane-bolt",
+        "classId": 4,
+        "multiClassIds": [],
+        "spellSchoolId": 1,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 1,
+        "artistName": "Sergey Tsvelykh",
+        "manaCost": 1,
+        "name": "Arcane Bolt",
+        "text": "Deal 2 damage. <b>Manathirst (8):</b> Deal 3 damage instead.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4464b4ba597aba8367c94f61065a24b1a6b0941e9adf4e5657b8720be2ba20a7.png",
+        "imageGold": "",
+        "flavorText": "Just you wait until I have 8 mana!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e95668e1165554a716b7c0406d086ca1de7ec2cb1745108b06e4e7e7a6dab611.png",
+        "keywordIds": [
+          257
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "display_normalizations": {
+    "REV_601": {
+      "@": ""
+    }
+  },
+  "domains": [
+    {
+      "reference_document": "data/cards/past-mage-spells-local-reference-v1.json",
+      "reference_sha256": "a019b03f6120f6a07367afa4c164a9283d9b5cef6b68ad1530c256f90bfa81eb",
+      "pool_id": "constructed.past.mage.spells",
+      "original_reference_pool_id": "constructed.past.mage.spells",
+      "source_card_id": "NX2_001",
+      "member_ids": [
+        "AT_001",
+        "AT_002",
+        "AT_004",
+        "AT_005",
+        "AV_116",
+        "AV_212",
+        "AV_218",
+        "AV_282",
+        "AV_283",
+        "AV_290",
+        "BAR_305",
+        "BAR_541",
+        "BAR_542",
+        "BAR_546",
+        "BAR_812",
+        "BOT_101",
+        "BOT_254",
+        "BOT_257",
+        "BOT_453",
+        "BOT_600",
+        "BRM_003",
+        "BT_002",
+        "BT_003",
+        "BT_006",
+        "BT_021",
+        "BT_072",
+        "BT_291",
+        "CFM_021",
+        "CFM_065",
+        "CFM_620",
+        "CFM_623",
+        "CS2_022",
+        "CS2_023",
+        "CS2_024",
+        "CS2_025",
+        "CS2_026",
+        "CS2_027",
+        "CS2_028",
+        "CS2_029",
+        "CS2_031",
+        "CS2_032",
+        "DAL_177",
+        "DAL_577",
+        "DAL_578",
+        "DAL_608",
+        "DED_517",
+        "DEEP_000",
+        "DEEP_002",
+        "DEEP_031",
+        "DEEP_032",
+        "DMF_103",
+        "DMF_104",
+        "DMF_105",
+        "DMF_107",
+        "DMF_108",
+        "DRG_106",
+        "DRG_321",
+        "DRG_323",
+        "DRG_324",
+        "ETC_205",
+        "ETC_206",
+        "ETC_528",
+        "ETC_532",
+        "ETC_535",
+        "EX1_179",
+        "EX1_180",
+        "EX1_275",
+        "EX1_277",
+        "EX1_279",
+        "EX1_287",
+        "EX1_289",
+        "EX1_294",
+        "EX1_295",
+        "EX1_594",
+        "FP1_018",
+        "GDB_133",
+        "GDB_301",
+        "GDB_305",
+        "GDB_456",
+        "GIFT_02",
+        "GIL_147",
+        "GIL_548",
+        "GIL_801",
+        "GVG_001",
+        "GVG_003",
+        "GVG_005",
+        "ICC_082",
+        "ICC_086",
+        "ICC_823",
+        "ICC_836",
+        "JAM_002",
+        "JAM_031",
+        "KAR_076",
+        "LOE_002",
+        "LOOT_101",
+        "LOOT_103",
+        "LOOT_104",
+        "LOOT_106",
+        "LOOT_172",
+        "MAW_006",
+        "MAW_013",
+        "MIS_107",
+        "MIS_302",
+        "NX2_001",
+        "OG_081",
+        "OG_086",
+        "OG_090",
+        "ONY_006",
+        "ONY_029",
+        "REV_504",
+        "REV_505",
+        "REV_516",
+        "REV_601",
+        "REV_840",
+        "RLK_544",
+        "RLK_546",
+        "RLK_843",
+        "SC_750",
+        "SC_753",
+        "SC_759",
+        "SC_760",
+        "SCH_235",
+        "SCH_270",
+        "SCH_348",
+        "SCH_352",
+        "SCH_353",
+        "SCH_509",
+        "SW_107",
+        "SW_108",
+        "SW_110",
+        "SW_450",
+        "SW_462",
+        "TID_708",
+        "TOY_037",
+        "TOY_371",
+        "TOY_372",
+        "TOY_374",
+        "TOY_377",
+        "TOY_378",
+        "TRL_310",
+        "TRL_313",
+        "TRL_317",
+        "TRL_400",
+        "TSC_055",
+        "TSC_056",
+        "TSC_948",
+        "tt_010",
+        "TTN_085",
+        "TTN_476",
+        "TTN_477",
+        "TTN_480",
+        "ULD_216",
+        "ULD_239",
+        "ULD_433",
+        "ULD_726",
+        "UNG_018",
+        "UNG_024",
+        "UNG_028",
+        "UNG_941",
+        "UNG_948",
+        "UNG_955",
+        "VAC_428",
+        "VAC_431",
+        "VAC_509",
+        "VAC_520",
+        "VAC_953",
+        "WC_041",
+        "WON_037",
+        "WON_040",
+        "WON_341",
+        "WORK_012",
+        "WORK_026",
+        "WW_009",
+        "WW_377",
+        "WW_422",
+        "WW_425",
+        "WW_427",
+        "YOG_507",
+        "YOP_019"
+      ],
+      "query": {
+        "kinds": [
+          "spell"
+        ],
+        "min_cost": null,
+        "max_cost": null,
+        "collectible": true,
+        "class_mode": "specified",
+        "classes": [
+          "mage"
+        ],
+        "include_neutral": false,
+        "rarities": [],
+        "tribes_any": [],
+        "spell_schools": [],
+        "keywords_all": [],
+        "exclude_card_ids": [],
+        "exclude_source": false,
+        "factions_any": [],
+        "ability": null,
+        "subtypes_any": [],
+        "deathrattle": null,
+        "choose_one": null,
+        "any_of": [],
+        "runes_any": [],
+        "attack_parity": null,
+        "card_ids": [],
+        "attack_equals": null,
+        "keywords_none": []
+      },
+      "views": [
+        {
+          "current_class": null,
+          "metadata_original_count": 179,
+          "actual_ids": [
+            "AT_001",
+            "AT_002",
+            "AT_004",
+            "AT_005",
+            "AV_116",
+            "AV_212",
+            "AV_218",
+            "AV_282",
+            "AV_283",
+            "AV_290",
+            "BAR_305",
+            "BAR_541",
+            "BAR_542",
+            "BAR_546",
+            "BAR_812",
+            "BOT_101",
+            "BOT_254",
+            "BOT_257",
+            "BOT_453",
+            "BOT_600",
+            "BRM_003",
+            "BT_002",
+            "BT_003",
+            "BT_006",
+            "BT_021",
+            "BT_072",
+            "BT_291",
+            "CFM_021",
+            "CFM_065",
+            "CFM_620",
+            "CFM_623",
+            "CS2_022",
+            "CS2_023",
+            "CS2_024",
+            "CS2_025",
+            "CS2_026",
+            "CS2_027",
+            "CS2_028",
+            "CS2_029",
+            "CS2_031",
+            "CS2_032",
+            "DAL_177",
+            "DAL_577",
+            "DAL_578",
+            "DAL_608",
+            "DED_517",
+            "DEEP_000",
+            "DEEP_002",
+            "DEEP_031",
+            "DEEP_032",
+            "DMF_103",
+            "DMF_104",
+            "DMF_105",
+            "DMF_107",
+            "DMF_108",
+            "DRG_106",
+            "DRG_321",
+            "DRG_323",
+            "DRG_324",
+            "ETC_205",
+            "ETC_206",
+            "ETC_528",
+            "ETC_532",
+            "ETC_535",
+            "EX1_179",
+            "EX1_180",
+            "EX1_275",
+            "EX1_277",
+            "EX1_279",
+            "EX1_287",
+            "EX1_289",
+            "EX1_294",
+            "EX1_295",
+            "EX1_594",
+            "FP1_018",
+            "GDB_133",
+            "GDB_301",
+            "GDB_305",
+            "GDB_456",
+            "GIFT_02",
+            "GIL_147",
+            "GIL_548",
+            "GIL_801",
+            "GVG_001",
+            "GVG_003",
+            "GVG_005",
+            "ICC_082",
+            "ICC_086",
+            "ICC_823",
+            "ICC_836",
+            "JAM_002",
+            "JAM_031",
+            "KAR_076",
+            "LOE_002",
+            "LOOT_101",
+            "LOOT_103",
+            "LOOT_104",
+            "LOOT_106",
+            "LOOT_172",
+            "MAW_006",
+            "MAW_013",
+            "MIS_107",
+            "MIS_302",
+            "OG_081",
+            "OG_086",
+            "OG_090",
+            "ONY_006",
+            "ONY_029",
+            "REV_504",
+            "REV_505",
+            "REV_516",
+            "REV_601",
+            "REV_840",
+            "RLK_544",
+            "RLK_546",
+            "RLK_843",
+            "SCH_235",
+            "SCH_270",
+            "SCH_348",
+            "SCH_352",
+            "SCH_353",
+            "SCH_509",
+            "SC_750",
+            "SC_753",
+            "SC_759",
+            "SC_760",
+            "SW_107",
+            "SW_108",
+            "SW_110",
+            "SW_462",
+            "TID_708",
+            "TOY_037",
+            "TOY_371",
+            "TOY_372",
+            "TOY_374",
+            "TOY_377",
+            "TOY_378",
+            "TRL_310",
+            "TRL_313",
+            "TRL_317",
+            "TRL_400",
+            "TSC_055",
+            "TSC_056",
+            "TSC_948",
+            "TTN_085",
+            "TTN_476",
+            "TTN_477",
+            "TTN_480",
+            "ULD_216",
+            "ULD_239",
+            "ULD_726",
+            "UNG_018",
+            "UNG_024",
+            "UNG_941",
+            "UNG_948",
+            "UNG_955",
+            "VAC_428",
+            "VAC_431",
+            "VAC_509",
+            "VAC_520",
+            "VAC_953",
+            "WC_041",
+            "WON_037",
+            "WON_040",
+            "WON_341",
+            "WORK_012",
+            "WORK_026",
+            "WW_009",
+            "WW_377",
+            "WW_422",
+            "WW_425",
+            "WW_427",
+            "YOG_507",
+            "YOP_019",
+            "tt_010"
+          ],
+          "actual_weights": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "policy_exclusions": [
+            "NX2_001",
+            "SW_450",
+            "ULD_433",
+            "UNG_028"
+          ]
+        }
+      ],
+      "weight": 1,
+      "complete_for_declared_inventory": true,
+      "formal_pool_complete": false
+    },
+    {
+      "reference_document": "data/cards/past-arcane-local-reference-v1.json",
+      "reference_sha256": "35b0eb3474e13e56761e64c7786f483dbde45ce341295a23f23d2f8744da1a18",
+      "pool_id": "constructed.local-past-arcane.full-reference-v1",
+      "original_reference_pool_id": "constructed.past.cards",
+      "source_card_id": "TIME_857",
+      "member_ids": [
+        "AT_004",
+        "AT_005",
+        "AT_043",
+        "AV_116",
+        "AV_212",
+        "AV_218",
+        "BAR_539",
+        "BAR_541",
+        "BOT_101",
+        "BOT_257",
+        "BOT_453",
+        "BT_002",
+        "BT_003",
+        "BT_006",
+        "BT_021",
+        "CFM_620",
+        "CFM_623",
+        "CFM_811",
+        "CS2_008",
+        "CS2_022",
+        "CS2_023",
+        "CS2_025",
+        "DAL_177",
+        "DAL_578",
+        "DAL_608",
+        "DED_002",
+        "DED_517",
+        "DEEP_003",
+        "DMF_057",
+        "DRG_106",
+        "DS1_185",
+        "ETC_205",
+        "ETC_528",
+        "ETC_532",
+        "EX1_173",
+        "EX1_180",
+        "EX1_277",
+        "EX1_287",
+        "EX1_294",
+        "FP1_018",
+        "GDB_133",
+        "GDB_479",
+        "GDB_851",
+        "GDB_852",
+        "GDB_857",
+        "GDB_882",
+        "GDB_883",
+        "GVG_003",
+        "GVG_005",
+        "JAM_002",
+        "LOOT_104",
+        "LOOT_106",
+        "MIS_107",
+        "NEW1_007",
+        "NX2_001",
+        "OG_090",
+        "RLK_544",
+        "RLK_804",
+        "RLK_817",
+        "RLK_818",
+        "RLK_819",
+        "RLK_843",
+        "SCH_235",
+        "SCH_270",
+        "SCH_352",
+        "SCH_353",
+        "TID_001",
+        "TID_708",
+        "TOY_378",
+        "TOY_800",
+        "TOY_851",
+        "TOY_877",
+        "TRL_400",
+        "TSC_948",
+        "TTN_085",
+        "TTN_485",
+        "ULD_726",
+        "UNG_024",
+        "UNG_941",
+        "VAC_907",
+        "WON_037",
+        "WW_425",
+        "YOG_082",
+        "YOP_019"
+      ],
+      "query": {
+        "kinds": [
+          "spell"
+        ],
+        "min_cost": null,
+        "max_cost": null,
+        "collectible": true,
+        "class_mode": "current",
+        "classes": [],
+        "include_neutral": true,
+        "rarities": [],
+        "tribes_any": [],
+        "spell_schools": [
+          "arcane"
+        ],
+        "keywords_all": [],
+        "exclude_card_ids": [],
+        "exclude_source": false,
+        "factions_any": [],
+        "ability": null,
+        "subtypes_any": [],
+        "deathrattle": null,
+        "choose_one": null,
+        "any_of": [],
+        "runes_any": [],
+        "attack_parity": null,
+        "card_ids": [],
+        "attack_equals": null,
+        "keywords_none": []
+      },
+      "views": [
+        {
+          "current_class": "death_knight",
+          "metadata_original_count": 0,
+          "actual_ids": [],
+          "actual_weights": [],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "demon_hunter",
+          "metadata_original_count": 0,
+          "actual_ids": [],
+          "actual_weights": [],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "druid",
+          "metadata_original_count": 17,
+          "actual_ids": [
+            "AT_043",
+            "BAR_539",
+            "CFM_811",
+            "CS2_008",
+            "DED_002",
+            "DMF_057",
+            "EX1_173",
+            "GDB_851",
+            "GDB_852",
+            "GDB_857",
+            "GDB_882",
+            "GDB_883",
+            "NEW1_007",
+            "TID_001",
+            "TOY_800",
+            "TOY_851",
+            "VAC_907"
+          ],
+          "actual_weights": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "hunter",
+          "metadata_original_count": 8,
+          "actual_ids": [
+            "DEEP_003",
+            "DS1_185",
+            "JAM_002",
+            "RLK_804",
+            "RLK_817",
+            "RLK_818",
+            "RLK_819",
+            "YOG_082"
+          ],
+          "actual_weights": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "mage",
+          "metadata_original_count": 57,
+          "actual_ids": [
+            "AT_004",
+            "AT_005",
+            "AV_116",
+            "AV_212",
+            "AV_218",
+            "BAR_541",
+            "BOT_101",
+            "BOT_257",
+            "BOT_453",
+            "BT_002",
+            "BT_003",
+            "BT_006",
+            "BT_021",
+            "CFM_620",
+            "CFM_623",
+            "CS2_022",
+            "CS2_023",
+            "CS2_025",
+            "DAL_177",
+            "DAL_578",
+            "DAL_608",
+            "DED_517",
+            "DRG_106",
+            "ETC_205",
+            "ETC_528",
+            "ETC_532",
+            "EX1_180",
+            "EX1_277",
+            "EX1_287",
+            "EX1_294",
+            "FP1_018",
+            "GDB_133",
+            "GVG_003",
+            "GVG_005",
+            "JAM_002",
+            "LOOT_104",
+            "LOOT_106",
+            "MIS_107",
+            "NX2_001",
+            "OG_090",
+            "RLK_544",
+            "RLK_843",
+            "SCH_235",
+            "SCH_270",
+            "SCH_352",
+            "SCH_353",
+            "TID_708",
+            "TOY_378",
+            "TRL_400",
+            "TSC_948",
+            "TTN_085",
+            "ULD_726",
+            "UNG_024",
+            "UNG_941",
+            "WON_037",
+            "WW_425",
+            "YOP_019"
+          ],
+          "actual_weights": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "paladin",
+          "metadata_original_count": 0,
+          "actual_ids": [],
+          "actual_weights": [],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "priest",
+          "metadata_original_count": 1,
+          "actual_ids": [
+            "TTN_485"
+          ],
+          "actual_weights": [
+            1
+          ],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "rogue",
+          "metadata_original_count": 1,
+          "actual_ids": [
+            "SCH_352"
+          ],
+          "actual_weights": [
+            1
+          ],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "shaman",
+          "metadata_original_count": 4,
+          "actual_ids": [
+            "GDB_479",
+            "SCH_235",
+            "SCH_270",
+            "TOY_877"
+          ],
+          "actual_weights": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "warlock",
+          "metadata_original_count": 0,
+          "actual_ids": [],
+          "actual_weights": [],
+          "policy_exclusions": []
+        },
+        {
+          "current_class": "warrior",
+          "metadata_original_count": 0,
+          "actual_ids": [],
+          "actual_weights": [],
+          "policy_exclusions": []
+        }
+      ],
+      "weight": 1,
+      "complete_for_declared_inventory": true,
+      "formal_pool_complete": false
+    }
+  ],
+  "native_pins": [
+    {
+      "card_id": "AT_001",
+      "definition_sha256": "ac30257d46144d7ee2ff0a51eb2ad8cf5761d6df265de35be2bd92f819e482db",
+      "pool_card_sha256": "8ca350e19cfee6c85e97a47c6b6e3f1be1e6a2f2e99b5440654248bb82e89319"
+    },
+    {
+      "card_id": "AT_002",
+      "definition_sha256": "b145c6ae0e2dbb961be8673c57923cd5cb8902c7b5d0c10d452916e0152f18a1",
+      "pool_card_sha256": "f4431e358fdc4c1c81b635e4425d4ab3ccf59b844977d2586dbb73b7b6181fde"
+    },
+    {
+      "card_id": "AT_004",
+      "definition_sha256": "398049f303ccd09cd7f2b398140a90a9ce19d27c9a0b891981c4d71b61281636",
+      "pool_card_sha256": "cda30cbf9249c08f3c18d82eed15d01819efa94d76e9dbb340ee66f019243328"
+    },
+    {
+      "card_id": "AT_005",
+      "definition_sha256": "967c1c0d94fea22b500df864b4231b4e7823e8af1adbfba004e1f63d8eb6c994",
+      "pool_card_sha256": "d3b86aee588f2ed32cb778c489714548f473a4875ef4b5a07edbe761db29b772"
+    },
+    {
+      "card_id": "AV_116",
+      "definition_sha256": "23390932c1d2f47bd99d6f241ad8cc24930d0db7a21672dd15d387586ad28ec4",
+      "pool_card_sha256": "ab2bc3f029aee513f3a9de221e6dae9040a531a72b1fffbd1e14217c03fcfa87"
+    },
+    {
+      "card_id": "AV_212",
+      "definition_sha256": "a6e20f5b92583854bdc5107217444058784ebebc529a67e451986f9f61a7f1f0",
+      "pool_card_sha256": "39fe24cb8fdfad420c3f45751331b153ecaa8c852487e438fbb98426c2199360"
+    },
+    {
+      "card_id": "AV_218",
+      "definition_sha256": "c776aeee63f0e62a09c0e9c7d4c373e8d3d962a5c419231c1e2bb3f0ae30c493",
+      "pool_card_sha256": "d19ce16de7f1c4d9c21f22a1af6e32671a90c483837500609e35389cf9b7a6e2"
+    },
+    {
+      "card_id": "AV_282",
+      "definition_sha256": "ba73fbc8ab6f1a87220768a9c56651c84b72730f42243726b73e6d569bb72d1a",
+      "pool_card_sha256": "26a27881f60160ed3e2880a79027996c8107ee60342a0b0f8d5a742dbbec2158"
+    },
+    {
+      "card_id": "AV_283",
+      "definition_sha256": "ab9d801946ede834921e9ce270744b074e3df10e823d5635f60bcb35cf3add45",
+      "pool_card_sha256": "a5a045304cead688e94be4afd69d4c3fc076acdc30a725ab2ab4605506ad0a46"
+    },
+    {
+      "card_id": "AV_290",
+      "definition_sha256": "672ab8a3950c3a06ad4ffae0c81795d456d7b835a99a40bf5353958ecc2dfa7e",
+      "pool_card_sha256": "96ae3e80b7d8b88c8567dc2425f05e685f0951eb943cba3d8504ca2c01272e6d"
+    },
+    {
+      "card_id": "BAR_305",
+      "definition_sha256": "c3ce201064a2b8159204ab228dcfa5a18a2383a33281729ab7de0f0491d33cc3",
+      "pool_card_sha256": "efea340c237b1fcb22539c5ad68f81004d61ae9714ef0de6c69409a3f0e4fe16"
+    },
+    {
+      "card_id": "BAR_541",
+      "definition_sha256": "30f600fe2792c3744fad2bac554e75b5aee37c0787c7cd61ce54242433cf726a",
+      "pool_card_sha256": "f8ed98ad52c67ec9b24e4f8daf642cf81fd9ce2b0c41f39b87c071d289005aee"
+    },
+    {
+      "card_id": "BAR_542",
+      "definition_sha256": "d12d568f8392ae17997ef303a14e09d2f530d30bfcacc6682094acbde1e099f9",
+      "pool_card_sha256": "57ce6fef701bda0b8c10ecb89b8a760dc296949de509d3d36a70bb8c979f240c"
+    },
+    {
+      "card_id": "BAR_546",
+      "definition_sha256": "629e0d83ccdedb3746494db6b4a6f052e8de36b7f68c8214f5c6d0565d071e38",
+      "pool_card_sha256": "9141416febd3109f83818ec88c437392d11d675c001eb6935101dbd1321c1730"
+    },
+    {
+      "card_id": "BAR_812",
+      "definition_sha256": "b2a7d57bcd42693e048aaac55384e37bc0d3d4303e40141e434c1183fc62bd57",
+      "pool_card_sha256": "cec3c3c11217f5852c59396ea6180c4a38881b028062fba3cba0d49880ddf2f5"
+    },
+    {
+      "card_id": "BOT_101",
+      "definition_sha256": "076ed7f68915eddfe49e4cf210235a5abdb1888f9f21f32361ceb46a1ebebbe5",
+      "pool_card_sha256": "fb81586159b6b1d2cf07753bb6573b3babc52443671b61538b7998c66f172dca"
+    },
+    {
+      "card_id": "BOT_254",
+      "definition_sha256": "285e94841cdb348b29e57282b623ffab80ddecbb51d4fbb882779d44dff18646",
+      "pool_card_sha256": "09df5940f702d7328933f212343b0e6747cc4d60772138162f97a1bc575574bd"
+    },
+    {
+      "card_id": "BOT_257",
+      "definition_sha256": "4720399b315ab2cc4cb553127106657a8e84da996f2015060f59decad935febd",
+      "pool_card_sha256": "13ffe15d1da44809bd6463ba221a956d11c55b6c85321945f7c1e17cc6e0d356"
+    },
+    {
+      "card_id": "BOT_453",
+      "definition_sha256": "ac271c18eaf9b1cefd8fe237be0874231aa994c051dbc16e93211435d728e2ad",
+      "pool_card_sha256": "35d742544fc0b161721b7113bf7f3ec7f83ce7a56cdf3b2fe8ccf8f2544e1362"
+    },
+    {
+      "card_id": "BOT_600",
+      "definition_sha256": "9d2a1a485817b0e627bff88504a77b274718f1a88b815b919dbebea811842769",
+      "pool_card_sha256": "7eda1298f8da4a38b45c3a771e7271a589e02b2c1a7d4c02b6887f796f28d184"
+    },
+    {
+      "card_id": "BRM_003",
+      "definition_sha256": "332755e9fb46d5a883d11458439c73b72960132f66fb40986bfceb996aa2b875",
+      "pool_card_sha256": "0121f81179c7e4ba33504b37edfd00ec43a253f30782d7836d5a6155257a66e1"
+    },
+    {
+      "card_id": "BT_002",
+      "definition_sha256": "1c3e2e32c124badd666559ec188c02e5aea317531b2b9fe61ebf00fa8062d8f4",
+      "pool_card_sha256": "33ab23883e30eb9e8eca8fb47c633c4f5cffdad5021bd8e0c87663bb5db861bb"
+    },
+    {
+      "card_id": "BT_003",
+      "definition_sha256": "f5ccac8e06ab8ddf3e53b7bf2416e913887847eed9d277875039392a63bd5f32",
+      "pool_card_sha256": "71077a26696c62574ef452401fc7454768ff19d81244b1ea472364c0c1ab663f"
+    },
+    {
+      "card_id": "BT_006",
+      "definition_sha256": "9b10c49f7bfc007b39cfa9febec6ba26f7d11f476ddd2b8d42fec3e7ee3c3d0e",
+      "pool_card_sha256": "a4d464961916722e0a362f7aa8528dd07abb6994a0d3ec4142ce03089317edae"
+    },
+    {
+      "card_id": "BT_021",
+      "definition_sha256": "c022e646abcda605b668b4a24d95b7946dc9b6304abe37e93446d41046604f70",
+      "pool_card_sha256": "bfef0d7125ea3b1771f5b25ced506cb4ba1b64152af4a252f667ad526eaa436b"
+    },
+    {
+      "card_id": "BT_072",
+      "definition_sha256": "e360e650d9af77c3200b2bff63b9a569b7094c34710155d60a5f0e592f0dbf8d",
+      "pool_card_sha256": "49f7d4dc08b30b78d527bff03db54b7d67c330aa97e63afb7ef1d3c5a95ea997"
+    },
+    {
+      "card_id": "BT_291",
+      "definition_sha256": "0c88d03b329bc68b71df6d7cd0595011d395a26751a18fca3e6a99272b354424",
+      "pool_card_sha256": "bd0de7e61f13555f9619f9592f3ea980ebc42f12dc66fbbcb39c2044a6d6b160"
+    },
+    {
+      "card_id": "CFM_021",
+      "definition_sha256": "3e2019d5f5c63fc0d91f700f306ef5b8fd505d600d1c16afdc9a9d3a9c81a855",
+      "pool_card_sha256": "a0c48007d0123f9c1f1986496966b037ec9c1f7cba348798b2c97371898954a1"
+    },
+    {
+      "card_id": "CFM_065",
+      "definition_sha256": "1c7565048cfa493680ceb42a71e39df54c50b981eabaaff45934992a44263a09",
+      "pool_card_sha256": "d56984bcdbc19df03f380154669f618c604f7f4e80f207a1b75f6398a1e83a2a"
+    },
+    {
+      "card_id": "CFM_620",
+      "definition_sha256": "d7bbc5edf77076ad5e3f9b5cdc5a61998c680b12c7314715fd9085805464cda2",
+      "pool_card_sha256": "49c3694f3146f508d92c9c957f4abf9586aca4d12d2c8060d5f801c973403868"
+    },
+    {
+      "card_id": "CFM_623",
+      "definition_sha256": "fbc87fed6ed45952484ead975a3b7e3e9bd2a8b1d850f651cde4021ee8b35661",
+      "pool_card_sha256": "a1e346a6970dacbcf8d5af64595c4ffec03fc8b26fcaa9ed74ad697e36fcd186"
+    },
+    {
+      "card_id": "CS2_022",
+      "definition_sha256": "c48af3e3d3908d4b7dc0032606386554808a29897b164b46961fbc5a56018c8f",
+      "pool_card_sha256": "1c754e5c8aca82176c5301d98f0ba1e4c47921adc7119ce7fa1cbb7ccda8abfc"
+    },
+    {
+      "card_id": "CS2_023",
+      "definition_sha256": "2c1d31ca8dfa309ca8b199daa72ca3edd94d42b6e782fcd83ba5493b6ba0e6f7",
+      "pool_card_sha256": "89cd749d57bde061890648d0f47fa2cdea4f675acf08e2b980dfdb50e770d574"
+    },
+    {
+      "card_id": "CS2_024",
+      "definition_sha256": "057ccbfff8be6b978feb8b9718c4026d7dcd42ac8cf2180f8e6499bb81ecd9ce",
+      "pool_card_sha256": "d7047d1e6c239bbc490d8aeb0a409d91c7d498674a84bab1b2b8b3f4d5d8fbce"
+    },
+    {
+      "card_id": "CS2_025",
+      "definition_sha256": "b1f6f954b6745e60cfda518cdee3e6179b3d3926d52fcc0027bcd697020a81de",
+      "pool_card_sha256": "7af6c568fc04143ec9956d17e3800141a8a18e9ed6caffe65e28efb291092214"
+    },
+    {
+      "card_id": "CS2_026",
+      "definition_sha256": "b47596430223ff5e611b9d10f1a47625013e87995d4a48411782a779f9f8d8a6",
+      "pool_card_sha256": "5ce7fc4539deafe33ea3cb3e436dab31e224fd5df614af294fd2dda0c94ac837"
+    },
+    {
+      "card_id": "CS2_027",
+      "definition_sha256": "7931c90ec621056dc41cb3da94d42a9e6640cdf96584c1bcf218c30cbd145666",
+      "pool_card_sha256": "0ce801c9bcd0d244b2e3481d7f2ca994f756eff184e812030b06ebbb216a187b"
+    },
+    {
+      "card_id": "CS2_028",
+      "definition_sha256": "d090abc7dea6567132a71bfecc637a04933bce5bd5b87f2a9111fa206442421b",
+      "pool_card_sha256": "b4c6332f911201fc752f9bbe8df87abf9fd3ff7c7b6e23a8834c50d3a20ae89c"
+    },
+    {
+      "card_id": "CS2_029",
+      "definition_sha256": "00f3568b9f3302d8ea2b14459f5612ca6ae167dafeb14ecf424b5d506cc79088",
+      "pool_card_sha256": "a0310e1481b164a48426ececa2ada20424fdab4246b4d68d6b93c302d8617266"
+    },
+    {
+      "card_id": "CS2_031",
+      "definition_sha256": "574459f5e0a91c1644e29a9050e04e9a2aa8b0067dcc397da6b2dfd8b3a2da2f",
+      "pool_card_sha256": "d826f8f111af8499fa3b1e4b2eaf39518c9223ded2c841e655d1820e4ece4fa9"
+    },
+    {
+      "card_id": "CS2_032",
+      "definition_sha256": "deb6708e579af5ba5e2b980a57f13bddf957ccf9d88a3f2a8ac1c4e8c7127d03",
+      "pool_card_sha256": "6a2aa76dfd5c4c498eeb91684c7a24e89c044b6b7ce98006146c90361734b677"
+    },
+    {
+      "card_id": "DAL_177",
+      "definition_sha256": "bde402569c8bae225eda3710c2646f5fbf9e5c8315a251c619a01a0a33900a3a",
+      "pool_card_sha256": "73fbc768871146ef2bcee6503615cdb0439dd86509513b51aa2ffa054e3ab013"
+    },
+    {
+      "card_id": "DAL_577",
+      "definition_sha256": "e2bbb25a261b2274bf091b10dcda274b62852e7f348b202bd5f332581fcf9597",
+      "pool_card_sha256": "55c894111a5463dc1f9aca14e8e37c4de3ecd23f1cf5f661baeca7e5213fffc7"
+    },
+    {
+      "card_id": "DAL_578",
+      "definition_sha256": "8b0ff3445fb394d3d869e3896def69ad7944c119d408125b858db196e4418aea",
+      "pool_card_sha256": "aa46253ee615b32a3996e7ef3d5657700b86174553aceb9963f3740c329c5882"
+    },
+    {
+      "card_id": "DAL_608",
+      "definition_sha256": "b0726c4adc531c3a9e97d091a0fb53be9b4588e9a5b68a93f98f919f31590c82",
+      "pool_card_sha256": "ae9b9b4c4fc07d0ef69f61ae3bff3af182628aca07740f8b496351f027ed3386"
+    },
+    {
+      "card_id": "DED_517",
+      "definition_sha256": "45d615b1beb1e08ee5c5a2f3311b8d44cc0f33ec75245a9567e74748372eb97e",
+      "pool_card_sha256": "b57c9df3383592dbd54e7dd734836005b71de68caef8d47d271511bcec01ac52"
+    },
+    {
+      "card_id": "DEEP_000",
+      "definition_sha256": "4f1ce84917ac8496429b6a2ee546057f6572019257895d32135d745f8f12a363",
+      "pool_card_sha256": "ce1150dca714d75f9794f72987420879683bdadfcf79bff690e83b673f451403"
+    },
+    {
+      "card_id": "DEEP_002",
+      "definition_sha256": "c7a7cb847139b189161da62874f97a3a3d881e735534b822d92bc2348d19bb95",
+      "pool_card_sha256": "e02542f9a7da762352194d1b689047b16262dc87adf6b3d58b645c4b08daa0f4"
+    },
+    {
+      "card_id": "DEEP_031",
+      "definition_sha256": "ce6b361541d781af18b51d61b60c0157100a43d0b71394449f7d959275e99261",
+      "pool_card_sha256": "557eacc665d998829ff174c3cccdde695955fb135a478b372e1932d35b5e1815"
+    },
+    {
+      "card_id": "DEEP_032",
+      "definition_sha256": "679d94d5264d31419d254c5e4c530052899cc5699de0055afbae6facce5f08e3",
+      "pool_card_sha256": "b034d7851db9c90f09f266a0e6a75f0cdce25108561982074a113de3268c61cb"
+    },
+    {
+      "card_id": "DMF_103",
+      "definition_sha256": "caa04fe2848e2eb5a9f6696b12da5bd2029a97bf3a1532c4604ea7f4d87d080c",
+      "pool_card_sha256": "ca2d996aae99a787c66fbe671f9cf67fbbe51880158edcd85f57af60781fff0f"
+    },
+    {
+      "card_id": "DMF_104",
+      "definition_sha256": "274b6e27710c619a1c300dc6e4b5de924acfbf6662af21789ecc803eb138715c",
+      "pool_card_sha256": "4fe3b044dcfea5e2d97027d86a910a614fd45fb71574f12e865c0bc803dd62ae"
+    },
+    {
+      "card_id": "DMF_105",
+      "definition_sha256": "9b06f0ab0ca58c59618bee298f030ec21b1384fccca5352f3e69d0a66754e2a6",
+      "pool_card_sha256": "d80e090591ae7acccec12912da850f4cf894c762897c48773466aefa0ea52a30"
+    },
+    {
+      "card_id": "DMF_107",
+      "definition_sha256": "961329665675d8603dd52b1545a1732b99d04f0593c935fbb9863ee22fcc5066",
+      "pool_card_sha256": "bebc1cf1574462ccc67cd1ec07a5b156ee360f0f5661002014e959c7d52f640f"
+    },
+    {
+      "card_id": "DMF_108",
+      "definition_sha256": "da0ac4105bd8242d78ce43dc70e05c9ef8b69511dd3ee4470bd4ca84ee74da13",
+      "pool_card_sha256": "293eb627e98d54ecde31a2650f505e772283dfc3d5a8f16fe198184a976dabbc"
+    },
+    {
+      "card_id": "DRG_106",
+      "definition_sha256": "f924de627c675a6ab2cb09816b696ba2c10233f1e189047ecea52dc67548e9e0",
+      "pool_card_sha256": "d64badd9db639664c46deaef878ce76a917467ff36b037747a0df6e117ba662e"
+    },
+    {
+      "card_id": "DRG_321",
+      "definition_sha256": "cb8b771e80246bcffaa74261fd1a720bf69841b3f92b8d02c5c37714007cd2d9",
+      "pool_card_sha256": "d70a46149a4a2ce0253fe2d6c0863e2d03f5d14c1c41d5d70cd8baefc9bfc0bf"
+    },
+    {
+      "card_id": "DRG_323",
+      "definition_sha256": "9fb2695d8b428aa1806e7ed899bc76a36ff4b9f54e1494cd55298cc1e6d7adab",
+      "pool_card_sha256": "80a346ce1e506d0e0965487ff5e8d4fd8c8b93417dda9530b6c3704f04b9cc84"
+    },
+    {
+      "card_id": "DRG_324",
+      "definition_sha256": "6fa1d026a2d45b271507c6385d9a2ccd75ce1b5b181640ba1d040c46f6486231",
+      "pool_card_sha256": "5827d75628f9112e9a7664e0240bdeebcdb58b51ada904b95207abd8e091204c"
+    },
+    {
+      "card_id": "ETC_205",
+      "definition_sha256": "965e3a9c5969d0a8282f175a4d89908940c30a7916917396152b71ed875b3a13",
+      "pool_card_sha256": "31d3dd04aed05169b615e81a597fe852be8c27715b3e0e7848fbefe5f4d75a5c"
+    },
+    {
+      "card_id": "ETC_206",
+      "definition_sha256": "5153075110936ebb4f59b8590dfb45fba25d24ef62e0939640e89727e4ae714a",
+      "pool_card_sha256": "311cbbd48e592c364ddce05d4730628bc8096b0362a49417b5990f1dddc0b710"
+    },
+    {
+      "card_id": "ETC_528",
+      "definition_sha256": "1c7e076d06fe7b7dd74b022275c2677755bb4dd933bfe7249e8c15b5e1ecfb12",
+      "pool_card_sha256": "7da22383680622d45f471552200c47828b1d9523f89d2a91e2c8e308d1b5a3c7"
+    },
+    {
+      "card_id": "ETC_532",
+      "definition_sha256": "0b0ef558dd8eaa5d947f7c50e493830ce54a7e5c0bf93fd6e64ef61b37e51d65",
+      "pool_card_sha256": "bd940276ba04ddd2485a7b8d2731925471a1115931f3e01ca73c2a477b6f499b"
+    },
+    {
+      "card_id": "ETC_535",
+      "definition_sha256": "e461eb9b8fb5b39228c59cf197174cb07b07b7d972d5f42168ec001c9bc0045d",
+      "pool_card_sha256": "f4e5b6ad223892b7d26ad53cbc1cd49aa4c28d0dcdda9236cea6a204e3ad9cce"
+    },
+    {
+      "card_id": "EX1_179",
+      "definition_sha256": "3f5287e95cbaaf77cb8ae8c5bbe3ef0e6903ff42c8dda0cebe0c11a048b08c58",
+      "pool_card_sha256": "0e9a451024cec91759f536c71510d73fa9c8e3d7f087e15a1b58882cedc930e0"
+    },
+    {
+      "card_id": "EX1_180",
+      "definition_sha256": "e8db0ece832c80f7977168c3261c424ea9cb25ffdc26b3b152155a13081d1a56",
+      "pool_card_sha256": "fe0808d21b0cd38f5c08a5f0640b2e21367cfe14b2e78f043c06e91b7cc68f3c"
+    },
+    {
+      "card_id": "EX1_275",
+      "definition_sha256": "c8604abfa975aca971022d4d7d28b2c6cef2a126091329d4bac2963e9a1ba305",
+      "pool_card_sha256": "16d0c60d299302ee0d49693bfdc8d8f25b70c65b8723f08d453a04c8e01dea3f"
+    },
+    {
+      "card_id": "EX1_277",
+      "definition_sha256": "ec880beec565cb41fdea1a99a7c6e12b6dcb08975716069cd7ff36edc4dea086",
+      "pool_card_sha256": "0599114dba5791cfcee9a42732445b7dc8908448297cbf756822afdb918c2d3b"
+    },
+    {
+      "card_id": "EX1_279",
+      "definition_sha256": "8eaf42f8aaa8250b26521939916e1852ecf97f4cc3eafb371d3685bb4807b603",
+      "pool_card_sha256": "98bbe9789605ac6b2f71b13f9e385c6d8a1c41c8b05b8db52090b6a347d3b188"
+    },
+    {
+      "card_id": "EX1_287",
+      "definition_sha256": "321301f4e43878a76f8830d8726abffee62ec6ab64ac5d40e03be810368c5234",
+      "pool_card_sha256": "3ad661addb97d75d438fe1f5c2118c0a6865ce48a00386daa9b55599369c17bd"
+    },
+    {
+      "card_id": "EX1_289",
+      "definition_sha256": "b4ed2127619ff90993707318a358e48a3198e914f2906d5934483e2ac8db8297",
+      "pool_card_sha256": "bb066da13da92fd13cb4cfd9a7f17533881e126c204d8a126ea1832e1a50694d"
+    },
+    {
+      "card_id": "EX1_294",
+      "definition_sha256": "abbec5ed013e1c9b720b1213daee02d9cab71a97d75b677dfb05c5aca9c1a42b",
+      "pool_card_sha256": "a78312a007294ea06727c13f3eebb6981e0f326d1e66f507f84ed68e5cfb059a"
+    },
+    {
+      "card_id": "EX1_295",
+      "definition_sha256": "189282ee12e8d8e08ccc1c0102908794bf2dc2c9c6090f0968af088d588ecf38",
+      "pool_card_sha256": "128dab75e49a842230375317d04da6c6dd87390af7e4871adc9225ec1e22b56b"
+    },
+    {
+      "card_id": "EX1_594",
+      "definition_sha256": "87c16a64345ec1725f66f6f027c3e6cb09906bb8c71b9743a22ce2129eb12014",
+      "pool_card_sha256": "a4082930d2092b5d362c1b999fc312a8d3ab2ad6ceaae6eafb323fa09656df30"
+    },
+    {
+      "card_id": "FP1_018",
+      "definition_sha256": "6832939ca3cd41eec04751385f51c3d8ddcf08c5290954a851042a8a16c5ba41",
+      "pool_card_sha256": "e3f7bdce9fa1bea5b2c0436b7966e7edaa6383d4d6ca52130401ee08987f28c0"
+    },
+    {
+      "card_id": "GDB_133",
+      "definition_sha256": "4d48b62f5bedd474386250b958f071680f48f8e8ad89304fd37e460de555c7ad",
+      "pool_card_sha256": "79e0fd828b542f900cc5b7886e29f45a5e289793c7e9cfc76488805ba1816f10"
+    },
+    {
+      "card_id": "GDB_301",
+      "definition_sha256": "8c5999d04d03bf8444f31ca8a80504142ab325cbd2e6b931e86c41249cb1b477",
+      "pool_card_sha256": "6a01b7fa4613fc8a717b568830190c2636a0c7fa5fcdbe3742e7d02984c963eb"
+    },
+    {
+      "card_id": "GDB_305",
+      "definition_sha256": "f1332c5a36895bea274aab2d42f655fa5ca1009acb44a8fc5dc752d0810f09ec",
+      "pool_card_sha256": "81a1944ac1a51b5b14181d3654488ed2f253a5511f3db0100b8d7e51c67600bc"
+    },
+    {
+      "card_id": "GDB_456",
+      "definition_sha256": "461c4edb1c5ebbcb8ebcf70161b1e799ad092573dd20764e010b085f88d45dc2",
+      "pool_card_sha256": "4fea60119b96a04a7e427de2b97efa4d9a375d814dfb69d66aa3153269b9cd0e"
+    },
+    {
+      "card_id": "GIFT_02",
+      "definition_sha256": "58c4198125beeac5c90b4aecd3d0b39db19d5bf9540a15218250e8775f4d1455",
+      "pool_card_sha256": "539c6724d9e7955ed323f793fc13e5e3c2a9b4b018e52252250ee05aaa170540"
+    },
+    {
+      "card_id": "GIL_147",
+      "definition_sha256": "85ec514e80a8e24fceb8bc2c3ffefb68e289a6744f31ed089ce889241d6be3f9",
+      "pool_card_sha256": "811df1f8bd4d448e256106b7560f3483640af7d5921c472aed804fc6ee5caef4"
+    },
+    {
+      "card_id": "GIL_548",
+      "definition_sha256": "9a8daebe98d898cfb6d1e574c7e9ff3957780344a06d197fc877bf19b2a8284b",
+      "pool_card_sha256": "7e23ec33b8c0ee98f1410b9418993e023e4a98a7849a846fc23a60df43761dc4"
+    },
+    {
+      "card_id": "GIL_801",
+      "definition_sha256": "cbfe2c476b70e060c8caf1882978a94eadab00ee82fe39b3a6e89e9e7e148e1f",
+      "pool_card_sha256": "63aa4779f792b83583b3b1acea363391ed8f47dc9b4810f78170d3720063860a"
+    },
+    {
+      "card_id": "GVG_001",
+      "definition_sha256": "d8870c0e04a66133e46a789f8bc0858c53dcaf12a594a117ff61df0a16de8db5",
+      "pool_card_sha256": "bb2843a301cc0b6e87eff6a6b9ce3859e7cfb7f4f608f0a5b0741e57696c3107"
+    },
+    {
+      "card_id": "GVG_003",
+      "definition_sha256": "b510c6c29abcaaa25c54fa399413e0c016f5472ebfb5108cd1ce7e8ae9ad0ec8",
+      "pool_card_sha256": "fea1e982da7932ed6735d070830e9bea660b9544e85fde2d763fc90e3f9b9476"
+    },
+    {
+      "card_id": "GVG_005",
+      "definition_sha256": "4789089585213f37fa803653e13da43148b56a6064096449b6f203a064441b1c",
+      "pool_card_sha256": "524bf4b1b4de446ca7e25c10643baebafe36cd6476bc4b831a3ead23f9dcdae9"
+    },
+    {
+      "card_id": "ICC_082",
+      "definition_sha256": "a1c9debe73453d384796bf1d6f9fcaec2b7a0e4cbd3c0ab2e6e19212a1f8a872",
+      "pool_card_sha256": "b86452fc5f5149277307613d48a3dd52ddcb7ff5ddf4e2d48a3cc55e2856a01a"
+    },
+    {
+      "card_id": "ICC_086",
+      "definition_sha256": "fc9787510b951f64327a90c6390f73f33b7b024c0a1380752a453223aec316d6",
+      "pool_card_sha256": "6b46549c717d58b811be6f075266d7142d6e6e68b9d2b4cbf30f345fcacb07e1"
+    },
+    {
+      "card_id": "ICC_823",
+      "definition_sha256": "037488bf05a460040c4a85ae63b120df8ff418cba205a594a220063605dc172f",
+      "pool_card_sha256": "de023f14799be41bc8f4112bb1aeeaa55f72e34fcd9b5c60a750fe7fd896aaea"
+    },
+    {
+      "card_id": "ICC_836",
+      "definition_sha256": "b3c2c7934e86432472824101699103de96207352e1dce1a28daa06232b30ba9b",
+      "pool_card_sha256": "4de1645a66ef572757cfdc28bcd15122527a55dde4b616b8c72e9cb8aa0faecc"
+    },
+    {
+      "card_id": "JAM_002",
+      "definition_sha256": "c4def3a6d58fd1c376328bff482ec3bdfa6ad6f50c94515a0d52e7e6cf6594d6",
+      "pool_card_sha256": "b8b0876624d629dc07b1eb557431cc8eb5030d783a2748d6384f6ea6b1fd7e7f"
+    },
+    {
+      "card_id": "JAM_031",
+      "definition_sha256": "0ae1d9a75bb4fb8e4a35cb3dbc618a93fe7a204aff812a18eb0463843c832eac",
+      "pool_card_sha256": "41db217e579cbb32aa710cdde9e09c20dd32c0908e633138c15cfdad30a1813c"
+    },
+    {
+      "card_id": "KAR_076",
+      "definition_sha256": "4271b896e3ea0de4148fbcd690910f6933f5940d44ae4bd5a22964b08f3989d5",
+      "pool_card_sha256": "702779232c5a7a9772688e73122b2b68cb0ec599849b5efdd1eb5ea9c79a0653"
+    },
+    {
+      "card_id": "LOE_002",
+      "definition_sha256": "520436373e80536af2c334e4c5abb4b65fd216f50ea0de1ee1d7457c6069bc71",
+      "pool_card_sha256": "b17cced9a8752636df8542a0a5603fa2577875e5f8159d2ad264153297da0967"
+    },
+    {
+      "card_id": "LOOT_101",
+      "definition_sha256": "c70009edd9ac421462035726ec95a0de9cf63e34746dd5c2ca0c017a8c13c65b",
+      "pool_card_sha256": "3a86130d04c6e3061089a1688261f8d262495c16ba2b23023645640ebc2b3631"
+    },
+    {
+      "card_id": "LOOT_103",
+      "definition_sha256": "6372f5baacfc1815c8f3b6f5580601518e8d0197dbae94c809971e85c8d20b7e",
+      "pool_card_sha256": "d7a18957010fad481d271587af9b3d17deed7b53457e5c28c5a114fae39c2f83"
+    },
+    {
+      "card_id": "LOOT_104",
+      "definition_sha256": "cfd5cfad35acc90a8aa7042d4f0373f4d74dc6bc395adeb22ea73c959c9afee5",
+      "pool_card_sha256": "320eaf18a03c55f8c3ef78ee42983da7babf5db5c738102e1caf1c162716ea93"
+    },
+    {
+      "card_id": "LOOT_106",
+      "definition_sha256": "8cfc06c184ce5d8e77138e1a97c314d17083d531242135600b1eb72c8ddd6bca",
+      "pool_card_sha256": "67f3e675bb6ff1af73be5e8e434155b56d25be071feba1025dfcac1c93ae7b3f"
+    },
+    {
+      "card_id": "LOOT_172",
+      "definition_sha256": "9a7fe4d3d0686e7c0e34a54b2a8edc0dee2f2dccabee51a879253325aacbdd22",
+      "pool_card_sha256": "cc4b73f1240c6f706bf114873b8e8f2529ddfb9351db44f7d6c0d4fb8c242638"
+    },
+    {
+      "card_id": "MAW_006",
+      "definition_sha256": "ea086748ae5778682231031175e33e8d51a098934b2fec8d018552c618c40dbe",
+      "pool_card_sha256": "26b1fe36a76beb2c9784f1aad00156f75768f1132af686797d42b89ed2ff23ad"
+    },
+    {
+      "card_id": "MAW_013",
+      "definition_sha256": "ff83bcc0fcba55a008981f1c97ba988ae956fe168edb93698cddcadecb9513cc",
+      "pool_card_sha256": "70f527ad938790e894fc32c76cceb24b0530be1c77cd7706dc78cb22c2d8b64e"
+    },
+    {
+      "card_id": "MIS_107",
+      "definition_sha256": "51a3f1f482025a6f8da7edae4fc143cdf488407880fd27a8e844e8506d0f98d0",
+      "pool_card_sha256": "c970adfd6c8892da98b64f67e6735fab4ef43573722f6d20eb367e3be22b3de6"
+    },
+    {
+      "card_id": "MIS_302",
+      "definition_sha256": "03875791879deb81a7f85dd33c0787e82bd4827c4f0c52f5209edf3067eb246b",
+      "pool_card_sha256": "5bedcad97b40c1e27ab90e54f136eaef8535e3b8e1140a90a09dca0c5cae3fe1"
+    },
+    {
+      "card_id": "NX2_001",
+      "definition_sha256": "2dcd53781a10181ffa27ffe01b20365e571aedf88af31f42d71af9b77d2cf9e9",
+      "pool_card_sha256": "e5e0462b840411c0b85eb695225a9e7606ca422b068e226f6e258aed98f8eee9"
+    },
+    {
+      "card_id": "OG_081",
+      "definition_sha256": "566c6bf9f1e24d3cb8224b9f654cd04f2214d954af6400c17c910ba2937eaa59",
+      "pool_card_sha256": "f57f8e37119cbfdcd0ac5e1642d71107333f1b6edc66cc7a98c68e8328cdfbb3"
+    },
+    {
+      "card_id": "OG_086",
+      "definition_sha256": "97b5787fe23bfcf0400db766cd3104c654f459a6be50aea9c9ffda771ee6cc8f",
+      "pool_card_sha256": "9faa61cc698a27270742c5545394e2718072dcdee9f4cfe291488770bbcbf29d"
+    },
+    {
+      "card_id": "OG_090",
+      "definition_sha256": "2fe5d96eb20c23a91c81baebd094ffeb39c30c3398cce0b9b2fa532e0b104562",
+      "pool_card_sha256": "d4b0745bd2d2efe8a195a2474384043263230ed1a0caa18fd54f5645ad0caf90"
+    },
+    {
+      "card_id": "ONY_006",
+      "definition_sha256": "7ee38a9977ab8d1c0ecd77ec0a7a216039c4d5fdd9c64554a6da970ead27bd46",
+      "pool_card_sha256": "5a988c9b7d40b7a9d91b3895685629ef6d99725258593da9324b298f9a1fe579"
+    },
+    {
+      "card_id": "ONY_029",
+      "definition_sha256": "94192fed9cbeb47ead2172d69f1019cfa64f84c483e9cb81c92615a801a805c1",
+      "pool_card_sha256": "eee82d4e63fe8f9dc7e5d2316e58d2ae599ff1892ba226348c8fa3d0c3a524fa"
+    },
+    {
+      "card_id": "REV_504",
+      "definition_sha256": "8fa1ecae319fc990e4396988b6fa5d60e6d459d686765455cc51a5f3947ce651",
+      "pool_card_sha256": "d042f0f0dbc9cfe442e54f57f07c793ba37c4800ac9101461c43109dc0ed7a7f"
+    },
+    {
+      "card_id": "REV_505",
+      "definition_sha256": "00ccba4195d75d060ddc878c63f3db7234bc0ed3ba2e5d274c5527a8dd0a75a6",
+      "pool_card_sha256": "2e5e692cb7f8ce52bf7154bbf9a1e3faba4ce3e56dba1f4197819c9d8d840624"
+    },
+    {
+      "card_id": "REV_516",
+      "definition_sha256": "0adba49373d2002d4dfc9028d2fb9a86c224219afd44451a410014a8b9d73260",
+      "pool_card_sha256": "69c68ef89f5391ee8a9c3ea4bb7c3be4374c2075829c2f48eaa0a54f44358c2f"
+    },
+    {
+      "card_id": "REV_601",
+      "definition_sha256": "69bd2c5fdef757d23c799bfc30fa04841508df912b6fb411968c1d0a865b49e1",
+      "pool_card_sha256": "94050194278de6832b726e07708555ba4e9a47ca27bef8e20cd7984ff82afae6"
+    },
+    {
+      "card_id": "REV_840",
+      "definition_sha256": "d7d3f15aaf2bee733622fe69d066efcf58f0781fc53a8492bc3cd6bd19f83dc2",
+      "pool_card_sha256": "31527eb177532b99ac3fd83a80896598bc1d7a855103f72951154377450f0cb6"
+    },
+    {
+      "card_id": "RLK_544",
+      "definition_sha256": "98ad72684ed0fc9db11a68e6538bfd6b3af8081607815ff3baf3b1f96fe00e13",
+      "pool_card_sha256": "a1d521d160e60bec15ca8f378d57246806786ff33d37ac69a72410190ec657d8"
+    },
+    {
+      "card_id": "RLK_546",
+      "definition_sha256": "e61a439de80b430027a75d8b7d9a5a1a1ef467818ff7776ac0808716f6fb2d35",
+      "pool_card_sha256": "64c2c3e4a94c5b68fcb52104c8afdcccb54f43908e74935619677ff790b0b037"
+    },
+    {
+      "card_id": "RLK_843",
+      "definition_sha256": "72cf7deb638b37236b797fdd83c4f11ab5fd0106d8e35aea98a0e180bf292d35",
+      "pool_card_sha256": "7244ce75983381e7ef73e290ff562b74bfa3a8853ec8c49ec9019f4291ce47e5"
+    },
+    {
+      "card_id": "SC_750",
+      "definition_sha256": "eeddd33c825e67f86afd2ca32bb856146ed4a96b3a5996e08b481badc06f4c8d",
+      "pool_card_sha256": "33e6b1fa3880c2d4c9cb2d238c81cea34d0897271a1394865a8f6badea4376f6"
+    },
+    {
+      "card_id": "SC_753",
+      "definition_sha256": "98844fb7a8d46ed73637c5117aca4df9f54e243fbd90eec4dcf6d4fb49c9529a",
+      "pool_card_sha256": "0bcde1283d1574ecd762432862d4caa0fe69aca1d4d8fede3ea287e446e738fa"
+    },
+    {
+      "card_id": "SC_759",
+      "definition_sha256": "f4f6b89cb3d820e7b4a483598976af24db2ac29a5b35f3d70bbf8525326c409c",
+      "pool_card_sha256": "405cba3594d05c52300deab6ef8f08728fa7be37a47a5207ae56b6661b210513"
+    },
+    {
+      "card_id": "SC_760",
+      "definition_sha256": "d5106e5759f4c507b0d8b861afc43158cce50cb3fe354fafa5280687fb0dd65c",
+      "pool_card_sha256": "8339e031562a8d59621962dca5b4944996f7cbe4b1d72e1e4efc7b6032d37ca7"
+    },
+    {
+      "card_id": "SCH_235",
+      "definition_sha256": "cb0768ec983a7bb2a6568175acd9260400348ff8d8afbe4bb9b8df67a61951a8",
+      "pool_card_sha256": "338f2ff36999d32187586e90276f84e9f9d652164b27b0dc7c65827f2da29a2a"
+    },
+    {
+      "card_id": "SCH_270",
+      "definition_sha256": "c0df40087933663601cc0f2134c7fbdf188c7ed7bf386fdefc845669b5fccec7",
+      "pool_card_sha256": "0affe93b9e19ff92e290b33938ec7863185d631f947d069c76adc3e71125605c"
+    },
+    {
+      "card_id": "SCH_348",
+      "definition_sha256": "ff8339ff2e2133b53171dac32872be4d78709c9029a5db3cf59764b27744996d",
+      "pool_card_sha256": "2474c2a2495fbd356b2ea97a4918e1297d70c220d93589602b737e7a0c60f733"
+    },
+    {
+      "card_id": "SCH_352",
+      "definition_sha256": "9aafc11bd1e2052f3bf4506d5cd4cf27f6eedbbe10028cb93308ab70a60ffa79",
+      "pool_card_sha256": "3ab31448041e77a7acb4d0d6b34275f9750e7a38fdfdf5abc2cae1bb18aa0192"
+    },
+    {
+      "card_id": "SCH_353",
+      "definition_sha256": "ae648f96e081a016ed41e3e43f6cc3bc5545bb4b121d0a095d5be3db992354d3",
+      "pool_card_sha256": "543965a53a6980cb5cdbaa8e05b2e98d26890447014303659ed406627697c265"
+    },
+    {
+      "card_id": "SCH_509",
+      "definition_sha256": "f2c3ef9942d151787d3f99bc837e42947e154c2f8b899d905af9b0a23a614ca2",
+      "pool_card_sha256": "7c13322ce284aae7e8268026a38572c8b6fc44ee5ad1c1482cf6142249fe538a"
+    },
+    {
+      "card_id": "SW_107",
+      "definition_sha256": "3553fd3ef2013328b6c67be503d38ecfd0ac322ed37e06348739463564b5e70c",
+      "pool_card_sha256": "8ba084630f00d1f48531c4b8c7d17c2bf146da5beb0ed18624ba07e70d93d951"
+    },
+    {
+      "card_id": "SW_108",
+      "definition_sha256": "478fcfb1f99ed1450138d6cf8dd5ac8b8c7260296ed2c1574ea47facdcafeccd",
+      "pool_card_sha256": "daeb16e2b21d13b7c244dbee4325637c99533a2fca06a1fedfd49628d205b1bf"
+    },
+    {
+      "card_id": "SW_110",
+      "definition_sha256": "1018b4408556f750f7458b0085a0ae0ba31abef9d62238cca83b7f8f6d0d8eff",
+      "pool_card_sha256": "f9d5a57c350f851ce425e2e30e7abcfe2f62f5a87ee0e0564abe8cbe4ec0a37e"
+    },
+    {
+      "card_id": "SW_450",
+      "definition_sha256": "83a6783df57d59d1e9ab00d1afb296255c5f958d9120737ad38f51acf1bec151",
+      "pool_card_sha256": "2ba14e76e7969e13c05383e67831d9c7f23543540c904829d5fff1a4e7a0ff9d"
+    },
+    {
+      "card_id": "SW_462",
+      "definition_sha256": "a03cac4ac89dc3d0ce6ea236a89ed3cbc9a36b0fce9304831f1d90e7e488bd3e",
+      "pool_card_sha256": "6a00b0d3e12bc60fb6ac372d7f9d1d9c1cc9fe8d995935a3f04132b50a19037a"
+    },
+    {
+      "card_id": "TID_708",
+      "definition_sha256": "eb89cbc355f5469d4a9531ae09368572f57c383ffa32690548331a609bc85720",
+      "pool_card_sha256": "395c81560c77acb0f570d4e3932246ff1427be4210215a23027fc23d706edc2b"
+    },
+    {
+      "card_id": "TOY_037",
+      "definition_sha256": "eb43675910f09e1c28f94ef1c7c98a3a98a3aba5e7964181d42bf7ed8154080e",
+      "pool_card_sha256": "4649389fbd2546ddb41b3dc72aecb8869a6124c3116c237adb6fbd27b1fa770c"
+    },
+    {
+      "card_id": "TOY_371",
+      "definition_sha256": "77d4cefadd92a90c6b9dcf17cf515d3a4b70821f9b1c340e45c767ecbc6f00ed",
+      "pool_card_sha256": "06b9cd448b757fa9bf3fa7b4b6f35cdc204ae74b88d57b401808b2c4881180c9"
+    },
+    {
+      "card_id": "TOY_372",
+      "definition_sha256": "40f7ce8e8606287537ca30203ed9c325f36f5175b122bdc7a7ae68313367d305",
+      "pool_card_sha256": "2e99d575bebf38ec746ac2c869a4eeb9cb00f5e12050ad9429dcd6a4295af684"
+    },
+    {
+      "card_id": "TOY_374",
+      "definition_sha256": "c949cc85fe478307ab7ddf68bd9e3d9058ee7976c4537425a98e0a0f017e5bb3",
+      "pool_card_sha256": "e828b7b181c831e9593ce5468aad75ea09fd4531c4c649eff9dc9a7af2bfeb1b"
+    },
+    {
+      "card_id": "TOY_377",
+      "definition_sha256": "3d4152ca2cf8c5a36b0d53d10e77d6d3557d3a96116a5aa199995f23d0b599e8",
+      "pool_card_sha256": "2b33e73a73168a2fe6e371944e230e4c64142f510627dcf2cfc72c73c006d7ca"
+    },
+    {
+      "card_id": "TOY_378",
+      "definition_sha256": "7e6dad20f10386d5036f72d89bb56ee89d578b2be0869b6b8f2d4c9ffdc325c1",
+      "pool_card_sha256": "6a1af4483c359eb72b8f4261198c5e558cc07cfec25f8f6708aa682549b6dbae"
+    },
+    {
+      "card_id": "TRL_310",
+      "definition_sha256": "0f857e53b987bd9be1ba2b9d5e5c0d51de00133830493e6ada9131d450dd4663",
+      "pool_card_sha256": "01776aeda931b7766f0b55edfcd12183d8e20919c7789506a1b963929dd70a27"
+    },
+    {
+      "card_id": "TRL_313",
+      "definition_sha256": "4a9ceb1824f4334fdc54dcbec8ada1d4e943a0ba6dbd51041edf2c179ccd5801",
+      "pool_card_sha256": "0b4f100a8b27436a67e7d6884c17676c0afc7bdddd34ce45ac50fa5c18777dd3"
+    },
+    {
+      "card_id": "TRL_317",
+      "definition_sha256": "a4ced0114e0cab066fb9592326fa9ccedc681b2f7c2ebe88de77b5ff78e4806b",
+      "pool_card_sha256": "1dc989fdd7708d3db12272a16b76a0838d72c37bf8b5be8129ce01c55fd76451"
+    },
+    {
+      "card_id": "TRL_400",
+      "definition_sha256": "4a9432ae1f357220d1bdf01beddd99c86ec577438c9cb94d8c06716c35acd5c5",
+      "pool_card_sha256": "ecb91cac1989340860e643ca3f8e886d04f2f1d14c086337f25e897a492709d3"
+    },
+    {
+      "card_id": "TSC_055",
+      "definition_sha256": "06dcd32fc0d1d596a27c649fb164a7fac96225e6455c60b870eef8ef44459da0",
+      "pool_card_sha256": "ee530e85936e3b99a6789f44b6c4ee0f421988b2d995ff85cf1ea351b9ff0312"
+    },
+    {
+      "card_id": "TSC_056",
+      "definition_sha256": "a978d8ce28a7f68216e28cee825689fe54b745e32056b99a1f3114e55f7b5579",
+      "pool_card_sha256": "378a9058af14d22c1b2ca82be10ffbbff32d1871587c20dcb21c35c9d807349f"
+    },
+    {
+      "card_id": "TSC_948",
+      "definition_sha256": "35d7cea20286df63bcb63435753e0a4cce1651e6d8c0e5cb4f3b6424441b5420",
+      "pool_card_sha256": "73b8108e549cca2fd547953702a1f71aef0a09d95982a133dbe8f9f3f5038789"
+    },
+    {
+      "card_id": "tt_010",
+      "definition_sha256": "5c2d5dc8d092e719bfeda8a5ede646aec22a26bfeb53060093e41918368c08c1",
+      "pool_card_sha256": "0752b3f4856eb64055cf10a70601ab01cafe76a4daab63b514fa1987581acf53"
+    },
+    {
+      "card_id": "TTN_085",
+      "definition_sha256": "fd3fab192dbba7589b8e089f34378ad235034b4d2b797b6e8f1c7f4cf19fbad9",
+      "pool_card_sha256": "28a8a79b09b7b15e4bfc6b8076dcc1f9fb38003b1fc1714dee78f2884a08983b"
+    },
+    {
+      "card_id": "TTN_476",
+      "definition_sha256": "a2fd9d2c5746e65729690a4d35412e92d61a92b8e083388f23c4e6f0b796f4cf",
+      "pool_card_sha256": "c50580d81d5ceedc7475f279e96d6618f1189ab622cdc3ef29106cb249373216"
+    },
+    {
+      "card_id": "TTN_477",
+      "definition_sha256": "4bb299d89f63fffc84a940d93b4bd58b6aa741c522486add8dc0faa9bbe5a9a0",
+      "pool_card_sha256": "73262081952d1ad4b3581bd3b598a9ec68ee9c1e687ea12728d39e44c4ca0be9"
+    },
+    {
+      "card_id": "TTN_480",
+      "definition_sha256": "b9379091e98a55ed132b550f00c682257fb20b1b7c4a94bf792ac4e08ff61503",
+      "pool_card_sha256": "76177e7d825bf06d4c8ea9a7ed394bdd888cd02b849fc23f96c240996fcdf732"
+    },
+    {
+      "card_id": "ULD_216",
+      "definition_sha256": "08c476abbcc388e46d9e380a4ba8af7c32606f12f5ac4bfd5063312a08258f15",
+      "pool_card_sha256": "c371d840b2be73337d28b14a7ad4102af3f78415913a980a672b4df2b495ab89"
+    },
+    {
+      "card_id": "ULD_239",
+      "definition_sha256": "60fcddd4549016d39cdaa149f2dcd41067a651f56c58aa1fd7226e0343f32e7d",
+      "pool_card_sha256": "b4e3f89bc03ab53ea796d984f868206fe922cbfd0f0a1a3e8b24e1551032ec7a"
+    },
+    {
+      "card_id": "ULD_433",
+      "definition_sha256": "b3374b680cb82a837d1668ead9eefd10837fe0fe96a00501e03a556da4543235",
+      "pool_card_sha256": "9759e33af239159d19f22b666398a24af646ab28f8acff9d888217b7cad28010"
+    },
+    {
+      "card_id": "ULD_726",
+      "definition_sha256": "8d22994694616d4410c0cab843a23b25f0d9b95d25a5f469cc820379922d3e39",
+      "pool_card_sha256": "0b2bcb54becb91c7e1774f43d5d88f5b15f2d3b2838ea5c6bcfd0adaa80b6f3b"
+    },
+    {
+      "card_id": "UNG_018",
+      "definition_sha256": "2dda3ac66db23b82a60a84c6bf8d6c55ee24358c074a8e5ac105c3cee5b9fd48",
+      "pool_card_sha256": "f52a0e04aa383742b07b75d428fd8cc86fe92fa3544108b3d55efaaa815eb705"
+    },
+    {
+      "card_id": "UNG_024",
+      "definition_sha256": "604c537f326f2f72b437ff10c4663cbf2b5cc1164a2c47cae4f2b2030c68494f",
+      "pool_card_sha256": "894266b37b0839bf27707f83bc27098f4133416dde3f1fd18356bfb653d17f19"
+    },
+    {
+      "card_id": "UNG_028",
+      "definition_sha256": "02434e526d875cc5a094661c7d6000f0e4d4e8d8f3a5a2db4c9a1710e9af2e4d",
+      "pool_card_sha256": "925e226377e8ecc01692272d5b811a448d91f740db6321f8eb87ead788744e1d"
+    },
+    {
+      "card_id": "UNG_941",
+      "definition_sha256": "236aa29e57e7de096db3e6c4a779b85f5ba69e5adc01eebfbebd476f7c28ef2e",
+      "pool_card_sha256": "d2c7d9126831a003dce4180a392ba12a5e144f881e4d7eb319f13b3a0c674f7c"
+    },
+    {
+      "card_id": "UNG_948",
+      "definition_sha256": "cd5ab8e76807b3e4133e1476f739bd7d44b03fa8a0a8e323cc27e0fd75311b5d",
+      "pool_card_sha256": "79dd6605f2989e8db3e6ae545243337281f4f27adee05701dec15acbbc90987e"
+    },
+    {
+      "card_id": "UNG_955",
+      "definition_sha256": "e7ceb0662062e2abcb79dfd99d536f96af3aa176c049e324e96c3bfc172aeafb",
+      "pool_card_sha256": "1efb68b9e59706b5a207c17db7c9e73d5b249edbee47ca1cefae8822f7a96418"
+    },
+    {
+      "card_id": "VAC_428",
+      "definition_sha256": "d2bacc60850661eae0f930c38605b2dfc22e7e6da211ca186177bb5158428957",
+      "pool_card_sha256": "d9ec80feef588873a3a5569541ac380fc256ca9d0212d1f7d37a423a0b3e7f1f"
+    },
+    {
+      "card_id": "VAC_431",
+      "definition_sha256": "8fd9edc626978b346240afa9e603ea890db21288a0c927ab7190a0c0319a8c63",
+      "pool_card_sha256": "6b4cd67b84a0e286f88d204802049af8c678419ad14d97c64e0fb00627c18968"
+    },
+    {
+      "card_id": "VAC_509",
+      "definition_sha256": "9a7fdfb7aa4e7fe6b42e7a29c0cac8da32a0317953528d6d903035ec92865d6c",
+      "pool_card_sha256": "b5957b1ad19900078a4ee4feaed3a07f612ab86c386f20ef93d52b62866fba42"
+    },
+    {
+      "card_id": "VAC_520",
+      "definition_sha256": "1a1894773450d66cb31aae6223d0f27c530d2db7571bd01f6543bac8122ce13b",
+      "pool_card_sha256": "6645bb213ef16aa78162d5474470ba01776a6b294e63eeebf1222623088e30f6"
+    },
+    {
+      "card_id": "VAC_953",
+      "definition_sha256": "c6c47d9dd60a4363d9d39ba9a34fa039fdf542fd3b8a01dfdce091cfaf85fe40",
+      "pool_card_sha256": "959b317528cb21a8e8d198f259afb4657569476e4d186df1a42fc16b2acdf677"
+    },
+    {
+      "card_id": "WC_041",
+      "definition_sha256": "66dbd6feb8ac2f029387511f1ceae591187a20e18bf77e2984390e96a3022b71",
+      "pool_card_sha256": "99dcee46d384bcfd192f79483911f88450771303b81e39be635c05d29115f5a2"
+    },
+    {
+      "card_id": "WON_037",
+      "definition_sha256": "ad9b64e79a1710768c7587fb4938a866d32a43263a75a25331ea70273960e86a",
+      "pool_card_sha256": "61fd6a3f8a41622122745b1e8c66362cb390f29722047bc80378750b6da684b5"
+    },
+    {
+      "card_id": "WON_040",
+      "definition_sha256": "53de21ffda3cd1dc832d7c1bb909480e0e8c16b4f26e4be6e257b9bee11d3dd6",
+      "pool_card_sha256": "e515dacbd049bf200b90693b5d49b3507994cc481d62211cef9e920727af41e9"
+    },
+    {
+      "card_id": "WON_341",
+      "definition_sha256": "f0e9b26045e5e41daba10f2880bb35df67891589d37467028df27a3056cb2a3d",
+      "pool_card_sha256": "d2abf2219e25f456059f54109fe87049fd1962e451754b956cf921ca137f4f92"
+    },
+    {
+      "card_id": "WORK_012",
+      "definition_sha256": "50f1e9176be06db449977eb4744ae016b0bac6828adcd30e76daca93a239076c",
+      "pool_card_sha256": "8b1b9fe6a6fbe8213df5dd702c1cb0c129ff9668be4d98ea4819dbccc61cc1c0"
+    },
+    {
+      "card_id": "WORK_026",
+      "definition_sha256": "db2184da3a4756a44b64e58b4f7e51476a5236336f386cfedb69fe66daa1deea",
+      "pool_card_sha256": "e3d6b747879f51ee01b4b9899635381297b34efa398bee5a0c0e5c023e4d97ef"
+    },
+    {
+      "card_id": "WW_009",
+      "definition_sha256": "0d291bccccce2992c96b1b39492215bec62db8c84a6d320bc99e5693a8fa004b",
+      "pool_card_sha256": "49c7e172a7895bf2117a2a9fe1c8e06af3522a7f506e68f92c10db5653471c93"
+    },
+    {
+      "card_id": "WW_377",
+      "definition_sha256": "7f737df50faab5ce4305a728e8794adcbe998e1e94dbf74417ca9b1b821d2ce5",
+      "pool_card_sha256": "0aa03fae08b55bc8a7932ea9864aafdf6088467862ae77203c567383a3ec7e21"
+    },
+    {
+      "card_id": "WW_422",
+      "definition_sha256": "6b7cc23e6aa9d7d60b271c6b51e9e19745a762aa31a44973cd91bd330fe06107",
+      "pool_card_sha256": "742c8f3ea6c269ce21af76c6ab9887fec51e1cabab3d226e86bda68809516931"
+    },
+    {
+      "card_id": "WW_425",
+      "definition_sha256": "0325d78cca2c13d2f9cf08cfff4200b94d7027ab9992ccfd7e46362579a05eec",
+      "pool_card_sha256": "c62c127f9f78c47470558a4fdbb7531d02023dfa4c199be98e2e2ee4d5b572a7"
+    },
+    {
+      "card_id": "WW_427",
+      "definition_sha256": "40d1ad13dc41dad76daae3a368d487e5787dada92484b669f0e8cfdf2cb4cac7",
+      "pool_card_sha256": "984c37c8dba0cbd2c9767b6a58cd2fbbefcf7b735aa6d2d2e52297215b8c0232"
+    },
+    {
+      "card_id": "YOG_507",
+      "definition_sha256": "4e7b5f55df9150384debc20846c04013cca616f2ff29d943ffec9e788a172b88",
+      "pool_card_sha256": "3436b07c9246fcad2d4197d6da8964c4b55b89bef362e5a40c51210c29e95d7c"
+    },
+    {
+      "card_id": "YOP_019",
+      "definition_sha256": "fa1684f3e6df33997b982337f11292c0f125a41d57d57b8c878d43fcca849630",
+      "pool_card_sha256": "2f923a73c46d8bbc811cb79a5de51fd85c106ee16eef80a7ed15c495bdb4397c"
+    },
+    {
+      "card_id": "AT_043",
+      "definition_sha256": "ddcd0c799af334175205ee03ca038dd36492a725c8a4e5f3a26eb547d5b22ace",
+      "pool_card_sha256": "931e5ca071af1f46e502f8d0ab707a5e1f991b587df70183f75a79ce47ba23ef"
+    },
+    {
+      "card_id": "BAR_539",
+      "definition_sha256": "865c7220fcebe7d8e3c678c59338f012b23a55f73678129041eeae4a29547eee",
+      "pool_card_sha256": "2c53dc8f334caaca64e08489bd52fb188362a78a9742fcd2c4b3c26040ace357"
+    },
+    {
+      "card_id": "CFM_811",
+      "definition_sha256": "2c42a561fc28b15c2c8d75133d10963a790a495bb2dc816dc844ad254efacff1",
+      "pool_card_sha256": "a4be7a768555164c0f75d48ef471cf32acb07dc75f0c5ce6b66b8247dad3cb11"
+    },
+    {
+      "card_id": "CS2_008",
+      "definition_sha256": "1200ccb0fad67a9104ac92ec1db9c9b55371fbaa41fc28fe6dd5e6cf5c7a133c",
+      "pool_card_sha256": "1f00f4da8404a0eaa31a2869cac15d3cb406fd13fbe61f926b80392cc81ac7fd"
+    },
+    {
+      "card_id": "DED_002",
+      "definition_sha256": "e6f68090697869793fa211362cede9ac67f1e690c6056dd69a910ddbfbadd9f3",
+      "pool_card_sha256": "49c22d3da6c88ab5c2b928c4f3a45a06497fa5790f29f6cb0dc65a0af0306e50"
+    },
+    {
+      "card_id": "DEEP_003",
+      "definition_sha256": "f5d98a85c7c8710c5a5c92742178732b8dcb97e6c3913f187fd2192092fac910",
+      "pool_card_sha256": "a5e6d3f2513ffbb515ec1db3fec1e6b2caf1b86591902adaf541e38561ef7adf"
+    },
+    {
+      "card_id": "DMF_057",
+      "definition_sha256": "abb56dba1414f0e3a3ee7cc381e92893c2e51af713cfde88f55aec3212a81ae5",
+      "pool_card_sha256": "66f9b4930b0b7daf11a6a1bd1ea493706461e8d34cb482e1fed5d47704df6b96"
+    },
+    {
+      "card_id": "DS1_185",
+      "definition_sha256": "2159b585c15de788b127e071de65ba1ee3caed2ac4306f34d25044b8ba161fdf",
+      "pool_card_sha256": "8a373ebdcdf1a5f74d83262fcb2686e304726515dc6b21edefcb96c4c92a2527"
+    },
+    {
+      "card_id": "EX1_173",
+      "definition_sha256": "a54a7577e3858af679197da6fa8c746b3d35755b892869171a19a05e03175678",
+      "pool_card_sha256": "6c36e144e49a742c8cbdb78b38e9f6a61231891bfc6afead2a589cc59f711425"
+    },
+    {
+      "card_id": "GDB_479",
+      "definition_sha256": "6408babf372d90ec0d4cb5fb9e7bd8b4e8e617cc68eac1b7ae1635144bb4840f",
+      "pool_card_sha256": "cbe199c40ad32a1a24918426ac3784142478133a330820cc1b3ff124b1bf92e7"
+    },
+    {
+      "card_id": "GDB_851",
+      "definition_sha256": "6bf5e29c4c92a9b0e687e2ced809363d5d9e5488148197c58bb0638418cafc1b",
+      "pool_card_sha256": "725931368e787cfcdd9527af14cff349dd5cb67f5672b4032c2a81dd36a00af3"
+    },
+    {
+      "card_id": "GDB_852",
+      "definition_sha256": "426ecf79165462a3204bfcbe7603da5aad54f39ba3abd48dc0c1e546651ab09d",
+      "pool_card_sha256": "db9b874d36592ead742614a9ce536684ae1a95566b88910e4264710646575902"
+    },
+    {
+      "card_id": "GDB_857",
+      "definition_sha256": "82a0def4d5e19ea9e6b0d8fb08e61728af6b2b8140c9f1152316e245c05bbc26",
+      "pool_card_sha256": "c5fd1d4ff57a91b1795355a461c77e1f10db2f51a558dc6a6e88a6ec1102ec33"
+    },
+    {
+      "card_id": "GDB_882",
+      "definition_sha256": "7d3a138dfb287441341f8c2e3b38acb63e3ff016e730ed2bc6fb3e104d910b67",
+      "pool_card_sha256": "901af97a59b4adbd2c3fd2c165691bca180bf52d6106f0724097c99f27a12e65"
+    },
+    {
+      "card_id": "GDB_883",
+      "definition_sha256": "336658c130cb16921da067cdc875a3c9f4518de172b78b49e18adde406994c1b",
+      "pool_card_sha256": "33757f5a689e0e107bac176107e50c6f43e068035f250725ac23cd3c6b190194"
+    },
+    {
+      "card_id": "NEW1_007",
+      "definition_sha256": "3c576b941f6569d3ca98afa1456a7e278de810835de6afd400beae6c4d9288a7",
+      "pool_card_sha256": "1afd2dd15cd656d9a47ff5bd5a5457af23cea47ada3bcbbe18616800700fb58e"
+    },
+    {
+      "card_id": "RLK_804",
+      "definition_sha256": "906938b0271c9d42c85d2d1be77a2b18c0d130cd4d772312f2840760c439c8f4",
+      "pool_card_sha256": "90e47121a44dd9fccd8102545dd6f6cbbd1db606af8b4a6fda942808391adeb2"
+    },
+    {
+      "card_id": "RLK_817",
+      "definition_sha256": "ebce7ab72e04e455729d8dbeb2761581ed46bd1145ef7cf502f71a2d1bdc8e34",
+      "pool_card_sha256": "48a99fdb6dd26f221dd2f552fb284e3055cac61f9231e5df5d29871d91b134e0"
+    },
+    {
+      "card_id": "RLK_818",
+      "definition_sha256": "6e4a4a9107d8da2f2ef402f2552c4cf372a74865dcd2ef0af47f3e7422846b3a",
+      "pool_card_sha256": "1a29ec9e8f1ac26ea0bb081e2e8bfa5a2491f9c8f68b2097be01f84405177e22"
+    },
+    {
+      "card_id": "RLK_819",
+      "definition_sha256": "f857d765378938869c2cc37443754c39711b1671f02a62a17f1e5368e341405c",
+      "pool_card_sha256": "a808da548edf98ee018dff9fd9cd6f98ef13b659bbd80a25c97825cc21b67c64"
+    },
+    {
+      "card_id": "TID_001",
+      "definition_sha256": "4d0ab1de09b4289d7925adffd288ead1d59bc646be8fef26a58117e16a8d80fc",
+      "pool_card_sha256": "b693ed452c6255ee261b97f18b24b431e70f407ad45eb1ec7e6c61da72b7f1d4"
+    },
+    {
+      "card_id": "TOY_800",
+      "definition_sha256": "682fd4bdd880efeb66840fe7f10ccbc9fd6d5381370c823ed80501f138b9f7fd",
+      "pool_card_sha256": "cc04a901b9312fa7f729d292829bb9c2e9c8b792e9be88782c46a6d4798b85cd"
+    },
+    {
+      "card_id": "TOY_851",
+      "definition_sha256": "3b54ff83140119b5550fafe62309272b85de73a3aef1fcdf31ac9f13a8a8ce7c",
+      "pool_card_sha256": "56bcc9f084e9185427fe6ae6547db47be0eeec52fa0be9b693ebe1432335e48a"
+    },
+    {
+      "card_id": "TOY_877",
+      "definition_sha256": "cc13580b812cb344047cf28c9ac95ef3db8e5b0c74397a9269286850690f6ff1",
+      "pool_card_sha256": "c2be7e7fdbd5ec77bc85619962f13dd7bc4d14231dfaa460b46282311c09efcc"
+    },
+    {
+      "card_id": "TTN_485",
+      "definition_sha256": "7a742870708497e3f2070f7b52128396eb8ce1dac1749ff1ed91ea4d147e5f61",
+      "pool_card_sha256": "8dbcbf6fa52a085020522567c483544953920d57db9e757a9854479df4106813"
+    },
+    {
+      "card_id": "VAC_907",
+      "definition_sha256": "10514a5459a5d28e867483838291cd1f351d74379e0d43dfdfd642cd3f167397",
+      "pool_card_sha256": "803b970191be818727bfe4cdb6b3277e802f65c65a995a2a56c7bbd661d5035a"
+    },
+    {
+      "card_id": "YOG_082",
+      "definition_sha256": "27d3f39299983ce4e7ff0a44c60792ef5cba6795286440534658f4d7be2a2b05",
+      "pool_card_sha256": "c7440f5c6652b317b3afeee8a60e19f9309b0067044b0e8bce13a324563dfefd"
+    }
+  ],
+  "metadata_ids": [
+    "REV_601",
+    "RLK_843"
+  ],
+  "source_definition_sha256": "2dcd53781a10181ffa27ffe01b20365e571aedf88af31f42d71af9b77d2cf9e9",
+  "arcane_source_definition_sha256": "b9d26ce4c5fd7702d1e77b1dad624639637d1297addf59bb145b92c41a798383",
+  "metadata_additions": [
+    {
+      "card_id": "REV_601",
+      "definition_sha256": "69bd2c5fdef757d23c799bfc30fa04841508df912b6fb411968c1d0a865b49e1",
+      "pool_card_sha256": "94050194278de6832b726e07708555ba4e9a47ca27bef8e20cd7984ff82afae6",
+      "complete_raw_record": {
+        "id": "REV_601",
+        "dbf_id": 84354,
+        "name": "冰冻之触",
+        "name_en": "Frozen Touch",
+        "text": "造成$3点伤害。<b>注能（@）：</b>将一张冰冻之触置入你的\n手牌。",
+        "text_en": "Deal $3 damage.\n<b>Infuse (@):</b> Add a Frozen Touch to your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 2,
+          "CARD_SET": 1691,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 84355,
+          "SPELL_SCHOOL": 3,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 2,
+          "INFUSE": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "2cb94f51da0a868cd5113f934c2b10141748dd071ea36673b2b6117599c58443",
+      "old_generation_metadata_missing": true
+    },
+    {
+      "card_id": "RLK_843",
+      "definition_sha256": "72cf7deb638b37236b797fdd83c4f11ab5fd0106d8e35aea98a0e180bf292d35",
+      "pool_card_sha256": "7244ce75983381e7ef73e290ff562b74bfa3a8853ec8c49ec9019f4291ce47e5",
+      "complete_raw_record": {
+        "id": "RLK_843",
+        "dbf_id": 86274,
+        "name": "奥术箭",
+        "name_en": "Arcane Bolt",
+        "text": "造成$2点伤害。<b>法力渴求（8）：</b>改为造成$3点伤害。",
+        "text_en": "Deal $2 damage. <b>Manathirst (8):</b> Deal $3 damage instead.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 4,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "MANATHIRST": 8
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "39e6f9c704db760b9fdc203a91a230e936a19d3d98a31024500b18382b7d71f7",
+      "old_generation_metadata_missing": true
+    }
+  ],
+  "new_standard_roots": [],
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_policies": [
+    "Preserve original full 179 Mage and 84 Arcane inventories with one weight per member. Shared generation rules filter the three main Quests and original source from the Mage request; they are never removed from the inventory.",
+    "NX2_001 uses its original fixed Mage query, two replacement random generated hand cards, each at minus two cost before delivery.",
+    "TIME_857 retains its original current-class Arcane query and two ordinary discoveries at minus two cost. Its former unresolved constructed.past.cards placeholder maps explicitly to its own complete runtime Arcane inventory; other old sources and pools remain unchanged.",
+    "The 11 playable class source scopes include genuine empty views. Class views are validated against the normal resolver rather than treated as final eligibility by themselves.",
+    "These are fixed local reference policies, not formal CN pool or hotfix certification. Exact unresolved past membership/reprint policies remain recorded in each unmodified reference."
+  ]
+}

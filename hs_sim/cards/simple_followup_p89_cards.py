@@ -23,6 +23,7 @@ ROOTS=COLLECTIBLE_ROOTS=(WO,NEON,MEMORY,WARDEN,GLAIVE,ALTER,WINGS,LORD,REALITY)
 DEPENDENCIES=()
 DEFERRED=('TIME_711','TLC_434','CAP_407','EDR_493')
 PAST_POOL='constructed.past.cards'
+ARCANE_PAST_POOL='constructed.local-past-arcane.full-reference-v1'
 PREFIX='cards.simple_followup_p89.'
 QUERIES={WO:PoolQuery(kinds=(CardType.SPELL,),collectible=True,class_mode='current',spell_schools=(SpellSchool.NATURE,)),
  NEON:PoolQuery(kinds=(CardType.MINION,),collectible=True,class_mode='specified',classes=(CardClass.PALADIN,),include_neutral=False,tribes_any=('mech',)),
@@ -51,7 +52,7 @@ def register_simple_followup_p89_cards(registry):
  MEMORY:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[MEMORY],source_id=c.source_id),),
  WARDEN:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[WARDEN],source_id=c.source_id,destination='board',board_position=deathrattle_position(c),cause=SummonCause.capture(c)),),
  GLAIVE:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[GLAIVE],source_id=c.source_id),),
- ALTER:lambda c:(DiscoverFromPool(c.player_id,PAST_POOL,QUERIES[ALTER],source_id=c.source_id,discoveries=2,cost=CostSpec(delta=-2)),),
+ ALTER:lambda c:(DiscoverFromPool(c.player_id,ARCANE_PAST_POOL,QUERIES[ALTER],source_id=c.source_id,discoveries=2,cost=CostSpec(delta=-2)),),
  WINGS:lambda c:(DiscoverDarkGift(c.player_id,PAST_POOL,QUERIES[WINGS],c.source_id),),
  LORD:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[LORD],source_id=c.source_id),),REALITY:reality}
  for cid,body in bodies.items():registry.register_behavior(PREFIX+cid,body)
