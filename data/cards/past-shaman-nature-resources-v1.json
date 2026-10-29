@@ -1,0 +1,1859 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-shaman-nature-resources-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "BOT_246",
+        "dbf_id": 48798,
+        "name": "瓶装闪电",
+        "name_en": "Beakered Lightning",
+        "text": "对所有随从造成$1点伤害。\n<b>过载：</b>（2）",
+        "text_en": "Deal $1 damage to all minions. <b>Overload:</b> (2)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1127,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          }
+        ]
+      },
+      "record_sha256": "6747f30595efcefb72754ec6c475bcec964cd72dc036a5cbcf125323a82736f1",
+      "definition_sha256": "4b828e4f38ac123a8eda042981e6af9a1eb2fcee600e2474ed2b2065e0eb81af",
+      "pool_card_sha256": "ff872bfad3f53d6dc4b16fd34ab0c76525c067393b8d0ea3c03bc5d2d877c971"
+    },
+    {
+      "record": {
+        "id": "GIL_600",
+        "dbf_id": 47222,
+        "name": "电击",
+        "name_en": "Zap!",
+        "text": "对一个随从造成$2点伤害。<b>过载：</b>（1）",
+        "text_en": "Deal $2 damage to a minion. <b>Overload:</b> (1)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1125,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "AFFECTED_BY_SPELL_POWER": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "bc76a162e177bd69ac2615a9b571167f6c281a94d19675a8dd6b768982f9a7e9",
+      "definition_sha256": "888c32294598b36db8cdbe8ce5de0995f72d706fe46ce386bb4cd24ad307de7e",
+      "pool_card_sha256": "d06fd2a9da1b7faa573660cabe049956dd1d20fa6326c34a2be7e6f1717cd64c"
+    },
+    {
+      "record": {
+        "id": "GIL_586",
+        "dbf_id": 47152,
+        "name": "大地之力",
+        "name_en": "Earthen Might",
+        "text": "使一个随从获得+2/+2。如果该随从是元素，则随机将一张元素牌置入你的手牌。",
+        "text_en": "[x]Give a minion +2/+2.\nIf it's an Elemental, add\na random Elemental\nto your hand.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1125,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Alex Horley Orlandelli"
+          }
+        ]
+      },
+      "record_sha256": "2d2009a1f3a4dfb8732e31bb0c83c76875cc338ef7a305ddabcc9ca6b5d6c785",
+      "definition_sha256": "396677b671bdf3de0b61a9fe137fa2b5e8295cbc5c48fa7b0a3103a2f086eb79",
+      "pool_card_sha256": "fb9b8a1f0bf496621653d7d91a6697c16a04b67802348d79083af6a9952e23a9"
+    },
+    {
+      "record": {
+        "id": "OG_023",
+        "dbf_id": 38262,
+        "name": "原始融合",
+        "name_en": "Primal Fusion",
+        "text": "你每有一个图腾，就使一个随从获得+1/+1。",
+        "text_en": "Give a minion +1/+1 for each of your Totems.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 21,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jimmy Lo"
+          }
+        ]
+      },
+      "record_sha256": "1db1b55cbff0630933115e72b6ef424991d704d26b5b7b74ae12142f2457fefd",
+      "definition_sha256": "ca1652a5351024381e1c785bc88c930e1777801f9b370d82be75c189fb7ef175",
+      "pool_card_sha256": "84939056262a6a08a98344714c5d20eef87aa93206dc1763da4b8d776d9b1a5c"
+    },
+    {
+      "record": {
+        "id": "DEEP_009",
+        "dbf_id": 102173,
+        "name": "向下深挖",
+        "name_en": "Digging Straight Down",
+        "text": "对一个随从造成$8点伤害。<b>发掘</b>一个宝藏。",
+        "text_en": "Deal $8 damage\nto a minion.\n<b>Excavate</b> a treasure.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1892,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1,
+          "EXCAVATE": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Edward Frayna"
+          }
+        ]
+      },
+      "record_sha256": "f35900236950ddee86b31d47f38c309e1636fcbb05839506c8b46709b8137c73",
+      "definition_sha256": "89ec3d2c0b9576db0e66bdcc6b060b58c0c2c3b3c001d5b79bfcf30c1f40d2ce",
+      "pool_card_sha256": "0bd4ff0caca2785976f29fc57dc614ba09dd000096412a84a0ca9b8dd9bd9d13"
+    },
+    {
+      "record": {
+        "id": "YOP_023",
+        "dbf_id": 61961,
+        "name": "大地崩陷",
+        "name_en": "Landslide",
+        "text": "对所有敌方随从造成$1点伤害。如果你有<b>过载</b>的法力水晶，再次造成$1点伤害。",
+        "text_en": "[x]Deal $1 damage to\nall enemy minions.\nIf you're <b>Overloaded</b>,\ndeal $1 damage again.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1466,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "3e69da8c76e8fef549eb0f526d748be77d95fc44aec3fd91794d6a502785e592",
+      "definition_sha256": "2adba2d80235bd32c0cac458056f2ce968d5262999e3691a9d57924df64a2160",
+      "pool_card_sha256": "f869e7fc3651762fd65b106d2291456ff4b9099b0c430c8ce229d00860b95f03"
+    },
+    {
+      "record": {
+        "id": "BT_110",
+        "dbf_id": 56467,
+        "name": "洪流",
+        "name_en": "Torrent",
+        "text": "对一个随从造成$8点伤害。如果你在上个回合施放过法术，则法力值消耗减少（3）点。",
+        "text_en": "[x]Deal $8 damage to a\nminion. Costs (3) less if\nyou cast a spell last turn.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1414,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dave Allsop"
+          }
+        ]
+      },
+      "record_sha256": "4526daee000430d0a379c9fdf3a572fde7c121b1adfac8715f790f8108cce52e",
+      "definition_sha256": "bb1bb16f04f5d6d0b897a187cff056b28a685baa065772fdaafd3c6527f5b6dc",
+      "pool_card_sha256": "1ac1c0e9f024118ecbee03d1b28e3782cefa775b877fb53b48316e4090c722ac"
+    },
+    {
+      "record": {
+        "id": "DRG_219",
+        "dbf_id": 54971,
+        "name": "闪电吐息",
+        "name_en": "Lightning Breath",
+        "text": "对一个随从造成$4点伤害。如果你的手牌中有龙牌，则同样对其相邻随从造成伤害。",
+        "text_en": "[x]Deal $4 damage to a\nminion. If you're holding\na Dragon, also damage\nits neighbors.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1347,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "095c675876a8da2c64df3525cfe3f64f38a1c960d7ee96701081f1c8d45f65ee",
+      "definition_sha256": "80a2842279f732d91b5ee0bfc127c77a1d685899c4cbb344b9623bd8973b0f81",
+      "pool_card_sha256": "12e3e92a2bbdcb6378f91a1fe7d7b6765bfe12b082ad30c8a4a6881f7bec1b99"
+    },
+    {
+      "record": {
+        "id": "WW_080",
+        "dbf_id": 102061,
+        "name": "两栖药剂",
+        "name_en": "Amphibious Elixir",
+        "text": "恢复#5点\n生命值。<b>发现</b>一张法术牌。",
+        "text_en": "Restore #5 Health. <b>Discover</b> a spell.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1892,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Bozonnet"
+          }
+        ]
+      },
+      "record_sha256": "afe0cede8210d6ee10a08a23001ae2ad569c235fb0615e99cf2d28f89c722d25",
+      "definition_sha256": "9deb519a104e7b2d2eb6683050d35ca453693182b5f2032860f9dee56223c9c8",
+      "pool_card_sha256": "4718b98731e3a9c520251bedd3d91fdbc9ddac0136a580425b178b6b964dd26d"
+    },
+    {
+      "record": {
+        "id": "VAC_329",
+        "dbf_id": 106536,
+        "name": "自然天性",
+        "name_en": "Natural Talent",
+        "text": "随机获取纳迦牌和法术牌各一张，\n其法力值消耗减少（2）点。",
+        "text_en": "Get a random Naga and a random spell. They cost (2) less.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1905,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "1e1901600b8202506d0db00362e0da364c8df4bd3604b53da3c10be93fe2af34",
+      "definition_sha256": "37658885f5e73fe8556ce7d4be56dcab7a33da0d3d98305dd924b48b022066f0",
+      "pool_card_sha256": "5d227222b00cac2791bb508fe22bb8e25593c9c2065f27669b2ce8d8ec3a5122"
+    },
+    {
+      "record": {
+        "id": "LOOT_373",
+        "dbf_id": 46067,
+        "name": "治疗之雨",
+        "name_en": "Healing Rain",
+        "text": "恢复#12点生命值，随机分配到所有友方角色上。",
+        "text_en": "Restore #12 Health randomly split among all friendly characters.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1004,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "f7a2036e445ab0739a09102b9be810a11f939adda9562546e82209d419def253",
+      "definition_sha256": "05b45caae5467097d79f622b70c1b234cfb678717e69c8fad0aac9bc7c07aaab",
+      "pool_card_sha256": "b478cf853fd254b7368ff14096f6e8676a43720d9260f0f34ab1363e982950c8"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "CORE_LOOT_373",
+        "dbf_id": 127471,
+        "name": "治疗之雨",
+        "name_en": "Healing Rain",
+        "text": "恢复#12点生命值，随机分配到所有友方角色上。",
+        "text_en": "Restore #12 Health randomly split among all friendly characters.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "858": 46067,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 46067,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "46067",
+              "type": "Int",
+              "value": "46067"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "662a29623d867748ae29bdd6e358d30011a935da8c4c09b4b9c8eb4ab4fe2096",
+      "definition_sha256": "0005f9256b2b7024208fd079154719f8cd2505c01f577238a9972233f0872843",
+      "pool_card_sha256": "b00fe62f23995567ca64a712f4b15023a647bdabbc9dfa2c829aaf7f2f102da5"
+    },
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838",
+      "pool_card_sha256": "42ab3eb29dde806fee20d9d987f465b5cefe27d093cadaac0ec0c28e6cb36d6a"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "BOT_246",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 48798,
+        "collectible": 1,
+        "slug": "48798-beakered-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Evgeniy Dlinnov",
+        "manaCost": 0,
+        "name": "瓶装闪电",
+        "text": "对所有随从造成 1点伤害。 <b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5bd3d467685e03b2fece904ce557c00e634db8451308fa2c614e3d0fb668dc3e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/003ef8b678dec458a142e9ff7b5546ccd7a545cd76949f0ac8437bef3509c676.png",
+        "flavorText": "在萨满祭司实验室工作只有一个要求，那就是——稳。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88b3f1e46edf1090fc5dbe969b38e29efb4b14c1ebd7901181f8a8a41e1c459f.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BOT_246",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 48798,
+        "collectible": 1,
+        "slug": "48798-beakered-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1127,
+        "rarityId": 1,
+        "artistName": "Evgeniy Dlinnov",
+        "manaCost": 0,
+        "name": "Beakered Lightning",
+        "text": "Deal 1 damage to all minions. <b>Overload:</b> (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7377a06d1bdeaf74359f2826485b72fe56fb8302f8b62184eeaedd16502c97ce.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f410d4e3fe865e74873301b24cd87c07cd44fcfb6b0bca57d65c46388ddfdd34.png",
+        "flavorText": "Working in a shaman's lab, it's important to be well-grounded.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/88b3f1e46edf1090fc5dbe969b38e29efb4b14c1ebd7901181f8a8a41e1c459f.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_600",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 47222,
+        "collectible": 1,
+        "slug": "47222-zap",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Jason Kang",
+        "manaCost": 0,
+        "name": "电击",
+        "text": "对一个随从造成 2点伤害。<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9056a8ec2e5a26ef9c7c0a5f4b19f8df675707e40a5a5f55cf534b95bd4fa90f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/29ab2beebe058cbd8d501ffcb8ddecb27eeddb5d9906b72143784d4c33979b3b.png",
+        "flavorText": "严禁在鱼塘使用这一法术！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61a2d3ccf956ed35d02a1d8f6e96d37aadc54051f5dcdf691e459e955a7199fb.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          102208
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_600",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 47222,
+        "collectible": 1,
+        "slug": "47222-zap",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1125,
+        "rarityId": 1,
+        "artistName": "Jason Kang",
+        "manaCost": 0,
+        "name": "Zap!",
+        "text": "Deal 2 damage to a minion. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e3cc8a4f795e66ce224bdeb143ad402cceccde8c50225279d78678382c88155f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bcbc7e83070d0d3c7b8e5d047790a601f655b2921143d792e1dabc347a0356b2.png",
+        "flavorText": "The material components for this spell are wool socks and a rug.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61a2d3ccf956ed35d02a1d8f6e96d37aadc54051f5dcdf691e459e955a7199fb.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          102208
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_586",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 47152,
+        "collectible": 1,
+        "slug": "47152-earthen-might",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1125,
+        "rarityId": 3,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 2,
+        "name": "大地之力",
+        "text": "使一个随从获得+2/+2。如果该随从是元素，则随机将一张元素牌置入你的手牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/acc51a1c2c1bf1331ef70404cae9da86158094d68533635f94bc0b85c3bba625.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d899b6c7c7abbf20cdb806d3a25b7686692f420f72039936d0a24a42809fcc1.png",
+        "flavorText": "下雨天施法效果会减半。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53d66f1220d7e72794ad00845e1facd4eaf3429a688607424f0813182bdaaac3.png",
+        "copyOfCardId": [
+          71553
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GIL_586",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 47152,
+        "collectible": 1,
+        "slug": "47152-earthen-might",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1125,
+        "rarityId": 3,
+        "artistName": "Alex Horley Orlandelli",
+        "manaCost": 2,
+        "name": "Earthen Might",
+        "text": "Give a minion +2/+2. If it's an Elemental, add a random Elemental to your hand.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63aa29b506bcaeece66adcb352a989c9e4a1bd6b239d0476e358c03645d6738e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c0975a2af976b1c84d387bf2c795fc372346ea02334163f88805e757af32d0b.png",
+        "flavorText": "Or it might not.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53d66f1220d7e72794ad00845e1facd4eaf3429a688607424f0813182bdaaac3.png",
+        "copyOfCardId": [
+          71553
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_023",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 38262,
+        "collectible": 1,
+        "slug": "38262-primal-fusion",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 1,
+        "artistName": "Jimmy Lo",
+        "manaCost": 1,
+        "name": "原始融合",
+        "text": "你每有一个图腾，就使一个随从获得+1/+1。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/61177999887f3ce95d49e4f61eb42045600a5c78de0435c1655488aca98ae1c6.png",
+        "imageGold": "",
+        "flavorText": "G&D今年又出了一款全新系列的大地图腾，全国各地专柜均有销售。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89ae1b7a64c3fef7dbb0cc014fd40845f31e76744ccbad354a566cc323a2e45d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "OG_023",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 38262,
+        "collectible": 1,
+        "slug": "38262-primal-fusion",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 21,
+        "rarityId": 1,
+        "artistName": "Jimmy Lo",
+        "manaCost": 1,
+        "name": "Primal Fusion",
+        "text": "Give a minion +1/+1 for each of your Totems.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f704d9b64cc831efc053f395721d5d02ee033ac763012e286461a1c348dfec79.png",
+        "imageGold": "",
+        "flavorText": "Golce and Dabbana have a new line of Earth Totems available at vendors everywhere this holiday season.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/89ae1b7a64c3fef7dbb0cc014fd40845f31e76744ccbad354a566cc323a2e45d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_009",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 102173,
+        "collectible": 1,
+        "slug": "102173-digging-straight-down",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Edward Frayna",
+        "manaCost": 4,
+        "name": "向下深挖",
+        "text": "对一个随从造成 8点伤害。<b>发掘</b>一个宝藏。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ab7a597627640a740b5abad5d1624b24856e020157dd94a2641d9651abd3084c.png",
+        "imageGold": "",
+        "flavorText": "这种错误只能犯一次。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd862b2f9f5e69993c98b0d6fac111cecb91156332423dfdb041390e79833899.png",
+        "childIds": [
+          104584,
+          98738,
+          98739,
+          98859,
+          98741,
+          98740,
+          104576,
+          98748,
+          98742,
+          98744,
+          98747,
+          98749,
+          104578,
+          98857,
+          98755,
+          98760,
+          98759,
+          98761,
+          104579
+        ],
+        "keywordIds": [
+          298
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DEEP_009",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 102173,
+        "collectible": 1,
+        "slug": "102173-digging-straight-down",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Edward Frayna",
+        "manaCost": 4,
+        "name": "Digging Straight Down",
+        "text": "Deal 8 damage to a minion. <b>Excavate</b> a treasure.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/207d93c92b02565b541f5faf998ff962c65f99def2b736e43d8f5f754a828cf4.png",
+        "imageGold": "",
+        "flavorText": "You only make this mistake once.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bd862b2f9f5e69993c98b0d6fac111cecb91156332423dfdb041390e79833899.png",
+        "childIds": [
+          104584,
+          98738,
+          98739,
+          98859,
+          98741,
+          98740,
+          104576,
+          98748,
+          98742,
+          98744,
+          98747,
+          98749,
+          104578,
+          98857,
+          98755,
+          98760,
+          98759,
+          98761,
+          104579
+        ],
+        "keywordIds": [
+          298
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOP_023",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 61961,
+        "collectible": 1,
+        "slug": "61961-landslide",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "大地崩陷",
+        "text": "对所有敌方随从造成 1点伤害。如果你有<b>过载</b>的法力水晶，再次造成 1点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ffa75106625a9352c3563758befa3c88237ce8e54450145f27eb786b05ebeddc.png",
+        "imageGold": "",
+        "flavorText": "“好一场天塌地陷的大胜！咦，其他选手去哪儿了？”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33fff1a3ab65a88532e816f8cdc684b71ad667b707c4e62fc28f01fbbb0d7a9e.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOP_023",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 61961,
+        "collectible": 1,
+        "slug": "61961-landslide",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1466,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 2,
+        "name": "Landslide",
+        "text": "Deal 1 damage to all enemy minions. If you're <b>Overloaded</b>, deal 1 damage again.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eeedaa08e7b59f0285118d127a0d4302a7ce9b33dbd17bd08dcda4cafc9719d3.png",
+        "imageGold": "",
+        "flavorText": "\"And they win it by a landslide! Wait, where did all the other racers go?\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/33fff1a3ab65a88532e816f8cdc684b71ad667b707c4e62fc28f01fbbb0d7a9e.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_110",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 56467,
+        "collectible": 1,
+        "slug": "56467-torrent",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "manaCost": 4,
+        "name": "洪流",
+        "text": "对一个随从造成 8点伤害。如果你在上个回合施放过法术，则法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b2cdcedfdbd605807daf971e70ccc887c26a20d43cd9985e0df58f4a4853da43.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/43430ced85a14eaf38d7491c86c126b2fbd801ad9a1dedc29b406866cc402e1c.png",
+        "flavorText": "经过数周的交叉训练，她的四肢结实了不少。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6892cae84a121c3f411cd0a2b4c6cea043330761aba0faeaf90900725b92160.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BT_110",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 56467,
+        "collectible": 1,
+        "slug": "56467-torrent",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1414,
+        "rarityId": 3,
+        "artistName": "Dave Allsop",
+        "manaCost": 4,
+        "name": "Torrent",
+        "text": "Deal 8 damage to a minion. Costs (3) less if you cast a spell last turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0361ce6ba8666bd21a15c7836e5d38d7fae42ca94a75938b23e19d799f1f7dd4.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0aea03b5e0c81ddee74163c118f034d1e833f1db155b9a658617fea61a75baf5.png",
+        "flavorText": "Weeks of underwater cross-training have really built up her fourarms.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b6892cae84a121c3f411cd0a2b4c6cea043330761aba0faeaf90900725b92160.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_219",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 54971,
+        "collectible": 1,
+        "slug": "54971-lightning-breath",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "闪电吐息",
+        "text": "对一个随从造成 4点伤害。如果你的手牌中有龙牌，则同样对其相邻随从造成伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/eb4f889ce7f5cd05a886e8ff34ec00496cc1fe393b0f8a276ecc462ccda34ce3.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8f2912e04b99854285cdb936a20a22718ad6784a4492a29fa766adfb9173d1f.png",
+        "flavorText": "配料表：一条巨龙，一件毛衣，还需要干燥的天气。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3c3d72760cb196d821dee84baa19059393d33a6c2b97701dda9a90fe93ae45d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DRG_219",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 54971,
+        "collectible": 1,
+        "slug": "54971-lightning-breath",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1347,
+        "rarityId": 3,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "Lightning Breath",
+        "text": "Deal 4 damage to a minion. If you're holding a Dragon, also damage its neighbors.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a8c014bac53cffaf139137aea6e5e9d1e0efcd9b7675a4e9e6718f9663fba66.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72e03becd82ab5300633ef749b53535917d59b9b78fcaafb37a7e22facee4cd0.png",
+        "flavorText": "Recipe: One dragon, four wool socks, thick shag carpet.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a3c3d72760cb196d821dee84baa19059393d33a6c2b97701dda9a90fe93ae45d.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_080",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 102061,
+        "collectible": 1,
+        "slug": "102061-amphibious-elixir",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 2,
+        "name": "两栖药剂",
+        "text": "恢复 5点 生命值。<b>发现</b>一张法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df452e2210af9b10b7d79a2ff5ccbb9d63b507e0c2042a96a661c7aa5e33d671.png",
+        "imageGold": "",
+        "flavorText": "蛙制，蛙有，蛙享。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8af3c044a846eca3ed2f8ff021ff0a058f2655c7916e749d1f842091f615f72.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_080",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 102061,
+        "collectible": 1,
+        "slug": "102061-amphibious-elixir",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 3,
+        "artistName": "Arthur Bozonnet",
+        "manaCost": 2,
+        "name": "Amphibious Elixir",
+        "text": "Restore 5 Health. <b>Discover</b> a spell.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1ac1b7ea96e7546a8b7bbde385f78b3032a01e0911c3476f9050a30804be6e18.png",
+        "imageGold": "",
+        "flavorText": "Made by frogs, for frogs, from frogs.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b8af3c044a846eca3ed2f8ff021ff0a058f2655c7916e749d1f842091f615f72.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_329",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 106536,
+        "collectible": 1,
+        "slug": "106536-natural-talent",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "自然天性",
+        "text": "随机获取纳迦牌和法术牌各一张， 其法力值消耗减少（2）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f02629ac787a2aadf18473c5e92ad1984fe68ae4c75ae19931bbec23a99c2c9b.png",
+        "imageGold": "",
+        "flavorText": "在双种族花样游泳才艺大赛中仅获第2名。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb64bac5d7587f8c93e4db94264153fb1a956ac61ed61db46b605ccd0137f279.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_329",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 106536,
+        "collectible": 1,
+        "slug": "106536-natural-talent",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Zoltan Boros",
+        "manaCost": 3,
+        "name": "Natural Talent",
+        "text": "Get a random Naga and a random spell. They cost (2) less.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/222abe1cd46f7964d73315c7d709fa3e6476b438c85ef68874ce6cea275504d2.png",
+        "imageGold": "",
+        "flavorText": "Unfortunately, they got 2nd place at the talent show with their synchronized swimming routine.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fb64bac5d7587f8c93e4db94264153fb1a956ac61ed61db46b605ccd0137f279.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_373",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 46067,
+        "collectible": 1,
+        "slug": "46067-healing-rain",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 3,
+        "name": "治疗之雨",
+        "text": "恢复 12点生命值，随机分配到所有友方角色上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4b958d039b5f43e663d1ea59582cd28bd19039cf863117d7e4329be6ffd11c4f.png",
+        "imageGold": "",
+        "flavorText": "雨水里全是电解质！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a22c07250955d46445ee9b04be704fa7046f307d069cfb3d7e8359a1a1dc64a.png",
+        "copyOfCardId": [
+          127471
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_373",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 46067,
+        "collectible": 1,
+        "slug": "46067-healing-rain",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 1,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 3,
+        "name": "Healing Rain",
+        "text": "Restore 12 Health randomly split among all friendly characters.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2a28a95b5f1614ee27478951d09cea0a401fb611687b4dc61d7f6d6970385c65.png",
+        "imageGold": "",
+        "flavorText": "It's filled with electrolytes!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5a22c07250955d46445ee9b04be704fa7046f307d069cfb3d7e8359a1a1dc64a.png",
+        "copyOfCardId": [
+          127471
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_373",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 127471,
+        "collectible": 1,
+        "slug": "127471-healing-rain",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 3,
+        "name": "治疗之雨",
+        "text": "恢复 12点生命值，随机分配到所有友方角色上。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d052f207559316423ee477e74cfc88eb87c4aab0d6a0f91105e8c1479feb5e54.png",
+        "imageGold": "",
+        "flavorText": "雨水里全是电解质！",
+        "cropImage": null,
+        "copyOfCardId": [
+          46067
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CORE_LOOT_373",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 127471,
+        "collectible": 1,
+        "slug": "127471-healing-rain",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1637,
+        "rarityId": 1,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 3,
+        "name": "Healing Rain",
+        "text": "Restore 12 Health randomly split among all friendly characters.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/103424a626197756145b0521f2647fbea17070481c9ccc185e90ed20e30aca08.png",
+        "imageGold": "",
+        "flavorText": "It's filled with electrolytes!",
+        "cropImage": null,
+        "copyOfCardId": [
+          46067
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "numeric_normalizations": {
+    "BOT_246": {
+      "cost": 0
+    },
+    "GIL_600": {
+      "cost": 0
+    }
+  },
+  "references": [
+    {
+      "path": "data/cards/past-priest-nature-source-v1.json",
+      "sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f"
+    },
+    {
+      "path": "data/cards/excavate-local-host-v1.json",
+      "sha256": "8dcd4ba839dbfe3a613e047409178831a0329d92bd601a2e34a6011ca5d0acfa"
+    },
+    {
+      "path": "data/cards/native-split-healing-v1.json",
+      "sha256": "322e0a41aad98aa37ed527700f4e02b21eff70e59749480ae79493703f3e0579"
+    }
+  ],
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "BOT_246",
+    "GIL_600",
+    "GIL_586",
+    "OG_023",
+    "DEEP_009",
+    "YOP_023",
+    "BT_110",
+    "DRG_219",
+    "WW_080",
+    "VAC_329",
+    "LOOT_373"
+  ],
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "tribes": "Original accepted current target Elemental/all qualification, current active ordinary friendly Totems; captured numeric grant then original qualified reward.",
+    "damage": "Ordinary simultaneous SPELL batches; active Overload owed or locked captured for Landslide, with fresh second enemy query.",
+    "previous_cost": "Existing latest closed own interval successful CAST prefix, independent of physical hand-only play; intrinsic minus3 before ordinary local modifiers.",
+    "generation": "Full current host constructed.cards; current-class spell discovery, any-class Elemental/Naga and spell generation. Each real new card gets original independent minus2 cost modifier.",
+    "healing": "Original12 ordinary friendly healing units through shared RandomSplitHealing; original Core counterpart unchanged.",
+    "excavate": "Ordinary eight damage then complete already-bound local Excavate profile; full original tier and current-class rewards.",
+    "adjacency": "Original target and physical immediate board neighbors if a current held Dragon/all minion qualifies; original simultaneous damage batch."
+  },
+  "uncertainties": [
+    "Tribe reward, adjacency, Overload and conditional second-pulse interleavings use explicit existing local acceptance policies, not CN calibration.",
+    "Original full Shaman71 source stays unbound; no partial executable pool.",
+    "Version/hotfix alignment and CN edge calibration remain deferred."
+  ]
+}

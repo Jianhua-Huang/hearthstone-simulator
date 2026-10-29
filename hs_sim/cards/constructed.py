@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v732"
+CONTENT_VERSION = "constructed-cn37-preview-v733"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1494,5 +1494,7 @@ def build_registry():
     register_past_shaman_nature_common(registry)
     from .past_shaman_nature_summons import register_past_shaman_nature_summons
     register_past_shaman_nature_summons(registry)
+    from .past_shaman_nature_resources import register_past_shaman_nature_resources
+    register_past_shaman_nature_resources(registry)
     registry.validate()
     return registry
