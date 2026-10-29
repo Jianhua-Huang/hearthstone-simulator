@@ -28,7 +28,7 @@ from .end_turn_producers import TriggerRandomEndTurnEffects
 from .deck_conditions import CheckDeckCondition, DeckCondition
 from .herald import Herald, instance_multiplier, herald_count, herald_multiplier
 from .ordered_choices import ChooseInOrder
-from .sacrifice import MinionReference, SacrificeAdjacent, BuffCapturedMinion, GrantCapturedKeyword
+from .sacrifice import MinionReference, SacrificeAdjacent, BuffCapturedMinion, GrantCapturedKeyword, GrantCapturedDeathrattle
 from .model import DeathrattleRepeatSpec, BattlecryRepeatSpec, DeckSacrificeSpec, KeywordAuraSpec, SpellRepeatSpec, HealthLossReplacementSpec, RewindSpec, RecipientMetadataFilter, RepeatMatchSpec
 from .effects import (GrantDeathrattle, TriggerDeathrattles, RandomForceAttack, ReplaceHeroPower, Buff, Damage, DamageBatch, DoubleStats, Draw, DrawToHandLimit, EquipWeapon, Freeze, GainArmor,
                       GrantKeyword, Heal, ReturnToHand, SetStats, Silence, Summon, SwapStats,
@@ -951,12 +951,12 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
 
     from .model import ChooseBranch, ChooseOneSpec
     registry.register_behavior('m5.nourish_mana',lambda c:[ChangeManaCrystals(c.player_id,2,filled=True)])
-    registry.register_behavior('m5.nourish_draw',lambda c:[Draw(c.player_id,3)])
-    registry.register_behavior('m5.nourish_both',lambda c:[ChangeManaCrystals(c.player_id,2,filled=True),Draw(c.player_id,3)])
+    registry.register_behavior('m5.nourish_draw',lambda c:[Draw(c.player_id,3,c.source_id)])
+    registry.register_behavior('m5.nourish_both',lambda c:[ChangeManaCrystals(c.player_id,2,filled=True),Draw(c.player_id,3,c.source_id)])
     registry.register_behavior('m5.wrath_damage',lambda c:[Damage(c.target_id,3,c.source_id,DamageKind.SPELL)])
-    registry.register_behavior('m5.wrath_draw',lambda c:[Damage(c.target_id,1,c.source_id,DamageKind.SPELL),Draw(c.player_id,1)])
+    registry.register_behavior('m5.wrath_draw',lambda c:[Damage(c.target_id,1,c.source_id,DamageKind.SPELL),Draw(c.player_id,1,c.source_id)])
     registry.register_behavior('m5.wrath_both',lambda c:[Damage(c.target_id,3,c.source_id,DamageKind.SPELL),
-        Damage(c.target_id,1,c.source_id,DamageKind.SPELL),Draw(c.player_id,1)])
+        Damage(c.target_id,1,c.source_id,DamageKind.SPELL),Draw(c.player_id,1,c.source_id)])
     registry.register_behavior('m5.war_attack',lambda c:[Buff(c.source_id,attack=5,source_id=c.source_id)])
     registry.register_behavior('m5.war_health',lambda c:[Buff(c.source_id,health=5,source_id=c.source_id),GrantKeyword(c.source_id,Keyword.TAUNT)])
     registry.register_behavior('m5.war_both',lambda c:[Buff(c.source_id,attack=5,health=5,source_id=c.source_id),GrantKeyword(c.source_id,Keyword.TAUNT)])
@@ -1160,8 +1160,10 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         'm5.onyxia_soldier': onyxia_soldier,
         'm5.herald':lambda c:[Herald(c.player_id,c.source_id)],
         'm5.ravager':lambda c:[Herald(c.player_id,c.source_id,(Keyword.RUSH,))],
-        'm5.soul_forest':lambda c:[GrantDeathrattle(i,'m5.treant',c.source_id) for i in c.state.players[c.player_id].board
-            if c.state.entities[i].kind==CardType.MINION and c.state.entities[i].active],
+        'm5.soul_forest':lambda c:[GrantCapturedDeathrattle(MinionReference.capture(c.state.entities[i]),'m5.treant',c.source_id)
+            for i in c.state.players[c.player_id].board if c.state.entities[i].kind==CardType.MINION
+            and c.state.entities[i].active and c.state.entities[i].health>0 and not c.state.entities[i].doomed
+            and registry.card(c.state.entities[i].card_id).interactable is None],
         'm5.treant':lambda c:[card_summon(c,c.player_id,'EX1_158t',c.death.position if c.death else None)],
         'm5.yodeler':lambda c:[TriggerDeathrattles(c.target_id,c.source_id,times=2)] if c.target_id is not None else [],
         'm5.ragnaros_hand':ragnaros_hand,
@@ -1178,7 +1180,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         'm5.arcane_bolt': lambda c: [Damage(c.target_id,3 if c.spell_conditions.manathirst else 2,c.source_id,DamageKind.SPELL)],
         'm5.silvermoon': lambda c: [Buff(c.source_id,2,2),GrantKeyword(c.source_id,Keyword.DIVINE_SHIELD)] if c.spell_conditions.manathirst else [],
         'm5.sunspot': lambda c: [Damage(c.target_id,6,c.source_id)] if c.spell_conditions.quickdraw and c.target_id is not None else [],
-        'm5.rehydrate': lambda c: [Heal(c.target_id,7,c.source_id),*([RefreshMana(c.player_id,2)] if c.spell_conditions.quickdraw else [])],
+        'm5.rehydrate': lambda c: [Heal(c.target_id,7,c.source_id,HealingKind.SPELL),*([RefreshMana(c.player_id,2)] if c.spell_conditions.quickdraw else [])],
         'm5.growth': lambda c: [BuffStoredCard(CardReference.capture(c.source),1,1,c.source_id)],
         'm5.fool': lambda c: [Draw(c.player_id)],
         'm5.fool_infused': lambda c: [Draw(c.player_id,3)],

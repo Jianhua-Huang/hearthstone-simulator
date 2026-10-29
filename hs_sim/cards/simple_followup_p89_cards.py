@@ -24,6 +24,7 @@ DEPENDENCIES=()
 DEFERRED=('TIME_711','TLC_434','CAP_407','EDR_493')
 PAST_POOL='constructed.past.cards'
 ARCANE_PAST_POOL='constructed.local-past-arcane.full-reference-v1'
+NATURE_PAST_POOL='constructed.local-past-nature.druid-reference-v1'
 PREFIX='cards.simple_followup_p89.'
 QUERIES={WO:PoolQuery(kinds=(CardType.SPELL,),collectible=True,class_mode='current',spell_schools=(SpellSchool.NATURE,)),
  NEON:PoolQuery(kinds=(CardType.MINION,),collectible=True,class_mode='specified',classes=(CardClass.PALADIN,),include_neutral=False,tribes_any=('mech',)),
@@ -44,7 +45,7 @@ def register_simple_followup_p89_cards(registry):
   record=cast_record(c.state,dict(c.event.data)['cast_id'])
   if(record.source_id,record.player_id,record.target_id)!=(c.event.source_id,c.event.player_id,c.event.target_id):raise ResolutionError('Wo lost original completed spell linkage')
   if not record.completed or not record.payload_started or record.failure is not None or record.interrupted:raise ResolutionError('Wo requires actual successful spell completion')
-  return(DiscoverFromPool(c.player_id,PAST_POOL,QUERIES[WO],source_id=c.source_id),)if record.player_id==c.player_id and living_source(c)else()
+  return(DiscoverFromPool(c.player_id,NATURE_PAST_POOL,QUERIES[WO],source_id=c.source_id),)if record.player_id==c.player_id and living_source(c)else()
  def reality(c):
   p=c.state.players[c.player_id];hand=tuple(CardReference.capture(c.state.entities[i])for i in p.hand);deck=tuple(CardReference.capture(c.state.entities[i])for i in p.deck)
   return(RemoveFromGame((*hand,*deck),c.source_id),)+tuple(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[REALITY],count=count,source_id=c.source_id,destination=destination,position='bottom'if destination=='deck'else'random',cost=CostSpec(delta=-1))for count,destination in((len(hand),'hand'),(len(deck),'deck'))if count)

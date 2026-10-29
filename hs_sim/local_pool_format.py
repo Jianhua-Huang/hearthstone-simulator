@@ -15,14 +15,21 @@ from .targets import TargetValidationError, canonical_digest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v15.json'
-MANIFEST_HASH = 'eabf39650ad7a98cd21b1229a9f7a56a968a3c53bd42ec837b14f50d06990837'
-FORMAT_VERSION = 'cn37-local-special-pools-v15'
+MANIFEST_PATH = ROOT / 'data/cards/local-special-pool-bindings-v16.json'
+MANIFEST_HASH = '60db9965fe4c5e9757546c66995b2c4c385d27a19ca794495c7b1b9a086fd4cc'
+FORMAT_VERSION = 'cn37-local-special-pools-v16'
 ORDINARY_POOLS = ('constructed.cards', 'constructed.minions')
 
 
 def load_bindings():
     value = json.loads(MANIFEST_PATH.read_text(encoding='utf-8'))
+    from .cards.past_druid_nature_source import BATCH_PATH as NATURE_PATH,load_batch as load_nature
+    nature=load_nature()
+    if value['druid_nature_binding']!=dict(source_document=NATURE_PATH.relative_to(ROOT).as_posix(),
+            source_document_canonical_sha256=canonical_digest(nature),source_card_id='TIME_013',
+            pool_id=nature['pool_id'],current_class='druid',member_count=85,
+            complete_for_declared_inventory=True,formal_pool_complete=False):
+        raise TargetValidationError('Druid Nature source document changed')
     if (canonical_digest(value) != MANIFEST_HASH or value['schema'] != 1 or
             value['formal_pool_complete'] is not False or not value['bindings']):
         raise TargetValidationError('Local special pools require their reviewed complete manifest')
@@ -55,12 +62,12 @@ def load_bindings():
             zombeast['complete_for_declared_inventory'] is not True or zombeast['formal_pool_complete'] is not False):
         raise TargetValidationError('Zombeast local roles lost their independent inventories or explicit exclusion')
     previous = value['previous_manifest']
-    if previous['path'] != 'data/cards/local-special-pool-bindings-v14.json':
+    if previous['path'] != 'data/cards/local-special-pool-bindings-v15.json':
         raise TargetValidationError('Local source host requires its original complete predecessor manifest')
     prior = json.loads((ROOT/previous['path']).read_text(encoding='utf8'))
     if (canonical_digest(prior) != previous['canonical_sha256'] or any(
             value.get(k) != v for k,v in prior.items() if k not in ('policy_id','accepted_on','previous_manifest'))):
-        raise TargetValidationError('Past Mech host changed an existing special-pool declaration')
+        raise TargetValidationError('Local source host changed an existing special-pool declaration')
     cata = value['cata_colossal_binding']
     if (cata['source_document'] != 'data/cards/past-colossal-source-binding-v1.json' or
             cata['pool_id'] != 'constructed.past.cards' or cata['pool_id'] not in value['partially_scoped_pool_ids'] or
@@ -201,8 +208,10 @@ def build_cn37_local_pool_format():
     from .cards.past_mage_arcane_source_cards import local_pools as past_spell_pools,register_scopes as register_past_spell_scopes
     from .cards.champions_of_azeroth import local_pools as champion_pools,register_scopes as register_champion_scopes
     from .cards.past_mage_effect_consumers import gift_pool
+    from .cards.past_druid_nature_source import local_pool as nature_pool,register_scope as register_nature_scope
     pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
         one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context) + champion_pools(registry,original.context)
+    pools=pools+(nature_pool(registry,original.context),)
     excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
@@ -221,6 +230,7 @@ def build_cn37_local_pool_format():
     register_mage_teacher(registry,context,reviewed_member_ids=tuple(load_toki_mage()['merged_member_ids']))
     register_champion_scopes(registry,context)
     register_toki_mage(registry,context)
+    register_nature_scope(registry,context)
     registry.register_excavation_profile(replace(excavation, target_id=target_id, mode=context.mode))
     policy = replace(original.policy, id=target_id + '.deck', target_id=target_id)
     registry.validate()

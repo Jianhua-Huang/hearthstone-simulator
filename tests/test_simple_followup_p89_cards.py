@@ -3,9 +3,10 @@ from functools import lru_cache
 from pathlib import Path
 from unittest.mock import patch
 import hashlib,json,unittest
+from opening_fixtures import registry as opening_registry
 from hs_sim.cards import build_registry
 from hs_sim.cards import simple_followup_p89_cards as cards
-from hs_sim.cards.simple_followup_p89_cards import WO,NEON,MEMORY,WARDEN,GLAIVE,ALTER,WINGS,LORD,REALITY,ROOTS,DEFERRED,PAST_POOL,ARCANE_PAST_POOL,load_batch,register_simple_followup_p89_cards
+from hs_sim.cards.simple_followup_p89_cards import WO,NEON,MEMORY,WARDEN,GLAIVE,ALTER,WINGS,LORD,REALITY,ROOTS,DEFERRED,PAST_POOL,ARCANE_PAST_POOL,NATURE_PAST_POOL,load_batch,register_simple_followup_p89_cards
 from hs_sim.cards.candidate_generation_catalog import register_candidate_pool_metadata
 from hs_sim.engine import Attack,CardClass,CardDefinition,CardMetadata,CardType,EndTurn,Game,IllegalAction,Keyword,PlayCard,PlayerSetup,Rarity,Registry,Scenario,SelectChoice,TargetSpec,Zone
 from hs_sim.engine.effects import AddToHand,ChoiceOption,Destroy,InvokeBehavior,RequestChoice,Silence
@@ -28,13 +29,11 @@ SOURCE_PIN=hashlib.sha256(Path(__file__).read_bytes()+Path(cards.__file__).read_
 
 def meta(cls=CardClass.NEUTRAL,tribes=(),collectible=True):return CardMetadata(collectible,(cls,),Rarity.COMMON,runes=Runes(),tribes=tribes,factions=(),subtypes=())
 def baseline_registry():
- with patch('hs_sim.cards.simple_followup_p89_cards.register_simple_followup_p89_cards',lambda r:None):return build_registry()
+ r=opening_registry();r.register_pool_card(PoolCard.from_definition(r.card('card.1')))
+ r.register_pool(PoolDefinition(P+'retained','p89-original-retained',CONTEXT.target_id,CONTEXT.mode,(PoolMember('card.1'),),complete=True))
+ return r
 def batch_registry():
- with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):r=build_registry()
- present=tuple(i in r.cards for i in ROOTS)
- if not any(present):register_simple_followup_p89_cards(r)
- elif not all(present):raise AssertionError('Complete P89 assembly required')
- register_candidate_pool_metadata(r);r.validate();return r
+ r=baseline_registry();register_simple_followup_p89_cards(r);r.validate();return r
 
 def registry(members,mode,pool,complete):
  r=Registry('p89-explicit-small-complete-test-host');register_simple_followup_p89_cards(r)
@@ -78,7 +77,7 @@ def registry(members,mode,pool,complete):
  for cid in MEMBERS:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
  if UNKNOWN in members:r.register_pool_card(PoolCard(UNKNOWN,CardType.MINION,5,CardMetadata(True,(CardClass.PALADIN,CardClass.MAGE),Rarity.COMMON,runes=Runes(),tribes=('mech','demon','dragon'),factions=(),subtypes=()),keywords=(Keyword.COLOSSAL,),battlecry=False,deathrattle=False,choose_one=True,attack=4))
  if pool:
-  for identity in(PAST_POOL,ARCANE_PAST_POOL):r.register_pool(PoolDefinition(identity,'p89-test-explicit-complete',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(i)for i in members),complete=complete))
+  for identity in(PAST_POOL,ARCANE_PAST_POOL,NATURE_PAST_POOL):r.register_pool(PoolDefinition(identity,'p89-test-explicit-complete',CONTEXT.target_id,CONTEXT.mode,tuple(PoolMember(i)for i in members),complete=complete))
  r.validate();return r
 @lru_cache(None)
 def fixture_registry(members,mode,pool,complete,role,pin):
