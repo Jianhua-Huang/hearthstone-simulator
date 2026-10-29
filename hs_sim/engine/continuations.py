@@ -70,6 +70,12 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .secret_expirations import ExpireSecret,SecretExpiry,validate_value as validate_secret_expiry,validate_batch as validate_secret_batch
+        from .spell_history import CastFromPool
+        if self.origin_state is not None:
+            if type(value)is ExpireSecret:value.validate_in_state(self.origin_state,self.registry,self.origin_events)
+            if type(value)is SecretExpiry:validate_secret_expiry(self.origin_state,self.registry,value)
+            if type(value)is CastFromPool:validate_secret_batch(self.origin_state,self.registry,value,allow_closed=True)
         from .draw_transformations import TransformDrawnCard,DrawTransformation,validate_transformation
         if type(value)is TransformDrawnCard and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry,self.origin_events)

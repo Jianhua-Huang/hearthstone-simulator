@@ -722,6 +722,8 @@ class Game:
         validate_cast_boundary(self)
         from .draw_casts import validate_boundary as validate_draw_boundary
         validate_draw_boundary(self)
+        from .secret_expirations import validate_boundary as validate_secret_expiration_boundary
+        validate_secret_expiration_boundary(self)
         from .hand_history import validate_publications
         validate_publications(self)
         from .spell_history import validate_boundary as validate_spell_batch_boundary

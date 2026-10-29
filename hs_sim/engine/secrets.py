@@ -28,26 +28,30 @@ def activation_error(state, registry, rules, player_id, card_id):
     return None
 
 
-def activate(r, entity):
+def activate(r, entity, *, cast_id=None):
     reason = activation_error(r.state, r.registry, r.rules, entity.controller, entity.card_id)
     if reason:
         r.emit('secret_set_failed', player_id=entity.controller, reason=reason)
         return
     entity.secret_instance_id = attachment_id(r.state)
     r.move(entity, Zone.SECRET)
-    r.emit('secret_set', source_id=entity.id, player_id=entity.controller)
+    from .secret_expirations import attach,event_data
+    attach(r,entity,cast_id)
+    r.emit('secret_set', source_id=entity.id, player_id=entity.controller,**event_data(entity))
 
 
 @dataclass(frozen=True)
 class SetSecret(Effect):
     player_id: int
     card_id: str
+    cast_id: int | None = None
 
     def __post_init__(self):
         _int(self.player_id, 'secret player', 1)
         if self.player_id not in (1, 2):
             raise ValueError('Invalid secret player')
         _name(self.card_id, 'secret card')
+        if self.cast_id is not None:_int(self.cast_id,'actual Secret payload cast',1)
 
 
 @dataclass(frozen=True)
@@ -79,11 +83,12 @@ def set_secret(r, effect):
         return
     # A generated secret never passes through a revealed hand or public summon.
     entity = r.create_entity(effect.player_id, effect.card_id, Zone.GRAVEYARD)
-    activate(r, entity)
+    activate(r, entity,cast_id=effect.cast_id)
 
 
 def consume(r, entity, event_kind, *, pending_events=None):
     entity.secret_instance_id = None
+    entity.secret_expiry = None
     r.move(entity, Zone.GRAVEYARD)
     if pending_events is None:
         r.emit(event_kind, source_id=entity.id, player_id=entity.controller)

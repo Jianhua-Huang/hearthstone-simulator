@@ -369,6 +369,8 @@ def pool_candidates(r, spec):
 def pool_batch(r, effect):
     effect.__post_init__(); source_exists(r,effect.source_id)
     if effect.count > r.rules.max_resolution_steps: raise ResolutionLimitExceeded('Pool casts exceed resolution budget')
+    from .secret_expirations import validate_batch
+    validate_batch(r.state,r.registry,effect)
     # Even a zero request validates its declared eligible content, not coverage.
     candidates = pool_candidates(r,effect)
     if not effect.count or effect.while_source_in_play and not source_in_play(r,effect.source_id): return ()
@@ -381,6 +383,8 @@ def pool_batch(r, effect):
 
 def continue_pool(r, effect):
     effect.__post_init__(); spec = effect.spec
+    from .secret_expirations import validate_batch
+    validate_batch(r.state,r.registry,spec)
     if not effect.remaining or spec.while_source_in_play and not source_in_play(r,spec.source_id,effect.source_epoch): return ()
     candidates = effect.candidates if spec.refresh == 'frozen' else pool_candidates(r,spec)
     candidates = tuple(m for m in candidates if r.registry.pool_card(m.card_id).generation_identity not in effect.used_identities)

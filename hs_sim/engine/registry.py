@@ -257,6 +257,7 @@ class Registry:
         self._corpse_summon_profiles = {}
         self._corpse_gain_profiles = {}
         self._summon_attack_profiles = {}
+        self._secret_expiry_profiles = {}
         self._outcast_summon_profiles = {}
         self._summon_producer_profiles: dict[str, SummonProducerProfile] = {}
         self._end_turn_profiles: dict[str, EndTurnActivationProfile] = {
@@ -1052,6 +1053,16 @@ class Registry:
 
     @property
     def corpse_gain_profiles(self):return MappingProxyType(self._corpse_gain_profiles)
+
+    @property
+    def secret_expiry_profiles(self):return MappingProxyType(self._secret_expiry_profiles)
+
+    def register_secret_expiry_profile(self,profile):
+        self._require_mutable()
+        from .secret_expirations import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._secret_expiry_profiles:raise ValueError('Duplicate Secret expiration profile')
+        self._secret_expiry_profiles[profile.card_id]=profile
 
     @property
     def summon_attack_profiles(self):return MappingProxyType(self._summon_attack_profiles)
@@ -2834,6 +2845,8 @@ class Registry:
         for profile in self._hero_health_target_profiles.values():validate_hero_health_target_profile(self,profile)
         from .kindred_targets import validate_profile as validate_kindred_target_profile
         for profile in self._kindred_target_profiles.values():validate_kindred_target_profile(self,profile)
+        from .secret_expirations import validate_profile as validate_secret_expiry_profile
+        for profile in self._secret_expiry_profiles.values():validate_secret_expiry_profile(self,profile)
         from .summon_attack_groups import validate_profile as validate_summon_attack_profile
         for profile in self._summon_attack_profiles.values():validate_summon_attack_profile(self,profile)
         from .summon_keyword_groups import validate_profile as validate_outcast_summon_profile
@@ -3313,6 +3326,8 @@ class Registry:
             payload['corpse_summon_profiles']=[asdict(self._corpse_summon_profiles[k])for k in sorted(self._corpse_summon_profiles)]
         if self._corpse_gain_profiles:
             payload['corpse_gain_profiles']=[asdict(self._corpse_gain_profiles[k])for k in sorted(self._corpse_gain_profiles)]
+        if self._secret_expiry_profiles:
+            payload['secret_expiry_profiles']=[asdict(self._secret_expiry_profiles[k])for k in sorted(self._secret_expiry_profiles)]
         if self._summon_attack_profiles:
             payload['summon_attack_profiles']=[asdict(self._summon_attack_profiles[k])for k in sorted(self._summon_attack_profiles)]
         if self._outcast_summon_profiles:

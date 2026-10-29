@@ -458,8 +458,8 @@ def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
     work = []
     if definition.secret is not None:
         from .secrets import activate, set_secret, SetSecret
-        if repeated: set_secret(r, SetSecret(record.player_id, record.card_id))
-        else: activate(r, entity)
+        if repeated: set_secret(r, SetSecret(record.player_id, record.card_id,record.id))
+        else: activate(r, entity,cast_id=record.id)
     elif definition.quest is not None:
         from .quests import spell_payload
         work.extend(spell_payload(r, entity, record, repeated=repeated))

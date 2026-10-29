@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v804'
+CORE_EFFECTS_VERSION = 'core-effects-v805'
 
 
 class Mechanics:
@@ -2001,7 +2001,8 @@ def start_next_turn(r, effect):
     expire(r, 'turn_started', r.state.turn, player.id)
     from .temporary_deck_hands import due_start,ExpireTemporaryDeckHands
     from .future_hand_returns import due as future_hands_due,ReturnFutureHands
-    startup=[]
+    from .secret_expirations import due as secret_expiries_due,ExpireSecret
+    startup=[ExpireSecret(value)for value in secret_expiries_due(r.state)]
     if future_hands_due(r.state):startup.append(ReturnFutureHands())
     if due_start(r.state):startup.append(ExpireTemporaryDeckHands())
     return [*startup,BeginTurnEvents()]
@@ -2741,6 +2742,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .void_decks import register as register_void_decks
     register_void_decks(mechanics)
     register_secrets(mechanics)
+    from .secret_expirations import register as register_secret_expirations
+    register_secret_expirations(mechanics)
     register_interrupts(mechanics)
     from .counter_policies import register as register_counter_policies
     register_counter_policies(mechanics)

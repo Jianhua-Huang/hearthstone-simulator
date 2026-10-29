@@ -10638,6 +10638,7 @@ class Entity:
     dormancy: DormancyState | None = None
     quest_progress: QuestProgress | None = None
     secret_instance_id: int | None = None
+    secret_expiry: object | None = None
     # Invalidates old stored-card references after movement or a face change.
     zone_epoch: int = 0
     hand_entry_id: int | None = None
@@ -12086,6 +12087,9 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
             identity=entity.spell_mana_freeze.id
             if identity in current_attachment_ids:raise ValueError('Duplicate conditional Freeze activation')
             current_attachment_ids.add(identity);all_attachment_ids.add(identity)
+        if entity.secret_expiry is not None:
+            from .secret_expirations import validate_entity as validate_secret_expiry
+            validate_secret_expiry(state,registry,entity)
         if (entity.zone == Zone.SECRET) != (entity.secret_instance_id is not None):
             raise ValueError('Secret instance belongs only to secret zone')
         if entity.secret_instance_id is not None:

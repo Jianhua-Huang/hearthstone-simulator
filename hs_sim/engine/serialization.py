@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 626
+SNAPSHOT_SCHEMA_VERSION = 627
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1849,6 +1849,8 @@ def _copy_origin_from_dict(value):
 
 def entity_from_dict(row):
     row = _row(row, Entity)
+    from .secret_expirations import from_dict as secret_expiry_from_dict
+    row['secret_expiry'] = secret_expiry_from_dict(row['secret_expiry'])
     from .location_rune_locks import from_dict as location_lock_from_dict
     row['location_lock'] = location_lock_from_dict(row['location_lock'])
     from .spell_mana_freeze import from_dict as spell_mana_freeze_from_dict
