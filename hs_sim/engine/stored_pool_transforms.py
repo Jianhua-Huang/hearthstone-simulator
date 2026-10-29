@@ -43,9 +43,12 @@ class TransformStoredFromPool(Effect):
         if self.retained_cost is not None:
             _integer(self.retained_cost, 'retained stored transformation cost', 0)
         if self.retained_stats is None and self.retained_cost is not None:
-            if (self.target.zone != Zone.HAND or self.source_id is None or
+            if (self.target.zone not in (Zone.HAND,Zone.DECK) or self.source_id is None or
                     self.query.kinds != (CardType.SPELL,) or self.query.collectible is not True):
-                raise ValueError('Cost-only retention requires a source-bound hand-to-spell transformation')
+                raise ValueError('Cost-only retention requires a source-bound stored-to-spell transformation')
+            if self.target.zone==Zone.DECK and (self.query.min_cost is None or
+                    self.query.min_cost!=self.query.max_cost or self.query.max_cost>10):
+                raise ValueError('Deck spell retention requires one original cost tier up to ten')
         if self.retained_stats is not None:
             validate_summon_stats(self.retained_stats)
             _integer(self.retained_cost, 'retained stored transformation cost', 0)
@@ -113,6 +116,9 @@ class StoredPoolTransformDraw:
 def candidates(registry, state, context, request, hero_class, source_card_id):
     from .cross_zone import stored_destination
     request.__post_init__()
+    if (request.target.zone==Zone.DECK and request.retained_cost is not None and request.retained_stats is None and
+            registry.card(request.target.card_id).kind!=CardType.SPELL):
+        raise ResolutionError('Retained deck spell transformation requires its original physical spell')
     if request.retained_stats is not None and registry.card(request.target.card_id).kind != CardType.MINION:
         raise ResolutionError('Retained stored numbers require an original minion')
     rows = resolve_candidates(registry, context, request.pool_id, request.query,
