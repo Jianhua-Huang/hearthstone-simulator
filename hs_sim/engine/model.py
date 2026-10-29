@@ -7794,6 +7794,31 @@ class HandNeighborFact:
 
 
 @dataclass(frozen=True)
+class MinionPlayEntry:
+    """The actual first entry and actor's other active minions, before Battlecry."""
+    reference: BoardPresenceReference
+    other_minions: tuple[BoardPresenceReference, ...]
+
+    def __post_init__(self):
+        if type(self.reference) is not BoardPresenceReference or type(self.other_minions) is not tuple:
+            raise ValueError('Minion play entry requires original immutable board references')
+        self.reference.__post_init__()
+        for ref in self.other_minions:
+            if type(ref) is not BoardPresenceReference:
+                raise ValueError('Minion play entry requires typed original other minions')
+            ref.__post_init__()
+            if ref.entity_id == self.reference.entity_id or ref.presence_id >= self.reference.presence_id:
+                raise ValueError('Minion entry borrowed itself or a later board residence')
+        if (len({x.entity_id for x in self.other_minions}) != len(self.other_minions) or
+                len({x.presence_id for x in self.other_minions}) != len(self.other_minions)):
+            raise ValueError('Minion play entry duplicated another physical minion')
+
+    @property
+    def other_minion_count(self):
+        return len(self.other_minions)
+
+
+@dataclass(frozen=True)
 class PlayRecord:
     """Facts frozen before payment/movement; completion never changes provenance."""
     id: int
@@ -7852,6 +7877,7 @@ class PlayRecord:
     spell_target_group: object | None = None
     spell_target_receipt: object | None = None
     minion_copy_material: object | None = None
+    minion_entry: MinionPlayEntry | None = None
 
     def __post_init__(self):
         from .played_minion_copies import validate_play as validate_minion_copy
@@ -7981,6 +8007,14 @@ class PlayRecord:
         for payload in self.battlecries: payload.__post_init__()
         if self.minion_result is not None and (self.kind != CardType.MINION or self.minion_result not in ("summoned", "magnetized", "countered", "board_full")):
             raise ValueError("Invalid minion play result")
+        if (self.minion_result == 'summoned') != (self.minion_entry is not None):
+            raise ValueError('Successful minion play requires its actual original entry')
+        if self.minion_entry is not None:
+            if type(self.minion_entry) is not MinionPlayEntry:
+                raise ValueError('Minion play requires a typed original entry')
+            self.minion_entry.__post_init__()
+            if self.minion_entry.reference.entity_id != self.source_id:
+                raise ValueError('Minion play borrowed a different original recipient')
         if self.minion_result == "countered" and not self.countered or self.countered and self.minion_result not in (None, "countered"):
             raise ValueError("Minion result disagrees with counter flag")
         if self.kind == CardType.MINION and self.completed and self.minion_result is None:

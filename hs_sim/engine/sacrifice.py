@@ -388,14 +388,23 @@ class SacrificeAdjacent(Effect):
 @dataclass(frozen=True)
 class DestroyCapturedMinion(Effect):
     """Accept destruction of the original victim, then run ordinary continuations."""
-    victim: MinionReference
+    victim: MinionReference | BoardPresenceReference
     source_id: int | None = None
     on_destroy: tuple[Effect, ...] = ()
 
     def __post_init__(self):
-        reference_value(self.victim); _source(self.source_id)
+        if type(self.victim) is BoardPresenceReference:
+            self.victim.__post_init__()
+        else:
+            reference_value(self.victim)
+        _source(self.source_id)
         if type(self.on_destroy) is not tuple or any(not isinstance(e,Effect) for e in self.on_destroy):
             raise ValueError('Captured destruction requires immutable effect continuations')
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        if type(self.victim) is BoardPresenceReference:
+            validate_reward_presence(state, self.victim)
 
 
 def destroy_captured_minion(r, effect):
@@ -403,9 +412,10 @@ def destroy_captured_minion(r, effect):
     effect.__post_init__()
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Captured destruction source does not exist')
-    if r.registry.card(effect.victim.card_id).kind!=CardType.MINION:
+    effect.validate_in_state(r.state)
+    if type(effect.victim) is MinionReference and r.registry.card(effect.victim.card_id).kind!=CardType.MINION:
         raise ResolutionError('Captured destruction requires an original minion')
-    victim=live_minion(r.state,effect.victim)
+    victim=live_reward_minion(r.state,effect.victim)
     if victim is None:
         r.stale(effect,effect.victim.entity_id);return ()
     destroy(r,Destroy(victim.id,effect.source_id))

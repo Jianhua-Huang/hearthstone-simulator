@@ -515,7 +515,7 @@ def _bind_prefix_and_references(original, state, registry):
             state.spell_policy_receipts[:len(original.spell_policy_receipts)] != original.spell_policy_receipts):
         raise ValueError('Spell acceptance moved its complete history/allocation prefix backwards')
     for old, new in zip(original.play_history, state.play_history):
-        progress = _PROGRESS | {'minion_result', 'battlecry_acceptance', 'combo_submission_receipt_id', 'combo_acceptance'}
+        progress = _PROGRESS | {'minion_result', 'minion_entry', 'battlecry_acceptance', 'combo_submission_receipt_id', 'combo_acceptance'}
         fixed = lambda value: tuple(getattr(value, field.name) for field in fields(PlayRecord) if field.name not in progress)
         if (fixed(old) != fixed(new) or old.completed and not new.completed or
                 old.interrupted and not new.interrupted or old.countered and not new.countered or
@@ -528,7 +528,7 @@ def _bind_prefix_and_references(original, state, registry):
                 old.spell_submission is not None and old.spell_submission != new.spell_submission or
                 old.spell_payload is not None and old.spell_payload != new.spell_payload or
                 any(getattr(old, name) is not None and getattr(new, name) != getattr(old, name)
-                    for name in ('minion_result', 'battlecry_acceptance', 'combo_submission_receipt_id', 'combo_acceptance'))):
+                    for name in ('minion_result', 'minion_entry', 'battlecry_acceptance', 'combo_submission_receipt_id', 'combo_acceptance'))):
             raise ValueError('Spell acceptance rewrote an existing full hand root or accepted receipt')
     before, current = _live_attachments(original), _live_attachments(state)
     if any(identity < original.next_attachment_id and identity not in before for identity in current):

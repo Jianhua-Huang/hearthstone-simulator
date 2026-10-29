@@ -78,11 +78,13 @@ def resolve(r, effect):
     install_paid_minion_keywords(r, record, entity)
     from .adapt_memory import install_paid
     install_paid(r, record, entity)
+    from .minion_play_entries import other_minions, accept_entry, event_data
+    original_others = other_minions(r.state, record.player_id)
     r.move(entity, Zone.BOARD, record.position, controller_id=board_player_id)
-    update_play(r.state, record.id, minion_result='summoned')
+    entry = accept_entry(r.state, record, entity.id, original_others)
     r.refresh_auras()
     r.emit('minion_play_accepted', source_id=entity.id, target_id=entity.id,
-           player_id=record.player_id, play_id=record.id)
+           player_id=record.player_id, play_id=record.id, **event_data(entry))
     from .colossal import enter_minion, ColossalBattlecry
     from .summon_completions import paid_tail
     completion=paid_tail(r,record,entity)
@@ -102,6 +104,8 @@ def resolve(r, effect):
 
 
 def validate_boundary(game):
+    from .minion_play_entries import validate_boundary as validate_entries
+    validate_entries(game)
     queue = (*game._frame.prefix, *game._frame.continuation) if game._frame else ()
     windows = [w for w in game._state.action_windows if w.kind == 'minion']
     expected = [(ResolveMinionPlay if w.counter_phase else MinionCounterPhase)(w.id) for w in reversed(windows)]

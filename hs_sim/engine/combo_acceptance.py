@@ -248,7 +248,7 @@ def _bind_play(state, work):
         # Only the enclosing play's later outcomes/one-time acceptances may be
         # added. The paid identity, target and submission reference stay exact.
         comparable = replace(current, countered=old.countered, completed=old.completed,
-            interrupted=old.interrupted, minion_result=old.minion_result,
+            interrupted=old.interrupted, minion_result=old.minion_result, minion_entry=old.minion_entry,
             battlecry_acceptance=old.battlecry_acceptance, combo_acceptance=old.combo_acceptance)
     else:
         comparable = replace(current, completed=old.completed, interrupted=old.interrupted)

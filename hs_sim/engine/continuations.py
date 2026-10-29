@@ -534,6 +534,9 @@ class FrameCodec:
             validate_split_acceptance(value, self.registry)
         if type(value) is SplitPacketProof:
             validate_packet_proof(value, self.registry)
+        from .sacrifice import DestroyCapturedMinion
+        if type(value) is DestroyCapturedMinion and self.origin_state is not None:
+            value.validate_in_state(self.origin_state)
         for field in fields(value):
             item = getattr(value, field.name)
             if field.name not in annotations or not matches(item, annotations[field.name]):

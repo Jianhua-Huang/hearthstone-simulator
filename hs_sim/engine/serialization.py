@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 622
+SNAPSHOT_SCHEMA_VERSION = 623
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1430,6 +1430,13 @@ def state_from_dict(value: dict) -> GameState:
         row['spell_target_receipt'] = actual_spell_targets_from_dict(row['spell_target_receipt'])
         row['next_spell_bonus_effects']=tuple(player_effect_from_dict(e)for e in _list(row['next_spell_bonus_effects'],'reserved paired next-spell effects'))
         row['copy_origin'] = _copy_origin_from_dict(row['copy_origin'])
+        if row['minion_entry'] is not None:
+            from .model import MinionPlayEntry, BoardPresenceReference
+            entry = _row(row['minion_entry'], MinionPlayEntry)
+            entry['reference'] = BoardPresenceReference(**_row(entry['reference'], BoardPresenceReference))
+            entry['other_minions'] = tuple(BoardPresenceReference(**_row(ref, BoardPresenceReference))
+                for ref in _list(entry['other_minions'], 'original other minion entries'))
+            row['minion_entry'] = MinionPlayEntry(**entry)
         if row['body_targets'] is not None:
             from .paid_body_retries import receipt_from_dict
             row['body_targets'] = receipt_from_dict(row['body_targets'])

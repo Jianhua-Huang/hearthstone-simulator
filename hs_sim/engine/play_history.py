@@ -255,7 +255,9 @@ def update_play(state, play_id, **outcome):
     record=play_record(state,play_id)
     if record.completed or record.interrupted:
         raise ValueError('Play record is already settled')
-    if set(outcome)-{'countered','completed','interrupted','minion_result'}:
+    if 'minion_entry' in outcome and record.minion_entry is not None:
+        raise ValueError('Minion entry was already accepted')
+    if set(outcome)-{'countered','completed','interrupted','minion_result','minion_entry'}:
         raise ValueError('Play provenance is immutable')
     state.play_history[play_id-1]=replace(record,**outcome)
     return state.play_history[play_id-1]
@@ -319,6 +321,8 @@ def validate_history(state, registry):
         if type(record) is not PlayRecord:
             raise ValueError('History requires immutable play records')
         record.__post_init__()
+        from .minion_play_entries import validate_entry
+        validate_entry(state, record)
         if record.minion_copy_material is not None:
             from .played_minion_copies import validate_material as validate_minion_copy
             validate_minion_copy(state, registry, record.minion_copy_material)
