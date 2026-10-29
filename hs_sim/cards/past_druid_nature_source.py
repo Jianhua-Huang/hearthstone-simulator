@@ -79,9 +79,18 @@ def local_pool(registry,context):
         tuple(PoolMember(cid,d['member_weight'])for cid in d['member_ids']),complete=True)
 
 
-def register_scope(registry,context):
+def register_scope(registry,context,*,reviewed_pool=None):
     d=load_batch();expected=local_pool(registry,context);pool=registry.pool(NATURE_PAST_POOL,context)
-    expected=replace(expected,version=context.target_id+':'+POLICY)
+    if reviewed_pool is not None:
+        if (type(reviewed_pool)is not PoolDefinition or reviewed_pool.id!=expected.id or
+                reviewed_pool.target_id!=context.target_id or reviewed_pool.mode!=context.mode or
+                not reviewed_pool.complete or reviewed_pool.excluded_card_ids or
+                reviewed_pool.members[:len(expected.members)]!=expected.members or
+                not reviewed_pool.version.endswith(':'+POLICY)or
+                len({m.card_id for m in reviewed_pool.members})!=len(reviewed_pool.members)):
+            raise TargetValidationError('Druid Nature extension must retain its complete original prefix and source role')
+        expected=reviewed_pool
+    expected=replace(expected,version=context.target_id+':'+expected.version)
     if asdict(pool)!=asdict(expected):
         raise TargetValidationError('Druid Nature cannot crop, replace, reweight or borrow an inventory')
     registry.register_generation_scope(GenerationScope(POLICY+':'+WO+':druid:'+context.target_id,

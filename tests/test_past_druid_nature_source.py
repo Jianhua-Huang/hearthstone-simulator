@@ -121,7 +121,8 @@ class DruidNatureSourceTests(CardBatchTestMixin,unittest.TestCase):
             source_card_id=WO,exclude_source_by_rule=True)
         self.assertEqual([x.card_id for x in values],d['member_ids'])
         self.assertEqual([x.weight for x in values],[1]*85)
-        self.assertEqual(pool.members,tuple(PoolMember(cid)for cid in d['member_ids']))
+        self.assertEqual(pool.members[:85],tuple(PoolMember(cid)for cid in d['member_ids']))
+        self.assertEqual(pool.members[85:],(PoolMember('TSC_209'),))
         self.assertTrue(set(native.METADATA_IDS)<=set(x.card_id for x in values))
 
     def test_source_registration_rejects_cropped_reweighted_reordered_or_borrowed_pool(self):
@@ -134,7 +135,8 @@ class DruidNatureSourceTests(CardBatchTestMixin,unittest.TestCase):
                 {'complete':False},{'version':'borrowed'},{'target_id':'another-context'}):
             with self.subTest(patch=tuple(patch)):
                 p=Proxy();p.changed=replace(pool,**patch)
-                with self.assertRaises(TargetValidationError):native.register_scope(p,h.context)
+                from hs_sim.cards.past_priest_nature_source import local_pool
+                with self.assertRaises(TargetValidationError):native.register_scope(p,h.context,reviewed_pool=local_pool(h.registry,h.context))
 
     def test_metadata_late_member_failure_installs_nothing_and_never_crops_domain(self):
         r=original();last=native.load_batch()['member_ids'][-1];calls=[]
@@ -249,7 +251,7 @@ class DruidNatureSourceTests(CardBatchTestMixin,unittest.TestCase):
         self.assertIsNotNone(g.state.pending_choice);self.finish(g);self.portable(g)
 
     def test_actual_wo_other_class_is_explicit_atomic_unbound_view(self):
-        g=self.actual_host(('CORE_EX1_169',),hero='HERO_08');before=deepcopy(g.snapshot())
+        g=self.actual_host(('CORE_EX1_169',),hero='HERO_02');before=deepcopy(g.snapshot())
         with self.assertRaises(ResolutionError):self.play(g,'CORE_EX1_169')
         self.assertEqual(g.snapshot(),before)
 

@@ -309,6 +309,22 @@ class DestroyDeckCard(Effect):
 
 
 @dataclass(frozen=True)
+class DestroyStoredBatch(Effect):
+    """Commit captured hand/deck destruction before publishing any notice."""
+    cards: tuple[CardReference, ...]
+    source_id: int | None = None
+    reveal: bool = True
+
+    def __post_init__(self):
+        _source(self.source_id)
+        if type(self.cards) is not tuple or type(self.reveal) is not bool:
+            raise ValueError('Stored destruction batch requires immutable references and boolean revelation')
+        for card in self.cards:reference_value(card)
+        if len({card.entity_id for card in self.cards})!=len(self.cards):
+            raise ValueError('Stored destruction batch cannot repeat a physical target')
+
+
+@dataclass(frozen=True)
 class DestroyDeckBatch(Effect):
     """Remove all captured deck targets before publishing any destruction."""
     cards: tuple[CardReference, ...]
@@ -1148,6 +1164,11 @@ def publish_stored_destruction(r, card, entity, source_id, reveal):
 
 
 def destroy_deck_batch(r, effect):
+    return destroy_stored_batch(r,effect)
+
+
+def commit_stored_destruction_batch(r, effect):
+    """Shared commit without notices, for one atomic cross-zone consumer."""
     from .continuations import FrameCodec
     effect.__post_init__(); source_exists(r, effect.source_id)
     if len(effect.cards) > r.rules.max_resolution_steps:
@@ -1162,6 +1183,11 @@ def destroy_deck_batch(r, effect):
     # No reactions, native bodies or caller continuations execute between moves.
     for card, entity in targets:
         r.move(entity, Zone.GRAVEYARD)
+    return tuple(targets)
+
+
+def destroy_stored_batch(r, effect):
+    targets=commit_stored_destruction_batch(r,effect)
     for card, entity in targets:
         publish_stored_destruction(r, card, entity, effect.source_id, effect.reveal)
     return ()
@@ -1500,7 +1526,7 @@ def register_zones(mechanics):
     mechanics.register_payload_type(CardReference)
     mechanics.register_payload_type(CardDestructionRecord)
     mechanics.register(PutMatchingDeckMinionOnTop,put_matching_deck_minion_on_top)
-    for kind, handler in ((DestroyStoredCard, destroy_stored_card), (DestroyDeckCard, destroy_deck_card), (DestroyDeckBatch, destroy_deck_batch), (DestroyDeckMatching, matching_card),
+    for kind, handler in ((DestroyStoredCard, destroy_stored_card), (DestroyDeckCard, destroy_deck_card), (DestroyDeckBatch, destroy_deck_batch), (DestroyStoredBatch, destroy_stored_batch), (DestroyDeckMatching, matching_card),
                           (AddToDeck, add_to_deck), (FillHandWithCard, fill_hand_with_card),
             (FillHandWithDeckCopies, fill_hand_with_deck_copies), (MoveCard, move_card), (CopyCard, copy_card),
             (DiscardCard, discard_card), (ShuffleDeck, shuffle_deck), (ReorderZone, reorder_zone),
