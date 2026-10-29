@@ -66,7 +66,7 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
@@ -137,6 +137,9 @@ class DrawPhysicalGroup(Effect):
         if self.reward.kind == 'cost_original_spells' and (
                 self.kindred_pair or self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,))),)*2):
             raise ValueError('Original spell discount requires exactly two physical spell tutor roots')
+        if self.reward.kind == 'combine_original_choose_one' and (
+                self.kindred_pair or self.slots != (DrawGroupSlot(PoolQuery(choose_one=True)),)):
+            raise ValueError('Combined original draw requires exactly one Choose One tutor root')
         if self.reward.kind == 'source_charge_if_both_minions' and (self.slots != (DrawGroupSlot(), DrawGroupSlot()) or self.reward.source.entity_id != self.source_id):
             raise ValueError('Draw-conditioned Charge requires exactly two ordinary draws and the original source')
         if self.reward.kind == SPELL_COST_FOLLOWUP and (
@@ -404,6 +407,20 @@ def finish(r, request):
             reference_entity(r,row.hand) is not None and
             ((record:=draw_record(r.state,row.draw_id)).outcome=='hand' or record.transformation is not None) and
             record.entity_id==row.hand.entity_id)
+    if reward.kind == 'combine_original_choose_one':
+        from .choose_branch_state import SetChooseBranch
+        results = []
+        for row in request.arrivals:
+            if row.draw_id is None or row.hand is None or reference_entity(r,row.hand) is None: continue
+            record = draw_record(r.state,row.draw_id)
+            if record.entity_id != row.hand.entity_id or (record.outcome != 'hand' and record.transformation is None): continue
+            definition = r.registry.card(row.hand.card_id)
+            if definition.choose_one is None: continue
+            origins = {CardType.MINION:('hand','physical'),CardType.SPELL:('hand','cast_effect','cast_draw','cast_history'),
+                CardType.WEAPON:('hand',)}.get(definition.kind)
+            if origins is None: raise ResolutionError('Original combined draw has no supported physical activation origin')
+            results.append(SetChooseBranch(row.hand,definition.choose_one.combined.id,origins,source_id=request.source_id))
+        return tuple(results)
     if reward.kind in ('discard_drawn_spells', 'discard_drawn_minions'):
         from .zones import DiscardCard, discard_cards
         kind = CardType.SPELL if reward.kind == 'discard_drawn_spells' else CardType.MINION

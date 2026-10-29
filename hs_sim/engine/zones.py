@@ -1267,7 +1267,8 @@ def zone_candidates(r, owner_id, zone, query, player_id, source_id=None, *, cost
                 meta=definition.metadata, spell_school=definition.spell_school,
                 keywords=definition.keywords, current_class=current_class,
                 printed_battlecry=definition.battlecry is not None,
-                current_battlecry=has_battlecry(entity.abilities), printed_attack=definition.attack):
+                current_battlecry=has_battlecry(entity.abilities), printed_attack=definition.attack,
+                printed_choose_one=definition.choose_one is not None):
             result.append(CardReference.capture(entity))
     return tuple(result)
 

@@ -202,7 +202,8 @@ class Information:
             if is_program_spec(game.registry.player_effect(data['effect_key'])):return
         for viewer, knowledge in self.players.items():
             if (event.kind.startswith('player_effect_') and data.get('effect_key') is not None and
-                    (is_named_boon_program(game.registry,data['effect_key']) or is_coin_replacement_program(game.registry,data['effect_key'])) and viewer!=event.player_id):
+                    (game.registry.player_effect(data['effect_key']).kind=='secret_objective' or
+                        is_named_boon_program(game.registry,data['effect_key']) or is_coin_replacement_program(game.registry,data['effect_key'])) and viewer!=event.player_id):
                 continue
             if event.kind == 'card_revealed' and viewer not in data['viewers']:
                 continue
@@ -521,6 +522,7 @@ class Information:
                 'secrets': [entity_view(i) for i in player.secrets],
                 'player_effects': [public_effect(game.registry, e) for e in player.player_effects
                     if not is_program_spec(game.registry.player_effect(e.spec_id)) and (player.id==viewer or not (
+                        game.registry.player_effect(e.spec_id).kind=='secret_objective' or
                         is_named_boon_program(game.registry,e.spec_id) or is_coin_replacement_program(game.registry,e.spec_id)))],
                 'battlecry_modifiers': [public_modifier(m) for m in player.battlecry_modifiers],
                 'combo_modifiers': [public_combo_modifier(m) for m in player.combo_modifiers],

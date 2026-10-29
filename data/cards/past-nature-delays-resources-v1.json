@@ -1,0 +1,2651 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-past-nature-delays-resources-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "ETC_387",
+        "dbf_id": 94251,
+        "name": "根音古韵",
+        "name_en": "Rhythm and Roots",
+        "text": "<b>秘密抉择：</b>2回合后召唤三棵5/5的古树；或者4回合后召唤三个8/8的巨人。",
+        "text_en": "[x]<b>Choose One (Secretly) -</b>\nSummon three 5/5\nAncients in 2 turns; or\n8/8 Giants in 4 turns.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "818": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "818",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "818"
+          }
+        ]
+      },
+      "record_sha256": "c83259e9bdc3641966ee71bdc35f1cb11b070dbc5bf55192546e08a2a3a311e5",
+      "definition_sha256": "d25d7d2b03b6341424c48b3591d3b5671885b29252e9fd067a94bb759a78ae38"
+    },
+    {
+      "record": {
+        "id": "RLK_655",
+        "dbf_id": 85050,
+        "name": "枯萎",
+        "name_en": "Wither",
+        "text": "选择一个随从。每个友方亡灵各从选中的随从处偷取1点攻击力和生命值。",
+        "text_en": "[x]Choose a minion. Each\nfriendly Undead steals 1\nAttack and Health from it.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "James Ryman"
+          }
+        ]
+      },
+      "record_sha256": "d173fde46b6273a6ac8cea006f8ca666dbd04713b47b7d7447e2dbb7ba1cdf45",
+      "definition_sha256": "da673c416c2b19277f907a57b7041fb9c582e9e26456b191034f902fcdcfc330"
+    },
+    {
+      "record": {
+        "id": "TTN_930",
+        "dbf_id": 97627,
+        "name": "雪莲幼苗",
+        "name_en": "Frost Lotus Seedling",
+        "text": "抽一张牌。获得5点护甲值。<i>（@回合后长成。）</i>",
+        "text_en": "Draw 1 card.\nGain 5 Armor.\n<i>(Blossoms in @ |4(turn, turns).)</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 97628,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "e97f9e3a95d00180b68725a8e730ad1249d54b0ecebd700f2048c402d467dd96",
+      "definition_sha256": "bb8462879928d28085426cfe19cf46c528c17dd9faa67b81b4b3894557df5684"
+    },
+    {
+      "record": {
+        "id": "TTN_951",
+        "dbf_id": 97649,
+        "name": "自然之拥",
+        "name_en": "Embrace of Nature",
+        "text": "抽一张<b>抉择</b>牌。<b>锻造：</b>并使其同时拥有两种效果。",
+        "text_en": "Draw a <b>Choose_One</b>\ncard. <b>Forge:</b> It has both effects combined.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 98335,
+          "SPELL_SCHOOL": 4,
+          "DECK_ACTION_COST": 2,
+          "FORGE": 1,
+          "FORGES_INTO": 98335
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "443",
+              "name": "CHOOSE_ONE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5bf832597e63aaf9e4a32a1a4194325733472bf8f91fbed4e9c610b39fa83e11",
+      "definition_sha256": "b0faec0c58e255bd589c498559c19b5869a5b0f789523e0f37024270c695b530"
+    },
+    {
+      "record": {
+        "id": "UNG_111",
+        "dbf_id": 41094,
+        "name": "活体法力",
+        "name_en": "Living Mana",
+        "text": "将你所有的法力水晶变成2/2的树人，当它们死亡时恢复你的法力值。",
+        "text_en": "Transform your Mana Crystals into 2/2 Treants. Recover the mana when they die.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 27,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 41432,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Gaser"
+          }
+        ]
+      },
+      "record_sha256": "439e2267abab97df907cdc629f080d26518331d252291cda19d55c1bbf043cb0",
+      "definition_sha256": "6c7812d0957a8f2fc60bd3c02c6fe43a64c364ce1a2c2aa65537f0da1a7e58bf"
+    },
+    {
+      "record": {
+        "id": "VAC_508",
+        "dbf_id": 105795,
+        "name": "能量零食",
+        "name_en": "Trail Mix",
+        "text": "仅在下回合，获得两个法力水晶。",
+        "text_en": "Gain 2 Mana Crystals next turn only.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1905,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "d2ccf719991f709d26829c7f6d863641fafa87038a5e0f9ea40243a5d8db94ca",
+      "definition_sha256": "01bca98566c59de5279dad29cf1b41a3c2e8aa58d5ed84f07006011af6efcb59"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "ETC_387b",
+        "dbf_id": 97610,
+        "name": "古树之韵",
+        "name_en": "Ancient's Melody",
+        "text": "2回合后，<b>秘密</b>召唤三棵5/5的古树。",
+        "text_en": "In 2 turns, summon three 5/5 Ancients <b>(Secretly)</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "725f0ed93a1b3c842a97203466e49e237e8bad06bf858e3d12760a1540bf620d",
+      "definition_sha256": "fa4d32d39cee3188d7749bc50442eec0082025f439227fc7aa31da4e7052454d"
+    },
+    {
+      "record": {
+        "id": "ETC_387c",
+        "dbf_id": 97611,
+        "name": "巨人之舞",
+        "name_en": "Giant's Dance",
+        "text": "4回合后，<b>秘密</b>召唤三个8/8的巨人。",
+        "text_en": "In 4 turns, summon three 8/8 Giants <b>(Secretly)</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "4dda14f0180bdfc3ea546173932efe7f5ee4d79ab36a808273b0acdc4bfa7e48",
+      "definition_sha256": "ffd0ec5ba4becb7c0065d82112af88d4171e9850c93542aa688487035861fb1d"
+    },
+    {
+      "record": {
+        "id": "ETC_387bt",
+        "dbf_id": 97612,
+        "name": "古树",
+        "name_en": "Ancient",
+        "text": "",
+        "text_en": "",
+        "cost": 5,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 5,
+          "COST": 5,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "2871": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2871",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2871"
+          }
+        ]
+      },
+      "record_sha256": "af0c4a13d26126436fc8c319444a21f807e2280048a303d0de761a704683f499",
+      "definition_sha256": "00afe12612bc98a5246cbc094b3f9224ff6de3de1be9525d4bb3c31333a6c0c2"
+    },
+    {
+      "record": {
+        "id": "ETC_387ct",
+        "dbf_id": 97613,
+        "name": "树巨人",
+        "name_en": "Giant",
+        "text": "",
+        "text_en": "",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 8,
+          "COST": 8,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 4
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "16ca95f32110c72ff26d0f52f98698bf3035a3a3eeb44bb71bff28d627c67589",
+      "definition_sha256": "0bd2e732b5d7d4e08c797612313c59509e906ff231b065e9e0192471ff680734"
+    },
+    {
+      "record": {
+        "id": "TTN_930t",
+        "dbf_id": 97628,
+        "name": "雪莲成株",
+        "name_en": "Frost Lotus Blossom",
+        "text": "抽两张牌。\n获得10点护甲值。",
+        "text_en": "Draw 2 cards.\nGain 10 Armor.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Melvin Chan"
+          }
+        ]
+      },
+      "record_sha256": "8570375917447b5ec2c5ae6874967c293edb72d45a159ac593058a7026d3c345",
+      "definition_sha256": "e3957de77a6e279676c61a21591d721c3409a7788aacd32d23311cea3cd590a7"
+    },
+    {
+      "record": {
+        "id": "TTN_951t",
+        "dbf_id": 98335,
+        "name": "自然之拥",
+        "name_en": "Embrace of Nature",
+        "text": "<b>已锻造</b>\n抽一张<b>抉择</b>牌，并使其同时拥有两种效果。",
+        "text_en": "[x]<b>Forged</b>\n Draw a <b>Choose One</b>\ncard. It has both\n effects combined.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4,
+          "FORGED": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vladimir Kafanov"
+          }
+        ]
+      },
+      "record_sha256": "06d1d0d9b0872cb778f13bd3b887d203e5cd97bb3dc9a0149d341b24daab5c95",
+      "definition_sha256": "7a9d2ea2f2bd551696588da8dfc6f0297d8ba07331ebb5416db421a3bb2d5e09"
+    },
+    {
+      "record": {
+        "id": "UNG_111t1",
+        "dbf_id": 41432,
+        "name": "法力树人",
+        "name_en": "Mana Treant",
+        "text": "<b>亡语：</b>获得一个空的法力水晶。",
+        "text_en": "<b>Deathrattle:</b> Gain an empty Mana Crystal.",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 27,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "DEATHRATTLE": 1,
+          "2831": 1
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Gaser"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "b7fd2c5c8b0d4ada26f33951a292ce36958a6c1f2cd433d3433ee74e7c7180b2",
+      "definition_sha256": "771fae71be164a2b1887f18fda92d100db201fe80297b7ba96cec8f6438a5cb4"
+    }
+  ],
+  "existing_dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "ETC_387t",
+        "dbf_id": 94252,
+        "name": "根音古韵",
+        "name_en": "Rhythm and Roots",
+        "text": "<b>秘密抉择：</b>2回合后召唤三棵5/5的古树；或者4回合后召唤三个8/8的巨人。@2回合后<b>秘密</b>召唤三棵5/5的古树。@4回合后<b>秘密</b>召唤三个8/8的巨人。",
+        "text_en": "[x]<b>Choose One (Secretly) -</b>\nSummon three 5/5\nAncients in 2 turns; or\n8/8 Giants in 4 turns.@In 2 turns, summon three 5/5 Ancients <b>(Secretly)</b>.@In 4 turns, summon three 8/8 Giants <b>(Secretly)</b>.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1809,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "SPELL_SCHOOL": 4,
+          "OBJECTIVE": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "443",
+              "name": "CHOOSE_ONE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "2de0c95a28c93d4215e44331848b532481c7a85a36f78b7af9c4cdcabad38571"
+    },
+    {
+      "record": {
+        "id": "RLK_655e",
+        "dbf_id": 85098,
+        "name": "枯竭",
+        "name_en": "Withered",
+        "text": "属性值降低。",
+        "text_en": "Reduced stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "066c8c38be0725bcf3b0188982c78f7ff5608db5ec61b1d7bef356f85026abae"
+    },
+    {
+      "record": {
+        "id": "RLK_655e2",
+        "dbf_id": 96181,
+        "name": "生命虹吸",
+        "name_en": "Life Siphon",
+        "text": "属性值提高。",
+        "text_en": "Increased stats.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "f7965bcdf0a8e58d6f9c3ee7ce3e5db0b4d283c4af567efcd0b3483304cff84e"
+    },
+    {
+      "record": {
+        "id": "RLK_655e2a",
+        "dbf_id": 96182,
+        "name": "",
+        "name_en": "Life Siphon",
+        "text": "",
+        "text_en": "Increased Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_INVISIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "7e1650518bc32eb4647bbbe5116b9baa1612208c30d6687977e485e3926806b8"
+    },
+    {
+      "record": {
+        "id": "RLK_655e2b",
+        "dbf_id": 96183,
+        "name": "",
+        "name_en": "Life Siphon",
+        "text": "",
+        "text_en": "Increased Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_INVISIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5fc1d54b819062332e082dc4dbf87f3f30d3e92e0afbd2abfb416d9fe0396536"
+    },
+    {
+      "record": {
+        "id": "RLK_655ea",
+        "dbf_id": 96184,
+        "name": "",
+        "name_en": "Withered",
+        "text": "",
+        "text_en": "Reduced Attack.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_INVISIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "1c5817312ef2320b03360b596f1a52a966107d7237909c07f413481d7d8b9d9b"
+    },
+    {
+      "record": {
+        "id": "RLK_655eb",
+        "dbf_id": 96185,
+        "name": "",
+        "name_en": "Withered",
+        "text": "",
+        "text_en": "Reduced Health.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1776,
+          "CLASS": 2,
+          "CARDTYPE": 6,
+          "ENCHANTMENT_INVISIBLE": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b9304147476b14ce1f872c429c58f288d748167647a372468bdc49d51d909f24"
+    },
+    {
+      "record": {
+        "id": "VAC_508e",
+        "dbf_id": 105796,
+        "name": "甜食亢奋",
+        "name_en": "Sugar Rush",
+        "text": "在本回合中，获得两个法力水晶。",
+        "text_en": "Gain 2 Mana Crystals this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1905,
+          "CLASS": 12,
+          "CARDTYPE": 6,
+          "SCORE_VALUE_1": 2
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "79ae30bc373b62759ac264106468a78ad8675f3e2b8890b6b38b2ac9104aab31"
+    },
+    {
+      "record": {
+        "id": "CS2_009",
+        "dbf_id": 213,
+        "name": "野性印记",
+        "name_en": "Mark of the Wild",
+        "text": "使一个随从获得<b>嘲讽</b>和+2/+3。<i>（+2攻击力/+3生命值）</i>",
+        "text_en": "Give a minion <b>Taunt</b> and +2/+3.<i>\n(+2 Attack/+3 Health)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Brad Vancata"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "befe4581376fa8b6c67ad0e4f5be36cbffc32a132b5d3b4a4ae2329781aee0da"
+    },
+    {
+      "record": {
+        "id": "EX1_154",
+        "dbf_id": 836,
+        "name": "愤怒",
+        "name_en": "Wrath",
+        "text": "<b>抉择：</b>\n对一个随从造成$3点伤害；或者造成$1点伤害并抽一张牌。",
+        "text_en": "<b>Choose One -</b>\nDeal $3 damage to a minion; or $1 damage\nand draw a card.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          }
+        ]
+      },
+      "record_sha256": "e7ab133629fc511f259a495e69bb9fa14cf2fab1526031870d8d1e79edd7480f"
+    },
+    {
+      "record": {
+        "id": "EX1_158",
+        "dbf_id": 381,
+        "name": "丛林之魂",
+        "name_en": "Soul of the Forest",
+        "text": "使你的所有随从获得“<b>亡语：</b>召唤一个2/2的树人”。",
+        "text_en": "Give your minions \"<b>Deathrattle:</b> Summon a 2/2 Treant.\"",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 600,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Markus Erdt"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e4fd02b0906b334a9ba79e04d3f2536f83f3a7593f1b73d55a4e443929bcb060"
+    },
+    {
+      "record": {
+        "id": "EX1_158t",
+        "dbf_id": 600,
+        "name": "树人",
+        "name_en": "Treant",
+        "text": "",
+        "text_en": "",
+        "cost": 1,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "251": 1,
+          "2831": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2831",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2831"
+          }
+        ]
+      },
+      "record_sha256": "97488c888449248a30ae41353cf9d2e7956e9a6ba424bc0d95cb3d949056bfae"
+    },
+    {
+      "record": {
+        "id": "EX1_169",
+        "dbf_id": 254,
+        "name": "激活",
+        "name_en": "Innervate",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1635,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Doug Alexander"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "3526f63a8f9609c8069d915edb86eab68915090cfe3bc9d6954f169e91fb7af0"
+    },
+    {
+      "record": {
+        "id": "WW_823",
+        "dbf_id": 101054,
+        "name": "补水",
+        "name_en": "Rehydrate",
+        "text": "恢复#7点生命值。<b>快枪：</b>复原两个法力水晶。",
+        "text_en": "Restore #7 Health. <b>Quickdraw:</b> Refresh\n2 Mana Crystals.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1892,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "QUICKDRAW": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "04a91ecf074f7cd2e18f94fd2784841ddab3a8170a6e780c2f5d69b1d712cf43"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "ETC_387",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 94251,
+        "collectible": 1,
+        "slug": "94251-rhythm-and-roots",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 5,
+        "artistName": "L. Lullabi & K. Turovec",
+        "manaCost": 4,
+        "name": "根音古韵",
+        "text": "<b>秘密抉择：</b>2回合后召唤三棵5/5的古树；或者4回合后召唤三个8/8的巨人。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c947183608879050f6b9af77614a936a915b7da25553475097f7bfc2f9f5de98.png",
+        "imageGold": "",
+        "flavorText": "佐克在新歌里描绘了他的寻根之旅。真正的根。树根。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/460f8ed05799849451f106c0a0e217f8e5c83915a703c4015066ca5cde17e6b3.png",
+        "childIds": [
+          97612,
+          97613
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_387",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-10.json",
+      "response_sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+      "face": {
+        "id": 94251,
+        "collectible": 1,
+        "slug": "94251-rhythm-and-roots",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 5,
+        "artistName": "L. Lullabi & K. Turovec",
+        "manaCost": 4,
+        "name": "Rhythm and Roots",
+        "text": "<b>Choose One (Secretly) -</b> Summon three 5/5 Ancients in 2 turns; or 8/8 Giants in 4 turns.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8648aebe6a22e91788ab10ee8eeb9bbfe4f0bb3d20139a3a2f46d763f547a6dc.png",
+        "imageGold": "",
+        "flavorText": "For Zok's latest song, he decided to go back to his roots. Like the ones on a tree. Tree roots.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/460f8ed05799849451f106c0a0e217f8e5c83915a703c4015066ca5cde17e6b3.png",
+        "childIds": [
+          97612,
+          97613
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 386037,
+        "sha256": "bf61c290a08c66985d834f8fff66613b5b7ced1b777df19686813c25792d0faf",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_655",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-06.json",
+      "response_sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+      "face": {
+        "id": 85050,
+        "collectible": 1,
+        "slug": "85050-wither",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 1,
+        "name": "枯萎",
+        "text": "选择一个随从。每个友方亡灵各从选中的随从处偷取1点攻击力和生命值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/44a79f801305b4ab8827b15061da36fa7ab860e50426810061ae9ef554542fdc.png",
+        "imageGold": "",
+        "flavorText": "万骨功成一将枯。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c99eda7507b915fdfefce839ec24151f615505563a8f1f74a68a19b1ca8d7da2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 396833,
+        "sha256": "a40201524d18ccbc9a1265599dc2719f6ccff716bf2ad46e3468dfb7c30e44e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "RLK_655",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 85050,
+        "collectible": 1,
+        "slug": "85050-wither",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1776,
+        "rarityId": 4,
+        "artistName": "James Ryman",
+        "manaCost": 1,
+        "name": "Wither",
+        "text": "Choose a minion. Each friendly Undead steals 1 Attack and Health from it.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/227449ad716056a72196567e2dd45d0efed7e1d826823e938b397dbfa0c939a3.png",
+        "imageGold": "",
+        "flavorText": "The opponent's minion can't live wither without you.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c99eda7507b915fdfefce839ec24151f615505563a8f1f74a68a19b1ca8d7da2.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_930",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 97627,
+        "collectible": 1,
+        "slug": "97627-frost-lotus-seedling",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "manaCost": 3,
+        "name": "雪莲幼苗",
+        "text": "抽一张牌。获得5点护甲值。<i>（ 回合后长成。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cb5f07b26ce98456316267d6bb7e24be0f70c8f93d2756c58db22c979939d05f.png",
+        "imageGold": "",
+        "flavorText": "卡牌趣文更糟啦！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09fd8f94983283a4b10cd03df853bb4180d788bac3222ad3db6a43256d6a6fca.png",
+        "childIds": [
+          97628
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_930",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 97627,
+        "collectible": 1,
+        "slug": "97627-frost-lotus-seedling",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "manaCost": 3,
+        "name": "Frost Lotus Seedling",
+        "text": "Draw 1 card. Gain 5 Armor. <i>(Blossoms in (turn, turns).)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d6cb3a031defb56788960de5352e5f51a550d7d27f0a9dc4e6edcf173023d3b2.png",
+        "imageGold": "",
+        "flavorText": "Even WORSE flavor text!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/09fd8f94983283a4b10cd03df853bb4180d788bac3222ad3db6a43256d6a6fca.png",
+        "childIds": [
+          97628
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_951",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 97649,
+        "collectible": 1,
+        "slug": "97649-embrace-of-nature",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 2,
+        "name": "自然之拥",
+        "text": "抽一张<b>抉择</b>牌。<b>锻造：</b>并使其同时拥有两种效果。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d5a9a286d2f79bd3829a0f7b03a1f3fd2cc6a5fed988cb1bb534b4d93ec94c22.png",
+        "imageGold": "",
+        "flavorText": "双效合一！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58771517d8bc5c1fd9c23bbaaa30978697d46c72bac3a0e205c219e9943067e7.png",
+        "childIds": [
+          98335
+        ],
+        "keywordIds": [
+          266
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_951",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 97649,
+        "collectible": 1,
+        "slug": "97649-embrace-of-nature",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 2,
+        "name": "Embrace of Nature",
+        "text": "Draw a <b>Choose One</b> card. <b>Forge:</b> It has both effects combined.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/080888042f774eeb2e4f18925d18a1d73b333e59374b4dd05ff1abac7f085e6b.png",
+        "imageGold": "",
+        "flavorText": "BY OUR POWERS COMBINED…",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/58771517d8bc5c1fd9c23bbaaa30978697d46c72bac3a0e205c219e9943067e7.png",
+        "childIds": [
+          98335
+        ],
+        "keywordIds": [
+          266
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_111",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-07.json",
+      "response_sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+      "face": {
+        "id": 41094,
+        "collectible": 1,
+        "slug": "41094-living-mana",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Matt Gaser",
+        "manaCost": 5,
+        "name": "活体法力",
+        "text": "将你所有的法力水晶变成2/2的树人，当它们死亡时恢复你的法力值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3bdfb75eb7d9cce58fecd4e5537cc4694b1e9cdb97e12c8d99b56a9a2f1a1678.png",
+        "imageGold": "",
+        "flavorText": "你追我，如果你追到我，我就让你放魔法。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c480b9b5426f925ac511030c04a90e4f1c8e8e050b039a420fe22c31979a0d4.png",
+        "childIds": [
+          41432
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 395385,
+        "sha256": "dd503e3c2c162adf94bb208401035ec3cf2900c5b31214ca20eded94e0f607f3",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "UNG_111",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 41094,
+        "collectible": 1,
+        "slug": "41094-living-mana",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 27,
+        "rarityId": 4,
+        "artistName": "Matt Gaser",
+        "manaCost": 5,
+        "name": "Living Mana",
+        "text": "Transform your Mana Crystals into 2/2 Treants. Recover the mana when they die.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c4890a18cbe19be0c5926d16ca522865d5b71412c314c5656029a0f7dfb91d58.png",
+        "imageGold": "",
+        "flavorText": "If you truly love your mana, set it free.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5c480b9b5426f925ac511030c04a90e4f1c8e8e050b039a420fe22c31979a0d4.png",
+        "childIds": [
+          41432
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_508",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-10.json",
+      "response_sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+      "face": {
+        "id": 105795,
+        "collectible": 1,
+        "slug": "105795-trail-mix",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "manaCost": 2,
+        "name": "能量零食",
+        "text": "仅在下回合，获得两个法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ca0036be89387332155bddf20b8ec4f3689382006d1fad2c2c0aff94e76ea0d6.png",
+        "imageGold": "",
+        "flavorText": "从这张牌你就能看出这是一款虚构的游戏，因为图里没有葡萄干。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12725aefe79d19ef9aa64474fb99efae6f21849f0267485871f7d22335c44e8a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=10&pageSize=500",
+        "status": 200,
+        "bytes": 398113,
+        "sha256": "ba1209876f3589ea6285c388d5cc4a8c7bb7d0661b9a99e226e7738314162a18",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "VAC_508",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-12.json",
+      "response_sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+      "face": {
+        "id": 105795,
+        "collectible": 1,
+        "slug": "105795-trail-mix",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 1,
+        "artistName": "Melvin Chan",
+        "manaCost": 2,
+        "name": "Trail Mix",
+        "text": "Gain 2 Mana Crystals next turn only.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/72304f2681f2f353511650caecc75a48ce85c5a376f4f7eaa742e709c61af2ce.png",
+        "imageGold": "",
+        "flavorText": "You can tell this is an escapist fantasy game because there are no raisins.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/12725aefe79d19ef9aa64474fb99efae6f21849f0267485871f7d22335c44e8a.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 389119,
+        "sha256": "046bf813125a35d1e52c812da3e43d5accf0fc1df7077c4958a5e2cc7dba2f74",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_387bt",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\97612-zh_CN.json",
+      "response_sha256": "c90ec02eabc9a430a65f05b8cb55c6b734f2c7ce5451529753c0a8ce6b8b7632",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97612&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97612,
+        "collectible": 0,
+        "slug": "97612-ancient",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": null,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "古树",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f907d60ff132d0995f64519dfc5f2b5ab79cd52b92028dc64025b8ea61ca58c.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 94251,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97612&locale=zh_CN&collectible=0",
+        "sha256": "c90ec02eabc9a430a65f05b8cb55c6b734f2c7ce5451529753c0a8ce6b8b7632",
+        "bytes": 539,
+        "observed_at": "2026-10-29T17:33:27.981639+00:00"
+      }
+    },
+    {
+      "card_id": "ETC_387bt",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\97612-en_US.json",
+      "response_sha256": "d2aef66b6bb76f45fc7b83d306a87346c773291de4f4a67324c6d47f5eb979c8",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97612&locale=en_US&collectible=0",
+      "face": {
+        "id": 97612,
+        "collectible": 0,
+        "slug": "97612-ancient",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": null,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 5,
+        "attack": 5,
+        "manaCost": 5,
+        "name": "Ancient",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/569efdb477735920ce7881d74abcd66e7f2c608cc820983b2d1221263683fa1b.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 94251,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97612&locale=en_US&collectible=0",
+        "sha256": "d2aef66b6bb76f45fc7b83d306a87346c773291de4f4a67324c6d47f5eb979c8",
+        "bytes": 540,
+        "observed_at": "2026-10-29T17:33:28.133131+00:00"
+      }
+    },
+    {
+      "card_id": "ETC_387ct",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\97613-zh_CN.json",
+      "response_sha256": "878b98bd01eb4dbd428a29c8c6149cd099cab729924a792dc566fb8b576d1705",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97613&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97613,
+        "collectible": 0,
+        "slug": "97613-giant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": null,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "树巨人",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f129df38bad24b8b196b4417d546a06358c49c6332eb44a142752e54f1c9a0c8.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 94251,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97613&locale=zh_CN&collectible=0",
+        "sha256": "878b98bd01eb4dbd428a29c8c6149cd099cab729924a792dc566fb8b576d1705",
+        "bytes": 540,
+        "observed_at": "2026-10-29T17:33:28.150338+00:00"
+      }
+    },
+    {
+      "card_id": "ETC_387ct",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\97613-en_US.json",
+      "response_sha256": "c040ec8cc3fcf69cfe98687107c2876582b22291c6095f040eddcba986007678",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97613&locale=en_US&collectible=0",
+      "face": {
+        "id": 97613,
+        "collectible": 0,
+        "slug": "97613-giant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1809,
+        "rarityId": null,
+        "artistName": "L. Lullabi & K. Turovec",
+        "health": 8,
+        "attack": 8,
+        "manaCost": 8,
+        "name": "Giant",
+        "text": "",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f3e68a1fba888ce52b65111fb8ef1ec91d5094591ee9d5005c93d0ea98d8b764.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 94251,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97613&locale=en_US&collectible=0",
+        "sha256": "c040ec8cc3fcf69cfe98687107c2876582b22291c6095f040eddcba986007678",
+        "bytes": 536,
+        "observed_at": "2026-10-29T17:33:28.527700+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_930t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\97628-zh_CN.json",
+      "response_sha256": "ffe943d4c74ce10a0cbeda5bdf8d31fde0f22a786583343fe38feaca95819358",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97628&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 97628,
+        "collectible": 0,
+        "slug": "97628-frost-lotus-blossom",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "manaCost": 3,
+        "name": "雪莲成株",
+        "text": "抽两张牌。 获得10点护甲值。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e79253b12d4c0d59a7c1a14fd7583fa32c7244ac6d9d492d5b96933af372989f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97627,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97628&locale=zh_CN&collectible=0",
+        "sha256": "ffe943d4c74ce10a0cbeda5bdf8d31fde0f22a786583343fe38feaca95819358",
+        "bytes": 577,
+        "observed_at": "2026-10-29T17:33:29.886502+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_930t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\97628-en_US.json",
+      "response_sha256": "a42a5a279289e19c20503887865509097277d3add862b3cc1bce4dddc66821c7",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=97628&locale=en_US&collectible=0",
+      "face": {
+        "id": 97628,
+        "collectible": 0,
+        "slug": "97628-frost-lotus-blossom",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Melvin Chan",
+        "manaCost": 3,
+        "name": "Frost Lotus Blossom",
+        "text": "Draw 2 cards. Gain 10 Armor.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a088b46a522961aaf7eb9757c89c9bf2f3166fa6ccc02c9416b0cec80f3b526.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97627,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97628&locale=en_US&collectible=0",
+        "sha256": "a42a5a279289e19c20503887865509097277d3add862b3cc1bce4dddc66821c7",
+        "bytes": 573,
+        "observed_at": "2026-10-29T17:33:30.319681+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_951t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\98335-zh_CN.json",
+      "response_sha256": "1bdebeb24665fb8efb0f263796ba75010d674d20c418d503199e0e88aa270b85",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98335&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 98335,
+        "collectible": 0,
+        "slug": "98335-embrace-of-nature",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 2,
+        "name": "自然之拥",
+        "text": "<b>已锻造</b> 抽一张<b>抉择</b>牌，并使其同时拥有两种效果。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fc696e3668b41045ccc252ca3a1aa679721107fc513e3c70aadea7f0e8060450.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97649,
+        "keywordIds": [
+          268
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98335&locale=zh_CN&collectible=0",
+        "sha256": "1bdebeb24665fb8efb0f263796ba75010d674d20c418d503199e0e88aa270b85",
+        "bytes": 641,
+        "observed_at": "2026-10-29T17:33:30.392847+00:00"
+      }
+    },
+    {
+      "card_id": "TTN_951t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\98335-en_US.json",
+      "response_sha256": "fdbf98c6bc290b25abed57034f54910bd8984d1c41ca8a2f2dc4c31b12a520c6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=98335&locale=en_US&collectible=0",
+      "face": {
+        "id": 98335,
+        "collectible": 0,
+        "slug": "98335-embrace-of-nature",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Vladimir Kafanov",
+        "manaCost": 2,
+        "name": "Embrace of Nature",
+        "text": "<b>Forged</b> Draw a <b>Choose One</b> card. It has both effects combined.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f479cca91d72cff88bd1ed9582064c90cde961bf835af3aae5ab0847b7bfb2e.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 97649,
+        "keywordIds": [
+          268
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=98335&locale=en_US&collectible=0",
+        "sha256": "fdbf98c6bc290b25abed57034f54910bd8984d1c41ca8a2f2dc4c31b12a520c6",
+        "bytes": 639,
+        "observed_at": "2026-10-29T17:33:30.866458+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_111t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\41432-zh_CN.json",
+      "response_sha256": "3a3b5a432135d0ed660da284b3ba1512f2d23bba3adb5a16e61f6e19539b5e20",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41432&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 41432,
+        "collectible": 0,
+        "slug": "41432-mana-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Matt Gaser",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "法力树人",
+        "text": "<b>亡语：</b>获得一个空的法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/179961de6683edcb5c4a90fd830d012731e242cab9b3cf90ca145d7fbacd0ab0.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41094,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41432&locale=zh_CN&collectible=0",
+        "sha256": "3a3b5a432135d0ed660da284b3ba1512f2d23bba3adb5a16e61f6e19539b5e20",
+        "bytes": 601,
+        "observed_at": "2026-10-29T17:33:32.219944+00:00"
+      }
+    },
+    {
+      "card_id": "UNG_111t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k663-past-nature-delays-resources\\official-noncollectible-01\\41432-en_US.json",
+      "response_sha256": "542d4465b7754870efcb43c00e4b9283cfab0a42646f1020cdaeb55015fecd89",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=41432&locale=en_US&collectible=0",
+      "face": {
+        "id": 41432,
+        "collectible": 0,
+        "slug": "41432-mana-treant",
+        "classId": 2,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 27,
+        "rarityId": null,
+        "artistName": "Matt Gaser",
+        "health": 2,
+        "attack": 2,
+        "manaCost": 1,
+        "name": "Mana Treant",
+        "text": "<b>Deathrattle:</b> Gain an empty Mana Crystal.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ae6513a6bd652fe771b37f6b54277c009dde5e43bfef1094816a99eb14eca6e4.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 41094,
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=41432&locale=en_US&collectible=0",
+        "sha256": "542d4465b7754870efcb43c00e4b9283cfab0a42646f1020cdaeb55015fecd89",
+        "bytes": 598,
+        "observed_at": "2026-10-29T17:33:32.542834+00:00"
+      }
+    },
+    {
+      "card_id": "CS2_009",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 213,
+        "collectible": 1,
+        "slug": "213-mark-of-the-wild",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Brad Vancata",
+        "manaCost": 2,
+        "name": "野性印记",
+        "text": "使一个随从获得<b>嘲讽</b>和+2/+3。<i>（+2攻击力/+3生命值）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d3e652f6d8af4f4a5a616208cb3972679a321f3816f63e39b623a7344ccf64fa.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f76ef8d6bdaf1fa9b5c092631b4ad14a050e0382c838b0989bd84339fb7683d.png",
+        "flavorText": "这种爪子形状的印记如果纹在身上，人们一定知道你是德鲁伊玩家。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/590c6d19f681503543ba31141feaef67ba94562c4237521af3f93a6fbdcda1c1.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68311,
+          69511
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "CS2_009",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-08.json",
+      "response_sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+      "face": {
+        "id": 213,
+        "collectible": 1,
+        "slug": "213-mark-of-the-wild",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Brad Vancata",
+        "manaCost": 2,
+        "name": "Mark of the Wild",
+        "text": "Give a minion <b>Taunt</b> and +2/+3.<i> (+2 Attack/+3 Health)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ccbc835677a37ba6d9534146b3b483bd12ab883950a2da587e6e2264b6e60992.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5f76ef8d6bdaf1fa9b5c092631b4ad14a050e0382c838b0989bd84339fb7683d.png",
+        "flavorText": "Not to be confused with Jim of the Wild.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/590c6d19f681503543ba31141feaef67ba94562c4237521af3f93a6fbdcda1c1.png",
+        "keywordIds": [
+          1
+        ],
+        "copyOfCardId": [
+          68311,
+          69511
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 389881,
+        "sha256": "ce722b5e4cff3f880d05f61d451af4586c0d8c26b7d26c78a39f3a3534ac4585",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_154",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-05.json",
+      "response_sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+      "face": {
+        "id": 836,
+        "collectible": 1,
+        "slug": "836-wrath",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Raymond Swanland",
+        "manaCost": 2,
+        "name": "愤怒",
+        "text": "<b>抉择：</b> 对一个随从造成 3点伤害；或者造成 1点伤害并抽一张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/75dac8b47165ec7e70aa8682824fdb250649016c06611c71e2c0e45e593ca7eb.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/79806e1d184b72c94a702267f7c2a13c5bfff6c9e41d981914f38a0aa9a4826c.png",
+        "flavorText": "棘齿城酒馆里的人们纷纷表示，这张牌太强了，应该是传说级别的。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9aa80f1187f511b4d12fd0dacb36da89b17b42c26f0b35d81149a8739c64a5ff.png",
+        "copyOfCardId": [
+          76288,
+          69865
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 393560,
+        "sha256": "19dee80c254c837ac08b807f5afbec0d0a45ed4e4f9b1ac99f122146db3962b7",
+        "response_date": "Fri, 23 Oct 2026 08:24:55 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_154",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-13.json",
+      "response_sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+      "face": {
+        "id": 836,
+        "collectible": 1,
+        "slug": "836-wrath",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Raymond Swanland",
+        "manaCost": 2,
+        "name": "Wrath",
+        "text": "<b>Choose One -</b> Deal 3 damage to a minion; or 1 damage and draw a card.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e19cf67efa2e99f2a97f278220590f1568623888029d4d84b8faf07840d2b492.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/79806e1d184b72c94a702267f7c2a13c5bfff6c9e41d981914f38a0aa9a4826c.png",
+        "flavorText": "The talk around the Ratchet Inn is that this card is too good and should be a Legendary.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9aa80f1187f511b4d12fd0dacb36da89b17b42c26f0b35d81149a8739c64a5ff.png",
+        "copyOfCardId": [
+          76288,
+          69865
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=13&pageSize=500",
+        "status": 200,
+        "bytes": 390672,
+        "sha256": "162f0f91b956e623683e0217ab92d39a3c95d064eaac129e69ffae07752fb0e5",
+        "response_date": "Fri, 23 Oct 2026 08:24:52 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_158",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 381,
+        "collectible": 1,
+        "slug": "381-soul-of-the-forest",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Markus Erdt",
+        "manaCost": 3,
+        "name": "丛林之魂",
+        "text": "使你的所有随从获得“<b>亡语：</b>召唤一个2/2的树人”。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3f62f649845480db772e57c47d3a9e80d257ff104c23f95c0c4c66d3f7541e89.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aee849be38999ce496454691084dc347806a839267f4c741b771edda5f73fd75.png",
+        "flavorText": "“重新造林”计划突然听起来像是个恐怖的阴谋。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f5aa9669386621fcb3bae07219789b786bf942945ddcabff5a72c65d1c9c143.png",
+        "childIds": [
+          600
+        ],
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          69591,
+          69867
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_158",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-11.json",
+      "response_sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+      "face": {
+        "id": 381,
+        "collectible": 1,
+        "slug": "381-soul-of-the-forest",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Markus Erdt",
+        "manaCost": 3,
+        "name": "Soul of the Forest",
+        "text": "Give your minions \"<b>Deathrattle:</b> Summon a 2/2 Treant.\"",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/23c1f717c2944f58984c19ebccce5c3a82c19edbf3be8cfc084f567bba3b2af7.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/aee849be38999ce496454691084dc347806a839267f4c741b771edda5f73fd75.png",
+        "flavorText": "\"Reforestation\" is suddenly a terrifying word.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0f5aa9669386621fcb3bae07219789b786bf942945ddcabff5a72c65d1c9c143.png",
+        "childIds": [
+          600
+        ],
+        "keywordIds": [
+          12
+        ],
+        "copyOfCardId": [
+          69591,
+          69867
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 388117,
+        "sha256": "a6c2458f259ad62cdee8f070b3e9cf495e6b2e5888a5cd0b94eba8fd4b86415c",
+        "response_date": "Fri, 23 Oct 2026 08:24:51 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_169",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-08.json",
+      "response_sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+      "face": {
+        "id": 254,
+        "collectible": 1,
+        "slug": "254-innervate",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Doug Alexander",
+        "manaCost": 0,
+        "name": "激活",
+        "text": "在本回合中，获得一个 法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e88cd1592b5c0986db83fbc4290bdb00663f189acce10b87268dc2f641268d44.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df6380c5e2fe09b43d477aeb669585f91a51e4f44c39ce32d40360e7863b5385.png",
+        "flavorText": "有些德鲁伊做梦时都回响着陌生人的喊叫声：“给我个激活！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15057733fe8799aba38d19fdae2ed977814b2dbadb184686a2d3bf8e40ff6084.png",
+        "copyOfCardId": [
+          68445,
+          69550
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=8&pageSize=500",
+        "status": 200,
+        "bytes": 393497,
+        "sha256": "4640fe3712401a573fdf21ca15325676aa55313f1a978d60f994d86db5bffef8",
+        "response_date": "Fri, 23 Oct 2026 08:24:56 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_169",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 254,
+        "collectible": 1,
+        "slug": "254-innervate",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1635,
+        "rarityId": 2,
+        "artistName": "Doug Alexander",
+        "manaCost": 0,
+        "name": "Innervate",
+        "text": "Gain 1 Mana Crystal this turn only.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f2ae23c020fba4128e3df7b5182f13562da9b753148e471b6c7eb1c10bf585e6.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/df6380c5e2fe09b43d477aeb669585f91a51e4f44c39ce32d40360e7863b5385.png",
+        "flavorText": "Some druids still have flashbacks from strangers yelling \"Innervate me!!\" at them.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/15057733fe8799aba38d19fdae2ed977814b2dbadb184686a2d3bf8e40ff6084.png",
+        "copyOfCardId": [
+          68445,
+          69550
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_823",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-11.json",
+      "response_sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+      "face": {
+        "id": 101054,
+        "collectible": 1,
+        "slug": "101054-rehydrate",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "manaCost": 2,
+        "name": "补水",
+        "text": "恢复 7点生命值。<b>快枪：</b>复原两个法力水晶。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1660a3077020a5d64b9153499f507a89c8ca53c2374b209136673790a53cbfa6.png",
+        "imageGold": "",
+        "flavorText": "《炉石传说》开发团队“提醒喝水小助手”提醒您及时补水！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7aa64cbe14038bbf5e47838910d449b05316362c0df06e066f00036f19ea8a6.png",
+        "keywordIds": [
+          297
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=11&pageSize=500",
+        "status": 200,
+        "bytes": 394637,
+        "sha256": "c38df186660f1874d35cb2a505941a27afddfdb0e18eff5c10d21483e117e6a3",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "WW_823",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-09.json",
+      "response_sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+      "face": {
+        "id": 101054,
+        "collectible": 1,
+        "slug": "101054-rehydrate",
+        "classId": 2,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Tanamaes Leejierasaes",
+        "manaCost": 2,
+        "name": "Rehydrate",
+        "text": "Restore 7 Health. <b>Quickdraw:</b> Refresh 2 Mana Crystals.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/4d1a7758ce018e05378d245ffe122d9345bdea8ee5d90e5f84615a589327ee60.png",
+        "imageGold": "",
+        "flavorText": "Just doing our part as the Hearthstone development team in reminding you to drink more water!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d7aa64cbe14038bbf5e47838910d449b05316362c0df06e066f00036f19ea8a6.png",
+        "keywordIds": [
+          297
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 385019,
+        "sha256": "4c4caf0d60a494c87f706e42054e8846bc613dffea7293659594ad618e567baa",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "unconfirmed_primary_faces": [
+    {
+      "card_id": "ETC_387b",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k663-past-nature-delays-resources/official-noncollectible-01/97610-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97610&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T17:33:25.886474+00:00"
+      },
+      "error": "Missing or ambiguous cached primary face"
+    },
+    {
+      "card_id": "ETC_387b",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k663-past-nature-delays-resources/official-noncollectible-01/97610-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97610&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T17:33:25.922068+00:00"
+      },
+      "error": "Missing or ambiguous cached primary face"
+    },
+    {
+      "card_id": "ETC_387c",
+      "locale": "zh_CN",
+      "response_file": "outputs/card-integration-20261014/k663-past-nature-delays-resources/official-noncollectible-01/97611-zh_CN.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97611&locale=zh_CN&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T17:33:26.333513+00:00"
+      },
+      "error": "Missing or ambiguous cached primary face"
+    },
+    {
+      "card_id": "ETC_387c",
+      "locale": "en_US",
+      "response_file": "outputs/card-integration-20261014/k663-past-nature-delays-resources/official-noncollectible-01/97611-en_US.json",
+      "response_sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+      "receipt": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=97611&locale=en_US&collectible=0",
+        "sha256": "d35951375804260aef94d476ec20adad626eb4491bd191bcb76cbad329fcc39b",
+        "bytes": 52,
+        "observed_at": "2026-10-29T17:33:25.803962+00:00"
+      },
+      "error": "Missing or ambiguous cached primary face"
+    }
+  ],
+  "complete_druid_Nature_inventory": [
+    "AT_037",
+    "AT_044",
+    "BAR_533",
+    "BAR_536",
+    "BAR_549",
+    "BOT_054",
+    "BOT_404",
+    "BOT_420",
+    "BOT_444",
+    "BT_128",
+    "BT_129",
+    "BT_130",
+    "BT_132",
+    "CFM_713",
+    "CS2_007",
+    "CS2_009",
+    "CS2_013",
+    "DAL_256",
+    "DAL_350",
+    "DAL_351",
+    "DAL_352",
+    "DEEP_026",
+    "DMF_058",
+    "DMF_732",
+    "DRG_311",
+    "DRG_314",
+    "DRG_315",
+    "DRG_318",
+    "ETC_373",
+    "ETC_387",
+    "EX1_154",
+    "EX1_155",
+    "EX1_158",
+    "EX1_161",
+    "EX1_164",
+    "EX1_169",
+    "EX1_183",
+    "EX1_571",
+    "FP1_019",
+    "GIL_553",
+    "GIL_663",
+    "GVG_031",
+    "GVG_033",
+    "GVG_041",
+    "ICC_054",
+    "KAR_075",
+    "LOOT_047",
+    "LOOT_051",
+    "LOOT_309",
+    "MAW_024",
+    "MIS_301",
+    "NX2_011",
+    "OG_195",
+    "REV_307",
+    "REV_311",
+    "REV_313",
+    "REV_336",
+    "REV_365",
+    "RLK_655",
+    "SCH_333",
+    "SCH_427",
+    "SCH_612",
+    "SW_422",
+    "SW_437",
+    "TOY_805",
+    "TRL_254",
+    "TSC_650",
+    "TSC_651",
+    "TSC_656",
+    "TTN_930",
+    "TTN_951",
+    "TTN_954",
+    "TTN_955",
+    "ULD_135",
+    "ULD_273",
+    "UNG_103",
+    "UNG_108",
+    "UNG_111",
+    "VAC_508",
+    "WON_014",
+    "WORK_024",
+    "WORK_050",
+    "WW_818",
+    "WW_823",
+    "YOP_026"
+  ],
+  "original_missing_native_ids": [
+    "ETC_387",
+    "RLK_655",
+    "TTN_930",
+    "TTN_951",
+    "UNG_111",
+    "VAC_508"
+  ],
+  "old_five_sources_audited_but_runtime_and_metadata_binding_not_certified": true,
+  "rule_references": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/cards/94251-rhythm-and-roots/",
+      "scope": "Printed hidden choices and rewards."
+    },
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/23987537",
+      "scope": "Official Seedling1/5 and Blossom2/10 printed values, three-turn text."
+    },
+    {
+      "url": "https://www.reddit.com/r/hearthstone/comments/1by4syl/",
+      "scope": "Firsthand community report: Seedling counts holder ends; Rhythm counts holder starts. Not CN calibration."
+    },
+    {
+      "url": "https://us.forums.blizzard.com/en/hearthstone/t/trail-mix-bugged-with-desert-nestmatron/133307",
+      "scope": "Player report: next-turn temporary mana is not permanent and cannot be refreshed."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Living_Mana",
+      "scope": "Community notes: remove min(permanent crystals, available spaces), empty first; ignore temporary; resolve each summon reaction. References developer/video, not CN calibration."
+    }
+  ],
+  "local_rules": {
+    "hidden_deadline": "Two/four actual controller starts, independent ordinary PlayerEffect deadlines. Opponent receives neither private effect key nor countdown through DTO/event projection. Accepted hand branch stays private through existing projection; actual summons reveal results.",
+    "wither": "Freeze the current friendly living Undead group; each original live recipient takes up to1 current Attack/remaining Health from the original minion. Commit debit and credit before notifications, then normal death checkpoint. Self transfer is a no-op, departed/transformed/control-changed original references expire; exact CN reaction order deferred.",
+    "blossom": "Use the existing three actual holder-end hand-progress policy. Opponent turns and deck residence do not count. Current/base copy, resets and same-event discipline stay in the common engine.",
+    "embrace": "One original Choose One tutor slot. Forged reward binds combined choice to the same original live HAND residence and supported physical activation origins; no replacement child or reaction extra. Existing same-entity draw transformation policy retained; exact CN replacement/burn boundaries deferred.",
+    "living_mana": "Freeze min(permanent max_mana, actual board space), remove those crystals by the existing empty-first operation, then make that many ordinary named summon attempts. Temporary mana excluded. The normal current death controller receives the native empty-crystal refund, subject to cap and silence.",
+    "trail_mix": "One controller-next-start sigil per effect adds two ordinary temporary mana, without increasing max_mana; spending, refill, over-cap and expiry use existing accounts."
+  },
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "source_scope_bound": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false
+}

@@ -9280,7 +9280,7 @@ class PlayerEffectSpec:
             declaration.__post_init__()
         _name(self.id, 'player effect ID')
         _name(self.card_id, 'player effect card ID')
-        if self.kind not in ('ritual', 'persistent', 'objective', 'sigil', 'aura', 'turn_rule', 'turn_trigger', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
+        if self.kind not in ('ritual', 'persistent', 'objective', 'secret_objective', 'sigil', 'aura', 'turn_rule', 'turn_trigger', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
             raise ValueError('Unsupported player effect kind')
         if self.kind in ('persistent', 'turn_rule', 'turn_trigger', 'next_spell_damage','next_spell_damage_until_cast','next_kindred','adaptations','next_healing_damage','next_healing_damage_until_used','hand_investigation','next_spell_bonus','hero_power_armor','next_power_damage'):
             if self.duration is not None or self.tick_event is not None or self.on_expire is not None:
@@ -9292,6 +9292,13 @@ class PlayerEffectSpec:
         if self.kind == 'ritual' and (self.duration != 2 or self.tick_event != 'turn_started' or
                 self.tick_player != 'controller' or self.on_expire is None or self.next_turn_end):
             raise ValueError('Ritual requires its explicit two-owner-start completion profile')
+        if self.kind == 'secret_objective' and (self.duration not in (2,4) or self.tick_event != 'turn_started' or
+                self.tick_player != 'controller' or self.on_expire is None or any((self.triggers,self.auras,
+                self.spell_damage,self.deathrattle_repeats,self.end_turn_repeats,self.producer_quantities,
+                self.keyword_auras,self.target_policy,self.allowed_card_types,self.next_turn_end,
+                self.opponent_spell_cost,self.spell_effects,self.capture_health_source,self.stored_spell,
+                self.next_spell_cost_reduction))):
+            raise ValueError('Secret objective requires one independent two/four-owner-start completion')
         if self.on_expire is not None:
             _name(self.on_expire, 'expiry behavior')
         _int(self.spell_damage, 'player spell damage', 0)

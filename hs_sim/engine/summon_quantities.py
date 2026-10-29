@@ -58,6 +58,25 @@ class SummonCause:
 
 
 @dataclass(frozen=True)
+class ConvertManaCrystalsToMinions(Effect):
+    """Freeze the available slots, remove permanent crystals, then summon."""
+    player_id: int
+    card_id: str
+    cause: SummonCause
+
+    def __post_init__(self):
+        _player(self.player_id)
+        if type(self.card_id) is not str or not self.card_id.strip():
+            raise ValueError('Mana conversion requires its fixed named minion')
+        if type(self.cause) is not SummonCause:
+            raise ValueError('Mana conversion requires its original typed cause')
+        self.cause.__post_init__()
+        if (self.cause.player_id != self.player_id or self.cause.origin != 'spell_cast' or
+                self.cause.source.kind != CardType.SPELL):
+            raise ValueError('Mana conversion requires its actual original spell actor')
+
+
+@dataclass(frozen=True)
 class SummonEntryMaterial:
     card_id: str
     stats: SummonStats | None = None
@@ -1015,7 +1034,21 @@ def rows_from_dict(value):
     value['card_summon_history']=[from_dict(CardSummonRecord,x)for x in value['card_summon_history']]
 
 
+def convert_crystals(r, effect):
+    from .effects import ChangeManaCrystals
+    effect.__post_init__(); validate_cause(r.state, r.registry, effect.cause)
+    definition = r.registry.card(effect.card_id)
+    if definition.kind != CardType.MINION or definition.interactable is not None:
+        raise ResolutionError('Mana crystals can only become ordinary fixed minions')
+    player = r.player(effect.player_id)
+    count = min(player.max_mana, max(0, r.rules.max_board-len(player.board)))
+    if not count: return ()
+    return (ChangeManaCrystals(player.id,-count),)+tuple(SummonByCard(player.id,
+        (SummonEntryMaterial(effect.card_id),),effect.cause) for _ in range(count))
+
+
 def register(mechanics):
+    mechanics.register(ConvertManaCrystalsToMinions, convert_crystals)
     for cls in (AcceptedEntryStrength,SummonCause,SummonEntryMaterial,PrisonEntryMaterial,PhysicalReplayEntryMaterial,SummonCarrierFact,SummonQuantityDecision,SummonQuantityPlan,CardSummonDelivery,CardSummonRecord):
         mechanics.register_payload_type(cls)
     for kind,handler in ((SummonByCard,accept),(GrantSummonQuantity,grant),(DeliverCardSummon,deliver),(FinishCardSummon,finish)):

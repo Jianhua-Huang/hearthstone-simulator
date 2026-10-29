@@ -111,6 +111,18 @@ class StealHealthFromOtherMinions(Effect):
             raise ValueError('Other-minion theft belongs to the original stealing minion itself')
 
 
+@dataclass(frozen=True)
+class StealMinionStats(Effect):
+    """One original minion takes up to one Attack and one remaining Health."""
+    beneficiary: MinionReference
+    donor: MinionReference
+    source_id: int
+
+    def __post_init__(self):
+        reference_value(self.beneficiary); reference_value(self.donor)
+        _integer(self.source_id, 'minion stat theft source', 1)
+
+
 def eligible(r, player_id, reference):
     if type(reference) is MinionReference:
         card = r.registry.card(reference.card_id)
@@ -201,6 +213,31 @@ def deliver_to_minion(r, request):
     events.append(('stats_changed', dict(source_id=request.source_id, target_id=beneficiary.id,
         enchantment_id=credit.id, attack_delta=0, health_delta=amount)))
     for kind, data in events: r.emit(kind, **data)
+    return ()
+
+
+def steal_minion_stats(r, request):
+    from .resolver import _buff_to
+    validate_source(r, request)
+    for ref in (request.beneficiary, request.donor):
+        card = r.registry.card(ref.card_id)
+        if card.kind != CardType.MINION or card.interactable is not None:
+            raise ResolutionError('Stat theft requires two original ordinary minions')
+    beneficiary = live_minion(r.state, request.beneficiary)
+    donor = live_minion(r.state, request.donor)
+    if beneficiary is None or donor is None:
+        r.stale(request, request.donor.entity_id); return ()
+    if beneficiary.id == donor.id: return ()
+    attack, health = min(1, max(0, donor.attack)), min(1, donor.health)
+    debit = _buff_to(r, Buff(donor.id, -attack, -health, request.source_id), donor, notify=False)
+    if donor.health <= 0 and donor.death_cause is None:
+        from .death_causes import mark
+        mark(r, donor, 'health_state', 'minion_health_theft', request.source_id)
+    credit = _buff_to(r, Buff(beneficiary.id, attack, health, request.source_id), beneficiary, notify=False)
+    r.refresh_auras()
+    for entity, enchantment, sign in ((donor,debit,-1),(beneficiary,credit,1)):
+        r.emit('stats_changed', source_id=request.source_id, target_id=entity.id,
+            enchantment_id=enchantment.id, attack_delta=sign*attack, health_delta=sign*health)
     return ()
 
 
@@ -302,6 +339,7 @@ def choose_for_minion(r, request):
 
 
 def register(mechanics):
+    mechanics.register(StealMinionStats, steal_minion_stats)
     mechanics.register(StealHealthToHero, deliver)
     mechanics.register(RandomStealHealthToHero, choose)
     mechanics.register(StealHealthToMinion, deliver_to_minion)
