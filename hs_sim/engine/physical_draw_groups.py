@@ -13,7 +13,7 @@ from .effects import ChoiceOption, Effect, RequestChoice, _behavior, _integer, _
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .hand_upgrades import BuffStoredCard, SetStoredMinionStats
 from .kindred import has_native_kindred
-from .model import BoardPresenceReference, CardType, CostSpec, Keyword, PaymentType, Zone
+from .model import BoardPresenceReference, CardType, CostSpec, Keyword, PaymentType, SpellSchool, Zone
 from .play_history import starting_deck_identity
 from .pools import PoolQuery
 from .registry import UnsupportedDefinitionError
@@ -21,7 +21,10 @@ from .tribes import TribeState, tribe_state
 from .zones import CardReference, CopyCard, ModifyStoredCost, MoveCard, reference_entity, zone_candidates
 
 SPELL_COST_FOLLOWUP = 'qualified_spell_cost_followup'
-QUALIFIED_FOLLOWUPS = frozenset(('qualified_non_minion_followup', 'qualified_both_minions_followup', SPELL_COST_FOLLOWUP))
+FROST_FOLLOWUP = 'qualified_both_frost_spells_followup'
+SOURCE_KEYWORDS = 'source_rush_taunt_shield'
+TUTOR_KEYWORDS = (Keyword.RUSH, Keyword.TAUNT, Keyword.DIVINE_SHIELD)
+QUALIFIED_FOLLOWUPS = frozenset(('qualified_non_minion_followup', 'qualified_both_minions_followup', SPELL_COST_FOLLOWUP, FROST_FOLLOWUP))
 COPY_REWARDS = frozenset(('copy_other', 'copy_self', 'discover_spell_copy', SPELL_COST_FOLLOWUP))
 
 
@@ -35,6 +38,7 @@ class DrawGroupSlot:
     max_current_cost: int | None = None
     current_deathrattle: bool | None = None
     different_cards: bool = False
+    current_keywords_all: tuple[Keyword, ...] = ()
 
     def __post_init__(self):
         if self.query is not None:
@@ -44,8 +48,13 @@ class DrawGroupSlot:
         if self.max_current_cost is not None:
             _integer(self.max_current_cost,'draw slot maximum current deck cost',0)
             if self.current_cost is not None and self.current_cost>self.max_current_cost:raise ValueError('Draw current cost exceeds its maximum')
-        if self.current_deathrattle is not None and(type(self.current_deathrattle)is not bool or self.query is None or self.query.kinds!=(CardType.MINION,)):
-            raise ValueError('Current Deathrattle draw filter requires a minion query and exact boolean')
+        if self.current_deathrattle is not None and(type(self.current_deathrattle)is not bool or self.query is None or self.query.kinds not in((),(CardType.MINION,))):
+            raise ValueError('Current Deathrattle draw filter requires its broad/minion query and exact boolean')
+        if (type(self.current_keywords_all) is not tuple or self.current_keywords_all and (
+                self.query is None or len(self.current_keywords_all) != 1 or
+                self.current_keywords_all[0] not in (*TUTOR_KEYWORDS, Keyword.LIFESTEAL) or
+                type(self.current_keywords_all[0]) is not Keyword)):
+            raise ValueError('Current keyword tutor requires one actual Rush/Taunt/Shield/Lifesteal filter')
         if self.starting_deck is not None and type(self.starting_deck) is not bool:
             raise ValueError('Draw origin requires an explicit boolean or no filter')
         if any(type(v) is not bool for v in (self.different_tribes,self.different_costs,self.different_cards)): raise ValueError('Distinct draw filters require booleans')
@@ -67,13 +76,13 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends', 'health_payment_all', 'give_drawn_spells') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends', 'health_payment_all', 'give_drawn_spells', SOURCE_KEYWORDS) and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
         elif self.behavior_id is not None:
             raise ValueError('Only original non-minion draw followups declare a callback')
-        if self.kind == 'source_charge_if_both_minions' or self.kind in QUALIFIED_FOLLOWUPS and self.source is not None:
+        if self.kind in ('source_charge_if_both_minions', SOURCE_KEYWORDS) or self.kind in QUALIFIED_FOLLOWUPS and self.source is not None:
             if type(self.source) is not BoardPresenceReference: raise ValueError('Draw-conditioned Charge requires its original board residence')
             self.source.__post_init__()
         elif self.source is not None: raise ValueError('Only the native draw-conditioned source reward captures board residence')
@@ -143,11 +152,17 @@ class DrawPhysicalGroup(Effect):
             raise ValueError('Combined original draw requires exactly one Choose One tutor root')
         if self.reward.kind == 'source_charge_if_both_minions' and (self.slots != (DrawGroupSlot(), DrawGroupSlot()) or self.reward.source.entity_id != self.source_id):
             raise ValueError('Draw-conditioned Charge requires exactly two ordinary draws and the original source')
+        if self.reward.kind == SOURCE_KEYWORDS and (self.kindred_pair or self.reward.source.entity_id != self.source_id or
+                self.slots != tuple(DrawGroupSlot(PoolQuery(kinds=(CardType.MINION,)), current_keywords_all=(key,)) for key in TUTOR_KEYWORDS)):
+            raise ValueError('Native source keywords require the complete Rush/Taunt/Shield minion tutor sequence')
+        if self.reward.kind == FROST_FOLLOWUP and (self.kindred_pair or self.reward.source is not None or self.reward.target_id is not None or
+                self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,))),)*2):
+            raise ValueError('Frost draw followup requires its complete original two-spell tutor sequence')
         if self.reward.kind == SPELL_COST_FOLLOWUP and (
                 self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,),exclude_source=True)),) or
                 self.kindred_pair or self.reward.source is not None or self.reward.target_id is not None):
             raise ValueError('Selected spell-cost followup requires one source-excluding original spell tutor')
-        if self.reward.kind in QUALIFIED_FOLLOWUPS-{SPELL_COST_FOLLOWUP} and (self.slots != (DrawGroupSlot(),)*2 or
+        if self.reward.kind in QUALIFIED_FOLLOWUPS-{SPELL_COST_FOLLOWUP, FROST_FOLLOWUP} and (self.slots != (DrawGroupSlot(),)*2 or
                 self.kindred_pair or self.reward.source is not None and self.reward.source.entity_id != self.source_id):
             raise ValueError('Qualified text rewards require exactly two original ordinary draws')
         if self.reward.kind in ('refresh_drawn_spells','discard_drawn_spells','discard_drawn_minions') and (
@@ -249,7 +264,7 @@ def validate_material(state, registry, request, *, completed=False):
         if row.draw_id is None: continue
         record = draw_record(state, row.draw_id)
         validate_distinct_card(state,registry,request,row.slot,record)
-        if (request.reward.kind == 'non_minion_followup' or request.reward.kind in QUALIFIED_FOLLOWUPS) and record.parent_id is not None:
+        if (request.reward.kind in ('non_minion_followup', SOURCE_KEYWORDS) or request.reward.kind in QUALIFIED_FOLLOWUPS) and record.parent_id is not None:
             raise ValueError('Original type reward cannot borrow a replacement draw')
         validate_copy(state,registry,request,row,record)
         if record.player_id != request.player_id or record.source_id != request.source_id or completed and not record.completed:
@@ -324,6 +339,7 @@ def candidates(r, request, slot):
             if request.index == 0:
                 if not has_native_kindred(r.registry,entity.card_id): continue
             elif not activates_original_kindred(r,request,entity): continue
+        if not set(slot.current_keywords_all).issubset(entity.keywords): continue
         price=max(0,local_cost(entity)[0]) if slot.current_cost is not None or slot.different_costs or slot.max_current_cost is not None else None
         if slot.current_cost is not None and price != slot.current_cost: continue
         if slot.max_current_cost is not None and price>slot.max_current_cost:continue
@@ -401,13 +417,20 @@ def capture(r, request):
     validate_material(r.state, r.registry, request, completed=True)
     hand = arrival_reference(r.state, request.draw_id, request.hand_cursor)
     row = DrawGroupArrival(request.index, request.draw_id, hand, request.tribes, request.hand_cursor,request.cost,request.copy)
-    return (ContinuePhysicalDrawGroup(request.player_id, request.source_id, request.slots, request.reward,
-        request.index + 1, (*request.arrivals, row),kindred_pair=request.kindred_pair),)
+    work = ()
+    if request.reward.kind == SOURCE_KEYWORDS:
+        from .board_presence import resolve_board_presence
+        from .sacrifice import GrantCapturedKeyword, MinionReference
+        source = resolve_board_presence(r.state, request.reward.source)
+        if source is not None and source.active and source.health > 0 and not source.doomed:
+            work = (GrantCapturedKeyword(MinionReference.capture(source), TUTOR_KEYWORDS[request.index], request.source_id),)
+    return (*work, ContinuePhysicalDrawGroup(request.player_id, request.source_id, request.slots, request.reward,
+        request.index + 1, (*request.arrivals, row),kindred_pair=request.kindred_pair))
 
 
 def finish(r, request):
     reward = request.reward
-    if reward.kind == 'none': return ()
+    if reward.kind in ('none', SOURCE_KEYWORDS): return ()
     if reward.kind == 'destroy_drawn_after_ends':
         from .hand_deadlines import ScheduleHandRemoval
         return (ScheduleHandRemoval(request.player_id,reward.amount,request.source_id,'destroy',
@@ -533,6 +556,10 @@ def qualified_records(state, registry, request):
     if request.reward.kind == 'qualified_both_minions_followup':
         return records[-1:] if all(row.card_id is not None and
             registry.card(row.card_id).kind == CardType.MINION for row in records) else ()
+    if request.reward.kind == FROST_FOLLOWUP:
+        return records[-1:] if len(records) == 2 and all(row.card_id is not None and
+            registry.card(row.card_id).kind == CardType.SPELL and registry.card(row.card_id).spell_school == SpellSchool.FROST
+            for row in records) else ()
     raise ValueError('Unknown qualified draw reward')
 
 

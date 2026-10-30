@@ -4127,7 +4127,7 @@ class AuraSpec:
             _bool(self.adjacent_only, 'tribal stat aura adjacent_only')
         if (type(self.target) is not str or type(self.condition) is not str or
                 (self.target, self.condition) not in (
-                    ('friendly_minions', 'always'), ('friendly_weapon', 'self_damaged'), ('friendly_weapon', 'always'),
+                    ('friendly_minions', 'always'), ('friendly_minions', 'controller_overloaded'), ('friendly_weapon', 'self_damaged'), ('friendly_weapon', 'always'),
                     ('friendly_hero', 'controller_turn'))):
             raise ValueError('Unsupported stat aura target or condition')
         if self.target == 'friendly_weapon' and self.condition == 'always':
@@ -4141,6 +4141,10 @@ class AuraSpec:
             _bool(self.adjacent_only, 'conditional weapon adjacent_only')
             if self.health != 0 or self.include_self or self.adjacent_only:
                 raise ValueError('Conditional weapon auras only add Attack without positional flags')
+        if self.condition == 'controller_overloaded':
+            _int(self.attack, 'overloaded aura Attack', 1)
+            if self.health != 0 or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids:
+                raise ValueError('Overload aura only adds Attack to other friendly minions')
         if self.target=='friendly_hero':
             _int(self.attack,'own-turn hero aura Attack',1)
             if self.health!=0 or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids:

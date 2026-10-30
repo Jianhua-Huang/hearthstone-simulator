@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v835'
+CORE_EFFECTS_VERSION = 'core-effects-v836'
 
 
 class Mechanics:
@@ -712,6 +712,8 @@ class Resolution:
                     continue
                 for aura in active_abilities(source, 'aura'):
                     if aura.aura_target != 'friendly_minions':
+                        continue
+                    if aura.aura_condition == 'controller_overloaded' and not (player.overload_owed > 0 or player.overload_locked > 0):
                         continue
                     targets = player.board
                     if aura.adjacent_only:

@@ -363,7 +363,10 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         packet = replace(packet, target_id=destination, rule_ids=(*packet.rule_ids, rule_id), redirect_path=tuple(path))
     # Lifesteal is based on damage already dealt. Do not add spell damage twice
     # if its restorative packet is subsequently converted back into damage.
-    if apply_spell_bonus and packet.flow == HealthFlow.DAMAGE and packet.damage_kind == DamageKind.SPELL and not from_lifesteal and split_link is None and partition_source is None:
+    native_spell_bonus = isinstance(instruction, Damage) and instruction.affected_by_spell_damage
+    if native_spell_bonus and (source_packet is not None or split_link is not None or partition_source is not None or from_lifesteal):
+        raise ResolutionError('Native Spell Damage opt-in requires its original plain minion-ability packet')
+    if apply_spell_bonus and packet.flow == HealthFlow.DAMAGE and (packet.damage_kind == DamageKind.SPELL or native_spell_bonus) and not from_lifesteal and split_link is None and partition_source is None:
         # This coefficient scales only the provider bonus, never the base
         # amount. Quote it here so earlier effects can change live providers.
         multiplier = instruction.spell_bonus_multiplier if isinstance(instruction, Damage) else 1

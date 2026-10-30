@@ -517,6 +517,7 @@ class Damage(Effect):
     on_result: str | None = None
     spell_bonus_multiplier: int = 1
     ability_trigger_id: int | None = None
+    affected_by_spell_damage: bool = False
 
     def __post_init__(self) -> None:
         _source(self.ability_trigger_id)
@@ -530,6 +531,9 @@ class Damage(Effect):
         _integer(self.spell_bonus_multiplier, "spell_bonus_multiplier", 0)
         if self.spell_bonus_multiplier != 1 and self.kind != DamageKind.SPELL:
             raise ValueError("Only SPELL damage may scale its Spell Damage bonus")
+        if type(self.affected_by_spell_damage) is not bool or self.affected_by_spell_damage and (
+                self.kind != DamageKind.MINION_ABILITY or self.ability_trigger_id is not None):
+            raise ValueError('Native Spell Damage opt-in requires plain minion-ability damage')
 
 
 def _health_callback(behavior_id, source_id):
