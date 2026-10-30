@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v753"
+CONTENT_VERSION = "constructed-cn37-preview-v754"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1532,5 +1532,7 @@ def build_registry():
     register_classic_death_stored_tax(registry)
     from .classic_power_pirate_targets import register_classic_power_pirate_targets
     register_classic_power_pirate_targets(registry)
+    from .past_legendary_editions import register_past_legendary_editions
+    register_past_legendary_editions(registry)
     registry.validate()
     return registry

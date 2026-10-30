@@ -67,7 +67,7 @@ class NativeRandomTargetDomainTests(unittest.TestCase):
         registry=build_registry();raw=row['record'];card=registry.card(CARD)
         self.assertEqual(card,CardDefinition(CARD,raw['name'],CardType.MINION,cost=raw['cost'],
             attack=raw['attack'],health=raw['health'],metadata=metadata_from_record(raw)))
-        self.assertEqual(registry.random_target_cards,frozenset((CARD,)))
+        self.assertEqual(registry.random_target_cards,frozenset((CARD,'CFM_670')))
         self.assertEqual(canonical_digest(asdict(card.metadata)),canonical_digest(row['metadata']))
         from hs_sim.engine.pools import PoolCard
         self.assertEqual(registry.pool_cards[CARD],PoolCard.from_definition(card))
