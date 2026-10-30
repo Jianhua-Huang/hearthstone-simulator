@@ -1,0 +1,6225 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-shaman-history-prices-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "ETC_356",
+        "dbf_id": 92222,
+        "name": "变音和弦",
+        "name_en": "Altered Chord",
+        "text": "<b>吸血</b>。对一个随从造成$6点伤害。如果你有<b>过载</b>的法力水晶，本牌的法力值消耗减少（3）点。",
+        "text_en": "<b>Lifesteal</b>\nDeal $6 damage to a\nminion. Costs (3) less\nif you're <b>Overloaded</b>.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1809,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Juan Calle"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "7f9ecadfe9b869ac780dddfad69329a5dc2c0d387d475d77974058febdfaaaeb",
+      "definition_sha256": "16745e714f11b10b6c8add0d36aafa337d47c599b6ba231dc384b5934a6b7bc0",
+      "pool_card_sha256": "08264852b2dbc77c0962a461f23bbde4509cdc2b7d21b5821f7b22504bb79bfc"
+    },
+    {
+      "record": {
+        "id": "SW_035",
+        "dbf_id": 64356,
+        "name": "充能召唤",
+        "name_en": "Charged Call",
+        "text": "<b>发现</b>一个法力值消耗为（@）的随从并召唤它。<i>（在本局对战中你每使用一张<b>过载</b>牌都会升级！）</i>",
+        "text_en": "[x]<b>Discover</b> a @-Cost\nminion and summon it. \n<i>(Upgraded for each <b>Overload</b>\n card you played this game!)</i>",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 3,
+          "CARD_SET": 1578,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1578,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Maria Trepalina"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "df5ab4c06823ec46763ac3179db01d977d0568934733d82392745efaff2040c1",
+      "definition_sha256": "4abed1c0b5a668e0a8195d79dfd886a51547e59d0f30f9badbbb7ae7bb94dbeb",
+      "pool_card_sha256": "2aee1bfd39496336019807cc9d013fafc47b3f9b1d1a3ff9f9ffeb9c5f306009"
+    },
+    {
+      "record": {
+        "id": "TTN_831",
+        "dbf_id": 97355,
+        "name": "雷电崩鸣",
+        "name_en": "Crash of Thunder",
+        "text": "对所有敌人造成$3点伤害。在本回合中，你每施放过一个自然法术，本牌的法力值消耗便减少\n（1）点。",
+        "text_en": "Deal $3 damage to all enemies. Costs (1) less for each Nature spell you've cast this turn.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "c507f42b58c4b0ee46a0437fb126c7d3c06e2d77eeca572c0274aca54c17ba42",
+      "definition_sha256": "9c088b711e4b23ec8d60eb8e922074034187202e139afc8d7ed90852c622b56e",
+      "pool_card_sha256": "ca066326d151f2e23fdf9916b0fb4f3b1181251dfc9e5eecc1c2efbe0eb24c80"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    },
+    {
+      "record": {
+        "id": "EX1_238",
+        "dbf_id": 505,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "3d1bbd9e5efdfc5896a5b446184e7182d7f000bcb6513062cb8cd2873382be24",
+      "definition_sha256": "19dbfd7831f72318a153bbcbe0978f08d71804991df56482dc3a9fe5454f3caa"
+    },
+    {
+      "record": {
+        "id": "EX1_251",
+        "dbf_id": 299,
+        "name": "叉状闪电",
+        "name_en": "Forked Lightning",
+        "text": "随机对两个敌方随从造成$2点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $2 damage to 2_random enemy minions. <b>Overload:</b> (2)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "fa0a743e16448973954743a05572c4ad4f49b60a239c43cb739de702efcc4e8a",
+      "definition_sha256": "cd8d4d6897315e078079b0419e142e85033e0dd0e7a2e3a69316c822e0a32834"
+    },
+    {
+      "record": {
+        "id": "AT_051",
+        "dbf_id": 2620,
+        "name": "元素毁灭",
+        "name_en": "Elemental Destruction",
+        "text": "对所有随从造成$4到$5点伤害。<b>过载：</b>（2）",
+        "text_en": "Deal $4-$5 damage to all minions. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyler Walpole"
+          }
+        ]
+      },
+      "record_sha256": "1eccbbb9a711f5c5ed3f7594bffc987f025fef64314f3643d875385efe68d266",
+      "definition_sha256": "4c4789616bb81eb69beae712f1549927fd392f8350223ad760f7204cbf6dd888"
+    }
+  ],
+  "printed_overload_records": [
+    {
+      "record": {
+        "id": "AT_051",
+        "dbf_id": 2620,
+        "name": "元素毁灭",
+        "name_en": "Elemental Destruction",
+        "text": "对所有随从造成$4到$5点伤害。<b>过载：</b>（2）",
+        "text_en": "Deal $4-$5 damage to all minions. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyler Walpole"
+          }
+        ]
+      },
+      "record_sha256": "1eccbbb9a711f5c5ed3f7594bffc987f025fef64314f3643d875385efe68d266"
+    },
+    {
+      "record": {
+        "id": "AT_052",
+        "dbf_id": 2610,
+        "name": "图腾魔像",
+        "name_en": "Totem Golem",
+        "text": "<b>过载：</b>（1）",
+        "text_en": "<b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Prescott"
+          }
+        ]
+      },
+      "record_sha256": "c3d4a6c3ed339f415d1ab89c3e5061b29865d906fa2001cdbf64be3ad9c06bbf"
+    },
+    {
+      "record": {
+        "id": "AT_053",
+        "dbf_id": 2514,
+        "name": "先祖知识",
+        "name_en": "Ancestral Knowledge",
+        "text": "抽两张牌。<b>过载：</b>（1）",
+        "text_en": "Draw 2 cards. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan & Gabor"
+          }
+        ]
+      },
+      "record_sha256": "c770be8ef4fc3ad507d2a3fbf4961c8c33ff4d0bd7d94da1464a912d75dc74df"
+    },
+    {
+      "record": {
+        "id": "BCON_021",
+        "dbf_id": 49246,
+        "name": "爆裂末日",
+        "name_en": "Crackling Doom",
+        "text": "对所有随从造成$12点伤害。<b>过载：</b>（10）",
+        "text_en": "Deal $12 damage to all_minions.\n<b>Overload</b>: (10)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1635,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 2,
+          "OVERLOAD": 10,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1635,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "4a0970f6040dab188c1c4cf98666be8f0776856cc28f4550e595b2ba534ec66e"
+    },
+    {
+      "record": {
+        "id": "BOT_246",
+        "dbf_id": 48798,
+        "name": "瓶装闪电",
+        "name_en": "Beakered Lightning",
+        "text": "对所有随从造成$1点伤害。\n<b>过载：</b>（2）",
+        "text_en": "Deal $1 damage to all minions. <b>Overload:</b> (2)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1127,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          }
+        ]
+      },
+      "record_sha256": "6747f30595efcefb72754ec6c475bcec964cd72dc036a5cbcf125323a82736f1"
+    },
+    {
+      "record": {
+        "id": "BOT_451",
+        "dbf_id": 49052,
+        "name": "流电爆裂",
+        "name_en": "Voltaic Burst",
+        "text": "召唤两个1/1并具有<b>突袭</b>的“火花”。<b>过载：</b>（1）",
+        "text_en": "Summon two 1/1 Sparks with <b>Rush</b>. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1127,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 48557,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1127,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "cef4a31b4a1c2c967fc7a43f827fb0ff2cd8978823f9fa02059ef6ca1970328a"
+    },
+    {
+      "record": {
+        "id": "BRM_012",
+        "dbf_id": 2290,
+        "name": "火焰驱逐者",
+        "name_en": "Fireguard Destroyer",
+        "text": "<b>战吼：</b>获得1-4点攻击力。<b>过载：</b>（1）",
+        "text_en": "<b>Battlecry:</b> Gain 1-4 Attack. <b>Overload:</b> (1)",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 3,
+          "COST": 4,
+          "CARD_SET": 14,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 14,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Paul Mafayon"
+          }
+        ]
+      },
+      "record_sha256": "6f33cfdbc4f97074334c92304f89ad14d1a0752d710447734e7bbc983446e54c"
+    },
+    {
+      "record": {
+        "id": "BRMA04_4",
+        "dbf_id": 2343,
+        "name": "乱石滚动",
+        "name_en": "Rock Out",
+        "text": "召唤三个火誓者。<b>过载：</b>（2）",
+        "text_en": "Summon 3 Firesworn. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 14,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "OVERLOAD": 2,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 14,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "5a2799cb123504591e70a86abd556f78ab3c0ca492a40530101dd7138b7be704"
+    },
+    {
+      "record": {
+        "id": "BRMA04_4H",
+        "dbf_id": 2476,
+        "name": "乱石滚动",
+        "name_en": "Rock Out",
+        "text": "召唤三个火誓者。<b>过载：</b>（2）",
+        "text_en": "Summon 3 Firesworn. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 14,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "OVERLOAD": 2,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 14,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "a801fec14070c66421aec11971dd7bb83272598787da756cc5fe894339fff4a8"
+    },
+    {
+      "record": {
+        "id": "BT_100",
+        "dbf_id": 56411,
+        "name": "毒蛇神殿传送门",
+        "name_en": "Serpentshrine Portal",
+        "text": "造成$3点伤害。随机召唤一个法力值消耗为（3）的随从。<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage.\nSummon a random\n3-Cost minion.\n<b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gustav Schmidt"
+          }
+        ]
+      },
+      "record_sha256": "03cfea8ea3ccfe23173006320b2dd260cff121ba1f2f7a445e17010dabb135b0"
+    },
+    {
+      "record": {
+        "id": "CATA_569",
+        "dbf_id": 123001,
+        "name": "演武仪式",
+        "name_en": "Ceremonial Clash",
+        "text": "随机召唤法力值消耗为（3），（2）和（1）的随从各一个。<b>过载：</b>（1）",
+        "text_en": "[x]Summon a random 3, 2,\nand 1-Cost minion.\n<b>Overload:</b> (1)",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "2190524eba56845c7f0bfc0300cf5745c59ea66cb535e05582c8c892d902e1bd"
+    },
+    {
+      "record": {
+        "id": "CATA_724",
+        "dbf_id": 122642,
+        "name": "缚风者",
+        "name_en": "Stormbinder",
+        "text": "<b>亡语：</b>解锁你<b>过载</b>的法力水晶。\n<b>过载：</b>（3）",
+        "text_en": "[x]<b>Deathrattle:</b> Unlock your\n<b>Overloaded</b> Mana Crystals.\n<b>Overload:</b> (3)",
+        "cost": 4,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 4,
+          "CARD_SET": 1980,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "DEATHRATTLE": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1980,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "980d73e304cabcd4b2f18d8d73e8c851c0feb35577eab7741f0ba01f7b0f20c6"
+    },
+    {
+      "record": {
+        "id": "CFM_061",
+        "dbf_id": 40285,
+        "name": "锦鱼人水语者",
+        "name_en": "Jinyu Waterspeaker",
+        "text": "<b>战吼：</b>恢复#6点生命值。<b>过载：</b>（1）",
+        "text_en": "[x]<b>Battlecry:</b> Restore #6 Health.\n<b>Overload:</b> (1)",
+        "cost": 4,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 25,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          }
+        ]
+      },
+      "record_sha256": "53125e6bc8e4e1607d5c0bf3e745d37c7b219e7093e6f98636b9932e56be48d3"
+    },
+    {
+      "record": {
+        "id": "CFM_313",
+        "dbf_id": 40423,
+        "name": "先到先得",
+        "name_en": "Finders Keepers",
+        "text": "<b>发现</b>一张具有<b>过载</b>的牌。\n<b>过载：</b> （1）",
+        "text_en": "<b>Discover</b> a card with_<b>Overload</b>. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 25,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ben Zhang"
+          }
+        ]
+      },
+      "record_sha256": "fbba2d90ae239aabd88e4bc0789497384d1b1e6b2c2102e2146152a02205be07"
+    },
+    {
+      "record": {
+        "id": "CFM_717",
+        "dbf_id": 40529,
+        "name": "青玉之爪",
+        "name_en": "Jade Claws",
+        "text": "<b>战吼：</b>召唤一个{0}的<b>青玉魔像</b>。\n<b>过载：</b>（1）@<b>战吼：</b>召唤一个<b>青玉魔像</b>。\n<b>过载：</b>（1）",
+        "text_en": "<b>Battlecry:</b> Summon a{1} {0} <b>Jade Golem</b>.\n<b><b>Overload</b>:</b> (1)@<b>Battlecry:</b> Summon a <b>Jade Golem</b>.\n<b><b>Overload</b>:</b> (1)",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 25,
+          "CLASS": 8,
+          "CARDTYPE": 7,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 42098
+        },
+        "card_set_id": 25,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "A. J. Nazzaro"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "441",
+              "name": "JADE_GOLEM",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9dd48fb49f0ee640779c90604e4e1c43d8a58450df8eacdb72215ebe126e5535"
+    },
+    {
+      "record": {
+        "id": "CORE_AT_052",
+        "dbf_id": 129849,
+        "name": "图腾魔像",
+        "name_en": "Totem Golem",
+        "text": "<b>过载：</b>（1）",
+        "text_en": "<b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": 3,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 3,
+          "COST": 2,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDRACE": 21,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "858": 2610,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 2610
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Steve Prescott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2610",
+              "type": "Int",
+              "value": "2610"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "2bdac0d0f5da7b408b9c40dc2684b5e94d2576e7aec387ddc4a082c17d302efd"
+    },
+    {
+      "record": {
+        "id": "CORE_AT_053",
+        "dbf_id": 102246,
+        "name": "先祖知识",
+        "name_en": "Ancestral Knowledge",
+        "text": "抽两张牌。<b>过载：</b>（1）",
+        "text_en": "Draw 2 cards. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1810,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "858": 2514
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan & Gabor"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "2514",
+              "type": "Int",
+              "value": "2514"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f945ce28e4148fe74abb0f78f3adbd0060fdd1a0a8349f9f6754599610fe10bd"
+    },
+    {
+      "record": {
+        "id": "CORE_BOT_451",
+        "dbf_id": 106323,
+        "name": "流电爆裂",
+        "name_en": "Voltaic Burst",
+        "text": "召唤两个1/1并具有<b>突袭</b>的“火花”。<b>过载：</b>（1）",
+        "text_en": "Summon two 1/1 Sparks with <b>Rush</b>. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "858": 49052,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 48557,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "49052",
+              "type": "Int",
+              "value": "49052"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "5cc9392c56d5ba3b22e6306d1c947da80d07884ddbea70f87840839af8bb9e48"
+    },
+    {
+      "record": {
+        "id": "CORE_CFM_061",
+        "dbf_id": 120466,
+        "name": "锦鱼人水语者",
+        "name_en": "Jinyu Waterspeaker",
+        "text": "<b>战吼：</b>恢复#6点生命值。<b>过载：</b>（1）",
+        "text_en": "[x]<b>Battlecry:</b> Restore #6 Health.\n<b>Overload:</b> (1)",
+        "cost": 4,
+        "attack": 4,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1810,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "858": 40285,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 40285
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jaemin Kim"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "40285",
+              "type": "Int",
+              "value": "40285"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "24062c6a5c9a330d8798034cb51b158adb7432ecc1cfa92ed4469dc6d41bc809"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_238",
+        "dbf_id": 69625,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 505,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "505",
+              "type": "Int",
+              "value": "505"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "743e700eca3b0739da5862c632297415b47e950c65b91cb3490113b6ba4175c4"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_248",
+        "dbf_id": 69626,
+        "name": "野性狼魂",
+        "name_en": "Feral Spirit",
+        "text": "召唤两只2/3并具有<b>嘲讽</b>的幽灵狼。<b>过载：</b>（1）",
+        "text_en": "Summon two 2/3 Spirit Wolves with <b>Taunt</b>. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1810,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 238,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 533,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Clint Langley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "238",
+              "type": "Int",
+              "value": "238"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "edec3a0f3dd68decee85b475389e50cff63aef66098374ca9bd0f14b612e4401"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_250",
+        "dbf_id": 69627,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Taunt</b>\n<b>Overload</b>: (2)",
+        "cost": 5,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 1637,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 1141
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1141",
+              "type": "Int",
+              "value": "1141"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5037b0082b05a13d1411227301cd9098ab86ba63b373d32054d00f6092bed888"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_259",
+        "dbf_id": 69629,
+        "name": "闪电风暴",
+        "name_en": "Lightning Storm",
+        "text": "对所有敌方随从造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage to all_enemy minions. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 629,
+          "SPELL_SCHOOL": 4,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "629",
+              "type": "Int",
+              "value": "629"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "d02294472e2880db2c01e78acb14c6cff122c41d86d567d47b876e60d079a76b"
+    },
+    {
+      "record": {
+        "id": "CORE_EX1_567",
+        "dbf_id": 69630,
+        "name": "毁灭之锤",
+        "name_en": "Doomhammer",
+        "text": "<b>风怒，过载：</b>（2）",
+        "text_en": "<b>Windfury, Overload:</b> (2)",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1810,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 352,
+          "2731": 2
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "John Polidora"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "352",
+              "type": "Int",
+              "value": "352"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "ab9f9d25af35c5ab1ac77561e5630399dcf785ace688158e50404abeb1046b8c"
+    },
+    {
+      "record": {
+        "id": "CORE_GIL_600",
+        "dbf_id": 102208,
+        "name": "电击",
+        "name_en": "Zap!",
+        "text": "对一个随从造成$2点伤害。<b>过载：</b>（1）",
+        "text_en": "Deal $2 damage to a minion. <b>Overload:</b> (1)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1810,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "AFFECTED_BY_SPELL_POWER": 1,
+          "858": 47222,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "47222",
+              "type": "Int",
+              "value": "47222"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "f6abeb3d114d47f032c0cd221cd90a7c6908e590730406fbf1567cfbd5f6a04c"
+    },
+    {
+      "record": {
+        "id": "CORE_ICC_081",
+        "dbf_id": 95695,
+        "name": "达卡莱防御者",
+        "name_en": "Drakkari Defender",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（3）",
+        "text_en": "<b>Taunt</b>\n<b>Overload:</b> (3)",
+        "cost": 3,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1810,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1,
+          "858": 42750
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "42750",
+              "type": "Int",
+              "value": "42750"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "118a00a37bf6ed999a3442e4b21ae0b52f8be0ca4a39efdfe634c86e3fd11707"
+    },
+    {
+      "record": {
+        "id": "CORE_REV_517",
+        "dbf_id": 118122,
+        "name": "罪犯列队",
+        "name_en": "Criminal Lineup",
+        "text": "选择一个友方随从。召唤3个它的复制。<b>过载：</b>（2）",
+        "text_en": "[x]Choose a friendly minion.\nSummon 3 copies of it.\n<b>Overload:</b> (2)",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1810,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "858": 79531,
+          "DECK_RULE_COUNT_AS_COPY_OF_CARD_ID": 79531,
+          "2731": 2
+        },
+        "card_set_id": 1810,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "79531",
+              "type": "Int",
+              "value": "79531"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "77521311d27b2bed52929ae431df6890cec7d7b1b3de5968790ab26be2c67e6c"
+    },
+    {
+      "record": {
+        "id": "CS3_007",
+        "dbf_id": 62442,
+        "name": "电击学徒",
+        "name_en": "Novice Zapper",
+        "text": "<b>法术伤害+1</b>\n<b>过载：</b>（1）",
+        "text_en": "<b>Spell Damage +1</b> <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": 3,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1637,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "2731": 1
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Eric Braddock"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "1516832d1bea37a52c31f590117424354a681edc948414eafe4e6e5bb5c6c7d9"
+    },
+    {
+      "record": {
+        "id": "DAL_433",
+        "dbf_id": 52422,
+        "name": "淤泥吞食者",
+        "name_en": "Sludge Slurper",
+        "text": "<b>战吼：</b>将一张<b>跟班</b>牌置入你的手牌。\n<b>过载：</b>（1）",
+        "text_en": "<b>Battlecry:</b> Add a <b>Lackey</b> to your hand. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 2,
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "1359": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Rudy Siswanto"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "1359",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "1359"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "994",
+              "name": "MARK_OF_EVIL",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "bc6c450075fcacde19a3b54583c012cc37e0049084399cc94c568dd6e9e31635"
+    },
+    {
+      "record": {
+        "id": "DALA_Shaman_HP2",
+        "dbf_id": 53295,
+        "name": "重整",
+        "name_en": "Refresh",
+        "text": "抽一张牌。<b>过载：</b>（1）。",
+        "text_en": "Draw a card.\n<b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "HERO_POWER",
+        "collectible": false,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1130,
+          "CLASS": 8,
+          "CARDTYPE": 10,
+          "OVERLOAD": 1,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "467854e3e619ad36797b180c9b9ea58e5a672802653a64a79c8d4a00e1feac03"
+    },
+    {
+      "record": {
+        "id": "DRG_211",
+        "dbf_id": 54956,
+        "name": "猎风巨龙",
+        "name_en": "Squallhunter",
+        "text": "<b>法术伤害+2</b>\n<b>过载：</b>（2）",
+        "text_en": "<b>Spell Damage +2</b>\n<b>Overload:</b> (2)",
+        "cost": 4,
+        "attack": 5,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 1347,
+          "SPELLPOWER": 1,
+          "CLASS": 8,
+          "CARDRACE": 24,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "e8fd9ba9b7d06019fcd9e60b5ca4aaa0b0678410e35c80f6f1609e3c985bbba0"
+    },
+    {
+      "record": {
+        "id": "DRG_215",
+        "dbf_id": 54965,
+        "name": "风暴狂怒",
+        "name_en": "Storm's Wrath",
+        "text": "使你的所有随从获得+1/+1。\n<b>过载：</b>（1）",
+        "text_en": "Give your minions +1/+1.\n<b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1347,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1347,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Zoltan Boros"
+          }
+        ]
+      },
+      "record_sha256": "81cdd05fc739e0f650b822ea02845df0fb1784f150ecc35307014ad61cb43424"
+    },
+    {
+      "record": {
+        "id": "END_028",
+        "dbf_id": 121191,
+        "name": "力敌万世",
+        "name_en": "For All Time",
+        "text": "消灭所有攻击力小于或等于4的随从。<b>过载：</b>（2）。",
+        "text_en": "Destroy all minions with 4 or less Attack. <b>Overload:</b> (2)",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1957,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 160,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ludo Lullabi"
+          }
+        ]
+      },
+      "record_sha256": "d88fa2a0b686cf07adf61fafbbbbe885906207ae5f7a854e4afd9d40284619ca"
+    },
+    {
+      "record": {
+        "id": "ETC_362",
+        "dbf_id": 92232,
+        "name": "跳吧，虫子！",
+        "name_en": "JIVE, INSECT!",
+        "text": "将一个随从变形成为炎魔之王拉格纳罗斯。<b>过载：</b>（2）",
+        "text_en": "Transform a minion into\nRagnaros the Firelord.\n<b>Overload:</b> (2)",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "ELITE": 1,
+          "CARD_SET": 1809,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 102272,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ivan Fomin"
+          }
+        ]
+      },
+      "record_sha256": "ba7a1760d4478befc6710596ef3d647f1c4acc4541589408da178911398465f6"
+    },
+    {
+      "record": {
+        "id": "ETC_370",
+        "dbf_id": 92335,
+        "name": "聚集观众",
+        "name_en": "Pack the House",
+        "text": "随机召唤法力值消耗为（6），（5），（4）和（3）的随从各一个。<b>过载：</b>（2）",
+        "text_en": "Summon a random 6, 5, 4, and 3-Cost minion.\n<b>Overload:</b> (2)",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1809,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "2731": 2
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "0a69482a7bcfa2b7a5bafcbabfeabbb7771e0e588cdb6a804f1dcfeaa33cd76d"
+    },
+    {
+      "record": {
+        "id": "EX1_238",
+        "dbf_id": 505,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "3d1bbd9e5efdfc5896a5b446184e7182d7f000bcb6513062cb8cd2873382be24"
+    },
+    {
+      "record": {
+        "id": "EX1_241",
+        "dbf_id": 864,
+        "name": "熔岩爆裂",
+        "name_en": "Lava Burst",
+        "text": "造成$5点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $5 damage. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "426405ce66f674f82c0db5f8f67557ab0254022ec7f0d043740cf80aa7b064b5"
+    },
+    {
+      "record": {
+        "id": "EX1_243",
+        "dbf_id": 618,
+        "name": "尘魔",
+        "name_en": "Dust Devil",
+        "text": "<b>风怒</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Windfury</b>. <b>Overload:</b> (2)",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 3,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "251": 7,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "7"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "eeaa2667a80853ad88b1b8afbacf437d9e7e00ccefe3ed81e10e95c383a23d49"
+    },
+    {
+      "record": {
+        "id": "EX1_247",
+        "dbf_id": 960,
+        "name": "雷铸战斧",
+        "name_en": "Stormforged Axe",
+        "text": "<b>过载：</b>（1）",
+        "text_en": "<b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nate Bowden"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "2137447ace62dcd165103e7a44ec8392eec46e047fb5a46a3a35a8573c05c77a"
+    },
+    {
+      "record": {
+        "id": "EX1_248",
+        "dbf_id": 238,
+        "name": "野性狼魂",
+        "name_en": "Feral Spirit",
+        "text": "召唤两只2/3并具有<b>嘲讽</b>的幽灵狼。<b>过载：</b>（1）",
+        "text_en": "Summon two 2/3 Spirit Wolves with <b>Taunt</b>. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 533,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Clint Langley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "023251194f28c1b7bd72073026ba1de217eac0cdbb2fa30e744d9b8d735b628d"
+    },
+    {
+      "record": {
+        "id": "EX1_250",
+        "dbf_id": 1141,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Taunt</b>\n<b><b>Overload</b>:</b> (2)",
+        "cost": 5,
+        "attack": 7,
+        "health": 9,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 9,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "4ae3bc094a0157b3b28de8051c604e5dd26887901a9a3036d1b0c228fd68f3b7"
+    },
+    {
+      "record": {
+        "id": "EX1_250_puzzle",
+        "dbf_id": 121736,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b><b>过载</b>：</b>（2）",
+        "text_en": "<b>Taunt</b>\n<b><b>Overload</b>:</b> (2)",
+        "cost": 5,
+        "attack": 7,
+        "health": 8,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 3,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "f37acae280a78cfd3e8950ef55fb865164666c0361fc79272226643dd39316a5"
+    },
+    {
+      "record": {
+        "id": "EX1_251",
+        "dbf_id": 299,
+        "name": "叉状闪电",
+        "name_en": "Forked Lightning",
+        "text": "随机对两个敌方随从造成$2点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $2 damage to 2_random enemy minions. <b>Overload:</b> (2)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "fa0a743e16448973954743a05572c4ad4f49b60a239c43cb739de702efcc4e8a"
+    },
+    {
+      "record": {
+        "id": "EX1_259",
+        "dbf_id": 629,
+        "name": "闪电风暴",
+        "name_en": "Lightning Storm",
+        "text": "对所有敌方随从造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage to all_enemy minions. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "31e5ef04ba122d1bc1d2fedc2a4454cfbe0e19ae867a0108b3abe8fe0c9adc05"
+    },
+    {
+      "record": {
+        "id": "EX1_567",
+        "dbf_id": 352,
+        "name": "毁灭之锤",
+        "name_en": "Doomhammer",
+        "text": "<b>风怒，过载：</b>（2）",
+        "text_en": "<b>Windfury, Overload:</b> (2)",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 3,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "John Polidora"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "db0dbea46155c4ef042c3dcc95e6e476f6b5f9701b9f485b24282ac7122c006d"
+    },
+    {
+      "record": {
+        "id": "GDB_864",
+        "dbf_id": 111185,
+        "name": "第一次接触",
+        "name_en": "First Contact",
+        "text": "随机召唤两个法力值消耗为（1）的随从。<b>过载：</b>（1）",
+        "text_en": "Summon two random 1-Cost minions. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1935,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Patrik Bjorkstrom"
+          }
+        ]
+      },
+      "record_sha256": "e299abbed156ee7d2a5be809be331ba791204b20f087152074b239b3cce55647"
+    },
+    {
+      "record": {
+        "id": "GIL_600",
+        "dbf_id": 47222,
+        "name": "电击",
+        "name_en": "Zap!",
+        "text": "对一个随从造成$2点伤害。<b>过载：</b>（1）",
+        "text_en": "Deal $2 damage to a minion. <b>Overload:</b> (1)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1125,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "AFFECTED_BY_SPELL_POWER": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1125,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "bc76a162e177bd69ac2615a9b571167f6c281a94d19675a8dd6b768982f9a7e9"
+    },
+    {
+      "record": {
+        "id": "GVG_038",
+        "dbf_id": 2006,
+        "name": "连环爆裂",
+        "name_en": "Crackle",
+        "text": "造成$3到$6点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3-$6 damage. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 13,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Warren Mahy"
+          }
+        ]
+      },
+      "record_sha256": "2b6b5492070dd0441b8af6a3cd06be835ac0fb06afa3de302e77900b75ae7778"
+    },
+    {
+      "record": {
+        "id": "GVG_040",
+        "dbf_id": 2008,
+        "name": "沙鳞灵魂行者",
+        "name_en": "Siltfin Spiritwalker",
+        "text": "每当有其他友方鱼人死亡，便抽一张牌。\n<b>过载：</b>（1）",
+        "text_en": "Whenever another friendly Murloc dies, draw a card. <b><b>Overload</b>:</b> (1)",
+        "cost": 4,
+        "attack": 2,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 5,
+          "ATK": 2,
+          "COST": 4,
+          "CARD_SET": 13,
+          "CLASS": 8,
+          "CARDRACE": 14,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Clint Langley"
+          }
+        ]
+      },
+      "record_sha256": "fdec5fb4905b6d50b24a655032c2b9f38ddec4fcf5bb7763ed1173287e57c34f"
+    },
+    {
+      "record": {
+        "id": "GVG_042",
+        "dbf_id": 2010,
+        "name": "耐普图隆",
+        "name_en": "Neptulon",
+        "text": "<b>战吼：</b>随机将四张鱼人牌置入你的手牌。<b>过载：</b>（3）",
+        "text_en": "<b>Battlecry:</b> Add 4 random Murlocs to your hand. <b>Overload:</b> (3)",
+        "cost": 7,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 7,
+          "ELITE": 1,
+          "CARD_SET": 13,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "OVERLOAD": 3,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ruan Jia"
+          }
+        ]
+      },
+      "record_sha256": "ef12b88d2f548f605e87bbb72928c4d422236957011d1bfd7b28c073865a76f7"
+    },
+    {
+      "record": {
+        "id": "GVG_066",
+        "dbf_id": 2034,
+        "name": "砂槌萨满祭司",
+        "name_en": "Dunemaul Shaman",
+        "text": "<b>风怒，过载：</b>（1）\n50%几率攻击错误的敌人。",
+        "text_en": "<b>Windfury, Overload:</b> (1)\n50% chance to attack the wrong enemy.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 13,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "FORGETFUL": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "José Ladrönn"
+          }
+        ]
+      },
+      "record_sha256": "3082250b510ed2cfb8122d40c4d81723637dac4e2918c549b5d458fe515da6b1"
+    },
+    {
+      "record": {
+        "id": "ICC_081",
+        "dbf_id": 42750,
+        "name": "达卡莱防御者",
+        "name_en": "Drakkari Defender",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（3）",
+        "text_en": "<b>Taunt</b>\n<b>Overload:</b> (3)",
+        "cost": 3,
+        "attack": 2,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 3,
+          "CARD_SET": 1001,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1001,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Luca Zontini"
+          }
+        ]
+      },
+      "record_sha256": "f6fb18d260a81e23e21ddceae52e83e3b3c0dbf8093180292cca83f1614ec317"
+    },
+    {
+      "record": {
+        "id": "JAIL_452",
+        "dbf_id": 126627,
+        "name": "伪装的侦探",
+        "name_en": "Disguised Detective",
+        "text": "可以使用在对战面板的任意一侧。使对应玩家<b>过载</b>（2）。",
+        "text_en": "Can be played on either side. <b>Overload</b> that\nplayer for (2).",
+        "cost": 1,
+        "attack": 4,
+        "health": 3,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 4,
+          "COST": 1,
+          "CARD_SET": 1988,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "DISGUISED": 1,
+          "4706": 1
+        },
+        "card_set_id": 1988,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4706",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4706"
+          }
+        ]
+      },
+      "record_sha256": "484ae6c64e265532193e1d797f58ef00cb6903e5b78b437e7674fee947b29ef6"
+    },
+    {
+      "record": {
+        "id": "JAM_013",
+        "dbf_id": 96628,
+        "name": "即兴演奏",
+        "name_en": "Jam Session",
+        "text": "使一个友方随从获得+3/+3。对所有其他随从造成$1点伤害。<b>过载：</b>（1）",
+        "text_en": "[x]Give a friendly minion\n+3/+3. Deal $1 damage\nto all other minions.\n<b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1809,
+          "CLASS": 10,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 640,
+          "SPELL_SCHOOL": 2,
+          "TRANSFORMED_FROM_CARD_VISUAL_TYPE": 3,
+          "MINI_SET": 1,
+          "2731": 1
+        },
+        "card_set_id": 1809,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ramzy Kamen"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "e49cad1ee3bd254004764d77050fb1aa7eada096bf9528d407718d1bfda0ab1a"
+    },
+    {
+      "record": {
+        "id": "LOOT_060",
+        "dbf_id": 43322,
+        "name": "粉碎之手",
+        "name_en": "Crushing Hand",
+        "text": "对一个随从造成$8点伤害。\n<b>过载：</b>（3）",
+        "text_en": "Deal $8 damage to a minion. <b><b>Overload</b>:</b> (3)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1004,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Phil Saunders"
+          }
+        ]
+      },
+      "record_sha256": "2a14b65c62f0c9bdb5aa6be989bd04bb880e4669af35c16ef7c700055caee7d2"
+    },
+    {
+      "record": {
+        "id": "MAW_005t",
+        "dbf_id": 86229,
+        "name": "遭遇栽赃",
+        "name_en": "Framed",
+        "text": "<b>抽到时施放</b>\n<b>过载：</b>（2）",
+        "text_en": "<b>Casts When Drawn</b>\n<b>Overload:</b> (2)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1691,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "OVERLOAD": 2,
+          "CASTS_WHEN_DRAWN": 1
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jakub Kasper"
+          }
+        ]
+      },
+      "record_sha256": "03d6151f19bf5f383f919fb5aa1df5ea1553801e49d280e0d24e08499d8eacd3"
+    },
+    {
+      "record": {
+        "id": "MIS_306",
+        "dbf_id": 108624,
+        "name": "火箭跳蛙",
+        "name_en": "Rocket Hopper",
+        "text": "<b>突袭</b>。<b>过载：</b>（4）",
+        "text_en": "<b>Rush</b>\n<b>Overload:</b> (4)",
+        "cost": 5,
+        "attack": 10,
+        "health": 10,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 10,
+          "ATK": 10,
+          "COST": 5,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDRACE": 20,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 4,
+          "COLLECTIBLE": 1,
+          "RUSH": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          }
+        ]
+      },
+      "record_sha256": "435011ae642174a929c99be95552e95dd3c25eefb630edca19d85de2e4926f27"
+    },
+    {
+      "record": {
+        "id": "OG_024",
+        "dbf_id": 38263,
+        "name": "投火无面者",
+        "name_en": "Flamewreathed Faceless",
+        "text": "<b>过载：</b>（2）",
+        "text_en": "<b>Overload:</b> (2)",
+        "cost": 4,
+        "attack": 7,
+        "health": 7,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 7,
+          "ATK": 7,
+          "COST": 4,
+          "CARD_SET": 21,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "E. M. Gist"
+          }
+        ]
+      },
+      "record_sha256": "66648e9af9dde88f918564a7a3c43634aed0c73e1c07e093baf99df9725a003d"
+    },
+    {
+      "record": {
+        "id": "OG_206",
+        "dbf_id": 38724,
+        "name": "雷暴术",
+        "name_en": "Stormcrack",
+        "text": "对一个随从造成$4点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $4 damage to a minion. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 21,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 21,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mauricio Herrera"
+          }
+        ]
+      },
+      "record_sha256": "febb7e634db00e14eb52325828ccffe3e4684be94ccc9863e84be3f259937292"
+    },
+    {
+      "record": {
+        "id": "ONY_011",
+        "dbf_id": 71234,
+        "name": "别站在火里！",
+        "name_en": "Don't Stand in the Fire!",
+        "text": "造成$10点伤害，随机分配到所有敌方随从身上。<b>过载：</b>（1）",
+        "text_en": "Deal $10 damage randomly split among all enemy minions. <b>Overload:</b> (1)",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1626,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & A. Zemskov"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "7c55d2ca982aa622243c286050ecebbd5fa1d543c2a438d390add12c4c2f8578"
+    },
+    {
+      "record": {
+        "id": "PVPDR_DMF_Shamant2",
+        "dbf_id": 66771,
+        "name": "祈求虚空",
+        "name_en": "Invoke the Void",
+        "text": "召唤两个7/7的投火无面者。<b>过载：（4）。</b>",
+        "text_en": "Summon two 7/7 Flamewreathed_Faceless. <b>Overload (4)</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 18,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "OVERLOAD": 4
+        },
+        "card_set_id": 18,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "841bf95e9f93df6f5bed13ea4bdb240c7c7de24387e6a48b1dbaaa5abb72ac03"
+    },
+    {
+      "record": {
+        "id": "REV_517",
+        "dbf_id": 79531,
+        "name": "罪犯列队",
+        "name_en": "Criminal Lineup",
+        "text": "选择一个友方随从。召唤3个它的复制。<b>过载：</b>（2）",
+        "text_en": "[x]Choose a friendly minion.\nSummon 3 copies of it.\n<b>Overload:</b> (2)",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1691,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "2731": 2
+        },
+        "card_set_id": 1691,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "2",
+              "type": "Int",
+              "value": "2"
+            },
+            "normalized_key": "2731"
+          }
+        ]
+      },
+      "record_sha256": "1ef67145f9f95226962f95192b0abf42b472bc76b03754664c5e7970b131ddb7"
+    },
+    {
+      "record": {
+        "id": "RLK_909",
+        "dbf_id": 84209,
+        "name": "织亡者光环",
+        "name_en": "Deathweaver Aura",
+        "text": "使一个随从获得“<b>亡语：</b>召唤两个3/2的僵尸。”<b>过载：</b>（1）",
+        "text_en": "Give a minion \"<b>Deathrattle:</b> Summon two 3/2 Zombies.\" <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1776,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 84211,
+          "SPELL_SCHOOL": 6,
+          "2731": 1
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tanamaes Leejierasaes"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "c65954f8cce43ff703b7000d6051e049d590eac79b5471db83912ddfcd7a7d36"
+    },
+    {
+      "record": {
+        "id": "SCH_427",
+        "dbf_id": 60016,
+        "name": "雷霆绽放",
+        "name_en": "Lightning Bloom",
+        "text": "复原两个法力水晶。<b>过载：</b>（2）",
+        "text_en": "Refresh 2 Mana Crystals.\n<b>Overload:</b> (2)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 130,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          }
+        ]
+      },
+      "record_sha256": "3611fa550dffb035a724b9afd74d13c2e9c260c585191f3e6d09a61cb02e1b1a"
+    },
+    {
+      "record": {
+        "id": "SCH_612",
+        "dbf_id": 59542,
+        "name": "雕琢符文",
+        "name_en": "Runic Carvings",
+        "text": "<b>抉择：</b>召唤四个2/2的树人图腾；或者<b>过载：</b>（2）召唤四个2/2并具有<b>突袭</b>的树人图腾。",
+        "text_en": "<b>Choose One -</b> Summon four 2/2 Treant Totems; or <b>Overload:</b> (2) to summon them with <b>Rush</b>.",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "CHOOSE_ONE": 1,
+          "MULTIPLE_CLASSES": 130,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "727b331b78aa93b6daeb3662e4278b2af063c215de5ccfb20a3667a6e028b8ad"
+    },
+    {
+      "record": {
+        "id": "SCH_612b",
+        "dbf_id": 59544,
+        "name": "警醒森林",
+        "name_en": "Alarm the Forest",
+        "text": "召唤四个2/2并具有<b>突袭</b>的树人图腾。<b>过载：</b>（2）",
+        "text_en": "Summon four 2/2 Treant Totems with <b>Rush</b>.\n<b>Overload:</b> (2)",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "OVERLOAD": 2,
+          "MULTIPLE_CLASSES": 130,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "ec5aba2537d3bb71470f0a69f5d14a30cb98c45d399f0e25a45abc9a35f316bc"
+    },
+    {
+      "record": {
+        "id": "Story_02_Doomhammer",
+        "dbf_id": 65054,
+        "name": "毁灭之锤",
+        "name_en": "Doomhammer",
+        "text": "<b>风怒，过载：</b>（2）",
+        "text_en": "<b>Windfury, Overload:</b> (2)",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1443,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "OVERLOAD": 2,
+          "251": 6,
+          "858": 352,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "352",
+              "type": "Int",
+              "value": "352"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "5911f4346e530640451110d0bc2bf8d9f608e09bdfc1f70f29ac9ca68c4668c6"
+    },
+    {
+      "record": {
+        "id": "Story_03_EarthElemental",
+        "dbf_id": 65519,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（3）",
+        "text_en": "<b>Taunt</b>\n<b><b>Overload</b>:</b> (3)",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 4,
+          "CARD_SET": 1466,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "OVERLOAD": 3,
+          "251": 6,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "1a2ffedb721f9406a3f18d72729ff3637de1d9d79130a6195c0864d5a58c2603"
+    },
+    {
+      "record": {
+        "id": "Story_04_DoomhammerWeapon",
+        "dbf_id": 66720,
+        "name": "毁灭之锤",
+        "name_en": "Doomhammer",
+        "text": "<b>风怒，过载：</b>（2）",
+        "text_en": "<b>Windfury, Overload:</b> (2)",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1466,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "OVERLOAD": 2,
+          "251": 6,
+          "858": 352,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "352",
+              "type": "Int",
+              "value": "352"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "bb33a2cc3ff91cc87fe4f93a1363287504b2f6c468ef58c41b2768fccd22e8ba"
+    },
+    {
+      "record": {
+        "id": "Story_07_ElementalGathering",
+        "dbf_id": 71557,
+        "name": "元素聚集",
+        "name_en": "Elemental Gathering",
+        "text": "召唤三个元素之灵。<b>过载：</b>（2）。",
+        "text_en": "Summon three Elemental spirits. <b>Overload:</b> (2)",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "OVERLOAD": 2,
+          "HIDE_WATERMARK": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "0fa308c05cca52aaef2fbf16e605609e88f9a4b36bceeb9145bee27576039d68"
+    },
+    {
+      "record": {
+        "id": "Story_09_DunemaulShaman",
+        "dbf_id": 75646,
+        "name": "砂槌萨满祭司",
+        "name_en": "Dunemaul Shaman",
+        "text": "<b>风怒，过载：</b>（1）\n50%几率攻击错误的敌人。",
+        "text_en": "<b>Windfury, Overload:</b> (1)\n50% chance to attack the wrong enemy.",
+        "cost": 4,
+        "attack": 5,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 5,
+          "COST": 4,
+          "CARD_SET": 13,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "FORGETFUL": 1
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "José Ladrönn"
+          }
+        ]
+      },
+      "record_sha256": "514105db834b35a8852d141160845516942a2b8fd8fd08fc5848202649222893"
+    },
+    {
+      "record": {
+        "id": "Story_09_SerpentshrinePortal",
+        "dbf_id": 75542,
+        "name": "毒蛇神殿传送门",
+        "name_en": "Serpentshrine Portal",
+        "text": "造成$3点伤害。随机召唤一个法力值消耗为（3）的随从。<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage.\nSummon a random\n3-Cost minion.\n<b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1414,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "858": 56411,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1414,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gustav Schmidt"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "56411",
+              "type": "Int",
+              "value": "56411"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "a48d4ad99ee92badcb0229a7f0edd14f853c73786bd8175c429fe8ed8b38c5e7"
+    },
+    {
+      "record": {
+        "id": "Story_11_LightningBloom",
+        "dbf_id": 95824,
+        "name": "雷霆绽放",
+        "name_en": "Lightning Bloom",
+        "text": "在本回合中，获得两个法力水晶。<b>过载：</b>（2）",
+        "text_en": "Gain 2 Mana Crystals this turn only.\n<b>Overload:</b> (2)",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1443,
+          "CLASS": 2,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "MULTIPLE_CLASSES": 130,
+          "858": 60016,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1443,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vlad Botos"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "60016",
+              "type": "Int",
+              "value": "60016"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b35f8cfcfc1a60470eafc06a71a184a7ef6af26426b7c24fe45d1cf1ceec42ae"
+    },
+    {
+      "record": {
+        "id": "Story_11_LightningStormPuzzle",
+        "dbf_id": 92730,
+        "name": "闪电风暴",
+        "name_en": "Lightning Storm",
+        "text": "对所有敌方随从造成$3点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $3 damage to all_enemy minions. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1637,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "251": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1637,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "9880eb3d5d26b65ba470958e851eca2fc96432852b691a3db8d5a219602f1fbf"
+    },
+    {
+      "record": {
+        "id": "TID_005",
+        "dbf_id": 75590,
+        "name": "耐普图隆的指令",
+        "name_en": "Command of Neptulon",
+        "text": "召唤两个5/4并具有<b>突袭</b>的元素。<b>过载：</b>（1）",
+        "text_en": "Summon two 5/4 Elementals with <b>Rush</b>.\n<b>Overload:</b> (1)",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 1658,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 75591,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1,
+          "2731": 1
+        },
+        "card_set_id": 1658,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "2731",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "2731"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "8498bb165ca84f6cda6b042bf365082a2064f533be215bff5c584f114bc1c3f5"
+    },
+    {
+      "record": {
+        "id": "TIME_014",
+        "dbf_id": 119688,
+        "name": "瞬时多重宇宙",
+        "name_en": "Instant Multiverse",
+        "text": "<b>回溯</b>。随机召唤消耗总计12点法力值的随从。<b>过载：</b>（3）",
+        "text_en": "<b>Rewind</b>\nSummon 12 Mana worth of random minions.\n<b>Overload:</b> (3)",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1,
+          "REWIND": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gabriel Lopes"
+          }
+        ]
+      },
+      "record_sha256": "0fb5d98441e1e967a22ad1520ec90d21836290c35dbd999ba3549e218f8ef37c"
+    },
+    {
+      "record": {
+        "id": "TLC_227",
+        "dbf_id": 117536,
+        "name": "熔岩涌流",
+        "name_en": "Lava Flow",
+        "text": "对生命值最低的敌人造成$2点伤害，触发三次。<b>过载：</b>（1）。",
+        "text_en": "Deal $2 damage to the lowest Health enemy, three times. <b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1952,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1952,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Stefan Bogdasarov"
+          }
+        ]
+      },
+      "record_sha256": "824db4136fc211175a268c08146f5e1f75124ee42a8610293e9dd1bf419b5cb4"
+    },
+    {
+      "record": {
+        "id": "TOY_500",
+        "dbf_id": 103079,
+        "name": "苏打火山",
+        "name_en": "Baking Soda Volcano",
+        "text": "<b>吸血</b>。造成$10点伤害，随机分配到所有随从身上。<b>过载：</b>（1）",
+        "text_en": "<b>Lifesteal</b>. Deal $10 damage randomly split among all minions.\n<b>Overload:</b> (1)",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1897,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "LIFESTEAL": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "09bc87b4f2e384be59eb3b115f8bec4ddea9879bfe913bb6ed1ce13ce6056c67"
+    },
+    {
+      "record": {
+        "id": "TRL_351",
+        "dbf_id": 50547,
+        "name": "蟾蜍雨",
+        "name_en": "Rain of Toads",
+        "text": "召唤三个2/4并具有<b>嘲讽</b>的蟾蜍。\n<b>过载：</b>（3）",
+        "text_en": "Summon three 2/4 Toads with <b>Taunt</b>. <b>Overload:</b> (3)",
+        "cost": 6,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 6,
+          "CARD_SET": 1129,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 50906
+        },
+        "card_set_id": 1129,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Cicily He"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "159296a26c038e4ea99120022b8dcdc7a578ad1bbf374ea0b9de6a02d9c54f14"
+    },
+    {
+      "record": {
+        "id": "TTN_722",
+        "dbf_id": 97671,
+        "name": "潮流逆转",
+        "name_en": "Turn the Tides",
+        "text": "在本回合中，使你的英雄获得+3攻击力。召唤一个3/3并具有<b>突袭</b>的元素。<b>过载：</b>（1）",
+        "text_en": "[x]Give your hero +3 Attack\nthis turn. Summon a 3/3\nElemental with <b>Rush</b>.\n<b>Overload:</b> (1)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 97673,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "791",
+              "name": "RUSH",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "170acefe76961a4a44c216bbcfe6fa3168ea88fb50e448937364c7a4f24bc060"
+    },
+    {
+      "record": {
+        "id": "ULD_158",
+        "dbf_id": 53967,
+        "name": "沙暴元素",
+        "name_en": "Sandstorm Elemental",
+        "text": "<b>战吼：</b>对所有敌方随从造成1点伤害。\n<b>过载：</b>（1）",
+        "text_en": "<b>Battlecry:</b> Deal 1 damage to all enemy minions. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1158,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1158,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "aa8732a4d970ee56c6a04f89524b27561ed0f74f9fb62004b4a92187dffc9f4c"
+    },
+    {
+      "record": {
+        "id": "UNG_025",
+        "dbf_id": 41159,
+        "name": "火山喷发",
+        "name_en": "Volcano",
+        "text": "造成$15点伤害，随机分配到所有随从身上。\n<b>过载：</b>（1）",
+        "text_en": "Deal $15 damage randomly split among all_minions.\n<b>Overload:</b> (1)",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 5,
+          "CARD_SET": 27,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "349": 1,
+          "SPELL_SCHOOL": 2
+        },
+        "card_set_id": 27,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Gustav Schmidt"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "349",
+              "name": "ImmuneToSpellpower",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "349"
+          }
+        ]
+      },
+      "record_sha256": "d0386722e18234c860e513bec68a288515426da9e14d80dff7d453df62166e6a"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_238",
+        "dbf_id": 69892,
+        "name": "闪电箭",
+        "name_en": "Lightning Bolt",
+        "text": "造成$3点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage. <b>Overload:</b> (1)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1646,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 505
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Daarken"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "505",
+              "type": "Int",
+              "value": "505"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "638bcc5b26f84c0cd3c34c9f9a708acfb8a5c77e0d087a897fedba57e5e51836"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_241",
+        "dbf_id": 69893,
+        "name": "熔岩爆裂",
+        "name_en": "Lava Burst",
+        "text": "造成$5点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $5 damage. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1646,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 864
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "864",
+              "type": "Int",
+              "value": "864"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "29ac8c1cbedc65fb5be942e13f7dc7aa6a2cee732d059e7cdb6c3a694275ac3c"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_243",
+        "dbf_id": 69894,
+        "name": "尘魔",
+        "name_en": "Dust Devil",
+        "text": "<b>风怒</b>，<b>过载：</b>（2）",
+        "text_en": "<b>Windfury</b>. <b>Overload:</b> (2)",
+        "cost": 1,
+        "attack": 3,
+        "health": 1,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 1,
+          "ATK": 3,
+          "COST": 1,
+          "CARD_SET": 1646,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "251": 7,
+          "COLLECTIBLE": 1,
+          "858": 618
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Raymond Swanland"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "7"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "618",
+              "type": "Int",
+              "value": "618"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "62a951b1a4de022c65c40ad23ba4c92dc8185e3ac1d7e86983f653b8a004079c"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_247",
+        "dbf_id": 69896,
+        "name": "雷铸战斧",
+        "name_en": "Stormforged Axe",
+        "text": "<b>过载：</b>（1）",
+        "text_en": "<b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": 2,
+        "health": 3,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 3,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1646,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 960
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Nate Bowden"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "960",
+              "type": "Int",
+              "value": "960"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "ce1e910bdde38f09a9fc42e4b4830d3112c45e5d52b9d2ec2f1d11f955255f20"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_248",
+        "dbf_id": 69897,
+        "name": "野性狼魂",
+        "name_en": "Feral Spirit",
+        "text": "召唤两只2/3并具有<b>嘲讽</b>的幽灵狼。<b>过载：</b>（2）",
+        "text_en": "Summon two 2/3 Spirit Wolves with <b>Taunt</b>. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1646,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 238,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 70065
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Clint Langley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "238",
+              "type": "Int",
+              "value": "238"
+            },
+            "normalized_key": "858"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "d6313572c9796b82a4fe2cd5bcc3eeabf6bd8d7f1933f2ca4694514922cd1ec4"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_250",
+        "dbf_id": 69899,
+        "name": "土元素",
+        "name_en": "Earth Elemental",
+        "text": "<b>嘲讽</b>，<b>过载：</b>（3）",
+        "text_en": "<b>Taunt</b>. <b><b>Overload</b>:</b> (3)",
+        "cost": 5,
+        "attack": 7,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 7,
+          "COST": 5,
+          "CARD_SET": 1646,
+          "TAUNT": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 3,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 1141
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Dan Scott"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "1141",
+              "type": "Int",
+              "value": "1141"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "9508a6eaa02c0d01d8a4f3e53699710ccbdb47fc1e7f4db1b35abc75ebc34fb3"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_251",
+        "dbf_id": 69900,
+        "name": "叉状闪电",
+        "name_en": "Forked Lightning",
+        "text": "随机对两个敌方随从造成$2点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $2 damage to 2_random enemy minions. <b>Overload:</b> (2)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1646,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 299
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "299",
+              "type": "Int",
+              "value": "299"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "40fd6de2425ede8fa1d9b29b255fd612c6f71516e6684c2866fd7168a7a3221a"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_259",
+        "dbf_id": 69902,
+        "name": "闪电风暴",
+        "name_en": "Lightning Storm",
+        "text": "对所有敌方随从造成$2到$3点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $2-$3 damage to all enemy minions. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 1646,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "858": 629
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Christopher Moeller"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "629",
+              "type": "Int",
+              "value": "629"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "b46c98fd20646a857a43cda54acee31f2a984591c6a51f94e44c847fdd4bbd3c"
+    },
+    {
+      "record": {
+        "id": "VAN_EX1_567",
+        "dbf_id": 69981,
+        "name": "毁灭之锤",
+        "name_en": "Doomhammer",
+        "text": "<b>风怒，过载：</b>（2）",
+        "text_en": "<b>Windfury, Overload:</b> (2)",
+        "cost": 5,
+        "attack": 2,
+        "health": 8,
+        "type": "WEAPON",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 8,
+          "ATK": 2,
+          "COST": 5,
+          "CARD_SET": 1646,
+          "WINDFURY": 1,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 7,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "251": 6,
+          "COLLECTIBLE": 1,
+          "858": 352
+        },
+        "card_set_id": 1646,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "John Polidora"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "6"
+            },
+            "normalized_key": "251"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "858",
+              "name": "352",
+              "type": "Int",
+              "value": "352"
+            },
+            "normalized_key": "858"
+          }
+        ]
+      },
+      "record_sha256": "d77839420534439bb93454d7a7d3b690c7948fe915b3ab04e6d85c0b6d7e6b41"
+    },
+    {
+      "record": {
+        "id": "WC_020",
+        "dbf_id": 63098,
+        "name": "永恒之火",
+        "name_en": "Perpetual Flame",
+        "text": "随机对一个敌方随从造成$3点伤害。如果该随从死亡，再次施放本法术。<b>过载：</b>（1）",
+        "text_en": "Deal $3 damage to a random enemy minion. If it dies, recast this. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 2,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "c7112802aa3c82ba08725db692c25b7d51df7541aabc9a407444b0d787ac4081"
+    },
+    {
+      "record": {
+        "id": "WON_091",
+        "dbf_id": 102633,
+        "name": "图腾团聚",
+        "name_en": "Totally Totems",
+        "text": "召唤全部五种<i>（？！）</i>基础图腾。<b>过载：</b>（1）",
+        "text_en": "Summon all FIVE<i>?!</i> basic Totems.\n<b>Overload:</b> (1)",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 4,
+          "CARD_SET": 1898,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1898,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Anton Zemskov"
+          }
+        ]
+      },
+      "record_sha256": "0717fc5bffe52c6eb125417440e8a609c5f892de59dedae565bf3a5fd8ada9a4"
+    },
+    {
+      "record": {
+        "id": "WW_326",
+        "dbf_id": 100016,
+        "name": "矿车巡逻兵",
+        "name_en": "Minecart Cruiser",
+        "text": "<b>突袭</b>。<b>过载：</b>（2）。<b>战吼：</b>如果你在上个回合使用过元素牌，则本牌不会<b>过载</b>。",
+        "text_en": "[x]<b>Rush</b>, <b>Overload:</b> (2)\n<b>Battlecry:</b> If you played\nan Elemental last turn,\ndon't <b>Overload</b>.",
+        "cost": 3,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 5,
+          "ATK": 4,
+          "COST": 3,
+          "CARD_SET": 1892,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 3,
+          "OVERLOAD": 2,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "RUSH": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "2b713cb8062098f419a65e03c92be8c99b100557e834b92f66a478448a754664"
+    },
+    {
+      "record": {
+        "id": "WW_382",
+        "dbf_id": 101482,
+        "name": "步移山丘",
+        "name_en": "Walking Mountain",
+        "text": "<b>突袭</b>。<b>吸血</b>。<b>超级风怒</b>。<b>过载：</b>（2）",
+        "text_en": "<b>Rush</b>, <b>Lifesteal</b>,\n<b>Mega-Windfury</b>\n<b>Overload:</b> (2)",
+        "cost": 9,
+        "attack": 4,
+        "health": 16,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 16,
+          "ATK": 4,
+          "COST": 9,
+          "CARD_SET": 1892,
+          "CLASS": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "LIFESTEAL": 1,
+          "RUSH": 1,
+          "MEGA_WINDFURY": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "L. Lullabi & K. Turovec"
+          }
+        ]
+      },
+      "record_sha256": "edd1761bd6003cdf558c52d0e8105fd7c243e09f1d370a516056ee95b788baf0"
+    },
+    {
+      "record": {
+        "id": "YOD_041",
+        "dbf_id": 56292,
+        "name": "风暴之眼",
+        "name_en": "Eye of the Storm",
+        "text": "召唤三个5/6并具有<b>嘲讽</b>的元素。\n<b>过载：</b>（3）",
+        "text_en": "Summon three 5/6 Elementals with <b>Taunt</b>. <b>Overload:</b> (3)",
+        "cost": 10,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 10,
+          "CARD_SET": 1403,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 3,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 56291,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1403,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Evgeniy Dlinnov"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "190",
+              "name": "TAUNT",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "9646accf5da0dff044bc308a968234bd40c540d9f4bf72b71c71fa3d29596cbc"
+    },
+    {
+      "record": {
+        "id": "YOP_022",
+        "dbf_id": 61960,
+        "name": "迷雾行者",
+        "name_en": "Mistrunner",
+        "text": "<b>战吼：</b>使一个友方随从获得+3/+3。\n<b>过载：</b>（1）",
+        "text_en": "<b>Battlecry:</b> Give a friendly minion +3/+3.\n<b>Overload:</b> (1)",
+        "cost": 5,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 4,
+          "ATK": 4,
+          "COST": 5,
+          "CARD_SET": 1466,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Konstantin Turovec"
+          }
+        ]
+      },
+      "record_sha256": "30aa60cac8bf381eaa6737e23e82e1e1292a9b46a27c5419b55c61068fd8df6a"
+    },
+    {
+      "record": {
+        "id": "YOP_024",
+        "dbf_id": 61962,
+        "name": "灵魂指引",
+        "name_en": "Guidance",
+        "text": "检视两张法术牌。将其中一张置入你的手牌；或者<b>过载：</b>（1），获取这两张牌。",
+        "text_en": "Look at two spells. Add one to your hand or <b>Overload:</b> (1) to get both.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1466,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "MULTIPLE_CLASSES": 130,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1466,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ware Lee"
+          }
+        ]
+      },
+      "record_sha256": "56c19964aafcd1a51bc2a735e9d5ab7b6e486a033e50b3b740431569b55e65fd"
+    }
+  ],
+  "complete_printed_source_count": 23452,
+  "official_observations": [
+    {
+      "card_id": "ETC_356",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 92222,
+        "collectible": 1,
+        "slug": "92222-altered-chord",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Juan Calle",
+        "manaCost": 5,
+        "name": "变音和弦",
+        "text": "<b>吸血</b>。对一个随从造成 6点伤害。如果你有<b>过载</b>的法力水晶，本牌的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d01063f357c177e37a575831ea73260cce061805edbd022d59a2013e66bb02bc.png",
+        "imageGold": "",
+        "flavorText": "我始终不明白，为什么乐队能容忍这种……走调。想听听大家的看法。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d56af491623e26bddb925db8760a7f2a58cad3dbb27d78c4136a7206ec45682a.png",
+        "keywordIds": [
+          14,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "ETC_356",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-01.json",
+      "response_sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+      "face": {
+        "id": 92222,
+        "collectible": 1,
+        "slug": "92222-altered-chord",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1809,
+        "rarityId": 3,
+        "artistName": "Juan Calle",
+        "manaCost": 5,
+        "name": "Altered Chord",
+        "text": "<b>Lifesteal</b> Deal 6 damage to a minion. Costs (3) less if you're <b>Overloaded</b>.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/feaa411a11b91ff1ae61bb1c1c5826e128138c157c27e1e7ba5d5ec6cd3b5c22.png",
+        "imageGold": "",
+        "flavorText": "I'll never understand how bands and orchestras allow musicians that just…. play... off-key. Would love opinions on this.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d56af491623e26bddb925db8760a7f2a58cad3dbb27d78c4136a7206ec45682a.png",
+        "keywordIds": [
+          14,
+          38
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 392014,
+        "sha256": "16c25c63316129d70ac943adcdbd4b0042674ade4cf1e2e61f5ab7c9995ab7b5",
+        "response_date": "Fri, 23 Oct 2026 08:24:45 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_035",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 64356,
+        "collectible": 1,
+        "slug": "64356-charged-call",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 3,
+        "artistName": "Maria Trepalina",
+        "manaCost": 3,
+        "name": "充能召唤",
+        "text": "<b>发现</b>一个法力值消耗为（ ）的随从并召唤它。<i>（在本局对战中你每使用一张<b>过载</b>牌都会升级！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e03c0005327c1a4e44597d96fd1d1fb4b212369d67680e6b57de766025d90c56.png",
+        "imageGold": "",
+        "flavorText": "首充即可召唤风领主奥拉基尔和四位风神。确定付费吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ca3826902fd0ac0c9153a952c2a3b168d56644b772c21a131bbeaf5a83c7d95.png",
+        "keywordIds": [
+          14,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "SW_035",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 64356,
+        "collectible": 1,
+        "slug": "64356-charged-call",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1578,
+        "rarityId": 3,
+        "artistName": "Maria Trepalina",
+        "manaCost": 3,
+        "name": "Charged Call",
+        "text": "<b>Discover</b> a -Cost minion and summon it. <i>(Upgraded for each <b>Overload</b> card you played this game!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/039a6c0a6841fac1051b84cda2eb6922e4093fc63bfe89647607ea077a2357eb.png",
+        "imageGold": "",
+        "flavorText": "You have a collect call from \"AL'AKIR, LORD OF AIR AND THE FOUR WINDS.\" Do you accept these charges?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9ca3826902fd0ac0c9153a952c2a3b168d56644b772c21a131bbeaf5a83c7d95.png",
+        "keywordIds": [
+          14,
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_831",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 97355,
+        "collectible": 1,
+        "slug": "97355-crash-of-thunder",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 5,
+        "name": "雷电崩鸣",
+        "text": "对所有敌人造成 3点伤害。在本回合中，你每施放过一个自然法术，本牌的法力值消耗便减少 （1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1157c7f5273361bc37eea014e085fdea59faa5ccb4038d8676ba81ef087c81d9.png",
+        "imageGold": "",
+        "flavorText": "错误：雷电.exe已停止响应。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b710c791d9086c14f59b29dbe5c6adbae773de21def914eda0aabc5d3e50eff5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_831",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 97355,
+        "collectible": 1,
+        "slug": "97355-crash-of-thunder",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 5,
+        "name": "Crash of Thunder",
+        "text": "Deal 3 damage to all enemies. Costs (1) less for each Nature spell you've cast this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2f3ca544ae507ec5819fcbd15a0386273552c84b4991f90c587cf99203871a0d.png",
+        "imageGold": "",
+        "flavorText": "ERROR: Lightning.exe has stopped working.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b710c791d9086c14f59b29dbe5c6adbae773de21def914eda0aabc5d3e50eff5.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_238",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 505,
+        "collectible": 1,
+        "slug": "505-lightning-bolt",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Daarken",
+        "manaCost": 1,
+        "name": "闪电箭",
+        "text": "造成 3点伤害，<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1a44b257ebaf9c6b685cf42944c8f61a495c9f5ca71effb3154c8326304f48ee.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46377e0c83949037e5ae2f18e67762f410357c9703d4606ecdd863de96db15c5.png",
+        "flavorText": "闪电箭！闪电箭！闪电箭！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e722f0d037df7c922df71c1ea5c309fda01fb137159964311b2b76023fae853.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          69625,
+          69892
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_238",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 505,
+        "collectible": 1,
+        "slug": "505-lightning-bolt",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Daarken",
+        "manaCost": 1,
+        "name": "Lightning Bolt",
+        "text": "Deal 3 damage. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5608847466e57f4f64fa536724e0151c706a3dc379d9b91fc5b188743ed7ba8e.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/46377e0c83949037e5ae2f18e67762f410357c9703d4606ecdd863de96db15c5.png",
+        "flavorText": "Lightning Bolt! Lightning Bolt! Lightning Bolt!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e722f0d037df7c922df71c1ea5c309fda01fb137159964311b2b76023fae853.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          69625,
+          69892
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_251",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 299,
+        "collectible": 1,
+        "slug": "299-forked-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Ralph Horsley",
+        "manaCost": 1,
+        "name": "叉状闪电",
+        "text": "随机对两个敌方随从造成 2点伤害，<b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bacc39d3432fcbf230cb7b9e01958c2b08bde18bc0dd49867f2d694c3ae15148.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d5990c48d4191f603481ea936f267e8c3331048b5d010e3b49bb36ead1c4366.png",
+        "flavorText": "配上勺状闪电和刀状闪电，你就集齐整套闪电餐具了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e898d235ec48bfd51c2b525c843d10706c2318d10cf742fccccb0a5b7aa5c0ff.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          69900
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_251",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 299,
+        "collectible": 1,
+        "slug": "299-forked-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Ralph Horsley",
+        "manaCost": 1,
+        "name": "Forked Lightning",
+        "text": "Deal 2 damage to 2 random enemy minions. <b>Overload:</b> (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73b113cd9552b66f608e0cce840f519444308af511f6396c7fddd57d5ed97c4b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d5990c48d4191f603481ea936f267e8c3331048b5d010e3b49bb36ead1c4366.png",
+        "flavorText": "If you combine it with Spooned Lightning and Knived Lightning, you have the full dining set.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e898d235ec48bfd51c2b525c843d10706c2318d10cf742fccccb0a5b7aa5c0ff.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          69900
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_051",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 2620,
+        "collectible": 1,
+        "slug": "2620-elemental-destruction",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 4,
+        "artistName": "Tyler Walpole",
+        "manaCost": 3,
+        "name": "元素毁灭",
+        "text": "对所有随从造成 4到 5点伤害。<b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2244d445b9b87a7f1fe96b57bc8ef7f00cdc93fc813147fc4203629756d9c32.png",
+        "imageGold": "",
+        "flavorText": "我虽然不是什么萨满，但他们不是一直倡导要与元素和谐共存的吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e8fb1a3ce3b90bd245c347a15c8c0506cf1e894435eac9330417e998b83a442.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_051",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 2620,
+        "collectible": 1,
+        "slug": "2620-elemental-destruction",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 4,
+        "artistName": "Tyler Walpole",
+        "manaCost": 3,
+        "name": "Elemental Destruction",
+        "text": "Deal 4- 5 damage to all minions. <b>Overload:</b> (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cae9fbe8084a7e792a7ba4a1c8d9e451eb845ccc8daecd786c900e82f50a19a2.png",
+        "imageGold": "",
+        "flavorText": "I'm not a shaman or anything, but isn't Elemental Destruction the opposite of what they want to do?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e8fb1a3ce3b90bd245c347a15c8c0506cf1e894435eac9330417e998b83a442.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "display_normalizations": {
+    "SW_035": {
+      "@": ""
+    }
+  },
+  "numeric_normalizations": {},
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "ETC_356",
+    "SW_035",
+    "TTN_831"
+  ],
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "rule_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/24187196",
+      "policy": "Official32.0 resets Crash of Thunder to5Mana, agreeing with the fixed complete raw face."
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/article/23935323",
+      "policy": "Official26.0.4 Altered Chord6damage; current Overloaded flat3discount."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Charged_Call",
+      "evidence_class": "community_reference",
+      "policy": "Discovered summon tier is capped at10; full printed Overload plays, not crystals."
+    }
+  ],
+  "policies": {
+    "chord": "Existing original complete overload ledger plus separately frozen current owed/locked accounts; finite profile discounts3 iff either current account positive. Original all-game minion sum policy unchanged.",
+    "crash": "Existing complete physical cast prefix plus explicit original quotation turn; count own accepted nonfailed Nature casts of that global turn, including genuine repeats/automatic casts. Countered and no-target attempts excluded; self not counted before own payment.",
+    "call": "Original played_cards physical committed history plus all98positive Overload faces from the full23452row source, independent of runtime registration/class/source pool. Countered hand plays count; auto/repeat casts and crystal amount do not. Unknown source identities error explicitly. Tier min(10,1+number); ordinary complete current collectible minion discovery with board destination.",
+    "proof": "Original fact fields survive later turn/account changes and original accepted payment. Local numeric/captured-prefix proof is not unsigned save origin authentication."
+  },
+  "uncertainties": [
+    "Pending-or-locked Overloaded qualification, accepted Nature cast definition, countered original Overload-card qualification and source-relative discovery rules remain local policies pending CN edges.",
+    "Version/hotfix and CN edges deferred. Complete Shaman71 source unbound. Current full Standard pool is retained without executable subset filtering."
+  ]
+}

@@ -13,7 +13,8 @@ def validate_definition(definition):
         raise ValueError('Expected PlayerSpellCountCostSpec')
     spec.__post_init__()
     kind = (CardType.SPELL if spec.profile_id in ('cost.player-distinct-spell-school-count-v1',
-                                               'cost.player-distinct-school-cast-count-v1')
+                                               'cost.player-distinct-school-cast-count-v1',
+                                               'cost.player-turn-nature-cast-count-v1')
             else CardType.MINION)
     if definition.kind != kind or not definition.hand_playable or definition.starship_for:
         raise ValueError('Personal spell count requires the ordinary physical type of its finite policy')
@@ -47,9 +48,10 @@ def capture(state, registry, player_id, definition, base_cost):
     from .spell_casts import validate_history
     validate_history(state, registry)
     rows = tuple(row_for(record, registry) for record in state.cast_history)
-    quantity = _player_spell_count_quantity(spec, player_id, rows)
+    turn = state.turn if spec.profile_id == 'cost.player-turn-nature-cast-count-v1' else None
+    quantity = _player_spell_count_quantity(spec, player_id, rows, turn)
     return PlayerSpellCountCostFact(spec, player_id, state.next_entity_id,
-        len(rows), rows, quantity, base_cost, max(0, base_cost - quantity))
+        len(rows), rows, quantity, base_cost, max(0, base_cost - quantity), turn)
 
 
 def validate_fact(registry, definition, fact):
@@ -79,6 +81,8 @@ def validate_prefix(fact, state, registry, *, _within_cast_history_check=False):
     # Re-entering it from that receipt's own prefix would be a dependency cycle.
     if not _within_cast_history_check:
         validate_history(state, registry)
+    if fact.turn is not None and fact.turn > state.turn:
+        raise ValueError('Turn Nature price borrowed a future quotation turn')
     if fact.next_entity_id > state.next_entity_id or len(fact.rows) > len(state.cast_history):
         raise ValueError('Personal spell price lost its complete original allocation prefix')
     for old, current in zip(fact.rows, state.cast_history):

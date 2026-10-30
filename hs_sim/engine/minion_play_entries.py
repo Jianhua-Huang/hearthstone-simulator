@@ -44,9 +44,11 @@ def validate_boundary(game):
             continue
         data = dict(event.data)
         record = play_record(game._state, data.get('play_id'))
+        # A committed hand play may enter after a choice resumes on a later
+        # action. Keep its original play identity and reject pre-play entries.
         if (record.id in accepted or record.kind != CardType.MINION or
-                (event.source_id, event.player_id, event.action) !=
-                (record.source_id, record.player_id, record.action)):
+                (event.source_id, event.player_id) != (record.source_id, record.player_id) or
+                event.action < record.action):
             raise ValueError('Minion entry event differs from its original physical hand play')
         accepted[record.id] = event
         if record.minion_entry is None:

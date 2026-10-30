@@ -4785,7 +4785,7 @@ class PlayerSpellCountCostSpec:
         if type(self.profile_id) is not str or self.profile_id not in (
                 'cost.player-spell-count-v1', 'cost.player-distinct-spell-school-count-v1',
                 'cost.player-fel-spell-count-v1', 'cost.player-holy-cast-count-v1',
-                'cost.player-distinct-school-cast-count-v1'):
+                'cost.player-distinct-school-cast-count-v1', 'cost.player-turn-nature-cast-count-v1'):
             raise ValueError('Unsupported personal spell-count cost policy')
 
 
@@ -4832,7 +4832,16 @@ class PlayerSpellCountCostRow:
         return self.player_id == player_id and self.origin == 'hand' and self.payload_started and self.failure is None
 
 
-def _player_spell_count_quantity(spec, player_id, rows):
+def _player_spell_count_quantity(spec, player_id, rows, turn=None):
+    if spec.profile_id == 'cost.player-turn-nature-cast-count-v1':
+        _int(turn, 'personal Nature cast original turn', 1)
+        if any(row.turn > turn for row in rows):
+            raise ValueError('Turn Nature price contains a future cast')
+        return sum(row.player_id == player_id and row.turn == turn and
+                   row.spell_school is SpellSchool.NATURE and row.payload_started and
+                   row.failure is None for row in rows)
+    if turn is not None:
+        raise ValueError('All-game spell prices cannot invent a turn filter')
     if spec.profile_id == 'cost.player-holy-cast-count-v1':
         # Lightbot names casts, including real repeated/automatic occurrences.
         # Keep the older root-only price profiles' operands unchanged.
@@ -4859,6 +4868,7 @@ class PlayerSpellCountCostFact:
     quantity: int
     before: int
     after: int
+    turn: int | None = None
 
     def __post_init__(self):
         if type(self.spec) is not PlayerSpellCountCostSpec:
@@ -4881,7 +4891,7 @@ class PlayerSpellCountCostFact:
                     row.turn < last_turn or row.action < last_action):
                 raise ValueError('Personal spell cost lost its ordered original allocation prefix')
             last_turn, last_action = row.turn, row.action
-        quantity = _player_spell_count_quantity(self.spec, self.player_id, self.rows)
+        quantity = _player_spell_count_quantity(self.spec, self.player_id, self.rows, self.turn)
         if self.quantity != quantity or self.after != max(0, self.before - quantity):
             raise ValueError('Personal spell cost differs from its complete original count')
 
@@ -5671,8 +5681,20 @@ class PlayerOverloadCostSpec:
     profile_id: str = 'cost.player-overload-v1'
 
     def __post_init__(self):
-        if type(self.profile_id) is not str or self.profile_id != 'cost.player-overload-v1':
+        if type(self.profile_id) is not str or self.profile_id not in (
+                'cost.player-overload-v1', 'cost.player-current-overload-discount-v1'):
             raise ValueError('Unsupported all-game overload quantity policy')
+
+
+def _player_overload_quantity(spec, player_id, records, current_owed=None, current_locked=None):
+    total = sum(row.amount for row in records if row.player_id == player_id)
+    if spec.profile_id == 'cost.player-current-overload-discount-v1':
+        _int(current_owed, 'current original pending Overload', 0)
+        _int(current_locked, 'current original locked Overload', 0)
+        return 3 if current_owed or current_locked else 0
+    if current_owed is not None or current_locked is not None:
+        raise ValueError('All-game overload price cannot invent current account operands')
+    return total
 
 
 @dataclass(frozen=True)
@@ -5688,6 +5710,8 @@ class PlayerOverloadCostFact:
     quantity: int
     before: int
     after: int
+    current_owed: int | None = None
+    current_locked: int | None = None
 
     def __post_init__(self):
         if type(self.spec) is not PlayerOverloadCostSpec:
@@ -5711,7 +5735,8 @@ class PlayerOverloadCostFact:
                     row.mana_event_sequence <= last_event):
                 raise ValueError('Overload price changed its original chronology or allocation prefix')
             last_turn, last_action, last_owner, last_event = row.turn, row.action, row.owner_turn_id, row.event_sequence
-        quantity = sum(row.amount for row in self.records if row.player_id == self.player_id)
+        quantity = _player_overload_quantity(self.spec, self.player_id, self.records,
+                                            self.current_owed, self.current_locked)
         if self.quantity != quantity or self.after != max(0, self.before - quantity):
             raise ValueError('Overload price differs from complete actual crystal increments')
 
@@ -6482,6 +6507,9 @@ class IntrinsicCostStageFact:
                 raise ValueError('Multiple intrinsic quantity formulas require a real reviewed source')
             if any(row.turn > self.boundary.turn or row.action > self.boundary.action for row in self.player_spells.rows):
                 raise ValueError('Personal spell cost contains casts newer than its quotation window')
+            if (self.player_spells.spec.profile_id == 'cost.player-turn-nature-cast-count-v1'
+                    and self.player_spells.turn != self.boundary.turn):
+                raise ValueError('Turn Nature price changed its original intrinsic quotation turn')
         if self.player_hero_powers is not None:
             if type(self.player_hero_powers) is not PlayerHeroPowerCountCostFact:
                 raise ValueError('Intrinsic stage requires typed original personal power counts')
