@@ -729,7 +729,14 @@ def validate_record(state,registry,root,*,closed=False,original_cast_event=None)
         if type(material)is ResurrectionEntryMaterial and(material.captured_turn,material.captured_action,material.next_attachment_id)!=(plan.turn,plan.action,plan.next_attachment_id):raise ValueError('Death material is not from actual entry acceptance window')
         copy_material=material.copy if type(material)is RecruitEntryMaterial else material
         if type(copy_material)is CopyEntryMaterial:
-            if copy_material.profile in ('discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy','base_resummon'):
+            if copy_material.draw_id is not None:
+                cause=root.request.cause
+                if((cause.player_id,cause.turn,cause.action,cause.source.entity_id)!=(copy_material.origin.controller,
+                        copy_material.captured_turn,copy_material.captured_action,copy_material.grant_source_id)or
+                        (copy_material.captured_turn>plan.turn or copy_material.captured_action>plan.action or
+                         copy_material.next_attachment_id>plan.next_attachment_id)):
+                    raise ValueError('Original drawn copy changed its original cause or capture bounds')
+            elif copy_material.profile in ('discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy','base_resummon'):
                 if (copy_material.captured_turn>plan.turn or copy_material.captured_action>plan.action or
                         copy_material.next_attachment_id>plan.next_attachment_id):
                     raise ValueError('Original discarded material is newer than its summon acceptance')
@@ -942,6 +949,12 @@ def validate_closed_events(game):
             raise ValueError('Summon receipt lost its original accepted cast event')
         if original_cast is not None and original_cast.sequence>root.event_cursor:
             raise ValueError('Summon borrowed a cast accepted after its original window')
+        for material in root.request.materials:
+            if type(material)is CopyEntryMaterial and material.draw_id is not None:
+                original_draws=[e for e in events if e.sequence==material.draw_event and e.kind=='card_drawn'and
+                    dict(e.data).get('draw_id')==material.draw_id and (e.target_id,e.player_id,e.action)==(
+                        material.origin.entity_id,material.origin.controller,material.captured_action)and e.sequence<=root.event_cursor]
+                if len(original_draws)!=1:raise ValueError('Drawn-copy summon lost its unique original draw publication')
         validate_record(state,registry,root,closed=True,original_cast_event=original_cast)
         if (data['root_id']!=root.id or root.id>=state.next_card_summon_id or
             (event.source_id,event.player_id)!=(root.request.cause.source.entity_id,root.request.player_id) or

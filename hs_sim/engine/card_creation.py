@@ -3,7 +3,7 @@ from dataclasses import dataclass, fields, is_dataclass, replace
 
 from .construction import integer, name
 from .errors import ResolutionError
-from .model import (CardType, ChooseBranchSelection, Keyword, SummonStats,
+from .model import (CardType, ChooseBranchSelection, Keyword, SummonStats, Zone,
                     validate_reborn_policy, validate_summon_stats)
 
 
@@ -26,14 +26,18 @@ class CreatedMinionGrant:
         if type(self.attack) is not int or type(self.health) is not int:
             raise ValueError('Created minion stats require integers')
         if (type(self.keywords) is not tuple or
-                any(type(k) is not Keyword or k not in MINION_CREATION_KEYWORDS for k in self.keywords) or
+                any(type(k) is not Keyword or k not in MINION_CREATION_KEYWORDS and
+                    not(self.special=='turn_end_destroy'and k==Keyword.RUSH)for k in self.keywords) or
                 len(set(self.keywords)) != len(self.keywords)):
             raise ValueError('Unsupported or duplicate created minion keyword')
         validate_reborn_policy(self.reborn_policy, Keyword.REBORN if Keyword.REBORN in self.keywords else None)
         if self.identity is not None:name(self.identity, 'created minion grant identity')
         if self.special is not None and (type(self.special) is not str or
-                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'hand_turn_end_discount', 'after_play', 'other_play_lock')):
+                self.special not in ('living_nightmare', 'rude_awakening', 'prepare', 'hand_turn_discount', 'hand_turn_end_discount', 'after_play', 'other_play_lock', 'turn_end_destroy')):
             raise ValueError('Unknown created minion special ability')
+        if self.special=='turn_end_destroy'and(self.attack or self.health or self.keywords!=(Keyword.RUSH,)or
+                self.reborn_policy is not None or self.identity is None):
+            raise ValueError('Temporary drawn copy requires only Rush and its original end-destruction body')
         if self.special=='after_play' and (self.attack or self.health or self.keywords or
                 self.reborn_policy is not None or self.identity is None):
             raise ValueError('Created after-play requires one independent registered body')
@@ -270,6 +274,11 @@ def install(state, entity, effect, *, resolver=None, publish_gift=True):
         refresh_entity(entity)
     grant = getattr(effect, 'minion_grant', None)
     if grant is not None:
+        if grant.special=='turn_end_destroy':
+            if(resolver is None or entity.zone!=Zone.BOARD or entity.kind!=CardType.MINION or
+                    effect.source_id is None or effect.source_id not in state.entities):
+                raise ResolutionError('Temporary drawn-copy grant requires its attributed original board delivery')
+            resolver.registry.behavior(grant.identity)
         from .dark_gift_echo import gift_for_grant
         gift = gift_for_grant(grant)
         if gift is not None and publish_gift and resolver is None:
@@ -279,7 +288,7 @@ def install(state, entity, effect, *, resolver=None, publish_gift=True):
         # result. Install everything before the first acquisition event.
         from .lifecycle import attachment_id, refresh_entity
         from .model import AbilityInstance, Enchantment
-        if grant.attack or grant.health or (grant.identity is not None and grant.special!='after_play'):
+        if grant.attack or grant.health or (grant.identity is not None and grant.special not in('after_play','turn_end_destroy')):
             entity.enchantments.append(Enchantment(attachment_id(state), source_id=effect.source_id,
                 attack=grant.attack, health=grant.health,
                 label='created_minion_grant' if grant.identity is None else 'created_minion_grant:'+grant.identity))
@@ -295,6 +304,9 @@ def install(state, entity, effect, *, resolver=None, publish_gift=True):
             entity.abilities.append(AbilityInstance(attachment_id(state), 'battlecry_repeat',
                 source_id=effect.source_id,
                 battlecry_repeat=BattlecryRepeatSpec(2, (CardType.MINION,), scope='self')))
+        elif grant.special=='turn_end_destroy':
+            entity.abilities.append(AbilityInstance(attachment_id(state),'trigger',source_id=effect.source_id,
+                event='turn_ended',behavior_id=grant.identity))
         elif grant.special == 'prepare':
             entity.abilities.append(AbilityInstance(attachment_id(state), 'prepare', source_id=effect.source_id))
         elif grant.special in ('hand_turn_discount','hand_turn_end_discount'):
@@ -323,7 +335,15 @@ def validate_boundary(game):
     from .effects import ReplaceHeroPower
     from .hero_powers import AddHeroPower, installation_definition
     from types import SimpleNamespace
+    from .copy_materials import CopyEntryMaterial
     def visit(value):
+        if type(value)is CopyEntryMaterial and value.draw_id is not None:
+            publications=[e for e in game._events if e.sequence==value.draw_event and e.kind=='card_drawn'and
+                dict(e.data).get('draw_id')==value.draw_id and (e.target_id,e.player_id,e.action)==(
+                    value.origin.entity_id,value.origin.controller,value.captured_action)]
+            if len(publications)!=1:raise ValueError('Queued drawn copy lost its exact original draw publication')
+        if type(value)is CreatedMinionGrant and value.special=='turn_end_destroy':
+            value.__post_init__();game.registry.behavior(value.identity)
         if type(value) in (AddToHand, AddToDeck, DiscoverFromPool, GenerateFromPool):
             definitions = (game.registry.card(value.card_id),) if type(value) in (AddToHand, AddToDeck) else ()
             validate_creation(game._state, value, definitions)

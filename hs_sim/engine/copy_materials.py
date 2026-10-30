@@ -182,8 +182,18 @@ class CopyEntryMaterial:
     self_copy_death:object|None=None
     infused_damage:int|None=None
     entry_dormant_turns:int|None=None
+    draw_id:int|None=None
+    draw_event:int|None=None
 
     def __post_init__(self):
+        if (self.draw_id is None)!=(self.draw_event is None):
+            raise ValueError('Original drawn copy requires both record and publication identity')
+        if self.draw_id is not None:
+            _integer(self.draw_id,'original drawn-copy record',1)
+            _integer(self.draw_event,'original drawn-copy publication',1)
+            if(type(self.origin)is not SourceAllocationFact or self.profile!='stored_copy'or self.mode!='current'or self.origin.zone!=Zone.HAND or
+                    type(self.minion_grant)is not CreatedMinionGrant or self.minion_grant.special!='turn_end_destroy'):
+                raise ValueError('Original draw link requires its finite current hand-copy grant')
         if self.entry_dormant_turns is not None and (type(self.entry_dormant_turns)is not int or self.entry_dormant_turns!=1 or self.profile!='death_copy' or self.mode!='current'):
             raise ValueError('Timed death-copy entry requires its original current material and one turn')
         if self.profile == 'death_copy':
@@ -329,6 +339,10 @@ def validate_material(registry,material,*,hand_copy=False):
         validate_plain_material(registry, SummonEntryMaterial(material.card_id),
                                 allow_colossal=material.profile=='board_copy')
     if material.on_summon is not None:registry.behavior(material.on_summon)
+    if material.minion_grant is not None and material.minion_grant.special=='turn_end_destroy':
+        if material.profile!='stored_copy'or material.mode!='current'or material.origin.zone!=Zone.HAND:
+            raise ValueError('Temporary drawn copy requires its original current hand-minion material')
+        registry.behavior(material.minion_grant.identity)
     if material.entry_dormant_turns is not None and registry.card(material.card_id).permanent_dormancy:
         raise ValueError('Timed death-copy entry cannot override printed permanent dormancy')
     if material.dormant_entry and registry.card(material.card_id).dormant_turns == 0:
@@ -372,6 +386,16 @@ def validate_material(registry,material,*,hand_copy=False):
 
 def validate_scope(state,registry,material,*,closed=False,hand_copy=False):
     validate_material(registry,material,hand_copy=hand_copy);validate_allocation(state,registry,material.origin,closed=closed)
+    if material.draw_id is not None and not closed:
+        from .draw_casts import draw_record
+        from .hand_history import hand_entry
+        draw=draw_record(state,material.draw_id)
+        if draw.outcome!='hand'or draw.hand_entry_id is None or registry.card(draw.card_id).kind!=CardType.MINION:
+            raise ValueError('Original drawn copy lost its successful physical minion hand entry')
+        entry=hand_entry(state,draw.hand_entry_id);origin=material.origin
+        if((draw.entity_id,draw.player_id,draw.turn,draw.action)!=(origin.entity_id,origin.controller,material.captured_turn,material.captured_action)or
+                (entry.entity_id,entry.player_id,entry.card_id,entry.zone_epoch)!=(origin.entity_id,origin.controller,origin.card_id,origin.zone_epoch)):
+            raise ValueError('Original drawn copy borrowed another draw or hand residence')
     if material.profile == 'death_copy':
         from .death_self_copies import validate_entry_scope
         validate_entry_scope(state, registry, material, closed=closed)
