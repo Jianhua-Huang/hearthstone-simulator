@@ -39,6 +39,9 @@ class TurnClockProfile:
 
 
 def validate_profile(registry, profile):
+    from .battlefield_turn_clocks import BattlefieldTurnClockProfile,validate_profile as validate_battlefield
+    if type(profile)is BattlefieldTurnClockProfile:
+        validate_battlefield(registry,profile);return
     if type(profile) is not TurnClockProfile: raise ValueError('Expected a typed native turn clock')
     profile.__post_init__()
     card = registry.card(profile.source_card_id)
@@ -124,14 +127,17 @@ def elapsed(game, owner_turn_id):
 
 def current(game):
     """Trusted host clock token. Players receive only the public projection."""
-    if installation(game) is None or game._state.status != 'playing': return None
+    from .battlefield_turn_clocks import sources,start_boundary
+    if game._state.status != 'playing':return None
+    if installation(game) is None and not sources(game):return None
     opening = game._state.opening
-    if opening is None or opening.stage != 'complete' or not game._state.owner_turn_history: return None
+    if opening is not None and opening.stage != 'complete' or not game._state.owner_turn_history:return None
+    if not hasattr(game,'_events'):raise ValueError('Battlefield clock requires its original time receipts')
     from .owner_turns import current_owner_turn
     interval = current_owner_turn(game._state)
-    if interval.publication_event is None or interval.end_event is not None: return None
+    if start_boundary(interval)is None or interval.end_event is not None:return None
     used = elapsed(game, interval.id)
-    limit = game.registry._turn_clock_profiles[CARD].limit_ms
+    limit = 15000
     choice = game._state.pending_choice
     return dict(owner_turn_id=interval.id, player_id=interval.player_id, limit_ms=limit,
                 elapsed_ms=used, remaining_ms=limit-used,
@@ -147,7 +153,9 @@ def public_view(game):
 def snapshot_value(game):
     from .serialization import event_to_dict
     rows = [event_to_dict(e) for e in game._events if e.kind in KINDS]
-    return dict(policy=POLICY, events=rows) if rows else None
+    from .battlefield_turn_clocks import POLICY as battlefield_policy,sources
+    battlefield=bool(sources(game))or any(dict(e.data).get('policy')==battlefield_policy for e in game._events if e.kind==ADVANCE)
+    return dict(policy=battlefield_policy if battlefield else POLICY,events=rows)if rows or battlefield else None
 
 
 def validate_input(game, action):
@@ -163,9 +171,14 @@ def validate_input(game, action):
 
 def advance(r, action):
     value = current(r.game)
-    r.emit(ADVANCE, source_id=installation(r.game).source_id, player_id=value['player_id'],
+    from .battlefield_turn_clocks import POLICY as battlefield_policy,encode_sources,sources
+    rows=sources(r.game);original=installation(r.game);extra={}
+    if rows:extra['battlefield_sources']=encode_sources(rows)
+    source_id=original.source_id if original is not None else rows[0]['allocation']['entity_id']
+    r.emit(ADVANCE, source_id=source_id, player_id=value['player_id'],
         amount=min(action.elapsed_ms, value['remaining_ms']), owner_turn_id=action.owner_turn_id,
-        elapsed_ms=action.elapsed_ms, previous_ms=value['elapsed_ms'], policy=POLICY, _capture=False)
+        elapsed_ms=action.elapsed_ms, previous_ms=value['elapsed_ms'],
+        policy=battlefield_policy if rows else POLICY,_capture=False,**extra)
 
 
 def settle_expired(r):
@@ -186,9 +199,10 @@ def settle_expired(r):
             count = choice.min_count if choice.min_count == choice.max_count else r.game._rng.randint(choice.min_count, choice.max_count)
             sampled = set(r.game._rng.sample(options, count)) if count else set()
             selected = tuple(o for o in options if o in sampled)
+            charged_policy=next(dict(e.data)['policy']for e in reversed(r.game._events)if e.kind==ADVANCE and dict(e.data)['owner_turn_id']==value['owner_turn_id'])
             proof = dict(owner_turn_id=value['owner_turn_id'], choice_id=choice.id, options=options,
                 min_count=choice.min_count, max_count=choice.max_count, selected=selected,
-                rng_before=rng_to_json(before), rng_after=rng_to_json(r.game._rng.getstate()), policy=POLICY)
+                rng_before=rng_to_json(before), rng_after=rng_to_json(r.game._rng.getstate()), policy=charged_policy)
             r.emit(TIMEOUT, source_id=choice.source_id, player_id=choice.player_id,
                    proof=json.dumps(proof, sort_keys=True, separators=(',', ':')), _capture=False)
             resume_choice(r, SelectChoice(choice.player_id, choice.id, selected), host_timeout=True)
@@ -207,23 +221,25 @@ def validate_boundary(game):
     installs = [e for e in game._events if e.kind == INSTALL]
     advances = [e for e in game._events if e.kind == ADVANCE]
     timeouts = [e for e in game._events if e.kind == TIMEOUT]
+    source_id=None
     if expected is None:
-        if installs or advances or timeouts: raise ValueError('Clock has no matching original decks')
-        return
-    profile, source_id, first = expected
-    hooks = [e for e in game._events if e.kind == 'opening_effect' and e.source_id == source_id
+        if installs:raise ValueError('Clock has no matching original decks')
+        if not advances and not timeouts:return
+    else:
+        profile, source_id, first = expected
+        hooks = [e for e in game._events if e.kind == 'opening_effect' and e.source_id == source_id
              and e.player_id == first and dict(e.data).get('behavior_id') == profile.behavior_id]
-    if len(installs) > 1 or (game._state.opening.stage != 'dealing' or hooks) and len(installs) != 1:
-        raise ValueError('Original opening lost its unique clock installation')
-    if not installs:
-        if advances or timeouts: raise ValueError('Time input preceded clock installation')
-        return
-    event = installs[0]
-    if (len(hooks) != 1 or event.sequence != hooks[0].sequence + 1 or
+        if len(installs) > 1 or (game._state.opening.stage != 'dealing' or hooks) and len(installs) != 1:
+            raise ValueError('Original opening lost its unique clock installation')
+        if not installs:
+            if advances or timeouts:raise ValueError('Time input preceded clock installation')
+            return
+        event = installs[0]
+        if (len(hooks) != 1 or event.sequence != hooks[0].sequence + 1 or
             dict(hooks[0].data).get('stage') != 'dealing' or
             (event.source_id, event.player_id, event.target_id, event.amount) != (source_id, first, None, profile.limit_ms) or
             dict(event.data) != dict(profile_id=profile.source_card_id, policy=POLICY)):
-        raise ValueError('Clock installation differs from its original source and limit')
+            raise ValueError('Clock installation differs from its original source and limit')
     pending, paused_inputs, requests = {}, set(), {}
     for prior in game._events:
         if prior.kind == 'choice_requested':
@@ -233,24 +249,31 @@ def validate_boundary(game):
         elif prior.kind == 'choice_selected': pending.pop(dict(prior.data)['choice_id'], None)
         elif prior.kind == ADVANCE and any(pid != prior.player_id for pid in pending.values()):
             paused_inputs.add(prior.sequence)
-    totals, expirations = {}, {}
+    from .battlefield_turn_clocks import POLICY as battlefield_policy,start_boundary,validate_sources
+    totals, expirations,expiration_policies = {}, {},{}
     for event in advances:
         data = dict(event.data)
-        if set(data) != {'owner_turn_id', 'elapsed_ms', 'previous_ms', 'policy'} or data['policy'] != POLICY:
+        fields={'owner_turn_id','elapsed_ms','previous_ms','policy'};event_source=source_id
+        if data.get('policy')==battlefield_policy:
+            if set(data)!=fields|{'battlefield_sources'}:raise ValueError('Malformed battlefield host time receipt')
+            rows=validate_sources(game,data['battlefield_sources'])
+            if event_source is None:event_source=rows[0]['allocation']['entity_id']
+        elif set(data)!=fields or data.get('policy')!=POLICY or source_id is None:
             raise ValueError('Malformed original host time receipt')
         token, requested, old = data['owner_turn_id'], data['elapsed_ms'], data['previous_ms']
         positive(token, 'charged owner interval'); positive(requested, 'elapsed host time')
         if token > len(game._state.owner_turn_history): raise ValueError('Clock charged an unknown owner interval')
         turn = game._state.owner_turn_history[token-1]
-        if (turn.origin != 'actual' or turn.publication_event is None or event.sequence <= turn.publication_event or
-                event.action < turn.publication_action or
+        start=start_boundary(turn)
+        if (start is None or event.sequence <= start[0] or event.action < start[1]or
                 turn.end_event is not None and event.sequence >= turn.end_event or
-                type(old) is not int or old != totals.get(token, 0) or old >= profile.limit_ms or
-                (event.source_id, event.player_id, event.target_id) != (source_id, turn.player_id, None) or
-                event.amount != min(requested, profile.limit_ms-old)):
+                type(old) is not int or old != totals.get(token, 0) or old >= 15000 or
+                (event.source_id, event.player_id, event.target_id) != (event_source, turn.player_id, None) or
+                event.amount != min(requested, 15000-old)):
             raise ValueError('Clock changed its original interval, elapsed time or accepted charge')
         totals[token] = old + event.amount
-        if totals[token] == profile.limit_ms: expirations[token] = event.sequence
+        if totals[token] == 15000:
+            expirations[token]=event.sequence;expiration_policies[token]=data['policy']
         if event.sequence in paused_inputs:
             raise ValueError('Clock charged time reserved for the other player decision')
     from .serialization import rng_from_json
@@ -260,15 +283,16 @@ def validate_boundary(game):
             raise ValueError('Malformed timeout event')
         proof = json.loads(dict(event.data)['proof'])
         if (type(proof) is not dict or set(proof) != {'owner_turn_id','choice_id','options','min_count','max_count',
-                'selected','rng_before','rng_after','policy'} or proof['policy'] != POLICY):
+                'selected','rng_before','rng_after','policy'} or proof['policy'] not in(POLICY,battlefield_policy)):
             raise ValueError('Malformed timeout selection proof')
         token, choice_id = proof['owner_turn_id'], proof['choice_id']
         positive(token, 'timeout interval'); positive(choice_id, 'timeout choice')
         if choice_id in seen or token > len(game._state.owner_turn_history): raise ValueError('Duplicate or borrowed timeout')
         seen.add(choice_id)
         turn = game._state.owner_turn_history[token-1]
-        if (token not in expirations or expirations[token] >= event.sequence or event.player_id != turn.player_id or
-                event.action < turn.publication_action or
+        start=start_boundary(turn)
+        if (token not in expirations or proof['policy']!=expiration_policies[token]or expirations[token] >= event.sequence or event.player_id != turn.player_id or
+                start is None or event.action < start[1]or
                 turn.end_event is not None and event.sequence >= turn.end_event):
             raise ValueError('Choice timeout has no original expired active turn')
         original_requests = requests.get(choice_id, ())
