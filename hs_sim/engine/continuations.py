@@ -398,9 +398,11 @@ class FrameCodec:
             validate_kill_source(self.origin_state, self.registry, value)
         if type(value) is ResurrectKilledMinions and self.origin_state is not None:
             validate_kill_effect(self.origin_state, self.registry, value)
-        from .sacrifice import SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger, TransformCapturedMinion
-        if type(value) in (SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger, TransformCapturedMinion) and self.origin_state is not None:
+        from .sacrifice import SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger, TransformCapturedMinion, DoubleCapturedMinionStats
+        if type(value) in (SetCapturedMinionStats, BuffCapturedMinionWithStartTrigger, TransformCapturedMinion, DoubleCapturedMinionStats) and self.origin_state is not None:
             value.validate_in_state(self.origin_state)
+        if type(value) is DoubleCapturedMinionStats and self.registry.card(value.beneficiary.card_id).kind != CardType.MINION:
+            raise ValueError('Captured doubling requires an original minion definition')
         if type(value) is TransformCapturedMinion and (
                 self.registry.card(value.beneficiary.card_id).kind!=CardType.MINION or
                 self.registry.card(value.card_id).kind!=CardType.MINION):

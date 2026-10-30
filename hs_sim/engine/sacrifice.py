@@ -158,6 +158,41 @@ def buff_captured_minion_with_start_trigger(r, effect):
 
 
 @dataclass(frozen=True)
+class DoubleCapturedMinionStats(Effect):
+    """Double current values only on the accepted original minion residence."""
+    beneficiary: MinionReference
+    attack: bool = False
+    health: bool = False
+    source_id: int | None = None
+
+    def __post_init__(self):
+        from .effects import DoubleStats
+        reference_value(self.beneficiary)
+        DoubleStats(self.beneficiary.entity_id, self.attack, self.health, self.source_id).__post_init__()
+
+    def validate_in_state(self, state):
+        self.__post_init__()
+        ref = self.beneficiary
+        entity = state.entities.get(ref.entity_id)
+        if entity is None or ref.zone_epoch > entity.zone_epoch or ref.entered_order >= state.next_order:
+            raise ValueError('Captured doubling borrowed an unknown or future minion allocation')
+        if self.source_id is not None and self.source_id not in state.entities:
+            raise ValueError('Captured doubling has an unknown original source')
+
+
+def double_captured_minion_stats(r, effect):
+    from .effects import DoubleStats
+    from .resolver import double_stats
+    effect.validate_in_state(r.state)
+    validate_request(r, effect)
+    if live_minion(r.state, effect.beneficiary) is None:
+        r.stale(effect, effect.beneficiary.entity_id)
+        return ()
+    return double_stats(r, DoubleStats(effect.beneficiary.entity_id,
+        effect.attack, effect.health, effect.source_id))
+
+
+@dataclass(frozen=True)
 class SetCapturedMinionStats(Effect):
     beneficiary: MinionReference
     attack: int | StatReference | None = None
@@ -571,6 +606,7 @@ def register(mechanics):
     mechanics.register(FreezeCapturedMinion, freeze_captured_minion)
     mechanics.register(BuffCapturedMinionWithStartTrigger, buff_captured_minion_with_start_trigger)
     mechanics.register(SetCapturedMinionStats, set_captured_minion_stats)
+    mechanics.register(DoubleCapturedMinionStats, double_captured_minion_stats)
     mechanics.register(TransformCapturedMinion, transform_captured_minion)
     mechanics.register(GrantCapturedKeyword, grant_captured_keyword)
     mechanics.register(GrantCapturedSpellDamage, grant_captured_spell_damage)
