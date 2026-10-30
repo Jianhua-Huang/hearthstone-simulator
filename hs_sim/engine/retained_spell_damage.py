@@ -45,10 +45,12 @@ def validate_value(state, registry, value):
     if not 1 <= value.damage_id <= len(state.damage_history):
         raise ValueError('Spell remainder lost its original damage result')
     row = state.damage_history[value.damage_id-1]; result = row.health_result
+    from .next_spell_bodies import possible_body_target_ids
     if (row.id != value.damage_id or cast.card_id != value.card_id or not cast.payload_started or
             cast.failure is not None or result.batch_id <= cast.recorded_event or row.action < cast.action or
-            (result.source_id, result.source_card_id, result.source_controller, result.original_target_id) !=
-            (cast.source_id, cast.card_id, cast.player_id, cast.target_id) or remainder(result) != value.amount):
+            (result.source_id, result.source_card_id, result.source_controller) !=
+            (cast.source_id, cast.card_id, cast.player_id) or
+            result.original_target_id not in possible_body_target_ids(registry, cast) or remainder(result) != value.amount):
         raise ValueError('Spell remainder differs from its actual cast and original excess damage')
     return cast
 
@@ -83,8 +85,9 @@ class DamageReturningSpell(Effect):
         from .spell_casts import cast_record, active_cast
         cast = cast_record(state, self.cast_id)
         profile = registry.spell_value_profiles.get(cast.card_id); validate_profile(registry, profile)
+        from .next_spell_bodies import body_target_id
         if (not cast.payload_started or cast.completed or cast.interrupted or cast.failure is not None or
-                cast.target_id != self.target.entity_id or active_cast(state, cast.source_id, cast.player_id) != cast):
+                body_target_id(registry, cast) != self.target.entity_id or active_cast(state, cast.source_id, cast.player_id) != cast):
             raise ValueError('Returning damage lost its original active cast or target')
         target = state.entities.get(self.target.entity_id)
         if (target is None or self.target.zone_epoch > target.zone_epoch or self.target.entered_order >= state.next_order):

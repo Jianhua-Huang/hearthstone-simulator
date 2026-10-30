@@ -112,7 +112,8 @@ class ShuffleGrowingSpell(DamageGrowingSpell):
 def damage(r,request):
     cast,profile=request.validate_in_state(r.state,r.registry)
     amount=base_amount(r.state,r.registry,cast,profile)
-    fact=cast.target_origin;target=r.state.entities.get(cast.target_id)
+    from .next_spell_bodies import body_target
+    fact=body_target(r.registry,cast);target=r.state.entities.get(None if fact is None else fact.entity_id)
     follow=(ShuffleGrowingSpell(cast.id),)
     if (fact is None or fact.kind not in (CardType.HERO,CardType.MINION) or fact.zone not in (Zone.HERO,Zone.BOARD)):
         raise ValueError('Growing damage lost its original character allocation')

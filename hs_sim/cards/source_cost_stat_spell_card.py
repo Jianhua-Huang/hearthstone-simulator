@@ -31,7 +31,8 @@ def register_source_cost_stat_spell_card(registry):
         raise TargetValidationError('Floating Lessons requires its real one-cost Warlock Shadow face')
     def body(c):
         value = 2*amount(c, registry)
-        target = c.cast.target_origin
+        from hs_sim.engine.next_spell_bodies import body_target
+        target = body_target(registry, c.cast)
         if c.cast.card_id != CARD or target is None or target.kind != CardType.MINION:
             raise ValueError('Floating Lessons requires its original accepted minion target')
         if value == 0:

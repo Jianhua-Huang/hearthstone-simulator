@@ -48,7 +48,8 @@ def register_mage_conditional_damage(registry):
             raise ResolutionError('Forbidden Flame lost its original all-Mana debit')
         cast=cast_record(c.state,row.cast_id);active=active_cast(c.state,c.source_id,c.player_id)
         if active is None or active.id!=cast.id:raise ResolutionError('Forbidden Flame lost its original active CAST')
-        target=cast.target_origin
+        from hs_sim.engine.next_spell_bodies import body_target
+        target=body_target(registry,cast)
         if target is None or target.kind!=CardType.MINION or target.zone!=Zone.BOARD:
             raise ResolutionError('Forbidden Flame lost its original minion allocation')
         ref=MinionReference(target.entity_id,target.controller,target.card_id,target.zone_epoch,target.entered_order)

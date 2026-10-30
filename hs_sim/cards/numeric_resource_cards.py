@@ -37,9 +37,9 @@ def register_numeric_resource_cards(registry):
         if c.cast is None:raise UnsupportedDefinitionError('Triumph requires its actual accepted spell target window')
         # The finite native profile already accepted required-target versus
         # no-target text. Do not acquire a different branch during reactions.
-        if c.cast.target_id is None:
+        if c.target_id is None:
             return(DamageBatch(tuple(Damage(i,3,c.source_id,DamageKind.SPELL)for i in characters(c,registry,3-c.player_id))),)
-        return(Damage(c.cast.target_id,3,c.source_id,DamageKind.SPELL),)
+        return(Damage(c.target_id,3,c.source_id,DamageKind.SPELL),)
     def moss(c):
         request=SummonByCard(c.player_id,(SummonEntryMaterial(GOLEM),),SummonCause.capture(c))
         return(request,request,SpendManaForSummonedPair(c,GOLEM))

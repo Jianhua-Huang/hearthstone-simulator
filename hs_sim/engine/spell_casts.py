@@ -33,7 +33,8 @@ def bind_cast_prefix(before, state):
     """Later payload progress cannot rewrite an earlier CAST's accepted input."""
     progress = {'payload_started', 'completed', 'interrupted', 'local_spell_damage',
         'spell_damage_effects', 'native_spell_value', 'aura_duration_grants', 'spell_aura_id',
-        'next_spell_bonus_effects', 'next_spell_body_effects', 'next_spell_body_cursor'}
+        'next_spell_bonus_effects', 'next_spell_body_effects', 'next_spell_body_cursor',
+        'next_spell_body_board', 'next_spell_body_behaviors'}
     if len(before.cast_history) > len(state.cast_history):
         raise ValueError('Acceptance lost its complete original CAST prefix')
     for old, new in zip(before.cast_history, state.cast_history):
@@ -221,8 +222,8 @@ def finish(r, effect):
     validate_target_finish(effect, record, r.registry, state=r.state)
     if record.completed or record.interrupted or not record.payload_started:
         raise ResolutionError('Spell cast is already settled')
-    if record.next_spell_body_cursor != 2*len(record.next_spell_body_effects):
-        from .next_spell_bodies import ContinueNextSpellBodies
+    from .next_spell_bodies import ContinueNextSpellBodies, body_slots
+    if record.next_spell_body_cursor != 2*len(body_slots(r.registry, record)):
         if record.next_spell_body_cursor % 2:
             raise ResolutionError('Spell completion overtook a running extra body')
         return (ContinueNextSpellBodies(record.id, record.next_spell_body_cursor//2), effect)
@@ -468,7 +469,9 @@ def payload_effects(r, record, behavior_ids, *, play=None, extra_outcome=False):
         work.append(AddPlayerEffect(record.player_id, definition.ongoing_effect_id, entity.id,
             aura_duration_cast_id=record.id if record.aura_duration_grants else None,
             spell_aura_id=record.spell_aura_id))
-    work.extend(r.call(b, record.source_id, record.player_id, record.target_id, play=play, cast=record) for b in behavior_ids)
+    from .next_spell_bodies import body_target_id
+    target_id = body_target_id(r.registry, record)
+    work.extend(r.call(b, record.source_id, record.player_id, target_id, play=play, cast=record) for b in behavior_ids)
     # Twinspell is a payload derivative. Echo remains a paid-hand-play facility.
     if play is not None:
         from .hand_derivatives import after_spell_effects

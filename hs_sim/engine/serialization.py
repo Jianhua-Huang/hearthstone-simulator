@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 643
+SNAPSHOT_SCHEMA_VERSION = 644
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1253,6 +1253,11 @@ def _spell_cast_from_dict(value):
         for e in _list(row['spell_damage_effects'], 'claimed next-spell damage effects'))
     row['next_spell_body_effects'] = tuple(player_effect_from_dict(e)
         for e in _list(row['next_spell_body_effects'], 'claimed next-spell body programs'))
+    from .allocation_facts import allocation_from_dict
+    if row['next_spell_body_board'] is not None:
+        row['next_spell_body_board'] = tuple(allocation_from_dict(f)
+            for f in _list(row['next_spell_body_board'], 'original adjacent spell board'))
+    row['next_spell_body_behaviors'] = tuple(_list(row['next_spell_body_behaviors'], 'original adjacent spell behaviors'))
     if 'next_spell_body_cursor' not in row:
         raise ValueError('Cast lost its original next-spell body cursor')
     row['next_spell_bonus_effects'] = tuple(player_effect_from_dict(e)

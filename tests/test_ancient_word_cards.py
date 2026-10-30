@@ -105,7 +105,10 @@ class AncientWordTests(unittest.TestCase):
         self.assertEqual(tuple(x['record']['id'] for x in d['dependencies']),(HAWK,))
         card=fixture().card(HAWK);self.assertEqual((card.cost,card.attack,card.health),(5,5,5))
         self.assertIn(Keyword.LIFESTEAL,card.keywords)
-        self.assertEqual(len(fixture().next_spell_body_profiles),3)
+        from hs_sim.engine.next_spell_bodies import NextSpellBodyProfile
+        original = [fixture().next_spell_body_profiles[key] for key in PROGRAMS.values()]
+        self.assertEqual(len(original),3)
+        self.assertTrue(all(type(profile) is NextSpellBodyProfile for profile in original))
 
     def test_past_paid_body_and_next_shadow_each_draw_and_reduce_original_card(self):
         g=self.game((PAST,SHADOW));self.play(g,PAST)

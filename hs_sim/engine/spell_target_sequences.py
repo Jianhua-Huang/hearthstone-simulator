@@ -80,7 +80,8 @@ def validate_frozen_group(state,registry,request):
     request.__post_init__();group=request.group if type(request)is FreezeOriginalGroupMember else request
     from .spell_casts import cast_record
     cast=cast_record(state,group.cast_id)
-    if ((cast.source_id,cast.player_id,cast.target_id)!=(group.source_id,group.player_id,group.target.entity_id)
+    from .next_spell_bodies import body_target_id
+    if ((cast.source_id,cast.player_id,body_target_id(registry,cast))!=(group.source_id,group.player_id,group.target.entity_id)
             or not cast.payload_started or cast.completed or cast.interrupted or registry.card(cast.card_id).kind!=CardType.SPELL):
         raise ValueError('Frozen group borrowed another original active spell or target')
     if group.source_id not in state.entities:raise ValueError('Frozen group has an unknown physical spell source')
