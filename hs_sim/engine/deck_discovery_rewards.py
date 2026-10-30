@@ -7,6 +7,13 @@ def validate_request(request):
     reward = request.selected_reward
     if reward is None:
         return
+    if reward == 'draw_all_copies':
+        if (request.source_id is None or request.player_id != request.owner_id or request.zone != Zone.DECK or
+                request.operation != 'draw' or request.distinct != 'card' or request.discovery is not True or
+                type(request.sample_size) is not int or request.sample_size != 3 or request.query != PoolQuery() or
+                request.cost is not None or request.destroy_unchosen):
+            raise ValueError('All-copy draw requires its complete original own-deck discovery profile')
+        return
     if type(reward) is not str or reward not in ('arcane_spell_damage', 'copy_with_spell_damage', 'heal_hero_by_local_cost'):
         raise ValueError('Unknown selected original deck reward')
     query = PoolQuery(kinds=(CardType.SPELL,)) if reward == 'arcane_spell_damage' else PoolQuery()
@@ -41,3 +48,21 @@ def selected_work(r, request, selected):
             material = CapturedCardCopyMaterial.capture(r.state, entity)
             return (), (CopyCard(material, request.player_id, mode='current', source_id=request.source_id),)
     return (), ()
+
+
+def draw_all_work(r, request, selected, result):
+    """Freeze the selected identity's original physical copies before drawing."""
+    validate_request(request)
+    if request.selected_reward != 'draw_all_copies': raise ValueError('Wrong original all-copy draw profile')
+    from .zones import CardReference, MoveCard, reference_entity
+    from .discovery_delivery import MaterializeDiscoveredCard
+    from .errors import ResolutionLimitExceeded
+    entity = reference_entity(r, selected)
+    if entity is None: return (MaterializeDiscoveredCard(result, None),)
+    cards = tuple(CardReference.capture(r.state.entities[i]) for i in r.player(request.player_id).deck
+        if r.state.entities[i].card_id == selected.card_id)
+    if selected not in cards: raise ValueError('All-copy draw lost its original selected physical card')
+    if len(cards) > r.rules.max_resolution_steps: raise ResolutionLimitExceeded('All-copy draw exceeds its resolution budget')
+    return (MaterializeDiscoveredCard(result,
+        MoveCard(selected, request.player_id, Zone.HAND, draw=True, source_id=request.source_id)),
+        *(MoveCard(card, request.player_id, Zone.HAND, draw=True, source_id=request.source_id) for card in cards if card != selected))

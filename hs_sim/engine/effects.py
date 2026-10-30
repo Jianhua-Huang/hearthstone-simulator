@@ -1171,6 +1171,7 @@ class ReturnToHand(Effect):
     discard: object | None = None
     lock_next_owner_turn: bool = False
     source_id: int | None = None
+    expires_turn: int | None = None
 
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
@@ -1189,6 +1190,9 @@ class ReturnToHand(Effect):
             if type(self.cost) is not CostSpec:
                 raise ValueError('Return cost requires CostSpec')
             self.cost.__post_init__()
+        if self.expires_turn is not None:
+            _integer(self.expires_turn, 'returned-card cost expiry', 1)
+            if self.cost is None: raise ValueError('Returned-card cost expiry requires a cost operation')
         if self.discard is not None:
             from .discard_history import material_value
             material_value(self.discard)

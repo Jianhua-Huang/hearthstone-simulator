@@ -13,10 +13,11 @@ class ReturnCapturedMinion(Effect):
     to_owner: bool = False
     cost: CostSpec | None = None
     on_success: tuple[Effect, ...] = ()
+    expires_turn: int | None = None
 
     def __post_init__(self):
         reference_value(self.minion); _source(self.source_id)
-        ReturnToHand(self.minion.entity_id, self.to_owner, self.cost).__post_init__()
+        ReturnToHand(self.minion.entity_id, self.to_owner, self.cost, expires_turn=self.expires_turn).__post_init__()
         if type(self.on_success) is not tuple or any(not isinstance(x, Effect) for x in self.on_success):
             raise ValueError('Successful return requires immutable typed continuation effects')
         for effect in self.on_success:
@@ -64,7 +65,7 @@ def return_captured(r, effect):
         r.stale(effect, effect.minion.entity_id)
         return ()
     destination = entity.owner if effect.to_owner else entity.controller
-    return_to_hand(r, ReturnToHand(entity.id, effect.to_owner, effect.cost))
+    return_to_hand(r, ReturnToHand(entity.id, effect.to_owner, effect.cost, expires_turn=effect.expires_turn))
     # The original return handler either moves this physical minion successfully,
     # or leaves it on board for the ordinary full-hand death checkpoint.
     return effect.on_success if entity.zone == Zone.HAND and entity.controller == destination else ()

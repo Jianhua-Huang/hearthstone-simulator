@@ -743,7 +743,8 @@ class ChooseFromZone(Effect):
             raise ValueError('Unsupported zone choice operation')
         if self.sample_size is not None:
             integer(self.sample_size, 'zone choice sample size')
-        if self.distinct not in ('card', 'entity') or (self.distinct == 'card' and self.operation not in ('copy_base', 'copy_current')):
+        if self.distinct not in ('card', 'entity') or (self.distinct == 'card' and self.operation not in ('copy_base', 'copy_current') and
+                not(self.operation == 'draw' and self.selected_reward == 'draw_all_copies')):
             raise ValueError('Only copy choices may collapse physical copies')
         if self.operation == 'draw' and (self.zone != Zone.DECK or self.player_id != self.owner_id):
             raise ValueError('Draw choice requires the choosing player\'s deck')
@@ -788,6 +789,10 @@ class SelectDeckTake(Effect):
                 raise ValueError('Deck selection borrowed another original owner')
         if len({x.card.entity_id for x in self.offered}) != len(self.offered):
             raise ValueError('Deck discovery repeated a physical offered card')
+        if self.request.selected_reward == 'draw_all_copies' and (
+                len(self.offered) > 3 or len({o.card.card_id for o in self.offered}) != len(self.offered) or
+                any(o.card.player_id != self.request.owner_id or o.card.zone != Zone.DECK for o in self.offered)):
+            raise ValueError('All-copy draw requires distinct original own-deck identity offers')
         integer(self.index, 'selected deck offer', 0)
         if self.index >= len(self.offered):raise ValueError('Selected deck offer is outside its original inventory')
         if self.result is not None:
@@ -1408,6 +1413,9 @@ def select_deck_take(r, effect):
             effect.result.selected_ids != (f'zone-{effect.index+1}',)):
         raise ResolutionError('Deck selection changed its original complete request or offers')
     selected = effect.offered[effect.index].card
+    if request.selected_reward == 'draw_all_copies':
+        from .deck_discovery_rewards import draw_all_work
+        return draw_all_work(r, request, selected, effect.result)
     from .deck_discovery_rewards import selected_work
     before, after = selected_work(r, request, selected)
     work = before + ((ModifyStoredCost(selected, request.cost, request.source_id),) if request.cost is not None else ())

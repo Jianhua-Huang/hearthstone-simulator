@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v833'
+CORE_EFFECTS_VERSION = 'core-effects-v834'
 
 
 class Mechanics:
@@ -2241,6 +2241,8 @@ def expire_turn(r, effect):
 
 def return_to_hand(r, effect):
     effect.__post_init__()
+    if effect.expires_turn is not None and effect.expires_turn < r.state.turn:
+        raise ResolutionError('Returned-card cost already expired')
     if effect.lock_next_owner_turn:
         validate_attachment_source(r, effect.source_id, None)
     if effect.discard is not None:
@@ -2269,7 +2271,7 @@ def return_to_hand(r, effect):
     enter_hand(r.state, entity, Zone.BOARD, 'return', source_id=effect.source_id)
     reset_to_definition(r.state, entity, r.registry.card(entity.card_id), r.registry, preserve_jade=True, preserve_cthun=True)
     if effect.cost is not None:
-        modify_cost(r, ModifyCost(entity.id, effect.cost))
+        modify_cost(r, ModifyCost(entity.id, effect.cost, expires_turn=effect.expires_turn))
     if effect.lock_next_owner_turn:
         from .hand_play_locks import LockHandCard, lock_hand_card
         from .zones import CardReference
