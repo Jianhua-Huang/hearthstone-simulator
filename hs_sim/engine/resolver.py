@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v836'
+CORE_EFFECTS_VERSION = 'core-effects-v837'
 
 
 class Mechanics:
@@ -2084,6 +2084,16 @@ def silence_batch(r, effect):
 
 def grant_ability(r, effect):
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
+    if isinstance(effect, GrantDeathrattle) and effect.stored_card is not None:
+        from .zones import reference_entity
+        effect.__post_init__()
+        if r.registry.card(effect.stored_card.card_id).kind != CardType.MINION:
+            raise ResolutionError('Stored Deathrattle grant requires a real minion face')
+        entity = reference_entity(r, effect.stored_card)
+        if entity is None: return ()
+        _grant_to(r, effect, entity, notify=False)
+        r.emit('stored_deathrattle_granted', source_id=effect.source_id, target_id=entity.id, player_id=entity.controller)
+        return ()
     candidate = r.state.entities.get(effect.target_id)
     if candidate is not None and candidate.zone == Zone.HERO and isinstance(effect, (GrantDeathrattle, GrantTrigger)):
         entity = candidate

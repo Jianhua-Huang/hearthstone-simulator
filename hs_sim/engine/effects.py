@@ -1118,6 +1118,7 @@ class GrantDeathrattle(Effect):
     source_id: int | None = None
     expires_turn: int | None = None
     deathrattle_memory: object | None = None
+    stored_card: object | None = None
     def __post_init__(self):
         _grant(self.target_id, self.source_id, self.expires_turn)
         _behavior(self.behavior_id)
@@ -1128,6 +1129,12 @@ class GrantDeathrattle(Effect):
                     self.deathrattle_memory.summon_copy is None or self.source_id is None or self.expires_turn is not None):
                 raise ValueError('Remembered Deathrattle grant requires one permanent original copy')
             self.deathrattle_memory.__post_init__()
+        if self.stored_card is not None:
+            from .zones import reference_value
+            reference_value(self.stored_card)
+            if (self.stored_card.zone != Zone.HAND or self.stored_card.entity_id != self.target_id or self.source_id is None or
+                    self.expires_turn is not None or self.deathrattle_memory is not None):
+                raise ValueError('Stored Deathrattle grant requires one original hand minion and permanent plain body')
 
 
 @dataclass(frozen=True)

@@ -52,7 +52,7 @@ CHOICE_EVENTS = frozenset(('choice_requested', 'choice_selected'))
 PRIVATE_CARD_EVENTS = frozenset(('held_battlecry_form_selected', 'choose_branch_changed', 'stored_card_buffed', 'stored_card_stats_set', 'hand_card_upgraded', 'hand_progressed',
                                'card_shattered', 'cards_recombined', 'card_expired', 'hand_card_made_temporary', 'stored_keyword_granted',
                                'stored_card_transformed', 'counter_policy_added', 'card_spell_repeat_added', 'card_spell_repeat_removed',
-                               'stored_spell_damage_granted', 'hand_turn_discount_granted'))
+                               'stored_spell_damage_granted', 'hand_turn_discount_granted', 'stored_deathrattle_granted'))
 EVENT_KINDS = PUBLIC_EVENTS | CHOICE_EVENTS | PRIVATE_CARD_EVENTS | {'card_revealed', 'deck_card_revealed'}
 _REF = re.compile(r'e([1-9][0-9]*)\Z')
 _CHOICE = re.compile(r'c([1-9][0-9]*)\Z')
