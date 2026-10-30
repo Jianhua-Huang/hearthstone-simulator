@@ -11,7 +11,7 @@ RELATIVE_TARGETS = ('friendly_minions_left_of_source', 'friendly_minions_right_o
 
 
 def native_scope(spec):
-    return (spec.condition != 'always' or spec.tribes_any or spec.card_ids or
+    return (spec.keyword == Keyword.STEALTH or spec.condition != 'always' or spec.tribes_any or spec.card_ids or
             spec.target in POSITIONAL_TARGETS+RELATIVE_TARGETS)
 
 
@@ -104,6 +104,8 @@ class GrantKeywordAura(Effect):
         if type(self.spec) is not KeywordAuraSpec:
             raise ValueError('Keyword aura requires KeywordAuraSpec')
         self.spec.__post_init__()
+        if self.spec.keyword == Keyword.STEALTH:
+            raise ValueError('Permanent Stealth requires its native declaration')
         if self.spec.condition != 'always':
             raise ValueError('Conditional keyword grants are not supported')
         if self.spec.tribes_any or self.spec.card_ids:

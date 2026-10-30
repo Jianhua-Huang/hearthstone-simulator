@@ -47,6 +47,8 @@ def local_keywords(entity):
                  if a.limited_trigger.keyword is not None}
     keywords |= {a.hand_progress.keyword for a in active_abilities(entity,'hand_progress')
                  if a.hand_progress.keyword is not None}
+    keywords |= {a.keyword_aura.keyword for a in active_abilities(entity, 'keyword_aura')
+                 if a.keyword_aura.keyword == Keyword.STEALTH}
     if entity.damage > 0:
         keywords |= {a.keyword_aura.keyword for a in active_abilities(entity,'keyword_aura')
                      if a.keyword_aura.condition == 'self_damaged'}
@@ -307,6 +309,14 @@ def consume_keyword(entity, keyword):
     entity.abilities = [replace(a, consumed=True) if a.kind == 'keyword' and a.keyword == keyword
                         and not a.consumed else a for a in entity.abilities]
     refresh_entity(entity)
+
+
+def consume_stealth(entity):
+    """Consume ordinary flags and report only the actual loss of Stealth."""
+    if Keyword.STEALTH not in entity.keywords:
+        return False
+    consume_keyword(entity, Keyword.STEALTH)
+    return Keyword.STEALTH not in entity.keywords
 
 
 def copy_attachments(state, source, destination, *, rebind_printed=False, retain_ids=False,

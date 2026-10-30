@@ -1485,7 +1485,7 @@ class KeywordAuraSpec:
 
     def __post_init__(self):
         supported = {Keyword.WINDFURY, Keyword.MEGA_WINDFURY, Keyword.TAUNT, Keyword.CHARGE, Keyword.RUSH,
-                     Keyword.POISONOUS, Keyword.LIFESTEAL, Keyword.IMMUNE, Keyword.IMMUNE_WHILE_ATTACKING, Keyword.CANT_BE_FROZEN, Keyword.ELUSIVE}
+                     Keyword.POISONOUS, Keyword.LIFESTEAL, Keyword.IMMUNE, Keyword.IMMUNE_WHILE_ATTACKING, Keyword.CANT_BE_FROZEN, Keyword.ELUSIVE, Keyword.STEALTH}
         hand = self.target in ('friendly_hand_minions', 'friendly_hand_spells', 'friendly_hand')
         if hand:
             supported.add(Keyword.ECHO)
@@ -1499,6 +1499,9 @@ class KeywordAuraSpec:
         _bool(self.adjacent_only, 'keyword aura adjacent_only')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
         _aura_card_ids(self.card_ids)
+        if self.keyword == Keyword.STEALTH and (self.target != 'self' or self.condition != 'always' or
+                self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):
+            raise ValueError('Permanent Stealth requires its independent native self contribution')
         positional = {'friendly_leftmost_minion': Keyword.RUSH,
                       'friendly_rightmost_minion': Keyword.IMMUNE_WHILE_ATTACKING}
         relative = {'friendly_minions_left_of_source': Keyword.RUSH,
@@ -1528,7 +1531,7 @@ class KeywordAuraSpec:
                 self.target!='friendly_minions' or not self.include_self or self.adjacent_only or
                 self.tribes_any or self.card_ids):
             raise ValueError('Summon-turn Rush immunity requires its independent native friendly scope')
-        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','controller_controls_named_minion')):
+        if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','controller_controls_named_minion') or self.keyword == Keyword.STEALTH):
             raise ValueError('Conditional keyword requires its own self target')
         if self.condition == 'controller_turn' and (self.target != 'friendly_hero' or
                 self.keyword not in (Keyword.IMMUNE,Keyword.WINDFURY) or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):

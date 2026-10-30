@@ -33,7 +33,7 @@ from .health_rules import prepare_health, rule_sources
 from .registry import RuleContext
 from .model import HeroAttackReference, KindredActivation
 from .lifecycle import (active_abilities, attachment_id, install_base, install_printed, refresh_entity,
-                        remove_attachments, reset_to_definition, consume_keyword, copy_attachments, initialize_dormancy)
+                        remove_attachments, reset_to_definition, consume_keyword, consume_stealth, copy_attachments, initialize_dormancy)
 
 
 @dataclass(frozen=True)
@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v841'
+CORE_EFFECTS_VERSION = 'core-effects-v842'
 
 
 class Mechanics:
@@ -1261,8 +1261,7 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
             return 0
         source = r.state.entities.get(packet.source_id)
         if (result.dealt and packet.damage_kind == DamageKind.MINION_ABILITY and source is not None
-                and Keyword.STEALTH in source.keywords):
-            consume_keyword(source, Keyword.STEALTH)
+                and consume_stealth(source)):
             pending_events.append(('stealth_lost', dict(source_id=source.id, target_id=source.id, reason='minion_ability_damage')))
         target.armor -= result.armor_absorbed
         replacement = replacement_for(state, target.id, HealthLossKind.DAMAGE)
@@ -1795,8 +1794,7 @@ def begin_attack(r, effect):
     action = effect.action
     r.state.entities[action.attacker_id].attacks_this_turn += 1
     attacker = r.state.entities[action.attacker_id]
-    if Keyword.STEALTH in attacker.keywords:
-        consume_keyword(attacker, Keyword.STEALTH)
+    if consume_stealth(attacker):
         r.emit('stealth_lost', source_id=attacker.id, target_id=attacker.id, reason='attack')
     from .interrupts import open_window, ResolveAttack
     window = open_window(r, 'attack', action.player_id, action.attacker_id, action.defender_id)
@@ -1829,8 +1827,7 @@ def force_attack(r, effect):
         return
     if attacker.kind != CardType.MINION:
         raise ResolutionError('ForceAttack currently requires a minion attacker')
-    if Keyword.STEALTH in attacker.keywords:
-        consume_keyword(attacker, Keyword.STEALTH)
+    if consume_stealth(attacker):
         r.emit('stealth_lost', source_id=attacker.id, target_id=attacker.id, reason='attack')
     from .interrupts import open_window, ResolveAttack
     window = open_window(r, 'attack', attacker.controller, attacker.id, defender.id, forced=True,
