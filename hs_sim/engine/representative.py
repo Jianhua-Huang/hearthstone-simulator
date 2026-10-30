@@ -1100,14 +1100,14 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
     def sinestra_soldier(c):
         if c.event.source_id != c.source_id:
             return []
-        return [GenerateFromPool(c.player_id, HERALD_POOL_ID,
+        return [GenerateFromPool(c.player_id, 'constructed.cards' if constructed_card_spell_sources else HERALD_POOL_ID,
             PoolQuery(kinds=(CardType.SPELL,), collectible=True, class_mode='other', include_neutral=False),
             source_id=c.source_id, cost=CostSpec(delta=-instance_multiplier(c.source)))]
     def onyxia_soldier(c):
         if c.event.source_id != c.source_id:
             return []
         cost = 2 * instance_multiplier(c.source)
-        return [GenerateFromPool(c.player_id, HERALD_POOL_ID,
+        return [GenerateFromPool(c.player_id, 'constructed.cards' if constructed_card_spell_sources else HERALD_POOL_ID,
             PoolQuery(kinds=(CardType.MINION,), collectible=True, min_cost=cost, max_cost=cost),
             source_id=c.source_id, cost=CostSpec(payment=PaymentType.HEALTH), expires_turn=c.state.turn)]
     def alakir(c):

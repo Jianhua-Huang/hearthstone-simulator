@@ -229,13 +229,14 @@ class CopyCard(Effect):
     def __post_init__(self):
         if self.cast_id is not None:
             integer(self.cast_id,'original copied spell cast',1);_player(self.player_id);_source(self.source_id)
-            if type(self.cost) is not CostSpec:
-                raise ValueError('Original CAST copy requires its explicit zero-cost recipe')
-            self.cost.__post_init__()
+            if self.cost is not None:
+                if type(self.cost) is not CostSpec:
+                    raise ValueError('Original CAST copy requires a typed optional zero-cost recipe')
+                self.cost.__post_init__()
             if (self.card is not None or self.destination!=Zone.HAND or self.mode!='base' or self.position!='random' or
-                    self.source_id is None or self.stats is not None or self.cost!=CostSpec(set_to=0) or
+                    self.source_id is None or self.stats is not None or self.cost not in (None,CostSpec(set_to=0)) or
                     self.expires_turn is not None or self.cast_when_drawn is not False or self.required_keyword is not None):
-                raise ValueError('Original CAST copy requires one attributed permanent zero-cost base hand copy')
+                raise ValueError('Original CAST copy requires one attributed permanent ordinary or zero-cost base hand copy')
             return
         if self.required_keyword is not None and (type(self.required_keyword) is not Keyword or
                 type(self.card) is not MinionReference or self.destination != Zone.HAND or
@@ -1121,6 +1122,15 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
         imprint(r.state,entity,permanent_stats,effect.source_id)
     seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state, entity, effect.stats)
+    if effect.cast_id is not None:
+        # Preserve the accepted intrinsic generated spell recipe, before any
+        # creation/hand notification. Old transient hand costs and choices reset.
+        if row.native_spell_value is not None:
+            from .native_spell_values import ability_value, install
+            install(r.state, r.registry, entity, ability_value(row.native_spell_value))
+        if row.spell_aura_id is not None:
+            from .spell_auras import install
+            install(r.state, entity, row.spell_aura_id, effect.source_id)
     if effect.cost is not None:
         attach_cost(r.state, entity, effect.cost, effect.source_id, effect.expires_turn)
     if effect.cast_when_drawn:

@@ -205,8 +205,9 @@ class PastCastCostHistoryTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_original_cast_copy_recipe_rejects_mixed_current_deck_expiry_and_cost_shapes(self):
         base=dict(card=None,player_id=1,mode='base',source_id=3,cost=CostSpec(set_to=0),cast_id=1)
+        CopyCard(**(base|dict(cost=None)))
         for patch in(dict(card=CardReference(4,1,Zone.HAND,ONE,0)),dict(mode='current'),dict(destination=Zone.DECK),
-                dict(expires_turn=4),dict(source_id=None),dict(cost=None),dict(cost=CostSpec(set_to=1)),dict(cast_id=True),dict(cast_id=0)):
+                dict(expires_turn=4),dict(source_id=None),dict(cost=CostSpec(set_to=1)),dict(cast_id=True),dict(cast_id=0)):
             with self.subTest(patch=patch),self.assertRaises(ValueError):CopyCard(**(base|patch))
 
     def test_typed_observer_rejects_other_carriers_events_and_school_combinations(self):

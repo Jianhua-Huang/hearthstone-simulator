@@ -104,6 +104,9 @@ class FrameCodec:
         from .minion_damage_waves import RepeatBattlecryMinionDamage, ContinueBattlecryDamageIfDeaths
         if type(value) in (RepeatBattlecryMinionDamage, ContinueBattlecryDamageIfDeaths) and self.origin_state is not None:
             value.validate_in_state(self.origin_state, self.registry)
+        from .physical_draw_chains import DrawBattlecryUntilNonDragon, ContinueBattlecryDragonDraws
+        if type(value) in (DrawBattlecryUntilNonDragon, ContinueBattlecryDragonDraws) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
         from .destroyed_group_memory import DestroyForDeathrattleGroup, ResummonDestroyedGroups
         if type(value) in (DestroyForDeathrattleGroup, ResummonDestroyedGroups) and self.origin_state is not None:
             value.validate_in_state(self.origin_state, self.registry)
