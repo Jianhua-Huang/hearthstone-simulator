@@ -26,7 +26,10 @@ def registry(members=MEMBERS,mode=None,pool=True):
     r=batch_registry()
     for cid in members:
         if cid in r.pool_cards:continue
-        if cid==OLD_SNEED:
+        if cid.startswith(TEST+'missing.'):
+            original=r.pool_card(cid[len(TEST+'missing.'):])
+            r.register_pool_card(replace(original,card_id=cid,metadata=replace(original.metadata,deck_identity=cid)))
+        elif cid==OLD_SNEED:
             raw=next(x['record']for x in load_batch()['evidence_only']if x['record']['id']==cid)
             r.register_pool_card(PoolCard(cid,CardType.MINION,raw['cost'],metadata_from_record(raw),battlecry=False))
         else:r.register_pool_card(PoolCard.from_definition(r.card(cid)))
@@ -104,8 +107,8 @@ class SimpleFollowupP30Tests(unittest.TestCase):
     def test_mongrel_native_death_two_original_draws_independent_entities_and_cause(self):
         g=self.game((TEST+'kill',),board=(MONGREL,),members=(YETI,));source=self.first(g,MONGREL,'board').id;rng=random.Random();rng.setstate(g._rng.getstate());expected=sample_candidates(rng,self.candidates(g.registry,MONGREL),2,replacement=True);self.play(g,TEST+'kill',source);events=self.summons(g,source);self.assertEqual([g.state.entities[e.target_id].card_id for e in events],list(expected));self.assertEqual(len({e.target_id for e in events}),2);self.assertEqual(g._rng.getstate(),rng.getstate());root,=g.state.pool_summon_history;self.assertEqual(root.selected,tuple(expected));self.assertEqual(root.spec.cause.source.entity_id,source);self.assertEqual(root.status,'completed');self.assertEqual(len(root.entry_root_ids),2);death,=g.state.deathrattle_history;self.assertEqual(death.capture.ability.deathrattle_card_id,MONGREL);self.assertTrue(death.completed)
 
-    def test_sneed_native_death_excludes_self_and_unimplemented_old_edition(self):
-        g=self.game((TEST+'kill',),board=(SNEED,),members=(SNEED,OLD_SNEED,BRIGHT));self.assertNotIn(OLD_SNEED,g.registry.cards);source=self.first(g,SNEED,'board').id;self.play(g,TEST+'kill',source);event,=self.summons(g,source);self.assertEqual(g.state.entities[event.target_id].card_id,BRIGHT);self.assertFalse(g.state.battlecry_history);self.assertFalse(self.created(g,source));root,=g.state.card_summon_history;self.assertEqual(root.request.cause.source.entity_id,source);self.assertEqual([m.card_id for m in root.request.pool_basis.candidates],[BRIGHT]);self.portable(g)
+    def test_sneed_native_death_excludes_self_and_other_printing_of_same_source(self):
+        g=self.game((TEST+'kill',),board=(SNEED,),members=(SNEED,OLD_SNEED,BRIGHT));self.assertIn(OLD_SNEED,g.registry.cards);source=self.first(g,SNEED,'board').id;self.play(g,TEST+'kill',source);event,=self.summons(g,source);self.assertEqual(g.state.entities[event.target_id].card_id,BRIGHT);self.assertFalse(g.state.battlecry_history);self.assertFalse(self.created(g,source));root,=g.state.card_summon_history;self.assertEqual(root.request.cause.source.entity_id,source);self.assertEqual([m.card_id for m in root.request.pool_basis.candidates],[BRIGHT]);self.portable(g)
 
     def test_sneed_source_family_only_is_empty_before_implementation_and_rng(self):
         g=self.game((TEST+'kill',),board=(SNEED,),members=(SNEED,OLD_SNEED));source=self.first(g,SNEED,'board').id;saved_rng=g._rng.getstate()
@@ -135,8 +138,9 @@ class SimpleFollowupP30Tests(unittest.TestCase):
                     with self.assertRaises(ResolutionError):self.play(g,cid)
                     self.assertEqual(g.snapshot(),saved)
 
-    def test_real_eligible_unknowns_fail_before_rng_including_full_board(self):
-        for cid,unknown in((MAZE,'CATA_614'),(MONGREL,'CAP_005'),(SNEED,'BE_036'),(TOOLS,'CATA_567')):
+    def test_real_filter_facts_with_missing_definitions_fail_before_rng_including_full_board(self):
+        for cid,known in((MAZE,'CATA_614'),(MONGREL,'CAP_005'),(SNEED,'BE_036'),(TOOLS,'CATA_567')):
+            unknown=TEST+'missing.'+known
             with self.subTest(cid=cid):
                 death=cid in(MONGREL,SNEED);g=self.game((TEST+'kill',)if death else(cid,),board=(cid,)if death else(YETI,)*6 if cid==MAZE else(),members=(*MEMBERS,unknown));self.assertNotIn(unknown,g.registry.cards);saved=g.snapshot()
                 with patch.object(random.Random,'randrange',side_effect=AssertionError('RNG before complete eligible validation'))as calls:

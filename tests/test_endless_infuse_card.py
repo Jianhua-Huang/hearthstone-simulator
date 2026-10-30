@@ -119,7 +119,9 @@ class EndlessInfuseCardTests(CardBatchTestMixin,unittest.TestCase):
         r=fixture().registry
         self.assertEqual((r.card(CARD).cost,r.card(CARD).attack,r.card(CARD).health),(10,10,10))
         self.assertEqual((r.infused_battlecry_profiles[CARD].initial_damage,r.infused_battlecry_profiles[INFUSED].initial_damage),(5,6))
-        self.assertNotIn(ORIGINAL,r.cards);self.assertFalse(d['cn_calibrated']);self.assertFalse(d['formal_pool_complete'])
+        self.assertIn(ORIGINAL,r.cards)
+        self.assertEqual(r.infused_battlecry_profiles[ORIGINAL],replace(r.infused_battlecry_profiles[CARD],card_id=ORIGINAL))
+        self.assertFalse(d['cn_calibrated']);self.assertFalse(d['formal_pool_complete'])
         face=next(f for f in d['official_faces']if f['card_id']==INFUSED)
         with self.assertRaises(ValueError):batch.check_face(rows[INFUSED],face['face'],face['locale'],{'{0}':'','{1}':'99'})
 
