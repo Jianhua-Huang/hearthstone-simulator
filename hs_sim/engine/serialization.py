@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 658
+SNAPSHOT_SCHEMA_VERSION = 659
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -87,6 +87,16 @@ def _integer(value, name, minimum=None):
     return value
 
 
+def battlecry_record_from_dict(value):
+    from .model import BattlecryRecord, BattlecryPayload
+    row=_row(value,BattlecryRecord)
+    from .native_target_acceptance import selection_from_dict as native_selection_from_dict
+    row['native_target']=native_selection_from_dict(row['native_target'])
+    row['held_opponent_copy'] = _held_opponent_copy_match_from_dict(row['held_opponent_copy'])
+    row['payload']=BattlecryPayload(**_row(row['payload'],BattlecryPayload))
+    return BattlecryRecord(**row)
+
+
 def deathrattle_memory_from_dict(value):
     from .model import DeathrattleMemory, NativeDeathrattleSpec, RememberedDraw, RememberedDormancy, RememberedDiscovery, RememberedCost
     memory = _row(value, DeathrattleMemory)
@@ -97,6 +107,8 @@ def deathrattle_memory_from_dict(value):
     memory['dormancies'] = tuple(RememberedDormancy(**_row(x, RememberedDormancy)) for x in _list(memory['dormancies'], 'remembered dormancy intervals'))
     memory['discoveries'] = tuple(RememberedDiscovery(**_row(x, RememberedDiscovery)) for x in _list(memory['discoveries'], 'remembered discoveries'))
     memory['cost_links'] = tuple(RememberedCost(**_row(x, RememberedCost)) for x in _list(memory['cost_links'], 'remembered cost attachments'))
+    from .destroyed_group_memory import group_from_dict
+    memory['destroyed_groups'] = tuple(group_from_dict(x) for x in _list(memory['destroyed_groups'], 'remembered original destroyed groups'))
     from .model import RememberedTargetSpell, BoardPresenceReference
     from .allocation_facts import allocation_from_dict
     from .copy_materials import CapturedCardCopyMaterial, from_dict
@@ -1567,12 +1579,7 @@ def state_from_dict(value: dict) -> GameState:
     value['combo_batches']=batches
     battlecries=[]
     for item in _list(value['battlecry_history'], 'Battlecry history'):
-        row=_row(item,BattlecryRecord)
-        from .native_target_acceptance import selection_from_dict as native_selection_from_dict
-        row['native_target']=native_selection_from_dict(row['native_target'])
-        row['held_opponent_copy'] = _held_opponent_copy_match_from_dict(row['held_opponent_copy'])
-        row['payload']=BattlecryPayload(**_row(row['payload'],BattlecryPayload))
-        battlecries.append(BattlecryRecord(**row))
+        battlecries.append(battlecry_record_from_dict(item))
     value['battlecry_history']=battlecries
     from .indirect_body_targets import sequence_from_dict
     value['indirect_body_sequences']=[sequence_from_dict(row) for row in _list(

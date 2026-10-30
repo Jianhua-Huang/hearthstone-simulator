@@ -2864,7 +2864,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return', 'destroyed_group'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2967,9 +2967,22 @@ class DeathrattleMemory:
     cost_links: tuple[RememberedCost, ...] = ()
     targeted_spells: tuple[RememberedTargetSpell, ...] = ()
     custody: object | None = None
+    destroyed_groups: tuple[object, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        from .destroyed_group_memory import DestroyedBattlecryGroup
+        if type(self.destroyed_groups) is not tuple or any(type(x) is not DestroyedBattlecryGroup for x in self.destroyed_groups):
+            raise ValueError('Destruction memory requires complete immutable original Battlecry groups')
+        for group in self.destroyed_groups: group.__post_init__()
+        group_ids = tuple(group.battlecry.id for group in self.destroyed_groups)
+        if group_ids != tuple(sorted(set(group_ids))):
+            raise ValueError('Destruction memory changed the unique original Battlecry order')
+        if (self.spec.kind != 'destroyed_group' and self.destroyed_groups or
+                self.spec.kind == 'destroyed_group' and any((self.growth_steps, self.draws, self.discard_ids,
+                    self.dormancies, self.discoveries, self.hand_entry_ids, self.summon_copy,
+                    self.cost_links, self.targeted_spells, self.custody))):
+            raise ValueError('Destroyed-group memory cannot mix unrelated native materials')
         if self.custody is not None:
             from .kidnap_custody import StoredMinionCustody
             if self.spec.kind != 'custody_return' or type(self.custody) is not StoredMinionCustody:

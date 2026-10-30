@@ -64,6 +64,9 @@ def validate_ability(state,registry,ability):
 
 def validate_copy_memory(state, registry, memory, *, closed=False):
     memory.__post_init__()
+    if memory.destroyed_groups:
+        from .destroyed_group_memory import validate_group
+        for group in memory.destroyed_groups: validate_group(state, registry, group, closed=closed)
     if memory.custody is not None:
         from .kidnap_custody import validate_custody
         validate_custody(state, registry, memory.custody, closed=closed)

@@ -513,6 +513,9 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import validate_material as validate_death_material
             validate_death_material(state,registry,material,closed=closed)
+            if material.entry_grant is not None and (material.source.entity_id != request.cause.source.entity_id or
+                    request.player_id != request.cause.player_id):
+                raise ValueError('Resurrection entry grant differs from its actual original source or recipient')
     from .mana_worth_summons import ManaWorthEntryLink,validate_recipe as validate_budget_recipe
     if type(request.producer_link) is ManaWorthEntryLink:validate_budget_recipe(request)
 

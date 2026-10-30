@@ -255,6 +255,7 @@ class ResurrectMinion(Effect):
     on_summon: str | None = None
     cause: object = None
     producer_link: object = None
+    entry_grant: object = None
 
     def __post_init__(self):
         if self.cause is not None:
@@ -269,6 +270,12 @@ class ResurrectMinion(Effect):
         position_value(self.position); _source(self.source_id)
         validate_summon_stats(self.stats)
         if self.on_summon is not None: _behavior(self.on_summon)
+        if self.entry_grant is not None:
+            from .resurrection_summons import validate_entry_grant
+            validate_entry_grant(self.entry_grant)
+            if (self.cause is None or self.source_id is None or self.cause.source.entity_id != self.source_id or
+                    self.stats is not None or self.on_summon is not None or self.producer_link is not None):
+                raise ValueError('Resurrection stat grant requires its ordinary attributed single death entry')
 
 
 def death_record(state, death_id):

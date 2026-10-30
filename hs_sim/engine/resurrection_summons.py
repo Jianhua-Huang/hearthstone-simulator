@@ -24,6 +24,14 @@ def validate_death(state,registry,death,*,closed=False):
     if not closed and death!=next((d for d in state.death_history if d.id==death.id),None):raise ValueError('Resurrection material differs from its immutable actual death')
 
 
+def validate_entry_grant(value):
+    from .card_creation import validate_minion_grant
+    validate_minion_grant(value)
+    if value is not None and (value.attack != 1 or value.health != 1 or value.keywords or
+            value.reborn_policy is not None or value.identity is not None or value.special is not None):
+        raise ValueError('Native resurrection entry supports only its plain relative +1/+1 grant')
+
+
 @dataclass(frozen=True)
 class ResurrectionEntryMaterial:
     card_id:str
@@ -38,7 +46,12 @@ class ResurrectionEntryMaterial:
     on_summon:str|None=None
     entry_herald_count:int|None=None
     remaining_health:int|None=None
+    entry_grant:object=None
     def __post_init__(self):
+        validate_entry_grant(self.entry_grant)
+        if self.entry_grant is not None and (self.source is None or self.stats is not None or
+                self.on_summon is not None or self.remaining_health is not None):
+            raise ValueError('Resurrection entry grant requires its original ordinary body and physical source')
         if type(self.death)is not DeathRecord:raise ValueError('Complete typed immutable death material required')
         self.death.__post_init__()
         if self.card_id!=self.death.card_id or self.death.zone!=Zone.BOARD:raise ValueError('Resurrection material requires its original board minion death')
@@ -85,7 +98,7 @@ def accept_entry(r,effect):
     material=ResurrectionEntryMaterial(death.card_id,death,source,
         r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order,r.state.next_attachment_id,effect.stats,effect.on_summon,
         herald_count(r.state,effect.player_id)if r.registry.card(death.card_id).herald_scaling else None,
-        remaining_health=1 if type(effect)is ResurrectOneHealth else None)
+        remaining_health=1 if type(effect)is ResurrectOneHealth else None,entry_grant=getattr(effect,'entry_grant',None))
     request=SummonByCard(effect.player_id,(material,),effect.cause,position=effect.position,producer_link=effect.producer_link)
     accept(r,request);root=r.state.card_summon_history[-1]
     if effect.producer_link is not None:bind_entry(r,effect.producer_link,root.id)
@@ -111,6 +124,11 @@ def apply(r,material,entity,root_id,index):
     from .native_stat_gains import seed
     seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state,entity,material.stats)
+    if material.entry_grant is not None:
+        from types import SimpleNamespace
+        from .card_creation import install
+        install(r.state, entity, SimpleNamespace(minion_grant=material.entry_grant, spell_repeat=None,
+            source_id=material.source.entity_id), resolver=r)
     row=ResurrectionRecord(len(r.state.resurrection_history)+1,material.death.id,entity.id,entity.controller,r.state.turn,r.state.action_number,
         None if material.source is None else material.source.entity_id,material.stats,entity.entered_order,entity.zone_epoch)
     r.state.resurrection_history.append(row);r.refresh_auras()
@@ -434,7 +452,7 @@ def validate_child(parent,index,child):
     pick=parent.picks[index];request=child.request;position=None if parent.spec.position is None else parent.spec.position+index
     if pick.entry_root_id!=child.id or request.producer_link!=ResurrectionEntryLink(parent.id,index)or(request.player_id,request.cause,request.position)!=(parent.spec.player_id,parent.spec.cause,position)or len(request.materials)!=1 or type(request.materials[0])is not ResurrectionEntryMaterial:raise ValueError('Death child differs from original request/selection')
     material=request.materials[0];death=next(x for x in parent.basis.inventory if x.id==pick.selected)
-    if material.remaining_health is not None or material.death!=death or(material.stats,material.on_summon,None if material.source is None else material.source.entity_id)!=(parent.spec.stats,parent.spec.on_summon,parent.spec.source_id)or child.event_cursor<=parent.event_cursor:raise ValueError('Death material differs from complete selected original death')
+    if material.remaining_health is not None or material.entry_grant is not None or material.death!=death or(material.stats,material.on_summon,None if material.source is None else material.source.entity_id)!=(parent.spec.stats,parent.spec.on_summon,parent.spec.source_id)or child.event_cursor<=parent.event_cursor:raise ValueError('Death material differs from complete selected original death')
 
 
 def validate_link(state,child,*,closed=False):
@@ -594,6 +612,8 @@ def from_dict(cls,value):
     if cls is ResurrectionEntryMaterial:
         row['death']=_death_from_dict(row['death']);row['source']=allocation_from_dict(row['source'])
         row['stats']=None if row['stats']is None else SummonStats(**_row(row['stats'],SummonStats))
+        from .card_creation import minion_grant_from_dict
+        row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
     elif cls is ResurrectionBasis:
         q=_row(row['query'],DeathQuery);q['cards']=query_from_dict(q['cards']);q['exclude_entity_ids']=tuple(q['exclude_entity_ids']);row['query']=DeathQuery(**q)
         row['source']=allocation_from_dict(row['source']);row['hero_class']=None if row['hero_class']is None else CardClass(row['hero_class']);row['inventory']=tuple(_death_from_dict(x)for x in row['inventory'])
