@@ -229,8 +229,10 @@ class CopyEntryMaterial:
         self.origin.__post_init__()
         if self.origin.card_id!=self.card_id or self.origin.kind!=CardType.MINION:raise ValueError('Copy material differs from its physical minion face')
         if self.profile not in ('board_copy','stored_copy','discard_copy','discard_summon_copy','remembered_copy','remembered_hand_copy','death_copy','base_resummon')or self.mode not in ('current','base'):raise ValueError('Unknown ordinary minion copy recipe')
-        if self.profile in ('remembered_copy','remembered_hand_copy') and (self.mode!='current' or self.stats is not None):
+        if self.profile in ('remembered_copy','remembered_hand_copy') and self.mode!='current':
             raise ValueError('Remembered copy requires its full original current minion recipe')
+        if self.profile=='remembered_hand_copy' and self.stats is not None:
+            raise ValueError('Remembered hand copy requires its unmodified current minion recipe')
         if self.profile=='base_resummon' and (self.mode!='base' or self.stats is not None or self.on_summon is not None or self.minion_grant is not None):raise ValueError('Base resummon requires original printed minion material without extra grants')
         zones=(Zone.BOARD,Zone.HAND,Zone.DECK)if self.profile=='base_resummon'else(Zone.BOARD,)if self.profile in ('board_copy','remembered_copy','death_copy')else(Zone.HAND,)if self.profile=='remembered_hand_copy'else(Zone.GRAVEYARD,)if self.profile in ('discard_copy','discard_summon_copy')else(Zone.HAND,Zone.DECK)
         if self.origin.zone not in zones:raise ValueError('Copy recipe has another original zone')
