@@ -360,6 +360,9 @@ class FrameCodec:
         from .next_spell_bodies import ContinueNextSpellBodies, FinishNextSpellBody, validate_queued as validate_next_spell_body
         if type(value) in (ContinueNextSpellBodies, FinishNextSpellBody) and self.origin_state is not None:
             validate_next_spell_body(self.origin_state, self.registry, value)
+        from .composed_spells import ResolveComposedSpell,validate_queued as validate_composed_body
+        if type(value)is ResolveComposedSpell and self.origin_state is not None:
+            validate_composed_body(self.origin_state,self.registry,value)
         from .bonus_effects import RotatePrintedHandBonuses
         from .bonus_effects import GrantRandomBonusEffects
         from .sacrifice import BuffCapturedMinion, GrantCapturedKeyword, GrantCapturedSpellDamage

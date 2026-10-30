@@ -283,22 +283,21 @@ class ConductivityTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(len([i for i in g.state.players[1].hand if g.state.entities[i].card_id=='CATA_585']),1)
         self.portable(g)
 
-    def test_actual_composed_potion_is_explicitly_rejected_without_spending_or_guessing(self):
+    def test_actual_composed_potion_executes_three_complete_bodies_without_extra_payment(self):
         from hs_sim.engine.composed_spells import ComposedSpellRecipe
         r=fixture('writer');profile=next(iter(r._composed_spell_profiles.values()))
         target=next(i for i,c in enumerate(profile.ingredients) if c.targeting is not None)
         other=next(i for i,c in enumerate(profile.ingredients) if c.targeting is None)
         parts=sorted((target,other));cid=ComposedSpellRecipe(profile.template_card_id,
             *(profile.ingredients[i].card_id for i in parts)).card_id
-        g=self.game((CARD,cid));ids=self.ids(g);self.arm(g);saved=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'multi-arrow or composed'):
-            self.play(g,cid,ids[1])
-        self.assertEqual(g.snapshot(),saved);self.assertEqual(len(self.program(g)),1)
+        g=self.game((CARD,cid));ids=self.ids(g);self.arm(g);self.play(g,cid,ids[1])
+        self.assertEqual(self.hp(g,ids),(11,11,11));self.assertEqual(g.state.players[1].mana,7)
+        self.assertEqual(len(g.state.cast_history),2);self.assertFalse(self.program(g));self.portable(g)
 
     def test_actual_flame_shock_two_arrow_cast_is_explicitly_rejected_without_effects(self):
         g=self.game((CARD,'BE_302'));ids=self.ids(g);self.arm(g);saved=g.snapshot()
         source=self.entity(g,'BE_302').id
-        with self.assertRaisesRegex(ResolutionError,'multi-arrow or composed'):
+        with self.assertRaisesRegex(ResolutionError,'multi-arrow'):
             g.apply(PlayCard(1,source,ids[1],target_ids=(ids[1],ids[2])))
         self.assertEqual(g.snapshot(),saved);self.assertEqual(len(self.program(g)),1)
 

@@ -173,6 +173,16 @@ def body_target_id(registry, record):
     return None if fact is None else fact.entity_id
 
 
+def adjacent_body_index(registry, record):
+    """A running adjacent body has one original slot, independent of its CAST."""
+    if record.next_spell_body_cursor % 2:
+        index = record.next_spell_body_cursor // 2
+        slots = body_slots(registry, record)
+        if index >= len(slots): raise ValueError('Running adjacent body lost its original slot')
+        if slots[index][2]: return index
+    return None
+
+
 def possible_body_target_ids(registry, record):
     return {f.entity_id for f in (record.target_origin, *(s[1] for s in body_slots(registry, record)))
         if f is not None}
@@ -204,11 +214,9 @@ def claim(r, record):
     validate_material(rows, record.turn)
     board, behaviors = None, ()
     if any(type(instance_profile(r.registry, e)) is AdjacentSpellBodyProfile for e in rows):
-        from .composed_spells import PREFIX as composed_prefix
-        if (record.spell_target_group is not None or record.spell_target_receipt is not None or
-                record.card_id.startswith(composed_prefix)):
+        if record.spell_target_group is not None or record.spell_target_receipt is not None:
             from .registry import UnsupportedDefinitionError
-            raise UnsupportedDefinitionError('Adjacent full bodies for multi-arrow or composed spells require a separate original body proof')
+            raise UnsupportedDefinitionError('Adjacent full bodies for multi-arrow spells require a separate original body proof')
         from .allocation_facts import SourceAllocationFact
         from .lifecycle import active_abilities
         from .model import Zone

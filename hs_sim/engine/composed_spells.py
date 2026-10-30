@@ -123,10 +123,30 @@ class CreateRandomComposedSpell(Effect):
 class ResolveComposedSpell(Effect):
     cast_id:int
     index:int=0
+    body_index:int|None=None
 
     def __post_init__(self):
         _integer(self.cast_id,'Potion CAST',1);_integer(self.index,'Potion component cursor',0)
         if self.index>2:raise ValueError('Potion has exactly two components')
+        if self.body_index is not None:_integer(self.body_index,'original adjacent Potion body',0)
+
+
+def begin(record,registry):
+    from .next_spell_bodies import adjacent_body_index
+    return ResolveComposedSpell(record.id,body_index=adjacent_body_index(registry,record))
+
+
+def body_data(body_index):return {} if body_index is None else {'spell_body_index':body_index}
+
+
+def validate_queued(state,registry,request):
+    from .next_spell_bodies import adjacent_body_index
+    from .spell_casts import cast_record
+    request.__post_init__();record=cast_record(state,request.cast_id);checked_recipe(registry,record.card_id)
+    if (not record.payload_started or record.completed or record.interrupted or record.failure is not None or
+            request.body_index!=adjacent_body_index(registry,record)):
+        raise ValueError('Potion continuation lost its original active CAST/body slot')
+    return record
 
 
 def pack(v):return json.dumps(v,sort_keys=True,separators=(',',':'))
@@ -151,22 +171,53 @@ def records(game,kind):
     return tuple(e for e in effective_events(game._events)if e.kind==kind)
 
 
-def steps(game,cid):return tuple(e for e in records(game,STEP)if dict(e.data)['cast_id']==cid)
+def steps(game,cid,body_index=None):
+    return tuple(e for e in records(game,STEP)if dict(e.data)['cast_id']==cid
+        and dict(e.data).get('spell_body_index')==body_index)
 
 
 def resolve(r,e):
-    from .spell_casts import cast_record
-    record=cast_record(r.state,e.cast_id);recipe,p=checked_recipe(r.registry,record.card_id)
-    if e.index!=len(steps(r.game,record.id))or any(dict(x.data)['cast_id']==record.id for x in records(r.game,END)):
+    from .next_spell_bodies import body_target_id
+    record=validate_queued(r.state,r.registry,e);recipe,p=checked_recipe(r.registry,record.card_id)
+    active=next((c for c in reversed(r.state.cast_history)if c.payload_started and not c.completed and not c.interrupted),None)
+    if active is None or active.id!=record.id:raise ValueError('Potion body overtook another actual CAST')
+    if e.index!=len(steps(r.game,record.id,e.body_index))or any(dict(x.data)['cast_id']==record.id
+            and dict(x.data).get('spell_body_index')==e.body_index for x in records(r.game,END)):
         raise ValueError('Potion lost its original component progress')
     if e.index==2:
-        r.emit(END,source_id=record.source_id,player_id=record.player_id,cast_id=record.id,_capture=False);return ()
+        r.emit(END,source_id=record.source_id,player_id=record.player_id,cast_id=record.id,
+            **body_data(e.body_index),_capture=False);return ()
     cid=recipe.parts[e.index]
     r.emit(STEP,source_id=record.source_id,player_id=record.player_id,cast_id=record.id,index=e.index,
-        ingredient_card_id=cid,_capture=False)
+        ingredient_card_id=cid,**body_data(e.body_index),_capture=False)
     component=p.ingredients[p.ingredient_card_ids.index(cid)]
-    return(r.call(component.behavior_id,record.source_id,record.player_id,record.target_id,cast=record),
-        ResolveComposedSpell(record.id,e.index+1))
+    return(r.call(component.behavior_id,record.source_id,record.player_id,body_target_id(r.registry,record),cast=record),
+        ResolveComposedSpell(record.id,e.index+1,e.body_index))
+
+
+def executed_adjacent_bodies(game,record):
+    from .next_spell_bodies import STARTED,body_slots
+    slots=body_slots(game.registry,record);indices=[]
+    for event in records(game,STARTED):
+        data=dict(event.data)
+        if data['cast_id']!=record.id or data.get('valid_target')is not True:continue
+        index=data['index']
+        if (type(index)is not int or not 0<=index<len(slots)or not slots[index][2]or index in indices or
+                (event.source_id,event.player_id)!=(record.source_id,record.player_id)):
+            raise ValueError('Potion borrowed an unaccepted or repeated adjacent body')
+        indices.append(index)
+    return tuple(indices)
+
+
+def body_event_window(game,record,body_index):
+    from .next_spell_bodies import STARTED,FINISHED
+    starts=[e for e in records(game,STARTED)if dict(e.data)['cast_id']==record.id]
+    if body_index is None:
+        return record.recorded_event,min((e.sequence for e in starts),default=None)
+    own=[e for e in starts if dict(e.data)['index']==body_index and dict(e.data).get('valid_target')is True]
+    ends=[e for e in records(game,FINISHED)if dict(e.data)['cast_id']==record.id and dict(e.data)['index']==body_index]
+    if len(own)!=1 or len(ends)>1:raise ValueError('Potion lost its unique original adjacent body window')
+    return own[0].sequence,ends[0].sequence if ends else None
 
 
 def tuple_state(value):return(value[0],tuple(value[1]),value[2])
@@ -192,26 +243,39 @@ def validate_game(game):
     for event in(*records(game,STEP),*records(game,END)):
         record=cast_record(game._state,dict(event.data)['cast_id']);checked_recipe(game.registry,record.card_id)
     for item in pending:
-        record=cast_record(game._state,item.cast_id);checked_recipe(game.registry,record.card_id)
-        if not record.payload_started or record.completed or record.interrupted:
-            raise ValueError('Potion continuation borrowed an inactive or unaccepted CAST')
+        validate_queued(game._state,game.registry,item)
     for record in game._state.cast_history:
         if not record.card_id.startswith(PREFIX):continue
-        recipe,p=checked_recipe(game.registry,record.card_id);history=steps(game,record.id)
-        ends=[x for x in records(game,END)if dict(x.data)['cast_id']==record.id]
-        if len(history)>2 or len(ends)>1:raise ValueError('Potion duplicated a component or finish')
-        for index,event in enumerate(history):
-            if (dict(event.data)!={'cast_id':record.id,'index':index,'ingredient_card_id':recipe.parts[index]}or
-                    (event.source_id,event.player_id)!=(record.source_id,record.player_id)):
-                raise ValueError('Potion changed its original ordered component')
-        own=[x for x in pending if x.cast_id==record.id]
-        if ends:
-            finish=ends[0]
-            if (len(history)!=2 or own or dict(finish.data)!={'cast_id':record.id}or
-                    (finish.source_id,finish.player_id)!=(record.source_id,record.player_id)or
-                    finish.sequence<=history[-1].sequence):
-                raise ValueError('Potion finish lost its complete original two-component body')
-        elif record.completed and record.payload_started:
-            raise ValueError('Completed Potion lost its complete component/finish proof')
-        elif (own or history and not record.interrupted)and own!=[ResolveComposedSpell(record.id,len(history))]:
-            raise ValueError('Waiting Potion lost its unique next component')
+        recipe,p=checked_recipe(game.registry,record.card_id)
+        groups=(None,*executed_adjacent_bodies(game,record))
+        for event in (*records(game,STEP),*records(game,END)):
+            data=dict(event.data)
+            if data['cast_id']!=record.id:continue
+            key=data.get('spell_body_index')
+            if key not in groups or key is not None and type(key)is not int:
+                raise ValueError('Potion component borrowed another original adjacent body')
+        for body_index in groups:
+            history=steps(game,record.id,body_index)
+            ends=[x for x in records(game,END)if dict(x.data)['cast_id']==record.id
+                and dict(x.data).get('spell_body_index')==body_index]
+            lower,upper=body_event_window(game,record,body_index)
+            if any(e.sequence<=lower or upper is not None and e.sequence>=upper for e in (*history,*ends)):
+                raise ValueError('Potion component/finish borrowed another original body window')
+            if len(history)>2 or len(ends)>1:raise ValueError('Potion duplicated a component or finish')
+            for index,event in enumerate(history):
+                if (dict(event.data)!={'cast_id':record.id,'index':index,'ingredient_card_id':recipe.parts[index],**body_data(body_index)}or
+                        (event.source_id,event.player_id)!=(record.source_id,record.player_id)):
+                    raise ValueError('Potion changed its original ordered component')
+            own=[x for x in pending if x.cast_id==record.id and x.body_index==body_index]
+            if ends:
+                finish=ends[0]
+                if (len(history)!=2 or own or dict(finish.data)!={'cast_id':record.id,**body_data(body_index)}or
+                        (finish.source_id,finish.player_id)!=(record.source_id,record.player_id)or
+                        finish.sequence<=history[-1].sequence):
+                    raise ValueError('Potion finish lost its complete original two-component body')
+            else:
+                finished=(record.completed or record.next_spell_body_cursor>0)if body_index is None else record.next_spell_body_cursor>=2*(body_index+1)
+                if finished and record.payload_started and not record.interrupted:
+                    raise ValueError('Completed Potion body lost its complete component/finish proof')
+                if (own or history and not record.interrupted)and own!=[ResolveComposedSpell(record.id,len(history),body_index)]:
+                    raise ValueError('Waiting Potion lost its unique next component')

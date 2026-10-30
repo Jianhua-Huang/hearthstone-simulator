@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-from hs_sim.engine.composed_spells import ComposedSpellComponent,ComposedSpellProfile,ResolveComposedSpell
+from hs_sim.engine.composed_spells import ComposedSpellComponent,ComposedSpellProfile,begin
 from hs_sim.engine.effects import Damage,DamageBatch,Draw,GainArmor
 from hs_sim.engine.errors import ResolutionError
 from hs_sim.engine.model import CardDefinition,CardType,DamageKind,TargetSpec,Zone
@@ -39,7 +39,7 @@ def register_kazakus_potion_cards(registry):
     def uninitialized(c):raise ResolutionError('An uninitialized Potion has no selected recipe')
     def resolve(c):
         if c.cast is None:raise ResolutionError('A Potion requires its actual accepted spell CAST')
-        return(ResolveComposedSpell(c.cast.id),)
+        return(begin(c.cast,registry),)
     bodies={
         PARTS[0]:lambda c:(DamageBatch(tuple(Damage(i,2,c.source_id,DamageKind.SPELL)
             for p in(1,2)for i in minions(c,registry,p))),),

@@ -1,0 +1,424 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-conductivity-v2",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "YOG_522",
+        "dbf_id": 101097,
+        "name": "电流导联",
+        "name_en": "Conductivity",
+        "text": "在本回合中，你的下一个法术还会以相邻的随从为目标。",
+        "text_en": "The next spell you cast\nthis turn also targets\nadjacent minions.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          }
+        ]
+      },
+      "record_sha256": "c21d6c83bc9b9af9182b1767448bdc54e48e381ead0f9e551584d8203efb1e16",
+      "definition_sha256": "6cfe84a8d9e4d546abf7aa19d88b863ba1cd60e4d281d1060ecf8e1dd5eeb871",
+      "pool_card_sha256": "c5a881c2a9cccbd089e46df822baa88daee5e74a0489253ae5c778f46896762a"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "YOG_522e",
+        "dbf_id": 101098,
+        "name": "导联",
+        "name_en": "Conductive",
+        "text": "你的下一个法术还会对相邻的随从施放。",
+        "text_en": "Your next spell casts on adjacent minions.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 6
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "045ba4257510096cc994373434bd327fb7e68cf385798e256800219fb4e92e5b"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "YOG_522",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-09.json",
+      "response_sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+      "face": {
+        "id": 101097,
+        "collectible": 1,
+        "slug": "101097-conductivity",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Max Grecke",
+        "manaCost": 2,
+        "name": "电流导联",
+        "text": "在本回合中，你的下一个法术还会以相邻的随从为目标。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9a91b458009d3c3ee20207e8152b42d3e8b467e57a7e67c788ae35600d17536c.png",
+        "imageGold": "",
+        "flavorText": "无面者的长度越短，横截面积越大，导电能力越好。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63deb6c47d74f515e64c77481c493973087b5c2573e391ac598aa23e4dcae196.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=9&pageSize=500",
+        "status": 200,
+        "bytes": 392694,
+        "sha256": "5bc9642667701e5e94efd3b7d240857a1c1970328a748a8afb91a127651be98b",
+        "response_date": "Fri, 23 Oct 2026 08:24:57 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "YOG_522",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 101097,
+        "collectible": 1,
+        "slug": "101097-conductivity",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Max Grecke",
+        "manaCost": 2,
+        "name": "Conductivity",
+        "text": "The next spell you cast this turn also targets adjacent minions.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/8602259a3c84b5f804b20894b1282b0d74b4df4f3e75ac539dd30f32f37ff3b7.png",
+        "imageGold": "",
+        "flavorText": "That faceless sure didn't put up a lot of (length/cross-sectional area).",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/63deb6c47d74f515e64c77481c493973087b5c2573e391ac598aa23e4dcae196.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "YOG_522"
+  ],
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "official_rule_source": "https://news.blizzard.com/en-gb/article/24077473/29-2-patch-notes",
+  "policies": {
+    "program": "Independent next_spell_adjacent, consumed by the next accepted payload of any real CAST origin; countered/no-target failures do not accept a payload.",
+    "neighbors": "Capture the complete original physical board before the primary text. Keep immediate left/right minion allocations; locations block adjacency. Execute the primary body, then left/right bodies. Each extra target must retain its original presence and pass ordinary spell target legality immediately before execution; never retarget or bridge.",
+    "payload": "Repeat the complete original ordered on_play body vector, original branch/conditions, ongoing payload and Twinspell derivative through the existing shared spell payload. Preserve one physical CAST, one hand play/payment and one finished event. Damage, Overload, summons and all non-target portions execute for each legal extra body. Current multi-arrow/group-target spell receipts are explicitly rejected before commit, pending dedicated body proof support; ordinary targetless/hero/minion paths remain executable. Dynamic one-cost Potion recipes now preserve two ordered ingredient steps and a finish per original physical/adjacent body, each bound to its original body acceptance/completion window. Components remain ordinary effects, not separate casts.",
+    "save": "Original program material, board, full body identities, ordered private start/finish facts and shared cursor persist through choice/clone/replay/rollback. CAST target history remains the original arrow; a running body uses its own captured target.",
+    "boundaries": "Original exact-presence policy, base-left-right order, all-CAST payload acceptance, countered retention, multi-target spells and interactions with rewinds/repeat auras remain local policies pending CN calibration. No client/AI/version-alignment blocker."
+  },
+  "uncertainties": [
+    "Official 29.2 establishes ordinary target legality. Exact timing/stacking and physical transform/control/re-entry boundaries are local policies, not official calibration.",
+    "Full past Legendary transform dependencies remain open. Complete Shaman71 stays unbound; no executable-subset pool is created. Version/hotfix alignment and rule-edge calibration are deferred.",
+    "YOG_522 remains partial: actual BE_302 multi-arrow body proofs remain open; secondary-target listener/memory semantics remain separately unverified. Dynamic one-cost Potion bodies are internally implemented, not a CN calibration claim."
+  ],
+  "previous_document": "data/cards/past-conductivity-v1.json",
+  "previous_document_sha256": "33337f7ccfbe5a0d2f0890b6bcbbed9fdbb2d9e5c5ff87986d0b57635776ee74",
+  "composed_body_support": {
+    "contract": "original-cast-and-adjacent-body-index-v1",
+    "ingredient_source": "data/cards/kazakus-potion-forms-v1.json",
+    "ingredient_source_sha256": "87cd83d3b352f588802290d71df64d0ef4401c43eb370851d71deedfcf8ae5f2",
+    "new_physical_casts": false,
+    "duplicate_payment": false
+  }
+}
