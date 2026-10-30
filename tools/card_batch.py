@@ -484,6 +484,12 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     raw_text.startswith(marker) and raw_text.count(marker) == 1 and
                     replacement == '<b>圣盾</b>，<b>嘲讽</b>，' and display_normalizations == {marker: replacement},
                     'Tirion keyword separators require the exact complete row and Chinese declaration')
+        elif marker == '<b>嘲讽</b>。<b>亡语：</b>':
+            require(chinese and row.get('id') == 'AT_123' and
+                    canonical(row) == '9172bbb7130ac0e87c5d0f6fb79df3e9dcd5ff79a82a891d762c15bed1a67c99' and
+                    raw_text.startswith(marker) and raw_text.count(marker) == 1 and
+                    replacement == '<b>嘲讽，亡语：</b>' and display_normalizations == {marker: replacement},
+                    'Chillmaw keyword grouping requires its exact complete Chinese source row')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and
