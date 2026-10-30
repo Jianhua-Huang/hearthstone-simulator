@@ -301,7 +301,12 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         require(len(states) == 3 and row['tags'].get('TAG_SCRIPT_DATA_NUM_1') == 5,
                 'Broodqueen lost her complete original progress forms')
         raw_text = states[0]
-    progress_labels = ('（还剩{0}个！）', '（已经就绪！）') if chinese else ('({0}left!)', '(Ready!)')
+    # This complete Galvangar row counts Armor points; retain its actual label
+    # and every rule word while the primary gallery omits only the live value.
+    progress_labels = (('（还剩{0}点！）', '（已经就绪！）')
+        if chinese and row.get('id') == 'AV_145' and
+        canonical(row) == 'ed94a265ed59e8779c06d5874bd73581c5831ae69f52494abe77df0c8bd110cd'
+        else ('（还剩{0}个！）', '（已经就绪！）') if chinese else ('({0}left!)', '(Ready!)'))
     progress_display = (display_normalizations == {'@': '', '{0}': ''} and len(states) == 3 and
                         '{0}' not in states[0] and
                         all(re.fullmatch(r'\s*<i>.*</i>\s*', s, flags=re.S) for s in states[1:]) and
