@@ -229,7 +229,9 @@ class CopyEntryMaterial:
         if self.on_summon is not None:
             from .effects import _behavior
             _behavior(self.on_summon)
-            if self.profile != 'board_copy': raise ValueError('Copy followup requires original board-copy material')
+            if self.profile != 'board_copy' and not (self.profile=='stored_copy' and self.mode=='current' and
+                    self.origin.zone==Zone.DECK and self.stats is None and self.minion_grant is None):
+                raise ValueError('Copy followup requires original board-copy material or plain current deck copy')
         if type(self.dormant_entry) is not bool:
             raise ValueError('Copied dormancy entry requires bool')
         if self.dormant_entry and (self.profile not in ('board_copy','remembered_copy','death_copy') or self.mode != 'current'):

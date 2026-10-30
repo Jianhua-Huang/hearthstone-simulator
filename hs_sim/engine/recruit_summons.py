@@ -214,6 +214,7 @@ def candidates(registry,basis):
         if a.card_id not in excluded and matches_metadata(query,card_id=a.card_id,kind=card.kind,cost=cost,
             meta=card.metadata,spell_school=card.spell_school,keywords=card.keywords,current_class=basis.hero_class,
             printed_battlecry=card.battlecry is not None,current_battlecry=fact.current_battlecry,
+            printed_deathrattle=card.deathrattle is not None,
             printed_attack=fact.permanent_stats.attack if fact.permanent_stats is not None else card.attack if fact.jade_size is None else fact.jade_size):
             if basis.expansion_profile is not None:
                 from .recruit_expansions import edition

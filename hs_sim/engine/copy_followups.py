@@ -54,8 +54,8 @@ def continue_copied_minion(r,effect):
         root.request.player_id,target_id=delivery.entity.entity_id,event=event),)
 
 
-def original_copy_reference(context):
-    """Frozen copied source, independent of subsequent summons or source changes."""
+def original_copy_material(context):
+    """Original selected copy recipe, including its physical source zone."""
     event=context.event
     if event is None or event.kind!='copy_followup_started':raise ValueError('Expected actual copy continuation')
     effect=decode(dict(event.data)['followup'])
@@ -74,6 +74,12 @@ def original_copy_reference(context):
         (context.source_id,context.player_id,context.target_id)!=(root.request.cause.source.entity_id,root.request.player_id,delivery.entity.entity_id)or
         (event.source_id,event.player_id,event.target_id)!=(context.source_id,context.player_id,context.target_id)):
         raise ValueError('Copy context differs from original physical continuation')
+    return material
+
+
+def original_copy_reference(context):
+    """Frozen copied source, independent of subsequent summons or source changes."""
+    material=original_copy_material(context)
     a=material.origin
     return MinionReference(a.entity_id,a.controller,a.card_id,a.zone_epoch,a.entered_order)
 
