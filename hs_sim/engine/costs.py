@@ -344,7 +344,7 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
         for ability in source.abilities:
             if (ability.kind != 'cost_aura' or ability.consumed or not (
                     ability.cost_aura.relation in ('any', 'all_cards_minimum') or
-                    (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells','friendly_polarity')))):
+                    (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells','friendly_nature_spells','friendly_polarity')))):
                 continue
             if ability.cost_aura.hand_adjacent != (source.zone == Zone.HAND):
                 continue
@@ -413,9 +413,10 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_polarity':
         from .cost_polarities import matches as matches_polarity
         if not matches_polarity(registry,contribution):return False
-    if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_arcane_spells':
+    if contribution.ability is not None and contribution.ability.cost_aura.relation in ('friendly_arcane_spells','friendly_nature_spells'):
         from .model import SpellSchool
-        if definition.kind!=CardType.SPELL or definition.spell_school!=SpellSchool.ARCANE:return False
+        school=(SpellSchool.ARCANE if contribution.ability.cost_aura.relation=='friendly_arcane_spells'else SpellSchool.NATURE)
+        if definition.kind!=CardType.SPELL or definition.spell_school!=school:return False
     if not matches_cost_values(spec, definition, current_battlecry, abilities=abilities):
         return False
     modifier=contribution.modifier

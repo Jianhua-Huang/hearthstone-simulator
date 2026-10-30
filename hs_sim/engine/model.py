@@ -654,7 +654,7 @@ class CostAuraSpec:
         if type(self.cost) is not CostSpec:
             raise ValueError('Cost aura requires a CostSpec operation')
         self.cost.__post_init__()
-        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','friendly_polarity','all_cards_minimum'):
+        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','friendly_nature_spells','friendly_polarity','all_cards_minimum'):
             raise ValueError('Invalid cost aura payer relation')
         if self.relation == 'all_cards_minimum' and (self.cost != CostSpec(minimum=2) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
@@ -662,7 +662,7 @@ class CostAuraSpec:
         if self.relation=='friendly_polarity' and (self.cost!=CostSpec(delta=-2) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
             raise ValueError('Native polarity requires an independent friendly two-cost reduction')
-        if self.relation=='friendly_arcane_spells' and (self.cost!=CostSpec(delta=-2,card_types=(CardType.SPELL,)) or
+        if self.relation in ('friendly_arcane_spells','friendly_nature_spells') and (self.cost!=CostSpec(delta=-2,card_types=(CardType.SPELL,)) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
             raise ValueError('Native Arcane aura requires the ordinary friendly two-cost spell reduction')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
@@ -687,7 +687,7 @@ class CostAuraSpec:
         if self.tribes_any and (self.relation != 'friendly' or
                 self.cost.card_types != (CardType.MINION,) or
                 not (self.cost.delta < 0 and self.cost.set_to is None or
-                    self.first_per_turn and self.cost.delta == 0 and self.cost.set_to is not None) or
+                    self.cost.delta == 0 and self.cost.set_to is not None and (self.first_per_turn or self.cost.set_to == 1)) or
                 self.cost.minimum != 0 or
                 self.cost.payment is not None or self.cost.card_ids or self.cost.ability is not None):
             raise ValueError('Tribal cost auras require a friendly minion reduction')
@@ -1531,8 +1531,8 @@ class KeywordAuraSpec:
         if (self.target == 'self') != (self.condition in ('self_damaged','controller_has_weapon','controller_no_other_minions','controller_controls_whelp','controller_opponent_turn','controller_controls_named_minion')):
             raise ValueError('Conditional keyword requires its own self target')
         if self.condition == 'controller_turn' and (self.target != 'friendly_hero' or
-                self.keyword != Keyword.IMMUNE or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):
-            raise ValueError('Controller-turn keyword aura requires independent hero immunity')
+                self.keyword not in (Keyword.IMMUNE,Keyword.WINDFURY) or self.include_self or self.adjacent_only or self.tribes_any or self.card_ids):
+            raise ValueError('Controller-turn keyword aura requires independent hero Immune or Windfury')
         if self.target == 'self' and (self.include_self or self.adjacent_only):
             raise ValueError('Conditional self keywords do not use board positions')
         if self.condition == 'self_damaged' and self.keyword != Keyword.WINDFURY:

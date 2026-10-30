@@ -85,10 +85,12 @@ class ControllerTurnKeywordAuraTests(unittest.TestCase):
         self.assertEqual(p['new_combinations'],0); self.assertEqual((registry().card(ILLUSIONIST).cost,registry().card(ILLUSIONIST).attack),(3,4))
 
     def test_native_controller_condition_is_closed_and_cannot_be_arbitrarily_granted(self):
-        for fields in ({'target':'self'},{'target':'friendly_minions'},{'keyword':Keyword.WINDFURY},
+        self.assertEqual(replace(AURA,keyword=Keyword.WINDFURY).keyword,Keyword.WINDFURY)
+        for fields in ({'target':'self'},{'target':'friendly_minions'},{'keyword':Keyword.MEGA_WINDFURY},
                 {'include_self':True},{'adjacent_only':True},{'condition':True}):
             with self.subTest(fields=fields),self.assertRaises(ValueError): replace(AURA,**fields)
         with self.assertRaises(ValueError): GrantKeywordAura(3,AURA)
+        with self.assertRaises(ValueError): GrantKeywordAura(3,replace(AURA,keyword=Keyword.WINDFURY))
 
     def test_own_turn_immunity_blocks_damage_and_never_protects_opponent(self):
         g=self.game(); self.assertTrue(self.immune(g)); self.assertFalse(self.immune(g,2))

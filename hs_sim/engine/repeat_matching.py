@@ -65,7 +65,7 @@ def validate_cost_quote_fact(registry, fact):
         else:
             aura = contribution.ability.cost_aura
             if (aura.relation not in ('any', 'all_cards_minimum') and
-                    (contribution.player_id == value.player_id) != (aura.relation in ('friendly','friendly_arcane_spells','friendly_polarity'))):
+                    (contribution.player_id == value.player_id) != (aura.relation in ('friendly','friendly_arcane_spells','friendly_nature_spells','friendly_polarity'))):
                 raise ValueError('Frozen cost aura payer relation does not match')
             spec = aura.cost
         from .cost_polarities import validate_basis as validate_polarity_basis
