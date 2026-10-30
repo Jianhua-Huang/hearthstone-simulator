@@ -11,7 +11,7 @@ from .model import CardClass, CardType, ChoicePurpose, Zone, _name
 from .pools import PoolQuery, PoolMember, GenerationPolicy, validate_policy, generation_candidates, matches_metadata, sample_candidates, resolve_candidates
 from .spell_casts import CAST_ORIGINS, CastSpell, automatic, cast_record, policies
 from .zones import filter_value, source_exists
-from .automatic_targets import validate_preferred_source
+from .automatic_targets import AutomaticTargetPreference, validate_preferred_source
 
 
 def spell_query(query):
@@ -311,12 +311,15 @@ class CastFromPool(Effect):
     while_source_in_play: bool = False
     policy: GenerationPolicy = GenerationPolicy()
     target_ids: tuple[int, ...] = ()
+    target_preference: AutomaticTargetPreference | None = None
 
     def __post_init__(self):
         _player(self.player_id); _source(self.source_id); _name(self.pool_id,'spell pool')
         _integer(self.count,'pool cast count',0); spell_query(self.query)
         validate_policy(self.policy)
-        policies(self.targeting,self.target_id,self.choices,target_ids=self.target_ids)
+        policies(self.targeting,self.target_id,self.choices,self.target_preference,target_ids=self.target_ids)
+        if self.target_preference is not None and (self.target_preference is not AutomaticTargetPreference.ENEMY_IF_AVAILABLE or self.source_id is None):
+            raise ValueError('Pool target preference requires its source-bound enemy-if-available policy')
         if type(self.replacement) is not bool or self.refresh not in ('per_cast','frozen'):
             raise ValueError('Invalid spell pool batch policy')
         if type(self.while_source_in_play) is not bool or self.while_source_in_play and self.source_id is None:
@@ -392,7 +395,8 @@ def continue_pool(r, effect):
     if not selected: return ()
     card_id = selected[0]
     used = effect.used_identities if spec.replacement else (*effect.used_identities,r.registry.pool_card(card_id).generation_identity)
-    return (CastSpell(spec.player_id,card_id,spec.source_id,spec.target_id,spec.targeting,spec.choices,target_ids=spec.target_ids),
+    return (CastSpell(spec.player_id,card_id,spec.source_id,spec.target_id,spec.targeting,spec.choices,
+            target_preference=spec.target_preference,target_ids=spec.target_ids),
             replace(effect,used_identities=used,remaining=effect.remaining-1))
 
 

@@ -63,7 +63,7 @@ def validate_batch(state,registry,spec,*,allow_closed=False):
         return
     if (spec.pool_id!=profile.pool_id or spec.query!=QUERY or spec.count!=profile.count or
             spec.replacement is not True or spec.refresh!='per_cast' or spec.while_source_in_play or
-            spec.target_id is not None or spec.target_ids or spec.targeting!='random' or spec.choices!='random' or spec.policy!=GenerationPolicy()):
+            spec.target_id is not None or spec.target_ids or spec.targeting!='random' or spec.choices!='random' or spec.policy!=GenerationPolicy() or spec.target_preference is not None):
         raise ValueError('Expiring Secret producer changed its original full five-cast request')
 
 

@@ -1090,6 +1090,8 @@ def summon_from_candidates(r, effect):
 
 
 def validate_pool_entry_keywords(value):
+    if type(value) is tuple and len(value) == 1 and value[0] is Keyword.DIVINE_SHIELD:
+        return
     order=(Keyword.TAUNT,Keyword.LIFESTEAL,Keyword.RUSH)
     if (type(value)is not tuple or any(type(k)is not Keyword or k not in order for k in value)or
             value!=tuple(k for k in order if k in value)):
