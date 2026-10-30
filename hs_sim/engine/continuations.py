@@ -101,6 +101,9 @@ class FrameCodec:
         from .spell_sequences import FinishDrawDiscount
         if type(value)in(CaptureMatchingDraw,FinishDrawDiscount)and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
+        from .minion_damage_waves import RepeatBattlecryMinionDamage, ContinueBattlecryDamageIfDeaths
+        if type(value) in (RepeatBattlecryMinionDamage, ContinueBattlecryDamageIfDeaths) and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
         from .summoned_attack_targets import TransformAttackedMinion
         if type(value) is TransformAttackedMinion and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry,self.origin_events)
