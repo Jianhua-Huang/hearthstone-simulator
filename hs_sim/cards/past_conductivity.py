@@ -10,8 +10,8 @@ from hs_sim.targets import TargetValidationError,canonical_digest
 from .metadata import metadata_from_record
 
 ROOT=Path(__file__).resolve().parents[2]
-BATCH_PATH=ROOT/'data/cards/past-conductivity-v2.json'
-BATCH_HASH='e3c4f61e7abd6c81f624e5462b5774b7baebde46f033ab15984cbffdf9805ee7'
+BATCH_PATH=ROOT/'data/cards/past-conductivity-v3.json'
+BATCH_HASH='8a42f966a5609b10ae139647a196ca129074bbfe885015ee9aee3f351e4b807e'
 ROOTS=('YOG_522',)
 DEPENDENCIES=()
 PREFIX='cards.past_conductivity.'
@@ -37,13 +37,21 @@ def load_batch():
         for row in d[key]:
             if canonical_digest(row['record'])!=row['record_sha256']:raise TargetValidationError('Conductivity changed an original full row')
     prior=(ROOT/d['previous_document']).resolve()
-    if (d['policy_id']!='cn37-local-conductivity-v2' or not prior.is_relative_to(ROOT) or
+    if (d['policy_id']!='cn37-local-conductivity-v3' or not prior.is_relative_to(ROOT) or
             hashlib.sha256(prior.read_bytes()).hexdigest()!=d['previous_document_sha256']):
         raise TargetValidationError('Conductivity lost its preserved original implementation evidence')
     original=json.loads(prior.read_text(encoding='utf8'))
     if any(d[k]!=original[k] for k in ('cards','evidence_only','existing_dependencies','official_observations',
             'original_shaman_member_ids','full_union_source_document','full_union_source_sha256')):
         raise TargetValidationError('Conductivity body extension changed original raw faces, roles or membership')
+    compatibility=d['additional_compatibility_dependencies']
+    dependency=(ROOT/d['multi_arrow_support']['source_document']).resolve()
+    if (len(compatibility)!=1 or compatibility[0]['record']['id']!='BE_302' or
+            canonical_digest(compatibility[0]['record'])!=compatibility[0]['record_sha256'] or
+            not dependency.is_relative_to(ROOT) or
+            hashlib.sha256(dependency.read_bytes()).hexdigest()!=d['multi_arrow_support']['source_document_sha256'] or
+            compatibility[0]['record']!=json.loads(dependency.read_text(encoding='utf8'))['cards'][0]['record']):
+        raise TargetValidationError('Conductivity lost the complete original two-arrow consumer dependency')
     source=(ROOT/d['full_union_source_document']).resolve()
     if not source.is_relative_to(ROOT)or hashlib.sha256(source.read_bytes()).hexdigest()!=d['full_union_source_sha256']:
         raise TargetValidationError('Conductivity changed its complete original reference source')

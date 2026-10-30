@@ -294,12 +294,12 @@ class ConductivityTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(self.hp(g,ids),(11,11,11));self.assertEqual(g.state.players[1].mana,7)
         self.assertEqual(len(g.state.cast_history),2);self.assertFalse(self.program(g));self.portable(g)
 
-    def test_actual_flame_shock_two_arrow_cast_is_explicitly_rejected_without_effects(self):
-        g=self.game((CARD,'BE_302'));ids=self.ids(g);self.arm(g);saved=g.snapshot()
+    def test_actual_flame_shock_two_arrows_execute_local_full_adjacent_bodies(self):
+        g=self.game((CARD,'BE_302'));ids=self.ids(g);self.arm(g)
         source=self.entity(g,'BE_302').id
-        with self.assertRaisesRegex(ResolutionError,'multi-arrow'):
-            g.apply(PlayCard(1,source,ids[1],target_ids=(ids[1],ids[2])))
-        self.assertEqual(g.snapshot(),saved);self.assertEqual(len(self.program(g)),1)
+        g.apply(PlayCard(1,source,ids[1],target_ids=(ids[1],ids[2])))
+        self.assertEqual(self.hp(g,ids),(18,18,14));self.assertEqual(g.state.players[1].overload_owed,3)
+        self.assertEqual(len(g.state.cast_history),2);self.assertFalse(self.program(g));self.portable(g)
 
     def test_old_snapshot_schema_is_explicitly_rejected(self):
         g=self.game();bad=g.snapshot();self.assertEqual(bad['schema_version'],SNAPSHOT_SCHEMA_VERSION)

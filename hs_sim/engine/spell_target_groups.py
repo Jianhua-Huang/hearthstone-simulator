@@ -317,7 +317,42 @@ def validate_boundary(game):
     validate_automatic_groups(game)
 
 
-def target_ids(context):
+def adjacent_target_ids(context,registry):
+    """Local policy: replace the actual primary arrow, retain the other inputs.
+
+    This is a derived execution subset, never a new group submission or CAST.
+    Original receipts and the accepted adjacent slot remain its only inputs.
+    """
+    from .next_spell_bodies import adjacent_body_index,body_target,presence
+    from .spell_group_targets import _live_fact
+    from .targeting import accepts_target
+    cast=context.cast;receipt=cast.spell_target_receipt
+    profile=registry.spell_target_group_profiles.get(cast.card_id)
+    if (profile is None or profile.count!=2 or cast.completed or cast.interrupted or
+            adjacent_body_index(registry,cast)is None or
+            (context.source_id,context.player_id)!=(cast.source_id,cast.player_id)):
+        raise ValueError('Adjacent target vector lost its actual registered running body')
+    neighbor=body_target(registry,cast);source=context.state.entities[cast.source_id]
+    target=context.state.entities.get(None if neighbor is None else neighbor.entity_id)
+    definition=registry.card(cast.card_id)
+    if (neighbor is None or context.target_id!=neighbor.entity_id or target is None or
+            presence(SourceAllocationFact.capture(context.state,target))!=presence(neighbor)or
+            not accepts_target(context.state,registry,source,definition,neighbor.entity_id,automatic=False)):
+        raise ValueError('Adjacent target vector changed its original valid primary neighbor')
+    primary=next((i for i,f in enumerate(receipt.targets)if f is not None and f.entity_id==cast.target_id),None)
+    if primary is None:raise ValueError('Adjacent target vector lost its original actual primary alias')
+    result=[]
+    for index,(fact,residence)in enumerate(zip(receipt.targets,receipt.presences)):
+        if index==primary:current=neighbor
+        else:current=None if fact is None else _live_fact(context.state,fact,residence)
+        if (current is None or current.entity_id in result or
+                not accepts_target(context.state,registry,source,definition,current.entity_id,automatic=False)):
+            continue
+        result.append(current.entity_id)
+    return tuple(result)
+
+
+def target_ids(context,registry=None):
     """Live deliveries of the original paid group; a re-entry is a new residence."""
     cast = context.cast
     if (cast is None or not cast.payload_started or
@@ -325,6 +360,11 @@ def target_ids(context):
         raise ValueError('Group target delivery requires its actual accepted physical CAST')
     if cast.spell_target_receipt is None or not cast.spell_target_receipt.closed:
         raise ValueError('Group target delivery lost its actual accepted target phase')
+    if cast.next_spell_body_board is not None and cast.next_spell_body_cursor%2:
+        if registry is None:raise ValueError('Grouped extra body delivery requires its original registered profile')
+        from .next_spell_bodies import adjacent_body_index
+        if adjacent_body_index(registry,cast)is not None:
+            return adjacent_target_ids(context,registry)
     from .spell_group_targets import _live_fact
     return tuple(f.entity_id for f, presence in zip(cast.spell_target_receipt.targets, cast.spell_target_receipt.presences)
         if f is not None and _live_fact(context.state, f, presence) is not None)

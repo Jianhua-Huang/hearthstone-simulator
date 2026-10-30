@@ -33,7 +33,7 @@ def register_flame_shock_card(registry):
                 for x in raw['unmapped_xml_nodes'])):
         raise TargetValidationError('Flame Shock requires its original Shaman Fire spell and Overload one')
     def body(c):
-        hits = tuple(Damage(i, 2, c.source_id, DamageKind.SPELL) for i in target_ids(c))
+        hits = tuple(Damage(i, 2, c.source_id, DamageKind.SPELL) for i in target_ids(c,registry))
         return (*((DamageBatch(hits),) if hits else ()), Overload(c.player_id, 1))
     registry.register_behavior(BODY, body)
     card = CardDefinition(CARD, raw['name'], CardType.SPELL, cost=1, spell_school=SpellSchool.FIRE,

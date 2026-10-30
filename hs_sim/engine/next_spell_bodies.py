@@ -215,8 +215,10 @@ def claim(r, record):
     board, behaviors = None, ()
     if any(type(instance_profile(r.registry, e)) is AdjacentSpellBodyProfile for e in rows):
         if record.spell_target_group is not None or record.spell_target_receipt is not None:
-            from .registry import UnsupportedDefinitionError
-            raise UnsupportedDefinitionError('Adjacent full bodies for multi-arrow spells require a separate original body proof')
+            profile = r.registry.spell_target_group_profiles.get(record.card_id)
+            if profile is None or profile.count != 2 or record.spell_target_receipt is None:
+                from .registry import UnsupportedDefinitionError
+                raise UnsupportedDefinitionError('Adjacent grouped bodies require an actual registered two-arrow receipt')
         from .allocation_facts import SourceAllocationFact
         from .lifecycle import active_abilities
         from .model import Zone
