@@ -3,13 +3,13 @@
 R-Map uses completed card_played, the original hand residence, and ExpireTurn.
 These are explicit internal policies pending CN calibration, not a full pool.
 """
-from dataclasses import dataclass, replace
+from dataclasses import MISSING, dataclass, fields, replace
 from random import Random
 
 from .effects import AddToHand, ChoiceOption, Effect, RequestChoice, _integer, _source
 from .errors import ResolutionError
-from .model import CardClass, ChoicePurpose, ChoiceResult, PendingChoice, Zone, validate_end_turn_rng
-from .pools import (DiscoverFromPool, GenerationPolicy, PoolMember, generation_candidates,
+from .model import CardClass, CardType, ChoicePurpose, ChoiceResult, PendingChoice, SpellSchool, Zone, validate_end_turn_rng
+from .pools import (DiscoverFromPool, GenerationPolicy, PoolMember, PoolQuery, generation_candidates,
                     resolve_candidates, sample_candidates)
 from .zones import (CardReference, ChooseFromZone, CopyCard, MoveCard, choose_from_zone,
                     reference_entity, zone_candidates)
@@ -30,10 +30,16 @@ def validate_request(request, reward_mode='remaining_offer'):
     elif (request.zone != Zone.DECK or request.owner_id != request.player_id
           or request.operation not in ('copy_base', 'copy_current', 'take', 'draw') or request.selected_reward is not None):
         raise ValueError('Hand followup zone discovery requires an explicit own-deck hand operation')
-    if type(reward_mode) is not str or reward_mode not in ('remaining_offer', 'draw_original'):
+    if type(reward_mode) is not str or reward_mode not in ('remaining_offer', 'draw_original', 'rediscover', 'terminal'):
         raise ValueError('Unknown original hand-play reward profile')
+    if reward_mode in ('rediscover', 'terminal'):
+        allowed={'player_id','pool_id','query','source_id','prompt'}
+        if (type(request)is not DiscoverFromPool or request.query!=PoolQuery(kinds=(CardType.SPELL,),
+                spell_schools=(SpellSchool.NATURE,),collectible=True,class_mode='current') or
+                any(f.name not in allowed and f.default is not MISSING and getattr(request,f.name)!=f.default
+                    for f in fields(request))):
+            raise ValueError('Fresh hand-play discovery requires one plain current-class Nature spell offer')
     if reward_mode == 'draw_original':
-        from .pools import PoolQuery
         if (type(request) is not ChooseFromZone or request.operation != 'copy_current' or
                 request.distinct != 'card' or request.discovery is not True or request.sample_size != 3 or
                 type(request.sample_size) is not int or request.query != PoolQuery() or
@@ -45,7 +51,12 @@ def validate_request(request, reward_mode='remaining_offer'):
 class DiscoverForPlayFollowup(Effect):
     request: DiscoverFromPool | ChooseFromZone
     reward_mode: str = 'remaining_offer'
-    def __post_init__(self): validate_request(self.request, self.reward_mode)
+    parent_followup_id: int | None = None
+    def __post_init__(self):
+        validate_request(self.request, self.reward_mode)
+        _source(self.parent_followup_id)
+        if (self.reward_mode=='terminal')!=(self.parent_followup_id is not None):
+            raise ValueError('Terminal fresh discovery requires its one original parent')
 
 
 @dataclass(frozen=True)
@@ -91,10 +102,20 @@ class HandChoiceFollowup:
     reward_delivery_pending: bool = False
     reward_mode: str = 'remaining_offer'
     reward_draw_id: int | None = None
+    parent_followup_id: int | None = None
+    reward_followup_id: int | None = None
 
     def __post_init__(self):
         validate_request(self.request, self.reward_mode)
         _source(self.reward_draw_id)
+        _source(self.parent_followup_id);_source(self.reward_followup_id)
+        if (self.reward_mode=='terminal')!=(self.parent_followup_id is not None):
+            raise ValueError('Terminal hand offer requires its original parent')
+        if self.reward_followup_id is not None and self.reward_mode!='rediscover':
+            raise ValueError('Only a fresh hand-play discovery can own another original offer')
+        if self.reward_mode in ('rediscover','terminal') and any((self.reward_choice,self.reward_result,
+                self.reward_entity_id,self.reward_delivery_pending,self.reward_draw_id)):
+            raise ValueError('Fresh discovery cannot borrow remaining-offer or draw reward material')
         if self.reward_mode == 'remaining_offer' and self.reward_draw_id is not None:
             raise ValueError('Remaining-offer reward cannot borrow an original draw')
         if self.reward_mode == 'draw_original' and (self.reward_choice is not None or self.reward_result is not None or self.status == 'reward_offered'):
@@ -104,7 +125,8 @@ class HandChoiceFollowup:
         if type(self.source_card_id) is not str or not self.source_card_id:
             raise ValueError('Original discovery source face required')
         if self.status not in ('offered', 'initial_delivery', 'armed', 'reward_queued', 'reward_offered',
-                               'reward_delivery', 'completed', 'empty', 'exhausted', 'not_hand', 'lost', 'expired', 'ended'):
+                               'reward_delivery', 'completed', 'empty', 'exhausted', 'not_hand', 'lost', 'expired', 'ended',
+                               'rediscovery_queued', 'terminal'):
             raise ValueError('Unknown hand followup phase')
         for name, kind in (('offers', HandFollowupOption), ('available_pool', PoolMember), ('available_cards', CardReference)):
             values = getattr(self, name)
@@ -178,6 +200,8 @@ def selected(root, phase='initial'):
 
 def phase_options(root, phase):
     picked = selected(root)
+    if phase=='reward' and root.reward_mode in ('rediscover','terminal'):
+        raise ValueError('Fresh reward has its own complete original discovery offer')
     if phase == 'reward' and root.reward_mode == 'draw_original':
         return (picked,) if picked is not None else ()
     return root.offers if phase == 'initial' else tuple(o for o in root.offers if o.id != picked.id)
@@ -205,6 +229,13 @@ def sample_zone(request, cards, rng):
 
 def start(r, effect):
     req = effect.request; validate_request(req, effect.reward_mode)
+    effect.__post_init__()
+    parent=None
+    if effect.parent_followup_id is not None:
+        parent=record(r.state,effect.parent_followup_id)
+        if (parent.reward_mode!='rediscover' or parent.status!='rediscovery_queued' or
+                parent.request!=req or parent.turn!=r.state.turn or parent.reward_followup_id is not None):
+            raise ResolutionError('Fresh discovery lost its original one-shot parent request and turn')
     if req.source_id not in r.state.entities: raise ResolutionError('Hand discovery source does not exist')
     from .owner_turns import current_owner_turn
     interval = current_owner_turn(r.state)
@@ -231,9 +262,11 @@ def start(r, effect):
             if definition.choice_only or not definition.hand_playable:
                 raise ResolutionError('Hand offer contains a nonphysical hand card')
     root = HandChoiceFollowup(len(r.state.hand_choice_followups)+1, req, r.state.turn, interval.id,
-        r.state.action_number, r.state.entities[req.source_id].card_id, options, pool, cards, hero,
-        before, r.game._rng.getstate(), status='offered' if options else 'empty', reward_mode=effect.reward_mode)
+        r.state.action_number, parent.source_card_id if parent is not None else r.state.entities[req.source_id].card_id, options, pool, cards, hero,
+        before, r.game._rng.getstate(), status='offered' if options else 'empty', reward_mode=effect.reward_mode,
+        parent_followup_id=effect.parent_followup_id)
     r.state.hand_choice_followups.append(root)
+    if parent is not None:update(r.state,parent,status='completed',reward_followup_id=root.id)
     return (request_choice(root, 'initial', r.registry),) if options else ()
 
 
@@ -312,7 +345,8 @@ def note_delivery(r, event):
                 or root.initial_entity_id != event.target_id or root.request.player_id != event.player_id): continue
         entity = r.state.entities[event.target_id]
         if entity.zone == Zone.HAND and entity.controller == root.request.player_id:
-            update(r.state, root, hand_entry_id=entity.hand_entry_id, status='armed')
+            update(r.state, root, hand_entry_id=entity.hand_entry_id,
+                status='terminal' if root.reward_mode=='terminal' else 'armed')
 
 
 def finish_delivery(r, effect):
@@ -343,6 +377,9 @@ def note_play(r, event):
 def reward(r, effect):
     root = record(r.state, effect.followup_id)
     if root.status != 'reward_queued': raise ResolutionError('Hand followup has already been consumed')
+    if root.reward_mode=='rediscover':
+        update(r.state,root,status='rediscovery_queued')
+        return(DiscoverForPlayFollowup(root.request,'terminal',root.id),)
     if root.reward_mode == 'draw_original':
         original = selected(root).card
         if reference_entity(r, original) is None:
@@ -401,13 +438,15 @@ def expire(r, turn):
 
 def ended(r):
     for root in tuple(r.state.hand_choice_followups):
-        if root.status in ('offered', 'initial_delivery', 'armed', 'reward_queued', 'reward_offered', 'reward_delivery'):
+        if root.status in ('offered', 'initial_delivery', 'armed', 'reward_queued', 'reward_offered', 'reward_delivery', 'rediscovery_queued'):
             update(r.state, root, status='ended', initial_delivery_pending=False, reward_delivery_pending=False)
 
 
 def public_followups(state, registry, entity):
     return [dict(source_card_id=root.source_card_id, expires_turn=root.turn,
-        remaining=[dict(card_id=o.card_id, name=registry.card(o.card_id).name) for o in phase_options(root, 'reward')])
+        remaining=[] if root.reward_mode=='rediscover' else
+            [dict(card_id=o.card_id, name=registry.card(o.card_id).name) for o in phase_options(root, 'reward')],
+        **({'discover_again':True}if root.reward_mode=='rediscover'else{}))
         for root in state.hand_choice_followups if root.status == 'armed'
         and (root.request.player_id, root.initial_entity_id, root.hand_entry_id) ==
             (entity.controller, entity.id, entity.hand_entry_id)]
@@ -510,10 +549,37 @@ def validate_shape(state):
                     play.played_face.owner_turn_id) != (root.initial_entity_id, root.request.player_id,
                     root.hand_entry_id, root.owner_turn_id)):
                 raise ValueError('Hand followup consumption differs from its actual original play')
-        if root.status in ('armed', 'lost', 'expired', 'reward_queued', 'reward_offered', 'reward_delivery', 'completed', 'exhausted') and root.hand_entry_id is None:
+        if root.status in ('armed', 'lost', 'expired', 'reward_queued', 'reward_offered', 'reward_delivery', 'completed', 'exhausted', 'rediscovery_queued', 'terminal') and root.hand_entry_id is None:
             raise ValueError('Hand followup phase has no delivered original recipient')
-        if root.status in ('reward_queued', 'reward_offered', 'reward_delivery', 'completed', 'exhausted') and root.trigger_play_id is None:
+        if root.status in ('reward_queued', 'reward_offered', 'reward_delivery', 'completed', 'exhausted', 'rediscovery_queued') and root.trigger_play_id is None:
             raise ValueError('Hand reward has no one-shot play acceptance')
+        validate_fresh_links(state,root)
+
+
+def validate_fresh_links(state,root):
+    if root.reward_mode=='terminal':
+        if not 1<=root.parent_followup_id<root.id:
+            raise ValueError('Terminal discovery borrowed a later or missing parent')
+        parent=record(state,root.parent_followup_id)
+        if (parent.reward_mode!='rediscover' or parent.status!='completed' or
+                parent.reward_followup_id!=root.id or parent.request!=root.request or
+                (parent.turn,parent.owner_turn_id,parent.source_card_id)!=(root.turn,root.owner_turn_id,root.source_card_id) or
+                parent.action>root.action or root.trigger_play_id is not None or
+                root.status in ('armed','lost','expired','reward_queued','reward_offered','reward_delivery','completed','exhausted','rediscovery_queued')):
+            raise ValueError('Terminal discovery changed its original parent, request or one-shot policy')
+    elif root.reward_mode=='rediscover':
+        if root.status in ('reward_offered','reward_delivery','exhausted','terminal'):
+            raise ValueError('Fresh reward borrowed another hand-followup family phase')
+        if (root.status=='completed')!=(root.reward_followup_id is not None):
+            raise ValueError('Completed fresh parent lost its actual accepted child offer')
+        if root.reward_followup_id is not None:
+            if not root.id<root.reward_followup_id<=len(state.hand_choice_followups):
+                raise ValueError('Fresh reward child is unknown or predates its parent')
+            child=record(state,root.reward_followup_id)
+            if child.parent_followup_id!=root.id or child.reward_mode!='terminal':
+                raise ValueError('Fresh reward borrowed another original child')
+    elif root.status in ('rediscovery_queued','terminal'):
+        raise ValueError('Old hand-followup profile cannot invent a fresh discovery phase')
 
 
 def validate_boundary(game):
@@ -521,7 +587,11 @@ def validate_boundary(game):
     validate_shape(state)
     queue = (*game._frame.prefix, *game._frame.continuation) if game._frame else ()
     for work in queue:
-        if type(work) is FinishHandFollowupDelivery:
+        if type(work)is DiscoverForPlayFollowup and work.reward_mode=='terminal':
+            parent=record(state,work.parent_followup_id)
+            if parent.status!='rediscovery_queued' or parent.request!=work.request:
+                raise ValueError('Unaccepted fresh child discovery in continuation')
+        elif type(work) is FinishHandFollowupDelivery:
             if not getattr(record(state, work.followup_id), work.phase+'_delivery_pending'):
                 raise ValueError('Unaccepted hand delivery finish in continuation')
         elif type(work) is RequestHandFollowupReward:
@@ -561,6 +631,9 @@ def validate_boundary(game):
                 if len(markers) != 1: raise ValueError('Hand delivery lost its unique finish marker')
         if root.status == 'reward_queued' and sum(type(x) is RequestHandFollowupReward and x.followup_id == root.id for x in queue) != 1:
             raise ValueError('Consumed hand play lost its original owed reward')
+        if root.status=='rediscovery_queued' and sum(type(x)is DiscoverForPlayFollowup and
+                x.parent_followup_id==root.id and x.reward_mode=='terminal'and x.request==root.request for x in queue)!=1:
+            raise ValueError('Fresh parent lost its unique original queued child')
         if root.status in ('offered', 'reward_offered'):
             phase = 'initial' if root.status == 'offered' else 'reward'
             expected_request = request_choice(root, phase, registry)

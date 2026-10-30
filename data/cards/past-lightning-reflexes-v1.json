@@ -1,0 +1,421 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-lightning-reflexes-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "TTN_317",
+        "dbf_id": 96077,
+        "name": "闪电反射",
+        "name_en": "Lightning Reflexes",
+        "text": "<b>发现</b>一张自然法术牌。如果你在本回合使用发现的牌，再<b>发现</b>一张。",
+        "text_en": "[x]<b>Discover</b> a Nature spell.\nIf you play it this turn,\n<b>Discover</b> another.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "SPELL_SCHOOL": 4,
+          "DECK_ACTION_COST": 2
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Mooncolony"
+          }
+        ]
+      },
+      "record_sha256": "a283cec6701ec65fdf529f5388823323abb3a363e8f9f9096e098d091d44076d",
+      "definition_sha256": "6d4c85527c3379fa76cf1a0827b773e8dc11bf5bdc269c72bb439c65e2e4aacf",
+      "pool_card_sha256": "8142ef455c031e53d11de8e0327eda85ced2039eadd34b5c9b56ff293fbff330"
+    }
+  ],
+  "dependencies": [],
+  "evidence_only": [
+    {
+      "record": {
+        "id": "TTN_317e",
+        "dbf_id": 100100,
+        "name": "闪电反射",
+        "name_en": "Lightning Reflexes",
+        "text": "如果你在本回合使用，<b>发现</b>一张自然法术牌。",
+        "text_en": "If played this turn, <b>Discover</b> a Nature spell.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CARD_SET": 1858,
+          "CLASS": 8,
+          "CARDTYPE": 6,
+          "TAG_ONE_TURN_EFFECT": 1,
+          "DISCOVER": 1
+        },
+        "card_set_id": 1858,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": []
+      },
+      "record_sha256": "b24af9f07cd12b98dc892a58b3fd8dec18cd33d88d5620317240e16a68c500f7"
+    }
+  ],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "TTN_317",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 96077,
+        "collectible": 1,
+        "slug": "96077-lightning-reflexes",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "闪电反射",
+        "text": "<b>发现</b>一张自然法术牌。如果你在本回合使用发现的牌，再<b>发现</b>一张。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/81f36048391aa89785be14bff67fe0e3f3ceb2194aa4a971b1b19137a6c637dd.png",
+        "imageGold": "",
+        "flavorText": "你要连闪电箭都能躲，还躲不过一个球吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96ce0dd17f62e8ace56824e7b505978349282dea48232c5b3bac6ba4b12d94f6.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TTN_317",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 96077,
+        "collectible": 1,
+        "slug": "96077-lightning-reflexes",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1858,
+        "rarityId": 3,
+        "artistName": "Mooncolony",
+        "manaCost": 1,
+        "name": "Lightning Reflexes",
+        "text": "<b>Discover</b> a Nature spell. If you play it this turn, <b>Discover</b> another.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0dd374e24dd489ccba37019b6ad18eea704a2afd8fcad2c8ce073aa68a8cfb15.png",
+        "imageGold": "",
+        "flavorText": "If you can dodge a lightning bolt, you can dodge a ball.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/96ce0dd17f62e8ace56824e7b505978349282dea48232c5b3bac6ba4b12d94f6.png",
+        "keywordIds": [
+          21
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "TTN_317"
+  ],
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "policies": {
+    "first": "Ordinary complete current-class Nature spell hand discovery, wrapped by original physical same-turn followup.",
+    "reward": "Original completed card_played/hand-entry witness consumes once; a separate terminal child captures the full fresh current pool/class and its own complete RNG/choice/delivery proof. Never restrict to unselected original offers; terminal child grants no further reward.",
+    "expiry": "Existing original global turn and owner interval, physical hand residence; loss/burn/late use grants no reward. Generic current copies do not inherit this external physical witness.",
+    "boundaries": "Completed card_played timing, source-independent origin, direct physical copy inheritance and current-class discovery are explicit local policies pending CN calibration."
+  },
+  "uncertainties": [
+    "Exact before/after-body timing and copied-enchantment inheritance await CN edge calibration; this native adapter uses the existing physical-hand followup policy.",
+    "Conductivity and full past Legendary transform dependencies remain separate open entries. Full Shaman71 remains unbound; versions/hotfix and CN edges deferred."
+  ]
+}
