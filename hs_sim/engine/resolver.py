@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v830'
+CORE_EFFECTS_VERSION = 'core-effects-v831'
 
 
 class Mechanics:
@@ -1509,7 +1509,7 @@ def set_stats(r, effect):
     return _set_stats_on_entity(r,effect,entity)
 
 
-def _set_stats_on_entity(r,effect,entity,*,original_stats=None):
+def _set_stats_on_entity(r,effect,entity,*,original_stats=None,pending_events=None):
     """Shared mutation after the caller has accepted its original live target."""
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     from .hero_health_history import snapshot as hero_health_snapshot
@@ -1526,11 +1526,13 @@ def _set_stats_on_entity(r,effect,entity,*,original_stats=None):
     refresh_entity(entity)
     if health is not None:
         entity.damage = 0
-    r.emit('stats_changed', source_id=effect.source_id, target_id=entity.id,
+    data=dict(source_id=effect.source_id, target_id=entity.id,
            enchantment_id=enchantment.id, operation=type(effect).__name__,
            old_attack=old_attack, old_health=old_health, old_max_health=old_max,
            attack=entity.attack, health=entity.health, max_health=entity.max_health,
            _hero_health_before=health_before)
+    if pending_events is None:r.emit('stats_changed',**data)
+    else:pending_events.append(('stats_changed',data))
 
 
 def double_stats(r, effect):
@@ -2742,6 +2744,10 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .void_decks import register as register_void_decks
     register_void_decks(mechanics)
     register_secrets(mechanics)
+    from .secret_repeats import register as register_secret_repeats
+    register_secret_repeats(mechanics)
+    from .health_swaps import register as register_health_swaps
+    register_health_swaps(mechanics)
     from .secret_expirations import register as register_secret_expirations
     register_secret_expirations(mechanics)
     from .discovery_cost_swaps import register as register_discovery_cost_swaps

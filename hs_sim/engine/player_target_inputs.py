@@ -39,6 +39,7 @@ ENTITY |= {'divine_shield'}
 ENTITY |= {'battlecry_form'}
 ENTITY |= {'boon_summon_cost'}
 ENTITY |= {'spell_recipe'}
+ENTITY |= {'has_deathrattle'}
 
 
 def _interactable_view(row, controller, zone):
@@ -171,6 +172,8 @@ def decode(proof, *, require_active_player=True):
                 zone != Zone.HERO and not (zone == Zone.HAND and controller == value['viewer']) or
                 type(row['invoke_progress']) is not int or not 0 <= row['invoke_progress'] <= 4):
             raise ValueError('Invoke progress requires a visible physical hero card and exact bounded integer')
+        if 'has_deathrattle'in row and(row.get('kind')!='minion'or type(row['has_deathrattle'])is not bool):
+            raise ValueError('Public Deathrattle presence requires a visible minion and exact boolean')
         if 'play_conditions' in row:
             conditions = row['play_conditions']
             if type(conditions) is not dict:

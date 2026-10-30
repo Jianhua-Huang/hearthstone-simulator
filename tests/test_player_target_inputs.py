@@ -372,6 +372,9 @@ class PlayerTargetInputTests(unittest.TestCase):
             self.assertEqual(value['players'][0]['hand'][0]['card_id'],face)
             self.assertEqual(value['players'][0]['mana'],10); self.assertEqual(g.state.players[1].mana,8)
             self.assertNotEqual(receipt.origin.observation,receipt.retry_root.origin.observation)
+            play=g.state.play_history[-1];material=play.minion_copy_material
+            self.assertEqual((material.source.card_id,material.action),(face,play.action))
+            self.assertEqual(material.source.zone_epoch,json.loads(receipt.origin.source_json)['zone_epoch'])
         self.check(g,retry_mode='normal')
 
     def test_retry_waiting_inputs_restore_and_resume_after_original_choice(self):

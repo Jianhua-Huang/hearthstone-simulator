@@ -205,6 +205,7 @@ class Registry:
         self._player_effects: dict[str, PlayerEffectSpec] = {}
         self._minion_base_stats_profiles = {}
         self._passive_hero_power_profiles = {}
+        self._native_secret_repeat_profiles = {}
         self._kindred_profiles: dict[str, KindredProfile] = {}
         self._spell_target_profiles = {}
         self._turn_draw_profiles = {}
@@ -927,6 +928,16 @@ class Registry:
 
     @property
     def passive_hero_power_profiles(self):return MappingProxyType(self._passive_hero_power_profiles)
+
+    @property
+    def native_secret_repeat_profiles(self):return MappingProxyType(self._native_secret_repeat_profiles)
+
+    def register_native_secret_repeat_profile(self,profile):
+        self._require_mutable()
+        from .secret_repeats import validate_profile
+        validate_profile(self,profile)
+        if profile.card_id in self._native_secret_repeat_profiles:raise ValueError('Duplicate native Secret repeat source')
+        self._native_secret_repeat_profiles[profile.card_id]=profile
 
     def register_passive_hero_power_profile(self,profile):
         self._require_mutable()
@@ -2737,6 +2748,8 @@ class Registry:
                     raise ValueError('Controlled-card price requires known resident or equipped card faces')
         from .passive_hero_powers import validate_profile as validate_passive_power_profile
         for profile in self._passive_hero_power_profiles.values():validate_passive_power_profile(self,profile)
+        from .secret_repeats import validate_profile as validate_secret_repeat_profile
+        for profile in self._native_secret_repeat_profiles.values():validate_secret_repeat_profile(self,profile)
         from .minion_base_programs import validate_profile as validate_minion_base_profile
         for profile in self._minion_base_stats_profiles.values():validate_minion_base_profile(self,profile)
         from .consumed_cards import validate_profile as validate_consumption_profile
@@ -3456,5 +3469,7 @@ class Registry:
             payload['minion_base_stats_profiles']=[asdict(self._minion_base_stats_profiles[k])for k in sorted(self._minion_base_stats_profiles)]
         if self._passive_hero_power_profiles:
             payload['passive_hero_power_profiles']=[asdict(self._passive_hero_power_profiles[k])for k in sorted(self._passive_hero_power_profiles)]
+        if self._native_secret_repeat_profiles:
+            payload['native_secret_repeat_profiles']=[asdict(self._native_secret_repeat_profiles[k])for k in sorted(self._native_secret_repeat_profiles)]
         serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
         return hashlib.sha256(serialized.encode("utf-8")).hexdigest()

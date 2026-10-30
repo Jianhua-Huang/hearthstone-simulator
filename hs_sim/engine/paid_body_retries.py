@@ -105,10 +105,22 @@ def validate_retry_origin(state,registry,play,original,source):
     # complete initial target universe independently of the latest candidates.
     definition=registry.card(initial.card_id)
     initial_face=replace(play.played_face,card_id=initial.card_id,metadata=definition.metadata,spell_school=definition.spell_school)
+    initial_copy=play.minion_copy_material
+    if initial_copy is not None:
+        from .permanent_minion_stats import value as permanent_value
+        from .infused_battlecries import value as infused_value
+        # Project the recipe with the same original hand face as this temporary
+        # receipt view. The actual retry's stored recipe remains untouched.
+        initial_copy=replace(initial_copy,source=replace(initial_copy.source,
+            card_id=initial.card_id,kind=initial.kind,owner=initial.owner,controller=initial.controller,
+            zone=initial.zone,zone_epoch=initial.zone_epoch,entered_order=initial.entered_order,
+            next_entity_id=root.origin.next_entity_id),components=initial.components,jade_size=initial.jade_size,
+            turn=root.origin.turn,action=root.origin.action,permanent_stats=permanent_value(initial),
+            infused_damage=infused_value(initial))
     initial_play=replace(play,card_id=initial.card_id,action=root.origin.action,body_targets=root,played_face=initial_face,
         submitted_cost=replace(paid,quote_origin='current_hand'),battlecry_acceptance=None,combo_acceptance=None,
         paid_hand_close=None,paid_hand_interrupt=None,completed=False,interrupted=False,countered=False,
-        combo_submission_receipt_id=None)
+        combo_submission_receipt_id=None,minion_copy_material=initial_copy)
     from .paid_body_targets import validate_receipt
     validate_receipt(state,registry,initial_play)
 

@@ -70,6 +70,11 @@ class FrameCodec:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
     def _validate(self, value):
+        from .health_swaps import SwapCapturedMinionHealth
+        from .secret_repeats import RepeatSecretBody
+        if self.origin_state is not None:
+            if type(value)is SwapCapturedMinionHealth:value.validate_in_state(self.origin_state,self.registry)
+            if type(value)is RepeatSecretBody:value.validate_in_state(self.origin_state,self.registry,self.origin_events)
         from .discovered_spell_casts import CastAffordableDiscoveredSpell
         if type(value) is CastAffordableDiscoveredSpell and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry,self.origin_events)

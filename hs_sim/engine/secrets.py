@@ -129,9 +129,12 @@ def check(r, effect):
         return
     # Mark consumed before publishing reveal or running any behavior. A nested
     # event cannot consume this instance again, even across a pending choice.
+    from .secret_repeats import capture_extra
+    extra=capture_extra(r,entity,effect.event,context.target_id)
     consume(r, entity, 'secret_revealed')
-    return [r.call(spec.behavior_id, entity.id, entity.controller, context.target_id,
-                   event=effect.event, window=window)]
+    calls=[r.call(spec.behavior_id, entity.id, entity.controller, context.target_id,
+                  event=effect.event, window=window)]
+    return calls if extra is None else [*calls,extra]
 
 
 def register_secrets(mechanics):
