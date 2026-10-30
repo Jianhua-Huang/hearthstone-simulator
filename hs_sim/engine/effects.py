@@ -867,6 +867,7 @@ class ModifyWeapon(Effect):
     attack: int = 0
     durability: int = 0
     source_id: int | None = None
+    stored_card: object | None = None
 
     def __post_init__(self):
         if type(self.target_id) is EquippedWeaponReference: self.target_id.__post_init__()
@@ -874,6 +875,12 @@ class ModifyWeapon(Effect):
         _integer(self.attack, 'attack')
         _integer(self.durability, 'durability')
         _source(self.source_id)
+        if self.stored_card is not None:
+            from .zones import reference_value
+            reference_value(self.stored_card)
+            if (type(self.target_id) is not int or self.target_id != self.stored_card.entity_id or
+                    self.stored_card.zone not in (Zone.HAND, Zone.DECK) or self.attack < 0 or self.durability < 0):
+                raise ValueError('Stored weapon growth requires its original hand/deck reference and nonnegative deltas')
 
 
 @dataclass(frozen=True)

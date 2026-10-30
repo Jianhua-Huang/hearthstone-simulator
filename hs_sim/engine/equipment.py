@@ -196,8 +196,15 @@ def validate_weapon_transfer_events(state,registry,events):
 
 
 def modify_weapon(r, effect, *, pending_events=None):
+    effect.__post_init__()
     reference = effect.target_id if type(effect.target_id) is EquippedWeaponReference else None
-    if reference is not None:
+    if effect.stored_card is not None:
+        from .zones import reference_entity
+        if r.registry.card(effect.stored_card.card_id).kind != CardType.WEAPON:
+            raise ResolutionError('Stored weapon growth requires an actual weapon face')
+        weapon = reference_entity(r, effect.stored_card)
+        if weapon is None: return ()
+    elif reference is not None:
         r.registry.card(reference.card_id)
         weapon = r.state.entities.get(reference.entity_id)
         if (weapon is None or not weapon.active or weapon.zone != Zone.WEAPON or weapon.kind != CardType.WEAPON
@@ -208,7 +215,7 @@ def modify_weapon(r, effect, *, pending_events=None):
             return ()
     else:
         weapon = r.state.entities.get(effect.target_id)
-    if weapon is None or weapon.zone != Zone.WEAPON:
+    if weapon is None or effect.stored_card is None and weapon.zone != Zone.WEAPON:
         r.stale(effect, effect.target_id)
         return
     if effect.source_id is not None and effect.source_id not in r.state.entities:
@@ -220,12 +227,17 @@ def modify_weapon(r, effect, *, pending_events=None):
     from .death_causes import dying, mark
     if dying(weapon): mark(r, weapon, 'durability', 'ModifyWeapon', effect.source_id)
     r.refresh_auras()
+    event = 'weapon_changed'
     data = dict(source_id=effect.source_id, target_id=weapon.id,
                 attack=weapon.attack, durability=weapon.durability)
+    if effect.stored_card is not None:
+        event = 'stored_card_buffed'
+        data = dict(source_id=effect.source_id, target_id=weapon.id, player_id=weapon.controller,
+            attack_delta=effect.attack, health_delta=0, durability_delta=effect.durability)
     if pending_events is None:
-        r.emit('weapon_changed', **data)
+        r.emit(event, **data)
     else:
-        pending_events.append(('weapon_changed', data))
+        pending_events.append((event, data))
 
 
 def finish_exchange(r, combat):
