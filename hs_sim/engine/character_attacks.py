@@ -50,6 +50,28 @@ def completed_minion_types(context, registry):
     return value
 
 
+def completed_minion_keywords(context, registry):
+    """Read current original combat residence or its exact natural-death facts."""
+    row = completed_attack(context)
+    if row is None or row.source_kind != CardType.MINION:
+        return None
+    combat = row.combat
+    identity = (row.declaration.source_id, combat.source_card_id,
+                combat.source_zone_epoch, combat.source_entered_order)
+    entity = context.state.entities.get(identity[0])
+    if entity is not None and (entity.id, entity.card_id, entity.zone_epoch, entity.entered_order) == identity:
+        return frozenset(entity.keywords)
+    from .death_self_copies import validate_death_source
+    from .registry import UnsupportedDefinitionError
+    deaths = tuple(d for d in context.state.death_history if d.copy_source is not None and
+        (d.entity_id, d.card_id, d.copy_source.origin.zone_epoch, d.copy_source.origin.entered_order) == identity)
+    if len(deaths) != 1:
+        raise UnsupportedDefinitionError('Completed minion attack lost its original live or death keyword material')
+    death, = deaths
+    validate_death_source(death)
+    return frozenset(death.keywords)
+
+
 def validate_record(row):
     if type(row) is not CharacterAttackRecord or type(row.declaration) is not ActionWindow:
         raise ValueError('Character attack requires its original typed declaration')
