@@ -213,7 +213,7 @@ class MoveCard(Effect):
 
 @dataclass(frozen=True)
 class CopyCard(Effect):
-    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord | PlayedMinionCopyMaterial | FrozenPlayedFaceFact
+    card: CardReference | CopyEntryMaterial | MinionReference | CapturedCardCopyMaterial | DeathRecord | DiscardRecord | PlayedMinionCopyMaterial | FrozenPlayedFaceFact | None
     player_id: int
     destination: Zone = Zone.HAND
     mode: str = 'current'
@@ -224,8 +224,19 @@ class CopyCard(Effect):
     expires_turn: int | None = None
     cast_when_drawn: bool = False
     required_keyword: Keyword | None = None
+    cast_id: int | None = None
 
     def __post_init__(self):
+        if self.cast_id is not None:
+            integer(self.cast_id,'original copied spell cast',1);_player(self.player_id);_source(self.source_id)
+            if type(self.cost) is not CostSpec:
+                raise ValueError('Original CAST copy requires its explicit zero-cost recipe')
+            self.cost.__post_init__()
+            if (self.card is not None or self.destination!=Zone.HAND or self.mode!='base' or self.position!='random' or
+                    self.source_id is None or self.stats is not None or self.cost!=CostSpec(set_to=0) or
+                    self.expires_turn is not None or self.cast_when_drawn is not False or self.required_keyword is not None):
+                raise ValueError('Original CAST copy requires one attributed permanent zero-cost base hand copy')
+            return
         if self.required_keyword is not None and (type(self.required_keyword) is not Keyword or
                 type(self.card) is not MinionReference or self.destination != Zone.HAND or
                 self.mode != 'current' or self.source_id is None):
@@ -1016,7 +1027,16 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
             raise ValueError('Permanent printed growth requires an original base minion deck copy')
     source_exists(r, effect.source_id)
     material=effect.card if type(effect.card)is CopyEntryMaterial else None
-    if type(effect.card) is PlayedMinionCopyMaterial:
+    if effect.cast_id is not None:
+        from .spell_casts import cast_record
+        row=cast_record(r.state,effect.cast_id)
+        original=r.state.entities.get(row.source_id)
+        definition=r.registry.card(row.card_id)
+        if (not row.completed or not row.payload_started or row.failure is not None or row.interrupted or
+                row.player_id!=effect.player_id or original is None or definition.kind!=CardType.SPELL or not definition.hand_playable):
+            raise ResolutionError('Original CAST copy requires its successful completed own physical spell')
+        source=Entity(row.source_id,row.card_id,original.owner,row.player_id,Zone.GRAVEYARD,kind=CardType.SPELL)
+    elif type(effect.card) is PlayedMinionCopyMaterial:
         from .played_minion_copies import original_entity
         source = original_entity(r.state, r.registry, effect.card)
     elif type(effect.card) is FrozenPlayedFaceFact:

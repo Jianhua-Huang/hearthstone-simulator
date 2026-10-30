@@ -18,20 +18,28 @@ class SpellSourceCostProfile:
 @dataclass(frozen=True)
 class SpellSourceCostObserverProfile:
     effect_id: str
-    school: SpellSchool = SpellSchool.HOLY
+    school: SpellSchool | None = SpellSchool.HOLY
 
     def __post_init__(self):
         _name(self.effect_id, 'spell-cost observing program')
-        if type(self.school) is not SpellSchool or self.school != SpellSchool.HOLY:
-            raise ValueError('Only the original Holy-spell cost observer is declared')
+        if self.school is not None and (type(self.school) is not SpellSchool or
+                self.school not in (SpellSchool.HOLY, SpellSchool.SHADOW)):
+            raise ValueError('Spell-cost observers require Holy, Shadow or the declared all-school scope')
 
 
 def validate_observer(registry, profile):
     if type(profile) is not SpellSourceCostObserverProfile:
         raise ValueError('Typed original spell-cost observer required')
     profile.__post_init__()
+    if profile.effect_id in registry.cards:
+        card=registry.card(profile.effect_id)
+        if (card.kind!=CardType.MINION or card.choice_only or card.interactable is not None or
+                len(card.triggers)!=1 or card.triggers[0].event!='spell_cast_finished' or
+                profile.school not in (None,SpellSchool.SHADOW)):
+            raise ValueError('Minion spell-cost observation requires its actual single completion trigger')
+        return
     spec=registry.player_effect(profile.effect_id)
-    if (spec.kind!='aura' or len(spec.triggers)!=1 or spec.triggers[0].event!='spell_cast_finished' or
+    if (profile.school!=SpellSchool.HOLY or spec.kind!='aura' or len(spec.triggers)!=1 or spec.triggers[0].event!='spell_cast_finished' or
             registry.card(spec.card_id).spell_school!=SpellSchool.HOLY):
         raise ValueError('Spell-cost observation requires its real native Holy Aura completion trigger')
 
@@ -43,7 +51,7 @@ def requires_quote(registry, card_id):
         return True
     card=registry.card(card_id)
     return card.kind==CardType.SPELL and (bool(registry.dormant_spell_mana_profiles) or
-        any(card.spell_school==p.school for p in registry.spell_source_cost_observers.values()))
+        any(p.school is None or card.spell_school==p.school for p in registry.spell_source_cost_observers.values()))
 
 
 def validate_profile(registry, profile):
