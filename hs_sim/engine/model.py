@@ -4409,14 +4409,17 @@ class BoardMinionCostSpec:
     def __post_init__(self):
         if type(self.scope) is not str or self.scope not in ('friendly', 'enemy', 'all'):
             raise ValueError('Board minion costs require friendly, enemy or all scope')
-        if type(self.profile_id) is not str or self.profile_id not in ('cost.board-minions-v1','cost.board-friendly-elementals-v1'):
+        if type(self.profile_id) is not str or self.profile_id not in ('cost.board-minions-v1','cost.board-friendly-elementals-v1','cost.board-friendly-pirates-v1'):
             raise ValueError('Unsupported board minion cost policy')
         if self.profile_id == 'cost.board-friendly-elementals-v1' and self.scope != 'friendly':
             raise ValueError('Native Elemental price requires the friendly board')
+        if self.profile_id == 'cost.board-friendly-pirates-v1' and self.scope != 'friendly':
+            raise ValueError('Native Pirate price requires the friendly board')
 
     @property
     def tribes_any(self):
         """Finite native selector; not another serialized declaration field."""
+        if self.profile_id == 'cost.board-friendly-pirates-v1':return ('pirate',)
         return ('elemental',) if self.profile_id == 'cost.board-friendly-elementals-v1' else ()
 
     @property
