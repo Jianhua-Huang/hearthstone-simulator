@@ -1,0 +1,1568 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-shaman-ranks-overload-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "cards": [
+    {
+      "record": {
+        "id": "AT_051",
+        "dbf_id": 2620,
+        "name": "元素毁灭",
+        "name_en": "Elemental Destruction",
+        "text": "对所有随从造成$4到$5点伤害。<b>过载：</b>（2）",
+        "text_en": "Deal $4-$5 damage to all minions. <b>Overload:</b> (2)",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 3,
+          "CARD_SET": 15,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "OVERLOAD": 2,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 15,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Tyler Walpole"
+          }
+        ]
+      },
+      "record_sha256": "1eccbbb9a711f5c5ed3f7594bffc987f025fef64314f3643d875385efe68d266",
+      "definition_sha256": "4c4789616bb81eb69beae712f1549927fd392f8350223ad760f7204cbf6dd888",
+      "pool_card_sha256": "bad7c0fed7f893718f75e5cfdb3fde13dc7d90c9375ec609cf72d3dfcf1198ec"
+    },
+    {
+      "record": {
+        "id": "BAR_044",
+        "dbf_id": 63065,
+        "name": "闪电链（等级1）",
+        "name_en": "Chain Lightning (Rank 1)",
+        "text": "对一个随从和随机一个相邻随从造成$2点伤害。<i>（当你有5点法力值时升级。）</i>",
+        "text_en": "Deal $2 damage to a minion and a random adjacent one. <i>(Upgrades when you have 5 Mana.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "96095fb8e86700259365ed863c62519edb423f4446dc2973a8ecd30a081fa80f",
+      "definition_sha256": "0f62dee4073153778694b5fc6ecd8cfe3ca13dfc7e5e5185c6e0ee924a988509",
+      "pool_card_sha256": "57fd3893dfe0abebfaffa8e50a487ae7e22a09fafc852204900b2b33041ac200"
+    },
+    {
+      "record": {
+        "id": "DAL_009",
+        "dbf_id": 51373,
+        "name": "哈加莎的阴谋",
+        "name_en": "Hagatha's Scheme",
+        "text": "对所有随从造成$@点伤害。<i>（每回合都会升级！）</i>",
+        "text_en": "Deal $@ damage\nto all minions.\n<i>(Upgrades each turn!)</i>",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "COST": 5,
+          "CARD_SET": 1130,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1130,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Arthur Gimaldinov"
+          }
+        ]
+      },
+      "record_sha256": "aca0496d763656dbc5f3161083940273804e6ec61297f005932dc1616544ebb4",
+      "definition_sha256": "c0feabfe47727ac96edbc17b02862c1eaee819932199d19a8dcbbbc76bd4c38b",
+      "pool_card_sha256": "a5c22e2f45176ae0753e67c7aaab7304d98f48836143d62b322e63e69c2a5d04"
+    },
+    {
+      "record": {
+        "id": "EX1_251",
+        "dbf_id": 299,
+        "name": "叉状闪电",
+        "name_en": "Forked Lightning",
+        "text": "随机对两个敌方随从造成$2点伤害，<b>过载：</b>（2）",
+        "text_en": "Deal $2 damage to 2_random enemy minions. <b>Overload:</b> (2)",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 1,
+          "CARD_SET": 3,
+          "CLASS": 8,
+          "FACTION": 3,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 2,
+          "251": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 3,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Ralph Horsley"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "251",
+              "name": "AttackVisualType",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "251"
+          }
+        ]
+      },
+      "record_sha256": "fa0a743e16448973954743a05572c4ad4f49b60a239c43cb739de702efcc4e8a",
+      "definition_sha256": "cd8d4d6897315e078079b0419e142e85033e0dd0e7a2e3a69316c822e0a32834",
+      "pool_card_sha256": "d5524a64a0a3af5222926c1089d1e071403db14a977f2486c4a73f7f83e8f485"
+    },
+    {
+      "record": {
+        "id": "GVG_038",
+        "dbf_id": 2006,
+        "name": "连环爆裂",
+        "name_en": "Crackle",
+        "text": "造成$3到$6点伤害，<b>过载：</b>（1）",
+        "text_en": "Deal $3-$6 damage. <b>Overload:</b> (1)",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 13,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "OVERLOAD": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 13,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Warren Mahy"
+          }
+        ]
+      },
+      "record_sha256": "2b6b5492070dd0441b8af6a3cd06be835ac0fb06afa3de302e77900b75ae7778",
+      "definition_sha256": "d667f20359df5d06431e41f1e8259b132dd21083696aa4ad60a75d64134a3831",
+      "pool_card_sha256": "2b262b023740c89defa6528eefec1b752eb1e7a6a8c14d50032f39031b757fb9"
+    },
+    {
+      "record": {
+        "id": "LOOT_064",
+        "dbf_id": 43331,
+        "name": "小型法术蓝宝石",
+        "name_en": "Lesser Sapphire Spellstone",
+        "text": "选择一个友方随从，召唤一个它的复制。@<i>（<b>过载</b>三个法力水晶后升级。）</i>",
+        "text_en": "Summon 1 copy of a friendly minion. @<i>(<b>Overload</b> 3 Mana Crystals to upgrade.)</i>",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 7,
+          "CARD_SET": 1004,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "e43b1d24dc79e5561345086572360067cc0ccf28f7af7b75bb00b16f47b8d99d",
+      "definition_sha256": "a1f585079dac0eac62c52de239fc8c69aaf8d9b3621f2c92f2da83331db1d043",
+      "pool_card_sha256": "04c1df85d2ec3d3a0d854955e32350fe5196d312c3edf3b829f23f08f215edb7"
+    }
+  ],
+  "dependencies": [
+    {
+      "record": {
+        "id": "BAR_044t",
+        "dbf_id": 63066,
+        "name": "闪电链（等级2）",
+        "name_en": "Chain Lightning (Rank 2)",
+        "text": "对一个随从和随机一个相邻随从造成$3点伤害。<i>（当你有10点法力值时升级。）</i>",
+        "text_en": "Deal $3 damage to a minion and a random adjacent one. <i>(Upgrades when you have 10 Mana.)</i>",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "b60d23c845fdcd1a2cfa689444736b4cb5fa6d9c5b3b88ede05a9385ffc55f90",
+      "definition_sha256": "e0c56621ac255383cff8cbd3c8a046d3782762c02d365da16ce9be7732ffd515",
+      "pool_card_sha256": "fa036c33f51588084fd4addc7d5058ab116676e567e2e97f13f6a3c39d815c9f"
+    },
+    {
+      "record": {
+        "id": "BAR_044t2",
+        "dbf_id": 63067,
+        "name": "闪电链（等级3）",
+        "name_en": "Chain Lightning (Rank 3)",
+        "text": "对一个随从和随机一个相邻随从造成$4点伤害。",
+        "text_en": "Deal $4 damage to a minion and a random adjacent one.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 2,
+          "CARD_SET": 1525,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1525,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Hideaki Takamura"
+          }
+        ]
+      },
+      "record_sha256": "f4695b7cd94bf4cd36e476275ab9e6007cb7bd27201e0748e5519b9b78265c9f",
+      "definition_sha256": "a02866fbcebd9bd4b183bcd2566bb22e5de4fabcaec47297312845a82df4c85f",
+      "pool_card_sha256": "b6a551739f51c4afed3d4461003c7252adab128bc3e60460cce62d2e1530deef"
+    },
+    {
+      "record": {
+        "id": "LOOT_064t1",
+        "dbf_id": 43333,
+        "name": "法术蓝宝石",
+        "name_en": "Sapphire Spellstone",
+        "text": "选择一个友方随从，召唤两个它的复制。@",
+        "text_en": "Summon 2 copies of a friendly minion. @",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "TAG_SCRIPT_DATA_NUM_2": 3,
+          "COST": 7,
+          "CARD_SET": 1004,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "215",
+              "name": "OVERLOAD",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "b80ab62bd7bf46903e6b5425783122deb31e4838f6bd774e350e5c3faa4df428",
+      "definition_sha256": "2fe1e57303237aa84bc5788a3330f2f4b8cb56f5a28238741c58c8b5dbd57e57",
+      "pool_card_sha256": "0e8d3316e72233abb91d405cdfb47299e92d53d8e710e39f41a51b6935af2113"
+    },
+    {
+      "record": {
+        "id": "LOOT_064t2",
+        "dbf_id": 43332,
+        "name": "大型法术蓝宝石",
+        "name_en": "Greater Sapphire Spellstone",
+        "text": "选择一个友方随从，召唤三个它的复制。",
+        "text_en": "Summon 3 copies of a friendly minion.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1004,
+          "CLASS": 8,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "SPELL_SCHOOL": 4
+        },
+        "card_set_id": 1004,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Jason Kang"
+          }
+        ]
+      },
+      "record_sha256": "2378bd8fd8cda665e423e0577e00a2f9635bd7cf6d96c57d418f824cd15708bc",
+      "definition_sha256": "a04f7f04f8e5a65b9aed0bf82f0828c4116dde475d854bb2f6f367f01c3f871f",
+      "pool_card_sha256": "3322e71224a6d41c34b77e9a1a5d99c3eb39512721fa6b6a70d6ee66054f7f4a"
+    }
+  ],
+  "evidence_only": [],
+  "existing_dependencies": [
+    {
+      "record": {
+        "id": "TIME_013",
+        "dbf_id": 119686,
+        "name": "先知者沃",
+        "name_en": "Farseer Wo",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "text_en": "[x]<b>Elusive</b>\nAfter you cast a spell,&\n<b>Discover</b> a Nature spell\nfrom the past.",
+        "cost": 4,
+        "attack": 2,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "TRIGGER_VISUAL": 1,
+          "HEALTH": 6,
+          "ATK": 2,
+          "COST": 4,
+          "ELITE": 1,
+          "CARD_SET": 1957,
+          "CLASS": 8,
+          "CARDTYPE": 4,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "ELUSIVE": 1,
+          "HAS_DIAMOND_QUALITY": 1,
+          "CRAFTABLE_OUTPUT_POWER": 1,
+          "4578": 1,
+          "4930": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Max Grecke"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4578",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4578"
+          },
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "4930",
+              "name": "1",
+              "type": "Int",
+              "value": "1"
+            },
+            "normalized_key": "4930"
+          }
+        ]
+      },
+      "record_sha256": "7147f7b257135f599a53e3b47b6cd6682e19d658006c59b3255abac81abf82be",
+      "definition_sha256": "9ca39e46ca9fc4d078a5974527b772d21f05a80704a848bff42fd2d46b992838"
+    }
+  ],
+  "official_observations": [
+    {
+      "card_id": "AT_051",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 2620,
+        "collectible": 1,
+        "slug": "2620-elemental-destruction",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 4,
+        "artistName": "Tyler Walpole",
+        "manaCost": 3,
+        "name": "元素毁灭",
+        "text": "对所有随从造成 4到 5点伤害。<b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e2244d445b9b87a7f1fe96b57bc8ef7f00cdc93fc813147fc4203629756d9c32.png",
+        "imageGold": "",
+        "flavorText": "我虽然不是什么萨满，但他们不是一直倡导要与元素和谐共存的吗？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e8fb1a3ce3b90bd245c347a15c8c0506cf1e894435eac9330417e998b83a442.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "AT_051",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-04.json",
+      "response_sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+      "face": {
+        "id": 2620,
+        "collectible": 1,
+        "slug": "2620-elemental-destruction",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 15,
+        "rarityId": 4,
+        "artistName": "Tyler Walpole",
+        "manaCost": 3,
+        "name": "Elemental Destruction",
+        "text": "Deal 4- 5 damage to all minions. <b>Overload:</b> (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/cae9fbe8084a7e792a7ba4a1c8d9e451eb845ccc8daecd786c900e82f50a19a2.png",
+        "imageGold": "",
+        "flavorText": "I'm not a shaman or anything, but isn't Elemental Destruction the opposite of what they want to do?",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5e8fb1a3ce3b90bd245c347a15c8c0506cf1e894435eac9330417e998b83a442.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 393319,
+        "sha256": "ee1318d049745e9dc7eff69bf9e7d79e1cb4acd599b22055e6090c1c71ad1295",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_044",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 63065,
+        "collectible": 1,
+        "slug": "63065-chain-lightning-rank-1",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "闪电链（等级1）",
+        "text": "对一个随从和随机一个相邻随从造成 2点伤害。<i>（当你有5点法力值时升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5da8add745fad480f86a9aef411622b8d004579649e65c5b258619763b878160.png",
+        "imageGold": "",
+        "flavorText": "挨一发连环闪电总比收一封连环信好受些。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c58409324e42fd812c845c6ac43ec06d088ac5976e6349ae0f1f6b9b6268c21.png",
+        "childIds": [
+          63066,
+          63067
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_044",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-02.json",
+      "response_sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+      "face": {
+        "id": 63065,
+        "collectible": 1,
+        "slug": "63065-chain-lightning-rank-1",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "Chain Lightning (Rank 1)",
+        "text": "Deal 2 damage to a minion and a random adjacent one. <i>(Upgrades when you have 5 Mana.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/79f7594b6931da02ed4c247e1306dc27692c6c313d70a0af292cd37d81d1331f.png",
+        "imageGold": "",
+        "flavorText": "Still better than receiving a chain letter.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9c58409324e42fd812c845c6ac43ec06d088ac5976e6349ae0f1f6b9b6268c21.png",
+        "childIds": [
+          63066,
+          63067
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 389364,
+        "sha256": "3b651d876c71ddb0509d241775859a92ddaa59f8bab28c1e6776151b57f39fe7",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_009",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-03.json",
+      "response_sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+      "face": {
+        "id": 51373,
+        "collectible": 1,
+        "slug": "51373-hagathas-scheme",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 3,
+        "artistName": "Arthur Gimaldinov",
+        "manaCost": 5,
+        "name": "哈加莎的阴谋",
+        "text": "对所有随从造成 1点伤害。<i>（每回合都会升级！）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/14336e02fa46961a78fae06e87c8ff10d7c90c9818971a2c2988729bb9b29e91.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/909404751c55d70cd9a927ecffbeafb81920f37166021efeaff83b315c2a6183.png",
+        "flavorText": "“所有人都将受苦！”“但是哈加莎，那些可是你的随从……”“我说了，是所有人！！！”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5108f22362e3a8738f88810d58b9ee4a5a739b28920bbc983901a47fe16668a9.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 400519,
+        "sha256": "a08dccecd08e565fc57de0bdb0671ebd4631b3545a551869b6bc669520753882",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "DAL_009",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-06.json",
+      "response_sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+      "face": {
+        "id": 51373,
+        "collectible": 1,
+        "slug": "51373-hagathas-scheme",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1130,
+        "rarityId": 3,
+        "artistName": "Arthur Gimaldinov",
+        "manaCost": 5,
+        "name": "Hagatha's Scheme",
+        "text": "Deal 1 damage to all minions. <i>(Upgrades each turn!)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/c8ef827a230ff7528f1693b5c8c88c998bb21f492068b315fef73becc60c302f.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fcdeba286b840934b3435b33f109d9a28da6e7f3cd868d96f1ef17faf765c497.png",
+        "flavorText": "\"All shall suffer!\" \"But Hagatha, those are your minions...\" \"I said ALL!!!\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/5108f22362e3a8738f88810d58b9ee4a5a739b28920bbc983901a47fe16668a9.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=6&pageSize=500",
+        "status": 200,
+        "bytes": 387410,
+        "sha256": "b19b2f42a9c0abf300b2072855b2cd693bb8e051913c7ce3b364165cb68efbd5",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_251",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-02.json",
+      "response_sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+      "face": {
+        "id": 299,
+        "collectible": 1,
+        "slug": "299-forked-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Ralph Horsley",
+        "manaCost": 1,
+        "name": "叉状闪电",
+        "text": "随机对两个敌方随从造成 2点伤害，<b>过载：</b>（2）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/bacc39d3432fcbf230cb7b9e01958c2b08bde18bc0dd49867f2d694c3ae15148.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d5990c48d4191f603481ea936f267e8c3331048b5d010e3b49bb36ead1c4366.png",
+        "flavorText": "配上勺状闪电和刀状闪电，你就集齐整套闪电餐具了。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e898d235ec48bfd51c2b525c843d10706c2318d10cf742fccccb0a5b7aa5c0ff.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          69900
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=2&pageSize=500",
+        "status": 200,
+        "bytes": 394449,
+        "sha256": "965d7a44678c27f28583172df2702faa5a44efebd904236ad63e6d743e2fab38",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "EX1_251",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 299,
+        "collectible": 1,
+        "slug": "299-forked-lightning",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 3,
+        "rarityId": 1,
+        "artistName": "Ralph Horsley",
+        "manaCost": 1,
+        "name": "Forked Lightning",
+        "text": "Deal 2 damage to 2 random enemy minions. <b>Overload:</b> (2)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/73b113cd9552b66f608e0cce840f519444308af511f6396c7fddd57d5ed97c4b.png",
+        "imageGold": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/1d5990c48d4191f603481ea936f267e8c3331048b5d010e3b49bb36ead1c4366.png",
+        "flavorText": "If you combine it with Spooned Lightning and Knived Lightning, you have the full dining set.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e898d235ec48bfd51c2b525c843d10706c2318d10cf742fccccb0a5b7aa5c0ff.png",
+        "keywordIds": [
+          14
+        ],
+        "copyOfCardId": [
+          69900
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_038",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-12.json",
+      "response_sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+      "face": {
+        "id": 2006,
+        "collectible": 1,
+        "slug": "2006-crackle",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Warren Mahy",
+        "manaCost": 2,
+        "name": "连环爆裂",
+        "text": "造成 3到 6点伤害，<b>过载：</b>（1）",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ecda7be3572bbc387a9f9f906049a2a213370c841babd568d9884562ebb1466a.png",
+        "imageGold": "",
+        "flavorText": "在施放这个法术的时候最好提前带上耳塞。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3640be29202a8d6f35a7c4f58a1d7840350abf171f4ef50901d5b1578fe113e7.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=12&pageSize=500",
+        "status": 200,
+        "bytes": 394892,
+        "sha256": "6e074f90f9bcb6667360d69a664220a620454d32a33e1b4994869a24ddc90649",
+        "response_date": "Fri, 23 Oct 2026 08:24:58 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "GVG_038",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-03.json",
+      "response_sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+      "face": {
+        "id": 2006,
+        "collectible": 1,
+        "slug": "2006-crackle",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 13,
+        "rarityId": 1,
+        "artistName": "Warren Mahy",
+        "manaCost": 2,
+        "name": "Crackle",
+        "text": "Deal 3- 6 damage. <b>Overload:</b> (1)",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/fdac3f4cb8c7d90fe1ed4ea70675f3a57b0a2d9a9958b46980360897cd64093b.png",
+        "imageGold": "",
+        "flavorText": "Snap! This card! Pop!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3640be29202a8d6f35a7c4f58a1d7840350abf171f4ef50901d5b1578fe113e7.png",
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=3&pageSize=500",
+        "status": 200,
+        "bytes": 384237,
+        "sha256": "88a10a159d01e350e057c53b2ffd923d40e9fca8b2d967884318b3cb79ad8ef6",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_064",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-04.json",
+      "response_sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+      "face": {
+        "id": 43331,
+        "collectible": 1,
+        "slug": "43331-lesser-sapphire-spellstone",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 7,
+        "name": "小型法术蓝宝石",
+        "text": "选择一个友方随从，召唤一个它的复制。 <i>（<b>过载</b>三个法力水晶后升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/106aa19efa2e44c1ac95e0277f727632bf51d69a336735b15c329c677ca0d1a9.png",
+        "imageGold": "",
+        "flavorText": "“蓝色的石头归海底的鱼人领主所有，被粘液包裹起来。很快鱼人就拥上了海滩，两只，四只，然后是更多，更多……”——《魔石》",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48d7824b2fa553521a0f0d221ea9628bad7dc9c873078e34f1cb9af432426a3.png",
+        "childIds": [
+          43333,
+          43332
+        ],
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=4&pageSize=500",
+        "status": 200,
+        "bytes": 396319,
+        "sha256": "b82e4a651598f68bc070564edf14a716a577b2c52cdc4dc954734ef127661099",
+        "response_date": "Fri, 23 Oct 2026 08:24:54 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "LOOT_064",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-07.json",
+      "response_sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+      "face": {
+        "id": 43331,
+        "collectible": 1,
+        "slug": "43331-lesser-sapphire-spellstone",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 7,
+        "name": "Lesser Sapphire Spellstone",
+        "text": "Summon 1 copy of a friendly minion. <i>(<b>Overload</b> 3 Mana Crystals to upgrade.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7cd41caa00e4566743a9e4c1387cae0bacb979c04f40bab322736be042ad41be.png",
+        "imageGold": "",
+        "flavorText": "A stone of blue, embraced with glee By murloc lords beneath the sea Soon numberless they swarmed the shore First two, then four, then more...and more...",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/b48d7824b2fa553521a0f0d221ea9628bad7dc9c873078e34f1cb9af432426a3.png",
+        "childIds": [
+          43333,
+          43332
+        ],
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=7&pageSize=500",
+        "status": 200,
+        "bytes": 396817,
+        "sha256": "d8ac47c345e15a29ad526add1647a0b9bbb67448651bab57690cb84958450f2a",
+        "response_date": "Fri, 23 Oct 2026 08:24:49 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "BAR_044t",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\63066-zh_CN.json",
+      "response_sha256": "0888d5709555106e54f1d9c4c63ea4077a414c93e9de8627e55213b7a813647e",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=63066&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 63066,
+        "collectible": 0,
+        "slug": "63066-chain-lightning-rank-",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "闪电链（等级2）",
+        "text": "对一个随从和随机一个相邻随从造成 3点伤害。<i>（当你有10点法力值时升级。）</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/3dd05369ed023cef394e0a8250edd1b25f94ec39c75b8597bd3359b86c3bb132.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 63065,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=63066&locale=zh_CN&collectible=0",
+        "sha256": "0888d5709555106e54f1d9c4c63ea4077a414c93e9de8627e55213b7a813647e",
+        "bytes": 665,
+        "observed_at": "2026-10-30T00:05:57.846871+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_044t",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\63066-en_US.json",
+      "response_sha256": "cdcfd83da1aab132e55f72cb2fa56406206d522d48b6ac0d778a50cb811c0a3b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=63066&locale=en_US&collectible=0",
+      "face": {
+        "id": 63066,
+        "collectible": 0,
+        "slug": "63066-chain-lightning-rank-",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "Chain Lightning (Rank 2)",
+        "text": "Deal 3 damage to a minion and a random adjacent one. <i>(Upgrades when you have 10 Mana.)</i>",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/950b5c65ff777bccfe3b75c59f97463acbaf4a41f02311391f616ad07a457271.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 63065,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=63066&locale=en_US&collectible=0",
+        "sha256": "cdcfd83da1aab132e55f72cb2fa56406206d522d48b6ac0d778a50cb811c0a3b",
+        "bytes": 650,
+        "observed_at": "2026-10-30T00:05:58.001648+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_044t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\63067-zh_CN.json",
+      "response_sha256": "2c5e1e4b5534f58976b6f66a7c0c151c5a540dbc23e153331b71690e7bdd68f4",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=63067&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 63067,
+        "collectible": 0,
+        "slug": "63067-chain-lightning-rank-",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "闪电链（等级3）",
+        "text": "对一个随从和随机一个相邻随从造成 4点伤害。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/64119e0d52afc352a6d25d7d57695d300c9681a7acfe99b624b2eb8f6bebbb09.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 63065,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=63067&locale=zh_CN&collectible=0",
+        "sha256": "2c5e1e4b5534f58976b6f66a7c0c151c5a540dbc23e153331b71690e7bdd68f4",
+        "bytes": 617,
+        "observed_at": "2026-10-30T00:05:57.443794+00:00"
+      }
+    },
+    {
+      "card_id": "BAR_044t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\63067-en_US.json",
+      "response_sha256": "dc441aa108cb26192055c423887067dc1eabbdb583ede406e07af19c475eb432",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=63067&locale=en_US&collectible=0",
+      "face": {
+        "id": 63067,
+        "collectible": 0,
+        "slug": "63067-chain-lightning-rank-",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1525,
+        "rarityId": 4,
+        "artistName": "Hideaki Takamura",
+        "manaCost": 2,
+        "name": "Chain Lightning (Rank 3)",
+        "text": "Deal 4 damage to a minion and a random adjacent one.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/54a52af7ca064e4706abcdec6794e93678791bbac0a023bb7631f988a66227c7.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 63065,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=63067&locale=en_US&collectible=0",
+        "sha256": "dc441aa108cb26192055c423887067dc1eabbdb583ede406e07af19c475eb432",
+        "bytes": 609,
+        "observed_at": "2026-10-30T00:05:57.912248+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_064t1",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\43333-zh_CN.json",
+      "response_sha256": "bf51169e95b046e4ef68f89b75a6fe83c7caf5babdaf5244886d3671695fc71c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43333&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43333,
+        "collectible": 0,
+        "slug": "43333-sapphire-spellstone",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 7,
+        "name": "法术蓝宝石",
+        "text": "选择一个友方随从，召唤两个它的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2c49758a8761e9533a870c990a172715d04cf10b2f984f3950eea86d8fa5ff85.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43331,
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43333&locale=zh_CN&collectible=0",
+        "sha256": "bf51169e95b046e4ef68f89b75a6fe83c7caf5babdaf5244886d3671695fc71c",
+        "bytes": 612,
+        "observed_at": "2026-10-30T00:05:59.354187+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_064t1",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\43333-en_US.json",
+      "response_sha256": "e2a32a3e732a4d6f7e9a8fbce7e65f71af94935c0d948692cfd3dd9b31edf614",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43333&locale=en_US&collectible=0",
+      "face": {
+        "id": 43333,
+        "collectible": 0,
+        "slug": "43333-sapphire-spellstone",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 7,
+        "name": "Sapphire Spellstone",
+        "text": "Summon 2 copies of a friendly minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2609f738189bd76f400ccffa10a1032949707e7a820df034852769a95d5e436f.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43331,
+        "keywordIds": [
+          14
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43333&locale=en_US&collectible=0",
+        "sha256": "e2a32a3e732a4d6f7e9a8fbce7e65f71af94935c0d948692cfd3dd9b31edf614",
+        "bytes": 599,
+        "observed_at": "2026-10-30T00:05:59.906842+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_064t2",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\43332-zh_CN.json",
+      "response_sha256": "b79bc7694b58675ccb35abf3aa7250cf43d77af4d9e7449142ee5f9ffb3f193b",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43332&locale=zh_CN&collectible=0",
+      "face": {
+        "id": 43332,
+        "collectible": 0,
+        "slug": "43332-greater-sapphire-spellstone",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 7,
+        "name": "大型法术蓝宝石",
+        "text": "选择一个友方随从，召唤三个它的复制。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/66fd6409ed1f69fe4b5c15e324814997ec22f96a9d8256a1c1f67e7441f1c7ff.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43331,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43332&locale=zh_CN&collectible=0",
+        "sha256": "b79bc7694b58675ccb35abf3aa7250cf43d77af4d9e7449142ee5f9ffb3f193b",
+        "bytes": 608,
+        "observed_at": "2026-10-30T00:05:59.962277+00:00"
+      }
+    },
+    {
+      "card_id": "LOOT_064t2",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k675-shaman-ranks-overload\\official-noncollectible-01\\43332-en_US.json",
+      "response_sha256": "07403bb05914db1ebd4a87b2a64a86a3f9c07580516f87bc10f20e47ee1601bc",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=43332&locale=en_US&collectible=0",
+      "face": {
+        "id": 43332,
+        "collectible": 0,
+        "slug": "43332-greater-sapphire-spellstone",
+        "classId": 8,
+        "multiClassIds": [],
+        "spellSchoolId": 4,
+        "cardTypeId": 5,
+        "cardSetId": 1004,
+        "rarityId": 3,
+        "artistName": "Jason Kang",
+        "manaCost": 7,
+        "name": "Greater Sapphire Spellstone",
+        "text": "Summon 3 copies of a friendly minion.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17cc458313a9a02273a9e29686dc2c3f5fd64201934c3de0bed70bf84f859926.png",
+        "imageGold": "",
+        "flavorText": "",
+        "cropImage": null,
+        "parentId": 43331,
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=43332&locale=en_US&collectible=0",
+        "sha256": "07403bb05914db1ebd4a87b2a64a86a3f9c07580516f87bc10f20e47ee1601bc",
+        "bytes": 597,
+        "observed_at": "2026-10-30T00:05:59.916554+00:00"
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\zh_CN-01.json",
+      "response_sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "先知者沃",
+        "text": "<b>扰魔</b>。在你施放一个法术后，&<b>发现</b>一张来自过去的自然法术牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/2bbd8d9c432b01e7fe605fdb5db24336264a36609509d24613ef7fc5cc7a8bc1.png",
+        "imageGold": "",
+        "flavorText": "她冥想了两个星期，心无旁骛地探知着宇宙的每一个角落，事无巨细，无所不包。当她从冥想中醒来，口中只吐出了一个声音：“喔。”",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=zh_CN&page=1&pageSize=500",
+        "status": 200,
+        "bytes": 395670,
+        "sha256": "beb56e7e2615dc7da3869a49ee250750eb1569cd1ebe8235cb1f5263a85b7271",
+        "response_date": "Fri, 23 Oct 2026 08:24:44 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    },
+    {
+      "card_id": "TIME_013",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-integration-20261014\\k454-past-one-cost-source\\wild-primary-catalog\\en_US-05.json",
+      "response_sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+      "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+      "face": {
+        "id": 119686,
+        "collectible": 1,
+        "slug": "119686-farseer-wo",
+        "classId": 8,
+        "multiClassIds": [],
+        "cardTypeId": 4,
+        "cardSetId": 1957,
+        "rarityId": 5,
+        "artistName": "Max Grecke",
+        "health": 6,
+        "attack": 2,
+        "manaCost": 4,
+        "name": "Farseer Wo",
+        "text": "<b>Elusive</b> After you cast a spell,& <b>Discover</b> a Nature spell from the past.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/48503f67d38c9ae5f88e6ad6ab15353afc959018f9f1674eda9117dfb507ef58.png",
+        "imageGold": "",
+        "flavorText": "For two weeks, she meditated in silence, undisturbed as she peered into the endless, unfolding facets of the universe. No pathway lay unexplored, no stone left unturned. When she finally snapped from her fugue, she uttered a single word: \"Woah.\"",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e8496b5a005cbca9920a09bb7ab143af0d7eb63597f34f0ec70e2c77035a35fb.png",
+        "keywordIds": [
+          21,
+          265
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?set=wild&locale=en_US&page=5&pageSize=500",
+        "status": 200,
+        "bytes": 385131,
+        "sha256": "cbca5681e2137ce0bccfc19a8df7eb063ada9e5a14436a653b9067cad56bdc3a",
+        "response_date": "Fri, 23 Oct 2026 08:24:47 GMT",
+        "pageCount": 14,
+        "cardCount": 6501
+      }
+    }
+  ],
+  "display_normalizations": {
+    "DAL_009": {
+      "@": "1"
+    },
+    "LOOT_064": {
+      "@": ""
+    },
+    "LOOT_064t1": {
+      "@": ""
+    }
+  },
+  "numeric_normalizations": {},
+  "full_union_source_document": "data/cards/past-priest-nature-source-v1.json",
+  "full_union_source_sha256": "768d7b71db2cb9be9c15b1685e3ecd426ab7b4bda5c06ab7290b424883f7bf8f",
+  "original_shaman_member_ids": [
+    "AT_048",
+    "AT_051",
+    "BAR_044",
+    "BOT_093",
+    "BOT_245",
+    "BOT_246",
+    "BOT_451",
+    "BT_100",
+    "BT_101",
+    "BT_110",
+    "CFM_696",
+    "CFM_707",
+    "CS2_039",
+    "CS2_041",
+    "CS2_045",
+    "DAL_009",
+    "DAL_071",
+    "DAL_432",
+    "DEEP_009",
+    "DEEP_010",
+    "DMF_701",
+    "DMF_702",
+    "DRG_215",
+    "DRG_219",
+    "ETC_356",
+    "EX1_238",
+    "EX1_245",
+    "EX1_246",
+    "EX1_248",
+    "EX1_251",
+    "EX1_259",
+    "FP1_025",
+    "GDB_445",
+    "GIL_586",
+    "GIL_600",
+    "GVG_038",
+    "KAR_073",
+    "LOOT_064",
+    "LOOT_373",
+    "LOOT_504",
+    "MIS_701",
+    "OG_023",
+    "OG_027",
+    "OG_206",
+    "REV_924",
+    "SCH_427",
+    "SCH_535",
+    "SCH_612",
+    "SW_035",
+    "TID_005",
+    "TOY_506",
+    "TOY_508",
+    "TSC_923",
+    "TTN_317",
+    "TTN_722",
+    "TTN_830",
+    "TTN_831",
+    "ULD_171",
+    "ULD_181",
+    "UNG_817",
+    "UNG_956",
+    "VAC_329",
+    "WON_082",
+    "WON_320",
+    "WON_335",
+    "WW_080",
+    "WW_090",
+    "YOD_020",
+    "YOD_041",
+    "YOG_522",
+    "YOP_023"
+  ],
+  "added_metadata_ids": [
+    "AT_051",
+    "BAR_044",
+    "DAL_009",
+    "EX1_251",
+    "GVG_038",
+    "LOOT_064",
+    "BAR_044t",
+    "BAR_044t2",
+    "LOOT_064t1",
+    "LOOT_064t2"
+  ],
+  "rank_family": {
+    "id": "cards.past_shaman_ranks_overload.chain_lightning.ranks-v1",
+    "forms": [
+      "BAR_044",
+      "BAR_044t",
+      "BAR_044t2"
+    ],
+    "version": "mana-ranks-v1"
+  },
+  "complete_shaman_source_bound": false,
+  "new_standard_roots": false,
+  "membership_uses_executable_coverage": false,
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "rule_sources": [
+    {
+      "url": "https://hearthstone.blizzard.com/en-us/news/23999072",
+      "policy": "Official27.4.2 changed Elemental Destruction Overload5 to2; pinned complete row agrees."
+    },
+    {
+      "url": "https://news.blizzard.com/en-us/article/22927025/join-us-for-the-rise-of-shadows",
+      "policy": "Official Schemes grow while retained in hand."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Elemental_Destruction",
+      "evidence_class": "community_reference",
+      "policy": "Freeze original recipients; each health event/reaction resolves in original play order."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Forked_Lightning",
+      "evidence_class": "community_reference",
+      "policy": "One enemy minion is legal after14.6; damage both selected minions before reactions."
+    },
+    {
+      "url": "https://hearthstone.wiki.gg/wiki/Lesser_Sapphire_Spellstone",
+      "evidence_class": "community_reference",
+      "policy": "Actual overloaded crystals; excess of one increment not carried to the next printed stage."
+    }
+  ],
+  "policies": {
+    "ranged_damage": "Crackle uniformly selects3,4,5,6; Elemental Destruction has one independent4/5 branch per original active living minion in entry order; ordinary captured health effects handle reactions/stale residence.",
+    "rank": "Existing monotone5/10maximum-crystal ManaRankFamily in hand/deck; original target and one random currently adjacent active minion share one ordinary damage batch.",
+    "scheme": "Existing physical HandProgressSpec, initial1; repeat at each actual owner start while in hand; ordinary all-minion SPELL DamageBatch.",
+    "stone": "Actual overload_added ledger witness and event.amount, goal3 per hand stage; per-increment overflow discarded; existing clear_local cost upgrade; one/two/three ordinary current copies via original presence and cause.",
+    "fork": "Player-observation use_rule requires one active enemy minion for manual play; existing distinct random damage batch selects up to2, then ordinaryOverload2; automatic casts may fizzle."
+  },
+  "uncertainties": [
+    "Scheme owner-start tick, ranged-AOE reaction order, adjacent non-minion blockers, stale-recipient RNG sampling and per-increment Spellstone overflow/cost reset remain local policies pending CN edge calibration.",
+    "Version/hotfix and CN calibration deferred. Complete Shaman71 stays unbound; registration is not complete effect/pool support."
+  ]
+}

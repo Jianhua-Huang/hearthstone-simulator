@@ -453,13 +453,20 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
             'LOOT_051': '6a51b9d0451ad81dad61a3773f2bde2204f6e6deb89612bb2e022e7e99cb6934',
             'LOOT_051t1': '80de0ebf1935dbe37bf2a981b2f386c15b9cef11e2688b5733060ab89f9fd3c7',
         }.get(row['id']) and row['tags'].get('TAG_SCRIPT_DATA_NUM_2') == 3)
+    # Sapphire uses the same delimiter before its upgrade label. Only these
+    # complete pinned rows may omit @; every damage/copy/upgrade word remains.
+    sapphire_spellstone_display = (display_normalizations == {'@': ''} and
+        canonical(row) == {
+            'LOOT_064': 'e43b1d24dc79e5561345086572360067cc0ccf28f7af7b75bb00b16f47b8d99d',
+            'LOOT_064t1': 'b80ab62bd7bf46903e6b5425783122deb31e4838f6bd774e350e5c3faa4df428',
+        }.get(row['id']) and row['tags'].get('TAG_SCRIPT_DATA_NUM_2') == 3)
     for marker, replacement in (display_normalizations or {}).items():
         require(type(marker) is str and type(replacement) is str,
                 'Display markers and replacements must be strings')
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((jade_reprint_display or jade_lightning_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display or jasper_spellstone_display) and replacement == '' or
+            require(type(replacement) is str and ((jade_reprint_display or jade_lightning_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display or jasper_spellstone_display or sapphire_spellstone_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
