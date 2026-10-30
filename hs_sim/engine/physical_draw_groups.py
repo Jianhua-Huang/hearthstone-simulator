@@ -13,7 +13,7 @@ from .effects import ChoiceOption, Effect, RequestChoice, _behavior, _integer, _
 from .errors import ResolutionError, ResolutionLimitExceeded
 from .hand_upgrades import BuffStoredCard, SetStoredMinionStats
 from .kindred import has_native_kindred
-from .model import BoardPresenceReference, CardType, CostSpec, Keyword, Zone
+from .model import BoardPresenceReference, CardType, CostSpec, Keyword, PaymentType, Zone
 from .play_history import starting_deck_identity
 from .pools import PoolQuery
 from .registry import UnsupportedDefinitionError
@@ -34,6 +34,7 @@ class DrawGroupSlot:
     different_costs: bool = False
     max_current_cost: int | None = None
     current_deathrattle: bool | None = None
+    different_cards: bool = False
 
     def __post_init__(self):
         if self.query is not None:
@@ -47,8 +48,8 @@ class DrawGroupSlot:
             raise ValueError('Current Deathrattle draw filter requires a minion query and exact boolean')
         if self.starting_deck is not None and type(self.starting_deck) is not bool:
             raise ValueError('Draw origin requires an explicit boolean or no filter')
-        if type(self.different_tribes) is not bool or type(self.different_costs) is not bool: raise ValueError('Distinct draw filters require booleans')
-        if self.query is None and (self.current_cost is not None or self.starting_deck is not None or self.different_tribes or self.different_costs or self.max_current_cost is not None or self.current_deathrattle is not None):
+        if any(type(v) is not bool for v in (self.different_tribes,self.different_costs,self.different_cards)): raise ValueError('Distinct draw filters require booleans')
+        if self.query is None and (self.current_cost is not None or self.starting_deck is not None or self.different_tribes or self.different_costs or self.max_current_cost is not None or self.current_deathrattle is not None or self.different_cards):
             raise ValueError('An ordinary top draw cannot carry matching filters')
         if self.different_tribes and self.query.kinds != (CardType.MINION,):
             raise ValueError('Distinct tribes require an explicit physical minion query')
@@ -66,7 +67,7 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends') and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends', 'health_payment_all', 'give_drawn_spells') and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
@@ -158,6 +159,9 @@ class DrawPhysicalGroup(Effect):
         if self.reward.kind == 'destroy_drawn_after_ends' and (
                 self.kindred_pair or self.slots != (DrawGroupSlot(),)*3 or self.reward.amount != 3):
             raise ValueError('Burndown requires its three original ordinary draws and three owner ends')
+        if self.reward.kind in ('health_payment_all','give_drawn_spells') and (
+                self.kindred_pair or self.slots != (DrawGroupSlot(),)*(2 if self.reward.kind=='health_payment_all' else 5)):
+            raise ValueError('Native payment/gift rewards require their complete two/five ordinary draw slots')
 
 
 @dataclass(frozen=True)
@@ -244,6 +248,7 @@ def validate_material(state, registry, request, *, completed=False):
     for row in getattr(request, 'arrivals', ()):
         if row.draw_id is None: continue
         record = draw_record(state, row.draw_id)
+        validate_distinct_card(state,registry,request,row.slot,record)
         if (request.reward.kind == 'non_minion_followup' or request.reward.kind in QUALIFIED_FOLLOWUPS) and record.parent_id is not None:
             raise ValueError('Original type reward cannot borrow a replacement draw')
         validate_copy(state,registry,request,row,record)
@@ -260,12 +265,23 @@ def validate_material(state, registry, request, *, completed=False):
             raise ValueError('Typed draw group borrowed a non-minion draw')
     if type(request) is CapturePhysicalDrawGroup:
         record = draw_record(state, request.draw_id)
+        validate_distinct_card(state,registry,request,request.index,record)
         validate_copy(state,registry,request,request,record)
         previous = next((row.draw_id for row in reversed(request.arrivals) if row.draw_id is not None), 0)
         if (record.player_id, record.source_id, record.parent_id) != (request.player_id, request.source_id, None) or record.id <= previous:
             raise ValueError('Pending physical draw lost its own original root attempt')
         validate_kindred_draw(state,registry,request,request.index,record)
         if request.hand_cursor > len(state.hand_entries): raise ValueError('Pending physical draw borrowed a future hand entry')
+
+
+def validate_distinct_card(state,registry,request,index,record):
+    if not request.slots[index].different_cards:return
+    if record.parent_id is not None:raise ValueError('Different-card draw borrowed a replacement attempt')
+    if record.card_id is None:return
+    identity=registry.pool_card(record.card_id).generation_identity
+    previous=(draw_record(state,row.draw_id)for row in request.arrivals[:index]if row.draw_id is not None)
+    if any(old.card_id is not None and registry.pool_card(old.card_id).generation_identity==identity for old in previous):
+        raise ValueError('Different-card draw repeated its original card identity')
 
 
 def validate_copy(state,registry,request,row,record):
@@ -298,9 +314,12 @@ def candidates(r, request, slot):
         entities, _ = starting_deck_identity(r.state); original = set(entities[request.player_id - 1])
     prior = tuple(row.tribes for row in request.arrivals if row.tribes is not None)
     prior_costs = {row.cost for row in request.arrivals if row.cost is not None}
+    prior_cards={r.registry.pool_card(record.card_id).generation_identity for row in request.arrivals
+        if slot.different_cards and row.draw_id is not None and (record:=draw_record(r.state,row.draw_id)).card_id is not None}
     result = []
     for ref in values:
         entity = r.state.entities[ref.entity_id]
+        if slot.different_cards and r.registry.pool_card(entity.card_id).generation_identity in prior_cards:continue
         if request.kindred_pair:
             if request.index == 0:
                 if not has_native_kindred(r.registry,entity.card_id): continue
@@ -467,6 +486,11 @@ def finish(r, request):
             kind=CardType.MINION if reward.kind=='cost_drawn_minions' else CardType.SPELL
             if r.registry.card(ref.card_id).kind!=kind:continue
             effect=ModifyStoredCost(ref,CostSpec(delta=-reward.amount),request.source_id)
+        elif reward.kind=='health_payment_all':
+            effect=ModifyStoredCost(ref,CostSpec(payment=PaymentType.HEALTH),request.source_id)
+        elif reward.kind=='give_drawn_spells':
+            if r.registry.card(ref.card_id).kind!=CardType.SPELL:continue
+            effect=MoveCard(ref,3-request.player_id,Zone.HAND,source_id=request.source_id)
         elif reward.kind in ('cost_all', 'cost_one'):
             effect = ModifyStoredCost(ref, CostSpec(delta=-reward.amount), request.source_id)
         elif reward.kind=='set_cost_all':

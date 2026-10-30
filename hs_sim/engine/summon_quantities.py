@@ -156,15 +156,17 @@ class SummonByCard(Effect):
         if type(self.materials) is not tuple or (not self.materials and self.selection!='weighted') or any(type(x) not in (SummonEntryMaterial,PrisonEntryMaterial,CopyEntryMaterial,RecruitEntryMaterial,ResurrectionEntryMaterial,PhysicalReplayEntryMaterial) for x in self.materials):
             raise ValueError('Summon requires a complete ordered entry inventory')
         for x in self.materials: x.__post_init__()
-        random_copies=(bool(self.materials) and self.selection=='random' and
-            all(type(x)is CopyEntryMaterial and x.profile=='board_copy' and x.mode=='current' for x in self.materials))
+        random_copies=(bool(self.materials) and self.selection=='random' and (
+            all(type(x)is CopyEntryMaterial and x.profile=='board_copy' and x.mode=='current' for x in self.materials) or
+            all(type(x)is CopyEntryMaterial and x.profile=='stored_copy' and x.mode=='current' and
+                x.origin.zone==Zone.DECK and x.origin.controller==self.player_id for x in self.materials)))
         if random_copies:
             if len({x.origin.entity_id for x in self.materials})!=len(self.materials):raise ValueError('Duplicate physical copy candidate')
         elif len({x.card_id for x in self.materials})!=len(self.materials):raise ValueError('Duplicate summon candidate identity')
         if any(type(x)is CopyEntryMaterial for x in self.materials)and(
                 not(random_copies or len(self.materials)==1 and self.selection=='first') or
                 self.producer_link is not None or self.capacity!='selection_requires_space'):
-            raise ValueError('Copy material requires a deterministic entry or equal physical current-board candidates')
+            raise ValueError('Copy material requires a deterministic entry or equal physical board/own-deck candidates')
         for material in self.materials:
             if type(material)is CopyEntryMaterial and material.profile=='base_resummon' and (
                     type(self.cause)is not SummonCause or material.origin.controller!=self.player_id or
