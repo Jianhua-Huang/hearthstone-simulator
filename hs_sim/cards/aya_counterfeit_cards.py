@@ -7,6 +7,7 @@ from hs_sim.engine.coin_replacements import CoinReplacementChoice,CoinReplacemen
 from hs_sim.engine.composed_spells import CreateRandomComposedSpell
 from hs_sim.engine.effects import AddToHand,ChoiceOption,GainTemporaryMana,RequestChoice
 from hs_sim.engine.jade import JadeGolemFamily,SummonJadeGolem
+from hs_sim.engine.summon_quantities import SummonCause
 from hs_sim.engine.model import CardDefinition,CardType,PlayerEffectSpec
 from hs_sim.engine.player_effects import AddPlayerEffect
 from hs_sim.engine.pools import PoolCard
@@ -53,7 +54,7 @@ def register_aya_counterfeit_cards(registry):
              *(AddToHand(c.player_id,cid,source_id=c.source_id)for _ in range(3))),card_id=cid)for cid in COINS),
             c.source_id,prompt='选择一种升级后的伪造幸运币'),)
     registry.register_behavior(PREFIX+'battlecry',choose)
-    registry.register_behavior(PREFIX+JADE,lambda c:(GainTemporaryMana(c.player_id,1),SummonJadeGolem(c.player_id,c.source_id,FAMILY)))
+    registry.register_behavior(PREFIX+JADE,lambda c:(GainTemporaryMana(c.player_id,1),SummonJadeGolem(c.player_id,c.source_id,FAMILY,cause=SummonCause.capture(c))))
     registry.register_behavior(PREFIX+KABAL,lambda c:(GainTemporaryMana(c.player_id,1),CreateRandomComposedSpell(c.player_id,POTION,c.source_id)))
     for cid,raw in rows.items():
         kind=CardType(raw['type'].lower());fields={}

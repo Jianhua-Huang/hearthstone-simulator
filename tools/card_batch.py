@@ -251,6 +251,18 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
             states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
             'Swarmer lost its equivalent complete live and plain rule bodies')
         raw_text = states[0 if chinese else 1]
+    # Aya has the same complete live/plain Jade pair with BOTH native triggers.
+    # Only this exact full row and locale declaration may select its gallery form.
+    jade_aya_display = (row.get('id') == 'CFM_902' and
+        canonical(row) == 'da75e1887bde0327db4f1c539d000262b3cecf9e6683304dbd7cac5267655411' and
+        row['tags'].get('JADE_GOLEM') == 1 and row['tags'].get('BATTLECRY') == 1 and
+        row['tags'].get('DEATHRATTLE') == 1 and row['tags'].get('COLLECTION_RELATED_CARD_DATABASE_ID') == 42098 and
+        display_normalizations == ({'{0}': ''} if chinese else {}))
+    if jade_aya_display:
+        require(len(states) == 2 and display(states[0].replace('{0}的', '') if chinese else
+            states[0].replace('{0}', '').replace('{1}', '')) == display(states[1]),
+            'Aya lost either complete equivalent Battlecry/Deathrattle Jade rule body')
+        raw_text = states[0 if chinese else 1]
     # This restored printing's gallery concatenates both complete UI forms.
     # Retain both, and permit only this exact source's absent live stat values.
     jade_reprint_display = (row.get('id') == 'WON_067' and
@@ -477,7 +489,7 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
+                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_aya_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((jade_reprint_display or jade_lightning_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')

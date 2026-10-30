@@ -97,7 +97,7 @@ def register_past_shaman_nature_summons(registry):
     def portal(c,cost):
         return(SummonFromPool(c.player_id,'constructed.cards',PoolQuery(kinds=(CardType.MINION,),collectible=True,
             min_cost=cost,max_cost=cost),source_id=c.source_id,cause=SummonCause.capture(c)),)
-    def jade(c):return(Damage(c.target_id,3,c.source_id,DamageKind.SPELL),SummonJadeGolem(c.player_id,c.source_id))
+    def jade(c):return(Damage(c.target_id,3,c.source_id,DamageKind.SPELL),SummonJadeGolem(c.player_id,c.source_id,cause=SummonCause.capture(c)))
     bodies={cid:(lambda c,cid=cid:named(c,cid))for cid in('BOT_451','EX1_248','TID_005','YOD_041')}
     bodies.update({
         'TTN_722':lambda c:(Buff(c.state.players[c.player_id].hero_id,attack=3,source_id=c.source_id,expires_turn=c.state.turn),*named(c,'TTN_722')),

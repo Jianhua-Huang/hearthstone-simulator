@@ -138,9 +138,21 @@ class PrisonEntryMaterial(SummonEntryMaterial):
 
 
 @dataclass(frozen=True)
+class JadeEntryMaterial(SummonEntryMaterial):
+    jade_id: int = 0
+
+    def __post_init__(self):
+        super().__post_init__()
+        _integer(self.jade_id, 'original Jade growth attempt', 1)
+        if any((self.stats, self.deathrattles, self.keywords, self.dormant_turns,
+                self.on_summon, self.entry_grant, self.deathrattle_memory)):
+            raise ValueError('Jade entry requires its plain original innate-size material')
+
+
+@dataclass(frozen=True)
 class SummonByCard(Effect):
     player_id: int
-    materials: tuple[SummonEntryMaterial|PrisonEntryMaterial|CopyEntryMaterial|RecruitEntryMaterial|ResurrectionEntryMaterial|PhysicalReplayEntryMaterial,...]
+    materials: tuple[SummonEntryMaterial|PrisonEntryMaterial|JadeEntryMaterial|CopyEntryMaterial|RecruitEntryMaterial|ResurrectionEntryMaterial|PhysicalReplayEntryMaterial,...]
     cause: SummonCause
     selection: str = 'first'
     position: int | None = None
@@ -153,9 +165,13 @@ class SummonByCard(Effect):
         _player(self.player_id)
         if type(self.cause) is not SummonCause: raise ValueError('Summon requires explicit card attribution')
         self.cause.__post_init__()
-        if type(self.materials) is not tuple or (not self.materials and self.selection!='weighted') or any(type(x) not in (SummonEntryMaterial,PrisonEntryMaterial,CopyEntryMaterial,RecruitEntryMaterial,ResurrectionEntryMaterial,PhysicalReplayEntryMaterial) for x in self.materials):
+        if type(self.materials) is not tuple or (not self.materials and self.selection!='weighted') or any(type(x) not in (SummonEntryMaterial,PrisonEntryMaterial,JadeEntryMaterial,CopyEntryMaterial,RecruitEntryMaterial,ResurrectionEntryMaterial,PhysicalReplayEntryMaterial) for x in self.materials):
             raise ValueError('Summon requires a complete ordered entry inventory')
         for x in self.materials: x.__post_init__()
+        if any(type(x) is JadeEntryMaterial for x in self.materials) and (
+                len(self.materials)!=1 or self.selection!='first' or self.capacity!='selection_requires_space' or
+                self.producer_link is not None or self.player_id!=self.cause.player_id):
+            raise ValueError('Jade entry requires its one own-player original logical summon root')
         random_copies=(bool(self.materials) and self.selection=='random' and (
             all(type(x)is CopyEntryMaterial and x.profile=='board_copy' and x.mode=='current' for x in self.materials) or
             all(type(x)is CopyEntryMaterial and x.profile=='stored_copy' and x.mode=='current' and
@@ -477,6 +493,9 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
     if request.selection=='weighted':validate_weighted_request(state,registry,request,closed=closed)
     elif type(request.producer_link)is PoolSummonEntryLink:validate_entry_recipe(state,request,closed=closed)
     for material in request.materials:
+        if type(material) is JadeEntryMaterial:
+            from .jade import validate_entry
+            validate_entry(state, registry, request, material)
         if type(material) is PrisonEntryMaterial:
             from .prison_playback import validate_entry
             validate_entry(state, registry, material)
@@ -522,6 +541,11 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
 
 def accept(r,effect):
     effect.__post_init__();validate_request(r.state,r.registry,effect)
+    for material in effect.materials:
+        if type(material) is JadeEntryMaterial:
+            from .jade import validate_entry
+            if validate_entry(r.state,r.registry,effect,material).summon_root_id!=r.state.next_card_summon_id:
+                raise ValueError('A Jade growth attempt cannot be accepted as another summon root')
     plan=capture_plan(r.state,effect.cause)
     if plan.total>r.rules.max_resolution_steps:raise ResolutionLimitExceeded('Summon quantity exceeds resolution budget')
     before=r.game._rng.getstate()
@@ -597,6 +621,9 @@ def deliver(r,effect):
             from .copy_materials import apply as apply_copy_material
             apply_copy_material(r,material,entity)
         else:
+            if type(material) is JadeEntryMaterial:
+                from .jade import apply_entry
+                apply_entry(r, root.request, material, entity)
             from .lifecycle import apply_summon_stats,refresh_entity
             apply_summon_stats(r.state,entity,material.stats)
             if type(material)is SummonEntryMaterial and material.deathrattle_memory is not None:
@@ -708,6 +735,11 @@ def reject_ambiguous(r):
 
 def validate_record(state,registry,root,*,closed=False,original_cast_event=None):
     root.__post_init__();validate_request(state,registry,root.request,closed=closed,original_cast_event=original_cast_event)
+    for material in root.request.materials:
+        if type(material) is JadeEntryMaterial:
+            from .jade import validate_entry
+            if validate_entry(state,registry,root.request,material).summon_root_id!=root.id:
+                raise ValueError('Jade summon history borrowed another original growth root')
     from .entry_strength import validate as validate_entry_strength
     validate_entry_strength(state,registry,root,closed=closed)
     if root.request.producer_link is not None:
@@ -988,6 +1020,8 @@ def validate_closed_events(game):
 
 
 def material_from_dict(value):
+    if type(value) is dict and 'jade_id' in value:
+        return from_dict(JadeEntryMaterial, value)
     if type(value) is dict and 'prison_death_id' in value:
         return from_dict(PrisonEntryMaterial, value)
     if type(value) is dict and value.get('profile') in ('whole_card_printed_primary_v1', 'whole_card_original_offer_primary_v1'):
@@ -1009,7 +1043,7 @@ def from_dict(cls,value):
     row=_row(value,cls)
     if cls is SummonQuantitySpec:row['source_kinds']=tuple(CardType(k)for k in row['source_kinds'])
     elif cls is SummonCause:row['source']=allocation_from_dict(row['source'])
-    elif cls in (SummonEntryMaterial, PrisonEntryMaterial):
+    elif cls in (SummonEntryMaterial, PrisonEntryMaterial, JadeEntryMaterial):
         row['stats']=None if row['stats'] is None else SummonStats(**_row(row['stats'],SummonStats))
         row['deathrattles']=tuple(row['deathrattles']);row['keywords']=tuple(Keyword(k)for k in row['keywords'])
         row['entry_grant']=minion_grant_from_dict(row['entry_grant'])
@@ -1073,7 +1107,7 @@ def convert_crystals(r, effect):
 
 def register(mechanics):
     mechanics.register(ConvertManaCrystalsToMinions, convert_crystals)
-    for cls in (AcceptedEntryStrength,SummonCause,SummonEntryMaterial,PrisonEntryMaterial,PhysicalReplayEntryMaterial,SummonCarrierFact,SummonQuantityDecision,SummonQuantityPlan,CardSummonDelivery,CardSummonRecord):
+    for cls in (AcceptedEntryStrength,SummonCause,SummonEntryMaterial,PrisonEntryMaterial,JadeEntryMaterial,PhysicalReplayEntryMaterial,SummonCarrierFact,SummonQuantityDecision,SummonQuantityPlan,CardSummonDelivery,CardSummonRecord):
         mechanics.register_payload_type(cls)
     for kind,handler in ((SummonByCard,accept),(GrantSummonQuantity,grant),(DeliverCardSummon,deliver),(FinishCardSummon,finish)):
         mechanics.register(kind,handler)

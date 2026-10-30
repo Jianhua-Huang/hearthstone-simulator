@@ -122,6 +122,7 @@ class SummonJadeGolem(Effect):
     family_id: str = CLASSIC
     count: int = 1
     position: int | None = None
+    cause: object | None = None
 
     def __post_init__(self):
         _player(self.player_id); _source(self.source_id)
@@ -130,10 +131,27 @@ class SummonJadeGolem(Effect):
             raise ValueError('Jade summon requires a named artwork family')
         if self.position is not None:
             _integer(self.position, 'Jade summon position', 0)
+        if self.cause is not None:
+            from .summon_quantities import SummonCause
+            if type(self.cause) is not SummonCause:
+                raise ValueError('Attributed Jade growth requires its original typed card cause')
+            self.cause.__post_init__()
+            if (self.cause.player_id,self.cause.source.entity_id)!=(self.player_id,self.source_id):
+                raise ValueError('Attributed Jade growth changed its original player or source')
+
+    def validate_in_state(self, state, registry):
+        self.__post_init__()
+        if self.cause is not None:
+            from .summon_quantities import validate_cause
+            validate_cause(state,registry,self.cause)
 
 
 def summon(r, effect):
     effect.__post_init__()
+    effect.validate_in_state(r.state,r.registry)
+    if effect.cause is None and effect.count:
+        from .summon_quantities import reject_ambiguous
+        reject_ambiguous(r)
     if effect.count > r.rules.max_resolution_steps:
         raise ResolutionLimitExceeded('Jade summon count exceeds resolution budget')
     if effect.source_id is not None and effect.source_id not in r.state.entities:
@@ -153,17 +171,22 @@ def summon(r, effect):
     if position is None and effect.source_id in player.board:
         position = player.board.index(effect.source_id) + 1
     entity = None
-    if len(player.board) < r.rules.max_board:
+    if effect.cause is None and len(player.board) < r.rules.max_board:
         entity = r.create_entity(player.id, cid, Zone.BOARD, position)
         imprint(entity, size)
         r.refresh_auras()
     row = JadeGolemRecord(len(r.state.jade_history) + 1, player.id, effect.source_id,
         family.id, family.version, before, size, cid,
-        None if entity is None else entity.id, r.state.turn, r.state.action_number)
+        None if entity is None else entity.id, r.state.turn, r.state.action_number,
+        r.state.next_card_summon_id if effect.cause is not None else None)
     r.state.jade_history.append(row)
     # A private receipt is not an additional gameplay trigger window.
     r.emit('jade_golem_attempted', source_id=effect.source_id, player_id=player.id,
            amount=size, jade_id=row.id, _capture=False)
+    if effect.cause is not None:
+        from .summon_quantities import JadeEntryMaterial, SummonByCard
+        tail=(replace(effect,count=effect.count-1),) if effect.count>1 else ()
+        return (SummonByCard(player.id,(JadeEntryMaterial(cid,jade_id=row.id),),effect.cause,position=position),*tail)
     if entity is None:
         r.emit('summon_failed', player_id=player.id, card_id=cid, reason='board_full')
         entry = ()
@@ -172,6 +195,33 @@ def summon(r, effect):
         entry = enter_minion(r, entity, 'summon')
     tail = (replace(effect, count=effect.count - 1),) if effect.count > 1 else ()
     return (*entry, *tail)
+
+
+def validate_entry(state, registry, request, material):
+    from .summon_quantities import JadeEntryMaterial
+    if type(material) is not JadeEntryMaterial:
+        raise ValueError('Expected the original typed Jade entry material')
+    material.__post_init__()
+    if material.jade_id>len(state.jade_history):
+        raise ValueError('Jade entry lost its actual original growth record')
+    row=state.jade_history[material.jade_id-1]
+    family=registry.jade_families.get(row.family_id)
+    if (row.summon_root_id is None or family is None or family.version!=row.family_version or family.card_for(row.size)!=material.card_id or
+            (row.player_id,row.source_id,row.card_id,row.turn)!=(request.player_id,request.cause.source.entity_id,
+                material.card_id,request.cause.turn) or not request.cause.action<=row.action<=state.action_number):
+        raise ValueError('Jade entry borrowed another size, player, source, family or window')
+    root=next((x for x in state.card_summon_history if x.id==row.summon_root_id),None)
+    if (root is None and row.summon_root_id!=state.next_card_summon_id or
+            root is not None and root.request!=request):
+        raise ValueError('Jade growth must keep its one reserved original logical summon root')
+    return row
+
+
+def apply_entry(r, request, material, entity):
+    row=validate_entry(r.state,r.registry,request,material)
+    imprint(entity,row.size)
+    if row.entity_id is None:
+        r.state.jade_history[row.id-1]=replace(row,entity_id=entity.id)
 
 
 def validate_instance(registry, carrier):
@@ -212,6 +262,17 @@ def validate_state(state, registry):
                     row.source_id is not None and entity.id <= row.source_id):
                 raise ValueError('Invalid Jade original physical allocation')
             seen.add(entity.id)
+        if row.summon_root_id is not None:
+            from .summon_quantities import JadeEntryMaterial
+            root=next((x for x in state.card_summon_history if x.id==row.summon_root_id),None)
+            if (root is None or len(root.request.materials)!=1 or
+                    type(root.request.materials[0]) is not JadeEntryMaterial or
+                    root.request.materials[0].jade_id!=row.id):
+                raise ValueError('Jade history lost its original attributed entry root')
+            validate_entry(state,registry,root.request,root.request.materials[0])
+            bodies=[x.entity.entity_id for x in root.deliveries if x.entity is not None]
+            if row.entity_id!=(bodies[0] if bodies else None):
+                raise ValueError('Jade growth changed its first actual physical delivery')
         counts[row.player_id] += 1
         previous = (row.turn, row.action)
     for carrier in (*state.entities.values(), *state.death_history):

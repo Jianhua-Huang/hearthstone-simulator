@@ -8865,6 +8865,7 @@ class JadeGolemRecord:
     entity_id: int | None
     turn: int
     action: int
+    summon_root_id: int | None = None
 
     def __post_init__(self):
         for key in ('id', 'player_id', 'size', 'turn'):
@@ -8875,6 +8876,7 @@ class JadeGolemRecord:
             _name(getattr(self, key), 'Jade ' + key)
         _optional_id(self.source_id, 'Jade source')
         _optional_id(self.entity_id, 'Jade generated physical body')
+        _optional_id(self.summon_root_id, 'original attributed Jade summon root')
         if self.player_id not in (1, 2) or self.size > 30:
             raise ValueError('Invalid Jade player or size')
 

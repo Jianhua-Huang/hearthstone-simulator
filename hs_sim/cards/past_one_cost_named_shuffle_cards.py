@@ -104,7 +104,7 @@ def register_past_one_cost_named_shuffle_cards(registry):
         JAILER: lambda c: shuffle(c, FRAGMENT, 2),
         CONDUCTOR: lambda c: (AddToHand(c.player_id, SLUDGE, c.source_id),),
         SALESMAN: lambda c: (AddToHand(c.player_id, OIL, c.source_id),),
-        SWARMER: lambda c: (SummonJadeGolem(c.player_id, c.source_id, position=deathrattle_position(c)),),
+        SWARMER: lambda c: (SummonJadeGolem(c.player_id, c.source_id, position=deathrattle_position(c),cause=SummonCause.capture(c)),),
         SQUIRREL: lambda c: shuffle(c, ACORN, 4),
         FRAGMENT: lambda c: (Heal(c.state.players[c.player_id].hero_id, 2, c.source_id, HealingKind.SPELL),),
         SLUDGE: lambda c: sludge(c, DamageKind.SPELL),

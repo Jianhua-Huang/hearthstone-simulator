@@ -143,7 +143,7 @@ def register_past_nature_copy_discovery(registry):
             DrawGroupReward('discard_drawn_minions')),),
         'BT_129':lambda c:(CopyMinion(BoardPresenceReference.capture(c.state,c.target_id),c.player_id,
             cause=SummonCause.capture(c),minion_grant=CreatedMinionGrant(keywords=(Keyword.TAUNT,))),),
-        'CFM_713':lambda c:(SummonJadeGolem(c.player_id,c.source_id,CLASSIC),ChangeManaCrystals(c.player_id,1)),
+        'CFM_713':lambda c:(SummonJadeGolem(c.player_id,c.source_id,CLASSIC,cause=SummonCause.capture(c)),ChangeManaCrystals(c.player_id,1)),
         'DAL_352':portal,
         'DRG_315':embiggen,
         'FP1_019':seeds,

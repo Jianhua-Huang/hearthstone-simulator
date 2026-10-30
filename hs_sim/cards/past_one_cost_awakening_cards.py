@@ -87,7 +87,7 @@ def register_past_one_cost_awakening_cards(registry):
         ENVOY: envoy, EGG: egg, SUNGILL: sungill,
         GANARG: lambda c: (EquipWeapon(c.player_id, AXE),),
         SWARMER: lambda c: (SummonJadeGolem(c.player_id, c.source_id,
-            position=deathrattle_position(c)),),
+            position=deathrattle_position(c),cause=SummonCause.capture(c)),),
         METAMORFIN: metamorfin,
         CRIER: lambda c: (DrawMatching(c.player_id, PoolQuery(kinds=(CardType.MINION,),
             keywords_all=(Keyword.RUSH,)), 'skip', source_id=c.source_id),),
