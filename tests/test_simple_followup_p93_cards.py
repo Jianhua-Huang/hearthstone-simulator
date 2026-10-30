@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 import hashlib,json,unittest
 from hs_sim.cards import build_registry
+from tools.card_batch import registration_prefix
 from hs_sim.cards import simple_followup_p93_cards as cards
 from hs_sim.cards.simple_followup_p93_cards import GNOME,VETERAN,GUARD,LUMI,FILLET,VENDOR,STAFF,PLATING,REWINDER,HORN,CLOAK,COOLANT,SWITCH,BLADES,ROOTS,SPARES,ALL_IDS,load_batch,register_simple_followup_p93_cards
 from hs_sim.cards.candidate_generation_catalog import register_candidate_pool_metadata
@@ -20,13 +21,10 @@ HERO,FILLER,MECH,ALL,ZERO,WEAPON,POWER,KILL,HIT,BUFF,SILENCE,TAKE,SHIFT,TRIGGER,
 SOURCE_PIN=hashlib.sha256(Path(__file__).read_bytes()+Path(cards.__file__).read_bytes()+cards.BATCH_PATH.read_bytes()).hexdigest()
 def meta(tribes=()):return CardMetadata(False,(CardClass.MAGE,),Rarity.COMMON,runes=Runes(),tribes=tribes,factions=(),subtypes=())
 def baseline_registry():
- with patch('hs_sim.cards.simple_followup_p93_cards.register_simple_followup_p93_cards',lambda r:None):return build_registry()
+ return registration_prefix(build_registry,'hs_sim.cards.simple_followup_p93_cards.register_simple_followup_p93_cards',register_simple_followup_p93_cards)
 def batch_registry():
- with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):r=build_registry()
- present=tuple(cid in r.cards for cid in ALL_IDS)
- if not any(present):register_simple_followup_p93_cards(r)
- elif not all(present):raise AssertionError('Complete P93 assembly required')
- register_candidate_pool_metadata(r);r.validate();return r
+ r=registration_prefix(build_registry,'hs_sim.cards.simple_followup_p93_cards.register_simple_followup_p93_cards',register_simple_followup_p93_cards,after=True)
+ r.validate();return r
 def registry(mode):
  r=Registry('p93-small-native');register_simple_followup_p93_cards(r)
  r.register_behavior(P+'fail',lambda c:(_ for _ in()).throw(ResolutionError('P93 deliberate native transaction failure')))

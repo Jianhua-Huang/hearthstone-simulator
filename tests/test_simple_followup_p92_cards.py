@@ -4,6 +4,7 @@ from pathlib import Path
 from unittest.mock import patch
 import hashlib,json,unittest
 from hs_sim.cards import build_registry
+from tools.card_batch import registration_prefix
 from hs_sim.cards import simple_followup_p92_cards as cards
 from hs_sim.cards.simple_followup_p92_cards import KVALDIR,FORAGER,MECHAROO,CRYSTALLIZER,HORROR,LIBRARIAN,BAT,REAVER,LEPER,TINYFIN,JOE,SOUL,ROOTS,DEPENDENCIES,ALL_IDS,load_batch,register_simple_followup_p92_cards
 from hs_sim.cards.candidate_generation_catalog import register_candidate_pool_metadata
@@ -20,13 +21,10 @@ CONTEXT=GenerationContext('p92-bounded-complete-host','experimental')
 SOURCE_PIN=hashlib.sha256(Path(__file__).read_bytes()+Path(cards.__file__).read_bytes()+cards.BATCH_PATH.read_bytes()).hexdigest()
 def meta():return CardMetadata(False,(CardClass.MAGE,),Rarity.COMMON,runes=Runes(),tribes=(),factions=(),subtypes=())
 def baseline_registry():
- with patch('hs_sim.cards.simple_followup_p92_cards.register_simple_followup_p92_cards',lambda r:None):return build_registry()
+ return registration_prefix(build_registry,'hs_sim.cards.simple_followup_p92_cards.register_simple_followup_p92_cards',register_simple_followup_p92_cards)
 def batch_registry():
- with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):r=build_registry()
- present=tuple(cid in r.cards for cid in ALL_IDS)
- if not any(present):register_simple_followup_p92_cards(r)
- elif not all(present):raise AssertionError('Complete P92 assembly required')
- register_candidate_pool_metadata(r);r.validate();return r
+ r=registration_prefix(build_registry,'hs_sim.cards.simple_followup_p92_cards.register_simple_followup_p92_cards',register_simple_followup_p92_cards,after=True)
+ r.validate();return r
 def registry(mode,members):
  r=Registry('p92-small-native');register_simple_followup_p92_cards(r)
  r.register_behavior(P+'fail',lambda c:(_ for _ in()).throw(ResolutionError('P92 deliberate native transaction failure')))
