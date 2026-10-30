@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v779"
+CONTENT_VERSION = "constructed-cn37-preview-v780"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1584,5 +1584,7 @@ def build_registry():
     register_past_stat_tribe_jade(registry)
     from .past_native_conditional_triggers import register_past_native_conditional_triggers
     register_past_native_conditional_triggers(registry)
+    from .past_hand_edge_cost_healing import register_past_hand_edge_cost_healing
+    register_past_hand_edge_cost_healing(registry)
     registry.validate()
     return registry
