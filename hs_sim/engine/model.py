@@ -3302,9 +3302,22 @@ class AbilityInstance:
     spell_aura_id: int | None = None
     draw_cast: 'CastWhenDrawnSpec | None' = None
     cost_polarity: CostPolarityState | None = None
+    deathrattle_discovered_from: RememberedDiscovery | None = None
 
     def __post_init__(self) -> None:
         native_polarity=self.kind=='cost_aura' and type(self.cost_aura) is CostAuraSpec and self.cost_aura.relation=='friendly_polarity'
+        if self.deathrattle_discovered_from is not None:
+            link=self.deathrattle_discovered_from
+            if (type(link)is not RememberedDiscovery or self.kind!='deathrattle'or self.origin!='granted'or
+                    self.source_id is None or self.deathrattle_card_id!=link.card_id or
+                    self.deathrattle_grant_card_id is None or self.expires_turn is not None or
+                    self.consumed or not self.remove_on_silence):
+                raise ValueError('Discovered Deathrattle requires its removable original selection provenance')
+            link.__post_init__()
+        if (self.kind=='deathrattle'and self.origin=='granted'and self.deathrattle_card_id is not None and
+                self.deathrattle_inherited_from is None and self.deathrattle_copied_from is None and
+                self.consumed_card_id is None and self.magnetic_id is None and self.deathrattle_discovered_from is None):
+            raise ValueError('Printed granted Deathrattle requires its original discovery provenance')
         if native_polarity != (self.cost_polarity is not None):
             raise ValueError('Polarity state requires its actual native aura')
         if self.cost_polarity is not None:
@@ -3492,7 +3505,7 @@ class AbilityInstance:
             granted_copy = (self.origin == 'granted' and self.deathrattle_memory.spec.kind == 'copy_summon'
                 and self.deathrattle_memory.summon_copy is not None and self.deathrattle_grant_card_id is not None
                 and self.deathrattle_card_id is None)
-            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None and self.deathrattle_copied_from is None and not granted_copy or self.source_id is None or
+            if (self.kind!='deathrattle'or self.origin!='printed'and self.deathrattle_inherited_from is None and self.deathrattle_copied_from is None and self.deathrattle_discovered_from is None and not granted_copy or self.source_id is None or
                     self.expires_turn is not None or self.consumed or not self.remove_on_silence or self.magnetic_id is not None):
                 raise ValueError('Native Deathrattle memory requires printed or inherited physical provenance')
         if self.kind == 'board_full_awaken':

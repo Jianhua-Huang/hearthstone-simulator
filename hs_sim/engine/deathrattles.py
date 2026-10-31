@@ -92,6 +92,8 @@ def activated_deathrattles(state, player_id, *, completed=None, origin=None, tur
 
 def validate_ability(state, registry, ability):
     if ability.kind!='deathrattle': return
+    from .discovered_deathrattles import validate_ability as validate_discovered
+    validate_discovered(state,registry,ability)
     from .deathrattle_copies import validate_ability as validate_copied
     validate_copied(state, registry, ability)
     from .deathrattle_inheritance import validate_ability as validate_inherited

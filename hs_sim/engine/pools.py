@@ -567,8 +567,11 @@ class DiscoverFromPool(Effect):
     unselected_to_hand: bool = False
     swap_costs: bool = False
     cast_affordable_copy: bool = False
+    fixed_candidates: tuple[str, ...] = ()
 
     def __post_init__(self):
+        from .fixed_card_discovery import validate_spec as validate_fixed_discovery
+        validate_fixed_discovery(self)
         if type(self.cast_affordable_copy) is not bool:raise ValueError('Affordable discovered copy requires a boolean')
         if self.cast_affordable_copy:
             from .discovered_spell_casts import validate_spec as validate_affordable_copy
@@ -920,10 +923,14 @@ def generation_candidates(r, effect):
     current_class = None
     if effect.query.class_mode in ('current', 'other'):
         current_class = player.hero_class
-    candidates = resolve_candidates(r.registry, r.game._generation_context, effect.pool_id, effect.query,
-                                    current_class=current_class, source_card_id=source_card_id,
-                                    policy=getattr(effect, 'policy', GenerationPolicy()), player_id=effect.player_id,
-                                    exclude_source_by_rule=True)
+    if type(effect)is DiscoverFromPool and effect.fixed_candidates:
+        from .fixed_card_discovery import candidates as fixed_candidates
+        candidates=fixed_candidates(r.registry,effect)
+    else:
+        candidates = resolve_candidates(r.registry, r.game._generation_context, effect.pool_id, effect.query,
+                                        current_class=current_class, source_card_id=source_card_id,
+                                        policy=getattr(effect, 'policy', GenerationPolicy()), player_id=effect.player_id,
+                                        exclude_source_by_rule=True)
     board = getattr(effect, 'destination', 'hand') == 'board'
     if any((r.registry.card(m.card_id).kind != CardType.MINION if board
             else not r.registry.card(m.card_id).hand_playable) or r.registry.card(m.card_id).choice_only

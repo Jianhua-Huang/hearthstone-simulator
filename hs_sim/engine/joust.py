@@ -6,7 +6,7 @@ order preservation and complex cost layers remain explicit CN calibration policy
 from dataclasses import dataclass
 
 from .costs import local_cost
-from .effects import Effect, _integer, _player, _source
+from .effects import Effect, ReturnToHand, _integer, _player, _source
 from .errors import ResolutionError
 from .model import CardType, Zone
 from .pools import PoolQuery
@@ -92,12 +92,36 @@ class Joust(Effect):
     source_id: int | None = None
     target_id: int | None = None
     kind: CardType = CardType.MINION
+    on_win: tuple[Effect,...] = ()
 
     def __post_init__(self):
         _player(self.player_id)
         _source(self.source_id)
         _source(self.target_id)
         _kind(self.kind)
+        if type(self.on_win)is not tuple:
+            raise ValueError('Joust winner branch requires immutable original return work')
+        if self.on_win:
+            from .death_hand_returns import ReturnDeadMinion
+            from .zones import MoveCard
+            if len(self.on_win)!=1 or self.kind!=CardType.MINION or self.source_id is None or self.on_result is not None:
+                raise ValueError('Captured Joust winner supports one original self hand return')
+            work=self.on_win[0]
+            if type(work)not in(ReturnDeadMinion,ReturnToHand,MoveCard):
+                raise ValueError('Joust winner requires an original captured self return')
+            work.__post_init__()
+            if type(work)is ReturnDeadMinion:
+                valid=work.card.entity_id==work.source.entity_id==self.source_id and work.card.controller==self.player_id and work.cost_reduction==0
+            elif type(work)is ReturnToHand:
+                valid=(work.recipient is not None and work.target_id==self.source_id and work.recipient.player_id==self.player_id and
+                    not work.to_owner and work.cost is None and work.discard is None and not work.lock_next_owner_turn and
+                    work.source_id is None and work.expires_turn is None)
+            elif type(work)is MoveCard:
+                valid=(work.card.entity_id==self.source_id and work.card.player_id==work.player_id==self.player_id and
+                    work.card.zone==Zone.DECK and work.destination==Zone.HAND and work.reset and not work.draw and
+                    work.source_id==self.source_id)
+            else:valid=False
+            if not valid:raise ValueError('Joust winner branch lost its original physical self return')
         if self.on_result is not None:
             if type(self.on_result) is not str or not self.on_result.strip() or self.source_id is None:
                 raise ValueError('Joust result callback requires a behavior and physical source')
@@ -113,6 +137,9 @@ def validate_request(state, registry, effect):
         raise ResolutionError('Joust callback target does not exist')
     if effect.on_result is not None:
         registry.behavior(effect.on_result)
+    for work in effect.on_win:
+        from .death_hand_returns import ReturnDeadMinion
+        if type(work)is ReturnDeadMinion:work.validate_in_state(state,registry)
 
 
 def resolve(r, effect):
@@ -128,6 +155,7 @@ def resolve(r, effect):
     result = JoustResult(effect.player_id, effect.kind, *selected)
     event = r.emit('joust_resolved', source_id=effect.source_id, player_id=effect.player_id,
                    amount=int(result.won), result=result.payload())
+    if effect.on_win:return list(effect.on_win)if result.won else []
     return [] if effect.on_result is None else [r.call(effect.on_result, effect.source_id,
         effect.player_id, effect.target_id, event=event)]
 

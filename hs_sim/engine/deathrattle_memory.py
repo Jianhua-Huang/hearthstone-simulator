@@ -89,12 +89,16 @@ def validate_carrier(state,registry,card_id,kind,abilities,components=()):
         if memory is None:continue
         inherited=ability.deathrattle_inherited_from is not None
         copied=ability.deathrattle_copied_from is not None
+        discovered=ability.deathrattle_discovered_from is not None
+        if discovered:
+            from .discovered_deathrattles import validate_ability as validate_discovered
+            validate_discovered(state,registry,ability)
         granted_copy = (ability.origin == 'granted' and memory.spec.kind == 'copy_summon'
             and ability.deathrattle_card_id is None and ability.deathrattle_grant_card_id is not None)
         from .crafted_faces import native_draw_memory_carrier
         crafted=native_draw_memory_carrier(registry,card_id,kind,ability,components)
-        if (kind!=CardType.MINION or components and not copied and not crafted or
-                not inherited and not copied and not granted_copy and not crafted and
+        if (kind!=CardType.MINION or components and not copied and not crafted and not discovered or
+                not inherited and not copied and not granted_copy and not crafted and not discovered and
                 registry.card(card_id).native_deathrattle!=memory.spec):
             raise ValueError('Native Deathrattle memory borrowed an unsupported carrier')
         if inherited:

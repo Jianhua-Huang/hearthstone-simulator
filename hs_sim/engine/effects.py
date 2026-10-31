@@ -1191,9 +1191,15 @@ class ReturnToHand(Effect):
     lock_next_owner_turn: bool = False
     source_id: int | None = None
     expires_turn: int | None = None
+    recipient: object | None = None
 
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
+        if self.recipient is not None:
+            from .sacrifice import reference_value
+            reference_value(self.recipient)
+            if self.recipient.entity_id!=self.target_id or self.discard is not None:
+                raise ValueError('Captured return requires its original board minion')
         if type(self.to_owner) is not bool:
             raise ValueError('to_owner must be boolean')
         if type(self.lock_next_owner_turn) is not bool:
@@ -1223,10 +1229,16 @@ class ReturnToHand(Effect):
 class Transform(Effect):
     target_id: int
     card_id: str
+    recipient: object | None = None
     def __post_init__(self):
         _integer(self.target_id, 'target_id', 1)
         if not isinstance(self.card_id, str) or not self.card_id.strip():
             raise ValueError('card_id must be nonempty')
+        if self.recipient is not None:
+            from .sacrifice import reference_value
+            reference_value(self.recipient)
+            if self.recipient.entity_id!=self.target_id:
+                raise ValueError('Captured transformation requires its original board minion')
 
 
 @dataclass(frozen=True)

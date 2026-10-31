@@ -72,6 +72,26 @@ def completed_minion_keywords(context, registry):
     return frozenset(death.keywords)
 
 
+def completed_minion_cost(context,registry):
+    """Original combat residence/death local cost, never a later same-ID reentry."""
+    row=completed_attack(context)
+    if row is None or row.source_kind!=CardType.MINION:return None
+    combat=row.combat
+    identity=(row.declaration.source_id,combat.source_card_id,combat.source_zone_epoch,combat.source_entered_order)
+    entity=context.state.entities.get(identity[0])
+    from .costs import local_cost
+    if entity is not None and(entity.id,entity.card_id,entity.zone_epoch,entity.entered_order)==identity:
+        return local_cost(entity)[0]
+    from .death_self_copies import validate_death_source
+    from .registry import UnsupportedDefinitionError
+    deaths=tuple(d for d in context.state.death_history if d.copy_source is not None and
+        (d.entity_id,d.card_id,d.copy_source.origin.zone_epoch,d.copy_source.origin.entered_order)==identity)
+    if len(deaths)!=1:
+        raise UnsupportedDefinitionError('Completed minion attack lost its original live or death cost material')
+    death,=deaths;validate_death_source(death)
+    return local_cost(death)[0]
+
+
 def validate_record(row):
     if type(row) is not CharacterAttackRecord or type(row.declaration) is not ActionWindow:
         raise ValueError('Character attack requires its original typed declaration')

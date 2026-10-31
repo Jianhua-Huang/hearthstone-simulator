@@ -32,6 +32,9 @@ class DeathrattleDiscoveryTarget:
 
 
 def validate_spec(spec):
+    from .discovered_deathrattles import DiscoveredDeathrattleTarget,validate_spec as validate_printed
+    if type(spec)is DiscoverFromPool and type(spec.memory_target)is DiscoveredDeathrattleTarget:
+        return validate_printed(spec)
     from .colossal_crew import ColossalCrewTarget, validate_spec as validate_crew
     if type(spec) is DiscoverFromPool and type(spec.memory_target) is ColossalCrewTarget:
         return validate_crew(spec)
@@ -53,6 +56,9 @@ def validate_spec(spec):
 
 
 def validate_target(state, registry, spec, *, active=True):
+    from .discovered_deathrattles import DiscoveredDeathrattleTarget,validate_target as validate_printed
+    if type(spec.memory_target)is DiscoveredDeathrattleTarget:
+        return validate_printed(state,registry,spec,active=active)
     from .colossal_crew import ColossalCrewTarget, validate_target as validate_crew
     if type(spec.memory_target) is ColossalCrewTarget:
         return validate_crew(state, registry, spec, active=active)
@@ -101,6 +107,8 @@ def validate_link(state, registry, link):
 
 def apply_selection(r, effect):
     spec = effect.batch.spec
+    from .discovered_deathrattles import DiscoveredDeathrattleTarget,apply_selection as apply_printed
+    if type(spec.memory_target)is DiscoveredDeathrattleTarget:return apply_printed(r,effect)
     from .colossal_crew import ColossalCrewTarget, apply_selection as apply_crew
     if type(spec.memory_target) is ColossalCrewTarget:
         return apply_crew(r, effect)
@@ -138,6 +146,8 @@ def apply_selection(r, effect):
 
 
 def validate_boundary(game):
+    from .discovered_deathrattles import validate_boundary as validate_printed
+    validate_printed(game)
     from .discovery_guesses import validate_boundary as validate_guesses
     validate_guesses(game)
     state = game._state
@@ -165,6 +175,8 @@ def validate_boundary(game):
 
 
 def register(mechanics):
+    from .discovered_deathrattles import register as register_printed
+    register_printed(mechanics)
     from .discovery_guesses import register as register_guesses
     register_guesses(mechanics)
     mechanics.register_payload_type(DeathrattleDiscoveryTarget)

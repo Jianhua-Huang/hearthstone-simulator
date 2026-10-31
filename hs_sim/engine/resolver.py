@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v858'
+CORE_EFFECTS_VERSION = 'core-effects-v859'
 
 
 class Mechanics:
@@ -2115,7 +2115,7 @@ def grant_ability(r, effect):
     _grant_to(r, effect, entity)
 
 
-def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None, consumed_card_id=None, refresh=True):
+def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=None, consumed_card_id=None, refresh=True, discovered_deathrattle=None):
     """Install ordinary ability material after the caller binds the recipient."""
     validate_attachment_source(r, effect.source_id, effect.expires_turn)
     if entity.id != effect.target_id or pending and (entity.kind != CardType.MINION or entity.zone != Zone.PLAY):
@@ -2142,6 +2142,9 @@ def _grant_to(r, effect, entity, *, notify=True, pending=False, grant_card_id=No
         kind, fields['spell_damage'] = 'spell_damage', effect.amount
     elif isinstance(effect, GrantDeathrattle):
         kind, fields['behavior_id'] = 'deathrattle', effect.behavior_id
+        if discovered_deathrattle is not None:
+            from .discovered_deathrattles import grant_fields
+            fields.update(grant_fields(r,discovered_deathrattle,effect))
         if effect.deathrattle_memory is not None:
             from .deathrattle_memory import validate_copy_memory
             validate_copy_memory(r.state, r.registry, effect.deathrattle_memory)
@@ -2252,6 +2255,10 @@ def expire_turn(r, effect):
 
 def return_to_hand(r, effect):
     effect.__post_init__()
+    if effect.recipient is not None:
+        from .sacrifice import live_minion
+        if live_minion(r.state,effect.recipient)is None:
+            r.stale(effect,effect.target_id);return
     if effect.expires_turn is not None and effect.expires_turn < r.state.turn:
         raise ResolutionError('Returned-card cost already expired')
     if effect.lock_next_owner_turn:
@@ -2296,6 +2303,10 @@ def return_to_hand(r, effect):
 
 
 def transform(r, effect):
+    if effect.recipient is not None:
+        from .sacrifice import live_minion
+        if live_minion(r.state,effect.recipient)is None:
+            r.stale(effect,effect.target_id);return
     entity = board_minion(r, effect)
     if entity is None:
         return
