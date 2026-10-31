@@ -11,6 +11,7 @@ from tools import card_batch as batch
 from hs_sim.cards import build_registry
 from hs_sim.cards.metadata import metadata_from_record
 from hs_sim.cards.native_past_entry_grant_cards import FLASHBACK,register_native_past_entry_grant_cards
+from hs_sim.cards.native_past_entry_grant_cards import POOL_ID as FLASHBACK_POOL
 from hs_sim.cards.past_lackey_prime_cards import (SLURPER,RELIQUARY,PRIME,LACKEYS,
     FACELESS,KOBOLD,WITCHY,GOBLIN,ETHEREAL,TITANIC,DRACONIC,DEPENDENCIES,
     OPPONENT_TURN,POOL_ID,load_batch,register_past_lackey_prime_cards)
@@ -103,6 +104,10 @@ def fixture(mode='normal',role='writer'):
         keywords=(Keyword.INVOKE,),battlecry=True,deathrattle=False,choose_one=False,attack=1))
     r.register_pool(PoolDefinition('constructed.past.cards','v1',TARGET,'experimental',
         tuple(PoolMember(c)for c in(SLURPER,RELIQUARY,'DRG_303'))))
+    # This diagnostic pool follows Flashback's current explicit source binding;
+    # the old general-past fixture (including its Invoke evidence) stays intact.
+    r.register_pool(PoolDefinition(FLASHBACK_POOL,'v1',TARGET,'experimental',
+        tuple(PoolMember(c)for c in(SLURPER,RELIQUARY))))
     if mode=='missing-fixed':r._cards.pop(DRACONIC)
     r.validate();return r
 

@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v857'
+CORE_EFFECTS_VERSION = 'core-effects-v858'
 
 
 class Mechanics:
@@ -3237,5 +3237,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_kidnap_custody(mechanics)
     from .decreasing_spell_damage import register as register_decreasing_spell_damage
     register_decreasing_spell_damage(mechanics)
+    from .random_secret_generation import register as register_random_secret_generation
+    register_random_secret_generation(mechanics)
     return mechanics
 

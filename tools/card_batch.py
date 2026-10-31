@@ -519,6 +519,12 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     raw_text.startswith(marker) and raw_text.count(marker) == 1 and
                     replacement == '<b>嘲讽，亡语：</b>' and display_normalizations == {marker: replacement},
                     'Chillmaw keyword grouping requires its exact complete Chinese source row')
+        elif marker == '。<b>过载：</b>':
+            require(chinese and row.get('id') == 'GVG_042' and
+                    canonical(row) == 'ef12b88d2f548f605e87bbb72928c4d422236957011d1bfd7b28c073865a76f7' and
+                    raw_text.count(marker) == 1 and replacement == '，<b>过载：</b>' and
+                    display_normalizations == {marker: replacement},
+                    'Neptulon overload separator requires its exact complete Chinese source row')
         elif re.fullmatch(r'<b>巨型\+[1-9][0-9]*</b>。', marker):
             require(chinese and row.get('type') == 'MINION' and
                     type(row['tags'].get('COLOSSAL')) is int and row['tags']['COLOSSAL'] == 1 and

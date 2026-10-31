@@ -15,7 +15,11 @@ LABEL='native_stat_gain_reward'
 @dataclass(frozen=True)
 class NativeStatGainProfile:
     card_id:str
-    def __post_init__(self):_behavior(self.card_id)
+    mode:str='one_one'
+    def __post_init__(self):
+        _behavior(self.card_id)
+        if self.mode not in ('one_one','double_positive'):
+            raise ValueError('Unknown native stat-gain reward mode')
 
 
 def validate_profile(registry,profile):
@@ -119,12 +123,17 @@ def reward(r,request):
         key=(request.original.id,ability.id)
         if key in receipts(r.game._events):raise ValueError('Native stat gain was already rewarded')
         if ability not in rows(entity):continue
-        enchantment=_buff_to(r,Buff(entity.id,1,1,entity.id),entity,notify=False)
+        profile=r.registry.native_stat_gain_profiles[ability.native_stat_gain_card_id]
+        if profile.mode=='double_positive':
+            after=values(request.before_attack,request.before_health,request.original)
+            attack=max(0,after[0]-request.before_attack);health=max(0,after[1]-request.before_health)
+        else:attack=health=1
+        enchantment=_buff_to(r,Buff(entity.id,attack,health,entity.id),entity,notify=False)
         entity.enchantments[-1]=replace(enchantment,label=LABEL)
         r.emit(EVENT,source_id=entity.id,target_id=entity.id,player_id=entity.controller,_capture=False,
             original_id=request.original.id,ability_id=ability.id,card_id=ability.native_stat_gain_card_id,reward_id=enchantment.id)
         kind='stats_changed' if entity.zone==Zone.BOARD else 'stored_card_buffed'
-        data=dict(attack_delta=1,health_delta=1)
+        data=dict(attack_delta=attack,health_delta=health)
         if kind=='stats_changed':data['enchantment_id']=enchantment.id
         r.emit(kind,source_id=entity.id,target_id=entity.id,player_id=entity.controller,**data)
 
