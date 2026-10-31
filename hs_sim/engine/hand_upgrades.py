@@ -43,19 +43,23 @@ class BuffStoredCard(Effect):
 
 @dataclass(frozen=True)
 class SetStoredMinionStats(Effect):
-    """Set the original hand minion's local stats and optional cost together."""
+    """Set original hand stats, or only original stored Attack, before notification."""
     card: CardReference
     attack: int
-    health: int
+    health: int | None
     source_id: int | None = None
     cost: CostSpec | None = None
 
     def __post_init__(self):
         reference_value(self.card)
-        if self.card.zone != Zone.HAND:
-            raise ValueError('Stored minion stat replacement requires its original hand residence')
+        if self.card.zone != Zone.HAND and not (self.card.zone == Zone.DECK and self.health is None):
+            raise ValueError('Stored replacement requires hand stats or a stored Attack-only assignment')
+        if self.health is None and self.card.zone != Zone.DECK:
+            raise ValueError('Attack-only replacement requires the original deck residence')
         _int(self.attack, 'stored set Attack', 0)
-        _int(self.health, 'stored set Health', 1)
+        if self.health is not None:_int(self.health, 'stored set Health', 1)
+        if self.health is None and self.cost is not None:
+            raise ValueError('Attack-only stored replacement cannot also replace Cost')
         _optional_id(self.source_id, 'stored stat replacement source')
         if self.cost is not None:
             if type(self.cost) is not CostSpec: raise ValueError('Stored replacement cost requires CostSpec')
@@ -132,7 +136,7 @@ def set_stored_minion_stats(r, effect):
     validate_cost_targets(r.state, SimpleNamespace(cost=effect.cost, expires_turn=None), ((definition, entity),))
     entity.enchantments.append(Enchantment(attachment_id(r.state), source_id=effect.source_id,
         set_attack=effect.attack, set_health=effect.health, label='stored_stats_set'))
-    entity.damage = 0
+    if effect.health is not None:entity.damage = 0
     cost = attach_cost(r.state, entity, effect.cost, effect.source_id) if effect.cost is not None else None
     refresh_entity(entity)
     # The first observer sees all three local replacements on the same arrival.

@@ -279,7 +279,7 @@ class CurrentDeckCountCostTests(unittest.TestCase):
         self.assertEqual(_intrinsic_stage_from_dict(json.loads(json.dumps(asdict(stage)))),stage)
         match=codec.encode(stage.condition_facts[0])
         self.assertEqual(set(match['fields']),{'player_id','turn','action','next_entity_id','deck','card_count','comparison','matched'})
-        self.assertEqual(set(codec.encode(spec())['fields']),{'delta','set_to','minimum','condition','history_profile_id','profile_id','card_count','comparison','mana_crystals'})
+        self.assertEqual(set(codec.encode(spec())['fields']),{'delta','set_to','minimum','condition','history_profile_id','profile_id','card_count','comparison','mana_crystals','card_ids'})
         validate_intrinsic_origin(stage,g.state,g.registry)
 
     def test_original_window_rejects_same_price_omitted_or_reordered_inventory(self):

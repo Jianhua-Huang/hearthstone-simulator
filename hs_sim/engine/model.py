@@ -5898,6 +5898,9 @@ class IntrinsicCostSpec:
                 raise ValueError('Intrinsic current deck price requires an inclusive comparison')
             if self.delta > 0 or self.set_to is not None or self.minimum != 0:
                 raise ValueError('Current deck price supports one conditional flat discount')
+            if self.history_profile_id == 'deck.current-count-as-cost-v1' and (
+                    self.delta != 0 or self.card_count != 0 or self.comparison != 'at_least'):
+                raise ValueError('Deck-size assignment requires its exact unconditional count policy')
         elif self.card_count is not None or self.comparison is not None:
             raise ValueError('Historical intrinsic conditions cannot invent current deck operands')
         if self.condition == 'permanent_mana_at_least':
@@ -5928,7 +5931,8 @@ class IntrinsicCostSpec:
                    'hand.held-opponent-copy-play-v1' if self.condition == 'held_opponent_copy' else
                    'location.activations-game-v1' if self.condition == 'own_location_use_count' else
                    'deck.shuffle.operations-game-v1' if self.condition == 'own_deck_shuffle_count' else
-                   'deck.current-count-v1' if self.condition == 'current_deck_count' else
+                   ('deck.current-count-as-cost-v1' if self.history_profile_id == 'deck.current-count-as-cost-v1'
+                    else 'deck.current-count-v1') if self.condition == 'current_deck_count' else
                    'mana.permanent-crystals-v1' if self.condition == 'permanent_mana_at_least' else
                    'hand.current-other-class-v1' if self.condition == 'hand_other_class' else
                    'hand.current-edge-v1' if self.condition == 'hand_edge' else
@@ -6784,7 +6788,8 @@ class IntrinsicCostStageFact:
             if (condition.player_id,condition.turn,condition.action) != (self.player_id,self.boundary.turn,self.boundary.action):
                 raise ValueError('Hand class price changed its original player or window')
         if self.rules and self.rules[0].condition == 'current_deck_count':
-            if self.kind != CardType.SPELL or len(self.rules) != 1 or any(value is not None for value in (
+            expected_kind = CardType.MINION if self.rules[0].history_profile_id == 'deck.current-count-as-cost-v1' else CardType.SPELL
+            if self.kind != expected_kind or len(self.rules) != 1 or any(value is not None for value in (
                     self.board_minions, self.hand_cards, self.hero_missing_health, self.player_spells, self.player_hero_powers, self.player_spell_mana, self.minion_deaths, self.player_overload, self.player_played_class, self.hero_health_changes, self.player_draws, self.weapon_attack, self.player_armor, self.player_summons, self.player_elemental_streak, self.player_corpses, self.hero_damage_taken)):
                 raise ValueError('Current deck price requires one physical Spell discount without other intrinsic formulas')
             condition = self.condition_facts[0]

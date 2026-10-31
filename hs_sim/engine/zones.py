@@ -679,6 +679,30 @@ class DrawMatching(Effect):
 
 
 @dataclass(frozen=True)
+class DrawSpellsUntilHandFull(Effect):
+    """Recheck capacity and physical spell inventory after every ordinary draw."""
+    player_id: int
+    source_id: int
+
+    def __post_init__(self):
+        _player(self.player_id); integer(self.source_id, 'spell hand refill source', 1)
+
+    def validate_in_state(self, state, registry):
+        self.__post_init__()
+        if self.source_id not in state.entities:
+            raise ValueError('Spell hand refill lost its original known physical source')
+
+
+def draw_spells_until_hand_full(r, effect):
+    effect.validate_in_state(r.state, r.registry)
+    player = r.player(effect.player_id)
+    if len(player.hand) >= hand_capacity(player, r.rules):return ()
+    query = PoolQuery(kinds=(CardType.SPELL,))
+    if not zone_candidates(r, player.id, Zone.DECK, query, player.id, effect.source_id):return ()
+    return (DrawMatching(player.id, query, 'skip', source_id=effect.source_id), effect)
+
+
+@dataclass(frozen=True)
 class DrawMinionWithAttack(Effect):
     """Draw one physical minion matching its current stored Attack; empty skips."""
     player_id: int
@@ -1569,7 +1593,7 @@ def register_zones(mechanics):
                           (AddToDeck, add_to_deck), (FillHandWithCard, fill_hand_with_card),
             (FillHandWithDeckCopies, fill_hand_with_deck_copies), (MoveCard, move_card), (CopyCard, copy_card),
             (DiscardCard, discard_card), (ShuffleDeck, shuffle_deck), (ReorderZone, reorder_zone),
-            (DrawMatching, matching_card), (DrawMinionWithAttack, draw_minion_with_attack),
+            (DrawMatching, matching_card), (DrawSpellsUntilHandFull, draw_spells_until_hand_full), (DrawMinionWithAttack, draw_minion_with_attack),
             (DiscardMatching, matching_card), (ChooseFromZone, choose_from_zone),
             (CopyMatching, copy_matching), (CopyDeckSpellAtCurrentCost, copy_deck_spell_at_current_cost),
             (CopyLowestCostMinion, copy_lowest_cost_minion)):

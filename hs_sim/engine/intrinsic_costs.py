@@ -83,7 +83,11 @@ def validate_definition_intrinsics(definition):
     if len({rule.condition for rule in rules}) > 1:
         raise ValueError('Mixed intrinsic history conditions require a real reviewed source')
     if rules and rules[0].condition in ('current_deck_count', 'permanent_mana_at_least', 'hand_other_class'):
-        if definition.kind != CardType.SPELL or len(rules) != 1 or any(value is not None for value in (
+        expected_kind = CardType.MINION if rules[0].history_profile_id == 'deck.current-count-as-cost-v1' else CardType.SPELL
+        if expected_kind == CardType.MINION:
+            from .stat_relations import validate_ordinary_face
+            validate_ordinary_face(definition)
+        if definition.kind != expected_kind or len(rules) != 1 or any(value is not None for value in (
                 definition.board_minion_cost, definition.hand_count_cost, definition.hero_missing_health_cost, definition.player_spell_count_cost, definition.player_hero_power_count_cost, definition.player_spell_mana_cost, definition.minion_death_cost, definition.player_overload_cost, definition.player_played_class_cost, definition.hero_health_change_cost, definition.player_draw_count_cost, definition.player_weapon_attack_cost, definition.player_armor_cost, definition.player_summon_count_cost, definition.player_elemental_streak_cost, definition.player_corpse_spend_cost, definition.hero_damage_taken_cost)):
             raise ValueError('Current deck price requires one physical Spell discount without other intrinsic formulas')
     if rules and rules[0].condition == 'hero_healed_this_turn' and definition.kind != CardType.MINION:

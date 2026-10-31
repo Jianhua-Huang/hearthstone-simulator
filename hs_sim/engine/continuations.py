@@ -559,7 +559,9 @@ class FrameCodec:
                 raise ValueError('Finite hand generation has an unknown original source')
         if isinstance(value, SummonFromCandidates):
             validate_summon_candidates(self.registry, value.card_ids)
-        from .zones import DrawMatching
+        from .zones import DrawMatching, DrawSpellsUntilHandFull
+        if type(value) is DrawSpellsUntilHandFull and self.origin_state is not None:
+            value.validate_in_state(self.origin_state, self.registry)
         if type(value) is DrawMatching:
             for card_id in value.card_ids: self.registry.card(card_id)
         from .producer_amounts import AcceptedProducerAmount,validate as validate_producer_amount

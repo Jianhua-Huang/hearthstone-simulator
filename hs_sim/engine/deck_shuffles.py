@@ -207,6 +207,9 @@ def validate_cost_prefix(value,state,registry):
 
 def intrinsic_amount(amount,rule,condition):
     from .costs import apply_cost
+    if rule.condition == 'current_deck_count' and rule.history_profile_id == 'deck.current-count-as-cost-v1':
+        # Use the same complete original physical inventory as quote/payment proof.
+        return len(condition.deck)
     quantity=condition.quantity if rule.condition in (CONDITION,'own_location_use_count') else 1
     return apply_cost(amount,rule.delta*quantity,rule.set_to,rule.minimum)
 
