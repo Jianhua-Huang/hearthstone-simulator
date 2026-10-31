@@ -146,7 +146,11 @@ def validate_school_spell_damage_carrier(registry, card_id, kind, abilities, com
     rows=tuple(a for a in abilities if a.kind=='spell_damage')
     if not rows:return
     card=registry.card(card_id)
-    if not card.spell_damage_schools and not any(a.spell_damage_schools for a in rows):return
+    if not card.spell_damage_schools and not any(a.spell_damage_schools and a.origin=='printed' for a in rows):
+        if any(a.spell_damage_schools for a in rows):
+            for ability in rows:ability.__post_init__()
+            if kind!=CardType.MINION:raise ValueError('Granted Fire Spell Damage requires a minion carrier')
+        return
     validate_school_spell_damage_definition(card)
     if kind!=CardType.MINION or components:
         raise ValueError('School spell damage requires an ordinary physical minion carrier')

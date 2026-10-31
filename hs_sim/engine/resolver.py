@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v853'
+CORE_EFFECTS_VERSION = 'core-effects-v854'
 
 
 class Mechanics:
@@ -703,7 +703,7 @@ class Resolution:
         for player in self.state.players.values():
             for effect in player.player_effects:
                 for aura in self.registry.player_effect(effect.spec_id).auras:
-                    for target in player_aura_targets(self.state, player, aura):
+                    for target in player_aura_targets(self.state, player, aura, registry=self.registry):
                         bonuses[target.id][0] += aura.attack
                         bonuses[target.id][1] += aura.health
             for source_id in player.board:

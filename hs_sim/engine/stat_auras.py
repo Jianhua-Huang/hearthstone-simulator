@@ -69,7 +69,13 @@ def matches_card_identity(entity, card_ids):
 MINION_CARD_ZONES = (Zone.HAND, Zone.DECK, Zone.PLAY, Zone.BOARD)
 
 
-def player_aura_targets(state, player, aura):
+def player_aura_targets(state, player, aura, *, registry=None):
+    if aura.scope == 'active_board_totems':
+        if registry is None:raise ValueError('Permanent Totem aura requires actual registered current tribes')
+        from .tribes import has_any_tribe
+        return tuple(state.entities[i] for i in player.board if state.entities[i].active and
+            state.entities[i].kind == CardType.MINION and
+            has_any_tribe(registry,state.entities[i],('totem',),basis='current'))
     if aura.scope == 'active_board':
         return tuple(state.entities[i] for i in player.board
             if state.entities[i].active and state.entities[i].kind == CardType.MINION and

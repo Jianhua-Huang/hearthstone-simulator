@@ -3,7 +3,7 @@ from dataclasses import dataclass,fields,replace
 from .effects import Effect,_integer,_player
 from .errors import ResolutionError
 from .lifecycle import attachment_id,refresh_entity
-from .model import AbilityInstance,CardType,Zone
+from .model import AbilityInstance,CardType,SpellSchool,Zone,_spell_damage_school_selector
 from .pools import PoolQuery
 from .zones import reference_entity,reference_value,source_exists,zone_candidates,CardReference
 
@@ -23,17 +23,28 @@ class GrantStoredSpellDamage(Effect):
     card:CardReference
     amount:int
     source_id:int
+    schools:tuple[SpellSchool,...]=()
     def __post_init__(self):
         reference_value(self.card);_integer(self.amount,'local Spell Damage',1);_integer(self.source_id,'local bonus source',1)
+        _spell_damage_school_selector(self.schools)
+        if self.schools and (self.schools != (SpellSchool.FIRE,) or self.amount != 1 or self.card.zone != Zone.DECK):
+            raise ValueError('Stored minion bonus requires exact original-deck Fire Spell Damage+1')
     def validate_in_state(self,state):
         self.__post_init__();entity=state.entities.get(self.card.entity_id)
         if entity is None or self.card.zone_epoch>entity.zone_epoch or self.source_id not in state.entities:
             raise ValueError('Local bonus has an unknown source or future physical spell')
 
 
-def attach_local_bonus(state,entity,amount,source_id):
+def attach_local_bonus(state,entity,amount,source_id,*,schools=()):
     """Install the same local material, including an allocated burned creation."""
     _integer(amount,'local Spell Damage',1);_integer(source_id,'local bonus source',1)
+    if schools:
+        if (schools != (SpellSchool.FIRE,) or amount != 1 or entity.kind != CardType.MINION or entity.zone != Zone.DECK or
+                state.entities.get(entity.id) is not entity or source_id not in state.entities):
+            raise ResolutionError('Stored Fire bonus requires the original physical deck minion')
+        ability=AbilityInstance(attachment_id(state),'spell_damage',source_id=source_id,spell_damage=1,spell_damage_schools=schools)
+        ability.__post_init__();entity.abilities.append(ability);refresh_entity(entity)
+        return
     if entity.kind!=CardType.SPELL or state.entities.get(entity.id)is not entity or source_id not in state.entities:
         raise ResolutionError('Local Spell Damage needs its actual allocated spell and original source')
     ability=AbilityInstance(attachment_id(state),'spell_damage',source_id=source_id,spell_damage=amount)
@@ -44,9 +55,9 @@ def grant(r,effect):
     effect.__post_init__();source_exists(r,effect.source_id)
     entity=reference_entity(r,effect.card)
     if entity is None:return ()
-    if entity.kind!=CardType.SPELL or entity.zone not in(Zone.HAND,Zone.DECK):
+    if not effect.schools and (entity.kind!=CardType.SPELL or entity.zone not in(Zone.HAND,Zone.DECK)):
         raise ResolutionError('Local stored Spell Damage requires an original hand/deck spell')
-    attach_local_bonus(r.state,entity,effect.amount,effect.source_id)
+    attach_local_bonus(r.state,entity,effect.amount,effect.source_id,schools=effect.schools)
     r.emit('stored_spell_damage_granted',source_id=effect.source_id,target_id=entity.id,player_id=entity.controller)
     return ()
 

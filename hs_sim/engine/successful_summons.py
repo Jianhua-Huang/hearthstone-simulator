@@ -80,8 +80,8 @@ class GrantSummonedKeyword(Effect):
 
     def __post_init__(self):
         BuffSummonedMinion(self.player_id,self.summon_id,self.source_id).__post_init__()
-        if type(self.keyword)is not Keyword or self.keyword not in(Keyword.RUSH,Keyword.REBORN):
-            raise ValueError('Original summon keyword reward supports Rush or Reborn')
+        if type(self.keyword)is not Keyword or self.keyword not in(Keyword.RUSH,Keyword.REBORN,Keyword.DIVINE_SHIELD):
+            raise ValueError('Original summon keyword reward supports Rush, Reborn or Divine Shield')
 
     def validate_in_state(self,state):
         self.__post_init__();BuffSummonedMinion(self.player_id,self.summon_id,self.source_id).validate_in_state(state)

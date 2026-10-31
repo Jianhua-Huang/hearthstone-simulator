@@ -32,8 +32,9 @@ def spell_keyword_contributions(state, registry, definition, player_id):
 def health_source_keywords(state, registry, source):
     result=set(source.keywords)
     if source.kind == CardType.SPELL:
-        if Keyword.LIFESTEAL in source.hand_aura_keywords and Keyword.LIFESTEAL not in local_keywords(source):
-            result.discard(Keyword.LIFESTEAL)
+        for keyword in (Keyword.LIFESTEAL,Keyword.POISONOUS):
+            if keyword in source.hand_aura_keywords and keyword not in local_keywords(source):
+                result.discard(keyword)
         result.update(spell_keyword_contributions(state,registry,registry.card(source.card_id),source.controller))
     return frozenset(result)
 

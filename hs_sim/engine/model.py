@@ -1502,9 +1502,10 @@ class KeywordAuraSpec:
                                           'friendly_leftmost_minion', 'friendly_rightmost_minion',
                                           'friendly_minions_left_of_source', 'friendly_minions_right_of_source'):
             raise ValueError('Unsupported keyword aura target')
-        if spell and (self.keyword != Keyword.LIFESTEAL or self.include_self or self.adjacent_only or
+        spell_keywords = (Keyword.LIFESTEAL,Keyword.POISONOUS) if self.target == 'friendly_spells' else (Keyword.LIFESTEAL,)
+        if spell and (self.keyword not in spell_keywords or self.include_self or self.adjacent_only or
                 self.condition != 'always' or self.tribes_any or self.card_ids):
-            raise ValueError('Spell keyword provider requires its exact ordinary or Fel Lifesteal scope')
+            raise ValueError('Spell keyword provider requires its exact ordinary Poisonous/Lifesteal or Fel Lifesteal scope')
         _bool(self.include_self, 'keyword aura include_self')
         _bool(self.adjacent_only, 'keyword aura adjacent_only')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
@@ -3749,9 +3750,13 @@ class AbilityInstance:
                     any(getattr(self, name) != spec.default for name, spec in self.__dataclass_fields__.items() if name not in allowed)):
                 raise ValueError('All-CAST card repeats require only two casts and their complete original source')
         _spell_damage_school_selector(self.spell_damage_schools)
+        fire_grant = (self.origin == 'granted' and self.spell_damage == 1 and
+            self.spell_damage_schools == (SpellSchool.FIRE,) and not any(
+                getattr(self,name) != spec.default for name,spec in self.__dataclass_fields__.items()
+                if name not in {'id','kind','source_id','magnetic_id','spell_damage','spell_damage_schools'}))
         if self.spell_damage_schools and (self.kind != 'spell_damage' or self.spell_damage <= 0 or
-                self.origin != 'printed' or self.source_id is None or self.consumed or
-                self.expires_turn is not None or not self.remove_on_silence or self.magnetic_id is not None):
+                self.origin != 'printed' and not fire_grant or self.source_id is None or self.consumed or
+                self.expires_turn is not None or not self.remove_on_silence or self.magnetic_id is not None and not fire_grant):
             raise ValueError('School spell damage requires a positive native removable minion declaration')
         if self.kind == 'keyword_aura':
             if type(self.keyword_aura) is not KeywordAuraSpec:
@@ -9259,8 +9264,10 @@ class PlayerAuraSpec:
             raise ValueError('Player aura card IDs must be a unique immutable tuple')
         for card_id in self.card_ids:
             _name(card_id, 'player aura card ID')
-        if self.scope not in ('active_board', 'controlled_minion_cards'):
+        if self.scope not in ('active_board', 'controlled_minion_cards', 'active_board_totems'):
             raise ValueError('Unknown player stat aura scope')
+        if self.scope == 'active_board_totems' and (self.attack != 2 or self.health != 0 or self.card_ids):
+            raise ValueError('Permanent Totem aura requires its exact current-board Attack+2 scope')
         if self.scope == 'controlled_minion_cards' and not self.card_ids:
             raise ValueError('Stored player stats require their explicit named minion family')
 
