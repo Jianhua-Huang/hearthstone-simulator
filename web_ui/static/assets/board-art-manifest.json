@@ -1,0 +1,229 @@
+{
+  "client": "D:\\游戏\\Hearthstone",
+  "read_only": true,
+  "purpose": "selected local experimental battle UI texture inspection",
+  "notes": "Raw textures may be UV atlases; use only visually verified complete regions.",
+  "visual_inspection": {
+    "recommended_playfield": "VarianLL_Playspace.webp",
+    "alternate_playfield": "Turalyon_Playspace.webp",
+    "playfield_limits": "Central gameplay slab only. Full official boards also use 3D meshes and corner props; these textures are not a complete scene render.",
+    "STR_GameplayArea_D": "Not recommended as a whole image: top edge includes a baked hero/UI fragment.",
+    "ORG_GroundCorners": "UV atlas with visible seams and attached UI strips, not a direct full-board background.",
+    "Card_Inhand_Minion_Mage": "Opaque atlas: central card face x176..844, y8..1015; portrait and text need separate DOM layers.",
+    "Card_Inhand_Ability_Mage": "Opaque atlas with disconnected frame/dragon strips; do not display the full texture.",
+    "GenFX_HeroFrame": "Opaque white center/background; requires explicit frame mask or layered clipping.",
+    "GenFX_Card_InPlay_AllyFrame": "Opaque atlas with extra pieces; requires explicit oval mask or layered clipping."
+  },
+  "assets": [
+    {
+      "file": "Card_Inhand_Minion_Mage.webp",
+      "bundle": "essential_base_global-texture-0.unity3d",
+      "texture": "Card_Inhand_Minion_Mage",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "cbf29ec0cce371d20f9f4b097a0457b453ea42e3ba2ed5e268a51af3365bf1ed",
+      "output_sha256": "55b4cb1ae9cfd6ff1d582589a9be5dc1b79cbd203f089d0be838c06af7970453"
+    },
+    {
+      "file": "ICC_GameplayArea.webp",
+      "bundle": "essential_base_global-texture-0.unity3d",
+      "texture": "ICC_GameplayArea",
+      "size": [
+        1024,
+        512
+      ],
+      "alpha_range": [
+        250,
+        255
+      ],
+      "source_sha256": "cbf29ec0cce371d20f9f4b097a0457b453ea42e3ba2ed5e268a51af3365bf1ed",
+      "output_sha256": "ce1937d7c282529e9b92419146f8ede6044ecfdf46f21f055a8aaf96e4ea7237"
+    },
+    {
+      "file": "Card_Weapon_Icons_D.webp",
+      "bundle": "essential_base_global-texture-0.unity3d",
+      "texture": "Card_Weapon_Icons_D",
+      "size": [
+        256,
+        128
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "cbf29ec0cce371d20f9f4b097a0457b453ea42e3ba2ed5e268a51af3365bf1ed",
+      "output_sha256": "292dec9c88b1a994d81cba48231835246f89a363bea21a390b1f7a9a044b6bd4"
+    },
+    {
+      "file": "ORG_GroundCorners.webp",
+      "bundle": "essential_base_global-texture-0.unity3d",
+      "texture": "ORG_GroundCorners",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "cbf29ec0cce371d20f9f4b097a0457b453ea42e3ba2ed5e268a51af3365bf1ed",
+      "output_sha256": "84ad23db79e0d30254b42c71be03e4f3b1573c8ea21931f5cdb913cd80a4d4b8"
+    },
+    {
+      "file": "Card_Inhand_Ability_Mage.webp",
+      "bundle": "essential_base_global-texture-0.unity3d",
+      "texture": "Card_Inhand_Ability_Mage",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "cbf29ec0cce371d20f9f4b097a0457b453ea42e3ba2ed5e268a51af3365bf1ed",
+      "output_sha256": "de174d6abbdb5e33753eea9e00fff440e9523151e71ccf3246601255d11266a1"
+    },
+    {
+      "file": "Hero_portrait.webp",
+      "bundle": "essential_base_global-texture-0.unity3d",
+      "texture": "Hero_portrait",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "cbf29ec0cce371d20f9f4b097a0457b453ea42e3ba2ed5e268a51af3365bf1ed",
+      "output_sha256": "cbc4df394cffe6c361e3095b26fec87880bbe127fec3353d6417cb9df6603ce4"
+    },
+    {
+      "file": "RAG_GameplayArea.webp",
+      "bundle": "essential_base_global-texture-2.unity3d",
+      "texture": "RAG_GameplayArea",
+      "size": [
+        1024,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "b3cab86ff0360eafeb5b92037c6ee825d6d6ff7d392cd96b355324badd7051f3",
+      "output_sha256": "d4495fe6e16d4a0445417badeef2e1f6b9241e4c9bdddad9da64a76acd5dbb4a"
+    },
+    {
+      "file": "GenFX_Card_InPlay_AllyFrame.webp",
+      "bundle": "essential_base_global-texture-2.unity3d",
+      "texture": "GenFX_Card_InPlay_AllyFrame",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "b3cab86ff0360eafeb5b92037c6ee825d6d6ff7d392cd96b355324badd7051f3",
+      "output_sha256": "6a1d8adc14bc264eff0fba3811f89d2d3d270aa96bc388ae5ef15d480775f3aa"
+    },
+    {
+      "file": "GenFX_HeroFrame.webp",
+      "bundle": "essential_base_global-texture-2.unity3d",
+      "texture": "GenFX_HeroFrame",
+      "size": [
+        512,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "b3cab86ff0360eafeb5b92037c6ee825d6d6ff7d392cd96b355324badd7051f3",
+      "output_sha256": "96beeafee3a94b278782a0f109d16b550331c35daa25d39d74a125e36e222066"
+    },
+    {
+      "file": "STR_GameplayArea_D.webp",
+      "bundle": "essential_base_global-texture-2.unity3d",
+      "texture": "STR_GameplayArea_D",
+      "size": [
+        1024,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "b3cab86ff0360eafeb5b92037c6ee825d6d6ff7d392cd96b355324badd7051f3",
+      "output_sha256": "14721c67e4271abd244ec9e0a003aab413d59d02f4f8de0576c001447bea76f0"
+    },
+    {
+      "file": "GenFX_Gem_Mana_D.webp",
+      "bundle": "essential_base_global-texture-2.unity3d",
+      "texture": "GenFX_Gem_Mana_D",
+      "size": [
+        128,
+        128
+      ],
+      "alpha_range": [
+        2,
+        254
+      ],
+      "source_sha256": "b3cab86ff0360eafeb5b92037c6ee825d6d6ff7d392cd96b355324badd7051f3",
+      "output_sha256": "3b33b536b7fbf8d6dddc90b07a6deddfabc988a1326b057957c782afcb23c4f5"
+    },
+    {
+      "file": "VarianLL_Playspace.webp",
+      "bundle": "essential_base_global-texture-3.unity3d",
+      "texture": "VarianLL_Playspace",
+      "size": [
+        1024,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "10f90b8c446e8304507a830548b4af150267a1116dc10057769bc193bfe0276a",
+      "output_sha256": "6b36375092164a57b386de73a8cb673093112ac97928c43665394c3253aee6fe"
+    },
+    {
+      "file": "KER_GameplayArea.webp",
+      "bundle": "essential_base_global-texture-3.unity3d",
+      "texture": "KER_GameplayArea",
+      "size": [
+        512,
+        256
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "10f90b8c446e8304507a830548b4af150267a1116dc10057769bc193bfe0276a",
+      "output_sha256": "c4ada1f1f0bf3dde89ce311216d25497383a252208376f977b5f6136e13cbffb"
+    },
+    {
+      "file": "Turalyon_Playspace.webp",
+      "bundle": "essential_base_global-texture-3.unity3d",
+      "texture": "Turalyon_Playspace",
+      "size": [
+        1024,
+        512
+      ],
+      "alpha_range": [
+        255,
+        255
+      ],
+      "source_sha256": "10f90b8c446e8304507a830548b4af150267a1116dc10057769bc193bfe0276a",
+      "output_sha256": "e1a194a69683c2fb416713358574e3230ab242f5878c4ed1cb55b88187086530"
+    }
+  ]
+}

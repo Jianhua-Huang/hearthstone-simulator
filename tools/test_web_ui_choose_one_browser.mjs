@@ -1,0 +1,36 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {chromium} from 'file:///C:/Users/Administrator/.codex/skills/develop-web-game/node_modules/playwright/index.mjs';
+const output=path.resolve(process.argv[2]||'outputs/web-ui-choose-one-20261014/browser-01');
+const files=['web_ui/static/app.js','web_ui/static/style.css','web_ui/static/index.html','web_ui/server.py','hs_sim/engine/choose_one.py','hs_sim/engine/representative.py','tools/test_web_ui_choose_one_browser.mjs'];
+const hashes=async()=>Object.fromEntries(await Promise.all(files.map(async f=>[f,createHash('sha256').update(await fs.readFile(f)).digest('hex')])));
+const report={checks:[],errors:[],commands:[],started:new Date().toISOString()};
+const check=n=>{report.checks.push(n);console.log('PASS '+n);};
+await fs.mkdir(output,{recursive:true});report.before=await hashes();
+const browser=await chromium.launch({headless:true});const p=await browser.newPage({viewport:{width:805,height:884}});p.setDefaultTimeout(15000);
+p.on('pageerror',e=>report.errors.push(e.message));p.on('console',m=>{if(m.type()==='error')report.errors.push(m.text());});
+p.on('request',r=>{if(r.url().endsWith('/api/action'))report.commands.push(r.postDataJSON().action);});
+const state=async()=>JSON.parse(await p.locator('#dto').textContent());const own=m=>m.observation.players.find(x=>x.id===m.seat);
+const settled=()=>p.waitForFunction(()=>document.body.dataset.busy==='false');
+async function response(fn,endpoint){const promise=p.waitForResponse(r=>r.url().endsWith('/api/'+endpoint));await fn();const r=await promise;assert.equal(r.status(),200);const m=await r.json();if('accepted'in m)assert.equal(m.accepted,true,m.command_error);await settled();return m;}
+async function add(id){const before=await state();await p.locator('#open-card-lab').click();await p.locator('#card-search').fill(id);const m=await response(()=>p.locator(`[data-add-card="${id}"]`).click(),'test/hand');await p.locator('#close-card-lab').click();return own(m).hand.find(c=>!own(before).hand.some(b=>b.ref===c.ref));}
+async function clickCard(ref){await p.mouse.move(1,1);const n=p.locator(`.card[data-ref="${ref}"]`);await n.scrollIntoViewIfNeeded();const pt=await n.evaluate(n=>{const r=n.getBoundingClientRect();for(const yf of [.5,.3,.7,.1,.9])for(const xf of [.12,.25,.5,.75,.9]){const x=r.x+r.width*xf,y=r.y+r.height*yf;if(document.elementFromPoint(x,y)?.closest('.card')===n)return{x,y};}return null;});assert.ok(pt);await p.mouse.click(pt.x,pt.y);}
+async function mana(n){await p.locator('#test-mana').fill(String(n));return response(()=>p.locator('#apply-mana').click(),'test/mana');}
+async function shot(name){await p.screenshot({path:path.join(output,name+'.png'),fullPage:true});await fs.writeFile(path.join(output,name+'.json'),await p.evaluate(()=>render_game_to_text()));}
+try{
+ await p.goto('http://127.0.0.1:8765/');await p.locator('#opponent-mode').selectOption('human');await response(()=>p.locator('#create').click(),'create');
+ const nourish=await add('EX1_164');await mana(7);let before=await state();const count=report.commands.length;
+ await clickCard(nourish.ref);await p.locator('#branch-choice').waitFor({state:'visible'});
+ assert.deepEqual(await p.locator('#branch-options strong').allTextContents(),['抽三张牌','获得两个法力水晶']);assert.equal(await p.locator('[data-branch="both"]').count(),0);assert.equal(report.commands.length,count);assert.deepEqual((await state()).observation,before.observation);check('Nourish opens Chinese legal options without paying or submitting; unavailable both omitted');
+ for(const size of [{width:805,height:884},{width:669,height:884},{width:1280,height:720}]){await p.setViewportSize(size);const good=await p.locator('#branch-options button').evaluateAll(ns=>ns.every(n=>{const r=n.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight&&document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('button')===n;}));assert.ok(good);await shot('choices-'+size.width);check('Both choices visible and hittable at '+size.width);}
+ await p.locator('#cancel-branch').click();assert.ok(!(await p.locator('#branch-choice').isVisible()));assert.deepEqual((await state()).observation,before.observation);check('Cancel leaves hand, mana and game state unchanged');
+ await clickCard(nourish.ref);await p.keyboard.press('Escape');assert.ok(!(await p.locator('#branch-choice').isVisible()));assert.equal(report.commands.length,count);check('Escape cancels without submitting');
+ await clickCard(nourish.ref);let after=await response(()=>p.locator('[data-branch="draw"]').click(),'action');assert.equal(report.commands.length,count+1);assert.equal(report.commands.at(-1).branch,'draw');assert.equal(own(after).mana,2);assert.equal(own(after).hand.length,own(before).hand.length+2);assert.equal(own(after).deck_count,own(before).deck_count-3);assert.ok(!own(after).hand.some(c=>c.ref===nourish.ref));check('Draw choice submits once, pays five and draws three');await shot('draw-result');
+ const second=await add('EX1_164');before=await mana(7);await clickCard(second.ref);after=await response(()=>p.locator('[data-branch="mana"]').click(),'action');assert.equal(report.commands.at(-1).branch,'mana');assert.equal(own(after).mana,4);assert.equal(own(after).max_mana,9);assert.equal(own(after).deck_count,own(before).deck_count);assert.equal(own(after).hand.length,own(before).hand.length-1);check('Mana choice pays five and gains two filled crystals without drawing');await shot('mana-result');
+ const wrath=await add('EX1_154');before=await mana(10);const target=before.observation.players.find(x=>x.id!==before.seat).board[0],n=report.commands.length;await clickCard(wrath.ref);await p.locator('[data-branch="damage"]').click();assert.ok(!(await p.locator('#branch-choice').isVisible()));assert.equal(report.commands.length,n);assert.ok(await p.locator(`.card[data-ref="${target.ref}"]`).evaluate(n=>n.classList.contains('valid-target')));after=await response(()=>clickCard(target.ref),'action');assert.equal(report.commands.length,n+1);assert.equal(report.commands.at(-1).branch,'damage');assert.equal(after.observation.players.find(x=>x.id!==after.seat).board.find(c=>c.ref===target.ref).health,target.health-3);check('Targeted choice closes dialog then requires an explicit legal target');await shot('targeted-result');
+ const third=await add('EX1_164');await mana(10);await clickCard(third.ref);await p.reload();await settled();assert.ok(!(await p.locator('#branch-choice').isVisible()));assert.equal(await p.locator('#branch-options button').count(),0);check('Refresh clears local selection and stale option DOM');
+ assert.deepEqual(report.errors,[]);check('No browser console or page errors');report.after=await hashes();assert.deepEqual(report.after,report.before);check('Frontend and engine source hashes stable during tests');report.passed=true;
+}catch(e){report.passed=false;report.failure=e.stack;process.exitCode=1;console.error(e);await shot('failure');}
+finally{report.finished=new Date().toISOString();await fs.writeFile(path.join(output,'verification.json'),JSON.stringify(report,null,2));await browser.close();}

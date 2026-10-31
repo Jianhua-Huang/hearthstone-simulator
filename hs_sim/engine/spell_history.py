@@ -7,7 +7,7 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, AddToHand, ChoiceOption, RequestChoice, _integer, _player, _source
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardClass, CardType, ChoicePurpose, Zone, _name
+from .model import BoardPresenceReference, CardClass, CardType, ChoicePurpose, Zone, _name
 from .pools import PoolQuery, PoolMember, GenerationPolicy, validate_policy, generation_candidates, matches_metadata, sample_candidates, resolve_candidates
 from .spell_casts import CAST_ORIGINS, CastSpell, automatic, cast_record, policies
 from .zones import filter_value, source_exists
@@ -37,8 +37,13 @@ class SpellHistoryQuery:
     max_turn: int | None = None
     before_id: int | None = None
     exclude_cast_ids: tuple[int, ...] = ()
+    target_policy: str = 'any'
 
     def __post_init__(self):
+        if type(self.target_policy) is not str or self.target_policy not in ('any', 'friendly_minion'):
+            raise ValueError('Unknown original spell-target history policy')
+        if self.target_policy == 'friendly_minion' and (self.side != 'friendly' or self.origins != ('hand',)):
+            raise ValueError('Friendly-minion history requires original friendly hand-spell occurrences')
         if self.side not in ('friendly','enemy','both'):
             raise ValueError('Unknown spell history side')
         spell_query(self.cards)
@@ -79,6 +84,9 @@ def spell_history_candidates(state, registry, player_id, query=SpellHistoryQuery
                 query.min_turn is not None and record.turn < query.min_turn or
                 query.max_turn is not None and record.turn > query.max_turn or
                 query.before_id is not None and record.id >= query.before_id):
+            continue
+        if query.target_policy == 'friendly_minion' and (record.target_origin is None or
+                record.target_origin.kind != CardType.MINION or record.target_origin.controller != record.player_id):
             continue
         card = registry.card(record.card_id)
         if card.kind != CardType.SPELL or not card.hand_playable:
@@ -167,8 +175,17 @@ class RecastSpell(Effect):
     target_preference: object | None = None
     branch_policy: str = 'current'
     target_ids: tuple[int, ...] = ()
+    target_residence: BoardPresenceReference | None = None
 
     def __post_init__(self):
+        if self.target_residence is not None:
+            if type(self.target_residence) is not BoardPresenceReference:
+                raise ValueError('Historical self target requires its original board residence')
+            self.target_residence.__post_init__()
+            if (self.targeting != 'explicit' or self.source_id is None or
+                    self.target_id != self.source_id or self.target_residence.entity_id != self.source_id or
+                    self.target_preference is not None or self.target_ids):
+                raise ValueError('Historical residence requires its one explicit original causing minion')
         _player(self.player_id); _integer(self.cast_id,'historical cast',1); _source(self.source_id)
         validate_preferred_source(self.target_preference, self.source_id)
         if type(self.branch_policy) is not str or self.branch_policy not in ('current', 'inherit'):
@@ -182,6 +199,11 @@ class RecastSpell(Effect):
 def recast(r, effect):
     effect.__post_init__(); source_exists(r,effect.source_id)
     original = cast_record(r.state,effect.cast_id)
+    if not target_residence_active(r, effect): return ()
+    if effect.target_residence is not None and (original.player_id != effect.player_id or original.origin != 'hand' or
+            original.target_origin is None or original.target_origin.kind != CardType.MINION or
+            original.target_origin.controller != original.player_id):
+        raise ResolutionError('Historical self recast lost its original friendly-minion target')
     card = r.registry.card(original.card_id)
     if not card.hand_playable or card.kind != CardType.SPELL:
         raise ResolutionError('Historical cast requires a physical spell')
@@ -222,12 +244,16 @@ class RecastFromHistory(Effect):
     branch_policy: str = 'current'
     target_preference: object | None = None
     target_ids: tuple[int, ...] = ()
+    target_residence: BoardPresenceReference | None = None
 
     def __post_init__(self):
         RecastSpell(self.player_id,1,self.source_id,self.target_id,self.targeting,self.choices,
-            target_preference=self.target_preference,branch_policy=self.branch_policy,target_ids=self.target_ids)
+            target_preference=self.target_preference,branch_policy=self.branch_policy,target_ids=self.target_ids,
+            target_residence=self.target_residence)
         if type(self.query) is not SpellHistoryQuery: raise ValueError('Expected SpellHistoryQuery')
         self.query.__post_init__(); distinct_policy(self.distinct,costs=True)
+        if self.target_residence is not None and self.query.target_policy != 'friendly_minion':
+            raise ValueError('Historical original-self batches require the original friendly-minion query')
         if self.count is not None: _integer(self.count,'history cast count',0)
         if self.selection not in ('oldest','newest','random','cost_ascending') or type(self.replacement) is not bool:
             raise ValueError('Invalid historical cast sampling policy')
@@ -261,9 +287,27 @@ class ContinueHistoryCasts(Effect):
             raise ValueError('Ordinary history batches cannot borrow cost-group progress')
 
 
+def validate_target_residence(state, spec):
+    ref = spec.target_residence
+    if ref is not None and (ref.entity_id not in state.entities or ref.presence_id >= state.next_order):
+        raise ValueError('Historical self target borrowed an unknown or future residence')
+
+
+def target_residence_active(r, spec):
+    validate_target_residence(r.state, spec)
+    if spec.target_residence is None: return True
+    from .board_presence import resolve_board_presence
+    entity = resolve_board_presence(r.state, spec.target_residence)
+    if entity is None or not entity.active or entity.health <= 0 or entity.doomed or entity.controller != spec.player_id:
+        r.stale(spec, spec.target_residence.entity_id)
+        return False
+    return True
+
+
 def history_batch(r, effect):
     effect.__post_init__(); source_exists(r,effect.source_id)
     validate_preferred_source(effect.target_preference,effect.source_id,r.state)
+    if not target_residence_active(r, effect): return ()
     records = spell_history_candidates(r.state,r.registry,effect.player_id,effect.query,effect.source_id)
     count = len(historical_groups(r.registry,records,effect.distinct)) if effect.count is None else effect.count
     if count > r.rules.max_resolution_steps: raise ResolutionLimitExceeded('Historical casts exceed resolution budget')
@@ -274,6 +318,7 @@ def history_batch(r, effect):
 
 def continue_history(r, effect):
     effect.__post_init__(); spec = effect.spec
+    if not target_residence_active(r, spec): return ()
     if spec.distinct == 'cost':
         from .cost_history_recasts import validate_progress
         validate_progress(r.state,r.registry,effect)
@@ -292,7 +337,8 @@ def continue_history(r, effect):
     remove = {c.id for c in group} if not spec.replacement else set()
     remaining_ids = tuple(i for i in effect.cast_ids if i not in remove)
     return (RecastSpell(spec.player_id,selected.id,spec.source_id,spec.target_id,spec.targeting,spec.choices,
-                target_preference=spec.target_preference,branch_policy=spec.branch_policy,target_ids=spec.target_ids),
+                target_preference=spec.target_preference,branch_policy=spec.branch_policy,target_ids=spec.target_ids,
+                target_residence=spec.target_residence),
             ContinueHistoryCasts(spec,remaining_ids,effect.remaining-1,effect.before_id,effect.initial_cast_ids))
 
 
@@ -408,11 +454,14 @@ def validate_boundary(game):
     if batches((*game._frame.prefix, *game._frame.continuation)) != batches(original.work):
         raise ValueError('Historical spell batch changed its complete original pending request')
     for work in (*game._frame.prefix,*game._frame.continuation):
+        if type(work) in (RecastSpell, RecastFromHistory):
+            validate_target_residence(state, work)
         if not isinstance(work,(ContinueHistoryCasts,ContinuePoolCasts)): continue
         work.__post_init__(); source_id = work.spec.source_id
         if source_id is not None and source_id not in state.entities:
             raise ValueError('Pending spell batch has an unknown source')
         if isinstance(work,ContinueHistoryCasts):
+            validate_target_residence(state, work.spec)
             if work.before_id > len(state.cast_history)+1: raise ValueError('Frozen history boundary is in the future')
             for cast_id in work.cast_ids: cast_record(state,cast_id)
             if work.spec.distinct == 'cost':

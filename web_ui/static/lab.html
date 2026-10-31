@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>逐卡测试工作台 · 炉石测试场</title>
+<link rel="stylesheet" href="/lab.css">
+<body>
+<header><div><span class="eyebrow">炉石 · 本地测试工具</span><h1>逐卡测试工作台</h1><p id="scope">正在读取已实现的卡牌…</p></div><a href="/" target="_blank" rel="noopener">打开普通对局 ↗</a></header>
+<section class="summary" aria-label="检查统计"><div><strong id="total">—</strong><span>已接入定义</span></div><div><strong id="executed">0</strong><span>已执行检查</span></div><div><strong id="effect-count">0</strong><span>列出的效果断言通过</span></div><div><strong id="ui-count">0</strong><span>界面结构检查通过</span></div><div><strong id="attention">0</strong><span>失败或需要准备</span></div></section>
+<main>
+<aside class="library" aria-label="卡牌目录">
+  <div class="filters"><label for="search">搜索卡牌</label><input id="search" type="search" placeholder="名称、ID、效果文字" autocomplete="off"><div class="filter-row"><select id="kind" aria-label="卡牌类型"><option value="">所有类型</option></select><select id="coverage" aria-label="检查范围"><option value="">全部状态</option><option value="focused">有专用效果断言</option><option value="review">待核对效果</option><option value="unrun">尚未运行</option><option value="failed">失败 / 需要准备</option><option value="source">需通过来源生成</option><option value="noart">暂无本地图像</option></select></div><p id="count" class="muted"></p></div>
+  <div id="cards" role="list" aria-label="已实现卡牌"></div>
+  <div class="pager"><button id="prev">上一页</button><span id="page"></span><button id="next">下一页</button></div>
+  <section class="batch"><h2>批量巡检</h2><p>按当前筛选逐张执行并检查战场显示。基础场景无专用断言时只记为“待核对效果”。</p><div class="buttons"><button id="batch" class="secondary">检查当前筛选</button><button id="stop" disabled>停止后续</button></div><progress id="progress" value="0" max="1"></progress><p id="batch-status" role="status"></p><div class="buttons"><button id="export">导出结果 JSON</button><button id="clear">清除本地结果</button></div></section>
+</aside>
+<section class="workspace">
+  <section class="case-panel"><div class="case-heading"><div><span id="case-type" class="eyebrow">先选择一张牌</span><h2 id="case-name">为每张牌准备一个可重复的局面</h2><code id="case-id"></code></div><span id="case-status" class="badge">尚未运行</span></div><p id="case-text"></p><p id="goal" class="goal">从左侧选择卡牌，查看测试条件和预期结果。</p><div class="buttons"><button id="load" class="primary" disabled>创建测试局面</button><button id="run" disabled>自动执行并核对</button><button id="check" disabled>核对当前局面</button><button id="reset" disabled>恢复默认条件</button></div>
+    <details id="scene-options"><summary>场景条件 · 每次创建均为独立对局</summary><div class="scene-grid"><label>己方英雄<select id="hero"></select></label><label>可用 / 最大法力<input id="mana" type="number" min="0" max="40" value="10"></label><label>尸体资源<input id="corpses" type="number" min="0" max="30" value="10"></label><label>随机种子<input id="seed" type="number" min="0" max="2147483647" value="29"></label><label>先对己方英雄造成伤害<input id="hero-damage" type="number" min="0" max="20" value="0"></label><label>先使己方随从受伤（至少保留1血）<input id="minion-damage" type="number" min="0" max="10" value="0"></label><label>己方场上（卡牌 ID，逗号分隔）<textarea id="own-board" rows="2"></textarea></label><label>对方场上（卡牌 ID，逗号分隔）<textarea id="enemy-board" rows="2"></textarea></label><label class="wide">己方牌库（卡牌 ID，逗号或换行分隔；最多30张）<textarea id="deck" rows="2"></textarea></label></div><p class="muted">修改条件后，原专用断言停用，结果保留为自定义场景。复杂机制可在战场中手动完成前置操作。</p></details>
+  </section>
+  <section class="results-panel" aria-label="本卡检查结果"><div><h2>检查结果</h2><span id="result-summary" class="muted">尚未执行</span></div><ul id="checks"></ul><p id="result-note" class="muted">效果与界面分别判断；通过当前断言不代表该卡全部条件已验收。</p></section>
+  <section class="preview-panel"><div class="preview-heading"><h2>真实战场</h2><span id="preview-status">等待创建局面</span></div><iframe id="battle" src="/" title="卡牌测试对局" allow="fullscreen"></iframe></section>
+</section>
+</main>
+<p id="error" role="alert"></p>
+<script src="/lab.js"></script>
+</body></html>
