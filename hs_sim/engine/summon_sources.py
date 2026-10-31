@@ -3,7 +3,7 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, _player, _source, _integer, _behavior
 from .errors import ResolutionError, ResolutionLimitExceeded
-from .model import CardClass, CardType, ResurrectionRecord, SummonStats, Zone, validate_summon_stats
+from .model import CardClass, CardType, ResurrectionRecord, SummonStats, Zone, Keyword, validate_summon_stats
 from .pools import PoolQuery, matches_metadata
 from .zones import CardReference, filter_value, source_exists, zone_candidates
 from .sacrifice import MinionReference, reference_value, live_minion
@@ -256,12 +256,20 @@ class ResurrectMinion(Effect):
     cause: object = None
     producer_link: object = None
     entry_grant: object = None
+    remove_keywords: tuple[Keyword, ...] = ()
 
     def __post_init__(self):
+        from .resurrection_summons import validate_keyword_removal
+        validate_keyword_removal(self.remove_keywords)
+        if self.remove_keywords and(self.cause is None or self.source_id is None or self.stats is not None or
+                self.on_summon is not None or self.producer_link is not None or self.entry_grant is not None):
+            raise ValueError('Taunt-free resurrection requires its plain original attributed death entry')
         if self.cause is not None:
             from .summon_quantities import SummonCause
             if type(self.cause)is not SummonCause:raise ValueError('Typed original resurrection cause required')
             self.cause.__post_init__()
+        if self.remove_keywords and self.cause.source.entity_id!=self.source_id:
+            raise ValueError('Taunt-free resurrection changed its original causing source')
         if self.producer_link is not None:
             from .resurrection_summons import ResurrectionEntryLink
             if type(self.producer_link)is not ResurrectionEntryLink or self.cause is None:raise ValueError('Typed original death selection required')

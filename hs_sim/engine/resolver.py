@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v847'
+CORE_EFFECTS_VERSION = 'core-effects-v848'
 
 
 class Mechanics:
@@ -2485,6 +2485,20 @@ def transfer_control(r, entity, player_id):
     return True
 
 
+def return_present_control(r, entity, player_id, source_id, *, board_full_reason):
+    """Return one original living resident through the shared transfer/death writers."""
+    if len(r.player(player_id).board) >= r.rules.max_board:
+        if not entity.active:
+            raise ResolutionError('Dormant full-board control return requires a separately supported death policy')
+        from .death_causes import mark
+        mark(r, entity, 'destroy', board_full_reason, source_id)
+        entity.doomed = True
+        return 'destroyed', dict(target_id=entity.id)
+    previous = entity.controller
+    transfer_control(r, entity, player_id)
+    return 'control_changed', dict(target_id=entity.id, player_id=player_id, previous_controller=previous)
+
+
 def restore_removed_control(r, entity, removed, *, publish=True):
     """Undo removed control layers on the same resident; no zone reacquisition.
 
@@ -2498,17 +2512,8 @@ def restore_removed_control(r, entity, removed, *, publish=True):
         if (player_id is None or entity.kind != CardType.MINION or entity.zone != Zone.BOARD or
                 entity.doomed or entity.health <= 0 or entity.controller == player_id):
             continue
-        if len(r.player(player_id).board) >= r.rules.max_board:
-            if not entity.active:
-                raise ResolutionError('Dormant full-board control return requires a separately supported death policy')
-            from .death_causes import mark
-            mark(r, entity, 'destroy', 'temporary_control_return_board_full', enchantment.source_id)
-            entity.doomed = True
-            events.append(('destroyed', dict(target_id=entity.id)))
-            continue
-        previous = entity.controller
-        transfer_control(r, entity, player_id)
-        events.append(('control_changed', dict(target_id=entity.id, player_id=player_id, previous_controller=previous)))
+        events.append(return_present_control(r, entity, player_id, enchantment.source_id,
+            board_full_reason='temporary_control_return_board_full'))
     if publish and events:
         r.refresh_auras(rebind_frozen_ids=tuple(data['target_id'] for kind, data in events
                                              if kind == 'control_changed'))
@@ -3074,6 +3079,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_minion_damage_waves(mechanics)
     from .physical_draw_chains import register as register_physical_draw_chains
     register_physical_draw_chains(mechanics)
+    from .selected_minion_memory import register as register_selected_minion_memory
+    register_selected_minion_memory(mechanics)
     from .destroyed_group_memory import register as register_destroyed_group_memory
     register_destroyed_group_memory(mechanics)
     from .spell_target_sequences import register as register_spell_target_sequences

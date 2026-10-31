@@ -82,11 +82,20 @@ class CraftedFacesTests(unittest.TestCase):
         self.assertEqual(Game.from_snapshot(json.loads(json.dumps(s)),fixture(mode)).snapshot(),s)
         self.assertEqual(replay(build_replay(g),fixture(mode)).snapshot(),s)
 
-    def test_complete_source_template_and_parts_do_not_define_curated_generation_pool(self):
+    def test_complete_source_template_and_parts_preserve_separate_full_reference_pools(self):
         d=load_batch();self.assertEqual(len(d['official_observations']),12);self.assertEqual(len(d['existing_dependencies']),5)
         r=fixture();self.assertIsNotNone(r.card(CARD).battlecry)
         from hs_sim.cards.nefarian_crafting_card import DRAGONS,UNDEAD
-        self.assertFalse(any(key[0]in(DRAGONS,UNDEAD)for key in r.pools))
+        from hs_sim.cards.nefarian_community_pools import load_batch as references,SOURCE_TARGET
+        source=references();pools=[p for p in r.pools.values()if p.id in(DRAGONS,UNDEAD)]
+        self.assertEqual({p.id for p in pools},{DRAGONS,UNDEAD});self.assertEqual(len(pools),2)
+        for role in source['roles']:
+            pool=next(p for p in pools if p.id==role['pool_id'])
+            self.assertEqual([(m.card_id,m.weight)for m in pool.members],
+                [(m['card_id'],m['weight'])for m in role['members']])
+            self.assertEqual(pool.excluded_card_ids,tuple(role['excluded_card_ids']))
+            self.assertEqual((pool.version,pool.target_id,pool.mode),(source['policy_id'],SOURCE_TARGET,'experimental'))
+            self.assertFalse(pool.complete)
         for row in d['cards']+d['existing_dependencies']:
             self.assertEqual(canonical_hash(row['record']),row['record_sha256'])
         self.assertEqual(r.card(TEMPLATE).attack,1);self.assertEqual(r.card(TEMPLATE).health,1)

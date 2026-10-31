@@ -64,6 +64,9 @@ def validate_ability(state,registry,ability):
 
 def validate_copy_memory(state, registry, memory, *, closed=False):
     memory.__post_init__()
+    if memory.selected_subjects:
+        from .selected_minion_memory import validate_subject
+        for subject in memory.selected_subjects:validate_subject(state,registry,subject,closed=closed)
     if memory.destroyed_groups:
         from .destroyed_group_memory import validate_group
         for group in memory.destroyed_groups: validate_group(state, registry, group, closed=closed)

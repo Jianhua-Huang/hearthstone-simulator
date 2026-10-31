@@ -2867,7 +2867,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return', 'destroyed_group'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return', 'destroyed_group', 'selected_copy', 'control_return'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2971,9 +2971,22 @@ class DeathrattleMemory:
     targeted_spells: tuple[RememberedTargetSpell, ...] = ()
     custody: object | None = None
     destroyed_groups: tuple[object, ...] = ()
+    selected_subjects: tuple[object, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        from .selected_minion_memory import RememberedMinionSubject
+        if type(self.selected_subjects)is not tuple or any(type(x)is not RememberedMinionSubject for x in self.selected_subjects):
+            raise ValueError('Native subjects require complete immutable original minion selections')
+        for subject in self.selected_subjects:subject.__post_init__()
+        subject_ids=tuple(x.battlecry_id for x in self.selected_subjects)
+        if subject_ids!=tuple(sorted(set(subject_ids)))or any(x.kind!=self.spec.kind for x in self.selected_subjects):
+            raise ValueError('Native selections lost their original Battlecry order or role')
+        if self.spec.kind in ('selected_copy','control_return'):
+            if any((self.growth_steps,self.draws,self.discard_ids,self.dormancies,self.discoveries,self.hand_entry_ids,
+                    self.summon_copy,self.cost_links,self.targeted_spells,self.custody,self.destroyed_groups)):
+                raise ValueError('Selected-minion memory cannot mix unrelated native materials')
+        elif self.selected_subjects:raise ValueError('Selected subjects require their own native profile')
         from .destroyed_group_memory import DestroyedBattlecryGroup
         if type(self.destroyed_groups) is not tuple or any(type(x) is not DestroyedBattlecryGroup for x in self.destroyed_groups):
             raise ValueError('Destruction memory requires complete immutable original Battlecry groups')

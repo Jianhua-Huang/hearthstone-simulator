@@ -10,7 +10,7 @@ from random import Random
 from .allocation_facts import SourceAllocationFact,allocation_from_dict,validate_allocation
 from .effects import Effect,_integer,_player,_source
 from .errors import ResolutionError,ResolutionLimitExceeded
-from .model import CardClass,CardType,DeathRecord,GameState,ResurrectionRecord,SummonStats,Zone,validate_end_turn_rng,validate_summon_stats
+from .model import CardClass,CardType,DeathRecord,GameState,ResurrectionRecord,SummonStats,Zone,Keyword,validate_end_turn_rng,validate_summon_stats
 
 
 def encoded(value):return json.dumps(asdict(value),ensure_ascii=False,sort_keys=True,separators=(',',':'))
@@ -32,6 +32,11 @@ def validate_entry_grant(value):
         raise ValueError('Native resurrection entry supports only its plain relative +1/+1 grant')
 
 
+def validate_keyword_removal(value):
+    if type(value)is not tuple or any(type(x)is not Keyword for x in value)or value not in((),(Keyword.TAUNT,)):
+        raise ValueError('Resurrection keyword removal supports only its finite original Taunt-free recipe')
+
+
 @dataclass(frozen=True)
 class ResurrectionEntryMaterial:
     card_id:str
@@ -47,7 +52,12 @@ class ResurrectionEntryMaterial:
     entry_herald_count:int|None=None
     remaining_health:int|None=None
     entry_grant:object=None
+    remove_keywords:tuple[Keyword,...]=()
     def __post_init__(self):
+        validate_keyword_removal(self.remove_keywords)
+        if self.remove_keywords and(self.source is None or self.stats is not None or self.on_summon is not None or
+                self.remaining_health is not None or self.entry_grant is not None or type(self.death)is not DeathRecord or Keyword.TAUNT not in self.death.keywords):
+            raise ValueError('Taunt-free material requires its plain original Taunt death and physical source')
         validate_entry_grant(self.entry_grant)
         if self.entry_grant is not None and (self.source is None or self.stats is not None or
                 self.on_summon is not None or self.remaining_health is not None):
@@ -98,7 +108,8 @@ def accept_entry(r,effect):
     material=ResurrectionEntryMaterial(death.card_id,death,source,
         r.state.turn,r.state.action_number,r.state.next_entity_id,r.state.next_order,r.state.next_attachment_id,effect.stats,effect.on_summon,
         herald_count(r.state,effect.player_id)if r.registry.card(death.card_id).herald_scaling else None,
-        remaining_health=1 if type(effect)is ResurrectOneHealth else None,entry_grant=getattr(effect,'entry_grant',None))
+        remaining_health=1 if type(effect)is ResurrectOneHealth else None,entry_grant=getattr(effect,'entry_grant',None),
+        remove_keywords=getattr(effect,'remove_keywords',()))
     request=SummonByCard(effect.player_id,(material,),effect.cause,position=effect.position,producer_link=effect.producer_link)
     accept(r,request);root=r.state.card_summon_history[-1]
     if effect.producer_link is not None:bind_entry(r,effect.producer_link,root.id)
@@ -124,6 +135,9 @@ def apply(r,material,entity,root_id,index):
     from .native_stat_gains import seed
     seed(r,entity,replace_existing=True)
     apply_summon_stats(r.state,entity,material.stats)
+    if material.remove_keywords:
+        from .lifecycle import consume_keyword
+        for keyword in material.remove_keywords:consume_keyword(entity,keyword)
     if material.entry_grant is not None:
         from types import SimpleNamespace
         from .card_creation import install
@@ -439,6 +453,7 @@ def validate_effect(state,registry,effect):
     if effect.on_summon is not None:registry.behavior(effect.on_summon)
     if type(effect)is Resurrect and effect.death_ids is not None and set(effect.death_ids)-{x.id for x in state.death_history}:raise ValueError('Exact resurrection lost an original actual death')
     if type(effect)is ResurrectOneHealth:friendly_death(state,registry,effect.death_id,effect.cause)
+    if type(effect)is ResurrectMinion and effect.remove_keywords:friendly_death(state,registry,effect.death_id,effect.cause)
     if type(effect)in (ResurrectMinion,ResurrectOneHealth):
         if effect.death_id>=state.next_death_id:raise ValueError('Queued resurrection has future death identity')
         if effect.producer_link is not None:
@@ -611,6 +626,7 @@ def from_dict(cls,value):
     row=_row(value,cls)
     if cls is ResurrectionEntryMaterial:
         row['death']=_death_from_dict(row['death']);row['source']=allocation_from_dict(row['source'])
+        row['remove_keywords']=tuple(Keyword(x)for x in row['remove_keywords'])
         row['stats']=None if row['stats']is None else SummonStats(**_row(row['stats'],SummonStats))
         from .card_creation import minion_grant_from_dict
         row['entry_grant']=minion_grant_from_dict(row['entry_grant'])

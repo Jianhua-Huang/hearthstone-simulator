@@ -107,6 +107,9 @@ class FrameCodec:
         from .physical_draw_chains import DrawBattlecryUntilNonDragon, ContinueBattlecryDragonDraws
         if type(value) in (DrawBattlecryUntilNonDragon, ContinueBattlecryDragonDraws) and self.origin_state is not None:
             value.validate_in_state(self.origin_state, self.registry)
+        from .selected_minion_memory import RememberBattlecryMinion,ReturnRememberedMinion,SilenceCapturedMinion
+        if type(value)in(RememberBattlecryMinion,ReturnRememberedMinion,SilenceCapturedMinion)and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         from .jade import SummonJadeGolem
         from .summon_quantities import JadeEntryMaterial, SummonByCard, validate_request as validate_jade_request
         if self.origin_state is not None:

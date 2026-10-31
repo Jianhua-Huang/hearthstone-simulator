@@ -517,6 +517,9 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         if type(material)is CopyEntryMaterial:
             from .copy_materials import validate_scope as validate_copy_scope
             validate_copy_scope(state,registry,material,closed=closed)
+            if material.profile=='remembered_copy' and material.mode=='base':
+                from .selected_minion_memory import validate_copy_request
+                validate_copy_request(state,registry,request,material,closed=closed)
             if material.profile=='discard_summon_copy' and (
                     request.player_id!=material.discard.player_id or
                     request.cause.player_id!=request.player_id or
@@ -532,6 +535,9 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import validate_material as validate_death_material
             validate_death_material(state,registry,material,closed=closed)
+            if material.remove_keywords and(material.source!=request.cause.source or request.player_id!=request.cause.player_id or
+                    material.death.controller!=request.player_id):
+                raise ValueError('Taunt-free resurrection lost its original friendly death, source or recipient')
             if material.entry_grant is not None and (material.source.entity_id != request.cause.source.entity_id or
                     request.player_id != request.cause.player_id):
                 raise ValueError('Resurrection entry grant differs from its actual original source or recipient')

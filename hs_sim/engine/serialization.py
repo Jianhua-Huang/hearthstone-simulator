@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 665
+SNAPSHOT_SCHEMA_VERSION = 666
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -107,6 +107,8 @@ def deathrattle_memory_from_dict(value):
     memory['dormancies'] = tuple(RememberedDormancy(**_row(x, RememberedDormancy)) for x in _list(memory['dormancies'], 'remembered dormancy intervals'))
     memory['discoveries'] = tuple(RememberedDiscovery(**_row(x, RememberedDiscovery)) for x in _list(memory['discoveries'], 'remembered discoveries'))
     memory['cost_links'] = tuple(RememberedCost(**_row(x, RememberedCost)) for x in _list(memory['cost_links'], 'remembered cost attachments'))
+    from .selected_minion_memory import subject_from_dict
+    memory['selected_subjects']=tuple(subject_from_dict(x)for x in _list(memory['selected_subjects'],'remembered original minion subjects'))
     from .destroyed_group_memory import group_from_dict
     memory['destroyed_groups'] = tuple(group_from_dict(x) for x in _list(memory['destroyed_groups'], 'remembered original destroyed groups'))
     from .model import RememberedTargetSpell, BoardPresenceReference
