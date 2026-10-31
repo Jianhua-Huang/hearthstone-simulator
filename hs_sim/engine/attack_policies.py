@@ -79,14 +79,16 @@ def current_policies(state, attacker, registry=None):
 
 
 def attack_limit(state, attacker, registry=None):
-    """Current total maximum: finite policies use max, None means unbounded."""
+    """Base maxima and independent bankable allowances; None is unbounded."""
     limit = 4 if Keyword.MEGA_WINDFURY in attacker.keywords else 2 if Keyword.WINDFURY in attacker.keywords else 1
+    additional=0
     for policy in current_policies(state, attacker, registry):
         if policy.mode == 'attacks_per_turn':
             if policy.attacks_per_turn is None:
                 return None
             limit = max(limit, policy.attacks_per_turn)
-    return limit
+        elif policy.mode=='additional_attacks':additional+=policy.attacks_per_turn
+    return limit+additional
 
 
 def has_action_remaining(state, attacker, registry=None):

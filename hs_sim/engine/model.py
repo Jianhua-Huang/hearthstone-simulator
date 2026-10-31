@@ -321,7 +321,12 @@ class HealthRule:
         if self.operation == HealthOp.FLOOR and (self.flow != HealthFlow.DAMAGE or
                 self.layer != HealthLayer.TARGET or self.amount < 1):
             raise ValueError('Health FLOOR requires positive DAMAGE/TARGET operand')
-        if self.source_relation not in ('any','friendly','enemy','self','friendly_elemental_minions','friendly_beast_minions','friendly_pirate_minions_on_owner_turn') or self.target_relation not in ('any','friendly','enemy','self'):
+        if self.target_relation=='undamaged_enemy_minions' and (
+                self.flow!=HealthFlow.DAMAGE or self.operation!=HealthOp.SCALE or self.amount!=2 or self.denominator!=1 or
+                self.layer!=HealthLayer.TARGET or self.source_relation!='any' or self.target_kinds!=(CardType.MINION,) or
+                self.damage_kinds or self.healing_kinds or self.schools or self.redirect_to is not None):
+            raise ValueError('Undamaged enemy scaling requires its exact incoming double-minion-damage profile')
+        if self.source_relation not in ('any','friendly','enemy','self','friendly_elemental_minions','friendly_beast_minions','friendly_pirate_minions_on_owner_turn') or self.target_relation not in ('any','friendly','enemy','self','undamaged_enemy_minions'):
             raise ValueError('Invalid health rule relation')
         if self.source_relation in ('friendly_elemental_minions','friendly_beast_minions','friendly_pirate_minions_on_owner_turn'):
             operation,amount=((HealthOp.SCALE,2)if self.source_relation=='friendly_beast_minions'else(HealthOp.ADD,1))
@@ -730,6 +735,7 @@ class CostModifier:
     player_effect_id: int | None = None
     deathrattle_only: bool = False
     destroy_after_play: bool = False
+    copy_after_play: bool = False
 
     def __post_init__(self):
         _int(self.id, 'cost modifier ID', 1)
@@ -738,7 +744,7 @@ class CostModifier:
                 self.uses_remaining is not None or self.expires_turn is not None or self.scope != CostScope.CARD or
                 self.spec.card_types != (CardType.SPELL,) or self.spec.delta == 0 or self.spec.set_to is not None or
                 self.spec.minimum or self.spec.payment is not None or self.spec.card_ids or self.spec.ability is not None or
-                self.tribes_any or self.combo_only or self.temporary_only or self.deathrattle_only or self.destroy_after_play or self.maximum_cost is not None or self.minion_keyword is not None):
+                self.tribes_any or self.combo_only or self.temporary_only or self.deathrattle_only or self.destroy_after_play or self.copy_after_play or self.maximum_cost is not None or self.minion_keyword is not None):
             raise ValueError('Linked spell price requires one original nonzero ordinary player-program contribution')
         if type(self.minion_keyword_repetitions)is not int or self.minion_keyword_repetitions not in(1,2)or self.minion_keyword is None and self.minion_keyword_repetitions!=1:
             raise ValueError('Paid keyword repetitions require the actual finite Kindred Shield reward')
@@ -749,6 +755,12 @@ class CostModifier:
         TribeChangeSpec('set',self.tribes_any).__post_init__()
         _bool(self.combo_only,'Combo-only cost');_bool(self.temporary_only,'Temporary-only cost')
         _bool(self.deathrattle_only,'Deathrattle-only cost');_bool(self.destroy_after_play,'Paid minion destruction')
+        _bool(self.copy_after_play,'Paid minion copy')
+        if self.copy_after_play and (self.source_id is None or self.uses_remaining not in(1,2) or self.scope!=CostScope.CARD or
+                self.spec!=CostSpec(card_types=(CardType.MINION,)) or self.tribes_any!=('draenei',) or
+                self.combo_only or self.temporary_only or self.deathrattle_only or self.destroy_after_play or
+                self.maximum_cost is not None or self.minion_keyword is not None or self.expires_turn is not None):
+            raise ValueError('Paid copies require their finite original next-Draenei receipt without changing price')
         if sum((bool(self.tribes_any),self.combo_only,self.temporary_only,self.deathrattle_only))>1:
             raise ValueError('Player cost modifiers require one independent recipient selector')
         if (self.combo_only or self.temporary_only)and(self.scope!=CostScope.CARD or self.uses_remaining is None):
@@ -771,7 +783,7 @@ class CostModifier:
                 self.spec.card_types!=CostSpec().card_types or self.spec.card_ids or self.spec.ability is not None):
             raise ValueError('Opponent Health requires a sourced finite bounded ordinary-card payment modifier')
         if self.tribes_any and (self.scope != CostScope.CARD or self.spec.card_types != (CardType.MINION,)or
-                not(self.spec.delta<0 and self.spec.payment is None or self.spec.set_to is not None and self.spec.payment is None or self.maximum_cost is not None)):
+                not(self.spec.delta<0 and self.spec.payment is None or self.spec.set_to is not None and self.spec.payment is None or self.maximum_cost is not None or self.copy_after_play)):
             raise ValueError('Tribal player prices require a minion reduction, set-price or qualified Health payment')
         if self.minion_keyword is not None and (
                 self.minion_keyword is not Keyword.DIVINE_SHIELD or self.scope != CostScope.CARD or
@@ -1234,9 +1246,11 @@ class LimitedTriggerSpec:
         for name in ('event', 'behavior_id', 'condition_id'):
             _name(getattr(self, name), name)
         _int(self.uses, 'trigger uses', 1)
-        if type(self.reset) is not str or self.reset not in ('instance', 'turn'):
+        if type(self.reset) is not str or self.reset not in ('instance', 'turn', 'cycle_turn'):
             raise ValueError('Unknown finite trigger budget scope')
-        if self.reset == 'turn' and self.end_turn is not None:
+        if self.reset=='cycle_turn' and(self.uses<2 or self.keyword is not None):
+            raise ValueError('Cyclic turn triggers require an ordinary multi-event threshold')
+        if self.reset in ('turn','cycle_turn') and self.end_turn is not None:
             raise ValueError('Classified end-turn budgets require their own explicit policy')
         if self.end_turn is not None:
             if type(self.end_turn) is not EndTurnSpec:
@@ -2492,9 +2506,11 @@ class AttackPolicySpec:
     def __post_init__(self):
         if type(self.mode) is not str or self.mode not in (
                 'cannot_attack', 'cannot_attack_or_use_minion_abilities',
-                'cannot_attack_heroes', 'attacks_per_turn','friendly_ignore_taunt'):
+                'cannot_attack_heroes', 'attacks_per_turn','friendly_ignore_taunt','additional_attacks'):
             raise ValueError('Unsupported attack policy mode')
-        if self.mode != 'attacks_per_turn' and self.attacks_per_turn is not None:
+        if self.mode=='additional_attacks' and self.attacks_per_turn is None:
+            raise ValueError('Additional attack allowance requires its positive independent amount')
+        if self.mode not in ('attacks_per_turn','additional_attacks') and self.attacks_per_turn is not None:
             raise ValueError('Only attack maximum policies specify a total')
         if self.attacks_per_turn is not None:
             _int(self.attacks_per_turn, 'maximum attacks per turn', 1)
@@ -3828,12 +3844,14 @@ class AbilityInstance:
                 raise ValueError('Limited trigger ability requires a specification')
             self.limited_trigger.__post_init__()
             _int(self.uses_remaining, 'remaining trigger uses', 0)
-            if self.limited_trigger.reset == 'turn':
+            if self.limited_trigger.reset in ('turn','cycle_turn'):
                 _int(self.trigger_turn, 'finite trigger actual turn', 1)
             elif self.trigger_turn is not None:
                 raise ValueError('Instance-global triggers cannot carry a turn budget')
             if self.uses_remaining > self.limited_trigger.uses or self.consumed != (self.uses_remaining == 0):
                 raise ValueError('Invalid limited trigger consumption')
+            if self.limited_trigger.reset=='cycle_turn' and self.uses_remaining==0:
+                raise ValueError('A completed cyclic trigger must retain its next full threshold')
         elif self.limited_trigger is not None:
             raise ValueError('Only limited triggers carry LimitedTriggerSpec')
         if self.kind != 'limited_trigger' and self.trigger_turn is not None:
@@ -11732,6 +11750,7 @@ class GameState:
     next_hero_health_change_id: int = 1
     hero_health_change_history: list[HeroHealthChangeRecord] = field(default_factory=list)
     armor_gain_history: list = field(default_factory=list)
+    hero_attack_gain_history: list = field(default_factory=list)
     next_healing_id: int = 1
     healing_history: list[HealingRecord] = field(default_factory=list)
     next_damage_id: int = 1
@@ -11927,6 +11946,8 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
     validate_hero_health_changes(state, registry)
     from .armor_gains import validate_state as validate_armor_gains
     validate_armor_gains(state, registry)
+    from .hero_attack_gains import validate_state as validate_hero_attack_gains
+    validate_hero_attack_gains(state,registry)
     from .healing_history import validate_state as validate_healing_history
     validate_healing_history(state, registry)
     from .damage_history import validate_state as validate_damage_history
@@ -12621,7 +12642,7 @@ def validate_invariants(state: GameState, registry: Registry) -> None:
                 raise ValueError("enchantments must preserve acquisition order")
         activated = [a.activation.id for a in entity.abilities if a.kind == 'activated']
         progress = [a for a in entity.abilities if a.kind == 'hand_progress']
-        if any(a.kind == 'limited_trigger' and a.limited_trigger.reset == 'turn' and
+        if any(a.kind == 'limited_trigger' and a.limited_trigger.reset in ('turn','cycle_turn') and
                a.trigger_turn != state.turn for a in entity.abilities):
             raise ValueError('Finite trigger budget differs from the actual current turn')
         if len(progress) > 1 or progress and entity.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON):

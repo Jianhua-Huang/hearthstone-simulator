@@ -127,9 +127,13 @@ def matches(state, registry, packet, row):
     if rule.schools and packet.school not in rule.schools:
         return False
     target = state.entities.get(packet.target_id)
+    relation=rule.target_relation
+    if relation=='undamaged_enemy_minions':
+        if target is None or target.health!=target.max_health:return False
+        relation='enemy'
     return (target is not None and target.active and registry.card(target.card_id).kind in rule.target_kinds and
             source_matches(state,registry,packet,holder_id,controller,rule.source_relation) and
-            relation_matches(rule.target_relation, target.id, target.controller, holder_id, controller))
+            relation_matches(relation, target.id, target.controller, holder_id, controller))
 
 
 def validate_school_spell_damage_definition(card):

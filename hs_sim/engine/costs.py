@@ -620,12 +620,14 @@ def consume_modifiers(player, ids):
     player.cost_modifiers = updated
 
 
-def paid_death_modifiers(state,play):
+def _paid_minion_modifiers(state,play,attribute):
+    if attribute not in ('destroy_after_play','copy_after_play'):
+        raise ValueError('Unknown original paid minion continuation')
     if play.kind!=CardType.MINION or play.submitted_cost is None:
         raise ValueError('Paid minion death requires its original minion price')
     quote=play.submitted_cost.quote
     modifiers=tuple(c.modifier for c in quote.contributions if
-        c.modifier is not None and c.modifier.destroy_after_play)
+        c.modifier is not None and getattr(c.modifier,attribute))
     if not modifiers:return ()
     receipts=[row for row in state.cost_use_history if
         (row.origin,row.source_id,row.player_id,row.source_card_id,row.turn,row.action,
@@ -636,6 +638,10 @@ def paid_death_modifiers(state,play):
             or m.source_id not in state.entities for m in modifiers):
         raise ValueError('Paid minion death lost its exact original consumed price sources')
     return modifiers
+
+
+def paid_death_modifiers(state,play):
+    return _paid_minion_modifiers(state,play,'destroy_after_play')
 
 
 @dataclass(frozen=True)
@@ -776,7 +782,7 @@ def modify_cost(r, effect, *, player_effect_id=None, allow_dormant=False):
         modifier = CostModifier(r.state.next_attachment_id, spec, effect.source_id,
                                 effect.uses_remaining, effect.expires_turn, effect.scope,effect.tribes_any,
                                 effect.combo_only,effect.temporary_only,effect.maximum_cost,effect.minion_keyword,effect.minion_keyword_repetitions,
-                                player_effect_id,deathrattle_only=effect.deathrattle_only,destroy_after_play=effect.destroy_after_play)
+                                player_effect_id,deathrattle_only=effect.deathrattle_only,destroy_after_play=effect.destroy_after_play,copy_after_play=effect.copy_after_play)
         if player_effect_id is not None:
             from .player_effects import validate_modifier_owner
             validate_modifier_owner(r.state, r.registry, player.id, modifier)

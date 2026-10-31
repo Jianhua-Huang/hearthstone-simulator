@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v856'
+CORE_EFFECTS_VERSION = 'core-effects-v857'
 
 
 class Mechanics:
@@ -973,7 +973,8 @@ class Resolution:
             for player in self.state.players.values():
                 gain = total_hero_attack(self.state, player) - hero_attacks[player.id]
                 if gain > 0:
-                    self.emit('hero_attack_gained', target_id=player.hero_id, player_id=player.id, amount=gain)
+                    from .hero_attack_gains import commit as commit_hero_attack_gain
+                    commit_hero_attack_gain(self,player.id,hero_attacks[player.id],hero_attacks[player.id]+gain)
             # A launch resolves its captured abilities before removing dying
             # minions. Hero death still uses the existing immediate terminal
             # policy, flushing the board before abandoning the remaining work.
@@ -1929,7 +1930,8 @@ def finish_play(r, effect):
            play_id=effect.play_id, _spellburst_candidates=effect.spellburst_candidates)
     from .hand_derivatives import after_hand_play
     from .after_play_grants import completed as after_play_effects
-    return (*after_hand_play(record),*after_play_effects(record))
+    from .paid_minion_copies import completed as after_paid_copies
+    return (*after_hand_play(record),*after_play_effects(record),*after_paid_copies(r.state,play_record(r.state,effect.play_id)))
 
 
 def end_turn(r, effect):
@@ -2672,6 +2674,10 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .effects import RevealHandCard
     from .information import reveal_hand_card
     mechanics = Mechanics(version)
+    from .hero_attack_gains import register as register_hero_attack_gains
+    register_hero_attack_gains(mechanics)
+    from .paid_minion_copies import register as register_paid_minion_copies
+    register_paid_minion_copies(mechanics)
     from .deathrattle_hand_deliveries import register as register_deathrattle_hand_deliveries
     register_deathrattle_hand_deliveries(mechanics)
     from .hand_exchange_discovery import register as register_hand_exchange_discovery

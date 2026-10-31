@@ -141,7 +141,7 @@ def capture(r, entity, ability, event, spell_candidates):
     context=RuleContext(deepcopy(r.state),entity.id,entity.controller,event.target_id,event,play=play,trigger=ability)
     eligible=r.registry.trigger_condition(spec.condition_id)(context)
     if type(eligible) is not bool:raise ResolutionError('Trigger condition must return bool')
-    return CheckLimitedTrigger(identity,event,budget_turn=r.state.turn if spec.reset == 'turn' else None) if eligible else None
+    return CheckLimitedTrigger(identity,event,budget_turn=r.state.turn if spec.reset in ('turn','cycle_turn') else None) if eligible else None
 
 
 def check(r, effect):
@@ -155,7 +155,7 @@ def check(r, effect):
             entity.entered_order!=identity.entered_order):return rejected()
     ability=next((a for a in active_abilities(entity,'limited_trigger') if a.id==identity.ability_id),None)
     if ability is None:return rejected()
-    if effect.budget_turn != (r.state.turn if ability.limited_trigger.reset == 'turn' else None):
+    if effect.budget_turn != (r.state.turn if ability.limited_trigger.reset in ('turn','cycle_turn') else None):
         return rejected()
     if effect.end_turn_context is not None and ability!=effect.end_turn_context.end_turn.subject.ability:
         # Another accepted end-turn root may have spent this exact attachment.
@@ -166,7 +166,9 @@ def check(r, effect):
         play_id = dict(effect.event.data).get('play_id')
         if play_id is None or play_record(r.state, play_id).countered:
             return rejected()
-    updated=replace(ability,uses_remaining=ability.uses_remaining-1,consumed=ability.uses_remaining==1)
+    cyclic=ability.limited_trigger.reset=='cycle_turn'
+    updated=replace(ability,uses_remaining=ability.limited_trigger.uses if cyclic and ability.uses_remaining==1 else ability.uses_remaining-1,
+        consumed=not cyclic and ability.uses_remaining==1)
     entity.abilities[entity.abilities.index(ability)]=updated
     refresh_entity(entity)
     guard=effect.end_turn_context.end_turn if effect.end_turn_context is not None else None
@@ -174,6 +176,7 @@ def check(r, effect):
     r.emit('limited_trigger_used',source_id=entity.id,player_id=entity.controller,
            amount=updated.uses_remaining,trigger_keyword=ability.limited_trigger.keyword.value if ability.limited_trigger.keyword else None,
            _end_turn_guard=guard,**guard_data)
+    if cyclic and ability.uses_remaining!=1:return ()
     call=r.call(ability.limited_trigger.behavior_id,entity.id,entity.controller,
                 effect.event.target_id,event=effect.event,trigger=updated,
                 end_turn=effect.end_turn_context.end_turn if effect.end_turn_context else None)
@@ -206,7 +209,7 @@ def grant(r, effect):
         raise ResolutionError('Limited trigger already expired')
     entity.abilities.append(AbilityInstance(attachment_id(r.state),'limited_trigger',source_id=effect.source_id,
         limited_trigger=effect.spec,uses_remaining=effect.spec.uses,expires_turn=effect.expires_turn,
-        trigger_turn=r.state.turn if effect.spec.reset == 'turn' else None,
+        trigger_turn=r.state.turn if effect.spec.reset in ('turn','cycle_turn') else None,
         limited_trigger_deadline=effect.deadline))
     refresh_entity(entity)
     r.emit('ability_granted',source_id=effect.source_id,target_id=entity.id,ability_kind='limited_trigger')
@@ -217,7 +220,7 @@ def refresh_turn_budgets(state):
     for entity in state.entities.values():
         changed = False
         for i, ability in enumerate(entity.abilities):
-            if (ability.kind == 'limited_trigger' and ability.limited_trigger.reset == 'turn' and
+            if (ability.kind == 'limited_trigger' and ability.limited_trigger.reset in ('turn','cycle_turn') and
                     ability.trigger_turn != state.turn):
                 entity.abilities[i] = replace(ability, uses_remaining=ability.limited_trigger.uses,
                     consumed=False, trigger_turn=state.turn)

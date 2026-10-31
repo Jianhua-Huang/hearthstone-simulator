@@ -337,6 +337,9 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     if (chinese and row.get('id') == 'TTN_480' and
             canonical(row) == 'bde9be17162e9813ab06c22293f51c89d8790eee6e3762a246b57070f967e021'):
         counter_labels += ('（召唤@个）',)
+    if (chinese and row.get('id') == 'AV_257' and
+            canonical(row) == '9a89e21b326745622fff8466441dcf68f239283ab60b8b366864314ab7c11d63'):
+        counter_labels += ('（召唤@个）',)
     # This exact ten-death Boar has no printed script-value tag. Preserve the
     # complete rule and /10 denominator; only its empty live value is absent
     # from the gallery. English also has source-only trailing layout padding.
@@ -391,6 +394,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
     # complete primary faces omit them; no printed effect body is discarded.
     zombeast_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'ICC_828t' and
                         canonical(row) == 'afa504c878895524959d208f1afb003bbfcc9aa2a71717362c1a61793c950bb7')
+    # Zok's two full primary bodies omit only the live Attack/Health pair.
+    # The printed two bodies, Taunt and both gain conditions remain strict.
+    zok_stats_display = (display_normalizations == {'{0}': '', '{1}': ''} and row['id'] == 'ETC_386' and
+                        canonical(row) == 'acb3cc331c77f6c17f097f3a555040886c94f3955405af4b16dc3ea041105868')
     upgraded_recruit_display = (display_normalizations == {'{0}': ''} and row['id'] == 'HERO_04bp2' and
         canonical(row) == 'e591407799b3a77a6013ede32fccc293544df11bcdf4b8c3b1371edcb4ede54d')
     # Jukebox's complete primary faces omit the live Recruit size and the
@@ -494,10 +501,10 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_aya_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display or mordresh_display) and replacement == '',
+                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_aya_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or zok_stats_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display or mordresh_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
-            require((jade_reprint_display or jade_lightning_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
+            require((jade_reprint_display or jade_lightning_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or zok_stats_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
         elif marker == '{5}':
             require((lookout_display or jar_name_display) and replacement == '', 'Only a pinned complete name display may be omitted')
         elif marker == '<b>圣盾</b>。<b>嘲讽</b>。':

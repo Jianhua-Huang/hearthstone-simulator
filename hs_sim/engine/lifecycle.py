@@ -140,7 +140,7 @@ def install_printed(state, entity, definition, registry=None, *, append=False, e
         add('activated', activation=spec)
     for spec in definition.limited_triggers:
         add('limited_trigger', limited_trigger=spec, uses_remaining=spec.uses,
-            trigger_turn=state.turn if spec.reset == 'turn' else None)
+            trigger_turn=state.turn if spec.reset in ('turn','cycle_turn') else None)
     if definition.hand_progress is not None:
         add('hand_progress', hand_progress=definition.hand_progress)
     if definition.defining_hand_source is not None and entity.zone in (Zone.HAND, Zone.DECK):

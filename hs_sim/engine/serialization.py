@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 673
+SNAPSHOT_SCHEMA_VERSION = 674
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1363,6 +1363,9 @@ def state_from_dict(value: dict) -> GameState:
     from .armor_gains import record_from_dict as armor_gain_from_dict
     value['armor_gain_history'] = [armor_gain_from_dict(item)
         for item in _list(value['armor_gain_history'], 'armor gain history')]
+    from .hero_attack_gains import record_from_dict as hero_attack_gain_from_dict
+    value['hero_attack_gain_history']=[hero_attack_gain_from_dict(item)
+        for item in _list(value['hero_attack_gain_history'],'Hero Attack gain history')]
     from .healing_history import rows_from_dict as healing_rows_from_dict
     healing_rows_from_dict(value)
     from .damage_history import rows_from_dict as damage_rows_from_dict

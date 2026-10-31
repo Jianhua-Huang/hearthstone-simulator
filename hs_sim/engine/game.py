@@ -607,6 +607,8 @@ class Game:
         validate_hero_health_change_boundary(self)
         from .armor_gains import validate_boundary as validate_armor_gain_boundary
         validate_armor_gain_boundary(self)
+        from .hero_attack_gains import validate_boundary as validate_hero_attack_gain_boundary
+        validate_hero_attack_gain_boundary(self)
         from .armor_consumption import validate_events as validate_armor_consumption_events
         validate_armor_consumption_events(self._state, self.registry, self._events)
         from .recruit_stat_groups import validate_boundary as validate_recruit_stat_group_boundary
