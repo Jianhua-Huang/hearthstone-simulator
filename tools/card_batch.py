@@ -347,6 +347,11 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         counter_labels += ('（@/10）',) if chinese else ('(@/10)',)
     counter_display = (display_normalizations == {'@': ''} and counter is not None and
                        bool(display(counter[1])) and display(counter[2]) in counter_labels)
+    # The complete Mordresh galleries omit only the two source separators and
+    # live remaining-damage slot. Its threshold/damage words and numbers stay.
+    mordresh_display = (display_normalizations == {'@': '', '{0}': ''} and
+        row.get('id') == 'BAR_547' and
+        canonical(row) == '4ac8221a83483603e37b01bb2777e3dc2b1443810a68e3475ba9a3c75a224e9d')
     recruit_bodies = {
         ('MEND_802', 'zh_CN'): '召唤两个{0}并具有圣盾的白银之手新兵。',
         ('MEND_802', 'en_US'): 'Summon two {0} Silver Hand Recruits with Divine Shield.',
@@ -483,13 +488,13 @@ def check_face(row, face, locale, display_normalizations=None, *, numeric_normal
         require(marker in raw_text, 'Reviewed display marker is absent from the complete source')
         if marker == '@':
             printed = row['tags'].get('TAG_SCRIPT_DATA_NUM_1')
-            require(type(replacement) is str and ((jade_reprint_display or jade_lightning_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display or jasper_spellstone_display or sapphire_spellstone_display) and replacement == '' or
+            require(type(replacement) is str and ((jade_reprint_display or jade_lightning_display or jade_coin_display or progress_display or counter_display or leyline_display or smoldering_display or upgraded_hunter_display or lookout_display or jar_name_display or informant_class_display or colossal_reserve_display or ruby_spellstone_display or jasper_spellstone_display or sapphire_spellstone_display or mordresh_display) and replacement == '' or
                     type(printed) is int and
                     (replacement == '' or replacement.isdigit() and printed == int(replacement))),
                     'Dynamic display must be omitted or equal its explicit printed script value')
         elif marker == '{0}':
             require(broodqueen_display and replacement == '5' or yshaarj_display and replacement == '30' or
-                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_aya_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display) and replacement == '',
+                    (jade_reprint_display or jade_lightning_display or jade_swarmer_display or jade_aya_display or jade_coin_display or potion_display or location_template_display or trial_template_display or assembled_power_display or progress_display or mana_forms_display or recruit_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or upgraded_recruit_display or jukebox_display or egg_name_display or carved_spell_display or informant_class_display or colossal_reserve_display or endless_infuse_display or mordresh_display) and replacement == '',
                     'Only explicitly reviewed complete display forms may omit their live value')
         elif marker == '{1}':
             require((jade_reprint_display or jade_lightning_display or jade_coin_display or potion_display or location_template_display or trial_template_display or leyline_display or smoldering_display or bones_display or dreadlynx_display or zombeast_display or jukebox_display or endless_infuse_display) and replacement == '', 'Only complete pinned bodies may omit their dynamic value display')
