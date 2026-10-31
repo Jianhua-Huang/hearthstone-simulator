@@ -3,7 +3,7 @@ from copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .allocation_facts import SourceAllocationFact, allocation_from_dict, validate_allocation
-from .effects import Effect, _integer
+from .effects import Effect, _behavior, _integer
 from .errors import ResolutionError
 from .model import CardType, SummonStats, Zone
 from .sacrifice import MinionReference, live_minion
@@ -157,12 +157,15 @@ class DeathrattleDeckPartner:
     invocation_id: int
     source: SourceAllocationFact
     deck_ids: tuple[int, ...]
+    zone: Zone = Zone.DECK
 
     def __post_init__(self):
         _integer(self.invocation_id, 'original physical-swap Deathrattle', 1)
         if type(self.source) is not SourceAllocationFact:
             raise ValueError('Deck swap requires its actual outgoing physical source')
         self.source.__post_init__()
+        if type(self.zone)is not Zone or self.zone not in(Zone.DECK,Zone.HAND):
+            raise ValueError('Original Deathrattle swap requires its actual hand or deck inventory')
         if self.source.kind != CardType.MINION or self.source.zone not in (Zone.BOARD, Zone.GRAVEYARD, Zone.HAND, Zone.DECK):
             raise ValueError('Deck swap requires its original minion residence')
         if type(self.deck_ids) is not tuple or len(set(self.deck_ids)) != len(self.deck_ids):
@@ -190,7 +193,7 @@ def validate_deck_recipe(state, registry, request, material):
     row = validate_deck_partner(state, registry, partner)
     if (request.player_id != row.capture.player_id or request.cause.player_id != row.capture.player_id or
             request.cause.source.entity_id != partner.source.entity_id or
-            material.reference.player_id != request.player_id or material.reference.zone != Zone.DECK or
+            material.reference.player_id != request.player_id or material.reference.zone != partner.zone or
             material.reference.entity_id not in partner.deck_ids or request.producer_link is not None):
         raise ValueError('Deck swap changed its original actor, deck or physical partner')
 
@@ -201,6 +204,7 @@ def deck_partner_from_dict(value):
     row = _row(value, DeathrattleDeckPartner)
     row['source'] = allocation_from_dict(row['source'])
     row['deck_ids'] = tuple(_list(row['deck_ids'], 'original deck swap inventory'))
+    row['zone'] = Zone(row['zone'])
     return DeathrattleDeckPartner(**row)
 
 
@@ -221,6 +225,22 @@ def move_deck_pair(r, material, entity, player_id, position):
     if (source.card_id, source.controller, source.zone, source.zone_epoch) != (
             a.card_id, a.controller, a.zone, a.zone_epoch):
         raise ResolutionError('Accepted deck swap lost its original outgoing residence')
+    if partner.zone==Zone.HAND:
+        if source.zone==Zone.HAND and source.controller==player_id:
+            r.move(entity,Zone.BOARD,position)
+            return
+        if source.zone==Zone.BOARD and source.controller==player_id:r.move(source,Zone.SETASIDE)
+        r.move(entity,Zone.BOARD,position)
+        if source.controller!=player_id and source.zone not in(Zone.BOARD,Zone.GRAVEYARD):
+            raise ResolutionError('Cross-controller stored outgoing hand swap awaits a supported transfer policy')
+        r.move(source,Zone.HAND,hand_entry_reason='return',hand_entry_source_id=partner.source.entity_id,
+            **({'controller_id':player_id}if source.controller!=player_id else{}))
+        from .lifecycle import reset_to_definition
+        reset_to_definition(r.state,source,r.registry.card(source.card_id),r.registry,preserve_jade=True)
+        r.emit('card_returned',target_id=source.id,player_id=player_id)
+        from .hand_history import publish
+        publish(r,source.hand_entry_id)
+        return
     if source.zone == Zone.DECK and source.controller == player_id:
         # A repeated actual Deathrattle never allocates a second outgoing copy.
         r.move(entity, Zone.BOARD, position)
@@ -276,9 +296,41 @@ def swap_deathrattle_deck(r, effect):
         cause=effect.cause, deck_swap=partner))
 
 
+@dataclass(frozen=True)
+class SwapDeathrattleWithHand(Effect):
+    invocation_id:int
+    cause:SummonCause
+    on_summon:str
+
+    def __post_init__(self):
+        _integer(self.invocation_id,'original physical hand-swap invocation',1);minion_cause(self.cause);_behavior(self.on_summon)
+
+    def validate_in_state(self,state,registry):
+        self.__post_init__();registry.behavior(self.on_summon)
+        return SwapDeathrattleWithDeck(self.invocation_id,self.cause).validate_in_state(state,registry)
+
+
+def swap_deathrattle_hand(r,effect):
+    from .zones import zone_candidates
+    from .pools import PoolQuery
+    from .colossal import SummonStoredCard,summon_stored
+    row=effect.validate_in_state(r.state,r.registry);source=r.state.entities[effect.cause.source.entity_id];player=r.player(effect.cause.player_id)
+    own_board=source.zone==Zone.BOARD and source.controller==player.id
+    if len(player.board)-int(own_board)>=r.rules.max_board:return()
+    candidates=zone_candidates(r,player.id,Zone.HAND,PoolQuery(kinds=(CardType.MINION,)),player.id,source.id)
+    if not candidates:return()
+    partner=DeathrattleDeckPartner(effect.invocation_id,SourceAllocationFact.capture(r.state,source),tuple(player.hand),Zone.HAND)
+    selected=r.game._rng.choice(candidates);position=player.board.index(source.id)if own_board else None
+    if position is None and row.capture.death_id is not None:
+        position=next(d.position for d in r.state.death_history if d.id==row.capture.death_id)
+    return summon_stored(r,SummonStoredCard(selected,player.id,position=position,cause=effect.cause,
+        deck_swap=partner,on_summon=effect.on_summon))
+
+
 def register(mechanics):
     mechanics.register_payload_type(DeathrattleDeckPartner)
     for typ, handler in ((TransformIntoDeckDemon, transform_deck_demon),
             (CopyMinionToThreeZones, copy_three_zones), (TransformHeldPlayedMinion, transform_held_play),
-            (SwapDeathrattleWithDeck, swap_deathrattle_deck)):
+            (SwapDeathrattleWithDeck, swap_deathrattle_deck),
+            (SwapDeathrattleWithHand, swap_deathrattle_hand)):
         mechanics.register(typ, handler)

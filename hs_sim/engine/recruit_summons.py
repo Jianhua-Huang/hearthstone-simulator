@@ -29,8 +29,8 @@ class RecruitEntryMaterial:
     def __post_init__(self):
         if self.deck_swap is not None:
             from .native_copy_consumers import DeathrattleDeckPartner
-            if (type(self.deck_swap) is not DeathrattleDeckPartner or self.reference.zone != Zone.DECK or
-                    self.swap_minion is not None or self.on_summon is not None or self.copy.stats is not None):
+            if (type(self.deck_swap) is not DeathrattleDeckPartner or self.reference.zone != self.deck_swap.zone or
+                    self.swap_minion is not None or self.deck_swap.zone==Zone.DECK and self.on_summon is not None or self.copy.stats is not None):
                 raise ValueError('Deck swap requires one plain original deck material')
             self.deck_swap.__post_init__()
         if type(self.swap_with_controller_hand)is not bool or self.swap_with_controller_hand and self.swap_minion is None:

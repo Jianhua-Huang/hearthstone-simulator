@@ -23,9 +23,10 @@ from .zones import CardReference, CopyCard, ModifyStoredCost, MoveCard, referenc
 SPELL_COST_FOLLOWUP = 'qualified_spell_cost_followup'
 FROST_FOLLOWUP = 'qualified_both_frost_spells_followup'
 SOURCE_KEYWORDS = 'source_rush_taunt_shield'
+SOURCE_SPELL_STATS = 'source_spell_cost_stats'
 TUTOR_KEYWORDS = (Keyword.RUSH, Keyword.TAUNT, Keyword.DIVINE_SHIELD)
 QUALIFIED_FOLLOWUPS = frozenset(('qualified_non_minion_followup', 'qualified_both_minions_followup', SPELL_COST_FOLLOWUP, FROST_FOLLOWUP))
-COPY_REWARDS = frozenset(('copy_other', 'copy_self', 'discover_spell_copy', SPELL_COST_FOLLOWUP))
+COPY_REWARDS = frozenset(('copy_other', 'copy_self', 'discover_spell_copy', SPELL_COST_FOLLOWUP, SOURCE_SPELL_STATS))
 
 
 @dataclass(frozen=True)
@@ -76,13 +77,13 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
-        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends', 'health_payment_all', 'give_drawn_spells', SOURCE_KEYWORDS) and self.kind not in QUALIFIED_FOLLOWUPS:
+        if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends', 'health_payment_all', 'give_drawn_spells', SOURCE_KEYWORDS, SOURCE_SPELL_STATS) and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
             _behavior(self.behavior_id)
         elif self.behavior_id is not None:
             raise ValueError('Only original non-minion draw followups declare a callback')
-        if self.kind in ('source_charge_if_both_minions', SOURCE_KEYWORDS) or self.kind in QUALIFIED_FOLLOWUPS and self.source is not None:
+        if self.kind in ('source_charge_if_both_minions', SOURCE_KEYWORDS, SOURCE_SPELL_STATS) or self.kind in QUALIFIED_FOLLOWUPS and self.source is not None:
             if type(self.source) is not BoardPresenceReference: raise ValueError('Draw-conditioned Charge requires its original board residence')
             self.source.__post_init__()
         elif self.source is not None: raise ValueError('Only the native draw-conditioned source reward captures board residence')
@@ -155,6 +156,9 @@ class DrawPhysicalGroup(Effect):
         if self.reward.kind == SOURCE_KEYWORDS and (self.kindred_pair or self.reward.source.entity_id != self.source_id or
                 self.slots != tuple(DrawGroupSlot(PoolQuery(kinds=(CardType.MINION,)), current_keywords_all=(key,)) for key in TUTOR_KEYWORDS)):
             raise ValueError('Native source keywords require the complete Rush/Taunt/Shield minion tutor sequence')
+        if self.reward.kind==SOURCE_SPELL_STATS and(self.kindred_pair or self.reward.source.entity_id!=self.source_id or
+                self.slots!=(DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,))),)*2):
+            raise ValueError('Original spell/stat swap requires its exact two spell slots and original source')
         if self.reward.kind == FROST_FOLLOWUP and (self.kindred_pair or self.reward.source is not None or self.reward.target_id is not None or
                 self.slots != (DrawGroupSlot(PoolQuery(kinds=(CardType.SPELL,))),)*2):
             raise ValueError('Frost draw followup requires its complete original two-spell tutor sequence')
@@ -430,6 +434,9 @@ def capture(r, request):
 
 def finish(r, request):
     reward = request.reward
+    if reward.kind==SOURCE_SPELL_STATS:
+        from .draw_spell_stat_swaps import swap_original_spell_costs
+        return swap_original_spell_costs(r,request)
     if reward.kind in ('none', SOURCE_KEYWORDS): return ()
     if reward.kind == 'destroy_drawn_after_ends':
         from .hand_deadlines import ScheduleHandRemoval
