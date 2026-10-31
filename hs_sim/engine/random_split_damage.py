@@ -417,8 +417,9 @@ def quote_budget(state,registry,request,root_action,event_cursor):
         for e,a,p,amount in spell_damage_sources(state,request.player_id,registry,definition.spell_school,cast_id=cast.id))
         if request.spell_bonus_multiplier else ())
     bonus=sum(c.amount for c in contributions)
+    from .keyword_auras import health_source_keywords
     return SplitBudgetQuote(cast,SourceAllocationFact.capture(state,source),
-        tuple(sorted(source.keywords,key=lambda k:k.value)),definition.spell_school,tuple(contributions),
+        tuple(sorted(health_source_keywords(state,registry,source),key=lambda k:k.value)),definition.spell_school,tuple(contributions),
         bonus,request.amount+bonus,state.action_number,root_action,event_cursor)
 
 def root_record(state,root_id):

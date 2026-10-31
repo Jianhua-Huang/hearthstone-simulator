@@ -287,10 +287,11 @@ def prepare_health(state, registry, instruction, *, rules=None, from_lifesteal=F
         raise ResolutionError('Spell damage/healing requires a spell source')
     if damage_kind == DamageKind.MINION_ABILITY and (definition is None or definition.kind != CardType.MINION):
         raise ResolutionError('Minion ability damage requires a minion source')
-    keywords = frozenset(source.keywords) if source else frozenset()
+    from .keyword_auras import health_source_keywords, spell_keyword_contributions
+    keywords = health_source_keywords(state,registry,source) if source else frozenset()
     if source and source.zone == Zone.HERO and damage_kind != DamageKind.COMBAT:
         keywords = frozenset(a.keyword for a in source.abilities if a.kind == 'keyword' and not a.consumed)
-    if player_source is not None:keywords=frozenset()
+    if player_source is not None:keywords=spell_keyword_contributions(state,registry,definition,player_effect_owner)
     packet = PreparedHealth(flow, flow, instruction.target_id, instruction.target_id, instruction.source_id,
                             player_effect_owner if player_source is not None else source.controller if source else None, keywords, instruction.amount, instruction.amount,
                             damage_kind, healing_kind, definition.spell_school if definition else None,

@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 669
+SNAPSHOT_SCHEMA_VERSION = 670
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -754,7 +754,7 @@ def _cost_contribution_from_dict(value):
     if row['first_play'] is not None:
         from .model import FirstPlayCostFact, PlayerPlayedClassCostRow
         first = _row(row['first_play'], FirstPlayCostFact)
-        first['kind'] = CardType(first['kind'])
+        first['kind'] = None if first['kind'] is None else CardType(first['kind'])
         rows = []
         for value in _list(first['rows'], 'first-play original price prefix'):
             original = _row(value, PlayerPlayedClassCostRow)
@@ -769,6 +769,13 @@ def _cost_contribution_from_dict(value):
             first['cast_rows'] = tuple(_player_spell_count_cost_row_from_dict(x)
                 for x in _list(first['cast_rows'], 'periodic spell original cast prefix'))
         row['first_play'] = FirstPlayCostFact(**first)
+    if row['starting_deck'] is not None:
+        from .model import StartingDeckCostFact
+        original = _row(row['starting_deck'], StartingDeckCostFact)
+        if original['original_entities'] is not None:
+            original['original_entities'] = tuple(tuple(_list(g,'original deck physical identities'))
+                for g in _list(original['original_entities'],'both original deck inventories'))
+        row['starting_deck'] = StartingDeckCostFact(**original)
     return CostContribution(**row)
 
 

@@ -14,4 +14,4 @@ def normalize_event_state(state, reason, *, registry=None, cause_source=None, ca
         _refresh_hero_attack_followers(state, registry, hero_followers)
     sync_state(state, reason, cause_source=cause_source, cause_target_id=cause_target_id)
     # Sources remain until the old death checkpoint; this does not allocate IDs.
-    refresh_hand_keyword_auras(state, include_dying=True)
+    refresh_hand_keyword_auras(state, registry=registry, include_dying=True)

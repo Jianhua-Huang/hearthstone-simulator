@@ -319,6 +319,30 @@ def validated_cost_source_inventory(state, registry):
     return catalogue
 
 
+def cost_aura_payer_matches(relation, controller, player_id):
+    return relation in ('any','all_cards_minimum','any_first_card') or ((controller == player_id) ==
+        (relation in ('friendly','friendly_arcane_spells','friendly_nature_spells','friendly_polarity','friendly_outside_starting_deck')))
+
+
+def capture_starting_deck_cost(state, player_id, source_id):
+    from .model import StartingDeckCostFact
+    from .play_history import starting_deck_identity
+    identities = None if source_id is None else starting_deck_identity(state)[0]
+    return StartingDeckCostFact(player_id,source_id,state.turn,state.action_number,state.next_entity_id,identities)
+
+
+def validate_starting_deck_cost_fact(state, fact):
+    if fact is None:return
+    from .model import StartingDeckCostFact
+    from .play_history import starting_deck_identity
+    if type(fact) is not StartingDeckCostFact:raise ValueError('Original-deck price requires its typed fact')
+    fact.__post_init__()
+    if fact.next_entity_id > state.next_entity_id or fact.turn > state.turn or fact.action > state.action_number:
+        raise ValueError('Original-deck price borrowed a future allocation or window')
+    if fact.source_id is not None and fact.original_entities != starting_deck_identity(state)[0]:
+        raise ValueError('Original-deck price changed either complete immutable starting inventory')
+
+
 def _external_quote(state, registry, player_id, definition, amount, payment, current_battlecry, enchantments=(),
                     *,abilities=None,hand_lifetime=None,minimum_cost=0,physical_id=None):
     validated_cost_source_inventory(state, registry)
@@ -342,13 +366,13 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
                 source.kind in (CardType.WEAPON, CardType.LOCATION) and source.durability <= 0):
             continue
         for ability in source.abilities:
-            if (ability.kind != 'cost_aura' or ability.consumed or not (
-                    ability.cost_aura.relation in ('any', 'all_cards_minimum') or
-                    (source.controller == player_id) == (ability.cost_aura.relation in ('friendly','friendly_arcane_spells','friendly_nature_spells','friendly_polarity')))):
+            if (ability.kind != 'cost_aura' or ability.consumed or not
+                    cost_aura_payer_matches(ability.cost_aura.relation,source.controller,player_id)):
                 continue
             if ability.cost_aura.hand_adjacent != (source.zone == Zone.HAND):
                 continue
             if not native_provider_matches(state,source,ability.native_condition,registry=registry):continue
+            if ability.cost_aura.relation == 'friendly_outside_starting_deck' and definition.kind not in ability.cost_aura.cost.card_types:continue
             first = None
             if ability.cost_aura.first_per_turn or ability.cost_aura.every_nth_per_turn is not None:
                 # Unrelated types neither activate nor spend this qualification.
@@ -372,13 +396,15 @@ def _external_quote(state, registry, player_id, definition, amount, payment, cur
                     if tribal_inputs is None:
                         tribal_inputs = tuple(p.submitted_cost.quote.quote_input for p in state.play_history)
                     original_inputs = tribal_inputs
-                first = FirstPlayCostFact(player_id, definition.kind, state.turn,
+                first = FirstPlayCostFact(player_id, None if ability.cost_aura.relation=='any_first_card' else definition.kind, state.turn,
                     state.action_number, state.next_entity_id, len(rows), rows,
                     spells, None if spells is None else len(spells),
                     ability.cost_aura.tribes_any, original_inputs)
             contribution = CostContribution('cost_aura', source.controller, source.id,
                                             ability=ability, first_play=first,
-                                            polarity_basis=amount if ability.cost_aura.relation=='friendly_polarity'else None)
+                                            polarity_basis=amount if ability.cost_aura.relation=='friendly_polarity'else None,
+                                            starting_deck=capture_starting_deck_cost(state,player_id,physical_id)
+                                                if ability.cost_aura.relation=='friendly_outside_starting_deck'else None)
             modifiers.append((ability.id, ability.cost_aura.cost, contribution))
     # A price-bounded account switch has no numeric operation. Compute the
     # complete price once, then match the payment-only switches without cycles.
@@ -410,6 +436,7 @@ def matches_cost_contribution(registry, contribution, definition, current_battle
     physical subjects use their original ordered current-tribe changes.
     """
     spec = contribution.modifier.spec if contribution.modifier is not None else contribution.ability.cost_aura.cost
+    if contribution.starting_deck is not None and not contribution.starting_deck.matched:return False
     if contribution.ability is not None and contribution.ability.cost_aura.relation=='friendly_polarity':
         from .cost_polarities import matches as matches_polarity
         if not matches_polarity(registry,contribution):return False
@@ -504,7 +531,7 @@ def matches_cost_values(spec, definition, current_battlecry, *, abilities=None):
         return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids) and
             matches_ability_values(spec.ability,printed=printed,current=current))
     return (definition.kind in spec.card_types and (not spec.card_ids or definition.id in spec.card_ids)
-            and (spec.ability is None or (matches_ability(spec.ability, definition) if spec.ability.ability in ('outcast', 'secret', 'fire_spell', 'nature_spell', 'protoss')
+            and (spec.ability is None or (matches_ability(spec.ability, definition) if spec.ability.ability in ('outcast', 'secret', 'fire_spell', 'nature_spell', 'fel_spell', 'protoss')
                 else matches_ability_values(spec.ability,
                 printed=definition.battlecry is not None,
                 current=definition.battlecry is not None if current_battlecry is None else current_battlecry))))

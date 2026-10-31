@@ -8,6 +8,34 @@ from .model import AbilityInstance, CardType, Keyword, KeywordAuraSpec, PlayerKe
 
 POSITIONAL_TARGETS = ('friendly_leftmost_minion', 'friendly_rightmost_minion')
 RELATIVE_TARGETS = ('friendly_minions_left_of_source', 'friendly_minions_right_of_source')
+SPELL_TARGETS = ('friendly_spells', 'friendly_fel_spells')
+
+
+def spell_scope_matches(spec, definition):
+    from .model import SpellSchool
+    return definition.kind == CardType.SPELL and (spec.target == 'friendly_spells' or
+        spec.target == 'friendly_fel_spells' and definition.spell_school == SpellSchool.FEL)
+
+
+def spell_keyword_contributions(state, registry, definition, player_id):
+    if definition is None or definition.kind != CardType.SPELL:return frozenset()
+    result=set()
+    for source_id in state.players[player_id].board:
+        source=state.entities[source_id]
+        if source.kind != CardType.MINION or not source.active or source.health <= 0 or source.doomed:continue
+        for ability in active_abilities(source,'keyword_aura'):
+            if ability.keyword_aura.target in SPELL_TARGETS and spell_scope_matches(ability.keyword_aura,definition):
+                result.add(ability.keyword_aura.keyword)
+    return frozenset(result)
+
+
+def health_source_keywords(state, registry, source):
+    result=set(source.keywords)
+    if source.kind == CardType.SPELL:
+        if Keyword.LIFESTEAL in source.hand_aura_keywords and Keyword.LIFESTEAL not in local_keywords(source):
+            result.discard(Keyword.LIFESTEAL)
+        result.update(spell_keyword_contributions(state,registry,registry.card(source.card_id),source.controller))
+    return frozenset(result)
 
 
 def native_scope(spec):
@@ -150,7 +178,7 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
                         if any(matches): contributions[source_id].add(spec.keyword)
                     # Self contributions use local/state-dependent keyword unions.
                     continue
-                if spec.target.startswith('friendly_hand'):
+                if spec.target.startswith('friendly_hand') or spec.target in SPELL_TARGETS:
                     continue
                 targets = (player.hero_id,) if spec.target == 'friendly_hero' else player.board
                 if spec.target == 'enemy_minions':
@@ -211,7 +239,7 @@ def refresh_keyword_auras(state, registry, *, include_dying=False):
     for entity_id, entity in state.entities.items():
         entity.aura_keywords = contributions[entity_id]
     refresh_conditional_keywords(state)
-    refresh_hand_keyword_auras(state, include_dying=include_dying)
+    refresh_hand_keyword_auras(state, registry=registry, include_dying=include_dying)
 
 
 def refresh_turn_keywords(state, registry):
@@ -233,7 +261,7 @@ def refresh_summon_keywords(state,registry):
         for entity in state.entities.values():refresh_entity(entity)
 
 
-def refresh_hand_keyword_auras(state, *, include_dying=False):
+def refresh_hand_keyword_auras(state, *, registry=None, include_dying=False):
     """Recompute hand-only contributions without changing board aura timing.
 
     Also used before events freeze their context, because zone effects can move
@@ -242,7 +270,8 @@ def refresh_hand_keyword_auras(state, *, include_dying=False):
     contributions = {}
     kinds = {'friendly_hand_minions': (CardType.MINION,),
              'friendly_hand_spells': (CardType.SPELL,),
-             'friendly_hand': (CardType.MINION, CardType.SPELL)}
+             'friendly_hand': (CardType.MINION, CardType.SPELL),
+             'friendly_spells': (CardType.SPELL,), 'friendly_fel_spells': (CardType.SPELL,)}
     for player in state.players.values():
         for source_id in player.board:
             source = state.entities[source_id]
@@ -253,8 +282,11 @@ def refresh_hand_keyword_auras(state, *, include_dying=False):
                 spec = ability.keyword_aura
                 if spec.target not in kinds:
                     continue
+                if spec.target in SPELL_TARGETS and registry is None:
+                    raise ValueError('Spell keyword contributions require their complete registered school')
                 for target_id in player.hand:
-                    if state.entities[target_id].kind in kinds[spec.target]:
+                    if state.entities[target_id].kind in kinds[spec.target] and (spec.target not in SPELL_TARGETS or
+                            spell_scope_matches(spec,registry.card(state.entities[target_id].card_id))):
                         contributions.setdefault(target_id, set()).add(spec.keyword)
     for entity_id, entity in state.entities.items():
         keywords = contributions.get(entity_id, set())

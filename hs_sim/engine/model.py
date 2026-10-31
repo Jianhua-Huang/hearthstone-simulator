@@ -590,7 +590,7 @@ class CardAbilityCondition:
     basis: str = 'current'
 
     def __post_init__(self):
-        if type(self.ability) is not str or self.ability not in ('battlecry', 'outcast', 'secret', 'spell_damage', 'fire_spell', 'nature_spell', 'protoss'):
+        if type(self.ability) is not str or self.ability not in ('battlecry', 'outcast', 'secret', 'spell_damage', 'fire_spell', 'nature_spell', 'fel_spell', 'protoss'):
             raise ValueError('Unsupported card ability condition')
         _bool(self.present, 'card ability presence')
         if type(self.basis) is not str or self.basis not in ('current', 'printed'):
@@ -599,7 +599,7 @@ class CardAbilityCondition:
             raise ValueError('Outcast cost identity requires the printed card, not hand-position activation')
         if self.ability == 'secret' and self.basis != 'printed':
             raise ValueError('Secret cost identity requires its printed native declaration')
-        if self.ability in ('fire_spell', 'nature_spell', 'protoss') and (self.basis != 'printed' or not self.present):
+        if self.ability in ('fire_spell', 'nature_spell', 'fel_spell', 'protoss') and (self.basis != 'printed' or not self.present):
             raise ValueError('Native school/faction price requires positive printed identity')
 
 
@@ -654,8 +654,14 @@ class CostAuraSpec:
         if type(self.cost) is not CostSpec:
             raise ValueError('Cost aura requires a CostSpec operation')
         self.cost.__post_init__()
-        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','friendly_nature_spells','friendly_polarity','all_cards_minimum'):
+        if type(self.relation) is not str or self.relation not in ('friendly', 'enemy', 'any','friendly_arcane_spells','friendly_nature_spells','friendly_polarity','all_cards_minimum','any_first_card','friendly_outside_starting_deck'):
             raise ValueError('Invalid cost aura payer relation')
+        if self.relation == 'any_first_card' and (self.cost != CostSpec(set_to=0) or not self.first_per_turn or
+                self.tribes_any or self.every_nth_per_turn is not None or self.hand_adjacent):
+            raise ValueError('Either-player first-card price requires its exact independent zero assignment')
+        if self.relation == 'friendly_outside_starting_deck' and (self.cost != CostSpec(delta=-4,minimum=1) or
+                self.first_per_turn or self.tribes_any or self.every_nth_per_turn is not None or self.hand_adjacent):
+            raise ValueError('Original-deck price requires its exact independent four reduction/minimum one')
         if self.relation == 'all_cards_minimum' and (self.cost != CostSpec(minimum=2) or
                 self.tribes_any or self.first_per_turn or self.every_nth_per_turn is not None or self.hand_adjacent):
             raise ValueError('Native all-card floor requires the original two-Mana constraint')
@@ -678,7 +684,7 @@ class CostAuraSpec:
                     self.cost.card_ids or self.cost.ability is not None or self.cost.payment is not None or
                     self.cost.minimum != 0 or not (self.cost.delta < 0 or self.cost.set_to is not None)):
                 raise ValueError('Periodic turn auras require one independent friendly ordinary card type')
-        if self.first_per_turn and (self.relation != 'friendly' or
+        if self.first_per_turn and self.relation != 'any_first_card' and (self.relation != 'friendly' or
                 self.cost.card_types not in ((CardType.MINION,), (CardType.SPELL,)) or
                 self.cost.card_ids or self.cost.ability is not None or
                 self.cost.payment is not None or self.cost.minimum != 0 or
@@ -1487,14 +1493,18 @@ class KeywordAuraSpec:
         supported = {Keyword.WINDFURY, Keyword.MEGA_WINDFURY, Keyword.TAUNT, Keyword.CHARGE, Keyword.RUSH,
                      Keyword.POISONOUS, Keyword.LIFESTEAL, Keyword.IMMUNE, Keyword.IMMUNE_WHILE_ATTACKING, Keyword.CANT_BE_FROZEN, Keyword.ELUSIVE, Keyword.STEALTH}
         hand = self.target in ('friendly_hand_minions', 'friendly_hand_spells', 'friendly_hand')
+        spell = self.target in ('friendly_spells', 'friendly_fel_spells')
         if hand:
             supported.add(Keyword.ECHO)
         if type(self.keyword) is not Keyword or self.keyword not in supported:
             raise ValueError('Keyword aura requires a supported continuous keyword')
-        if not hand and self.target not in ('friendly_hero', 'friendly_minions', 'enemy_minions', 'self',
+        if not hand and not spell and self.target not in ('friendly_hero', 'friendly_minions', 'enemy_minions', 'self',
                                           'friendly_leftmost_minion', 'friendly_rightmost_minion',
                                           'friendly_minions_left_of_source', 'friendly_minions_right_of_source'):
             raise ValueError('Unsupported keyword aura target')
+        if spell and (self.keyword != Keyword.LIFESTEAL or self.include_self or self.adjacent_only or
+                self.condition != 'always' or self.tribes_any or self.card_ids):
+            raise ValueError('Spell keyword provider requires its exact ordinary or Fel Lifesteal scope')
         _bool(self.include_self, 'keyword aura include_self')
         _bool(self.adjacent_only, 'keyword aura adjacent_only')
         TribeChangeSpec('set', self.tribes_any).__post_init__()
@@ -6967,6 +6977,9 @@ class GeneratedCostQuoteFact:
             c.__post_init__()
             if c.first_play is not None:
                 validate_first_play_quote_boundary(c.first_play, self.quote_input.player_id, self.intrinsic.boundary)
+            if c.starting_deck is not None and (c.starting_deck.player_id,c.starting_deck.source_id,c.starting_deck.turn,c.starting_deck.action) != (
+                    self.quote_input.player_id,None,self.intrinsic.boundary.turn,self.intrinsic.boundary.action):
+                raise ValueError('Fresh quote borrowed physical original-deck membership or another window')
         for values in (self.modifier_ids, self.consumable_ids):
             if type(values) is not tuple or any(type(i) is not int or i < 1 for i in values) or any(a >= b for a,b in zip(values, values[1:])):
                 raise ValueError('Generated external IDs require unique global order')
@@ -7016,7 +7029,7 @@ class CostQuoteInput:
 class FirstPlayCostFact:
     """Original hand prefix, plus physical CAST operands for periodic spells."""
     player_id: int
-    kind: CardType
+    kind: CardType | None
     turn: int
     action: int
     next_entity_id: int
@@ -7030,7 +7043,7 @@ class FirstPlayCostFact:
     def __post_init__(self):
         if type(self.player_id) is not int or self.player_id not in (1, 2):
             raise ValueError('First-play price requires its actual payer')
-        if type(self.kind) is not CardType or self.kind not in (CardType.MINION, CardType.SPELL):
+        if self.kind is not None and (type(self.kind) is not CardType or self.kind not in (CardType.MINION, CardType.SPELL)):
             raise ValueError('First-play price requires one supported card type')
         for name in ('turn', 'next_entity_id'): _int(getattr(self, name), 'first-play price '+name, 1)
         for name in ('action', 'play_history_length'): _int(getattr(self, name), 'first-play price '+name, 0)
@@ -7105,14 +7118,48 @@ class FirstPlayCostFact:
                     raise UnsupportedDefinitionError('Unknown originally submitted tribe set: '+row.face.card_id)
                 count += current.matches_any(self.tribes_any)
             return 1 + count
-        return 1 + sum((row.face.player_id, row.face.kind, row.turn) ==
-                       (self.player_id, self.kind, self.turn) for row in self.rows)
+        return 1 + sum(row.face.player_id == self.player_id and row.turn == self.turn and
+                       (self.kind is None or row.face.kind == self.kind) for row in self.rows)
 
 
 def validate_first_play_quote_boundary(first, player_id, boundary):
     if (first.player_id, first.turn, first.action, first.play_history_length) != (
             player_id, boundary.turn, boundary.action, boundary.play_history_length):
         raise ValueError('First-play price differs from its original quotation boundary')
+
+
+@dataclass(frozen=True)
+class StartingDeckCostFact:
+    """Original physical membership; a hypothetical new card has no source ID."""
+    player_id: int
+    source_id: int | None
+    turn: int
+    action: int
+    next_entity_id: int
+    original_entities: tuple[tuple[int, ...], tuple[int, ...]] | None
+
+    def __post_init__(self):
+        if type(self.player_id) is not int or self.player_id not in(1,2):raise ValueError('Original deck price requires its actual payer')
+        _optional_id(self.source_id,'original deck physical subject')
+        for name in('turn','next_entity_id'):_int(getattr(self,name),'original deck price '+name,1)
+        _int(self.action,'original deck price action',0)
+        if self.source_id is None:
+            if self.original_entities is not None:raise ValueError('Fresh generated quote cannot borrow original physical membership')
+            return
+        if self.source_id >= self.next_entity_id:raise ValueError('Original deck price borrowed a future subject')
+        groups=self.original_entities
+        if type(groups) is not tuple or len(groups)!=2 or any(type(g)is not tuple for g in groups):
+            raise ValueError('Physical original-deck price requires both complete original inventories')
+        ids=tuple(i for g in groups for i in g)
+        for i in ids:
+            _int(i,'original deck physical identity',1)
+            if i>=self.next_entity_id:raise ValueError('Original deck price borrowed a future opening identity')
+        if len(set(ids))!=len(ids):raise ValueError('Original deck physical inventories overlap or repeat')
+        if any(any(a>=b for a,b in zip(g,g[1:]))for g in groups):
+            raise ValueError('Original deck physical inventories changed their allocation order')
+
+    @property
+    def matched(self):return self.source_id is None or self.source_id not in self.original_entities[self.player_id-1]
 
 
 @dataclass(frozen=True)
@@ -7126,6 +7173,7 @@ class CostContribution:
     ability: AbilityInstance | None = None
     first_play: FirstPlayCostFact | None = None
     polarity_basis: int | None = None
+    starting_deck: StartingDeckCostFact | None = None
 
     def __post_init__(self):
         polarity=self.kind=='cost_aura' and type(self.ability) is AbilityInstance and type(self.ability.cost_aura) is CostAuraSpec and self.ability.cost_aura.relation=='friendly_polarity'
@@ -7151,13 +7199,21 @@ class CostContribution:
             raise ValueError('Physical card quotes require card cost modifiers')
         if self.kind == 'cost_aura' and (self.ability.kind != 'cost_aura' or self.ability.consumed):
             raise ValueError('Cost contribution requires an unconsumed cost aura')
+        original = self.kind == 'cost_aura' and self.ability.cost_aura.relation == 'friendly_outside_starting_deck'
+        if original != (self.starting_deck is not None):raise ValueError('Original-deck aura lost or borrowed its physical membership proof')
+        if self.starting_deck is not None:
+            if type(self.starting_deck) is not StartingDeckCostFact:raise ValueError('Original-deck contribution requires its typed fact')
+            self.starting_deck.__post_init__()
+            if self.starting_deck.player_id != self.player_id:raise ValueError('Original-deck aura borrowed another payer')
         first = self.kind == 'cost_aura' and (self.ability.cost_aura.first_per_turn or
                                             self.ability.cost_aura.every_nth_per_turn is not None)
         if first:
             if type(self.first_play) is not FirstPlayCostFact:
                 raise ValueError('First-play cost contribution lost its original history operands')
             self.first_play.__post_init__()
-            if self.ability.cost_aura.cost.card_types != (self.first_play.kind,):
+            any_first = self.ability.cost_aura.relation == 'any_first_card'
+            if (any_first and self.first_play.kind is not None or not any_first and
+                    self.ability.cost_aura.cost.card_types != (self.first_play.kind,)):
                 raise ValueError('First-play price history changed its card-type qualifier')
             if self.first_play.tribes_any != self.ability.cost_aura.tribes_any:
                 raise ValueError('First-play price history changed its native tribe qualifier')
@@ -7264,6 +7320,9 @@ class CostQuoteFact:
             c.__post_init__()
             if c.first_play is not None:
                 validate_first_play_quote_boundary(c.first_play, self.quote_input.player_id, self.intrinsic.boundary)
+            if c.starting_deck is not None and (c.starting_deck.player_id,c.starting_deck.source_id,c.starting_deck.turn,c.starting_deck.action) != (
+                    self.quote_input.player_id,self.quote_input.source_id,self.intrinsic.boundary.turn,self.intrinsic.boundary.action):
+                raise ValueError('Original-deck proof changed its submitted physical subject, payer or window')
         local = tuple(c for c in self.contributions if c.kind == 'local_enchantment')
         external = tuple(c for c in self.contributions if c.kind != 'local_enchantment')
         if self.contributions != (*local, *external) or tuple(c.enchantment for c in local) != self.quote_input.enchantments:

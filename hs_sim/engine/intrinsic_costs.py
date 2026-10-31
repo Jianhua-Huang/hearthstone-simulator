@@ -442,8 +442,8 @@ def validate_generated_quote_fact(registry, fact):
             spec = contribution.modifier.spec
         else:
             aura = contribution.ability.cost_aura
-            if (aura.relation not in ('any', 'all_cards_minimum') and
-                    (contribution.player_id == value.player_id) != (aura.relation in ('friendly','friendly_arcane_spells','friendly_nature_spells','friendly_polarity'))):
+            from .costs import cost_aura_payer_matches
+            if not cost_aura_payer_matches(aura.relation,contribution.player_id,value.player_id):
                 raise ValueError('Generated aura relation changed its hypothetical payer')
             spec = aura.cost
         from .cost_polarities import validate_basis as validate_polarity_basis

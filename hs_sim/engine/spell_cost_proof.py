@@ -204,8 +204,9 @@ def validate_cost_fact_identity(state, registry, fact, *, play=None):
         raise ValueError('Historical hand quote borrowed another physical subject')
     live = checked_live_attachments(state)
     for contribution in fact.contributions:
-        from .costs import validate_first_play_cost_prefix
+        from .costs import validate_first_play_cost_prefix, validate_starting_deck_cost_fact
         validate_first_play_cost_prefix(state, registry, contribution.first_play)
+        validate_starting_deck_cost_fact(state, contribution.starting_deck)
         if contribution.enchantment is not None:
             family, carrier, old = 'enchantment', contribution.carrier_id, contribution.enchantment
         elif contribution.modifier is not None:
