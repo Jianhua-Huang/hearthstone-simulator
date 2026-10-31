@@ -2894,7 +2894,7 @@ class NativeDeathrattleSpec:
     health: int = 0
 
     def __post_init__(self):
-        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return', 'destroyed_group', 'selected_copy', 'control_return'):
+        if self.kind not in ('summon_growth', 'attack_damage_growth', 'draw_link', 'discard_link', 'dormancy_link', 'discovery_summon', 'hand_selection', 'copy_summon', 'cost_link', 'targeted_spells', 'colossal_crew', 'custody_return', 'destroyed_group', 'selected_copy', 'control_return', 'weapon_kills'):
             raise ValueError('Unknown native Deathrattle memory profile')
         _int(self.attack, 'native summon base Attack', 0)
         _int(self.health, 'native summon base Health', 0)
@@ -2999,9 +2999,23 @@ class DeathrattleMemory:
     custody: object | None = None
     destroyed_groups: tuple[object, ...] = ()
     selected_subjects: tuple[object, ...] = ()
+    weapon_kills: tuple[object, ...] = ()
 
     def __post_init__(self):
         if type(self.spec) is not NativeDeathrattleSpec:raise ValueError('Native memory requires its complete printed profile')
+        from .weapon_kill_memory import RememberedWeaponKill
+        if type(self.weapon_kills)is not tuple or any(type(x)is not RememberedWeaponKill for x in self.weapon_kills):
+            raise ValueError('Native weapon memory requires complete immutable killing-blow links')
+        for link in self.weapon_kills:link.__post_init__()
+        kill_ids=tuple(x.death_id for x in self.weapon_kills)
+        if kill_ids!=tuple(sorted(set(kill_ids))):
+            raise ValueError('Native weapon deaths must remain distinct in original death order')
+        if (self.spec.kind!='weapon_kills'and self.weapon_kills or self.spec.kind=='weapon_kills'and
+                any((self.growth_steps,self.draws,self.discard_ids,self.dormancies,self.discoveries,
+                    self.hand_entry_ids,self.summon_copy,self.cost_links,self.targeted_spells,self.custody,
+                    self.destroyed_groups,self.selected_subjects))):
+            raise ValueError('Weapon kill memory cannot mix unrelated native materials')
+
         from .selected_minion_memory import RememberedMinionSubject
         if type(self.selected_subjects)is not tuple or any(type(x)is not RememberedMinionSubject for x in self.selected_subjects):
             raise ValueError('Native subjects require complete immutable original minion selections')

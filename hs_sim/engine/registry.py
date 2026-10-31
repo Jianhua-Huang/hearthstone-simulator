@@ -2265,7 +2265,9 @@ class Registry:
         validate_native_conditions(card)
         if card.native_deathrattle is not None:
             from .model import NativeDeathrattleSpec
-            if (type(card.native_deathrattle)is not NativeDeathrattleSpec or card.kind!=CardType.MINION or
+            if (type(card.native_deathrattle)is not NativeDeathrattleSpec or
+                    (card.kind!=CardType.MINION and not(card.kind==CardType.WEAPON and card.native_deathrattle.kind=='weapon_kills'))or
+                    card.kind==CardType.MINION and card.native_deathrattle.kind=='weapon_kills'or
                     not card.deathrattle or not card.hand_playable or card.choice_only or card.starship_for):
                 raise ValueError('Native Deathrattle memory requires an ordinary printed minion body')
             card.native_deathrattle.__post_init__()

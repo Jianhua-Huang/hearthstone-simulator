@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v859'
+CORE_EFFECTS_VERSION = 'core-effects-v860'
 
 
 class Mechanics:
@@ -842,6 +842,8 @@ class Resolution:
                 if entity.zone == Zone.BOARD and Keyword.REBORN in entity.keywords:
                     consume_keyword(entity, Keyword.REBORN)
                     reborns.append(RebornMinion(record.id))
+            from .weapon_kill_memory import remember_batch as remember_weapon_kills
+            records=remember_weapon_kills(self,records)
             for entity_id in dead:
                 self.move(self.state.entities[entity_id], Zone.GRAVEYARD)
             self.refresh_auras()
@@ -2968,6 +2970,8 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_deck_spell_casts(mechanics)
     from .draw_casts import register as register_draw_casts
     register_draw_casts(mechanics)
+    from .deck_exchange import register as register_deck_exchange
+    register_deck_exchange(mechanics)
     from .deathrattle_memory import register as register_deathrattle_memory
     register_deathrattle_memory(mechanics)
     from .transform_replacements import register as register_transform_replacements

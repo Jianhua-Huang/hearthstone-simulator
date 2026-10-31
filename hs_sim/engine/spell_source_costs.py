@@ -19,9 +19,12 @@ class SpellSourceCostProfile:
 class SpellSourceCostObserverProfile:
     effect_id: str
     school: SpellSchool | None = SpellSchool.HOLY
+    purpose: str = 'completion_trigger'
 
     def __post_init__(self):
         _name(self.effect_id, 'spell-cost observing program')
+        if self.purpose not in('completion_trigger','history_count'):raise ValueError('Unknown original spell-cost observer purpose')
+        if self.purpose=='history_count'and self.school is not None:raise ValueError('Historical spell costs require the full declared school domain')
         if self.school is not None and (type(self.school) is not SpellSchool or
                 self.school not in (SpellSchool.HOLY, SpellSchool.SHADOW)):
             raise ValueError('Spell-cost observers require Holy, Shadow or the declared all-school scope')
@@ -33,11 +36,16 @@ def validate_observer(registry, profile):
     profile.__post_init__()
     if profile.effect_id in registry.cards:
         card=registry.card(profile.effect_id)
-        if (card.kind!=CardType.MINION or card.choice_only or card.interactable is not None or
+        if profile.purpose=='history_count':
+            if card.kind!=CardType.MINION or card.battlecry is None or card.choice_only or card.triggers:
+                raise ValueError('Historical spell costs require their actual plain native Battlecry consumer')
+            return
+        if (card.kind not in(CardType.MINION,CardType.WEAPON) or card.choice_only or card.interactable is not None or
                 len(card.triggers)!=1 or card.triggers[0].event!='spell_cast_finished' or
                 profile.school not in (None,SpellSchool.SHADOW)):
             raise ValueError('Minion spell-cost observation requires its actual single completion trigger')
         return
+    if profile.purpose!='completion_trigger':raise ValueError('Historical spell costs require a declared physical minion')
     spec=registry.player_effect(profile.effect_id)
     if (profile.school!=SpellSchool.HOLY or spec.kind!='aura' or len(spec.triggers)!=1 or spec.triggers[0].event!='spell_cast_finished' or
             registry.card(spec.card_id).spell_school!=SpellSchool.HOLY):

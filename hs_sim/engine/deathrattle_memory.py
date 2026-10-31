@@ -38,6 +38,8 @@ def validate_ability(state,registry,ability):
     elif ability.deathrattle_card_id is None or registry.card(ability.deathrattle_card_id).native_deathrattle!=memory.spec:
         raise ValueError('Deathrattle memory differs from its printed declaration')
     validate_copy_memory(state, registry, memory)
+    from .weapon_kill_memory import validate_link as validate_weapon_kill
+    for link in memory.weapon_kills:validate_weapon_kill(state,registry,link)
     for link in memory.draws:validate_link(state,link)
     if memory.hand_entry_ids:
         from .hand_history import hand_entry
@@ -87,6 +89,11 @@ def validate_carrier(state,registry,card_id,kind,abilities,components=()):
     for ability in abilities:
         memory=getattr(ability,'deathrattle_memory',None)
         if memory is None:continue
+        if kind==CardType.WEAPON and memory.spec.kind=='weapon_kills':
+            if components or registry.card(card_id).native_deathrattle!=memory.spec:
+                raise ValueError('Native weapon memory requires its original complete weapon declaration')
+            validate_ability(state,registry,ability);continue
+
         inherited=ability.deathrattle_inherited_from is not None
         copied=ability.deathrattle_copied_from is not None
         discovered=ability.deathrattle_discovered_from is not None
@@ -417,6 +424,8 @@ def public_copies(entity):
 
 
 def register(mechanics):
+    from .weapon_kill_memory import register as register_weapon_memory
+    register_weapon_memory(mechanics)
     for typ,handler in ((GrowDeathrattleSummon,grow),(DrawForDeathrattle,draw),(DiscardRememberedDraw,discard),
                         (DiscardForDeathrattle,discard_for_memory),
                         (ImprisonForDeathrattle,imprison),(AwakenRememberedDormancy,awaken_remembered)):

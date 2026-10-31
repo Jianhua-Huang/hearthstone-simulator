@@ -47,6 +47,20 @@ class DestroyMinionsForDiscard(Effect):
 
 
 @dataclass(frozen=True)
+class DestroyMinionsForMill(Effect):
+    """One actual spell destroys both boards, then removes that many top cards."""
+    player_id:int
+    source_id:int
+    cast_id:int
+    victims:tuple[MinionReference,...]|None=None
+
+    def __post_init__(self):
+        _player(self.player_id);_integer(self.source_id,'counted milling source',1)
+        _integer(self.cast_id,'original counted milling CAST',1)
+        if self.victims is not None:_request_fields(self,friendly_only=False)
+
+
+@dataclass(frozen=True)
 class DestroyMinionsForStats(Effect):
     player_id:int
     source_id:int
@@ -80,12 +94,12 @@ class SacrificeForFriendlyAttack(Effect):
 
 @dataclass(frozen=True)
 class CompleteDestroyedResources(Effect):
-    original: DestroyMinionsForResources | DestroyMinionsForDiscard | DestroyMinionsForStats | SacrificeForFriendlyAttack
+    original: DestroyMinionsForResources | DestroyMinionsForDiscard | DestroyMinionsForStats | SacrificeForFriendlyAttack | DestroyMinionsForMill
     first_death_id: int
     accepted: tuple[DeathCause, ...]
 
     def __post_init__(self):
-        if type(self.original) not in (DestroyMinionsForResources, DestroyMinionsForDiscard,DestroyMinionsForStats,SacrificeForFriendlyAttack): raise ValueError('Destruction reward lost its original complete request')
+        if type(self.original) not in (DestroyMinionsForResources, DestroyMinionsForDiscard,DestroyMinionsForStats,SacrificeForFriendlyAttack,DestroyMinionsForMill): raise ValueError('Destruction reward lost its original complete request')
         self.original.__post_init__(); _integer(self.first_death_id, 'original destruction death boundary', 1)
         if self.original.victims is None: raise ValueError('Completed destruction lost its accepted original victim group')
         if type(self.accepted) is not tuple or any(type(row) is not DeathCause for row in self.accepted): raise ValueError('Destruction reward requires original frozen causes')
@@ -122,6 +136,13 @@ def validate_material(state, registry, request):
     request.__post_init__()
     original = request.original if type(request) is CompleteDestroyedResources else request
     if original.source_id not in state.entities: raise ValueError('Destruction resource source does not exist')
+    if type(original)is DestroyMinionsForMill:
+        from .spell_casts import cast_record
+        cast=cast_record(state,original.cast_id)
+        if((cast.source_id,cast.player_id)!=(original.source_id,original.player_id)or
+                not cast.payload_started or cast.failure is not None):
+            raise ValueError('Counted milling lost its actual original spell source and caster')
+        if original.victims is None:return
     if type(original)is DestroyMinionsForStats:
         from .sacrifice import validate_reward_presence
         if original.beneficiary is not None:validate_reward_presence(state,original.beneficiary)
@@ -145,7 +166,7 @@ def validate_material(state, registry, request):
 def begin(r, request):
     from .resolver import destroy_batch
     validate_material(r.state, r.registry, request)
-    if type(request) in (DestroyMinionsForDiscard,DestroyMinionsForStats) and request.victims is None:
+    if type(request) in (DestroyMinionsForDiscard,DestroyMinionsForStats,DestroyMinionsForMill) and request.victims is None:
         from .cross_zone import MinionScope, minion_references
         scope = MinionScope((Zone.BOARD,), exclude_source=True)
         victims = tuple(ref for p in (1, 2)
@@ -157,7 +178,7 @@ def begin(r, request):
     boundary = r.state.next_death_id
     destroy_batch(r, DestroyBatch(targets, request.source_id))
     accepted = tuple(r.state.entities[eid].death_cause for eid in targets)
-    if type(request)in(DestroyMinionsForStats,SacrificeForFriendlyAttack):
+    if type(request)in(DestroyMinionsForStats,SacrificeForFriendlyAttack,DestroyMinionsForMill):
         accepted=tuple(cause for ref,cause in zip((ref for ref in request.victims if ref.entity_id in targets),accepted)
             if matches(cause,ref,request))
     result = CompleteDestroyedResources(request, boundary, accepted)
@@ -182,6 +203,10 @@ def finish(r, request):
                 attack+=max(0,entity.attack);health+=max(0,entity.health)
     if not count: return ()
     original = request.original
+    if type(original)is DestroyMinionsForMill:
+        from .zones import CardReference,DestroyStoredBatch
+        cards=tuple(CardReference.capture(r.state.entities[eid])for eid in r.player(original.player_id).deck[:count])
+        return(DestroyStoredBatch(cards,original.source_id),)if cards else()
     if type(original)is SacrificeForFriendlyAttack:
         if not attack:return()
         from .cross_zone import MinionScope,minion_references
@@ -200,6 +225,7 @@ def finish(r, request):
 def register(mechanics):
     mechanics.register(DestroyMinionsForResources, begin)
     mechanics.register(DestroyMinionsForDiscard, begin)
+    mechanics.register(DestroyMinionsForMill,begin)
     mechanics.register(DestroyMinionsForStats,begin)
     mechanics.register(SacrificeForFriendlyAttack,begin)
     mechanics.register(CompleteDestroyedResources, finish)
