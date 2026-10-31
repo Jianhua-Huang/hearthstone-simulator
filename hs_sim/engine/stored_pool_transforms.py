@@ -53,9 +53,12 @@ class TransformStoredFromPool(Effect):
             validate_summon_stats(self.retained_stats)
             _integer(self.retained_cost, 'retained stored transformation cost', 0)
             if (self.retained_stats.attack is None or self.retained_stats.health is None or
-                    self.target.zone != Zone.HAND or self.source_id is None or
+                    self.target.zone not in (Zone.HAND, Zone.DECK) or self.source_id is None or
                     self.query.kinds != (CardType.MINION,) or self.query.collectible is not True):
-                raise ValueError('Retained numbers require a complete source-bound hand-minion transformation')
+                raise ValueError('Retained numbers require a complete source-bound stored-minion transformation')
+            if self.target.zone == Zone.DECK and self.query != PoolQuery(
+                    kinds=(CardType.MINION,), collectible=True, tribes_any=('dragon',)):
+                raise ValueError('Retained deck numbers require the complete collectible Dragon query')
 
 
 @dataclass(frozen=True)

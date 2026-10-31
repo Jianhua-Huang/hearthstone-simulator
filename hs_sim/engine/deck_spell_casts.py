@@ -20,7 +20,11 @@ class CastRandomDeckSpell(Effect):
     def __post_init__(self):
         _player(self.player_id)
         if self.player_effect is None:
-            _integer(self.max_cost, 'deck spell cost ceiling', 0)
+            if self.max_cost is None:
+                if type(self.target_preference) is not PreferredMinionTarget:
+                    raise ValueError('Unbounded ordinary deck cast requires its original preferred minion')
+            else:
+                _integer(self.max_cost, 'deck spell cost ceiling', 0)
             if self.owner_end is not None:raise ValueError('Ordinary deck cast cannot borrow an Objective end')
         elif (type(self.player_effect)is not PlayerEffect or self.max_cost is not None or
                 self.target_preference is not None or self.player_effect.source_id!=self.source_id or

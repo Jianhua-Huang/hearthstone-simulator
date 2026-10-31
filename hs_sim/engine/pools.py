@@ -808,13 +808,19 @@ class GenerateFromPool(Effect):
             _player(self.shuffle_actor_id)
             if self.destination != 'deck' or self.position != 'random' or self.source_id is None:
                 raise ValueError('Generated shuffle requires its original actor and random deck delivery')
-            if self.minion_stats is None and (
+            legendary_one_cost = (self.query == PoolQuery(kinds=(CardType.MINION,), collectible=True,
+                rarities=(Rarity.LEGENDARY,)) and self.cost == CostSpec(set_to=1))
+            if self.minion_stats is None and not legendary_one_cost and (
                     type(self.query) is not PoolQuery or self.query.kinds != (CardType.SPELL,) or
                     self.query.collectible is not True or not self.replacement or self.cost is not None or
                     self.expires_turn is not None or self.spell_repeat is not None or self.cause is not None or
                     self.producer_profile_id is not None or self.combined_shatter or
                     self.temporary_until_turn is not None or self.board_position is not None):
                 raise ValueError('Generated plain shuffle requires a source-bound collectible spell recipe')
+            if legendary_one_cost and (not self.replacement or self.expires_turn is not None or
+                    self.spell_repeat is not None or self.cause is not None or self.producer_profile_id is not None or
+                    self.combined_shatter or self.temporary_until_turn is not None or self.board_position is not None):
+                raise ValueError('One-cost Legendary shuffle requires its plain original deck recipe')
         if self.minion_stats is not None:
             if (self.source_id is None or
                     self.destination not in ('hand','deck') or not self.replacement or

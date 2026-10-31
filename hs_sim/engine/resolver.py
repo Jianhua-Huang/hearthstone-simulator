@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v860'
+CORE_EFFECTS_VERSION = 'core-effects-v861'
 
 
 class Mechanics:
@@ -3254,5 +3254,7 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     register_decreasing_spell_damage(mechanics)
     from .random_secret_generation import register as register_random_secret_generation
     register_random_secret_generation(mechanics)
+    from .deck_cost_order import register as register_deck_cost_order
+    register_deck_cost_order(mechanics)
     return mechanics
 
