@@ -117,6 +117,11 @@ class FrameCodec:
                 value.validate_in_state(self.origin_state, self.registry)
             elif type(value) is DeathrattleDeckPartner:
                 validate_deck_partner(self.origin_state, self.registry, value)
+        from .turn_event_consumers import (ResurrectFriendlyTurnDeaths, BuffUnattackedOtherMinions,
+            EatOpponentDeckMinion, AttackRandomEnemyAndGrow, GrowAfterOriginalForcedAttack)
+        if self.origin_state is not None and type(value) in (ResurrectFriendlyTurnDeaths,
+                BuffUnattackedOtherMinions, EatOpponentDeckMinion, AttackRandomEnemyAndGrow, GrowAfterOriginalForcedAttack):
+            value.validate_in_state(self.origin_state, self.registry)
         from .jade import SummonJadeGolem
         from .summon_quantities import JadeEntryMaterial, SummonByCard, validate_request as validate_jade_request
         if self.origin_state is not None:
