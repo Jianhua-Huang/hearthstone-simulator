@@ -532,6 +532,9 @@ def validate_request(state,registry,request,*,closed=False,original_cast_event=N
             validate_recruit_material(state,registry,material,closed=closed)
             from .minion_hand_swaps import validate_recipe as validate_swap_recipe
             validate_swap_recipe(request,material)
+            if material.deck_swap is not None:
+                from .native_copy_consumers import validate_deck_recipe
+                validate_deck_recipe(state, registry, request, material)
         elif type(material)is ResurrectionEntryMaterial:
             from .resurrection_summons import validate_material as validate_death_material
             validate_death_material(state,registry,material,closed=closed)

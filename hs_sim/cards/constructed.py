@@ -11,7 +11,7 @@ from .metadata import metadata_from_record, validate_race_pin
 from hs_sim.targets import TargetValidationError, canonical_digest
 
 
-CONTENT_VERSION = "constructed-cn37-preview-v782"
+CONTENT_VERSION = "constructed-cn37-preview-v783"
 BATCH_PATH = Path(__file__).resolve().parents[2] / "data/cards/keyword-minions-v1.json"
 # Assigned from the reviewed, complete records; runtime never interprets text.
 BATCH_HASH = "bbc6595dd309cb5017576d675e597181c8fcd0d55eec386a648c85fedc79262e"
@@ -1590,5 +1590,7 @@ def build_registry():
     register_past_physical_copy_control(registry)
     from .past_history_spell_cost_treants import register_past_history_spell_cost_treants
     register_past_history_spell_cost_treants(registry)
+    from .past_native_copy_swap import register_past_native_copy_swap
+    register_past_native_copy_swap(registry)
     registry.validate()
     return registry

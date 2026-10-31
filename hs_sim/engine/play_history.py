@@ -188,7 +188,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
     from .next_spell_bonuses import capture_play as capture_native_spell_bonus
     from .battlecries import capture as capture_battlecries
     from .combos import capture as capture_combos
-    from .hand_progress import corrupt_candidates
+    from .hand_progress import corrupt_candidates, native_play_candidates
     from .hand_derivatives import capture
     from .held_spells import capture as capture_held_spells
     from .held_mana import capture as capture_held_mana
@@ -214,6 +214,7 @@ def prepare_play(state, registry, source, target_id, quote, *, position=None, ma
         player.mana,player.mana-(quote.amount if quote.payment==PaymentType.MANA else 0),player.max_mana,
         entry.id,entry.turn,registry.card(source.card_id).manathirst,
         corrupt_candidates=corrupt_candidates(state,registry,source,quote),held_spells=capture_held_spells(state,source),
+        native_hand_candidates=native_play_candidates(state,registry,source),
         held_mana=capture_held_mana(state,source),
         held_higher_cost=capture_higher_cost(state,source),
         card_spell_repeats=capture_card_spell_repeats(source),
@@ -342,6 +343,9 @@ def validate_history(state, registry):
         for candidate in record.corrupt_candidates:
             if candidate.source_id not in state.entities or candidate.ability_id >= state.next_attachment_id:
                 raise ValueError('Invalid Corrupt candidate provenance')
+        for candidate in record.native_hand_candidates:
+            if candidate.source_id not in state.entities or candidate.ability_id >= state.next_attachment_id:
+                raise ValueError('Invalid original held mimic candidate provenance')
         definition=registry.card(record.card_id)
         from .disguised import play_destination
         play_destination(registry, record)

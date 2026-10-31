@@ -1330,15 +1330,15 @@ class HandProgressSpec:
 
 
 def validate_defining_hand_spec(spec):
-    """The native turn-start shifters, not an arbitrary retained attachment."""
+    """Native own-turn shifters and successful own-minion play mimics only."""
     if type(spec) is not HandProgressSpec:
         raise ValueError('Defining hand source requires HandProgressSpec')
     spec.__post_init__()
-    if (spec.kind != 'event' or spec.event != 'turn_started' or spec.zone != Zone.HAND or
+    if (spec.kind != 'event' or spec.event not in ('turn_started', 'card_played') or spec.zone != Zone.HAND or
             spec.goal != 1 or not spec.repeat or spec.on_complete is None or
             spec.on_progress is not None or spec.upgrade_card_id is not None or
             spec.health_to_durability or spec.amount_basis != 'one'):
-        raise ValueError('Defining hand source supports native repeated own-turn bodies only')
+        raise ValueError('Defining hand source supports native repeated own-turn or held-minion-play bodies only')
 
 
 @dataclass(frozen=True)
@@ -8032,8 +8032,18 @@ class PlayRecord:
     spell_target_receipt: object | None = None
     minion_copy_material: object | None = None
     minion_entry: MinionPlayEntry | None = None
+    native_hand_candidates: tuple[HandProgressCandidate, ...] = ()
 
     def __post_init__(self):
+        if (type(self.native_hand_candidates) is not tuple or
+                any(type(c) is not HandProgressCandidate for c in self.native_hand_candidates) or
+                len({c.ability_id for c in self.native_hand_candidates}) != len(self.native_hand_candidates) or
+                self.native_hand_candidates and self.kind != CardType.MINION):
+            raise ValueError('Original held mimics require complete unique minion-play candidates')
+        for candidate in self.native_hand_candidates:
+            candidate.__post_init__()
+            if candidate.player_id != self.player_id or candidate.source_id == self.source_id:
+                raise ValueError('Held mimic changed its original player or included the submitted card')
         from .played_minion_copies import validate_play as validate_minion_copy
         validate_minion_copy(self)
         if self.spell_target_receipt is not None:

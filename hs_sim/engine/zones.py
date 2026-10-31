@@ -266,8 +266,8 @@ class CopyCard(Effect):
             if self.mode!='base' or self.card.zone!=Zone.BOARD:raise ValueError('Death copies require their original printed board-minion recipe')
         elif type(self.card)is CapturedCardCopyMaterial:
             self.card.__post_init__()
-            if self.card.origin.zone in(Zone.GRAVEYARD,Zone.BOARD)and self.mode!='base':
-                raise ValueError('Spent/board captured copies require the printed base recipe')
+            if self.card.origin.zone==Zone.GRAVEYARD and self.mode!='base':
+                raise ValueError('Spent captured copies require the printed base recipe')
         elif type(self.card)is CopyEntryMaterial:
             self.card.__post_init__()
             if (self.card.profile!='discard_copy' or self.player_id!=self.card.discard.player_id or
@@ -1110,7 +1110,7 @@ def copy_physical_card(r, effect, *, minion_grant=None, publish=True, notify_han
             infused_damage=infused_value(effect.card))
     if material is None and effect.mode == 'current':
         copy_current_stored_state(r.state,source,entity)
-        if type(effect.card) is MinionReference:
+        if type(effect.card) is MinionReference or type(effect.card) is CapturedCardCopyMaterial and effect.card.origin.zone == Zone.BOARD:
             # Stored acquisition preserves local card material, not battlefield injury.
             entity.damage = 0
             from .lifecycle import refresh_entity

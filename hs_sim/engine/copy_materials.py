@@ -53,7 +53,7 @@ class CopyLocalState:
 
 @dataclass(frozen=True)
 class CapturedCardCopyMaterial:
-    """Original card material; board minions permit only printed base copies."""
+    """Original card material; board minions support base or current stored copies."""
     origin:SourceAllocationFact
     local:CopyLocalState
     components:tuple[str,...]

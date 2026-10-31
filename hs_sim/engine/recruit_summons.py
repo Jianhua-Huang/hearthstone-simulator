@@ -25,7 +25,14 @@ class RecruitEntryMaterial:
     on_summon:str|None=None
     swap_minion:MinionReference|None=None
     swap_with_controller_hand:bool=field(default=False,kw_only=True)
+    deck_swap:object=field(default=None,kw_only=True)
     def __post_init__(self):
+        if self.deck_swap is not None:
+            from .native_copy_consumers import DeathrattleDeckPartner
+            if (type(self.deck_swap) is not DeathrattleDeckPartner or self.reference.zone != Zone.DECK or
+                    self.swap_minion is not None or self.on_summon is not None or self.copy.stats is not None):
+                raise ValueError('Deck swap requires one plain original deck material')
+            self.deck_swap.__post_init__()
         if type(self.swap_with_controller_hand)is not bool or self.swap_with_controller_hand and self.swap_minion is None:
             raise ValueError('Controller-hand material requires its original swap target')
         from .zones import CardReference
@@ -48,6 +55,9 @@ def validate_material(state,registry,material,*,closed=False):
     material.__post_init__();validate_scope(state,registry,material.copy,closed=closed)
     from .minion_hand_swaps import validate_material as validate_swap_material
     validate_swap_material(state,registry,material)
+    if material.deck_swap is not None:
+        from .native_copy_consumers import validate_deck_partner
+        validate_deck_partner(state, registry, material.deck_swap)
     if material.on_summon is not None:registry.behavior(material.on_summon)
 
 
@@ -55,6 +65,11 @@ def first_body(r,material,player_id,position,*,source_id=None):
     from .zones import reference_entity
     entity=reference_entity(r,material.reference)
     if entity is None:raise ResolutionError('Accepted first recruit lost its physical source before delivery')
+    if material.deck_swap is not None:
+        from .native_copy_consumers import move_deck_pair
+        move_deck_pair(r, material, entity, player_id, position)
+        r.refresh_auras()
+        return entity
     if material.swap_minion is not None:
         from .minion_hand_swaps import return_partner
         position=return_partner(r,material,player_id,source_id=source_id)
@@ -78,7 +93,7 @@ def validate_delivery(material,delivery,player_id):
 def accept_entry(r,effect,source):
     from .summon_quantities import SummonByCard,DeliverCardSummon,FinishCardSummon,accept,deliver
     validate_effect(r.state,r.registry,effect)
-    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon,effect.swap_minion,swap_with_controller_hand=effect.swap_with_controller_hand)
+    material=RecruitEntryMaterial(source.card_id,effect.card,CopyEntryMaterial.capture(r.state,source,'stored_copy','current',effect.stats,registry=r.registry,player_id=effect.player_id),effect.on_summon,effect.swap_minion,swap_with_controller_hand=effect.swap_with_controller_hand,deck_swap=effect.deck_swap)
     position=effect.position
     if effect.swap_minion is not None:
         body=live_minion(r.state,effect.swap_minion)
@@ -457,6 +472,13 @@ def validate_effect(state,registry,effect):
     elif type(effect)is SummonStoredCard:
         registry.card(effect.card.card_id)
         if effect.card.entity_id>=state.next_entity_id:raise ValueError('Queued physical recruit has future source')
+        if effect.deck_swap is not None:
+            from .native_copy_consumers import validate_deck_partner
+            row = validate_deck_partner(state, registry, effect.deck_swap)
+            if (effect.player_id != row.capture.player_id or effect.card.player_id != effect.player_id or
+                    effect.cause.source.entity_id != effect.deck_swap.source.entity_id or
+                    effect.card.entity_id not in effect.deck_swap.deck_ids):
+                raise ValueError('Queued deck swap changed its actual player or selected original')
         link=effect.producer_link
         if link is not None:
             root=record(state,link.recruit_id);round=root.rounds[link.index]if link.index<len(root.rounds)else None
@@ -603,6 +625,8 @@ def from_dict(cls,value):
         ref=_row(row['reference'],CardReference);ref['zone']=Zone(ref['zone']);row['reference']=CardReference(**ref)
         row['copy']=copy_from_dict(CopyEntryMaterial,row['copy'])
         row['swap_minion']=None if row['swap_minion']is None else MinionReference(**_row(row['swap_minion'],MinionReference))
+        from .native_copy_consumers import deck_partner_from_dict
+        row['deck_swap']=deck_partner_from_dict(row['deck_swap'])
     elif cls is RecruitCandidateFact:
         row['allocation']=allocation_from_dict(row['allocation'])
         row['permanent_stats']=None if row['permanent_stats']is None else SummonStats(**_row(row['permanent_stats'],SummonStats))

@@ -2120,11 +2120,13 @@ class Registry:
         validate_defining_hand_spec(binding.hand_progress)
         original = self.card(binding.defining_card_id)
         cross_kind = binding.defining_card_id in self._defining_hand_copy_ids
+        mimic = binding.hand_progress.event == 'card_played'
         if (original.defining_hand_source != binding.hand_progress or binding.source_id != entity.id or
                 original.kind != entity.kind and not cross_kind or
                 entity.zone not in (Zone.HAND, Zone.DECK) or
                 entity.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON) and not cross_kind or
-                cross_kind and not self.card(entity.card_id).hand_playable or entity.components):
+                cross_kind and not self.card(entity.card_id).hand_playable or
+                mimic and original.kind != CardType.MINION or entity.components and not mimic):
             raise ValueError('Defining source differs from its native declaration or physical carrier')
 
     def card(self, id: str) -> CardDefinition:
@@ -2377,6 +2379,8 @@ class Registry:
         if card.defining_hand_source is not None:
             from .model import validate_defining_hand_spec
             validate_defining_hand_spec(card.defining_hand_source)
+            if card.defining_hand_source.event == 'card_played' and card.kind != CardType.MINION:
+                raise ValueError('Held minion play mimic requires its printed minion source')
             if card.kind not in (CardType.MINION, CardType.SPELL, CardType.WEAPON) or card.choice_only or card.starship_for:
                 raise ValueError('Defining hand source requires an ordinary physical card')
         markers = set(card.keywords).intersection((Keyword.CORRUPT, Keyword.INFUSE))

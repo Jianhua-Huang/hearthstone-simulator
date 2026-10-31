@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 666
+SNAPSHOT_SCHEMA_VERSION = 667
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1503,6 +1503,8 @@ def state_from_dict(value: dict) -> GameState:
             row['battlecry_acceptance'] = BattlecryAcceptanceReceipt(**accepted)
         row['corrupt_candidates'] = tuple(HandProgressCandidate(**_row(c, HandProgressCandidate))
             for c in _list(row['corrupt_candidates'], 'Corrupt candidates'))
+        row['native_hand_candidates'] = tuple(HandProgressCandidate(**_row(c, HandProgressCandidate))
+            for c in _list(row['native_hand_candidates'], 'original held mimic candidates'))
         derivatives = []
         for entry in _list(row['hand_derivatives'], 'hand derivatives'):
             spec = _row(entry, HandDerivativeSpec)

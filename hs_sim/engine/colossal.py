@@ -18,8 +18,16 @@ class SummonStoredCard(Effect):
     on_summon: str | None = None
     swap_minion: object = None
     swap_with_controller_hand: bool = field(default=False, kw_only=True)
+    deck_swap: object = field(default=None, kw_only=True)
 
     def __post_init__(self):
+        if self.deck_swap is not None:
+            from .native_copy_consumers import DeathrattleDeckPartner
+            if (type(self.deck_swap) is not DeathrattleDeckPartner or self.card.zone != Zone.DECK or
+                    self.cause is None or self.swap_minion is not None or self.producer_link is not None or
+                    self.stats is not None or self.on_summon is not None):
+                raise ValueError('Deck swap requires one plain physical deck recruit')
+            self.deck_swap.__post_init__()
         if type(self.swap_with_controller_hand) is not bool or self.swap_with_controller_hand and self.swap_minion is None:
             raise ValueError('Controller-hand mode requires one original swap target')
         if self.swap_minion is not None:

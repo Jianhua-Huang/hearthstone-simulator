@@ -100,6 +100,9 @@ def entry_has_space(r, request, index=0):
         return True
     from .recruit_summons import RecruitEntryMaterial
     material = request.materials[0] if len(request.materials) == 1 else None
+    if index == 0 and type(material) is RecruitEntryMaterial and material.deck_swap is not None:
+        from .native_copy_consumers import reserved_deck_slot
+        return len(board)-1 < r.rules.max_board and reserved_deck_slot(r.state, material, request.player_id)
     return (index == 0 and type(material) is RecruitEntryMaterial and
         material.swap_minion is not None and live_minion(r.state, material.swap_minion) is not None
         and len(board) - 1 < r.rules.max_board)

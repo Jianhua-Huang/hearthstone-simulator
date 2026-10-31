@@ -325,7 +325,7 @@ def copy_attachments(state, source, destination, *, rebind_printed=False, retain
         raise ValueError('Control return retention requires bool')
     if type(retain_ids)is not bool or retain_ids and (source.id,source.card_id,source.kind)!=(destination.id,destination.card_id,destination.kind):
         raise ValueError('Retaining attachments requires the same original physical card')
-    if any(a.kind == 'defining_hand_source' for a in source.abilities):
+    if any(a.kind == 'defining_hand_source' and a.hand_progress.event != 'card_played' for a in source.abilities):
         from .errors import ResolutionError
         raise ResolutionError('Copying a defining hand source requires an explicit supported lifecycle policy')
     destination.hand_lifetime = source.hand_lifetime
@@ -352,7 +352,11 @@ def copy_attachments(state, source, destination, *, rebind_printed=False, retain
             permit = replace(permit, permitted_ability_id=ability_ids.get(
                 permit.permitted_ability_id, permit.permitted_ability_id))
         if ability.kind in ('hand_mirror','spell_mirror') and destination.zone!=Zone.HAND:continue
-        native_self=ability.kind in ('hand_mirror','spell_mirror','school_freeze')or ability.origin=='printed'and ability.reborn_policy is not None
+        if ability.kind == 'defining_hand_source':
+            if destination.zone not in (Zone.HAND, Zone.DECK): continue
+            if not retain_ids:
+                ability = replace(ability, progress_value=0, progress_completions=0, progress_keys=(), progress_units=())
+        native_self=ability.kind in ('hand_mirror','spell_mirror','school_freeze','defining_hand_source')or ability.origin=='printed'and ability.reborn_policy is not None
         rebound_source=destination.id if native_self or rebind_printed and ability.origin=='printed'and ability.source_id==source.id else ability.source_id
         destination.abilities.append(replace(ability, id=ability_ids[ability.id], source_id=rebound_source, printed_attack_permit=permit))
     destination.silenced = source.silenced

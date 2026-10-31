@@ -44,6 +44,20 @@ def corrupt_candidates(state, registry, source, quote):
     return tuple(candidates)
 
 
+def native_play_candidates(state, registry, source):
+    """Only the native mimics already held at this minion's actual submission."""
+    if source.kind != CardType.MINION: return ()
+    result = []
+    for entity_id in state.players[source.controller].hand:
+        if entity_id == source.id: continue
+        entity = state.entities[entity_id]
+        for ability in entity.abilities:
+            if ability.kind == 'defining_hand_source' and ability.hand_progress.event == 'card_played':
+                registry.validate_defining_hand_binding(entity, ability)
+                result.append(identity(entity, ability))
+    return tuple(result)
+
+
 @dataclass(frozen=True)
 class AdvanceHandProgress(Effect):
     candidate: HandProgressCandidate
@@ -77,14 +91,22 @@ def capture_hand_progress(r, event):
                     continue
                 result.append(AdvanceHandProgress(candidate, deepcopy(event)))
     # Original native sources are separate from a transformed face's progress.
-    if event.kind == 'turn_started':
+    if event.kind in ('turn_started', 'card_played'):
+        play = None
+        if event.kind == 'card_played':
+            from .play_history import play_record
+            play_id = dict(event.data).get('play_id')
+            if play_id is None: return result
+            play = play_record(r.state, play_id)
+            if play.kind != CardType.MINION or not play.completed or play.countered or play.interrupted: return result
         for player_id in (r.state.active_player, 3-r.state.active_player):
             if event.player_id != player_id:
                 continue
             for entity_id in r.state.players[player_id].hand:
                 entity = r.state.entities[entity_id]
                 for ability in entity.abilities:
-                    if ability.kind == 'defining_hand_source':
+                    if (ability.kind == 'defining_hand_source' and ability.hand_progress.event == event.kind and
+                            (play is None or identity(entity, ability) in play.native_hand_candidates)):
                         r.registry.validate_defining_hand_binding(entity, ability)
                         result.append(AdvanceHandProgress(identity(entity, ability), deepcopy(event)))
     return result
@@ -129,6 +151,12 @@ def advance(r, effect):
                 death.zone != Zone.BOARD or r.registry.card(death.card_id).kind != CardType.MINION):
             return
         key = f'death:{death.id}'
+    elif ability.kind == 'defining_hand_source' and event.kind == 'card_played':
+        from .play_history import play_record
+        play = play_record(r.state, dict(event.data)['play_id'])
+        if not play.completed or play.countered or play.interrupted or candidate not in play.native_hand_candidates:
+            return
+        key = f'event:{event.sequence}'
     elif event.kind == 'spell_cast_accepted':
         from .spell_casts import accepted_cast
         cast = accepted_cast(r.state, event)
@@ -224,8 +252,14 @@ def validate_defining_history(game):
                 if number > len(game._events):
                     raise ValueError('Defining source references a missing owner-turn event')
                 event = game._events[number - 1]
-                if event.kind != 'turn_started' or event.player_id != entity.controller:
+                if event.kind != ability.hand_progress.event or event.player_id != entity.controller:
                     raise ValueError('Defining source witness is not its owner-turn event')
+                if event.kind == 'card_played':
+                    from .play_history import play_record
+                    play = play_record(game._state, dict(event.data).get('play_id'))
+                    if (not play.completed or play.countered or play.interrupted or
+                            identity(entity, ability) not in play.native_hand_candidates):
+                        raise ValueError('Held mimic witness lost its original successful submitted-hand candidate')
 
 
 def register_hand_progress(mechanics):

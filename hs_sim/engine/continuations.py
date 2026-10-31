@@ -110,6 +110,13 @@ class FrameCodec:
         from .selected_minion_memory import RememberBattlecryMinion,ReturnRememberedMinion,SilenceCapturedMinion
         if type(value)in(RememberBattlecryMinion,ReturnRememberedMinion,SilenceCapturedMinion)and self.origin_state is not None:
             value.validate_in_state(self.origin_state,self.registry)
+        from .native_copy_consumers import (TransformIntoDeckDemon, CopyMinionToThreeZones,
+            TransformHeldPlayedMinion, SwapDeathrattleWithDeck, DeathrattleDeckPartner, validate_deck_partner)
+        if self.origin_state is not None:
+            if type(value) in (TransformIntoDeckDemon, CopyMinionToThreeZones, TransformHeldPlayedMinion, SwapDeathrattleWithDeck):
+                value.validate_in_state(self.origin_state, self.registry)
+            elif type(value) is DeathrattleDeckPartner:
+                validate_deck_partner(self.origin_state, self.registry, value)
         from .jade import SummonJadeGolem
         from .summon_quantities import JadeEntryMaterial, SummonByCard, validate_request as validate_jade_request
         if self.origin_state is not None:

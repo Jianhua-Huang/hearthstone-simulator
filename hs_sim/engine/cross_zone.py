@@ -547,11 +547,11 @@ def transform_stored_entity(r, entity, definition, *, source_id=None, retained_c
     return ()
 
 
-def reset_stored_entity(r, entity, definition):
+def reset_stored_entity(r, entity, definition, *, components=()):
     from .lifecycle import reset_to_definition
     entity.face_replaced=True
     entity.zone_epoch+=1
-    reset_to_definition(r.state,entity,definition,r.registry,components=())
+    reset_to_definition(r.state,entity,definition,r.registry,components=components)
 
 
 def announce_stored_transform(r, entity, old_card, *, source_id=None):
