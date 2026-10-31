@@ -152,7 +152,7 @@ class RebornMinion(Effect):
     death_id: int
 
 
-CORE_EFFECTS_VERSION = 'core-effects-v854'
+CORE_EFFECTS_VERSION = 'core-effects-v855'
 
 
 class Mechanics:
@@ -2672,6 +2672,12 @@ def default_mechanics(version=CORE_EFFECTS_VERSION):
     from .effects import RevealHandCard
     from .information import reveal_hand_card
     mechanics = Mechanics(version)
+    from .hand_exchange_discovery import register as register_hand_exchange_discovery
+    register_hand_exchange_discovery(mechanics)
+    from .random_zone_destruction import register as register_random_zone_destruction
+    register_random_zone_destruction(mechanics)
+    from .opponent_deck_copies import register as register_opponent_deck_copies
+    register_opponent_deck_copies(mechanics)
     from .model import StartingDeckCostFact
     mechanics.register_payload_type(StartingDeckCostFact)
     from .attack_substitution import register as register_attack_substitution

@@ -16,6 +16,7 @@ COMPLETED = 'card_discovered'
 
 
 def recipe_types():
+    from .hand_exchange_discovery import SelectHandExchange
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
     from .temporary_cards import CreateTemporaryCard
     from .discovery_destinations import DeliverDiscoveredSpell
@@ -25,7 +26,7 @@ def recipe_types():
     from .hero_power_discovery import InstallDiscoveredHeroPower
     from .spell_casts import CastSpell, CastStoredSpell
     from .discovery_cost_swaps import DeliverCostSwappedSpell
-    return (DeliverCostSwappedSpell, AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower,CastStoredSpell,CastSpell)
+    return (SelectHandExchange, DeliverCostSwappedSpell, AddToHand, AddToDeck, CopyCard, MoveCard, DiscardCard, CreateTemporaryCard,DeliverDiscoveredSpell,CopyOpponentDeckOffer,_TakeSideboardCard,DeliverDiscoveredSpellWeapon,InstallDiscoveredHeroPower,CastStoredSpell,CastSpell)
 
 
 def recipe_face(request):
@@ -57,6 +58,8 @@ def validate_recipe(result, request):
     from .zones import MoveCard, DiscardCard
     if type(request) not in (MoveCard, DiscardCard) and request.player_id != result.choice.player_id:
         raise ValueError('Discovery recipe borrowed another original recipient player')
+    from .hand_exchange_discovery import validate_recipe as validate_hand_recipe
+    validate_hand_recipe(result,request)
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer,validate_recipe as validate_copy_recipe
     if type(request)is CopyOpponentDeckOffer:validate_copy_recipe(result,request)
     from .sideboards import _TakeSideboardCard, validate_discovery_recipe
@@ -185,6 +188,12 @@ def materialize(r, effect):
     effect.__post_init__(); require_original_result(r.state, effect.result)
     cursor = len(r.game._events)
     request = effect.recipe; entity = None; work = ()
+    from .hand_exchange_discovery import SelectHandExchange,materialize as materialize_hand_exchange
+    if type(request)is SelectHandExchange:
+        entity,work=materialize_hand_exchange(r,request)
+        completion=finish_for_entity(r,effect.result,entity,request,cursor)
+        # Finish the first genuine discovery before accepting the other hand.
+        return(completion,*work)if request.request.first is None else(*work,completion)
     from .discovery_destinations import DeliverDiscoveredSpell,materialize as materialize_destination
     from .opponent_deck_gift_copy import CopyOpponentDeckOffer,materialize as materialize_copy
     from .zones import AddToDeck, CopyCard, MoveCard, DiscardCard
@@ -281,6 +290,8 @@ def resurrect(r, effect):
 
 def validate_completion(state, registry, completion, *, closed=False):
     completion.__post_init__(); require_original_result(state, completion.result)
+    from .hand_exchange_discovery import validate_completion as validate_hand_completion
+    validate_hand_completion(state,registry,completion)
     from .discovery_cost_swaps import validate_completion as validate_cost_swap_completion
     validate_cost_swap_completion(state,registry,completion)
     from .discovery_destinations import validate_completion as validate_destination_completion
@@ -391,12 +402,17 @@ def validate_boundary(game):
                     fact = completion.recipient
                     from .zones import CopyCard, MoveCard, DiscardCard
                     from .spell_casts import CastSpell, CastStoredSpell, cast_record
-                    created = type(completion.recipe) not in (MoveCard, DiscardCard, CastStoredSpell, CastSpell)
+                    from .hand_exchange_discovery import SelectHandExchange,witnesses as hand_exchange_witnesses
+                    created = type(completion.recipe) not in (MoveCard, DiscardCard, CastStoredSpell, CastSpell,SelectHandExchange)
                     witnesses = [e for e in window if e.kind == ('card_created' if created else 'card_discarded')]
                     if type(completion.recipe) is MoveCard:
                         witnesses = [e for e in window if e.kind in ('card_moved_to_hand', 'card_moved_to_deck', 'card_drawn', 'card_burned')]
                     witnesses = [e for e in witnesses if e.action == event.action and
                                  e.source_id == completion.recipe.source_id]
+                    if type(completion.recipe)is SelectHandExchange:
+                        witnesses=hand_exchange_witnesses(completion.recipe,[e for e in window if e.action==event.action])
+                        if fact is None and witnesses or fact is not None and len(witnesses)!=1:
+                            raise ValueError('Hand discovery lost or invented its actual atomic exchange')
                     from .hero_power_discovery import InstallDiscoveredHeroPower
                     if type(completion.recipe) is InstallDiscoveredHeroPower:
                         witnesses = [e for e in window if e.kind == 'hero_power_replaced' and

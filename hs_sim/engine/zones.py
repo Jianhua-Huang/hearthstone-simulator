@@ -957,6 +957,36 @@ def move_card(r, effect):
     move_physical_card(r,effect)
 
 
+def transfer_hand_cards(r, transfers, source_id):
+    """Commit one transfer or an opposing pair before publishing either card."""
+    source_exists(r,source_id)
+    if type(transfers)is not tuple or len(transfers)not in(1,2):
+        raise ResolutionError('Physical hand transfer requires one card or one opposing pair')
+    entities=tuple(e for e,_ in transfers);old=tuple(e.controller for e in entities)
+    if len({e.id for e in entities})!=len(entities):raise ResolutionError('Hand transfer repeats its original card')
+    if len(transfers)==2 and (old[0]==old[1]or tuple(p for _,p in transfers)!=(old[1],old[0])):
+        raise ResolutionError('Atomic hand exchange requires opposite original controllers')
+    for entity,player_id in transfers:
+        r.player(player_id)
+        if(r.state.entities.get(entity.id)is not entity or entity.zone!=Zone.HAND or entity.id not in r.player(entity.controller).hand):
+            raise ResolutionError('Hand transfer lost an original occupied hand slot')
+    for player_id in set(old)|{p for _,p in transfers}:
+        size=len(r.player(player_id).hand)-old.count(player_id)+sum(p==player_id for _,p in transfers)
+        if size>hand_capacity(r.player(player_id),r.rules):raise ResolutionError('Hand transfer has no actual destination slot')
+    for entity in entities:r.player(entity.controller).hand.remove(entity.id)
+    from .lifecycle import renew_hand_progress
+    from .hand_history import enter_hand,publish
+    for (entity,player_id),previous_controller in zip(transfers,old):
+        entity.controller=player_id;entity.zone_epoch+=1
+        renew_hand_progress(r.state,entity,previous_zone=Zone.HAND,hand_transfer=previous_controller!=player_id)
+        r.player(player_id).hand.append(entity.id)
+        enter_hand(r.state,entity,Zone.HAND,'move',source_id=source_id)
+    for entity,player_id in transfers:
+        r.emit('card_moved_to_hand',source_id=source_id,target_id=entity.id,player_id=player_id)
+        publish(r,entity.hand_entry_id)
+    return entities
+
+
 def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     """Move the original physical card, returning its actual body or no-op None.
 
@@ -982,6 +1012,9 @@ def move_physical_card(r, effect, *, draw_id=None, deathrattle_memory=None):
     previous_zone = entity.zone
     previous_controller = entity.controller
     original=SourceAllocationFact.capture(r.state,entity) if destination==Zone.GRAVEYARD else None
+    if(previous_zone==Zone.HAND and destination==Zone.HAND and not effect.draw and not effect.reset and
+            draw_id is None and deathrattle_memory is None):
+        return transfer_hand_cards(r,((entity,player.id),),effect.source_id)[0]
     if destination == Zone.DECK:
         from .prepare import enter_deck
         enter_deck(entity)

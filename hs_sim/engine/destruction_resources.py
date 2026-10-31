@@ -63,13 +63,29 @@ class DestroyMinionsForStats(Effect):
 
 
 @dataclass(frozen=True)
+class SacrificeForFriendlyAttack(Effect):
+    player_id:int
+    source_id:int
+    victim:MinionReference
+
+    @property
+    def victims(self):return(self.victim,)
+
+    def __post_init__(self):
+        _player(self.player_id);_integer(self.source_id,'friendly attack sacrifice source',1)
+        reference_value(self.victim)
+        if self.victim.player_id!=self.player_id or self.victim.entity_id==self.source_id:
+            raise ValueError('Friendly attack sacrifice requires its original other friendly victim')
+
+
+@dataclass(frozen=True)
 class CompleteDestroyedResources(Effect):
-    original: DestroyMinionsForResources | DestroyMinionsForDiscard | DestroyMinionsForStats
+    original: DestroyMinionsForResources | DestroyMinionsForDiscard | DestroyMinionsForStats | SacrificeForFriendlyAttack
     first_death_id: int
     accepted: tuple[DeathCause, ...]
 
     def __post_init__(self):
-        if type(self.original) not in (DestroyMinionsForResources, DestroyMinionsForDiscard,DestroyMinionsForStats): raise ValueError('Destruction reward lost its original complete request')
+        if type(self.original) not in (DestroyMinionsForResources, DestroyMinionsForDiscard,DestroyMinionsForStats,SacrificeForFriendlyAttack): raise ValueError('Destruction reward lost its original complete request')
         self.original.__post_init__(); _integer(self.first_death_id, 'original destruction death boundary', 1)
         if self.original.victims is None: raise ValueError('Completed destruction lost its accepted original victim group')
         if type(self.accepted) is not tuple or any(type(row) is not DeathCause for row in self.accepted): raise ValueError('Destruction reward requires original frozen causes')
@@ -141,7 +157,7 @@ def begin(r, request):
     boundary = r.state.next_death_id
     destroy_batch(r, DestroyBatch(targets, request.source_id))
     accepted = tuple(r.state.entities[eid].death_cause for eid in targets)
-    if type(request)is DestroyMinionsForStats:
+    if type(request)in(DestroyMinionsForStats,SacrificeForFriendlyAttack):
         accepted=tuple(cause for ref,cause in zip((ref for ref in request.victims if ref.entity_id in targets),accepted)
             if matches(cause,ref,request))
     result = CompleteDestroyedResources(request, boundary, accepted)
@@ -158,7 +174,7 @@ def finish(r, request):
         entity = r.state.entities[cause.target_id]
         deferred = r.death_deferrals > 0 and entity.doomed and entity.death_cause == cause
         count += bool(dead or deferred)
-        if type(request.original)is DestroyMinionsForStats:
+        if type(request.original)in(DestroyMinionsForStats,SacrificeForFriendlyAttack):
             if len(deaths)>1:raise ValueError('One original destroyed victim acquired multiple death records')
             if deaths:
                 attack+=max(0,deaths[0].attack);health+=max(0,deaths[0].max_health-deaths[0].damage)
@@ -166,6 +182,12 @@ def finish(r, request):
                 attack+=max(0,entity.attack);health+=max(0,entity.health)
     if not count: return ()
     original = request.original
+    if type(original)is SacrificeForFriendlyAttack:
+        if not attack:return()
+        from .cross_zone import MinionScope,minion_references
+        from .sacrifice import BuffCapturedMinion
+        refs=minion_references(r.state,r.registry,original.player_id,MinionScope((Zone.BOARD,)),original.source_id)
+        return tuple(BuffCapturedMinion(ref,attack,0,original.source_id)for ref in refs)
     if type(original)is DestroyMinionsForStats:
         from .sacrifice import BuffCapturedMinion
         return ()if original.beneficiary is None else(BuffCapturedMinion(original.beneficiary,attack,health,original.source_id),)
@@ -179,4 +201,5 @@ def register(mechanics):
     mechanics.register(DestroyMinionsForResources, begin)
     mechanics.register(DestroyMinionsForDiscard, begin)
     mechanics.register(DestroyMinionsForStats,begin)
+    mechanics.register(SacrificeForFriendlyAttack,begin)
     mechanics.register(CompleteDestroyedResources, finish)

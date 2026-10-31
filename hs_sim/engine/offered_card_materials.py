@@ -86,6 +86,7 @@ def capture(r, option):
     from .suspicious_discoveries import ChooseSuspiciousMinion, validate_mutation
     from .pool_offers import ResolvePoolOffer
     from .hero_power_discovery import InstallDiscoveredHeroPower, validate_offer_data
+    from .hand_exchange_discovery import SelectHandExchange
     # All currently supported genuine discovery producers have one original
     # delivery operation. Do not infer hidden material from a CardPreview.
     if len(option.effects) > 1:
@@ -93,6 +94,11 @@ def capture(r, option):
     if not option.effects:
         return OfferedCardMaterial(option.id, option.card_id, 'printed')
     work = option.effects[0]
+    if type(work)is SelectHandExchange:
+        work.validate_in_state(r.state)
+        if(option.card_id,option.entity_id)!=(work.card_id,work.card.entity_id):
+            raise ValueError('Offered hand exchange changed its original physical selected face')
+        return _physical(r,option,work.card)
     if type(work) is InstallDiscoveredHeroPower:
         work.__post_init__()
         validate_offer_data(r.state, r.registry, work.offer)
