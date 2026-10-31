@@ -210,13 +210,13 @@ class PastArcaneSecretCopyDamageTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(self.results(g,'DRG_106')[0].modified_amount,3);self.assertIsNotNone(g.state.pending_choice)
         self.choose(g,g.state.pending_choice.options[0].id);self.portable(g)
 
-    def test_echo_and_illusion_copy_current_buffs_without_injury_then_apply_fixed_stats_and_cost(self):
+    def test_echo_and_illusion_copy_printed_base_then_apply_explicit_stats_and_cost(self):
         for cid in('GVG_005','SCH_352'):
             g=self.game((cid,BUFF,WOUND),own=(UNIT,SECOND,DORMANT,LOCATION));original=g.state.players[1].board[0]
             self.paid(g,BUFF,original);self.paid(g,WOUND,original);self.paid(g,cid)
             copies=[g.state.entities[i]for i in g.state.players[1].hand]
             self.assertEqual([e.card_id for e in copies],[UNIT,SECOND]);self.assertEqual(copies[0].damage,0)
-            expected=(1,1,1)if cid=='SCH_352'else(4,11,5)
+            expected=(1,1,1)if cid=='SCH_352'else(2,8,5)
             self.assertEqual((copies[0].attack,copies[0].max_health,quote_unselected_cost(g.state,g.registry,copies[0]).amount),expected)
             self.assertEqual(copies[0].origin_entity_id,original);self.play(g,UNIT)
             self.assertEqual(g.state.play_history[-1].cost,expected[2])

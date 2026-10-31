@@ -131,7 +131,7 @@ def register_past_arcane_secrets_copy_damage(registry):
         return (Damage(c.target_id,2,c.source_id,DamageKind.SPELL),
             *((DiscoverFromPool(c.player_id,POOL,SPELLS,source_id=c.source_id),) if holding else ()))
     def copies(c,small=False):
-        return tuple(CopyCard(MinionReference.capture(c.state.entities[i]),c.player_id,source_id=c.source_id,
+        return tuple(CopyCard(MinionReference.capture(c.state.entities[i]),c.player_id,mode='base',source_id=c.source_id,
             stats=SummonStats(attack=1,health=1) if small else None,cost=CostSpec(set_to=1) if small else None)
             for i in minions(c,registry,c.player_id))
     def malfunction(c):

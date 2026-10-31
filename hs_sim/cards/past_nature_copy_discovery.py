@@ -100,7 +100,7 @@ def register_past_nature_copy_discovery(registry):
     def spikeshell(c):
         return (BuffCapturedMinion(BoardPresenceReference.capture(c.state,c.target_id),2,2,c.source_id),
             CopyCard(MinionReference.capture(c.state.entities[c.target_id]),c.player_id,
-                source_id=c.source_id,required_keyword=Keyword.TAUNT))
+                mode='base',source_id=c.source_id,required_keyword=Keyword.TAUNT))
 
     def embiggen(c):
         return tuple(BuffStoredCard(CardReference.capture(e),2,2,c.source_id,

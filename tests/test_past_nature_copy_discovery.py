@@ -187,18 +187,21 @@ class NatureCopyDiscoveryTests(CardBatchTestMixin,unittest.TestCase):
             with self.assertRaises(ValueError):batch.check_face(changed,face,'en_US',{})
         with self.assertRaises(ValueError):batch.check_face(raw,face,'en_US',{'@':'','{0}':'','{1}':''})
 
-    def test_spikeshell_buffs_actual_target_and_only_copies_current_taunt_to_hand(self):
+    def test_spikeshell_current_Taunt_qualifies_but_hand_copy_uses_printed_base(self):
         g=self.game((TAUNT,'BAR_549'),board=(A,));target=self.entity(g,A,zone='board').id
         self.play(g,TAUNT,target);self.play(g,'BAR_549',target)
         copy=self.entity(g,A);self.assertNotEqual(copy.id,target)
-        self.assertEqual((copy.attack,copy.max_health),(4,8));self.assertIn(Keyword.TAUNT,copy.keywords)
+        self.assertEqual((copy.attack,copy.max_health),(2,6));self.assertNotIn(Keyword.TAUNT,copy.keywords)
+        self.assertEqual((g.state.entities[target].attack,g.state.entities[target].max_health),(4,8))
+        self.assertIn(Keyword.TAUNT,g.state.entities[target].keywords)
         no=self.game(('BAR_549',),board=(A,));self.play(no,'BAR_549',no.state.players[1].board[0])
         self.assertEqual(self.cards(no,'hand'),[]);self.portable(g)
 
     def test_spikeshell_checks_taunt_after_buff_reactions(self):
         g=self.game(('BAR_549',),board=(A,),watch='stats_taunt')
         self.play(g,'BAR_549',self.entity(g,A,zone='board').id)
-        self.assertIn(Keyword.TAUNT,self.entity(g,A).keywords)
+        self.assertIn(Keyword.TAUNT,self.entity(g,A,zone='board').keywords)
+        self.assertNotIn(Keyword.TAUNT,self.entity(g,A).keywords)
 
     def test_spikeshell_waiting_keyword_copy_rejects_same_entity_new_board_residence(self):
         g=self.game((TAUNT,'BAR_549'),board=(A,),watch='stats_wait');target=self.entity(g,A,zone='board').id

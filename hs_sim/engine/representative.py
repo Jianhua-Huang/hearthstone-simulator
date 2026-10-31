@@ -1277,7 +1277,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         'm3.shadow_visions': lambda c: [ChooseFromZone(c.player_id, c.player_id, Zone.DECK,
             PoolQuery(kinds=(CardType.SPELL,)), operation='copy_current', source_id=c.source_id, prompt='暗影视界：发现法术的复制',discovery=True)],
         'm3.dead_mans_hand': lambda c: shuffled(c,(CopyCard(CardReference.capture(c.state.entities[i]), c.player_id,
-            destination=Zone.DECK, source_id=c.source_id) for i in c.state.players[c.player_id].hand)),
+            destination=Zone.DECK, mode='base', source_id=c.source_id) for i in c.state.players[c.player_id].hand)),
         'm3.soulfire': lambda c: [Damage(c.target_id, 4, c.source_id, DamageKind.SPELL),
             DiscardMatching(c.player_id, source_id=c.source_id)],
         'm3.jeweled_scarab': lambda c: [DiscoverFromPool(c.player_id, GENERATION_POOL_ID,

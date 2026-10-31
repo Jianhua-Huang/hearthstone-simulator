@@ -240,8 +240,8 @@ class CopyCard(Effect):
             return
         if self.required_keyword is not None and (type(self.required_keyword) is not Keyword or
                 type(self.card) is not MinionReference or self.destination != Zone.HAND or
-                self.mode != 'current' or self.source_id is None):
-            raise ValueError('Keyword-conditioned copies require an attributed current board-minion hand copy')
+                self.mode not in ('base','current') or self.source_id is None):
+            raise ValueError('Keyword-conditioned copies require an attributed original board-minion hand copy')
         if type(self.cast_when_drawn) is not bool:
             raise ValueError('Copied draw-cast declaration must be boolean')
         if self.cast_when_drawn and (type(self.card) is not CapturedCardCopyMaterial or

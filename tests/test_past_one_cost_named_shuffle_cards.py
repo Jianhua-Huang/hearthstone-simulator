@@ -317,10 +317,10 @@ class PastOneCostNamedShuffleTests(CardBatchTestMixin, unittest.TestCase):
         with self.assertRaises(IllegalAction):g.apply(UseHandAction(1,self.entity(g,OIL).id,'trade'))
         self.assertEqual(g.snapshot(),before)
 
-    def test_loud_original_completed_hero_attack_copies_current_material_without_moving_source(self):
+    def test_loud_original_completed_hero_attack_copies_printed_base_without_moving_source(self):
         g=self.game((BOARD_BUFF,),board=(LOUD,));source=self.entity(g,LOUD,zone='board').id;self.play(g,BOARD_BUFF,source)
         g.apply(Attack(1,source,g.state.players[2].hero_id));self.assertEqual(self.ids(g),(LOUD,));copy=self.entity(g,LOUD)
-        self.assertNotEqual(copy.id,source);self.assertEqual((copy.attack,copy.health),(3,4));self.assertIn(source,g.state.players[1].board)
+        self.assertNotEqual(copy.id,source);self.assertEqual((copy.attack,copy.health),(1,1));self.assertIn(source,g.state.players[1].board)
         self.assertEqual(self.hero(g,2).health,27);self.portable(g)
 
     def test_loud_minion_attack_and_ordinary_damage_do_not_issue_hand_copies(self):

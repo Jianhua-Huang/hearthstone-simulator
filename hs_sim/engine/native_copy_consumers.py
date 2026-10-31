@@ -82,8 +82,8 @@ def copy_three_zones(r, effect):
     board = CopyEntryMaterial.capture(r.state, target, 'remembered_copy', 'current',
         registry=r.registry, player_id=effect.cause.player_id)
     player, source = effect.cause.player_id, effect.cause.source.entity_id
-    return (CopyCard(stored, player, Zone.HAND, source_id=source),
-        CopyCard(stored, player, Zone.DECK, source_id=source),
+    return (CopyCard(stored, player, Zone.HAND, mode='base', source_id=source),
+        CopyCard(stored, player, Zone.DECK, mode='base', source_id=source),
         SummonByCard(player, (board,), effect.cause))
 
 

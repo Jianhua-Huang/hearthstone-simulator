@@ -82,7 +82,7 @@ def register_past_one_cost_named_shuffle_cards(registry):
                 (c.source.zone_epoch, c.source.entered_order) or
                 c.state.entities[row.delivery.target_id].kind != CardType.HERO):
             return ()
-        return (CopyCard(MinionReference.capture(c.source), c.player_id, source_id=c.source_id),)
+        return (CopyCard(MinionReference.capture(c.source), c.player_id, mode='base', source_id=c.source_id),)
 
     def sludge(c, kind):
         ids = characters(c, registry, 3-c.player_id)

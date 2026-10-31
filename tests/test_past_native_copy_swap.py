@@ -279,11 +279,11 @@ class NativeCopySwapTests(CardBatchTestMixin,unittest.TestCase):
         self.play(g,BOOST,sid);self.play(g,KILLER,sid);self.assertIsNotNone(g.state.pending_choice)
         self.fault(g);g=self.portable(g);self.finish(g);self.assertEqual(len(self.all_units(g,ZEREK)),1)
 
-    def test_Sath_current_three_zone_material_stored_copies_clear_injury(self):
+    def test_Sath_base_stored_copies_and_current_board_follow_zone_direction(self):
         g=self.game((BOOST,WOUND,SATH),board=(B,));sid=self.unit(g,B).id;self.play(g,BOOST,sid);self.play(g,WOUND,sid);self.play(g,SATH,sid)
         copies=[e for e in g.state.entities.values() if e.origin_entity_id==sid]
         self.assertEqual({e.zone for e in copies},{Zone.HAND,Zone.DECK,Zone.BOARD})
-        for e in copies:self.assertEqual((e.attack,e.health),(8,10 if e.zone==Zone.BOARD else 11))
+        for e in copies:self.assertEqual((e.attack,e.health),(8,10)if e.zone==Zone.BOARD else(5,7))
         self.assertEqual(g.state.entities[sid].health,10)
 
     def test_Sath_frozen_material_survives_original_mutation_and_same_entity_reentry(self):
@@ -291,7 +291,7 @@ class NativeCopySwapTests(CardBatchTestMixin,unittest.TestCase):
         self.assertIsNotNone(g.state.pending_choice);self.fault(g);g=self.portable(g);self.choose(g,'mutate');self.finish(g)
         copies=[e for e in g.state.entities.values() if e.origin_entity_id==sid]
         self.assertEqual(len(copies),3)
-        self.assertTrue(all((e.attack,e.health)==(8,11) for e in copies))
+        self.assertTrue(all((e.attack,e.health)==((8,11)if e.zone==Zone.BOARD else(5,7)) for e in copies))
         self.assertEqual((g.state.entities[sid].attack,g.state.entities[sid].health),(5,7))
 
     def test_Sath_original_source_death_does_not_erase_remaining_copies(self):
