@@ -7,6 +7,7 @@ from dataclasses import fields, is_dataclass
 from enum import Enum
 from types import UnionType
 from typing import Union, get_args, get_origin, get_type_hints
+import sys
 
 from . import actions, effects, model
 from .model import CardType, Event, GameState, validate_invariants
@@ -49,6 +50,7 @@ class FrameCodec:
     def __init__(self, mechanics, registry, *, origin_state=None, origin_events=None):
         from .resolver import BehaviorCall, ResolutionFrame
         self.registry = registry
+        self._type_annotations = {}
         self.origin_events = origin_events
         self.origin_state = origin_state
         self.deck_origin = deck_origin(origin_state) if origin_state is not None else None
@@ -68,6 +70,21 @@ class FrameCodec:
     def _depth(self, depth):
         if depth > self.MAX_DEPTH:
             raise ValueError('Frame payload nesting exceeds codec limit')
+
+    def _annotations(self, kind):
+        # Only static engine definitions share reflection within this codec.
+        # Extension schemas retain their original live forward-ref resolution.
+        owner = sys.modules.get(kind.__module__)
+        if (owner is None or not kind.__module__.startswith('hs_sim.engine.') or
+                vars(owner).get(kind.__name__) is not kind):
+            return get_type_hints(kind)
+        declaration = tuple((base, tuple(vars(base).get('__annotations__', {}).items()))
+                            for base in kind.__mro__)
+        cached = self._type_annotations.get(kind)
+        if cached is None or cached[0] != declaration:
+            cached = (declaration, get_type_hints(kind))
+            self._type_annotations[kind] = cached
+        return cached[1]
 
     def _validate(self, value):
         from .health_swaps import SwapCapturedMinionHealth
@@ -572,7 +589,7 @@ class FrameCodec:
         if type(value)is SummonOrderedGroup:group_request_profile(self.registry,value)
         if type(value)is model.SummonProducerProfile and self.registry.summon_producer_profile(value.id)!=value:
             raise ValueError('Captured logical producer profile differs from its registry')
-        annotations = get_type_hints(type(value))
+        annotations = self._annotations(type(value))
         from .choose_policies import ChoosePolicyProof, validate_proof as validate_choose_policy_proof
         if type(value) is ChoosePolicyProof:
             validate_choose_policy_proof(value, self.registry)

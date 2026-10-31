@@ -1,7 +1,7 @@
 # 引擎性能诊断工具
 
 本工具只新增诊断输出，不修改模拟器、注册表或前端，不连接正在运行的对局。
-用户已要求暂缓优化，实际进度及下一项只维护在原两份项目台账。
+当前用户已授权按固定基准逐项优化；范围与行为保全见[性能契约](../docs/engine-performance-plan.md)，实际进度及下一项只维护在原两份项目台账。
 
 ## 运行
 
@@ -29,7 +29,7 @@ python -B -X utf8 tools/engine_performance_baseline.py --output outputs/perf-con
 
 `--regressions` 使用原测试运行器运行四个完整模块；精确测试清单、逐方法结果和源码守卫由原运行器保存。包括选择后异常回滚、随机选择回放、嵌套选择、死亡/攻击/结束回合续接、单次支付、重算外层哈希后仍拒绝篡改证明，以及玩家信息隔离。变更费用/目标枚举时追加的模块见 engine_performance_regressions.json；最终范围仍按实际代码差异确定。
 
-冻结副本仅包含上述默认模块所需的数据和代码。追加模块若依赖 examples 或其他目录，需另行冻结并记录这些依赖，或在源码稳定的工作区执行；不能把模块加载失败计为通过。计划清单中的模块不是全部已执行的验收声明。
+冻结副本捕获hs_sim/tests/tools的Python、全部data及data显式引用的已存在outputs证据。追加模块若依赖examples或其他未捕获目录，需另行冻结并记录这些依赖，或在源码稳定的工作区执行；不能把模块加载失败计为通过。计划清单中的模块不是全部已执行的验收声明。
 
 ## 后续比较
 
@@ -47,3 +47,17 @@ python -B -X utf8 tools/engine_performance_baseline.py --output outputs/perf-aft
 - 固定类型元信息：get_type_hints 可作为次级候选；收益以自身耗时为准。
 
 开始优化前需要当前补卡批次稳定，并重新生成基线。禁止用全局可变对象 ID 缓存结果、关闭校验或删除回滚快照来换取提速。此工具准备工作不代表已经实施任何优化，也不代替规则或官方国服验收。
+
+
+## 2026-10-31 性能优化基准
+
+当前用户已授权优化，范围、顺序和硬性行为保全见docs/engine-performance-plan.md；旧暂缓指示属于历史。本工具现冻结hs_sim/tests/tools的Python及全部data，同时捕获data显式引用的已存在outputs证据文件，避免新构筑源依赖缺失。原文件不改写；输出目录仍必须全新。
+
+增加--standard顺序执行完整CN37本地宿主及固定30张牌整局，逐动作比较完整快照、原命令、全部合法动作/玩家返回和另一座位视图摘要。--compare先解析绝对路径，兼容输入不匹配或任何摘要差异都直接失败。固定实验格式不作为正式标准合法性认证。原始计时、CPU、pstats和源码守卫均保留。
+
+--case可重复指定微测，省略历史压力及完整宿主；阶段收尾仍运行不带--case的--standard完整对照。阶段相关模块在engine_performance_regressions.json的phase_modules中规划，最终再选全部明确受影响完整模块；清单存在不表示已经执行。实际证据仍只在两份原台账登记。
+
+
+完整收尾使用tools/engine_performance_compare.py对两个report.json追加严格核对：--full要求11类、历史及整局全部一致，定时父/子工具SHA一致，全部卡牌源和data不变；只有用--allow-engine-change逐个声明的已审引擎文件可以变化。它输出独立verification.json，不改写原报告；--output仍须新目录。该工具同时报告前后毫秒、百分比与倍率，且对任何语义或工具差异明确失败。
+
+单项出现明显退步须保留原数据并复核。混合核心或负载波动时，可以用相同外部进程启动器固定两个冻结版本的CPU亲和性，再顺序运行本工具或engine_performance_standard.py；不改定时函数，记录掩码、来源及完整语义对照。不同亲和性结果分别报告。2026-11-01的掩码1启动器及原始异常/复测记录见outputs/engine-optimization-final-20261101/final-review.json，汇总解释见同目录findings.md。

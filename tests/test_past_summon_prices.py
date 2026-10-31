@@ -205,8 +205,19 @@ class PastSummonPriceTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_production_missing_past_domain_is_explicit_and_old_schema_is_rejected(self):
         fmt=build_cn37_local_pool_format()
-        game=Game.from_scenario(Scenario((PlayerSetup('HERO_06',hand=('GDB_857',),mana=10,max_mana=10),
+        # Production now includes this domain. Keep the missing-domain negative
+        # in an explicit test context with only the original ordinary bindings.
+        missing=GenerationContext('k551-missing-past-domain-test','experimental')
+        for name in ('constructed.cards','constructed.minions','constructed.assemble'):
+            fmt.registry.register_pool(replace(fmt.registry.pool(name,fmt.context),
+                target_id=missing.target_id,mode=missing.mode))
+        production=Game.from_scenario(Scenario((PlayerSetup('HERO_06',hand=('GDB_857',),mana=10,max_mana=10),
             PlayerSetup('HERO_08')),generation_context=fmt.context),fmt.registry)
+        self.play(production,'GDB_857')
+        self.assertIsNotNone(production.state.pending_choice)
+        self.assertEqual(production.state.players[1].mana,3)
+        game=Game.from_scenario(Scenario((PlayerSetup('HERO_06',hand=('GDB_857',),mana=10,max_mana=10),
+            PlayerSetup('HERO_08')),generation_context=missing),fmt.registry)
         saved=game.snapshot()
         with self.assertRaises(ResolutionError):self.play(game,'GDB_857')
         self.assertEqual(game.snapshot(),saved)

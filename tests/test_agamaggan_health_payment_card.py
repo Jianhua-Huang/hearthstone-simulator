@@ -310,7 +310,7 @@ class AgamagganPaymentTests(unittest.TestCase):
             view = g.observe(1)
             row = next(x for x in view['players'][0]['hand'] if x['card_id']==SPELL)
             self.assertEqual(row['cost'],{'amount':3,'payment':'opponent_health'})
-            self.assertEqual(view['version'],'player-view-v98')
+            self.assertEqual(view['version'],'player-view-v122')
             for private in ('CostQuoteFact','CostUseReceipt','hero_health_transition','maximum_cost'):
                 self.assertNotIn(private,json.dumps(view))
         self.assertEqual(g.snapshot(),before)

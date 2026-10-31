@@ -407,11 +407,12 @@ class PlayerDrawCountCostTests(unittest.TestCase):
         g = self.one(('d.enemy',)); self.play(g, 'd.enemy'); f = self.fact(g).intrinsic.player_draws
         for mode in ('phase', 'source', 'outcome', 'excluded'):
             bad = g.state
-            if mode == 'phase': bad.draw_history[0] = replace(bad.draw_history[0], phase='drawing')
-            elif mode == 'source': bad.draw_history[0] = replace(bad.draw_history[0], source_id=None)
-            elif mode == 'outcome': bad.draw_history[0] = replace(bad.draw_history[0], outcome='burned')
-            else: bad.draw_history.pop()
-            with self.subTest(mode=mode), self.assertRaises(ValueError): validate_prefix(f, bad, g.registry)
+            with self.subTest(mode=mode), self.assertRaises(ValueError):
+                if mode == 'phase': bad.draw_history[0] = replace(bad.draw_history[0], phase='drawing')
+                elif mode == 'source': bad.draw_history[0] = replace(bad.draw_history[0], source_id=None)
+                elif mode == 'outcome': bad.draw_history[0] = replace(bad.draw_history[0], outcome='burned')
+                else: bad.draw_history.pop()
+                validate_prefix(f, bad, g.registry)
 
     def test_rehashed_native_payment_rejects_lost_none_wrong_payer_and_rewritten_full_fact(self):
         g = self.twenty(); self.play(g); saved = self.portable(g)

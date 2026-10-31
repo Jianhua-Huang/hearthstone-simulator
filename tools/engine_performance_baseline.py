@@ -24,11 +24,24 @@ def digest(value):
 
 
 def inventory(root):
-    paths = [p for name in ('hs_sim', 'tests') for p in (root / name).rglob('*.py')]
+    paths = [p for name in ('hs_sim', 'tests', 'tools') for p in (root / name).rglob('*.py')]
     paths += [p for p in (root / 'data').rglob('*') if p.is_file()]
-    paths += [root / 'tools/run_tests.py']
+    paths += [root / 'tools/run_tests.py', root / 'outputs/card-integration-20261014/cards-37.0.0.255026.json']
+    linked = set()
+    def visit(value):
+        if isinstance(value, dict):
+            for item in value.values(): visit(item)
+        elif isinstance(value, list):
+            for item in value: visit(item)
+        elif isinstance(value, str) and value.startswith('outputs/'):
+            candidate = (root / value).resolve()
+            if candidate.is_relative_to(root) and candidate.is_file(): linked.add(candidate)
+    for document in (root / 'data').rglob('*.json'):
+        try: visit(json.loads(document.read_text(encoding='utf-8-sig')))
+        except (UnicodeError, json.JSONDecodeError): pass
+    paths += list(linked)
     return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(paths)}
+            for p in sorted(set(paths))}
 
 
 def save(path, value):
@@ -144,6 +157,10 @@ def execute(args, report, out, source):
         'snapshot_pending': (pending, lambda g: g.snapshot()),
         'restore_pending': (pending, lambda g: Game.from_snapshot(pending_snapshot, registry)),
     }
+    if args.cases:
+        unknown = set(args.cases) - set(cases)
+        if unknown: raise ValueError('Unknown benchmark cases: ' + str(sorted(unknown)))
+        cases = {k: v for k, v in cases.items() if k in args.cases}
     report['cases'] = {}
     # A warm-up per case, then interleaved samples reduce order/load bias.
     for base, fn in cases.values():
@@ -172,7 +189,7 @@ def execute(args, report, out, source):
                    median_cpu_ms=statistics.median(s['cpu_ms'] for s in row['samples']))
 
     report['history'] = []
-    for repeat in range(2):
+    for repeat in range(0 if args.cases else 2):
         g = game(('UNG_029',) * 5)
         for nth in range(1, 6):
             cast_action = PlayCard(1, card(g, 'UNG_029'))
@@ -191,6 +208,7 @@ def execute(args, report, out, source):
     # Profile only AFTER ordinary timings. No wrappers or validation bypasses.
     report['profiles'] = {}
     for name in ('shadow_three_options', 'select_choice', 'legal_actions_dense', 'attack'):
+        if name not in cases: continue
         base, fn = cases[name]
         candidate = base.clone()
         profiler = cProfile.Profile()
@@ -231,8 +249,11 @@ def main():
     parser.add_argument('--samples', type=int, default=5)
     parser.add_argument('--registry', choices=('representative', 'constructed'), default='representative')
     parser.add_argument('--regressions', action='store_true')
+    parser.add_argument('--case', action='append', dest='cases', help='Only selected cases; omit history stress.')
+    parser.add_argument('--standard', action='store_true', help='Also run the fixed CN37 host and full match.')
     parser.add_argument('--compare', type=Path)
     args = parser.parse_args()
+    if args.compare: args.compare = args.compare.resolve()
     if args.samples < 3:
         parser.error('Use at least 3 samples; small samples are not latency percentiles.')
     original = args.source.resolve()
@@ -277,6 +298,16 @@ def main():
             report['regression_exit_code'] = child.returncode
             report['regression_result'] = json.loads((out / 'regressions/result.json').read_text(encoding='utf-8'))
             assert child.returncode == 0 and report['regression_result']['success']
+        if args.standard:
+            command = [sys.executable, '-B', '-X', 'utf8', str(frozen / 'tools/engine_performance_standard.py'),
+                       '--source', str(frozen), '--output', str(out / 'standard')]
+            if args.compare:
+                command += ['--compare', str(args.compare.resolve().parent / 'standard/report.json')]
+            with (out / 'standard-console.txt').open('w', encoding='utf-8') as log:
+                child = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT)
+            report['standard_exit_code'] = child.returncode
+            report['standard_result'] = json.loads((out / 'standard/report.json').read_text(encoding='utf-8'))
+            assert child.returncode == 0 and report['standard_result']['success']
         report['frozen_source_unchanged'] = inventory(frozen) == frozen_before
         assert report['frozen_source_unchanged']
         if previous:
@@ -293,9 +324,10 @@ def main():
             report['comparison'] = {'compatible_inputs_and_environment': compatible, 'cases': comparisons,
                                      'same_history_states': [r['state_sha256'] for r in previous.get('history', [])] == [r['state_sha256'] for r in report['history']],
                                      'note': 'If incompatible, rebaseline; ratios alone are not a speedup claim. Background CPU contention is uncontrolled.'}
+            if not compatible: raise AssertionError('Incompatible benchmark inputs/environment; establish a matching baseline.')
             if compatible:
                 assert all(r['same_state_and_result'] for r in comparisons.values())
-                assert report['comparison']['same_history_states']
+                if not args.cases: assert report['comparison']['same_history_states']
         report['success'] = True
     except Exception:
         report['error'] = traceback.format_exc()

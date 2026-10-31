@@ -377,7 +377,8 @@ class MinionDeathCostTests(unittest.TestCase):
         g = self.game((GIANT, 'death.kill'), enemy_board=('death.victim',))
         self.play(g, 'death.kill', self.victim(g, 2))
         stage = self.fact(g).intrinsic; f = stage.minion_deaths; row = f.records[0]
-        changed = replace(row, card_id='unknown.death.price', cause=replace(row.cause, target_card_id='unknown.death.price'))
+        changed = replace(row, card_id='unknown.death.price', cause=replace(row.cause, target_card_id='unknown.death.price'),
+            copy_source=replace(row.copy_source, origin=replace(row.copy_source.origin, card_id='unknown.death.price')))
         bad = replace(stage, minion_deaths=replace(f, records=(changed,)))
         with self.assertRaisesRegex(ValueError, 'unknown.death.price'): validate_intrinsic_stage_fact(g.registry, bad)
 
@@ -397,7 +398,8 @@ class MinionDeathCostTests(unittest.TestCase):
         # A structurally valid repeated entity in different batches is still two
         # occurrences. Borrowing today's other physical root cannot authenticate
         # it as the original first death, even when the count stays two.
-        borrowed = replace(row, entity_id=f.records[1].entity_id, cause=f.records[1].cause)
+        borrowed = replace(row, entity_id=f.records[1].entity_id, cause=f.records[1].cause,
+            copy_source=f.records[1].copy_source, adjacent_minions=f.records[1].adjacent_minions)
         changed = replace(stage, minion_deaths=replace(f, records=(borrowed, f.records[1])))
         validate_intrinsic_stage_fact(g.registry, changed)
         with self.assertRaisesRegex(ValueError, 'original physical destruction prefix'):

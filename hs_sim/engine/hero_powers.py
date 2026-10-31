@@ -295,12 +295,13 @@ def use_error(state, registry, rules, player, source, *, context_factory=None, b
     if definition.requires_board_space and len(player.board) >= rules.max_board:
         return 'Board is full'
     try:
-        if registry.use_visibility(definition.use_rule) == 'player':
+        visibility = registry.use_visibility(definition.use_rule)
+        if visibility == 'player':
             if context_factory is None:
                 raise ValueError('Player use rules require an observation context')
             context = context_factory(source.id, None)
         else:
-            context = RuleContext(deepcopy(state), source.id, player.id)
+            context = RuleContext(state if visibility == 'builtin' else deepcopy(state), source.id, player.id)
         allowed = registry.use_rule(definition.use_rule)(context)
     except Exception as exc:
         raise ResolutionError(f'Hero power use rule failed: {exc}') from exc

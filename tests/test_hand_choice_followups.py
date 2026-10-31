@@ -418,10 +418,21 @@ class HandChoiceFollowupTests(unittest.TestCase):
             with self.subTest(request=request):
                 with self.assertRaises(ValueError): DiscoverForPlayFollowup(request)
 
+    def test_fixed_discovery_candidate_wire_requires_an_array_and_restores_tuple(self):
+        from hs_sim.engine.hand_choice_followups import rows_from_dict
+        g = self.game(); self.arm(g); saved = g.snapshot()
+        self.assertEqual(saved['state']['hand_choice_followups'][0]['request']['fixed_candidates'], [])
+        self.assertEqual(Game.from_snapshot(saved, registry(self.scripts, **self.options)).snapshot(), saved)
+        for malformed in (None, '', (), ['duplicate', 'duplicate']):
+            bad = deepcopy(saved['state'])
+            bad['hand_choice_followups'][0]['request']['fixed_candidates'] = malformed
+            with self.subTest(value=malformed), self.assertRaises(ValueError):
+                rows_from_dict(bad)
+
     def test_new_schema_and_view_are_explicit_and_previous_schema_rejected(self):
         g = self.game(); snap = g.snapshot()
         self.assertEqual((snap['schema_version'], g.ruleset.id, g.mechanics.version), (SNAPSHOT_SCHEMA_VERSION, 'prototype-v302', CORE_EFFECTS_VERSION))
-        self.assertEqual(g.observe(1)['version'], 'player-view-v119')
+        self.assertEqual(g.observe(1)['version'], 'player-view-v122')
         self.assertEqual(g.for_player(1).observe()['version'], 'player-actions-v13')
         self.assertEqual(build_replay(g)['schema_version'], 1)
         snap['schema_version'] = 162; self.reject(snap)

@@ -232,7 +232,7 @@ class SolarFlareTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_new_row_fields_are_strict_and_schema608_is_not_silently_upgraded(self):
         g=self.game((SOLAR,ADD),board=(PLAIN,WAIT));self.paid(g,ADD,g.state.players[1].board[0]);self.paid(g)
-        self.assertEqual(SNAPSHOT_SCHEMA_VERSION,609)
+        self.assertEqual(SNAPSHOT_SCHEMA_VERSION,679)
         data=g.snapshot();data['schema_version']=608
         with self.assertRaises(SnapshotError):Game.from_snapshot(data,registry('normal','independent-reader'))
         data=g.snapshot()

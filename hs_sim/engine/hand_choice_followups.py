@@ -466,6 +466,7 @@ def rows_from_dict(value):
             policy['allowed_special'] = tuple(Keyword(k) for k in _list(policy['allowed_special'], 'generation exceptions'))
             req['policy'] = GenerationPolicy(**policy)
             req['entry_keywords'] = tuple(Keyword(k) for k in _list(req['entry_keywords'], 'original discovery entry keywords'))
+            req['fixed_candidates'] = tuple(_list(req['fixed_candidates'], 'original fixed discovery candidates'))
         else: req['zone'] = Zone(req['zone'])
         row['request'] = cls(**req)
         def reference(v):

@@ -566,7 +566,10 @@ def validate_intrinsic_history_prefix(fact, state, registry, *, _within_cast_his
     if fact.condition_facts and type(fact.condition_facts[0]) is HeldOpponentCopyMatch:
         from .held_opponent_copies import validate_match
         validate_match(fact.condition_facts[0], state, registry)
-    before = deepcopy(state)
+    # This retained-history projection is consumed only by the pure validators
+    # below. Every field we rewrite gets its own list/value; the other (often
+    # large) inventories are read, never modified or passed to card callbacks.
+    before = replace(state)
     if fact.condition_facts and type(fact.condition_facts[0]) is CardDiscoveredTurnMatch:
         from .card_discoveries import validate_turn_prefix
         condition = fact.condition_facts[0]

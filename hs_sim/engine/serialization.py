@@ -1,5 +1,5 @@
 """Canonical JSON only: no pickle, dynamic imports, or executable snapshots."""
-from dataclasses import asdict, fields
+from dataclasses import asdict, dataclass, fields
 from copy import deepcopy
 import hashlib
 import json
@@ -51,8 +51,17 @@ def event_from_dict(value: dict) -> Event:
     return event
 
 
+@dataclass(frozen=True)
+class _StateFieldValue:
+    value: object
+
+
 def state_to_dict(state: GameState) -> dict:
-    result = asdict(state)
+    # These inventories have dedicated wire encoders below. Preserve their key
+    # positions, without recursively converting them once just to discard it.
+    specialized = {'players', 'entities', 'temporary_power_returns', 'whole_card_replay_ledger'}
+    result = {field.name: None if field.name in specialized else
+              asdict(_StateFieldValue(getattr(state, field.name)))['value'] for field in fields(state)}
     result['temporary_power_returns'] = {str(k): asdict(v) for k, v in sorted(state.temporary_power_returns.items())}
     from .whole_card_replay_state import encode as encode_whole_card_replay
     result['whole_card_replay_ledger'] = encode_whole_card_replay(state.whole_card_replay_ledger)

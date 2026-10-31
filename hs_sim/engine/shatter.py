@@ -34,8 +34,7 @@ def validate_definitions(registry):
 
 
 def families(registry):
-    return {part: root for root in registry.cards.values() if root.shatter is not None
-            for part in (root.shatter.left_card_id, root.shatter.right_card_id)}
+    return registry.shatter_families()
 
 
 def suspended(state):

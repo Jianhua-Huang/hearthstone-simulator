@@ -164,6 +164,7 @@ class Registry:
         _name(version, "version")
         self._version = version
         self._cards: dict[str, CardDefinition] = {}
+        self._shatter_families: dict[str, CardDefinition] = {}
         self._hand_mirror_ids = frozenset()
         self._spell_mirror_ids = frozenset()
         self._defining_hand_copy_ids = frozenset()
@@ -3137,7 +3138,19 @@ class Registry:
 
     def freeze(self) -> None:
         self.validate()
+        self._shatter_families = self._build_shatter_families()
         self._frozen = True
+
+    def _build_shatter_families(self):
+        # Catalog iteration lists static definitions only. Reading that inventory
+        # directly avoids routing every ordinary face through dynamic lookup.
+        return {part: root for root in self._cards.values() if root.shatter is not None
+                for part in (root.shatter.left_card_id, root.shatter.right_card_id)}
+
+    def shatter_families(self):
+        # Construction may still add families; only freeze establishes a cache.
+        # Callers retain the original detached-dict contract.
+        return dict(self._shatter_families) if self._frozen else self._build_shatter_families()
 
     def fingerprint(self) -> str:
         self.validate()

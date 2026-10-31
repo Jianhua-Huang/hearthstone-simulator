@@ -26,12 +26,13 @@ def location_error(state, registry, rules, player_id, entity_id, *, context_fact
     if definition.requires_board_space and source.durability > 1 and len(state.players[player_id].board) >= rules.max_board:
         return 'Board is full'
     try:
-        if registry.use_visibility(definition.use_rule) == 'player':
+        visibility = registry.use_visibility(definition.use_rule)
+        if visibility == 'player':
             if context_factory is None:
                 raise ValueError('Player use rule requires an observation context')
             context = context_factory(source.id, None)
         else:
-            context = RuleContext(deepcopy(state), source.id, player_id)
+            context = RuleContext(state if visibility == 'builtin' else deepcopy(state), source.id, player_id)
         allowed = registry.use_rule(definition.use_rule)(context)
     except Exception as exc:
         raise ResolutionError(f'Location use rule failed: {exc}') from exc

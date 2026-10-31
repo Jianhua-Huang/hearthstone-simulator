@@ -59,14 +59,19 @@ def accepts_target(state, registry, source, definition, target_id, *, context_fa
         if not automatic and target.controller != source.controller and (is_immune(state, target) or Keyword.STEALTH in target.keywords):
             return False
     try:
-        if registry.target_visibility(definition.target_rule) == 'player':
+        visibility = registry.target_visibility(definition.target_rule)
+        if visibility == 'player':
             if context_factory is None:
                 raise ValueError('Player target rules require an observation context')
             ctx = context_factory(source.id, target_id)
             if ctx.target is None:
                 return False
         else:
-            ctx = RuleContext(deepcopy(state), source.id, source.controller, target_id)
+            # Only engine-owned builtin/declarative predicates may read this
+            # state directly. Registration cannot mark extension callbacks as
+            # builtin; those callbacks still receive a fresh detached snapshot.
+            ctx = RuleContext(state if visibility == 'builtin' else deepcopy(state),
+                              source.id, source.controller, target_id)
         valid = registry.target_rule(definition.target_rule)(ctx)
     except Exception as exc:
         raise ResolutionError(f'Target rule {definition.target_rule} failed: {exc}') from exc

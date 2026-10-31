@@ -35,5 +35,91 @@
     "Keep hidden card identity, choice options, internal IDs, RNG, and proof frames outside player observations.",
     "Do not inherit results when a dependency changed. Stage-wide full suite remains separately required.",
     "This manifest contains planned coverage, not a claim that all modules have been run."
-  ]
+  ],
+  "phase_modules": {
+    "A": [
+      "test_performance_static_inventory",
+      "test_m5_shatter",
+      "test_combined_shatter_generation_cards",
+      "test_registry_identity_fixtures",
+      "test_m3_choices",
+      "test_h2_choice_boundary",
+      "test_h2_paid_hand_acceptance",
+      "test_m3_information"
+    ],
+    "B": [
+      "test_performance_target_context",
+      "test_targeting",
+      "test_player_target_inputs",
+      "test_target_predicates",
+      "test_paid_body_target_preflight",
+      "test_automatic_target_runtime",
+      "test_paid_body_targets_runtime",
+      "test_body_target_origin",
+      "test_body_target_authority",
+      "test_native_random_target_domains",
+      "test_native_hand_targets",
+      "test_m3_choices",
+      "test_h2_choice_boundary",
+      "test_h2_paid_hand_acceptance",
+      "test_m3_information"
+    ],
+    "C": [
+      "test_performance_intrinsic_projection",
+      "test_h2_intrinsic_stage",
+      "test_h2_intrinsic_boundaries",
+      "test_generated_intrinsic_retention",
+      "test_generated_intrinsic_retention_boundaries",
+      "test_generated_intrinsic_schema_boundary",
+      "test_native_cost_payment_basics",
+      "test_payment_validation_reuse",
+      "test_m5_spell_cost_acceptance",
+      "test_m5_spell_cost_account_boundaries",
+      "test_native_coin_hand_cost_cards",
+      "test_discovery_turn_cost_cards",
+      "test_player_spell_count_cost_basics",
+      "test_hero_health_change_cost_basics",
+      "test_shuffle_native_cards",
+      "test_seaside_location_card",
+      "test_m3_choices",
+      "test_h2_choice_boundary",
+      "test_h2_paid_hand_acceptance",
+      "test_m3_information",
+      "test_agamaggan_health_payment_card"
+    ],
+    "D": [
+      "test_performance_frame_metadata",
+      "test_m3_choices",
+      "test_h2_choice_boundary",
+      "test_h2_paid_hand_acceptance",
+      "test_m3_information",
+      "test_automatic_target_runtime",
+      "test_target_predicates",
+      "test_hand_choice_followups",
+      "test_nozdormu_turn_clock_card",
+      "test_past_nozdormu_battlefield_clock"
+    ],
+    "B2": [
+      "test_performance_use_context",
+      "test_m4_locations",
+      "test_m4_minion_abilities",
+      "test_m3_hand_actions",
+      "test_hero_power_use_aura_basics",
+      "test_hero_power_damage_basics",
+      "test_hero_power_prohibition_basics",
+      "test_m3_choices",
+      "test_h2_choice_boundary",
+      "test_h2_paid_hand_acceptance",
+      "test_m3_information"
+    ]
+  },
+  "final_impact_selection": {
+    "include_all_phase_modules": true,
+    "additional_test_source_patterns": [
+      "intrinsic_costs",
+      "validate_compact_hand_costs",
+      "validate_cost_fact_identity"
+    ],
+    "note": "Select current matching complete modules and deduplicate. This is a coverage plan; only actual runner receipts certify execution."
+  }
 }

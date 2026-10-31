@@ -196,7 +196,8 @@ class IntrinsicBoundaryTests(unittest.TestCase):
         return replace(stage, condition_facts=(shorter,))
 
     def test_four_real_accounts_keep_local_override_and_one_finite_external_use(self):
-        for payment in PaymentType:
+        # Opponent-health payment has its own bounded-source card suite.
+        for payment in (PaymentType.MANA, PaymentType.HEALTH, PaymentType.ARMOR, PaymentType.CORPSES):
             with self.subTest(payment=payment):
                 setup = 'boundary.prepare.' + payment.value
                 game = self.closed_arcane(setup, ASK,

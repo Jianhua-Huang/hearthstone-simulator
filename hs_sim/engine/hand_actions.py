@@ -60,12 +60,13 @@ def hand_action_error(state, registry, player, source, action_id, *, context_fac
     if spec.kind == 'trade' and not player.deck:
         return 'Trade requires another card in the deck'
     try:
-        if registry.use_visibility(spec.use_rule) == 'player':
+        visibility = registry.use_visibility(spec.use_rule)
+        if visibility == 'player':
             if context_factory is None:
                 raise ValueError('Player hand rules require an observation context')
             context = context_factory(source.id, None)
         else:
-            context = RuleContext(deepcopy(state), source.id, player.id)
+            context = RuleContext(state if visibility == 'builtin' else deepcopy(state), source.id, player.id)
         allowed = registry.use_rule(spec.use_rule)(context)
     except Exception as exc:
         raise ResolutionError(f'Hand action use rule failed: {exc}') from exc

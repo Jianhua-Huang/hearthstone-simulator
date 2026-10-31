@@ -49,12 +49,13 @@ def ability_error(state, registry, rules, player_id, entity_id, ability_id, targ
     if spec.requires_board_space and len(state.players[player_id].board) >= rules.max_board:
         return 'Board is full'
     try:
-        if registry.use_visibility(spec.use_rule) == 'player':
+        visibility = registry.use_visibility(spec.use_rule)
+        if visibility == 'player':
             if context_factory is None:
                 raise ValueError('Player use rule requires observation context')
             context = context_factory(entity.id, target_id)
         else:
-            context = RuleContext(deepcopy(state), entity.id, player_id, target_id)
+            context = RuleContext(state if visibility == 'builtin' else deepcopy(state), entity.id, player_id, target_id)
         allowed = registry.use_rule(spec.use_rule)(context)
     except Exception as exc:
         raise ResolutionError(f'Minion ability use rule failed: {exc}') from exc

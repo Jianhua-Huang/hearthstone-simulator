@@ -358,8 +358,9 @@ class Game:
     def snapshot(self):
         self._require_boundary()
         events = [event_to_dict(event) for event in self._events]
-        return deepcopy({'schema_version': SNAPSHOT_SCHEMA_VERSION, **self._hash_payload(), 'events': events,
-                         'events_hash': canonical_hash(events), 'state_hash': self.state_hash()})
+        payload = self._hash_payload()
+        return deepcopy({'schema_version': SNAPSHOT_SCHEMA_VERSION, **payload, 'events': events,
+                         'events_hash': canonical_hash(events), 'state_hash': canonical_hash(payload)})
 
     @classmethod
     def from_snapshot(cls, snapshot: dict, registry: Registry, mechanics: Mechanics | None = None):

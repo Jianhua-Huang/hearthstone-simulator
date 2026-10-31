@@ -504,7 +504,7 @@ class PlayerHeroPowerCountCostTests(unittest.TestCase):
         self.assertEqual((g.ruleset.id, g.mechanics.version, saved['schema_version']),
             ('prototype-v302', CORE_EFFECTS_VERSION, SNAPSHOT_SCHEMA_VERSION))
         self.assertEqual((g.observe(1)['version'], g.for_player(1).observe()['version']),
-            ('player-view-v115', 'player-actions-v13'))
+            ('player-view-v122', 'player-actions-v13'))
         for version in (1, 173, 174, 217, True, '175'):
             bad = deepcopy(saved)
             bad['schema_version'] = version
