@@ -727,15 +727,17 @@ def validate_terminal_queue(r, queue):
 
 
 def finish(r, work):
-    from .spell_cost_proof import validate_hand_cost_proof_live
-    validate_hand_cost_proof_live(work.cost_proof, r.game)
-    validate_queue(r.state, r.registry, r._work_queue, r.rules.max_resolution_steps, closing=work)
-    play = _bind_live(r.state, work, r.registry)
+    if r.game.runtime_audits:
+        from .spell_cost_proof import validate_hand_cost_proof_live
+        validate_hand_cost_proof_live(work.cost_proof, r.game)
+        # Queue validation already binds this closing proof to its live root.
+        validate_queue(r.state, r.registry, r._work_queue, r.rules.max_resolution_steps, closing=work)
+        validate_history(r.state, r.registry)
+    play = play_record(r.state, work.play_id)
     if (work.resolution is None or not play.completed or play.interrupted or
             play.spell_acceptance_closed or
             any(w.play_id == play.id for w in r.state.action_windows)):
         raise ResolutionError('Spell acceptance closed before its completed root')
-    validate_history(r.state, r.registry)
     _validate_cast_progress(r.state, play, allocated=True)
     if any(not c.completed for c in r.state.cast_history if c.play_id == play.id):
         raise ResolutionError('Spell acceptance closed before its actual casts')

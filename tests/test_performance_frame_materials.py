@@ -16,6 +16,7 @@ import test_assemble_offers as fixtures
 class FrameMaterialsTests(unittest.TestCase):
     def setUp(self):
         self.game = fixtures.AssembleOfferTests().game()
+        self.game.runtime_audits = True
         self.registry = self.game.registry
         self.state = self.game._state
         self.codec = FrameCodec(self.game.mechanics, self.registry)
@@ -216,17 +217,18 @@ class FrameMaterialsTests(unittest.TestCase):
         self.assertEqual(cached.snapshot(), original.snapshot())
         self.assertEqual([cached.observe(p) for p in (1, 2)], [original.observe(p) for p in (1, 2)])
 
-    def test_cache_starts_only_for_new_choices_and_reactivates_for_nested_choice(self):
+    def test_native_debug_choices_do_not_need_state_wire_materials(self):
         g = fixtures.AssembleOfferTests().game(hand=('repeat',))
+        g.runtime_audits = True
         original = cache.FrameMaterials.encode_state
         with patch.object(cache.FrameMaterials, 'encode_state', autospec=True, side_effect=original) as encode:
             g.apply(PlayCard(1, g._state.players[1].hand[0]))
-            self.assertGreater(encode.call_count, 0)
+            self.assertEqual(encode.call_count, 0)
             encode.reset_mock()
             choice = g._state.pending_choice
             g.apply(SelectChoice(1, choice.id, (choice.options[0].id,)))
             self.assertIsNotNone(g._state.pending_choice)
-            self.assertGreater(encode.call_count, 0)
+            self.assertEqual(encode.call_count, 0)
             encode.reset_mock()
             choice = g._state.pending_choice
             g.apply(SelectChoice(1, choice.id, (choice.options[0].id,)))

@@ -231,7 +231,7 @@ def assemble(r,spec):
     from .assembly_materials import candidate_materials
     # These helpers only capture, calculate and return work. Effect execution
     # starts after the scope closes, so cached definitions cannot escape to it.
-    with candidate_materials(r.registry):
+    with candidate_materials(r.registry, audit=r.game.runtime_audits):
         return _assemble(r,spec)
 
 
@@ -239,7 +239,8 @@ def _assemble(r,spec):
     spec.__post_init__();before=deepcopy(r.state);rng_before=r.game._rng.getstate()
     data=draw(r.registry,r.game._generation_context,before,spec,r.game._rng)
     if data is None:return ()
-    offer=AssembleOffer(spec,before,*data,rng_before,r.game._rng.getstate());validate_offer(r.registry,r.game._generation_context,offer)
+    offer=AssembleOffer(spec,before,*data,rng_before,r.game._rng.getstate())
+    if r.game.runtime_audits:validate_offer(r.registry,r.game._generation_context,offer)
     return(RequestChoice(spec.player_id,options_for(r.registry,offer),spec.source_id,spec.prompt,purpose=ChoicePurpose.ASSEMBLE),)
 
 def validate_current(offer,state):
@@ -254,12 +255,13 @@ def validate_current(offer,state):
 
 def resolve(r,effect):
     from .assembly_materials import candidate_materials
-    with candidate_materials(r.registry):
+    with candidate_materials(r.registry, audit=r.game.runtime_audits):
         return _resolve(r,effect)
 
 
 def _resolve(r,effect):
-    effect.__post_init__();validate_offer(r.registry,r.game._generation_context,effect.offer)
+    effect.__post_init__()
+    if r.game.runtime_audits:validate_offer(r.registry,r.game._generation_context,effect.offer)
     validate_current(effect.offer,r.state)
     if effect.result is None:raise ValueError('Assembly delivery requires the actual selected choice')
     spec=effect.offer.spec;choice=effect.result.choice

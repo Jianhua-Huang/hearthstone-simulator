@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import os
+from contextlib import nullcontext
 from pathlib import Path
 
 from .actions import Attack, EndTurn, PlayCard, action_from_dict, action_to_dict
@@ -12,6 +14,7 @@ from .replay import load_replay, save_replay
 from .serialization import event_to_dict
 from .synthetic import build_registry, demo_scenario
 from .rules import Ruleset
+from .runtime import RuntimeMode, debug_log
 
 
 def add_commands(commands, positive_int):
@@ -36,6 +39,10 @@ def add_commands(commands, positive_int):
     replay = commands.add_parser('replay', help='重算回放并验证每步状态与事件摘要')
     replay.add_argument('path', type=Path)
     replay.add_argument('--card-set', choices=('synthetic', 'representative'), default='synthetic')
+    for command in (demo, simulate, match, replay):
+        command.add_argument('--mode', choices=('release', 'debug'), default='release',
+                             help='release 保持快速执行；debug 开启完整审计和详细动作日志')
+        command.add_argument('--debug-log', type=Path, help='debug JSONL 日志路径（自动轮转）')
 
 
 def choose_demo_action(game):
@@ -92,6 +99,19 @@ def _read_json(path):
 
 
 def run_command(args):
+    mode = RuntimeMode(getattr(args, 'mode', 'release'))
+    path = getattr(args, 'debug_log', None)
+    if path is not None and mode is not RuntimeMode.DEBUG:
+        raise ValueError('--debug-log requires --mode debug')
+    if mode is RuntimeMode.DEBUG:
+        path = path or Path('outputs/engine-debug') / f'cli-{os.getpid()}.jsonl'
+    with debug_log(path) if path is not None else nullcontext():
+        if path is not None:
+            print(f'引擎模式：debug；详细日志：{path.resolve()}')
+        return _run_command(args, mode)
+
+
+def _run_command(args, mode):
     if getattr(args, 'card_set', 'synthetic') == 'representative':
         from .representative import build_registry as representative_registry
         registry = representative_registry()
@@ -101,20 +121,20 @@ def run_command(args):
         label = '合成测试机制'
     print(f'规则：{Ruleset().id}；使用{label}，尚未覆盖官方完整规则和真实卡池。')
     if args.command == 'replay':
-        game = load_replay(args.path, registry)
+        game = load_replay(args.path, registry, mode=mode)
         print('回放逐步校验通过。')
     else:
         if args.command == 'demo':
-            game = Game.from_scenario(demo_scenario(args.seed), registry)
+            game = Game.from_scenario(demo_scenario(args.seed), registry, mode=mode)
             steps = range(args.max_actions)
         elif args.command == 'match':
-            game = Game.from_decks(MatchSetup.from_dict(_read_json(args.setup)), registry)
+            game = Game.from_decks(MatchSetup.from_dict(_read_json(args.setup)), registry, mode=mode)
             raw_actions = _read_json(args.actions) if args.actions else []
             if not isinstance(raw_actions, list):
                 raise ValueError('Action file must contain an array')
             steps = [action_from_dict(action) for action in raw_actions]
         else:
-            game = Game.from_scenario(Scenario.from_dict(_read_json(args.scenario)), registry)
+            game = Game.from_scenario(Scenario.from_dict(_read_json(args.scenario)), registry, mode=mode)
             raw_actions = _read_json(args.actions)
             if not isinstance(raw_actions, list):
                 raise ValueError('Action file must contain an array')

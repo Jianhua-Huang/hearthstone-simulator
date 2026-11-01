@@ -15,6 +15,7 @@ from typing import TYPE_CHECKING
 
 from .turn_clocks import history_action_from_dict
 from .game import Game
+from .runtime import RuntimeMode
 from .serialization import canonical_hash, event_to_dict
 
 if TYPE_CHECKING:
@@ -72,7 +73,8 @@ def build_replay(game: Game) -> dict:
     return deepcopy(payload)
 
 
-def replay(payload: object, registry: Registry, mechanics: Mechanics | None = None) -> Game:
+def replay(payload: object, registry: Registry, mechanics: Mechanics | None = None,
+           *, mode: RuntimeMode | str = RuntimeMode.RELEASE) -> Game:
     """Execute a replay and reject the first invalid action or divergent result.
 
     Replay schema is validated before any actions run.  The engine validates the
@@ -81,7 +83,7 @@ def replay(payload: object, registry: Registry, mechanics: Mechanics | None = No
     """
     data = _validate_payload(payload)
     try:
-        game = Game.from_snapshot(deepcopy(data["origin"]), registry, mechanics=mechanics)
+        game = Game.from_snapshot(deepcopy(data["origin"]), registry, mechanics=mechanics, mode=mode)
     except (ValueError, TypeError, KeyError) as exc:
         raise ReplayError(f"cannot restore origin: {exc}") from exc
     for step, record in enumerate(data["actions"], start=1):
@@ -117,14 +119,15 @@ def _reject_constant(value: str) -> None:
     raise ValueError(f"non-finite JSON number: {value}")
 
 
-def load_replay(path: str | Path, registry: Registry, mechanics: Mechanics | None = None) -> Game:
+def load_replay(path: str | Path, registry: Registry, mechanics: Mechanics | None = None,
+                *, mode: RuntimeMode | str = RuntimeMode.RELEASE) -> Game:
     """Read UTF-8 JSON (an optional BOM is accepted), then validate and execute it."""
     try:
         content = Path(path).read_text(encoding="utf-8-sig")
         payload = json.loads(content, object_pairs_hook=_unique_object, parse_constant=_reject_constant)
     except (OSError, UnicodeError, ValueError) as exc:
         raise ReplayError(f"cannot read replay file: {exc}") from exc
-    return replay(payload, registry, mechanics=mechanics)
+    return replay(payload, registry, mechanics=mechanics, mode=mode)
 
 
 def save_replay(game: Game, path: str | Path) -> Path:

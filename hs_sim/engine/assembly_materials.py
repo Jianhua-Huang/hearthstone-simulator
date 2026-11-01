@@ -23,14 +23,14 @@ _current = ContextVar('assembly_static_materials', default=None)
 
 
 @contextmanager
-def candidate_materials(registry):
+def candidate_materials(registry, *, audit=True):
     from .registry import Registry
     active = _current.get()
     if active is not None and active[0] is registry:
         yield
         return
     eligible = (type(registry) is Registry and registry._frozen
-                and registry._identity_unchanged())
+                and (registry._identity_unchanged() if audit else registry._identity_guard is not None))
     if not eligible:
         token = _current.set(None)
         try:
@@ -48,12 +48,12 @@ def candidate_materials(registry):
         _owners.move_to_end(identity)
         while len(_owners) > MAX_REGISTRIES:
             _owners.popitem(last=False)
-    token = _current.set((registry, row[2]))
+    token = _current.set((registry, row[2], audit))
     try:
         yield
     finally:
         _current.reset(token)
-        if registry._identity_guard is not inventory or not inventory.matches(registry):
+        if audit and (registry._identity_guard is not inventory or not inventory.matches(registry)):
             with _lock:
                 row[2].clear()
             raise ValueError('Registry changed during static assembly enumeration')
@@ -66,7 +66,7 @@ def material(registry, key, compute):
     cache = active[1]
     with _lock:
         entry = cache.get(key)
-        if entry is not None and entry[1].matches(entry[0]):
+        if entry is not None and (not active[2] or entry[1].matches(entry[0])):
             cache.move_to_end(key)
             return entry[0].value
         cache.pop(key, None)

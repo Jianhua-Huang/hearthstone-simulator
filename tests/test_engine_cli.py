@@ -15,6 +15,37 @@ ACTIONS = ROOT / "examples" / "actions" / "basic.json"
 
 
 class EngineCliTests(unittest.TestCase):
+    def test_debug_and_release_save_identical_replays_and_debug_writes_action_logs(self):
+        with tempfile.TemporaryDirectory() as folder:
+            release, debug = Path(folder) / 'release.json', Path(folder) / 'debug.json'
+            log = Path(folder) / 'actions.jsonl'
+            first = self.run_cli('simulate', SCENARIO, '--actions', ACTIONS, '--replay-out', release)
+            second = self.run_cli('simulate', SCENARIO, '--actions', ACTIONS, '--replay-out', debug,
+                                  '--mode', 'debug', '--debug-log', log)
+            self.assertEqual(self.summary(first), self.summary(second))
+            self.assertEqual(json.loads(release.read_text(encoding='utf-8')),
+                             json.loads(debug.read_text(encoding='utf-8')))
+            rows = [json.loads(line) for line in log.read_text(encoding='utf-8').splitlines()]
+            self.assertEqual(len(rows), 3)
+            self.assertTrue(all(row['status'] == 'ok' and 'audit' in row['stages_ms'] for row in rows))
+            replay_log = Path(folder) / 'replay.jsonl'
+            replayed = self.run_cli('replay', debug, '--mode', 'debug', '--debug-log', replay_log)
+            self.assertEqual(self.summary(second), self.summary(replayed))
+            self.assertEqual(len(replay_log.read_text(encoding='utf-8').splitlines()), 3)
+
+    def test_debug_failure_is_logged_and_release_rejects_debug_log_option(self):
+        with tempfile.TemporaryDirectory() as folder:
+            actions, log = Path(folder) / 'invalid.json', Path(folder) / 'failed.jsonl'
+            actions.write_text('[{"type":"end_turn","player_id":2}]', encoding='utf-8')
+            self.run_cli('simulate', SCENARIO, '--actions', actions, '--mode', 'debug',
+                         '--debug-log', log, expected_code=2)
+            row = json.loads(log.read_text(encoding='utf-8'))
+            self.assertEqual((row['status'], row['failed_stage']), ('error', 'validate'))
+            self.assertIn('IllegalAction', row['traceback'])
+            absent = Path(folder) / 'release.jsonl'
+            self.run_cli('demo', '--debug-log', absent, expected_code=2)
+            self.assertFalse(absent.exists())
+
     def test_match_stops_at_mulligan_and_saves_pending_snapshot(self):
         with tempfile.TemporaryDirectory() as folder:
             snapshot = Path(folder) / 'pending.json'

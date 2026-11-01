@@ -892,13 +892,17 @@ class Resolution:
         from .controlled_turns import RequestControlledTurn
         queue = deque(effects)
         self._work_queue = queue
+        trace = self.game._debug_trace
+        audits = self.game.runtime_audits
         while queue and self.state.status == 'playing':
             self.charge()
             work = queue.popleft()
+            if trace is not None: trace.work(work, len(queue) + 1)
             from .whole_card_replays import validate_control_work as validate_whole_card_control_work
             validate_whole_card_control_work(self, work)
-            from .paid_hand_acceptance import validate_control_work as validate_paid_hand_control_work
-            validate_paid_hand_control_work(self, work)
+            if audits:
+                from .paid_hand_acceptance import validate_control_work as validate_paid_hand_control_work
+                validate_paid_hand_control_work(self, work)
             from .owner_turns import validate_control_work as validate_owner_control_work
             validate_owner_control_work(self, work)
             from .deathrattle_acceptance import validate_control_work
@@ -907,8 +911,9 @@ class Resolution:
             validate_power_control_work(self,work)
             from .end_turn_acceptance import validate_control_work as validate_end_turn_control_work
             validate_end_turn_control_work(self,work)
-            from .spell_acceptance import validate_control_work as validate_spell_control_work
-            validate_spell_control_work(self,work)
+            if audits:
+                from .spell_acceptance import validate_control_work as validate_spell_control_work
+                validate_spell_control_work(self,work)
             transparent_power_guard=(type(work) is CheckActiveEndTurn and
                 work.context.end_turn.subject.ability.kind!='limited_trigger')
             from .pool_summons import CONTROL as POOL_SUMMON_CONTROL
@@ -1013,7 +1018,11 @@ class Resolution:
                 # Validate before committing a waiting boundary. Unsupported
                 # queued work must fail now, not after the user picks an option.
                 codec = FrameCodec(self.game.mechanics, self.registry)
-                self.game._frame = codec.decode(codec.encode(frame))
+                # Both modes execute native work. Debug validates the completed
+                # frame at the stable boundary instead of serializing it twice.
+                wire = codec.encode_runtime(frame)
+                self.game._frame = codec.copy_runtime(frame)
+                self.game._frame_encoding = (self.game._frame, wire)
                 return
             queue.extendleft(reversed(routed))
         if self.death_deferrals and self.state.status == 'playing':

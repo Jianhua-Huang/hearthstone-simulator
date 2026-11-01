@@ -6,6 +6,9 @@ import threading
 import re
 import random
 import html
+import time
+import os
+from contextlib import nullcontext
 from functools import lru_cache
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -16,7 +19,9 @@ from hs_sim.engine.replay import build_replay
 from hs_sim.engine.resolver import Resolution
 from hs_sim.targets import canonical_digest, load_baseline
 from hs_sim.engine.dark_gift_cards import INVENTORY_HASH
+from hs_sim.engine.runtime import RuntimeMode, debug_log
 from .bot import BotError, actor_for, choose_action
+from . import diagnostics
 
 ROOT = Path(__file__).resolve().parents[1]
 STATIC = Path(__file__).parent / 'static'
@@ -49,7 +54,8 @@ def hand_card_disabled_reason(card):
 
 
 class Host:
-    def __init__(self):
+    def __init__(self, *, mode=RuntimeMode.RELEASE):
+        self.runtime_mode = RuntimeMode(mode)
         self.lock = threading.RLock()
         self.registry = build_registry()
         self.game = None
@@ -74,7 +80,7 @@ class Host:
             raise ValueError('invalid_opponent')
         if preset == 'constructed':
             setup = MatchSetup.from_dict(json.loads((ROOT / 'examples/matches/constructed.json').read_text(encoding='utf-8')))
-            game = Game.from_decks(setup, self.registry)
+            game = Game.from_decks(setup, self.registry, mode=self.runtime_mode)
         elif preset == 'practice':
             game = Game.from_scenario(Scenario((
                 PlayerSetup('HERO_08', hero_power_card_id='HERO_08bp', mana=10, max_mana=10,
@@ -84,7 +90,8 @@ class Host:
                     hand=('CS2_182', 'CS2_106', 'FP1_007'),
                     deck=('CS2_179', 'CS2_182', 'FP1_007', 'CS2_106') * 3, board=('CS2_182',)),
                 ), seed=29, name='UI representative practice',
-                generation_context=GenerationContext(printed_metadata()[0], 'experimental')), self.registry)
+                generation_context=GenerationContext(printed_metadata()[0], 'experimental')), self.registry,
+                mode=self.runtime_mode)
         else:
             raise ValueError('invalid_preset')
         self.game = game
@@ -105,8 +112,11 @@ class Host:
         if self.handoff:
             return {'handoff': True, 'seat': self.seat}
         port = self.game.for_player(self.seat)
-        result = port.legal_actions()
-        result['events'] = port.events()
+        with diagnostics.span('legal_actions_ms'):
+            result = port.legal_actions()
+        with diagnostics.span('events_ms'):
+            result['events'] = port.events()
+        enrichment_started = time.perf_counter()
         # Only names of identities already disclosed by this seat's DTO/logs.
         ids = set()
         def visit(value):
@@ -127,6 +137,8 @@ class Host:
         result['test_controls'] = {'mana_enabled': reason is None, 'mana_reason': reason,
                                    'hand_enabled': hand_reason is None, 'hand_reason': hand_reason}
         result['opponent'] = self.opponent_status(result['observation'])
+        diagnostics.add('view_enrichment_ms', (time.perf_counter() - enrichment_started) * 1000)
+        diagnostics.scene(result['observation'], self.seat)
         return result
 
     def catalog(self):
@@ -202,10 +214,14 @@ class Host:
             if observation['pending_choice'] is not None and self.opponent_choice_steps >= BOT_STEP_LIMIT:
                 raise BotError('action_budget_exhausted')
             port = self.game.for_player(3 - self.seat)
-            message = port.legal_actions()
-            action = choose_action(message, self.opponent_rng,
-                                   force_end=self.opponent_steps >= BOT_ACTION_BUDGET)
-            reply = port.submit({'revision': message['revision'], 'action': action})
+            with diagnostics.span('ai_legal_actions_ms'):
+                message = port.legal_actions()
+            with diagnostics.span('ai_policy_ms'):
+                action = choose_action(message, self.opponent_rng,
+                                       force_end=self.opponent_steps >= BOT_ACTION_BUDGET)
+            diagnostics.action(action)
+            with diagnostics.span('command_submit_ms'):
+                reply = port.submit({'revision': message['revision'], 'action': action})
             if not reply['accepted']: raise BotError('command_rejected')
             acted = True
             if action['type'] == 'select_choice':
@@ -214,8 +230,9 @@ class Host:
                 self.opponent_steps += 1
         except BotError as exc:
             self.opponent_error = exc.code
-        except Exception:
+        except Exception as exc:
             self.opponent_error = 'opponent_failed'
+            if diagnostics.current(): diagnostics.current().exception(exc)
         if not acted:
             self.opponent_rng.setstate(rng_before)
         self.refresh_opponent_ticket()
@@ -282,7 +299,7 @@ class Host:
         if (working.state.pending_choice is not None or working.state.status != 'playing'
                 or (adjusted.mana, adjusted.max_mana) != (body['mana'], body['mana'])):
             return 409, {'error': 'test_adjustment_unavailable'}
-        replacement = Game.from_snapshot(working.snapshot(), self.registry)
+        replacement = Game.from_snapshot(working.snapshot(), self.registry, mode=self.runtime_mode)
         segment = {'replay': build_replay(self.game),
                    'adjustment': {'type': 'set_mana', 'player_id': self.seat, 'mana': body['mana']},
                    'after_hash': replacement.state_hash()}
@@ -322,7 +339,7 @@ class Host:
         if working.state.pending_choice is not None or working.state.status != 'playing':
             return 409, {'error': 'test_hand_adjustment_unavailable'}
         try:
-            replacement = Game.from_snapshot(working.snapshot(), self.registry)
+            replacement = Game.from_snapshot(working.snapshot(), self.registry, mode=self.runtime_mode)
             segment = {'replay': build_replay(self.game),
                        'adjustment': {'type': 'add_to_hand', 'player_id': self.seat, 'card_id': card.id},
                        'after_hash': replacement.state_hash()}
@@ -337,7 +354,7 @@ class Host:
 
     def route(self, path, body, token):
         # A fresh browser creates its own match, never takes over another seat.
-        with self.lock:
+        with diagnostics.timed_lock(self.lock, 'host_lock_wait_ms'):
             if path.startswith('/api/lab/'):
                 from .card_lab import route as lab_route
                 return lab_route(self, path, body, token)
@@ -350,7 +367,7 @@ class Host:
                     return 400, {'error': 'invalid_request'}
                 if type(body.get('opponent', 'human')) is not str or body.get('opponent', 'human') not in ('human', 'ai'):
                     return 400, {'error': 'invalid_opponent'}
-                session = session or Host()
+                session = session or Host(mode=self.runtime_mode)
                 old_token = session.token
                 try:
                     result = session.create(body['preset'], body.get('opponent', 'human'))
@@ -375,8 +392,13 @@ class Host:
             return status, result
 
     def _route_session(self, path, body, token):
-        with self.lock:
+        with diagnostics.timed_lock(self.lock, 'session_lock_wait_ms'):
             if not self.authorize(token): return 403, {'error': 'seat_session_required'}
+            if path == '/api/diagnostics/client':
+                try:
+                    return 200, {'recorded': diagnostics.client_record(body)}
+                except ValueError:
+                    return 400, {'error': 'invalid_diagnostics'}
             if path == '/api/view':
                 if body: return 400, {'error': 'invalid_request'}
                 return 200, self.listing()
@@ -394,7 +416,9 @@ class Host:
                 return 200, self.listing()
             if path == '/api/action':
                 if self.handoff: return 409, {'error': 'handoff_pending'}
-                reply = self.game.for_player(self.seat).submit(body)
+                diagnostics.action(body.get('action'))
+                with diagnostics.span('command_submit_ms'):
+                    reply = self.game.for_player(self.seat).submit(body)
                 if hasattr(self, 'lab_context'):
                     from .card_lab import note_action
                     note_action(self, body.get('action',{}), reply['accepted'])
@@ -416,15 +440,28 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, *_): pass  # Never log credentials or player commands.
 
     def send(self, status, data, mime='application/json; charset=utf-8'):
-        raw = json.dumps(data, ensure_ascii=False).encode('utf-8') if mime.startswith('application/json') else data
+        with diagnostics.span('serialize_ms'):
+            raw = json.dumps(data, ensure_ascii=False).encode('utf-8') if mime.startswith('application/json') else data
+        trace = diagnostics.current()
+        if trace:
+            trace.status = status
+            trace.fields['response_bytes'] = len(raw)
+            if type(data) is dict:
+                for key in ('accepted', 'error', 'command_error'):
+                    if key in data: trace.fields[key] = data[key]
+                if type(data.get('opponent')) is dict:
+                    trace.fields['opponent_error'] = data['opponent'].get('error')
         self.send_response(status)
         self.send_header('Content-Type', mime)
         self.send_header('Content-Length', str(len(raw)))
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; base-uri 'none'")
+        if trace:
+            for name, value in trace.headers().items(): self.send_header(name, value)
         self.end_headers()
-        self.wfile.write(raw)
+        with diagnostics.span('response_write_ms'):
+            self.wfile.write(raw)
 
     def local_request(self):
         expected = f'127.0.0.1:{self.server.server_port}'
@@ -445,6 +482,11 @@ class Handler(BaseHTTPRequestHandler):
         self.send(200, (STATIC / name).read_bytes(), mime)
 
     def do_POST(self):
+        with diagnostics.RequestTrace(self.path, self.server.server_port,
+                self.headers.get('X-UI-Trace-ID'), getattr(self.server, 'diagnostic_sink', None)):
+            return self.handle_post()
+
+    def handle_post(self):
         if not self.local_request(): return self.send(403, {'error': 'origin_rejected'})
         if self.headers.get('Content-Type', '').split(';')[0] != 'application/json':
             return self.send(415, {'error': 'json_required'})
@@ -456,26 +498,36 @@ class Handler(BaseHTTPRequestHandler):
         except (ValueError, UnicodeError): return self.send(400, {'error': 'invalid_request'})
         token = self.headers.get('Authorization', '').removeprefix('Bearer ')
         try:
-            status, result = self.server.host.route(self.path, body, token)
-        except Exception:
+            with diagnostics.span('route_ms'):
+                status, result = self.server.host.route(self.path, body, token)
+        except Exception as exc:
             # Detailed exceptions and all-knowing engine values stay in host.
+            if diagnostics.current(): diagnostics.current().exception(exc)
             status, result = 500, {'error': 'host_error'}
         self.send(status, result)
 
-def make_server(port=8765):
+def make_server(port=8765, *, mode=RuntimeMode.RELEASE):
     server = ThreadingHTTPServer(('127.0.0.1', port), Handler)
-    server.host = Host()
+    server.host = Host(mode=mode)
     return server
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', type=int, default=8765)
+    parser.add_argument('--mode', choices=('release', 'debug'), default='release')
+    parser.add_argument('--debug-log', type=Path, help='debug 引擎 JSONL 日志路径（自动轮转）')
     args = parser.parse_args()
-    server = make_server(args.port)
-    print(f'实验对战 UI：http://127.0.0.1:{server.server_port} （Ctrl+C 停止）', flush=True)
-    try: server.serve_forever()
-    except KeyboardInterrupt: pass
-    finally: server.server_close()
+    if args.debug_log is not None and args.mode != 'debug':
+        parser.error('--debug-log requires --mode debug')
+    path = (args.debug_log or ROOT / 'outputs/engine-debug' / f'server-{args.port}-{os.getpid()}.jsonl'
+            if args.mode == 'debug' else None)
+    with debug_log(path) if path is not None else nullcontext():
+        server = make_server(args.port, mode=args.mode)
+        print(f'实验对战 UI：http://127.0.0.1:{server.server_port}；引擎模式：{args.mode} （Ctrl+C 停止）', flush=True)
+        if path is not None: print(f'引擎详细日志：{path}', flush=True)
+        try: server.serve_forever()
+        except KeyboardInterrupt: pass
+        finally: server.server_close()
 
 if __name__ == '__main__': main()
 

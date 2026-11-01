@@ -100,7 +100,7 @@ class SceneError(ValueError):
     pass
 
 
-def opening_scene(registry, cid, config, case):
+def opening_scene(registry, cid, config, case, *, mode='release'):
     """Real opening provenance for starting-deck conditions; never fabricate it."""
     from hs_sim.engine import MatchSetup,DeckSpec,DeckPolicy,SelectChoice
     from hs_sim.engine.effects import AddToHand,ChangeManaCrystals,GainResource
@@ -111,7 +111,7 @@ def opening_scene(registry, cid, config, case):
     hero=config['hero'];hero_class=registry.card(hero).metadata.classes[0]
     policy=DeckPolicy('ui.lab.opening','ui.lab.fixed','experimental',tuple(sorted(registry.cards)),deck_size=len(config['deck']),max_copies=30)
     decks=tuple(DeckSpec(hero,hero+'bp',hero_class,tuple(config['deck'])) for _ in (1,2))
-    game=Game.from_decks(MatchSetup(decks,policy,'GAME_005',config['seed'],1),registry)
+    game=Game.from_decks(MatchSetup(decks,policy,'GAME_005',config['seed'],1),registry,mode=mode)
     while game._state.pending_choice is not None:
         ch=game._state.pending_choice
         if ch.purpose!='mulligan': raise SceneError('opening_scene_unavailable')
@@ -126,7 +126,7 @@ def opening_scene(registry, cid, config, case):
     finally:game._resolving=False
     # New trusted testing segment retains native OpeningState facts. Previous
     # mulligan commands are not mislabeled as player actions after adjustment.
-    return Game.from_snapshot(game.snapshot(),registry)
+    return Game.from_snapshot(game.snapshot(),registry,mode=mode)
 
 
 def configure(session, body):
@@ -160,12 +160,13 @@ def configure(session, body):
     own_board = config['own_board'] + ([cid] if fixture_role == 'board' else [])
     try:
         from .server import printed_metadata
-        game = opening_scene(registry,cid,config,case) if case.get('opening') else Game.from_scenario(Scenario((
+        game = opening_scene(registry,cid,config,case,mode=session.runtime_mode) if case.get('opening') else Game.from_scenario(Scenario((
             PlayerSetup(hero, hero_power_card_id=power, hand=tuple(hand), board=tuple(own_board),
                         deck=tuple(config['deck']), mana=config['mana'], max_mana=config['mana'], mana_cap=max(10,config['mana']),corpses=config['corpses']),
             PlayerSetup('HERO_01', hero_power_card_id='HERO_01bp', deck=('CS2_182',)*8, board=tuple(config['enemy_board']))),
             seed=config['seed'], name='Card UI test: '+cid,
-            generation_context=GenerationContext(printed_metadata()[0], 'experimental')), registry)
+            generation_context=GenerationContext(printed_metadata()[0], 'experimental')), registry,
+            mode=session.runtime_mode)
     except Exception as exc:
         raise SceneError('scene_unavailable') from exc
     if config['hero_damage'] or config['minion_damage']:
@@ -333,7 +334,7 @@ def route(host, path, body, token):
         compatible=data.get('registry_fingerprint')==current['fingerprint'] and data.get('cases_fingerprint')==current['cases_fingerprint']
         return 200,dict(available=compatible,version=data.get('registry_version'),results=data['results'] if compatible else {},note='历史巡检仅在卡池与用例指纹一致时载入。')
     if path in ('/api/lab/create','/api/lab/probe'):
-        session = Host()
+        session = Host(mode=host.runtime_mode)
         try: created = configure(session, body)
         except SceneError as exc:
             if path.endswith('/probe') and str(exc) in ('source_required','scene_unavailable','prelude_unavailable','opening_scene_options','opening_scene_unavailable'):

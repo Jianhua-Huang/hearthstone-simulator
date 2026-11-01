@@ -13,10 +13,10 @@ def request_choice(r, effect):
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Choice source does not exist')
     from .frame_materials import begin_choice_materials
-    begin_choice_materials(r.registry)
+    begin_choice_materials(r.registry, audit=r.game.runtime_audits)
     # Check every candidate, including candidates that sampling might omit.
     codec = FrameCodec(r.game.mechanics, r.registry)
-    codec.decode(codec.encode(effect))
+    codec.check_runtime(effect)
     for option in effect.options:
         if option.entity_id is not None and option.entity_id not in r.state.entities:
             raise ResolutionError('Choice option entity does not exist')
@@ -159,7 +159,8 @@ def resume_choice(r, action, *, host_timeout=False):
     frame, choice = r.game._frame, r.state.pending_choice
     from .paid_hand_acceptance import validate_choice_boundary
     if type(host_timeout) is not bool: raise ValueError('Invalid choice resume origin')
-    validate_choice_boundary(r.game, resume=not host_timeout)
+    if r.game.runtime_audits:
+        validate_choice_boundary(r.game, resume=not host_timeout)
     r._steps, r.root_action_number, r.ending_turn = frame.steps, frame.root_action_number, frame.ending_turn
     r.death_deferrals = frame.death_deferrals
     r.charge()  # Choosing is part of the original resolution's cumulative budget.

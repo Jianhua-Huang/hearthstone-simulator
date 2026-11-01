@@ -255,10 +255,12 @@ def action_frame_materials(registry, *, deferred=False):
         _current.reset(token)
 
 
-def begin_choice_materials(registry):
+def begin_choice_materials(registry, *, audit=False):
     cache = _current.get()
     if cache is not None and cache.registry is registry:
         cache.active = True
+        if audit:
+            cache.available()
 
 
 def materials_for(registry, kind=None):

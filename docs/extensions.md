@@ -2359,3 +2359,8 @@ ReturnDeadMinion使用已有分配事实并接受帧状态校验，不放宽普�
 
 
 CounterReturnSpell/CounterReplaceSpell只消费原活跃手牌法术窗口和完整分配事实；已有HandPlayCostReceipt提供原驻留，无新窗口/历史字段。回手/原生值保留、完整同费用域及既有反制回溯口径见[扩展契约](m3-original-spell-secret-effects.md)。
+
+
+### 调试扩展的运行模式
+
+扩展开发可通过 `Game.from_scenario(..., mode='debug')` 启用逐动作审计，使用 `game.debug_records` 查看动作耗时；失败时附最近32项结算类型和异常原因链。内部原生帧直接检查，外来扩展仍走原codec。正常运行默认release，仍保留实际规则、未知内容报错、回滚与信息边界；上文历史“动作结束检查状态不变量”的诊断义务在debug执行，release可按需 `game.audit()` 完整检查。模式不更改机制版本或存档schema，详见[性能契约](engine-performance-plan.md#release--debug-运行模式2026-11-01)。

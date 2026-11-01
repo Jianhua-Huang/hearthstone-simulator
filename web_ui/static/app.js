@@ -24,11 +24,79 @@ const manaReasons={game_not_playing:'对局已结束，请创建新局。',openi
 Object.assign(errors,{invalid_mana:'请输入 0–10 之间的整数。',mana_above_cap:'不能超过当前对局的法力上限。',test_adjustment_unavailable:'当前局面无法调整法力，原局面已保留。',...manaReasons,handoff_pending:'请先完成座位交接。'});
 Object.assign(errors,{stale_opponent_step:'托管状态已更新，请按最新局面重试。',invalid_opponent:'请选择电脑托管或双人手动。',opponent_controls_seat:'请先暂停托管，再交接座位。',opponent_disabled:'对手托管已关闭。',opponent_paused:'对手托管已暂停。',opponent_not_acting:'当前不需要对手操作。',enumeration_failed:'当前规则无法完整列出操作，可切换手动查看。',choice_unavailable:'当前选择无法自动完成，可切换手动查看。',action_budget_exhausted:'本轮自动操作达到上限，可重试或手动接管。',command_rejected:'操作未被接受，可刷新后重试。',opponent_failed:'操作结算失败，可重试或手动接管。',no_legal_actions:'当前没有可继续的合法操作。'});
 function notice(s){$('error').textContent=s||'';}
+// Bounded per-seat diagnostics. Only public scene counts and the acting player's chosen card.
+const perfLog=(()=>{
+    const key='hs-ui-timings-v1',limit=150;let rows=[];
+    try{const raw=sessionStorage.getItem(key);if(raw&&raw.length<512000){const saved=JSON.parse(raw);if(Array.isArray(saved))rows=saved.filter(r=>r&&typeof r==='object'&&r.stages_ms&&typeof r.path==='string').slice(-limit);}}catch{}
+    for(const row of rows)if(row.status==='running')row.status='interrupted';
+    const copy=value=>JSON.parse(JSON.stringify(value));
+    function paint(){
+        if(!$('performance-summary'))return;
+        const latest=[...rows].reverse().find(r=>['action','opponent/step'].includes(r.path))||rows.at(-1);
+        $('performance-summary').textContent=latest?`${latest.card_name||latest.action_type||latest.path} · ${latest.status==='running'?'处理中：'+latest.phase:latest.status==='interrupted'?'上次操作被刷新或中断':(latest.stages_ms.interaction_ms??latest.stages_ms.http_ms??0).toFixed(0)+' ms'}${latest.server_enabled?' · 前后端已关联':' · 仅前端/请求计时'}`:'尚无耗时记录。操作后会自动记录，可导出用于排查。';
+        $('performance-records').textContent=JSON.stringify(rows.slice(-8),null,2);
+    }
+    function save(){try{sessionStorage.setItem(key,JSON.stringify(rows));}catch{}paint();}
+    function scene(){
+        if(!message?.observation)return{};
+        const own=message.observation.players.find(p=>p.id===message.seat),other=message.observation.players.find(p=>p.id!==message.seat);
+        return{seat:message.seat,turn:message.observation.turn,friendly_board:own.board.length,enemy_board:other.board.length,friendly_hand:own.hand.length,enemy_hand:other.hand.length};
+    }
+    function start(path,action){
+        const c=message?.observation&&action?entities()[source(action)]:null;
+        const row={ui_id:crypto.randomUUID().replaceAll('-',''),at:new Date().toISOString(),path,
+            action_type:action?.type,card_id:c?.card_id?.slice(0,120),card_name:c?name(c).slice(0,120):undefined,
+            scene:scene(),visibility:document.visibilityState,status:'running',phase:'request',stages_ms:{},server_ms:{},started:performance.now()};
+        rows.push(row);if(rows.length>limit)rows.shift();save();return row;
+    }
+    function failure(row,e){row.status='error';row.error_code=typeof e?.code==='string'?e.code:e?.name||'Error';save();}
+    function stage(row,name,fn){
+        row.phase=name;save();const started=performance.now();
+        const done=()=>{row.stages_ms[name]=Math.round(((row.stages_ms[name]||0)+performance.now()-started)*1000)/1000;save();};
+        try{const result=fn();if(result?.then)return result.then(value=>{done();return value;},e=>{done();failure(row,e);throw e;});done();return result;}
+        catch(e){done();failure(row,e);throw e;}
+    }
+    function response(row,r){
+        row.http_status=r.status;row.server_enabled=r.headers.get('X-UI-Diagnostics')==='1';
+        row.request_id=r.headers.get('X-Request-ID')||undefined;
+        for(const metric of (r.headers.get('Server-Timing')||'').split(',')){
+            const match=metric.trim().match(/^([a-z_]+);dur=([0-9.]+)$/);
+            if(match&&Number.isFinite(Number(match[2])))row.server_ms[match[1]]=Number(match[2]);
+        }
+    }
+    function finish(row){
+        row.stages_ms.interaction_ms=Math.round((performance.now()-row.started)*1000)/1000;delete row.started;
+        row.end_visibility=document.visibilityState;if(row.status==='running')row.status='complete';row.phase='finished';save();
+        if(row.server_enabled&&row.request_id&&token&&!['create','handoff'].includes(row.path)){
+            const payload={};for(const k of ['ui_id','request_id','path','action_type','card_id','card_name','status','error_code','stages_ms','server_ms','scene'])if(row[k]!==undefined)payload[k]=row[k];
+            // Raw fetch prevents telemetry from recursively logging itself. Failure never blocks play.
+            void fetch('/api/diagnostics/client',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(payload),keepalive:true}).then(async r=>{row.persisted=r.ok&&(await r.json()).recorded===true;save();}).catch(()=>{row.persisted=false;save();});
+        }
+    }
+    function reset(){rows=[];try{sessionStorage.removeItem(key);}catch{}save();}
+    function download(){
+        const blob=new Blob([JSON.stringify({version:1,exported_at:new Date().toISOString(),records:rows},null,2)],{type:'application/json'});
+        const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download='hearthstone-timings-'+new Date().toISOString().replaceAll(':','-')+'.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }
+    $('export-performance')?.addEventListener('click',download);
+    window.hsUiDiagnostics={records:()=>copy(rows),download};paint();
+    return{start,stage,response,finish,failure,reset,paint};
+})();
 function node(tag,text,cls){const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;}
 function button(text,fn){const n=node('button',text);n.disabled=busy;n.onclick=fn;return n;}
 function clearView(){closeBranchChoice();closeCardLab(true);cardCatalog=null;stopBotTimer();botPaused=false;pauseAfterWork=false;botClientError='';hidePreview();clearTargetLine();clearEffects();$('interaction-hint').textContent='';$('interaction-options').replaceChildren();$('cancel-selection').hidden=true;selected=null;message=null;$('diagnostics').open=false;$('mana-feedback').textContent='';resetArmed=false;concedeArmed=false;for(const id of ['players','logs','actions','choice','source','type'])$(id).replaceChildren();$('dto').textContent='';$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;}
-async function api(path,body={}){const r=await fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(body)});const data=await r.json();if(!r.ok){if(data.error==='seat_session_required'){token='';sessionStorage.removeItem('hs-seat');clearView();throw new Error('原对局会话已失效。点击「创建 / 重置对局」即可开始新局，无需重启服务。');}const error=new Error(errors[data.error]||data.error);error.code=data.error;throw error;}return data;}
-function saveToken(t){token=t;sessionStorage.setItem('hs-seat',t);}
+async function api(path,body={},trace=null){
+    const own=!trace,row=trace||perfLog.start(path),started=performance.now();
+    try{
+        const r=await perfLog.stage(row,'fetch_ms',()=>fetch('/api/'+path,{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token,'X-UI-Trace-ID':row.ui_id},body:JSON.stringify(body)}));
+        perfLog.response(row,r);const data=await perfLog.stage(row,'decode_ms',()=>r.json());row.stages_ms.http_ms=performance.now()-started;
+        if(data.error){row.status='error';row.error_code=data.error;}
+        if(!r.ok){if(data.error==='seat_session_required'){token='';sessionStorage.removeItem('hs-seat');clearView();throw new Error('原对局会话已失效。点击「创建 / 重置对局」即可开始新局，无需重启服务。');}const error=new Error(errors[data.error]||data.error);error.code=data.error;throw error;}
+        return data;
+    }catch(e){row.stages_ms.http_ms=performance.now()-started;perfLog.failure(row,e);throw e;}
+    finally{if(own)perfLog.finish(row);}
+}
+function saveToken(t){if(token!==t)perfLog.reset();token=t;sessionStorage.setItem('hs-seat',t);}
 async function work(fn){if(busy||labReadOnly)return;clearEffects();stopBotTimer();busy=true;document.body.dataset.busy='true';document.querySelectorAll('button').forEach(b=>b.disabled=true);$('test-mana').disabled=true;if(message&&!message.handoff)updateEnd();updateCardLabControls();updateBotControls();try{notice('');await fn();}catch(e){notice(e.message);}finally{busy=false;document.body.dataset.busy='false';document.querySelectorAll('button').forEach(b=>b.disabled=false);if(message&&!message.handoff){updateEnd();updateTestControls();}updateAssemblyControls();updateBotControls();if(pauseAfterWork&&message&&!message.handoff){pauseAfterWork=false;void setOpponent('human');}else scheduleBot();}}
 function name(c){return c?message.names?.[c.card_id]||c.card_id||'未知牌背':'无';}
 async function loadCardCatalog(){
@@ -89,16 +157,19 @@ function source(a){return a.card||a.attacker||a.power||a.location||a.minion||a.s
 function ref(r){if(!r)return '无';const c=entities()[r];return c?`${name(c)} (${r})`:r;}
 function actionLabel(a){let s=types[a.type]||a.type;if(source(a))s+=' · '+ref(source(a));if(a.target)s+=' → '+ref(a.target);if(a.defender)s+=' → '+ref(a.defender);if(a.position!=null)s+=` · 第${a.position+1}个位置`;if(a.side)s+=' · '+(a.side==='enemy'?'对方战场':'己方战场');if(a.branch)s+=' · 分支 '+a.branch;if(a.action_id||a.ability_id)s+=' · '+(a.action_id||a.ability_id);if(a.magnetic_target)s+=' · 磁力 '+ref(a.magnetic_target);if(a.body_targets||a.body_route)s+=' · '+JSON.stringify(a.body_targets||a.body_route);return s;}
 async function submit(a){
+    let trace;
     await work(async()=>{
         if(a.type==='concede'&&!concedeArmed){concedeArmed=true;notice('再次点击认输将结束当前座位的对局。');return;}
         concedeArmed=false;hidePreview();clearTargetLine();
-        const before=capturePresentation();
-        const data=await api('action',{revision:message.revision,action:a});
-        const attacked=data.accepted?await animateIntent(a,before,data):false;
-        render(data);
-        if(data.accepted)await animateOutcome(before,data,attacked?{type:'attack'}:a);
-        else notice(errors[data.command_error]||data.command_error);
+        trace=perfLog.start('action',a);
+        const before=perfLog.stage(trace,'capture_ms',()=>capturePresentation());
+        const data=await api('action',{revision:message.revision,action:a},trace);
+        const attacked=data.accepted?await perfLog.stage(trace,'intent_ms',()=>animateIntent(a,before,data)):false;
+        perfLog.stage(trace,'render_ms',()=>render(data));
+        if(data.accepted)await perfLog.stage(trace,'outcome_ms',()=>animateOutcome(before,data,attacked?{type:'attack'}:a));
+        else{trace.status='rejected';trace.error_code=data.command_error;notice(errors[data.command_error]||data.command_error);}
     });
+    if(trace)perfLog.finish(trace);
 }
 const keywordNames={taunt:'嘲讽',divine_shield:'圣盾',charge:'冲锋',rush:'突袭',windfury:'风怒',mega_windfury:'超级风怒',stealth:'潜行',poisonous:'剧毒',lifesteal:'吸血',reborn:'复生',immune:'免疫',deathrattle:'亡语',battlecry:'战吼',spell_damage:'法术伤害',frozen:'冻结'};
 const imbuedPowerIds=new Set(['EDR_847p','EDR_850p','EDR_851p','EDR_445p','EDR_449p','EDR_448p','END_000p','END_003p']);
@@ -129,7 +200,7 @@ function tauntFrame(){
 function card(c){
     const n=node('button',null,'card');n.type='button';n.disabled=busy;n.dataset.ref=c.ref;n.dataset.kind=c.kind||'unknown';n.dataset.zone=c.zone||'';
     const imbue=powerImbue(c);
-    n.setAttribute('aria-label',name(c)+(imbue?`，灌注 ${imbue.level} 阶`:''));
+    n.setAttribute('aria-label',name(c)+(imbue?`，灌注 ${imbue.level} 阶`:'')+(c.preparation?c.preparation.playable?'，预备就绪':'，已预备，本回合不能出牌':''));
     const art=node('span',null,'card-art');
     if(artworkFile(c.card_id)){const img=node('img');img.src='/assets/'+artworkFile(c.card_id);img.alt='';img.className='portrait';img.draggable=false;art.append(img);}
     else art.append(node('span',c.kind==='secret'?'?':'✦','art-fallback'));
@@ -141,6 +212,13 @@ function card(c){
     if(flags.length)body.append(node('small',[...new Set(flags)].join(' · '),'card-flags'));
     n.append(art,body,node('span',({minion:'随从',spell:'法术',weapon:'武器',hero_power:'英雄技能',location:'地标',hero:'英雄'})[c.kind]||'','card-type'));
     if(c.cost)n.append(node('span',String(c.cost.amount),'cost-orb'));
+    if(c.zone==='hand'&&c.preparation){
+        const locked=!c.preparation.playable;
+        n.classList.toggle('preparation-locked',locked);
+        const status=node('span',locked?'已预备 · 本回合不能出牌':'预备就绪','preparation-status');
+        status.title=locked?'预备已经结算；这张牌留在手中，本回合不能打出。':'已保留预备减费；是否可出牌以绿色高亮为准。';
+        n.append(status);
+    }
     if(['hero','minion','weapon'].includes(c.kind)&&c.attack!=null){
         if(c.attack>0||c.kind!=='hero')n.append(node('span',String(c.attack),'attack-orb'));
         n.append(node('span',String(c.kind==='weapon'?c.durability:c.health),'health-orb'+(c.kind==='weapon'?' durability-orb':'')));
@@ -341,20 +419,23 @@ function scheduleBot(){
 }
 async function stepOpponent(){
     if(busy||botPaused||!message?.opponent?.can_step||message.handoff)return;
+    let trace;
     await work(async()=>{
         try{
-            const before=capturePresentation();
-            const data=await api('opponent/step',{revision:message.revision,ticket:message.opponent.ticket});
-            const attacked=data.opponent_acted?await animateIntent(null,before,data):false;
-            render(data);
+            trace=perfLog.start('opponent/step');
+            const before=perfLog.stage(trace,'capture_ms',()=>capturePresentation());
+            const data=await api('opponent/step',{revision:message.revision,ticket:message.opponent.ticket},trace);
+            const attacked=data.opponent_acted?await perfLog.stage(trace,'intent_ms',()=>animateIntent(null,before,data)):false;
+            perfLog.stage(trace,'render_ms',()=>render(data));
             // Only completed attacks already disclosed in this seat's events animate.
-            if(data.opponent_acted)await animateOutcome(before,data,attacked?{type:'attack'}:null);
-            if(data.opponent.error)notice(botErrorText(data.opponent.error));
+            if(data.opponent_acted)await perfLog.stage(trace,'outcome_ms',()=>animateOutcome(before,data,attacked?{type:'attack'}:null));
+            if(data.opponent.error){trace.status='error';trace.error_code=data.opponent.error;notice(botErrorText(data.opponent.error));}
         }catch(e){
             if(['stale_observation','stale_opponent_step'].includes(e.code)&&message){render(await api('view'));return;}
             botClientError=e.message;notice('托管已暂停：'+e.message);
         }
     });
+    if(trace)perfLog.finish(trace);
 }
 function botErrorText(code){return '托管已暂停：'+(errors[code]||'当前操作无法继续。可重试托管，或切换双人手动。');}
 function render(data){
@@ -534,13 +615,27 @@ function branchLabel(a){return entities()[source(a)]?.choose_one?.find(b=>b.id==
 function closeBranchChoice(){const d=$('branch-choice');if(d.open)d.close();$('branch-options').replaceChildren();$('branch-title').textContent='';}
 function renderBranchChoice(){
     const groups=selected?.groups;
-    if(!groups||!groups.every(g=>g[0].branch)){closeBranchChoice();return false;}
+    const handModes=groups?.some(g=>g[0].type==='use_hand_action');
+    if(!groups||(!handModes&&!groups.every(g=>g[0].branch))){closeBranchChoice();return false;}
     const c=entities()[source(groups[0][0])];
-    $('branch-title').textContent=name(c)+' · 选择效果';
+    $('branch-choice').classList.toggle('hand-action-choice',!!handModes);
+    $('branch-choice').querySelector('.branch-eyebrow').textContent=handModes?'手牌操作':'抉择';
+    $('branch-title').textContent=name(c)+(handModes?' · 选择操作':' · 选择效果');
+    $('branch-help').textContent=handModes?'选择要执行的操作；点击选项后才会支付费用。':'选择一种效果。需要目标的效果将在选择后高亮目标。';
     $('branch-options').replaceChildren(...groups.map(group=>{
-        const a=group[0],b=button('',()=>chooseMode(group));b.className='branch-option';b.dataset.branch=a.branch;
-        if(artwork[c?.card_id]){const img=node('img');img.src='/assets/'+artwork[c.card_id];img.alt='';b.append(img);}
-        b.append(node('strong',branchLabel(a)));return b;
+        const a=group[0],b=button('',()=>chooseMode(group));b.className='branch-option';if(a.branch)b.dataset.branch=a.branch;
+        b.dataset.actionType=a.type;if(a.action_id)b.dataset.actionId=a.action_id;
+        if(artworkFile(c?.card_id)){const img=node('img');img.src='/assets/'+artworkFile(c.card_id);img.alt='';b.append(img);}
+        if(handModes){
+            const spec=c?.hand_actions?.find(s=>s.id===a.action_id);
+            const kind=spec?.kind||a.action_id;
+            const title=a.type==='play_card'?'直接出牌':({prepare:'预备',trade:'交易',forge:'锻造'})[kind]||types[a.type]||a.type;
+            const cost=a.type==='play_card'?c?.cost:spec?.cost;
+            b.append(node('strong',title),node('span',cost?`支付 ${cost.amount} ${cost.payment==='mana'?'费':cost.payment}`:'按当前费用结算','hand-action-cost'));
+            const help=a.type==='play_card'?'打出这张牌；随从需继续选择入场位置。':kind==='prepare'?'现在支付预备费用并保留在手中。本回合不能出牌，之后可按减免后的费用使用。':kind==='trade'?'支付交易费用，将此牌换回牌库并抽一张牌。':kind==='forge'?'支付锻造费用，在手中升级此牌。':'执行这张手牌的主动操作。';
+            b.append(node('small',help,'hand-action-help'));
+        }else b.append(node('strong',branchLabel(a)));
+        return b;
     }));
     if(!$('branch-choice').open)$('branch-choice').showModal();
     return true;
@@ -555,11 +650,15 @@ function clickEntity(r){
     const own=message.observation.players.find(p=>p.id===message.seat);
     if(own.weapon?.ref===r&&(message.actions||[]).some(a=>a.type==='attack'&&a.attacker===own.hero.ref))r=own.hero.ref;
     const available=(message.actions||[]).filter(a=>source(a)===r&&simple(a));
-    if(!available.length){notice(selected?'这不是当前操作的合法目标。请点击高亮目标，或取消选择。':'当前没有可用操作。可悬停查看卡牌。');return;}
+    if(!available.length){
+        const c=entities()[r];
+        notice(c?.preparation&&!c.preparation.playable?'这张牌已预备，减费已经生效；本回合不能出牌，请等到下个己方回合。':selected?'这不是当前操作的合法目标。请点击高亮目标，或取消选择。':'当前没有可用操作。可悬停查看卡牌。');return;
+    }
     notice('');hidePreview();
-    if(available.length===1&&immediate(available[0])){submit(available[0]);return;}
+    const handModes=available.some(a=>a.type==='use_hand_action');
+    if(!handModes&&available.length===1&&immediate(available[0])){submit(available[0]);return;}
     const groups=new Map();for(const a of available){const k=modeKey(a);if(!groups.has(k))groups.set(k,[]);groups.get(k).push(a);}
-    selected={actions:available,groups:groups.size>1?[...groups.values()]:null};paintSelection();
+    selected={actions:available,groups:handModes||groups.size>1?[...groups.values()]:null};paintSelection();
 }
 function advance(actions,positionChosen=selected?.positionChosen,targetChosen=false){
     // A unique legal target still needs an explicit click after placement.
@@ -596,7 +695,7 @@ function paintSelection(){
     }
     const first=actions[0];const label=name(entities()[source(first)]);
     if(choosingMode){
-        $('interaction-hint').textContent=branchDialog?`已选 ${label}，请在中央选择效果。`:`已选 ${label}，请选择操作 / 分支。`;
+        $('interaction-hint').textContent=branchDialog?`已选 ${label}，请在中央选择操作或效果。`:`已选 ${label}，请选择操作 / 分支。`;
         if(!branchDialog)for(const group of selected.groups){const a=group[0];$('interaction-options').append(button((types[a.type]||a.type)+(a.branch?' · '+branchLabel(a):'')+(a.action_id?' · '+a.action_id:'')+(a.ability_id?' · '+a.ability_id:'')+(a.side?' · '+(a.side==='enemy'?'对方战场':'己方战场'):''),()=>chooseMode(group)));}
     }else if(positions){$('interaction-hint').textContent=`已选 ${label}，点击战场上的「+」选择入场位置。`;}
     else if(targets.size){drawTargetLine();$('interaction-hint').textContent=`已选 ${label}，点击绿色高亮目标${first.type==='attack'?'进行攻击':'施放'}。`;
@@ -614,7 +713,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&message&&!message.h
 window.render_game_to_text=()=>{
     if(!message||message.handoff)return JSON.stringify({mode:message?.handoff?'handoff':'welcome'});
     const o=message.observation;
-    const visibleCard=c=>c&&({name:name(c),ref:c.ref,kind:c.kind,cost:c.cost?.amount,attack:c.attack,health:c.health,armor:c.armor,keywords:c.keywords,durability:c.durability,location:c.location,dormancy:c.dormancy,imbue_level:powerImbue(c)?.level,text:cardText(c)});
+    const visibleCard=c=>c&&({name:name(c),ref:c.ref,kind:c.kind,cost:c.cost?.amount,attack:c.attack,health:c.health,armor:c.armor,keywords:c.keywords,durability:c.durability,location:c.location,dormancy:c.dormancy,preparation:c.preparation,imbue_level:powerImbue(c)?.level,text:cardText(c)});
     return JSON.stringify({mode:'battle',seat:message.seat,turn:o.turn,active_player:o.active_player,status:o.status,
         players:o.players.map(p=>({id:p.id,mana:p.mana,max_mana:p.max_mana,deck_count:p.deck_count,imbue:p.imbue,hero:visibleCard(p.hero),hero_power:visibleCard(p.hero_power),board:p.board.map(visibleCard),hand:p.hand.map(c=>c.card_id?visibleCard(c):{hidden:true})})),
         pending_choice:o.pending_choice,assembly:assemblyView(),interaction:$('interaction-hint').textContent,branch_choice:{open:$('branch-choice').open,options:[...$('branch-options').children].map(n=>({id:n.dataset.branch,label:n.textContent}))},mana_enabled:message.test_controls?.mana_enabled,

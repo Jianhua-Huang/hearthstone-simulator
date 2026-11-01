@@ -1989,3 +1989,8 @@ starting_hands.py在全部开局工作完成、首次普通抽牌之前捕获两
 
 
 原手牌法术的反制回手/随机替换以已有付款收据的zone_epoch锁定原墓地驻留，沿原窗口反制和自动CAST；共享墓地回手交付安装费用与原生值后再发布。死亡历史使用冻结类型而非后来的卡面，见[原法术奥秘契约](m3-original-spell-secret-effects.md)。
+
+
+### Release / Debug 宿主配置
+
+`Game.runtime_mode` 显式选择默认release或debug；两者共用原解释器与规则，debug附加状态、历史和结算边界审计及有界动作诊断。内部原生帧直接检查，外部恢复和显式`game.audit()`保留完整wire/schema检查。模式随clone继承、恢复由宿主选择，不进入GameState、快照或玩家投影。详细调用和日志契约见[性能方案](engine-performance-plan.md#release--debug-运行模式2026-11-01)。

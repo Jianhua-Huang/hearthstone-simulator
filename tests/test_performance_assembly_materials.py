@@ -15,6 +15,16 @@ from test_assemble_offers import registry
 
 
 class AssemblyMaterialTests(unittest.TestCase):
+    def test_release_static_scope_reuses_frozen_materials_without_rescanning_graphs(self):
+        cid = assemble_faces.AssembleRecipe('a', 'b', 'top').card_id
+        with cache.candidate_materials(self.registry):
+            expected = assemble_faces.resolve_face(self.registry, cid)
+        with patch.object(cache.RegistryInventoryGuard, 'matches', side_effect=AssertionError('repeated scan')):
+            with cache.candidate_materials(self.registry, audit=False):
+                actual = assemble_faces.resolve_face(self.registry, cid)
+                self.assertIs(actual, expected)
+        self.assertIsNone(cache._current.get())
+
     def setUp(self):
         with cache._lock: cache._owners.clear()
         self.game = fixtures.AssembleOfferTests().game()
@@ -31,7 +41,7 @@ class AssemblyMaterialTests(unittest.TestCase):
             actual = self.query('a'); warm = checked.call_count - cold
         self.assertEqual(actual, expected)
         self.assertGreater(cold, 0); self.assertEqual(warm, 0)
-        with patch.object(cache, 'candidate_materials', lambda registry: nullcontext()):
+        with patch.object(cache, 'candidate_materials', lambda registry, **kwargs: nullcontext()):
             self.assertEqual(self.query('a'), expected)
 
     def test_live_class_and_query_are_not_cached_and_rng_is_identical(self):
@@ -40,13 +50,13 @@ class AssemblyMaterialTests(unittest.TestCase):
         for state in (self.game._state, foreign):
             for spec in (self.spec, replace(self.spec, primary_query=PoolQuery(max_cost=4))):
                 actual = self.query(state=state, spec=spec)
-                with patch.object(cache, 'candidate_materials', lambda registry: nullcontext()):
+                with patch.object(cache, 'candidate_materials', lambda registry, **kwargs: nullcontext()):
                     expected = self.query(state=state, spec=spec)
                 self.assertEqual(actual, expected)
         for seed in (1, 31, 166):
             fast, slow = Random(seed), Random(seed)
             actual = draw(self.registry, self.game._generation_context, self.game._state, self.spec, fast)
-            with patch.object(cache, 'candidate_materials', lambda registry: nullcontext()):
+            with patch.object(cache, 'candidate_materials', lambda registry, **kwargs: nullcontext()):
                 expected = draw(self.registry, self.game._generation_context, self.game._state, self.spec, slow)
             self.assertEqual(actual, expected); self.assertEqual(fast.getstate(), slow.getstate())
 
@@ -112,7 +122,7 @@ class AssemblyMaterialTests(unittest.TestCase):
         identity = self.registry.fingerprint(); count = len(self.registry.cards)
         action = PlayCard(1, fast._state.players[1].hand[0])
         actual = fast.apply(action)
-        with patch.object(cache, 'candidate_materials', lambda registry: nullcontext()):
+        with patch.object(cache, 'candidate_materials', lambda registry, **kwargs: nullcontext()):
             expected = slow.apply(action)
         self.assertEqual(actual, expected)
         self.assertEqual(fast.snapshot(), slow.snapshot())

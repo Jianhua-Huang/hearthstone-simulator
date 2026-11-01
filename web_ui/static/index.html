@@ -49,6 +49,7 @@
         <details class="panel"><summary>当前玩家的事件日志</summary><div id="logs"></div></details>
       </div>
       <details class="panel"><summary>玩家可见 DTO / 操作协议</summary><pre id="dto"></pre></details>
+      <details class="panel" id="performance-diagnostics"><summary>耗时诊断</summary><p id="performance-summary" role="status"></p><button id="export-performance" type="button">导出耗时日志</button><p class="hint">提交结算包含玩家协议校验；合法操作生成包含玩家观察。服务器总耗时包含这些子项，不能重复相加。旧服务仅记录请求总耗时和前端阶段；不包含授权令牌或完整牌局。</p><pre id="performance-records"></pre></details>
       <p class="hint">代表卡与本地规则演示，未认证完整正式卡池及国服规则。</p>
     </details>
   </div>

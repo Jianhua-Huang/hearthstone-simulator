@@ -597,6 +597,8 @@ class EndTurnProducerTests(unittest.TestCase):
         game = Game.from_snapshot(self.rehash(snapshot), self.r)
         self.play(game)
         self.assertEqual(self.selection(game).rng_before[-1], 0.25)
+        from hs_sim.engine.continuations import FrameCodec
+        FrameCodec(game.mechanics, game.registry).check_runtime(game._frame)
         self.check(game, fresh=True)
         self.choose(game)
         self.check(game, fresh=True)

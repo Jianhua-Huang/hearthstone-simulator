@@ -71,6 +71,184 @@ class FrameCodec:
         if depth > self.MAX_DEPTH:
             raise ValueError('Frame payload nesting exceeds codec limit')
 
+    def _runtime_kind(self, value):
+        kind = type(value)
+        if self.types.get(type_name(kind)) is not kind:
+            raise ValueError(f'Unregistered frame payload type: {type_name(kind)}')
+        if not isinstance(value, Enum) and (not is_dataclass(value) or not kind.__dataclass_params__.frozen):
+            raise ValueError('Frame work and payloads must be frozen dataclasses')
+        return kind
+
+    def _runtime_references(self, value):
+        # Availability remains a gameplay constraint, including candidates that
+        # are not selected. Historical/state proofs are diagnostic audits.
+        for field in fields(value):
+            item = getattr(value, field.name)
+            if field.name in ('card_id', 'hero_power_card_id') and item is not None:
+                self.registry.card(item)
+            if field.name in ('behavior_id', 'on_select', 'on_summon', 'on_result', 'on_fatigue') and item is not None:
+                self.registry.behavior(item)
+            if field.name == 'producer_profile_id':
+                self.registry.summon_producer_profile(item)
+            if field.name == 'spec_id':
+                self.registry.player_effect(item)
+
+    def check_runtime(self, value, depth=0):
+        """Check executable/portable structure without auditing old states."""
+        self._depth(depth)
+        if value is None or type(value) in (str, bool, int, GameState, Event):
+            return
+        if type(value) is tuple:
+            for child in value:
+                self.check_runtime(child, depth + 1)
+            return
+        kind = self._runtime_kind(value)
+        from .registry_identity import _engine_kind
+        if not _engine_kind(kind):
+            self.decode(self.encode(value, depth), depth)
+        elif not isinstance(value, Enum):
+            self._runtime_references(value)
+            from .attack_redirects import AttackRedirectSelection
+            rng = kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection)
+            for field in fields(value):
+                item = getattr(value, field.name)
+                if rng and field.name in ('rng_before', 'rng_after'):
+                    end_turn_rng_to_json(item)
+                else:
+                    self.check_runtime(item, depth + 1)
+
+    def copy_runtime(self, value, depth=0):
+        """Detach suspended native work directly, with one state per occurrence.
+
+        Separate state copies preserve callback/branch isolation even where
+        the planner reused the same captured state in several alternatives.
+        External payload constructors retain the original strict codec path.
+        """
+        self._depth(depth)
+        if value is None or type(value) in (str, bool, int):
+            return value
+        if type(value) is GameState:
+            from .runtime_copy import deepcopy
+            result = deepcopy(value)
+            # These mappings were ordered by the former wire round trip.
+            for name in ('players', 'entities', 'temporary_power_returns'):
+                setattr(result, name, dict(sorted(getattr(result, name).items())))
+            return result
+        if type(value) is Event:
+            return self._event(event_to_dict(value))
+        if type(value) is tuple:
+            return tuple(self.copy_runtime(child, depth + 1) for child in value)
+        kind = self._runtime_kind(value)
+        from .registry_identity import _engine_kind
+        if not _engine_kind(kind):
+            return self.decode(self.encode(value, depth), depth)
+        if isinstance(value, Enum):
+            return value
+        self._runtime_references(value)
+        from .attack_redirects import AttackRedirectSelection
+        rng = kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection)
+        return kind(**{field.name: end_turn_rng_from_json(end_turn_rng_to_json(getattr(value, field.name)))
+                       if rng and field.name in ('rng_before', 'rng_after')
+                       else self.copy_runtime(getattr(value, field.name), depth + 1)
+                       for field in fields(value)})
+
+    def encode_runtime(self, value):
+        """Serialize trusted engine output; external decoding stays strict.
+
+        A small per-call memo reuses state conversion without graph guards or
+        cross-action invalidation. Returned wire branches are independent.
+        """
+        states = {}
+
+        def copy_wire(item):
+            if type(item) is dict:
+                return {key: copy_wire(child) for key, child in item.items()}
+            if type(item) is list:
+                return [copy_wire(child) for child in item]
+            return item
+
+        def encode(item, depth=0):
+            self._depth(depth)
+            if item is None or type(item) in (str, bool, int):
+                return item
+            if type(item) is GameState:
+                row = states.get(id(item))
+                if row is None:
+                    row = (item, state_to_dict(item))
+                    if len(states) < 64:
+                        states[id(item)] = row
+                return {'state': copy_wire(row[1])}
+            if type(item) is Event:
+                return {'event': event_to_dict(item)}
+            if type(item) is tuple:
+                return {'tuple': [encode(child, depth + 1) for child in item]}
+            kind = self._runtime_kind(item)
+            from .registry_identity import _engine_kind
+            if not _engine_kind(kind):
+                states.clear()
+                result = self.encode(item, depth)
+                states.clear()
+                return result
+            if isinstance(item, Enum):
+                return {'enum': type_name(kind), 'value': item.value}
+            from .attack_redirects import AttackRedirectSelection
+            rng = kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection)
+            return {'type': type_name(kind), 'fields': {
+                field.name: {'end_turn_rng': end_turn_rng_to_json(getattr(item, field.name))}
+                if rng and field.name in ('rng_before', 'rng_after') else encode(getattr(item, field.name), depth + 1)
+                for field in fields(item)}}
+
+        return encode(value)
+
+    def audit_runtime(self, value):
+        """Audit native debug work without a throwaway JSON roundtrip.
+
+        Only the internal action boundary uses this. Explicit audits and
+        external restore keep the complete wire-schema validation path.
+        """
+        from .registry_identity import _engine_kind
+        from .attack_redirects import AttackRedirectSelection
+        seen = set()
+
+        def visit(item, depth=0):
+            self._depth(depth)
+            if item is None or type(item) in (str, bool, int):
+                return
+            if type(item) is tuple:
+                for child in item:
+                    visit(child, depth + 1)
+                return
+            if id(item) in seen:
+                return
+            if type(item) is GameState:
+                validate_invariants(item, self.registry)
+            elif type(item) is Event:
+                self._validate(self._event(event_to_dict(item)))
+            else:
+                kind = self._runtime_kind(item)
+                if not _engine_kind(kind) or kind in (model.EndTurnBatch,
+                        model.EndTurnRepeatContributor, model.EndTurnRecord):
+                    # Preserve extension hooks and the wire-only complete-plan
+                    # constraints of these normalized end-turn constructors.
+                    seen.clear()
+                    self.decode(self.encode(item, depth), depth)
+                    seen.clear()
+                    return
+                if isinstance(item, Enum):
+                    return
+                row = {field.name: getattr(item, field.name) for field in fields(item)}
+                self._validate(item)
+                rng = kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection)
+                for name, child in row.items():
+                    if rng and name in ('rng_before', 'rng_after'):
+                        end_turn_rng_from_json(end_turn_rng_to_json(child))
+                    else:
+                        visit(child, depth + 1)
+                kind(**row)  # Run core constructor checks, without copying captured states.
+            seen.add(id(item))
+
+        visit(value)
+
     def _annotations(self, kind):
         # Only static engine definitions share reflection within this codec.
         # Extension schemas retain their original live forward-ref resolution.
@@ -1008,7 +1186,7 @@ class FrameCodec:
         return event
 
 
-def validate_frame(game):
+def validate_frame(game, *, native=False):
     from .resolver import ResolutionFrame
     choice, frame = game._state.pending_choice, game._frame
     if choice is None:
@@ -1095,7 +1273,10 @@ def validate_frame(game):
             raise ValueError('Only spells can capture Spellburst candidates')
         if (record.source_id,record.player_id)!=(work.source_id,work.player_id):
             raise ValueError('Invalid suspended play completion')
-    codec.decode(codec.encode(frame))
+    if native:
+        codec.audit_runtime(frame)
+    else:
+        codec.decode(codec.encode(frame))
     from .counter_policies import validate_frame as validate_counter_frame
     validate_counter_frame(game)
     from .temporary_cards import validate_temporary_frame

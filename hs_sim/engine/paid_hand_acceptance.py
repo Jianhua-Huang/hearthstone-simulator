@@ -194,7 +194,11 @@ def validate_control_work(r, work):
 
 
 def finish(r, tail):
-    record = bind_live(r.state, tail, r.registry)
+    if r.game.runtime_audits:
+        record = bind_live(r.state, tail, r.registry)
+    else:
+        from .play_history import play_record
+        record = play_record(r.state, tail.play_id)
     if not record.completed or record.interrupted:
         raise ValueError('Paid hand tail precedes complete uninterrupted physical play')
     set_progress(r.state, record.id, close=PaidHandClose(r.state.action_number, len(r.game._events)))
@@ -301,7 +305,7 @@ def validate_choice_boundary_proof(proof, registry):
 def choice_boundary_digest(proof, game):
     from .continuations import FrameCodec
     from .serialization import canonical_hash
-    return canonical_hash(FrameCodec(game.mechanics, game.registry).encode(proof))
+    return canonical_hash(FrameCodec(game.mechanics, game.registry).encode_runtime(proof))
 
 
 def capture_choice_boundary(r, event):
@@ -309,7 +313,7 @@ def capture_choice_boundary(r, event):
     # appended/published or any listeners are captured. Nothing references the
     # frame or the resulting digest, and no extra gameplay checkpoint occurs.
     proof = PaidHandChoiceBoundaryProof(event, deepcopy(r.state), tuple(r._work_queue))
-    validate_choice_boundary_proof(proof, r.registry)
+    # Debug audits this proof once at the completed waiting boundary.
     r._paid_hand_choice_boundary = proof
     return replace(event, data=tuple(sorted((*event.data,
         (CHOICE_DIGEST, choice_boundary_digest(proof, r.game))))))

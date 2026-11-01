@@ -11,6 +11,7 @@ from math import comb
 
 from .actions import UseMinionAbility, Action, Attack, EndTurn, PlayCard, UseHeroPower, UseLocation, UseHandAction, LaunchStarship, SelectChoice, action_from_dict, action_to_dict
 from .errors import IllegalAction, ResolutionError, ResolutionLimitExceeded, SnapshotError
+from .runtime import RuntimeMode
 from .continuations import FrameCodec, validate_frame
 from .choices import resume_choice
 from .construction import MatchSetup, validate_setup
@@ -140,12 +141,44 @@ class Game:
     be explored in parallel. Callback closures must be deterministic and pure.
     """
     def __init__(self):
+        # Host-side diagnostics, not a rule or part of saved match identity.
+        self._runtime_mode = RuntimeMode.RELEASE
+        self._debug_trace = None
+        self._debug_records = None
+        self.debug_log_failures = 0
         self._resolving = False
         self._frame = None
+        self._frame_encoding = None
         self._match_setup = None
         self._generation_context = None
         self._information = None
         self._rewind = None
+
+    @property
+    def runtime_mode(self):
+        return self._runtime_mode
+
+    @runtime_mode.setter
+    def runtime_mode(self, value):
+        self._require_boundary()
+        self._runtime_mode = RuntimeMode(value)
+        self._frame_encoding = None
+
+    @property
+    def runtime_audits(self):
+        """Compatibility alias; prefer runtime_mode for new callers."""
+        return self._runtime_mode is RuntimeMode.DEBUG
+
+    @runtime_audits.setter
+    def runtime_audits(self, enabled):
+        if type(enabled) is not bool:
+            raise ValueError('runtime_audits must be a boolean')
+        self.runtime_mode = RuntimeMode.DEBUG if enabled else RuntimeMode.RELEASE
+
+    @property
+    def debug_records(self):
+        """Detached recent host diagnostics, never included in player output."""
+        return tuple(deepcopy(self._debug_records)) if self._debug_records is not None else ()
 
     def _require_boundary(self):
         if self._resolving:
@@ -153,12 +186,14 @@ class Game:
 
     @classmethod
     def from_scenario(cls, scenario: Scenario, registry: Registry,
-                      ruleset: Ruleset | None = None, mechanics: Mechanics | None = None):
+                      ruleset: Ruleset | None = None, mechanics: Mechanics | None = None,
+                      *, mode: RuntimeMode | str = RuntimeMode.RELEASE):
         if not isinstance(scenario, Scenario):
             raise ValueError('Expected a Scenario')
         if ruleset is not None and type(ruleset) is not Ruleset:
             raise ValueError('Custom Ruleset subclasses cannot be restored; use a supported Ruleset')
         game = cls()
+        game.runtime_mode = mode
         game._generation_context = scenario.generation_context
         game.registry = registry
         registry.freeze()
@@ -240,14 +275,15 @@ class Game:
 
     @classmethod
     def from_decks(cls, setup: MatchSetup, registry: Registry,
-                   ruleset: Ruleset | None = None, mechanics: Mechanics | None = None):
+                   ruleset: Ruleset | None = None, mechanics: Mechanics | None = None,
+                   *, mode: RuntimeMode | str = RuntimeMode.RELEASE):
         ruleset = ruleset or Ruleset()
         validate_setup(setup, registry, ruleset)
         scenario = Scenario(tuple(PlayerSetup(deck.hero_card_id, deck=deck.cards,
                             hero_power_card_id=deck.hero_power_card_id) for deck in setup.decks), seed=setup.seed,
                             board_id=setup.board_id, generation_context=GenerationContext(setup.policy.target_id, setup.policy.mode,
                                 tuple(deck.cards for deck in setup.decks)))
-        game = cls.from_scenario(scenario, registry, ruleset, mechanics)
+        game = cls.from_scenario(scenario, registry, ruleset, mechanics, mode=mode)
         # The scenario used to construct physical entities is not a real
         # constructed turn. Opening can suspend or end before StartFirstTurn.
         game._state.owner_turn_history.clear()
@@ -321,10 +357,13 @@ class Game:
     def clone(self):
         self._require_boundary()
         result = type(self)()
+        result._runtime_mode = self._runtime_mode
         result.registry, result.ruleset, result.mechanics = self.registry, self.ruleset, self.mechanics
         result._registry_fingerprint = self._registry_fingerprint
         result._state = deepcopy(self._state)
         result._frame = deepcopy(self._frame)
+        if self._frame_encoding is not None and self._frame_encoding[0] is self._frame:
+            result._frame_encoding = (result._frame, self._frame_encoding[1])
         result._match_setup = self._match_setup
         result._generation_context = self._generation_context
         result._information = deepcopy(self._information)
@@ -336,11 +375,21 @@ class Game:
         result._origin = deepcopy(self._origin)
         return result
 
+    def _encoded_frame(self):
+        if self._frame is None:
+            self._frame_encoding = None
+            return None
+        cached = self._frame_encoding
+        if self.runtime_audits or cached is None or cached[0] is not self._frame:
+            wire = FrameCodec(self.mechanics, self.registry).encode_runtime(self._frame)
+            self._frame_encoding = (self._frame, wire)
+        return self._frame_encoding[1]
+
     def _hash_payload(self):
         payload = {'ruleset': asdict(self.ruleset), 'registry_fingerprint': self._registry_fingerprint,
                 'mechanics_version': self.mechanics.signature, 'state': state_to_dict(self._state),
                 'rng_state': rng_to_json(self._rng.getstate()),
-                'resolution_frame': FrameCodec(self.mechanics, self.registry).encode(self._frame),
+                'resolution_frame': self._encoded_frame(),
                 'rewind_session': self._rewind.to_dict() if self._rewind is not None else None,
                 'match_setup': self._match_setup.to_dict() if self._match_setup is not None else None,
                 'generation_context': self._generation_context.to_dict() if self._generation_context is not None else None,
@@ -355,6 +404,10 @@ class Game:
     def state_hash(self):
         return canonical_hash(self._hash_payload())
 
+    def audit(self):
+        """Run the complete diagnostic audit without modifying this match."""
+        self.clone()._assert_stable()
+
     def snapshot(self):
         self._require_boundary()
         events = [event_to_dict(event) for event in self._events]
@@ -363,7 +416,8 @@ class Game:
                          'events_hash': canonical_hash(events), 'state_hash': canonical_hash(payload)})
 
     @classmethod
-    def from_snapshot(cls, snapshot: dict, registry: Registry, mechanics: Mechanics | None = None):
+    def from_snapshot(cls, snapshot: dict, registry: Registry, mechanics: Mechanics | None = None,
+                      *, mode: RuntimeMode | str = RuntimeMode.RELEASE):
         try:
             expected = {'schema_version', 'ruleset', 'registry_fingerprint', 'mechanics_version',
                         'state', 'rng_state', 'resolution_frame', 'rewind_session', 'match_setup', 'generation_context', 'information', 'events', 'events_hash', 'state_hash'}
@@ -374,6 +428,7 @@ class Game:
             if type(snapshot['schema_version']) is not int or snapshot['schema_version'] != SNAPSHOT_SCHEMA_VERSION:
                 raise ValueError(f'Unsupported snapshot schema version; schemas 1 through {SNAPSHOT_SCHEMA_VERSION-1} need their original engines')
             game = cls()
+            game.runtime_mode = mode
             game.registry = registry
             registry.freeze()
             game._registry_fingerprint = registry.fingerprint()
@@ -579,7 +634,7 @@ class Game:
         validate_whole_card_replay_boundary(self)
         from .shatter import validate_boundary as validate_shatter_boundary
         validate_shatter_boundary(self)
-        validate_frame(self)
+        validate_frame(self, native=self._resolving and self.runtime_audits)
         from .resources import validate_mana_consumption_events
         validate_mana_consumption_events(self._state,self._events)
         from .equipment import validate_weapon_transfer_events
@@ -1088,6 +1143,8 @@ class Game:
         """Execute one already validated input without cloning or external history."""
         self._require_boundary()
         working = self
+        trace = working._debug_trace
+        if trace is not None: trace.stage('resolve')
         working._resolving = True
         if type(action) is not AdvanceTurnTime:
             working._state.action_number += 1
@@ -1128,8 +1185,11 @@ class Game:
                 resolution.run([effect])
             from .turn_clocks import settle_expired
             settle_expired(resolution)
+            if trace is not None: trace.stage('information_sync')
             working._information.sync(working)
-            working._assert_stable()
+            if working.runtime_audits:
+                if trace is not None: trace.stage('audit')
+                working._assert_stable()
             working._resolving = False
         except Exception as exc:
             # The transaction copy is discarded even for a broken trusted plugin.
@@ -1138,26 +1198,65 @@ class Game:
             raise ResolutionError(f'Action resolution failed and was rolled back: {exc}') from exc
 
     def apply(self, action: Action) -> ActionResult:
+        if self.runtime_audits:
+            from .runtime import ActionTrace
+            trace = ActionTrace(self, action)
+            try:
+                result = self._apply(action, trace)
+            except Exception as exc:
+                self._record_debug(trace, error=exc)
+                raise
+            self._record_debug(trace, result=result)
+            return result
+        return self._apply(action)
+
+    def _record_debug(self, trace, *, result=None, error=None):
+        from collections import deque
+        from .runtime import DEBUG_RECORD_LIMIT, publish
+        try:
+            record = trace.finish(self, result=result, error=error)
+            if self._debug_records is None:
+                self._debug_records = deque(maxlen=DEBUG_RECORD_LIMIT)
+            self._debug_records.append(record)
+            publish(record)
+        except Exception:
+            # Diagnostic collection/output must not turn a committed action into failure.
+            self.debug_log_failures += 1
+        finally:
+            if trace.working is not None:
+                trace.working._debug_trace = None
+                trace.working = None
+
+    def _apply(self, action: Action, trace=None) -> ActionResult:
         self.validate(action)
         from .controlled_turns import validate_external,drive
         validate_external(self,action)
+        if trace is not None: trace.stage('clone')
         working=self.clone()
+        if trace is not None:
+            trace.working = working
+            working._debug_trace = trace
         start=len(working._events)
         from .frame_materials import action_frame_materials
         try:
             with action_frame_materials(working.registry, deferred=True):
                 working._resolve_action(action)
+                if trace is not None: trace.stage('controlled_turns')
                 drive(working)
                 events = tuple(working._events[start:])
+                if trace is not None: trace.stage('state_hash')
                 digest = working.state_hash()
         except Exception as exc:
             if isinstance(exc,ResolutionError):raise
             raise ResolutionError(f'Native turn failed and was rolled back: {exc}') from exc
+        if trace is not None: trace.stage('history')
         working._history.append({'action': history_action_to_dict(action), 'state_hash': digest,
                                  'events_hash': canonical_hash([event_to_dict(e) for e in events])})
         self._state, self._rng = working._state, working._rng
         self._events, self._history = working._events, working._history
         self._frame = working._frame
+        self._frame_encoding = working._frame_encoding
         self._information = working._information
         self._rewind = working._rewind
+        if trace is not None: trace.stage('result_copy')
         return ActionResult(deepcopy(events), digest)
