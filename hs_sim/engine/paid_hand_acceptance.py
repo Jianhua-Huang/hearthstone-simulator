@@ -80,12 +80,17 @@ def validate_tail(tail, registry):
 
 
 def _validated_submission(tail, registry):
-    """Validate once and return a detached submission for this check only."""
+    """Validate once and return a read-only submission for this check only."""
     from .spell_cost_proof import _validate_hand_cost_proof
+    from .play_history import _project_commit_for_validation
+    from .registry import Registry
     if type(tail) is not FinishPaidHandAcceptance:
         raise ValueError('Expected complete paid hand tail')
     tail.__post_init__()
-    submission = tail.submission_state
+    # No card callback or state writer receives this temporary view. The public
+    # tail.submission_state property continues to return a fully detached copy.
+    submission = (_project_commit_for_validation(tail.submission_base, tail.proof.prepared_play)
+                  if type(registry) is Registry else tail.submission_state)
     _validate_hand_cost_proof(tail.proof, registry, submission_state=submission,
                              proof_type=PaidHandCostProof)
     return submission
@@ -150,7 +155,7 @@ def validate_queue(state, registry, queue, *, game=None):
         raise ValueError('Paid hand queue lost, duplicated or borrowed an original payment tail')
     if tuple(t.play_id for _,t in tails) != tuple(reversed(owed(state))):
         raise ValueError('Nested paid hand roots must close in their genuine inner-first order')
-    # All callees below are pure checks. Reuse detached submissions only within
+    # All callees below are pure checks. Reuse local submissions only within
     # this invocation; the next effect/restore must validate its inputs again.
     submissions = {}
     for tail_index, tail in tails:

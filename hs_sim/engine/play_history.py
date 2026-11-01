@@ -246,6 +246,39 @@ def commit_play(state, record):
     return updates
 
 
+def _project_commit_for_validation(state, record):
+    """Run the original append on a local view with every writer detached.
+
+    This is only for synchronous internal proof checks. Public submission
+    accessors still deep-copy the entire state. Keep this write inventory next
+    to commit_play: held opponent-copy progress, Rune locks, conditional Freeze,
+    and reserved next-spell bonuses all execute their original helpers below.
+    """
+    from copy import deepcopy
+    from .model import Entity, GameState, PlayerState
+    if (type(state) is not GameState or type(record) is not PlayRecord
+            or type(state.entities) is not dict or type(state.players) is not dict
+            or type(state.play_history) is not list
+            or any(type(e) is not Entity for e in state.entities.values())
+            or any(type(p) is not PlayerState for p in state.players.values())):
+        result = deepcopy(state)
+    else:
+        # An opponent-origin copy can advance other cards in its actual hand.
+        copied_hand = (set(state.players[record.player_id].hand)
+                       if record.copy_origin is not None
+                       and record.copy_origin.controller != record.player_id else set())
+        entities = {identity: deepcopy(entity) if identity in copied_hand
+                    or entity.location_lock is not None or entity.spell_mana_freeze is not None
+                    else entity for identity, entity in state.entities.items()}
+        players = dict(state.players)
+        if record.next_spell_bonus_effects:
+            players[record.player_id] = deepcopy(players[record.player_id])
+        result = replace(state, entities=entities, players=players,
+                         play_history=list(state.play_history))
+    commit_play(result, record)
+    return result
+
+
 def play_record(state, play_id):
     if type(play_id) is not int or not 1 <= play_id <= len(state.play_history):
         raise ValueError('Unknown play record')

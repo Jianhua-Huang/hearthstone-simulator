@@ -79,7 +79,9 @@ def state_to_dict(state: GameState) -> dict:
         row['event'] = event_to_dict(receipt.event)
     result['entities'] = {}
     for key, entity in sorted(state.entities.items()):
-        result['entities'][str(key)] = entity_to_dict(entity)
+        # The complete state is normalized below. Avoid normalizing each
+        # entity separately only to encode and decode its JSON a second time.
+        result['entities'][str(key)] = _entity_wire_fields(entity)
     # Includes tuple/enum fields nested in immutable attachments and history.
     return json.loads(json.dumps(result, ensure_ascii=False, allow_nan=False))
 
@@ -1323,8 +1325,34 @@ def _held_higher_cost_from_dict(value):
     return HeldHigherCostProgress(**row)
 
 
+def _copy_state_wire(value):
+    """Detach exact JSON containers with the original deepcopy fallback.
+
+    A per-call memo retains aliases/cycles, including across fallback values.
+    Container subclasses and extension hooks keep Python's deepcopy handling.
+    """
+    memo={}
+    def copy(item):
+        kind=type(item)
+        if kind in (str,int,bool,float,type(None)):return item
+        identity=id(item)
+        if identity in memo:return memo[identity]
+        if kind is dict:
+            result={};memo[identity]=result
+            for key,value in item.items():result[copy(key)]=copy(value)
+        elif kind is list:
+            result=[];memo[identity]=result
+            result.extend(copy(value)for value in item)
+        else:return deepcopy(item,memo)
+        # Match deepcopy's keep-alive guarantee if an extension hook mutates
+        # its input graph while copying another value.
+        memo.setdefault(id(memo),[]).append(item)
+        return result
+    return copy(value)
+
+
 def state_from_dict(value: dict) -> GameState:
-    value = _row(deepcopy(value), GameState)
+    value = _row(_copy_state_wire(value), GameState)
     from .model import TemporaryHeroPowerReturn
     bindings = value['temporary_power_returns']
     if type(bindings) is not dict: raise ValueError('Temporary hero powers require a physical binding map')
@@ -1956,7 +1984,7 @@ def entity_from_dict(row):
     return Entity(**row)
 
 
-def entity_to_dict(entity):
+def _entity_wire_fields(entity):
     row = asdict(entity)
     row['zone'] = entity.zone.value
     row['keywords'] = sorted(keyword.value for keyword in entity.keywords)
@@ -1964,4 +1992,8 @@ def entity_to_dict(entity):
     row['aura_keywords'] = sorted(keyword.value for keyword in entity.aura_keywords)
     row['hand_aura_keywords'] = sorted(keyword.value for keyword in entity.hand_aura_keywords)
     row['conditional_keywords'] = sorted(keyword.value for keyword in entity.conditional_keywords)
-    return json.loads(json.dumps(row, ensure_ascii=False, allow_nan=False))
+    return row
+
+
+def entity_to_dict(entity):
+    return json.loads(json.dumps(_entity_wire_fields(entity), ensure_ascii=False, allow_nan=False))

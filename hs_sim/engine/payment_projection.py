@@ -141,12 +141,36 @@ def project_payment(before, quote, *, registry=None, cause_reason=None, cause_so
         cause_source=cause_source, cause_target_id=cause_target_id, capture_stages=True)
 
 
+def _validation_working_state(before, registry):
+    """Local payment-check workspace; never a public detached state.
+
+    Payment/normalization can write either player's accounts and any entity.
+    Copy those complete inventories. The only in-place state-list writes are
+    the cost-use append and subsequent commit_play append; resource writes
+    replace other state fields with detached values. Remaining histories are
+    read only by these synchronous core helpers, with no behavior callbacks.
+    """
+    from .model import Entity, GameState, PlayerState
+    from .registry import Registry
+    if (type(before) is not GameState or registry is not None and type(registry) is not Registry
+            or type(before.players) is not dict or type(before.entities) is not dict
+            or any(type(p) is not PlayerState for p in before.players.values())
+            or any(type(e) is not Entity for e in before.entities.values())
+            or type(before.cost_use_history) is not list or type(before.play_history) is not list):
+        return deepcopy(before)
+    players, entities = deepcopy((before.players, before.entities))
+    return replace(before, players=players, entities=entities,
+                   cost_use_history=list(before.cost_use_history),
+                   play_history=list(before.play_history))
+
+
 def _project_payment(before, quote, *, registry=None, cause_reason=None, cause_source=None,
-                     cause_target_id=None, capture_stages):
+                     cause_target_id=None, capture_stages, _validation_only=False):
     """Use the same writes/normalization with optional detached stage records."""
     from .event_normalization import normalize_event_state
     from .resources import corpse_spend_data
-    work = deepcopy(before)
+    work = (_validation_working_state(before, registry)
+            if _validation_only and not capture_stages else deepcopy(before))
     plan = payment_plan(work, quote)
     apply_resource_writes(work, plan.resource_writes)
     resource_state = deepcopy(work) if capture_stages else None
@@ -168,7 +192,8 @@ def _project_payment(before, quote, *, registry=None, cause_reason=None, cause_s
     if capture_stages:
         captures.append(PaymentCapture(event, deepcopy(work)))
         return PaymentProjection(resource_state, tuple(captures), deepcopy(work))
-    # This is a fresh working copy, used only by the pure final-state check.
+    # A validation-only workspace must stay inside the synchronous comparison.
+    # All other callers retain the original fully detached working copy.
     return work
 
 
@@ -178,7 +203,8 @@ def validate_spell_payment_submission(before, quote, prepared_play, submission_s
             (prepared_play.source_id, prepared_play.player_id, prepared_play.action) !=
             (quote.entity_id, quote.player_id, before.action_number)):
         raise ValueError('Payment proof does not belong to this next prepared hand play')
-    expected = _project_payment(before, quote, registry=registry, cause_reason='PlayFromHand', capture_stages=False)
+    expected = _project_payment(before, quote, registry=registry, cause_reason='PlayFromHand',
+                                capture_stages=False, _validation_only=True)
     # This is comparison of the actual next append, never eligibility querying.
     from .play_history import commit_play
     commit_play(expected, prepared_play)

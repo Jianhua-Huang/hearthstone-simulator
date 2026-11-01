@@ -277,7 +277,7 @@ class PrimusTitanTests(CardBatchTestMixin,unittest.TestCase):
         for key in('ability_event','ability_source'):
             bad=deepcopy(encoded);self.assertTrue(drop(bad,key))
             with self.assertRaises(ValueError):codec.decode(bad)
-        self.assertEqual(SNAPSHOT_SCHEMA_VERSION,611);old=deepcopy(g.snapshot());old['schema_version']=610
+        self.assertEqual(SNAPSHOT_SCHEMA_VERSION,679);old=deepcopy(g.snapshot());old['schema_version']=610
         with self.assertRaises(SnapshotError):Game.from_snapshot(old,registry())
 
     def test_player_views_hide_native_event_allocation_and_private_installation_receipt(self):

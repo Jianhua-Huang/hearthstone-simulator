@@ -2134,6 +2134,10 @@ class Registry:
 
     def card(self, id: str) -> CardDefinition:
         _name(id, "card ID")
+        # Static IDs use the existing in-memory inventory. Every dynamic recipe
+        # has a ':' namespace; keep all such IDs on the original resolver path.
+        if ':' not in id and id in self._cards:
+            return self._cards[id]
         from .assemble_faces import PREFIX as assembly_prefix, resolve_face
         if id.startswith(assembly_prefix):
             return resolve_face(self,id)

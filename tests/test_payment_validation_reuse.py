@@ -11,8 +11,8 @@ from hs_sim.engine.model import CostModifier, CostSpec, Resource
 from hs_sim.engine.paid_hand_acceptance import (FinishPaidHandAcceptance,
     validate_queue, validate_tail)
 from hs_sim.engine.payment_projection import (project_payment,
-    validate_spell_payment_submission)
-from hs_sim.engine.play_history import prepare_play
+    validate_spell_payment_submission, _project_payment)
+from hs_sim.engine.play_history import prepare_play, _project_commit_for_validation
 from hs_sim.engine.replay import build_replay, replay
 
 
@@ -88,6 +88,45 @@ class PaymentValidationReuseTests(unittest.TestCase):
         projected.resource_state.players[1].hand.clear()
         self.assertEqual(projected.captures, captures)
 
+    def test_local_payment_projection_matches_full_copy_for_every_currency(self):
+        for payment_type in PaymentType:
+            with self.subTest(payment=payment_type):
+                before, quote, _, _, _ = self.payment(payment_type)
+                untouched = deepcopy(before)
+                expected = _project_payment(before, quote, cause_reason='PlayFromHand',
+                                            capture_stages=False)
+                actual = _project_payment(before, quote, cause_reason='PlayFromHand',
+                                          capture_stages=False, _validation_only=True)
+                self.assertEqual(actual, expected)
+                self.assertEqual(before, untouched)
+
+    def test_payment_comparison_rejects_unrelated_history_rewrite_without_mutation(self):
+        before, quote, prepared, _, submitted = self.payment(PaymentType.MANA)
+        before_copy = deepcopy(before)
+        submitted.next_choice_id += 1
+        submitted_copy = deepcopy(submitted)
+        with self.assertRaises(ValueError):
+            validate_spell_payment_submission(before, quote, prepared, submitted)
+        self.assertEqual(before, before_copy)
+        self.assertEqual(submitted, submitted_copy)
+
+    def test_local_submission_matches_public_copy_without_mutating_proof(self):
+        game, queue, tail = self.waiting()
+        saved = game.snapshot()
+        actual = _project_commit_for_validation(tail.submission_base, tail.proof.prepared_play)
+        self.assertEqual(actual, tail.submission_state)
+        validate_queue(game._state, game.registry, queue, game=game)
+        self.assertEqual(game.snapshot(), saved)
+
+    def test_local_payment_failure_does_not_change_accounts_or_entities(self):
+        before, quote, _, _, _ = self.payment(PaymentType.MANA)
+        untouched = deepcopy(before)
+        unaffordable = replace(quote, amount=100)
+        from hs_sim.engine.errors import ResolutionError
+        for local in (False, True):
+            with self.subTest(local=local), self.assertRaises(ResolutionError):
+                _project_payment(before, unaffordable, capture_stages=False, _validation_only=local)
+            self.assertEqual(before, untouched)
     def test_next_queue_check_rejects_mutated_payment_proof(self):
         game, queue, tail = self.waiting()
         validate_queue(game._state, game.registry, queue, game=game)
