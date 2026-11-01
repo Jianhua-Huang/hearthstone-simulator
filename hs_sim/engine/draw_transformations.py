@@ -244,7 +244,7 @@ def transform(r,request):
 def validate_boundary(game):
     from .draw_casts import draw_record
     from .hero_health_history import effective_events
-    events=effective_events(game.events);draws=set();transformed=set()
+    events=effective_events(tuple(game._events));draws=set();transformed=set()
     for event in events:
         data=dict(event.data)
         if event.kind=='card_drawn':

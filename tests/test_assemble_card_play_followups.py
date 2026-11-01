@@ -151,7 +151,17 @@ class AssembleCardPlayFollowupTests(unittest.TestCase):
                 (bridge.event, bridge.condition_id))
             self.assertEqual(bridge.event, 'card_played')
             self.assertEqual(template.suffix.allowed_timings,
-                ('battlecry', 'deathrattle', 'end_turn', 'start_turn', 'card_played'))
+                ('battlecry', 'deathrattle', 'end_turn', 'start_turn', 'card_played',
+                 'attack_declared', 'attack_finished', 'damage_dealt', 'hand_card_entered',
+                 'health_resolved', 'hero_power_used', 'mana_consumed', 'mana_spent',
+                 'minion_died', 'on_play', 'shield_lost', 'spell_cast_finished',
+                 'spell_cast_started', 'turn_started', 'card_committed', 'card_drawn',
+                 'combo', 'minion_summoned', 'stealth_lost') if cid == GENERAL else
+                ('battlecry', 'deathrattle', 'end_turn', 'start_turn', 'card_played',
+                 'attack_declared', 'attack_finished', 'card_drawn', 'damage_dealt',
+                 'health_resolved', 'hero_power_used', 'minion_died', 'minion_summoned',
+                 'on_play', 'shield_lost', 'spell_cast_finished', 'card_committed',
+                 'combo', 'hand_card_entered', 'stealth_lost', 'turn_started'))
             assembled = registry.card(AssembleRecipe(cid, cid, 'bottom').card_id)
             for field in ('cost', 'attack', 'health', 'metadata'):
                 self.assertEqual(getattr(original, field), getattr(assembled, field))
@@ -348,7 +358,12 @@ class AssembleCardPlayFollowupTests(unittest.TestCase):
                     condition(replace(context, state=state))
 
     def test_l_complete_source_pin_drift_or_corrupt_batch_reject_before_installing_any_new_fragment(self):
-        with patch.object(cards, 'register_assemble_card_play_followups', lambda r: None):
+        # The later shared pool pins these sources; exclude it while deliberately
+        # constructing a registry without this earlier source increment.
+        with patch.object(cards, 'register_assemble_card_play_followups', lambda r: None), \
+                patch('hs_sim.cards.assemble_shared_class_pool.register_assemble_shared_class_pool', lambda r: None), \
+                patch('hs_sim.cards.assemble_shared_body_contexts.register_assemble_shared_body_contexts', lambda r: None), \
+                patch('hs_sim.cards.assemble_extended_reference_pool.register_assemble_extended_reference_pool', lambda r: None):
             registry = build_registry()
         for cid in cards.SOURCES:
             original = registry._cards[cid]

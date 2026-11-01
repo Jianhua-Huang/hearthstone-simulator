@@ -141,12 +141,13 @@ def validate_boundary(game):
     from .continuations import FrameCodec
     from .hero_health_history import effective_events
     name=__name__+'.DeliverCostSwappedSpell';values=[]
-    for event in effective_events(game.events):
+    original_events=tuple(game._events)
+    for event in effective_events(original_events):
         key='work'if event.kind==QUEUED else'receipt'if event.kind==COMPLETED else None
         value=None if key is None else dict(event.data).get(key)
         if type(value)is str and name in value:values.append(value)
     if not values:return
-    codec=FrameCodec(game.mechanics,game.registry,origin_state=game._state,origin_events=game.events)
+    codec=FrameCodec(game.mechanics,game.registry,origin_state=game._state,origin_events=original_events)
     for value in values:codec.decode(json.loads(value))
 
 

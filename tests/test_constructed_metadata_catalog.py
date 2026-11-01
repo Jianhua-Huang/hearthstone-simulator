@@ -24,7 +24,11 @@ ONYXIA='CATA_155';YETI='CORE_CS2_182';P='k108.test.';CTX=GenerationContext('k108
 
 def source_registry(legacy=False):
     # Isolate the historical 24-row increment from the later complete catalog.
-    with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None):
+    # This historical metadata increment excludes the later shared-class pool,
+    # which requires the complete candidate catalog intentionally absent here.
+    with patch('hs_sim.cards.candidate_generation_catalog.register_candidate_pool_metadata',lambda r:None), \
+            patch('hs_sim.cards.assemble_shared_class_pool.register_assemble_shared_class_pool',lambda r:None), \
+            patch('hs_sim.cards.assemble_extended_reference_pool.register_assemble_extended_reference_pool',lambda r:None):
         if not legacy:return build_registry()
         with patch('hs_sim.cards.constructed_metadata_catalog.metadata_overrides',lambda:()),patch('hs_sim.cards.constructed_metadata_catalog.register_reviewed_pool_metadata',lambda r:None):return build_registry()
 
@@ -36,6 +40,9 @@ def registry(legacy=False):
     for pool in tuple(r.pools.values()):
         if pool.id=='representative.herald-generation'and pool.mode==CTX.mode:
             r.register_pool(replace(pool,target_id=CTX.target_id))
+            # Constructed soldier bodies now use this pool ID. Preserve every
+            # member/weight of the original complete historical fixture pool.
+            r.register_pool(replace(pool,id='constructed.cards',target_id=CTX.target_id))
     if ONYXIA not in r.pool_cards:r.register_pool_card(PoolCard.from_definition(r.card(ONYXIA)))
     r.register_pool(PoolDefinition(P+'pool','k108-fixture-v1',CTX.target_id,CTX.mode,(PoolMember(ONYXIA),PoolMember(YETI)),complete=True))
     def source(c):return next(c.state.entities[i]for i in c.state.players[1].board if c.state.entities[i].card_id==ONYXIA)

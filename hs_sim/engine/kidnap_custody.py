@@ -174,7 +174,7 @@ def validate_reveal(game,play_id,source):
 def validate_boundary(game):
     from .hero_health_history import effective_events
     captured=[];returned=[]
-    for event in effective_events(game.events):
+    for event in effective_events(tuple(game._events)):
         if event.kind not in (CAPTURED,RETURNED):continue
         data=dict(event.data);link=custody_from_dict(json.loads(data['_custody']))
         validate_custody(game._state,game.registry,link)

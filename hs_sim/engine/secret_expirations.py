@@ -185,12 +185,13 @@ def expire(r,request):
 def validate_boundary(game):
     from .hero_health_history import effective_events
     seen={}
-    for event in effective_events(game.events):
+    original_events=tuple(game._events)
+    for event in effective_events(original_events):
         data=dict(event.data)
         if KEY not in data:continue
         if type(data[KEY])is not str:raise ValueError('Secret deployment lost its complete expiration proof')
         value=from_dict(json.loads(data[KEY]));validate_value(game._state,game.registry,value)
-        validate_event(game._state,game.registry,value,game.events)
+        validate_event(game._state,game.registry,value,original_events)
         if value.instance_id in seen:raise ValueError('Secret lifetime borrowed another deployed instance')
         seen[value.instance_id]=value
     for entity in game._state.entities.values():

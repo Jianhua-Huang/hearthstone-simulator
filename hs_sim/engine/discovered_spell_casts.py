@@ -167,13 +167,14 @@ def validate_boundary(game):
     from .discovery_offers import offer_for_result
     from .spell_casts import cast_record
     from .intrinsic_costs import validate_intrinsic_history_prefix
-    events = effective_events(game.events)
+    original_events = tuple(game._events)
+    events = effective_events(original_events)
     queued = [e for e in events if e.kind == QUEUED]
     if not queued: return
     if any(dict(e.data).get('accepted_event') not in {q.sequence for q in queued}
             for e in events if e.kind == CHECKED):
         raise ValueError('Affordable copy completion has no original acceptance')
-    codec = FrameCodec(game.mechanics, game.registry, origin_state=game._state, origin_events=game.events)
+    codec = FrameCodec(game.mechanics, game.registry, origin_state=game._state, origin_events=original_events)
     # Acceptance witnesses contain old queue copies. Only these two sequences
     # are executable work, so historical proof material cannot count twice.
     pending = ((*game._frame.prefix, *game._frame.continuation)
@@ -182,7 +183,7 @@ def validate_boundary(game):
         work = codec.decode(json.loads(dict(event.data)['work']))
         if type(work) is not CastAffordableDiscoveredSpell or work.accepted_event != event.sequence:
             raise ValueError('Affordable discovery lost its original queued obligation')
-        work.validate_in_state(game._state, game.registry, game.events)
+        work.validate_in_state(game._state, game.registry, original_events)
         offer = offer_for_result(game, work.selection.choice_result)
         option = next(o for o in offer.options if o.id == work.selection.choice_result.selected_ids[0])
         if option.effects != (replace(work.selection, choice_result=None),):

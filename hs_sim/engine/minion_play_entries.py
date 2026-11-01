@@ -39,7 +39,9 @@ def validate_boundary(game):
     from .play_history import play_record
     from .hero_health_history import effective_events
     accepted = {}
-    for event in effective_events(game.events):
+    # Internal validation only reads this stable inventory. The public events
+    # getter keeps its detached-copy contract for hosts and extensions.
+    for event in effective_events(tuple(game._events)):
         if event.kind != 'minion_play_accepted':
             continue
         data = dict(event.data)

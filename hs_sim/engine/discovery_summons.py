@@ -701,7 +701,7 @@ def validate_closed_events(game):
 
 
 def spec_from_dict(value):
-    from .serialization import _row
+    from .serialization import _row, _list
     from .model import Keyword
     from .pools import GenerationPolicy
     from .pool_summons import query_from_dict
@@ -710,6 +710,7 @@ def spec_from_dict(value):
     policy=_row(row['policy'],GenerationPolicy);policy['allowed_special']=tuple(Keyword(k)for k in policy['allowed_special'])
     row['policy']=GenerationPolicy(**policy);row['cause']=entry_from_dict(SummonCause,row['cause'])
     row['entry_keywords']=tuple(Keyword(k)for k in row['entry_keywords'])
+    row['fixed_candidates']=tuple(_list(row['fixed_candidates'],'original fixed discovery candidates'))
     if row['set_summoned_stats'] is not None:
         from .model import SummonStats
         row['set_summoned_stats']=SummonStats(**_row(row['set_summoned_stats'],SummonStats))

@@ -327,6 +327,8 @@ class Registry:
         self._player_target_rules = {}
         self._use_visibility = {name: 'builtin' for name in self._use_rules}
         self._frozen = False
+        self._identity_guard = None
+        self._fingerprint_cache = None
 
     @property
     def version(self) -> str:
@@ -3137,9 +3139,26 @@ class Registry:
             raise ValueError('Ability display card must be a nonphysical choice-only descriptor')
 
     def freeze(self) -> None:
+        if self._frozen and self._identity_unchanged():
+            return
+        self._identity_guard = None
+        self._fingerprint_cache = None
         self.validate()
         self._shatter_families = self._build_shatter_families()
         self._frozen = True
+        self._capture_identity_guard()
+
+    def _capture_identity_guard(self):
+        from .registry_identity import RegistryInventoryGuard
+        # Subclasses and unknown extension values retain their original live
+        # validation path. The guard invokes no extension equality/copy hooks.
+        if type(self) is Registry:
+            self._identity_guard = RegistryInventoryGuard.capture(self)
+
+    def _identity_unchanged(self):
+        from .registry_identity import RegistryInventoryGuard
+        return (type(self) is Registry and type(self._identity_guard) is RegistryInventoryGuard
+                and self._identity_guard.matches(self))
 
     def _build_shatter_families(self):
         # Catalog iteration lists static definitions only. Reading that inventory
@@ -3153,7 +3172,15 @@ class Registry:
         return dict(self._shatter_families) if self._frozen else self._build_shatter_families()
 
     def fingerprint(self) -> str:
-        self.validate()
+        unchanged = self._frozen and self._identity_unchanged()
+        if unchanged and type(self._fingerprint_cache) is str:
+            return self._fingerprint_cache
+        if not unchanged:
+            self._identity_guard = None
+            self._fingerprint_cache = None
+            self.validate()
+            if self._frozen:
+                self._capture_identity_guard()
         def definition_data(card):
             data = asdict(card)
             if data['reborn_policy'] is None:
@@ -3491,4 +3518,7 @@ class Registry:
         if self._native_secret_repeat_profiles:
             payload['native_secret_repeat_profiles']=[asdict(self._native_secret_repeat_profiles[k])for k in sorted(self._native_secret_repeat_profiles)]
         serialized = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-        return hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+        result = hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+        if self._frozen and self._identity_unchanged():
+            self._fingerprint_cache = result
+        return result
