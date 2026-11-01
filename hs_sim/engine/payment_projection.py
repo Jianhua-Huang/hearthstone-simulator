@@ -4,6 +4,7 @@ This does not execute events, trigger conditions, handlers or checkpoints.
 Quote truth and Rewind provenance belong to the separate cost acceptance proof.
 """
 from copy import deepcopy
+from .runtime_copy import deepcopy as copy_native
 from dataclasses import dataclass, fields, replace
 from .errors import ResolutionError
 from .model import CostUseReceipt, PaymentType, Resource
@@ -158,7 +159,7 @@ def _validation_working_state(before, registry):
             or any(type(e) is not Entity for e in before.entities.values())
             or type(before.cost_use_history) is not list or type(before.play_history) is not list):
         return deepcopy(before)
-    players, entities = deepcopy((before.players, before.entities))
+    players, entities = copy_native((before.players, before.entities))
     return replace(before, players=players, entities=entities,
                    cost_use_history=list(before.cost_use_history),
                    play_history=list(before.play_history))

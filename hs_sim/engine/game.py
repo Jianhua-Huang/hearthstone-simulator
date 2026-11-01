@@ -1143,14 +1143,16 @@ class Game:
         validate_external(self,action)
         working=self.clone()
         start=len(working._events)
-        working._resolve_action(action)
+        from .frame_materials import action_frame_materials
         try:
-            drive(working)
+            with action_frame_materials(working.registry, deferred=True):
+                working._resolve_action(action)
+                drive(working)
+                events = tuple(working._events[start:])
+                digest = working.state_hash()
         except Exception as exc:
             if isinstance(exc,ResolutionError):raise
             raise ResolutionError(f'Native turn failed and was rolled back: {exc}') from exc
-        events = tuple(working._events[start:])
-        digest = working.state_hash()
         working._history.append({'action': history_action_to_dict(action), 'state_hash': digest,
                                  'events_hash': canonical_hash([event_to_dict(e) for e in events])})
         self._state, self._rng = working._state, working._rng

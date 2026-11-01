@@ -282,7 +282,11 @@ class MechanicsTests(unittest.TestCase):
         self.assertEqual((player.max_mana, player.mana), (4, 4))
         self.assertEqual([state.entities[i].card_id for i in player.hand], ["charge"])
         self.assertEqual([state.entities[i].card_id for i in player.deck], ["rush"])
-        self.assertEqual([e.kind for e in result.events], ["turn_ended", "turn_started", "card_drawn"])
+        self.assertEqual([e.kind for e in result.events],
+                         ["turn_ended", "turn_started", "card_drawn", "hand_card_entered"])
+        entry = result.events[-1]
+        self.assertEqual((entry.player_id, entry.target_id), (2, player.hand[0]))
+        self.assertEqual(dict(entry.data)['hand_entry_id'], state.entities[player.hand[0]].hand_entry_id)
 
     def test_hero_death_finishes_game_and_cancels_later_effects(self):
         self.spell("lethal", lambda ctx: (Damage(ctx.state.players[2].hero_id, 30),

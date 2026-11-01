@@ -889,6 +889,10 @@ class FrameCodec:
         if value is None or type(value) in (str, bool, int):
             return value
         if type(value) is GameState:
+            from .frame_materials import materials_for
+            materials = materials_for(self.registry)
+            if materials is not None:
+                return {'state': materials.encode_state(value, validate_invariants, state_to_dict)}
             validate_invariants(value, self.registry)
             return {'state': state_to_dict(value)}
         if type(value) is Event:
@@ -900,6 +904,8 @@ class FrameCodec:
         kind = type(value)
         if self.types.get(type_name(kind)) is not kind:
             raise ValueError(f'Unregistered frame payload type: {type_name(kind)}')
+        from .frame_materials import materials_for
+        materials_for(self.registry, kind)
         if isinstance(value, Enum):
             return {'enum': type_name(kind), 'value': value.value}
         if not is_dataclass(value) or not kind.__dataclass_params__.frozen:
@@ -923,6 +929,10 @@ class FrameCodec:
         if set(value) == {'tuple'} and type(value['tuple']) is list:
             return tuple(self.decode(v, depth + 1) for v in value['tuple'])
         if set(value) == {'state'}:
+            from .frame_materials import materials_for
+            materials = materials_for(self.registry)
+            if materials is not None:
+                return materials.decode_state(value['state'], state_from_dict, validate_invariants)
             result = state_from_dict(value['state'])
             validate_invariants(result, self.registry)
             return result
@@ -934,12 +944,16 @@ class FrameCodec:
             kind = self.types.get(value['enum']) if type(value['enum']) is str else None
             if kind is None or not issubclass(kind, Enum):
                 raise ValueError('Unknown frame enum type')
+            from .frame_materials import materials_for
+            materials_for(self.registry, kind)
             return kind(value['value'])
         if set(value) != {'type', 'fields'} or type(value['type']) is not str:
             raise ValueError('Invalid frame object fields')
         kind = self.types.get(value['type'])
         if kind is None or not is_dataclass(kind) or not kind.__dataclass_params__.frozen:
             raise ValueError(f'Unknown immutable frame type: {value["type"]}')
+        from .frame_materials import materials_for
+        materials_for(self.registry, kind)
         row = value['fields']
         if type(row) is not dict or set(row) != {f.name for f in fields(kind)}:
             raise ValueError('Frame payload fields must match the declared type')

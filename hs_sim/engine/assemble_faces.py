@@ -396,6 +396,12 @@ def validate_projection(registry,projection):
     if projection.prefix.end_turn is not None:registry.trigger_condition(projection.prefix.end_turn.condition_id)
 
 def text_source(registry,card_id,*,primary=False):
+    from .assembly_materials import material
+    return material(registry, ('text', card_id, primary),
+                    lambda: _text_source(registry, card_id, primary=primary))
+
+
+def _text_source(registry,card_id,*,primary=False):
     source=registry._assemble_templates.get(card_id)
     if source is not None:
         validate_template(registry,source)
@@ -687,6 +693,11 @@ def validate_templates(registry):
     if any(cid.startswith(PREFIX)for cid in registry._cards):raise ValueError('Assembly namespace cannot contain registered substitutes')
 
 def resolve_face(registry,card_id):
+    from .assembly_materials import material
+    return material(registry, ('face', card_id), lambda: _resolve_face(registry, card_id))
+
+
+def _resolve_face(registry,card_id):
     from .registry import UnsupportedDefinitionError
     try:
         recipe=recipe_from_id(card_id)

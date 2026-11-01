@@ -110,6 +110,12 @@ def source_card(state,spec):
     return state.entities[spec.source_id].card_id
 
 def candidates(registry,context,state,spec,primary=None):
+    from .assembly_materials import candidate_materials
+    with candidate_materials(registry):
+        return _candidates(registry,context,state,spec,primary)
+
+
+def _candidates(registry,context,state,spec,primary=None):
     spec.__post_init__();source=source_card(state,spec);hero=state.players[spec.player_id].hero_class
     passive=spec.passive_power_template_id is not None
     if passive:
@@ -150,6 +156,12 @@ def candidates(registry,context,state,spec,primary=None):
     return tuple(result)
 
 def recipe_options(registry,primary,secondary,passive_power_template_id=None):
+    from .assembly_materials import material
+    return material(registry, ('recipe',primary,secondary,passive_power_template_id),
+                    lambda: _recipe_options(registry,primary,secondary,passive_power_template_id))
+
+
+def _recipe_options(registry,primary,secondary,passive_power_template_id=None):
     if any(source_restriction(registry,cid) is not None for cid in(primary,secondary)):return ()
     first=text_source(registry,primary,primary=True);second=text_source(registry,secondary)
     original=source_face(registry,registry.card(primary),first,first.suffix,primary)
@@ -174,6 +186,16 @@ def recipe_options(registry,primary,secondary,passive_power_template_id=None):
     return tuple(options)
 
 def draw(registry,context,state,spec,rng):
+    from .assembly_materials import candidate_materials
+    # The two candidate queries and sampling form one synchronous calculation;
+    # exact Random has no extension callbacks that could change the registry.
+    if type(rng) is Random:
+        with candidate_materials(registry):
+            return _draw(registry,context,state,spec,rng)
+    return _draw(registry,context,state,spec,rng)
+
+
+def _draw(registry,context,state,spec,rng):
     primary_rows=candidates(registry,context,state,spec)
     if not primary_rows:
         if spec.empty_policy=='skip':return None
@@ -206,6 +228,14 @@ def options_for(registry,offer):
         preview=preview(registry.card(cid),registry.card(cid).cost))for oid,label,cid in option_rows(registry,offer))
 
 def assemble(r,spec):
+    from .assembly_materials import candidate_materials
+    # These helpers only capture, calculate and return work. Effect execution
+    # starts after the scope closes, so cached definitions cannot escape to it.
+    with candidate_materials(r.registry):
+        return _assemble(r,spec)
+
+
+def _assemble(r,spec):
     spec.__post_init__();before=deepcopy(r.state);rng_before=r.game._rng.getstate()
     data=draw(r.registry,r.game._generation_context,before,spec,r.game._rng)
     if data is None:return ()
@@ -223,6 +253,12 @@ def validate_current(offer,state):
             raise ValueError('Assembly acceptance changed original deck facts')
 
 def resolve(r,effect):
+    from .assembly_materials import candidate_materials
+    with candidate_materials(r.registry):
+        return _resolve(r,effect)
+
+
+def _resolve(r,effect):
     effect.__post_init__();validate_offer(r.registry,r.game._generation_context,effect.offer)
     validate_current(effect.offer,r.state)
     if effect.result is None:raise ValueError('Assembly delivery requires the actual selected choice')
@@ -240,6 +276,19 @@ def resolve(r,effect):
     return(AddToHand(spec.player_id,cid,spec.source_id,cost=spec.cost,minion_grant=spec.minion_grant),)
 
 def validate_boundary(game):
+    if game._frame is None:
+        return
+    from .model import ChoicePurpose
+    if (game._state.pending_choice.purpose != ChoicePurpose.ASSEMBLE and
+            not any(type(effect) is ResolveAssemble
+                    for option in game._frame.options for effect in option.effects)):
+        return
+    from .assembly_materials import candidate_materials
+    with candidate_materials(game.registry):
+        return _validate_boundary(game)
+
+
+def _validate_boundary(game):
     frame=game._frame
     if frame is None:return
     selected=[e for o in frame.options for e in o.effects if type(e)is ResolveAssemble]

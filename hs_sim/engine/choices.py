@@ -12,6 +12,8 @@ def request_choice(r, effect):
         raise ResolutionError('A resolution can request only one choice at a time')
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Choice source does not exist')
+    from .frame_materials import begin_choice_materials
+    begin_choice_materials(r.registry)
     # Check every candidate, including candidates that sampling might omit.
     codec = FrameCodec(r.game.mechanics, r.registry)
     codec.decode(codec.encode(effect))
