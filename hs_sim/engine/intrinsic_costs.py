@@ -192,12 +192,14 @@ def capture_intrinsic_stage(state, registry, player_id, card_id, base_cost, *, s
     spell_damage = capture_spell_damage(state, registry, player_id, definition, base_cost)
     from .character_attack_costs import capture as capture_character_attacks
     character_attacks = capture_character_attacks(state, registry, player_id, definition, base_cost)
+    from .runtime_queries import audit_query_inputs
     return _capture_stage(state, registry, player_id, card_id, base_cost, board, hand, hero, personal,
-                          powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, source_id=source_id)
+                          powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, source_id=source_id,
+                          _audit_history=audit_query_inputs(registry))
 
 
 def _capture_stage(state, registry, player_id, card_id, base_cost, board, hand, hero, personal,
-                   powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, *, current_deck=None, permanent_mana=None, current_hand_class=None, current_presence=None, current_shuffle=None, current_location_uses=None, current_discovery=None, current_held_copy=None, source_id=None, current_kindred=None, current_previous_cast=None):
+                   powers, mana, deaths, overload, played_class, health_changes, draws, weapon, armor, summons, streak, corpses, damage, spell_damage, character_attacks, *, current_deck=None, permanent_mana=None, current_hand_class=None, current_presence=None, current_shuffle=None, current_location_uses=None, current_discovery=None, current_held_copy=None, source_id=None, current_kindred=None, current_previous_cast=None, _audit_history=True):
     """Retained replay passes frozen original quantity/zone operands, never today's zones.
 
 Original payment/window proof uses capture_intrinsic_stage to requery the
@@ -206,7 +208,8 @@ complete actual zone inventories. Compact history cannot authenticate an unsigne
     from .costs import apply_cost
     definition = registry.card(card_id)
     validate_definition_intrinsics(definition)
-    validate_history(state, registry)
+    if _audit_history:
+        validate_history(state, registry)
     boundary = OwnerTurnQueryBoundaryFact(state.turn, state.action_number,
         state.status, len(state.owner_turn_history), len(state.play_history),
         state.owner_turn_history[-1] if state.owner_turn_history else None,

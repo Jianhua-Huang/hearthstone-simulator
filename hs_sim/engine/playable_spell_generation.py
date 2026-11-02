@@ -1,6 +1,5 @@
 """Full ordinary spell pools qualified by the shared received-card preview."""
 from collections import OrderedDict
-from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass
 import hashlib
 import json
@@ -104,15 +103,15 @@ def qualify(game, request, before, information_json, rows):
 
 
 def generate(r, request):
-    from .continuations import FrameCodec
+    from .continuations import encode_produced
     from .zones import source_exists
     request.__post_init__(); source_exists(r, request.source_id)
     spec = request.request()
     rows = generation_candidates(r, spec)
     if len(rows) > r.rules.max_resolution_steps:
         raise ResolutionLimitExceeded('Playable pool preview exceeds the ordinary candidate budget')
-    before = RuleContext(deepcopy(r.state), request.source_id, request.player_id)
-    information = canonical(r.game._information.to_dict())
+    before = RuleContext(r.capture_state(), request.source_id, request.player_id)
+    information = canonical(r.game._information.to_dict(readonly=True))
     complete = tuple((m.card_id, m.weight) for m in rows)
     playable = qualify(r.game, request, before, information, complete)
     rng_before = r.game._rng.getstate()
@@ -121,7 +120,7 @@ def generate(r, request):
         r.registry.pool(request.pool_id, r.game._generation_context).version, before, information,
         complete, playable, selected, rng_before, r.game._rng.getstate())
     r.emit(DRAW, source_id=request.source_id, player_id=request.player_id,
-        draw=FrameCodec(r.game.mechanics, r.registry).encode(draw), _capture=False)
+        draw=encode_produced(r.game, draw), _capture=False)
     from .temporary_cards import CreateTemporaryCard
     return tuple(CreateTemporaryCard(request.player_id, cid, r.state.turn,
         source_id=request.source_id) for cid in selected)

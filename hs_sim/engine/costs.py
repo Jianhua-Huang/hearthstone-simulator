@@ -345,7 +345,9 @@ def validate_starting_deck_cost_fact(state, fact):
 
 def _external_quote(state, registry, player_id, definition, amount, payment, current_battlecry, enchantments=(),
                     *,abilities=None,hand_lifetime=None,minimum_cost=0,physical_id=None):
-    validated_cost_source_inventory(state, registry)
+    from .runtime_queries import audit_query_inputs
+    if audit_query_inputs(registry):
+        validated_cost_source_inventory(state, registry)
     player = state.players[player_id]
     modifiers = [(m.id, m.spec, CostContribution('player_modifier', player.id,
         None, modifier=m)) for m in player.cost_modifiers if m.scope == CostScope.CARD]

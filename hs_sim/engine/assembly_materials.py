@@ -2,8 +2,9 @@
 
 Only immutable templates, derived definitions and recipe identities are reused.
 Queries, candidates, weighting, live state and random selection stay uncached.
-The complete frozen registry is checked at both boundaries; each result also
-has a structural guard. Mutable registries and extensions use the normal path.
+Debug checks the frozen registry at both boundaries and guards each result.
+Release native queries reuse the same read-only materials without those
+repeated audits. Mutable registries and extensions use the normal path.
 """
 from collections import OrderedDict
 from contextlib import contextmanager
@@ -26,7 +27,7 @@ _current = ContextVar('assembly_static_materials', default=None)
 def candidate_materials(registry, *, audit=True):
     from .registry import Registry
     active = _current.get()
-    if active is not None and active[0] is registry:
+    if active is not None and active[0] is registry and (not audit or active[2]):
         yield
         return
     eligible = (type(registry) is Registry and registry._frozen

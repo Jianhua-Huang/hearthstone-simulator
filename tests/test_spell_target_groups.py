@@ -26,11 +26,12 @@ META = CardMetadata(False, (CardClass.NEUTRAL,), None, tribes=())
 def registry():
     r = build_registry()
     raw = json.loads(PACKET.read_text(encoding='utf-8'))['cards'][0]['record']
-    r.register_behavior(P+'unexecuted', lambda c: ())
-    # The fixture supplies the real target domain, never an executable card adapter.
-    r.register_card(CardDefinition(CARD, raw['name'], CardType.SPELL, cost=raw['cost'],
-        metadata=metadata_from_record(raw), spell_school=SpellSchool.FIRE,
-        on_play=P+'unexecuted', targeting=TargetSpec(relation='enemy')))
+    # The real adapter is now registered. These tests exercise only its target
+    # domain; registering the historical stub again would mask that coverage.
+    face = r.card(CARD)
+    if (face.kind, face.cost, face.spell_school, face.targeting, face.target_rule) != (
+            CardType.SPELL, raw['cost'], SpellSchool.FIRE, TargetSpec(relation='enemy'), 'any_entity'):
+        raise ValueError('Flame Shock fixture lost its original enemy target domain')
     r.register_card(CardDefinition(TARGETLESS, TARGETLESS, CardType.SPELL, metadata=META))
     for cid, keyword in ((PLAIN, None), (STEALTH, Keyword.STEALTH), (ELUSIVE, Keyword.ELUSIVE),
                          (IMMUNE, Keyword.IMMUNE), (DORMANT, None)):

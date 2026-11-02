@@ -338,7 +338,9 @@ class Game:
         itself to an untrusted agent still exposes its omniscient host APIs.
         """
         self._require_boundary()
-        return deepcopy(self._information.observe(self, viewer))
+        from .runtime_queries import query_materials
+        with query_materials(self):
+            return deepcopy(self._information.observe(self, viewer))
 
     def for_player(self, viewer):
         """Bind a trusted host-selected seat to the restricted JSON command API."""
@@ -916,6 +918,11 @@ class Game:
             raise ValueError('Stale derived attachment or aura values')
 
     def validate(self, action: Action):
+        from .runtime_queries import query_materials
+        with query_materials(self):
+            return self._validate_with_queries(action)
+
+    def _validate_with_queries(self, action: Action):
         if type(action) is AdvanceTurnTime:
             from .turn_clocks import validate_input
             return validate_input(self, action)
@@ -1068,6 +1075,11 @@ class Game:
             context_factory=context_factory(self, player.id))
 
     def legal_actions(self):
+        from .runtime_queries import query_materials
+        with query_materials(self):
+            return self._legal_actions_with_queries()
+
+    def _legal_actions_with_queries(self):
         self._require_boundary()
         if self._state.status != 'playing':
             return ()
@@ -1257,8 +1269,9 @@ class Game:
             working._debug_trace = trace
         start=len(working._events)
         from .frame_materials import action_frame_materials
+        from .runtime_queries import query_materials
         try:
-            with action_frame_materials(working.registry, deferred=True):
+            with action_frame_materials(working.registry, deferred=True), query_materials(working):
                 working._resolve_action(action)
                 if trace is not None: trace.stage('controlled_turns')
                 drive(working)

@@ -30,6 +30,13 @@ def accepts_target(state, registry, source, definition, target_id, *, context_fa
     from .carved_spells import target_definition
     definition=target_definition(registry,source,definition)
     spec = effective_target_spec(state,registry,source,definition)
+    return _accepts_target(state, registry, source, definition, spec, target_id,
+        context_factory=context_factory, automatic=automatic)
+
+
+def _accepts_target(state, registry, source, definition, spec, target_id, *, context_factory=None, automatic=False):
+    # A synchronous target query has one rule domain. Each candidate still
+    # runs the complete live eligibility and isolated callback checks below.
     target = state.entities.get(target_id)
     if spec is None or target is None or not target.active or target.zone not in spec.zones:
         return False
@@ -81,29 +88,40 @@ def accepts_target(state, registry, source, definition, target_id, *, context_fa
 
 
 def legal_target_ids(state, registry, source, definition, *, context_factory=None):
+    from .carved_spells import target_definition
+    definition=target_definition(registry,source,definition)
+    spec = effective_target_spec(state,registry,source,definition)
+    return _legal_target_ids(state, registry, source, definition, spec, context_factory=context_factory)
+
+
+def _legal_target_ids(state, registry, source, definition, spec, *, context_factory=None):
     return tuple(i for i in sorted(state.entities)
-                 if accepts_target(state, registry, source, definition, i, context_factory=context_factory))
+                 if _accepts_target(state, registry, source, definition, spec, i, context_factory=context_factory))
 
 
 def target_choices(state, registry, source, definition, *, context_factory=None):
+    from .carved_spells import target_definition
+    definition=target_definition(registry,source,definition)
     spec = effective_target_spec(state,registry,source,definition)
     if spec is None:
         return (None,)
-    targets = legal_target_ids(state, registry, source, definition, context_factory=context_factory)
+    targets = _legal_target_ids(state, registry, source, definition, spec, context_factory=context_factory)
     if spec.mode == TargetMode.OPTIONAL or (spec.mode == TargetMode.IF_AVAILABLE and not targets):
         return (None, *targets)
     return targets
 
 
 def target_error(state, registry, source, definition, target_id, *, context_factory=None):
+    from .carved_spells import target_definition
+    definition=target_definition(registry,source,definition)
     spec = effective_target_spec(state,registry,source,definition)
     if target_id is not None:
-        if not accepts_target(state, registry, source, definition, target_id, context_factory=context_factory):
+        if not _accepts_target(state, registry, source, definition, spec, target_id, context_factory=context_factory):
             return 'Target rejected by the target rule or domain'
     elif spec is not None:
         if spec.mode == TargetMode.REQUIRED:
             return 'A target is required'
-        if spec.mode == TargetMode.IF_AVAILABLE and legal_target_ids(state, registry, source, definition, context_factory=context_factory):
+        if spec.mode == TargetMode.IF_AVAILABLE and _legal_target_ids(state, registry, source, definition, spec, context_factory=context_factory):
             return 'A target is required when one is available'
     return None
 
@@ -144,10 +162,12 @@ def effect_target_context(r, entity):
 
 def select_effect_target(r, source, definition, targeting, target_id, *, excluded_ids=()):
     """Automatic activation domains, separate from manual selectable protection."""
+    from .carved_spells import target_definition
+    definition=target_definition(r.registry,source,definition)
     spec = effective_target_spec(r.state,r.registry,source,definition)
     context = effect_target_context(r,source)
-    targets = tuple(i for i in sorted(r.state.entities) if i not in excluded_ids and accepts_target(r.state,r.registry,
-        source,definition,i,context_factory=context,automatic=True)) if spec else ()
+    targets = tuple(i for i in sorted(r.state.entities) if i not in excluded_ids and _accepts_target(r.state,r.registry,
+        source,definition,spec,i,context_factory=context,automatic=True)) if spec else ()
     failure = None
     if targeting == 'random':
         if targets: target_id = r.game._rng.choice(targets)

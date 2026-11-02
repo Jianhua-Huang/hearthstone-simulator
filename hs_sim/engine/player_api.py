@@ -320,6 +320,11 @@ class PlayerPort:
         return self._game.player_events(self.viewer, after=after)
 
     def legal_actions(self):
+        from .runtime_queries import query_materials
+        with query_materials(self._game):
+            return self._legal_actions_with_queries()
+
+    def _legal_actions_with_queries(self):
         result = self.observe()
         result.update(actions=[], error=None)
         game = self._game

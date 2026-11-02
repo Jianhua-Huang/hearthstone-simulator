@@ -25,6 +25,23 @@ def game(r, rule='any_character', spec=None):
 
 
 class TargetContextPerformanceTests(unittest.TestCase):
+    def test_target_query_resolves_one_domain_and_does_not_cache_live_candidates(self):
+        from hs_sim.engine import targeting
+        g=game(registry());state=g._state
+        source=state.entities[state.players[1].hand[0]]
+        definition=g.registry.card(source.card_id)
+        before=g.snapshot()
+        expected=tuple(i for i in sorted(state.entities)
+            if targeting.accepts_target(state,g.registry,source,definition,i))
+        with patch.object(targeting,'effective_target_spec',wraps=targeting.effective_target_spec)as spec:
+            self.assertEqual(targeting.target_choices(state,g.registry,source,definition),expected)
+            self.assertEqual(spec.call_count,1)
+        self.assertEqual(g.snapshot(),before)
+        removed=state.players[2].board[0]
+        state.entities[removed].doomed=True
+        self.assertEqual(targeting.target_choices(state,g.registry,source,definition),
+            tuple(i for i in expected if i!=removed))
+
     def test_builtin_targets_avoid_entire_state_copy_without_changing_results(self):
         g = game(registry())
         state = g._state
