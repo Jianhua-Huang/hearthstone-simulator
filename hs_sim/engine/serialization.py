@@ -1,8 +1,11 @@
 """Canonical JSON only: no pickle, dynamic imports, or executable snapshots."""
 from dataclasses import asdict, dataclass, fields
 from copy import deepcopy
+from copyreg import dispatch_table
+from enum import Enum
 import hashlib
 import json
+import math
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
 SNAPSHOT_SCHEMA_VERSION = 680
@@ -56,7 +59,127 @@ class _StateFieldValue:
     value: object
 
 
+class _NativeWireFallback(Exception):
+    pass
+
+
+_WIRE_ATOMIC = frozenset((str, int, bool, type(None)))
+_ENTITY_KEYWORDS = frozenset(('keywords', 'weapon_keywords', 'aura_keywords',
+                              'hand_aura_keywords', 'conditional_keywords'))
+
+
+def _native_wire_encoder():
+    """Build a detached JSON tree in one pass, without executing extensions.
+
+    Metadata lives for this conversion only. Unknown objects abort the fast
+    pass before any copy hooks run; the caller then uses its complete original
+    encoder. This preserves hook order and late mutations of earlier values.
+    """
+    from .runtime_copy import _copy_kind
+    kinds = {}
+
+    def record_fields(value):
+        kind = type(value)
+        classification = kinds.get(kind)
+        if classification is None:
+            classification = _copy_kind(kind)
+            if classification == 'record':
+                classification = tuple(field.name for field in fields(kind))
+            kinds[kind] = classification
+        return classification
+
+    def key_string(key):
+        kind = type(key)
+        if kind is str: return key
+        if kind is int: return str(key)
+        if kind is bool: return 'true' if key else 'false'
+        if key is None: return 'null'
+        if kind is float and math.isfinite(key): return str(key)
+        if record_fields(key) == 'enum' and '__deepcopy__' not in vars(key):
+            if isinstance(key, str): return str.__str__(key)
+            if isinstance(key, int): return str(int.__int__(key))
+        raise _NativeWireFallback
+
+    def encode(value):
+        kind = type(value)
+        if kind in _WIRE_ATOMIC:
+            return value
+        if kind is float and math.isfinite(value):
+            return value
+        if kind is dict:
+            return {key_string(k): v if type(v) in _WIRE_ATOMIC else encode(v)
+                    for k, v in value.items()}
+        if kind is list or kind is tuple:
+            return [v if type(v) in _WIRE_ATOMIC else encode(v) for v in value]
+        classification = record_fields(value)
+        if classification == 'enum' and '__deepcopy__' not in vars(value):
+            if isinstance(value, str): return str.__str__(value)
+            if isinstance(value, int): return int.__int__(value)
+        if type(classification) is tuple:
+            return {name: child if type(child := getattr(value, name)) in _WIRE_ATOMIC else encode(child)
+                    for name in classification}
+        raise _NativeWireFallback
+
+    def entity(value):
+        names = record_fields(value)
+        if type(value) is not Entity or type(names) is not tuple or set in dispatch_table:
+            raise _NativeWireFallback
+        # The original encoder replaces these five sets after asdict. Only
+        # ordinary keyword sets can skip that otherwise discarded deep copy.
+        for name in _ENTITY_KEYWORDS:
+            keywords = getattr(value, name)
+            if type(keywords) is not set or any(type(k) is not Keyword or
+                    '__deepcopy__' in vars(k) for k in keywords):
+                raise _NativeWireFallback
+        if Keyword.__deepcopy__ is not Enum.__deepcopy__:
+            raise _NativeWireFallback
+        row = {name: None if name in _ENTITY_KEYWORDS else encode(getattr(value, name)) for name in names}
+        row['zone'] = value.zone.value
+        for name in _ENTITY_KEYWORDS:
+            row[name] = sorted(k.value for k in getattr(value, name))
+        return row
+
+    return encode, entity
+
+
 def state_to_dict(state: GameState) -> dict:
+    try:
+        return _native_state_to_dict(state)
+    except _NativeWireFallback:
+        return _state_to_dict_legacy(state)
+
+
+def _native_state_to_dict(state):
+    if type(state) is not GameState or any(type(getattr(state, name)) is not dict
+            for name in ('players', 'entities', 'temporary_power_returns')):
+        raise _NativeWireFallback
+    encode, entity = _native_wire_encoder()
+    specialized = {'players', 'entities', 'temporary_power_returns', 'whole_card_replay_ledger'}
+    result = {field.name: None if field.name in specialized else encode(getattr(state, field.name))
+              for field in fields(state)}
+    result['temporary_power_returns'] = {str(k): encode(v) for k, v in sorted(state.temporary_power_returns.items())}
+    result['players'] = {str(k): encode(v) for k, v in sorted(state.players.items())}
+    result['entities'] = {str(k): entity(v) for k, v in sorted(state.entities.items())}
+    encode(state.whole_card_replay_ledger)
+    # All fast-path work above is side-effect free. Keep the specialized ledger
+    # and event codecs, including their original validation and data semantics.
+    from .whole_card_replay_state import encode as encode_whole_card_replay
+    result['whole_card_replay_ledger'] = encode_whole_card_replay(state.whole_card_replay_ledger)
+    for row, batch in zip(result['end_turn_batches'], state.end_turn_batches):
+        if batch.event is not None:
+            row['event'] = event_to_dict(batch.event)
+    for row, record in zip(result['end_turn_history'], state.end_turn_history):
+        if record.guard_event is not None:
+            row['guard_event'] = event_to_dict(record.guard_event)
+    for row, record in zip(result['ability_trigger_history'], state.ability_trigger_history):
+        if record.request.native_event is not None:
+            row['request']['native_event'] = event_to_dict(record.request.native_event)
+    for row, receipt in zip(result['resource_operations'], state.resource_operations):
+        row['event'] = event_to_dict(receipt.event)
+    return result
+
+
+def _state_to_dict_legacy(state):
     # These inventories have dedicated wire encoders below. Preserve their key
     # positions, without recursively converting them once just to discard it.
     specialized = {'players', 'entities', 'temporary_power_returns', 'whole_card_replay_ledger'}
@@ -1999,4 +2122,7 @@ def _entity_wire_fields(entity):
 
 
 def entity_to_dict(entity):
-    return json.loads(json.dumps(_entity_wire_fields(entity), ensure_ascii=False, allow_nan=False))
+    try:
+        return _native_wire_encoder()[1](entity)
+    except _NativeWireFallback:
+        return json.loads(json.dumps(_entity_wire_fields(entity), ensure_ascii=False, allow_nan=False))

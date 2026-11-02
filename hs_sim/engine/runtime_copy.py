@@ -12,7 +12,7 @@ from types import ModuleType
 import sys
 
 
-_ATOMIC = (str, int, float, bool, bytes, type(None))
+_ATOMIC = frozenset((str, int, float, bool, bytes, type(None)))
 _MISSING = object()
 _INSTANCE_PROTOCOLS = frozenset(('__deepcopy__', '__reduce__', '__reduce_ex__',
                                '__getstate__', '__setstate__', '__getnewargs__', '__getnewargs_ex__'))
@@ -55,6 +55,10 @@ def deepcopy(value):
         previous = memo.get(identity, _MISSING)
         if previous is not _MISSING:
             return previous
+        # Python deepcopy already keeps wholly atomic tuples by identity.
+        # RNG states and immutable history fields need no temporary child list.
+        if kind is tuple and (not item or all(type(child) in _ATOMIC for child in item)):
+            return item
         if kind is dict:
             result = {}
             memo[identity] = result
@@ -72,9 +76,9 @@ def deepcopy(value):
         elif kind is list:
             result = []
             memo[identity] = result
-            result.extend(copy(child) for child in item)
+            result.extend(child if type(child) in _ATOMIC else copy(child) for child in item)
         elif kind is tuple:
-            children = [copy(child) for child in item]
+            children = [child if type(child) in _ATOMIC else copy(child) for child in item]
             # A tuple may reach itself through a list. The recursive copy has
             # already supplied the canonical tuple in that case.
             if identity in memo:

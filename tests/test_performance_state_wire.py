@@ -12,21 +12,63 @@ from test_performance_frame_metadata import game
 class StateWirePerformanceTests(unittest.TestCase):
     def setUp(self):self.game=game()
 
-    def test_one_state_normalization_matches_original_per_entity_normalization(self):
+    def test_native_state_matches_complete_legacy_wire_and_key_order(self):
         state=self.game._state
-        fields=serialization._entity_wire_fields
-        def original_entity(entity):
-            return json.loads(json.dumps(fields(entity),ensure_ascii=False,allow_nan=False))
         expected_entities={str(k):serialization.entity_to_dict(v) for k,v in sorted(state.entities.items())}
-        with patch.object(serialization,'_entity_wire_fields',side_effect=original_entity):
-            with patch.object(serialization.json,'dumps',wraps=json.dumps)as old_encode:
-                expected=serialization.state_to_dict(state)
-        with patch.object(serialization.json,'dumps',wraps=json.dumps)as encode:
-            actual=serialization.state_to_dict(state)
+        expected=serialization._state_to_dict_legacy(state)
+        actual=serialization.state_to_dict(state)
         self.assertEqual(actual,expected)
         self.assertEqual(actual['entities'],expected_entities)
         self.assertEqual(json.dumps(actual),json.dumps(expected))
-        self.assertEqual(old_encode.call_count-encode.call_count,len(state.entities))
+
+    def test_native_wire_json_keys_scalars_aliases_and_unicode_match_legacy(self):
+        from hs_sim.engine.model import Resource
+        shared=[1,True,None,-0.0,1e-20,10**50,'\U0001d11e','\ud834\udd1e']
+        values={7:'first','7':'overwritten',None:'null',False:'false',1.5:'float',
+                Resource.CORPSES:'enum','shared':shared,'again':shared,'tuple':(shared,)}
+        self.game._state.armor_gain_history=[values]
+        actual=serialization.state_to_dict(self.game._state)
+        expected=serialization._state_to_dict_legacy(self.game._state)
+        self.assertEqual(json.dumps(actual,ensure_ascii=False),json.dumps(expected,ensure_ascii=False))
+        row=actual['armor_gain_history'][0]
+        self.assertIsNot(row['shared'],row['again'])
+        row['shared'].clear()
+        self.assertEqual(row['again'],shared)
+        self.assertEqual(row['tuple'],[shared])
+
+    def test_extension_fallback_keeps_hook_order_and_late_mutation(self):
+        seen=[];shared={'items':[]}
+        class First:
+            def __deepcopy__(self,memo):seen.append('first');return shared
+        class Second:
+            def __deepcopy__(self,memo):seen.append('second');shared['items'].append(7);return 2
+        self.game._state.armor_gain_history=[First(),Second()]
+        expected=serialization._state_to_dict_legacy(self.game._state)
+        expected_order=seen[:];seen.clear();shared['items'].clear()
+        actual=serialization.state_to_dict(self.game._state)
+        self.assertEqual(seen,expected_order)
+        self.assertEqual(actual,expected)
+        self.assertEqual(actual['armor_gain_history'],[{'items':[7]},2])
+
+    def test_keyword_reducer_hooks_are_not_skipped(self):
+        from copyreg import dispatch_table
+        seen=[]
+        def reduce_set(value):seen.append(len(value));return set,(tuple(value),)
+        with patch.dict(dispatch_table,{set:reduce_set}):
+            expected=serialization._state_to_dict_legacy(self.game._state)
+            expected_order=seen[:];seen.clear()
+            actual=serialization.state_to_dict(self.game._state)
+        self.assertEqual(actual,expected)
+        self.assertTrue(expected_order)
+        self.assertEqual(seen,expected_order)
+
+    def test_non_json_values_and_nonfinite_numbers_keep_original_rejections(self):
+        for value in (float('nan'),float('inf'),b'bytes',{1,2}):
+            self.game._state.armor_gain_history=[value]
+            with self.assertRaises((ValueError,TypeError)) as expected:
+                serialization._state_to_dict_legacy(self.game._state)
+            with self.assertRaises(type(expected.exception)):
+                serialization.state_to_dict(self.game._state)
 
     def test_public_entity_wire_still_returns_json_and_detached_values(self):
         entity=next(iter(self.game._state.entities.values()))

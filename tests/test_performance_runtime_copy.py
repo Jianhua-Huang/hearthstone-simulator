@@ -12,6 +12,20 @@ from test_performance_frame_metadata import game
 
 
 class RuntimeCopyTests(unittest.TestCase):
+    def test_atomic_tuple_fast_path_respects_extension_memo_and_scalar_subclasses(self):
+        original=(1,2,3);substitute=['substitute'];seen=[]
+        class Hook:
+            def __deepcopy__(self,memo):memo[id(original)]=substitute;return 'hook'
+        class Number(int):
+            def __deepcopy__(self,memo):seen.append(int(self));return Number(self+1)
+        source=[Hook(),original,Number(4),(Number(5),)]
+        expected=reference_copy(source);expected_seen=seen[:];seen.clear()
+        actual=deepcopy(source)
+        self.assertEqual(actual,expected)
+        self.assertIs(actual[1],substitute)
+        self.assertEqual(seen,expected_seen)
+        self.assertIs(deepcopy(original),original)
+
     def test_empty_sets_keep_aliases_isolation_and_registered_reducers(self):
         shared = set()
         source = [shared, shared, set(), {1, 2}]
