@@ -4,7 +4,7 @@ from .hand_capacity import hand_capacity
 
 from collections import deque
 from collections.abc import Callable, Iterable
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, is_dataclass, replace
 from enum import Enum
 

@@ -3,7 +3,7 @@ from __future__ import annotations
 from .hand_capacity import hand_capacity
 from .turn_clocks import AdvanceTurnTime, history_action_to_dict, snapshot_value as clock_snapshot
 
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass
 import random
 from itertools import combinations

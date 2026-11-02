@@ -12,6 +12,19 @@ from test_performance_frame_metadata import game
 
 
 class RuntimeCopyTests(unittest.TestCase):
+    def test_empty_sets_keep_aliases_isolation_and_registered_reducers(self):
+        shared = set()
+        source = [shared, shared, set(), {1, 2}]
+        actual = deepcopy(source)
+        self.assertEqual(actual, reference_copy(source))
+        self.assertIs(actual[0], actual[1])
+        self.assertIsNot(actual[0], actual[2])
+        self.assertIsNot(actual[0], shared)
+        actual[0].add(3)
+        self.assertEqual(shared, set())
+        with patch.dict(dispatch_table, {set: lambda value: (set, ((17,),))}):
+            self.assertEqual(deepcopy(set()), reference_copy(set()))
+
     def test_mutable_aliases_cycles_and_tuple_cycles(self):
         shared = [1, True, -0.0, None, '\ud834\udd1e']
         loop = []; ring = (loop,); loop.append(ring)
@@ -128,9 +141,25 @@ class RuntimeCopyTests(unittest.TestCase):
         self.assertEqual(original.snapshot(), before)
         self.assertNotEqual(other.snapshot(), before)
 
+    def test_waiting_clone_detaches_boundary_origin_history_and_keyword_sets(self):
+        original = game()
+        original.apply(PlayCard(1, original._state.players[1].hand[0]))
+        snapshot, history, origin = original.snapshot(), original.history, original.origin
+        branch = original.clone()
+        branch._frame.paid_hand_choice_boundary.state.players[1].hand.append(99999)
+        branch._history[0]['action']['player_id'] = 2
+        branch._origin['state']['players']['1']['hand'].clear()
+        entity_id = original._state.players[1].board[0]
+        from hs_sim.engine.model import Keyword
+        branch._state.entities[entity_id].keywords.add(Keyword.TAUNT)
+        self.assertEqual(original.snapshot(), snapshot)
+        self.assertEqual(original.history, history)
+        self.assertEqual(original.origin, origin)
+
     def test_complete_apply_and_player_view_match_reference_copy(self):
-        from hs_sim.engine import game as game_module, resolver, payment_projection, paid_hand_acceptance, assemble_offers
-        modules = (game_module, resolver, payment_projection, paid_hand_acceptance, assemble_offers)
+        from hs_sim.engine import game as game_module, resolver, payment_projection, paid_hand_acceptance, assemble_offers, spell_acceptance, spell_cost_proof
+        modules = (game_module, resolver, payment_projection, paid_hand_acceptance,
+                   assemble_offers, spell_acceptance, spell_cost_proof)
         from contextlib import ExitStack
         original = game(); fast = original.clone(); slow = original.clone()
         action = PlayCard(1, original._state.players[1].hand[0])
@@ -143,6 +172,16 @@ class RuntimeCopyTests(unittest.TestCase):
         self.assertEqual(fast.snapshot(), slow.snapshot())
         self.assertEqual([fast.for_player(p).legal_actions() for p in (1, 2)],
                          [slow.for_player(p).legal_actions() for p in (1, 2)])
+        choice = fast._state.pending_choice
+        action = SelectChoice(choice.player_id, choice.id, ('ok',))
+        fast_result = fast.apply(action)
+        with ExitStack() as stack:
+            for module in modules: stack.enter_context(patch.object(module, 'deepcopy', reference_copy))
+            stack.enter_context(patch.object(payment_projection, 'copy_native', reference_copy))
+            slow_result = slow.apply(action)
+        self.assertEqual(fast_result, slow_result)
+        self.assertEqual(fast.snapshot(), slow.snapshot())
+        self.assertEqual(fast.history, slow.history)
 
 
 if __name__ == '__main__': unittest.main()

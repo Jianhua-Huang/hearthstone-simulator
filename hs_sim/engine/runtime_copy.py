@@ -63,6 +63,12 @@ def deepcopy(value):
                 # can observe this order and may refer back to this dictionary.
                 copied = child if type(child) in _ATOMIC else copy(child)
                 result[key if type(key) in _ATOMIC else copy(key)] = copied
+        elif kind is set and not item and kind not in dispatch_table:
+            # Empty keyword sets are common on every captured entity. There
+            # are no children/hooks to reconstruct, but the new set still
+            # participates in the memo so aliases remain local to the copy.
+            result = set()
+            memo[identity] = result
         elif kind is list:
             result = []
             memo[identity] = result

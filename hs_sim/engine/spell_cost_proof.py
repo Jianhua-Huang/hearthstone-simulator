@@ -3,7 +3,7 @@
 These states explain payment before the two existing repeat acceptance windows.
 No quote, projection or validator executes a handler, event or checkpoint.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .model import CardType, GameState, HandPlayCostReceipt, PlayRecord, Zone

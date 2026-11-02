@@ -3,7 +3,7 @@
 Experimental empty/small/keep policies are explicit. This is not a declaration
 of the complete official pool, exact fragment inventory or CN calibration.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass,replace
 from random import Random
 

@@ -4,7 +4,7 @@ The durable play keeps compact declarations. Only its pending tail control
 holds detached states, including a resolved countered window with no payload.
 This control is diagnostic: its handler must run without a gameplay checkpoint.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, fields, replace
 
 from .effects import Effect

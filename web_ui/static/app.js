@@ -7,9 +7,12 @@ const types={play_card:'出牌',attack:'攻击',use_hero_power:'英雄技能',en
 const errors={invalid_action:'操作不合法，请按当前合法操作重新选择。',stale_observation:'局面已变化，旧操作已拒绝；请根据刷新后的局面重选。',unsupported_rule:'此来源的规则尚未支持玩家接口。',unsupported_target_domain:'此目标范围尚未支持玩家接口。',enumeration_limit:'选择组合超出枚举预算，请使用上方选择面板。',rule_error:'引擎无法枚举此局面的完整操作。',resolution_failed:'引擎结算失败，本次操作已回滚。',seat_session_required:'原对局会话已失效，请点击创建新局。',host_error:'本地服务处理失败，请查看服务与演示配置。',origin_rejected:'请使用 127.0.0.1 的本地页面。'};
 let resetArmed=false, concedeArmed=false, selected=null;
 let previewTimer=null;
+let tabletopDrag=null, dragClickUntil=0, dragClickRef=null;
+let releasedCardPose=null, presentationEpoch=0;
 let cardCatalog=null;
 let cardCatalogRequest=null,assemblyMetadataMessage=null;
 let assemblySelection=null;
+let choiceSelection=null,choiceMetadataMessage=null;
 const cardCatalogById=new Map();
 let labReadOnly=false,labRequest=null;
 const cardKindNames={minion:'随从',spell:'法术',weapon:'武器',location:'地标',hero:'英雄',hero_power:'英雄技能',enchantment:'附魔'};
@@ -84,7 +87,7 @@ const perfLog=(()=>{
 })();
 function node(tag,text,cls){const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;}
 function button(text,fn){const n=node('button',text);n.disabled=busy;n.onclick=fn;return n;}
-function clearView(){closeBranchChoice();closeCardLab(true);cardCatalog=null;stopBotTimer();botPaused=false;pauseAfterWork=false;botClientError='';hidePreview();clearTargetLine();clearEffects();$('interaction-hint').textContent='';$('interaction-options').replaceChildren();$('cancel-selection').hidden=true;selected=null;message=null;$('diagnostics').open=false;$('mana-feedback').textContent='';resetArmed=false;concedeArmed=false;for(const id of ['players','logs','actions','choice','source','type'])$(id).replaceChildren();$('dto').textContent='';$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;}
+function clearView(){choiceSelection=null;choiceMetadataMessage=null;releasedCardPose=null;cancelTabletopDrag(false);closeBranchChoice();closeCardLab(true);cardCatalog=null;stopBotTimer();botPaused=false;pauseAfterWork=false;botClientError='';hidePreview();clearTargetLine();clearEffects();$('interaction-hint').textContent='';$('interaction-options').replaceChildren();$('cancel-selection').hidden=true;selected=null;message=null;$('diagnostics').open=false;$('mana-feedback').textContent='';resetArmed=false;concedeArmed=false;for(const id of ['players','logs','actions','choice','source','type'])$(id).replaceChildren();$('dto').textContent='';$('game').hidden=true;$('curtain').hidden=true;$('welcome').hidden=false;}
 async function api(path,body={},trace=null){
     const own=!trace,row=trace||perfLog.start(path),started=performance.now();
     try{
@@ -97,7 +100,7 @@ async function api(path,body={},trace=null){
     finally{if(own)perfLog.finish(row);}
 }
 function saveToken(t){if(token!==t)perfLog.reset();token=t;sessionStorage.setItem('hs-seat',t);}
-async function work(fn){if(busy||labReadOnly)return;clearEffects();stopBotTimer();busy=true;document.body.dataset.busy='true';document.querySelectorAll('button').forEach(b=>b.disabled=true);$('test-mana').disabled=true;if(message&&!message.handoff)updateEnd();updateCardLabControls();updateBotControls();try{notice('');await fn();}catch(e){notice(e.message);}finally{busy=false;document.body.dataset.busy='false';document.querySelectorAll('button').forEach(b=>b.disabled=false);if(message&&!message.handoff){updateEnd();updateTestControls();}updateAssemblyControls();updateBotControls();if(pauseAfterWork&&message&&!message.handoff){pauseAfterWork=false;void setOpponent('human');}else scheduleBot();}}
+async function work(fn){if(busy||labReadOnly)return;cancelTabletopDrag(false);clearEffects();stopBotTimer();busy=true;document.body.dataset.busy='true';document.body.dataset.presentationPhase='request';document.querySelectorAll('button').forEach(b=>b.disabled=true);$('test-mana').disabled=true;if(message&&!message.handoff)updateEnd();updateCardLabControls();updateBotControls();try{notice('');await fn();}catch(e){notice(e.message);}finally{busy=false;document.body.dataset.busy='false';document.body.dataset.presentationPhase='idle';document.querySelectorAll('button').forEach(b=>b.disabled=false);if(message&&!message.handoff){updateEnd();updateTestControls();}updateAssemblyControls();updateChoiceControls();updateBotControls();if(pauseAfterWork&&message&&!message.handoff){pauseAfterWork=false;void setOpponent('human');}else scheduleBot();}}
 function name(c){return c?message.names?.[c.card_id]||c.card_id||'未知牌背':'无';}
 async function loadCardCatalog(){
     if(cardCatalog)return cardCatalog;
@@ -152,7 +155,8 @@ function loadAssemblyPresentation(){
         }
     });
 }
-function entities(){const map={};for(const p of message.observation.players)for(const c of [p.hero,p.hero_power,p.weapon,...p.additional_hero_powers,...p.board,...p.hand,...p.quests,...p.secrets])if(c)map[c.ref]=c;return map;}
+function entityMap(observation){const map={};for(const p of observation.players)for(const c of [p.hero,p.hero_power,p.weapon,...p.additional_hero_powers,...p.board,...p.hand,...p.quests,...p.secrets,...p.pending_plays])if(c)map[c.ref]=c;return map;}
+function entities(){return entityMap(message.observation);}
 function source(a){return a.card||a.attacker||a.power||a.location||a.minion||a.starship||a.object||'';}
 function ref(r){if(!r)return '无';const c=entities()[r];return c?`${name(c)} (${r})`:r;}
 function actionLabel(a){let s=types[a.type]||a.type;if(source(a))s+=' · '+ref(source(a));if(a.target)s+=' → '+ref(a.target);if(a.defender)s+=' → '+ref(a.defender);if(a.position!=null)s+=` · 第${a.position+1}个位置`;if(a.side)s+=' · '+(a.side==='enemy'?'对方战场':'己方战场');if(a.branch)s+=' · 分支 '+a.branch;if(a.action_id||a.ability_id)s+=' · '+(a.action_id||a.ability_id);if(a.magnetic_target)s+=' · 磁力 '+ref(a.magnetic_target);if(a.body_targets||a.body_route)s+=' · '+JSON.stringify(a.body_targets||a.body_route);return s;}
@@ -163,15 +167,18 @@ async function submit(a){
         concedeArmed=false;hidePreview();clearTargetLine();
         trace=perfLog.start('action',a);
         const before=perfLog.stage(trace,'capture_ms',()=>capturePresentation());
-        const data=await api('action',{revision:message.revision,action:a},trace);
-        const attacked=data.accepted?await perfLog.stage(trace,'intent_ms',()=>animateIntent(a,before,data)):false;
-        perfLog.stage(trace,'render_ms',()=>render(data));
-        if(data.accepted)await perfLog.stage(trace,'outcome_ms',()=>animateOutcome(before,data,attacked?{type:'attack'}:a));
-        else{trace.status='rejected';trace.error_code=data.command_error;notice(errors[data.command_error]||data.command_error);}
+        before.release=releasedCardPose?.ref===source(a)&&releasedCardPose.revision===message.revision?releasedCardPose:null;releasedCardPose=null;
+        const waiting=waitingCard(before,a);
+        try{
+            const data=await api('action',{revision:message.revision,action:a},trace);waiting?.();
+            if(data.accepted)await presentReply(before,data,a,trace);
+            else{perfLog.stage(trace,'render_ms',()=>render(data));trace.status='rejected';trace.error_code=data.command_error;notice(errors[data.command_error]||data.command_error);}
+        }finally{waiting?.();}
     });
     if(trace)perfLog.finish(trace);
 }
 const keywordNames={taunt:'嘲讽',divine_shield:'圣盾',charge:'冲锋',rush:'突袭',windfury:'风怒',mega_windfury:'超级风怒',stealth:'潜行',poisonous:'剧毒',lifesteal:'吸血',reborn:'复生',immune:'免疫',deathrattle:'亡语',battlecry:'战吼',spell_damage:'法术伤害',frozen:'冻结'};
+Object.assign(keywordNames,{quest:'任务',questline:'任务线',sidequest:'支线任务',secret:'奥秘',combo:'连击',outcast:'流放',finale:'压轴',manathirst:'法力渴求',quickdraw:'快枪手',magnetic:'磁力',colossal:'巨型',herald:'兆示',invoke:'祈求',shatter:'碎裂',shattered:'碎片',echo:'回响',rewind:'回溯',casts_when_drawn:'抽到时施放',twinspell:'双生法术',miniaturize:'微缩',gigantify:'巨化',mini:'微型',gigantic:'巨化形态',spellburst:'法术迸发',frenzy:'暴怒',corrupt:'腐蚀',corrupted:'已腐蚀',infuse:'注能',infused:'已注能',immune_while_attacking:'攻击时免疫',cant_be_frozen:'无法被冻结',deathrattle_suppressor:'亡语无效',hero_power_suppressor:'英雄技能无效',elusive:'无法被法术或技能指定',starship_piece:'星舰组件',titan:'泰坦',old_god:'古神'});
 const imbuedPowerIds=new Set(['EDR_847p','EDR_850p','EDR_851p','EDR_445p','EDR_449p','EDR_448p','END_000p','END_003p']);
 function powerImbue(c){
     if(c?.kind!=='hero_power'||!imbuedPowerIds.has(c.card_id))return null;
@@ -186,7 +193,9 @@ function cardText(c,imbue=powerImbue(c)){
     const text=message.card_texts?.[c.card_id]??printedText[c.card_id];
     // These eight R-100 adapters all use the owner's public max(1, level) amount.
     // This formats the known card's text only; actions and resolution stay in the engine.
-    return imbuedPowerIds.has(c.card_id)&&imbue&&text?text.replace(/\$?@/g,String(Math.max(1,imbue.level))):text;
+    const formatted=imbuedPowerIds.has(c.card_id)&&imbue&&text?text.replace(/\$?@/g,String(Math.max(1,imbue.level))):text;
+    // '&' is the pinned client's dynamic-text marker, not a visible glyph.
+    return formatted?.replace(/&(?![a-zA-Z#0-9]+;)/g,'');
 }
 function tauntFrame(){
     const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');
@@ -196,6 +205,28 @@ function tauntFrame(){
         const path=document.createElementNS(ns,'path');path.setAttribute('d',shape);path.setAttribute('fill','none');path.setAttribute('stroke',color);path.setAttribute('stroke-width',width);path.setAttribute('stroke-linejoin','round');svg.append(path);
     }
     return svg;
+}
+function minionStates(c,n){
+    if(c.zone!=='board'||c.kind!=='minion')return;
+    const keywords=c.keywords||[],shield=c.divine_shield===true||c.divine_shield?.active===true,ready=(message.actions||[]).some(a=>a.type==='attack'&&a.attacker===c.ref);
+    n.classList.toggle('has-divine-shield',shield);n.classList.toggle('stealthed',keywords.includes('stealth'));
+    n.classList.toggle('dormant',!!c.dormancy);n.classList.toggle('attack-ready',ready);
+    const fresh=!!c.summoned_this_turn&&!c.attacks_this_turn&&!c.dormancy&&!ready&&!keywords.some(k=>k==='charge'||k==='rush');
+    n.classList.toggle('sleeping',fresh);
+    if(shield)n.append(node('span',null,'divine-bubble'));
+    if(keywords.includes('stealth'))n.append(node('span',null,'stealth-veil'));
+    if(c.dormancy){const seal=node('span',null,'dormant-seal');seal.append(node('b','☾'),node('small','休眠'+(c.dormancy.remaining_turns==null?'':` ${c.dormancy.remaining_turns}`)));n.append(seal);}
+    if(fresh){const sleep=node('span','Z','sleep-runes');sleep.setAttribute('aria-hidden','true');n.append(sleep);}
+    if(ready)n.append(node('span',null,'attack-ready-ring'));
+    const marks=[['deathrattle','☠'],['reborn','↻'],['poisonous','☠'],['lifesteal','♥'],['windfury','≋'],['mega_windfury','≋'],['elusive','✧'],['immune','◇']];
+    const rail=node('span',null,'state-rail');
+    for(const [key,glyph] of marks)if(keywords.includes(key)||key==='deathrattle'&&c.has_deathrattle){
+        const mark=node('span',glyph,'state-medallion state-'+key);mark.title=keywordNames[key];mark.setAttribute('aria-label',keywordNames[key]);rail.append(mark);
+    }
+    if(c.silenced){const mark=node('span','×','state-medallion state-silenced');mark.title='沉默';rail.append(mark);}
+    if(rail.childNodes.length)n.append(rail);
+    n.title=[name(c),...keywords.map(k=>keywordNames[k]||k),c.frozen?'冻结':'',fresh?'本回合刚召唤':'',c.dormancy?'休眠':''].filter(Boolean).join(' · ');
+    if(c.health<c.max_health)n.querySelector('.health-orb')?.classList.add('damaged');
 }
 function card(c){
     const n=node('button',null,'card');n.type='button';n.disabled=busy;n.dataset.ref=c.ref;n.dataset.kind=c.kind||'unknown';n.dataset.zone=c.zone||'';
@@ -238,7 +269,7 @@ function card(c){
         status.title=cooldown>0?`还需经过本方 ${cooldown} 次回合开始`:'点击亮起的地标，再按提示选择目标';
         n.append(status);n.querySelector('.durability-orb')?.setAttribute('title','剩余耐久');
     }
-    n.classList.toggle('sleeping',!!c.dormancy||!!(c.summoned_this_turn&&c.zone==='board'));
+    minionStates(c,n);
     n.classList.toggle('power-used',c.kind==='hero_power'&&c.uses_this_turn>=c.use_limit);
     if(imbue){
         n.dataset.imbueLevel=String(imbue.level);
@@ -271,19 +302,20 @@ function zone(label,cards,owner=null){
 function player(p){
     const own=p.id===message.seat;
     const section=node('section',null,'player '+(own?'friendly':'enemy')+(p.id===message.observation.active_player?' active':''));
+    section.dataset.playerId=p.id;
     const info=node('div',null,'player-info');info.append(node('span',`${own?'我方':'对手'} · 牌库 ${p.deck_count} / 手牌 ${p.hand.length}`));
     const mana=node('div',null,'mana-display');mana.append(node('strong',`${p.mana}/${p.max_mana}`));
     for(let i=0;i<Math.min(p.max_mana,10);i++)mana.append(node('span','◆',i<p.mana?'mana-crystal':'mana-crystal spent'));
     if(p.overload_locked||p.overload_owed)mana.append(node('small',`过载 ${p.overload_locked} / ${p.overload_owed}`));
-    if(Object.values(p.resources).some(Boolean))mana.append(node('small',JSON.stringify(p.resources)));
+    for(const [resource,amount] of Object.entries(p.resources||{}))if(amount){const chip=node('span',`${({corpses:'残骸'})[resource]||resource} ${amount}`,'resource-chip');chip.title='当前可用'+(({corpses:'残骸'})[resource]||resource);mana.append(chip);}
     info.append(mana);section.append(info);
-    const deck=node('div',null,'deck-pile');deck.setAttribute('aria-label',`牌库剩余 ${p.deck_count} 张`);deck.append(node('span',String(p.deck_count),'deck-count'));section.append(deck);
+    const deck=node('div',null,'deck-pile');deck.dataset.owner=p.id;deck.setAttribute('aria-label',`牌库剩余 ${p.deck_count} 张`);deck.append(node('span',String(p.deck_count),'deck-count'));section.append(deck);
     const heroRow=node('div',null,'hero-row');const weapon=node('div',null,'weapon-slot');if(p.weapon)weapon.append(card(p.weapon));
     const hero=node('div',null,'hero-slot');hero.append(card(p.hero));
     const powers=node('div',null,'powers-slot');for(const c of [p.hero_power,...p.additional_hero_powers].filter(Boolean))powers.append(card(c));heroRow.append(weapon,hero,powers);
     const board=zone('',p.board,p.id);board.classList.add('battle-row');
-    if(own){section.append(board,heroRow);const hand=zone('你的手牌 · 点击出牌',p.hand);hand.classList.add('hand');section.append(hand);}
-    else{const backs=node('div',null,'opponent-hand');for(const c of p.hand){const b=node('div',null,'card-back');b.title=c.card_id?name(c):'对方手牌';if(c.card_id)b.append(node('small',name(c)));backs.append(b);}section.append(backs,heroRow,board);}
+    if(own){section.append(board,heroRow);const hand=zone('你的手牌 · 拖动或点击出牌',p.hand);hand.classList.add('hand');section.append(hand);}
+    else{const backs=node('div',null,'opponent-hand');for(const c of p.hand){const b=node('div',null,'card-back');b.dataset.ref=c.ref;b.title=c.card_id?name(c):'对方手牌';if(c.card_id)b.append(node('small',name(c)));backs.append(b);}section.append(backs,heroRow,board);}
     if(p.secrets.length||p.quests.length)section.append(zone('奥秘 / 任务',[...p.secrets,...p.quests]));
     if(p.pending_plays.length)section.append(zone('结算中的出牌',p.pending_plays));
     return section;
@@ -425,10 +457,8 @@ async function stepOpponent(){
             trace=perfLog.start('opponent/step');
             const before=perfLog.stage(trace,'capture_ms',()=>capturePresentation());
             const data=await api('opponent/step',{revision:message.revision,ticket:message.opponent.ticket},trace);
-            const attacked=data.opponent_acted?await perfLog.stage(trace,'intent_ms',()=>animateIntent(null,before,data)):false;
-            perfLog.stage(trace,'render_ms',()=>render(data));
-            // Only completed attacks already disclosed in this seat's events animate.
-            if(data.opponent_acted)await perfLog.stage(trace,'outcome_ms',()=>animateOutcome(before,data,attacked?{type:'attack'}:null));
+            if(data.opponent_acted)await presentReply(before,data,null,trace);
+            else perfLog.stage(trace,'render_ms',()=>render(data));
             if(data.opponent.error){trace.status='error';trace.error_code=data.opponent.error;notice(botErrorText(data.opponent.error));}
         }catch(e){
             if(['stale_observation','stale_opponent_step'].includes(e.code)&&message){render(await api('view'));return;}
@@ -439,6 +469,8 @@ async function stepOpponent(){
 }
 function botErrorText(code){return '托管已暂停：'+(errors[code]||'当前操作无法继续。可重试托管，或切换双人手动。');}
 function render(data){
+    releasedCardPose=null;
+    cancelTabletopDrag(false);
     if(data.card_art)Object.assign(artwork,data.card_art);
     closeBranchChoice();hidePreview();clearTargetLine();selected=null;message=data;
     $('mana-feedback').textContent='';
@@ -461,27 +493,88 @@ function render(data){
     if(data.opponent?.error)notice(botErrorText(data.opponent.error));
     if(window.parent!==window)void publishLabRender();
 }
+// Choice faces use only disclosed options, their public previews and printed catalog data.
+function choiceFace(option,{title,text,sourceCard}={}){
+    const disclosed=sourceCard||entities()[option.entity?.ref],preview=option.preview,meta=cardCatalogById.get(option.card_id);
+    const face=node('article',null,'choice-card-face'),picture=node('span',null,'choice-portrait');
+    if(artworkFile(option.card_id)){const img=node('img');img.src='/assets/'+artworkFile(option.card_id);img.alt='';img.draggable=false;picture.append(img);}
+    else picture.append(node('span','✦','art-fallback'));
+    const heading=title||preview?.display_name||meta?.name||message.names?.[option.card_id]||option.label;
+    face.append(picture,node('strong',heading,'choice-card-name'));
+    const copy=text??(disclosed?cardText(disclosed):meta?.text||printedText[option.card_id]||option.label);
+    face.append(node('span',copy,'choice-card-text'));
+    const kind=disclosed?.kind||meta?.type;
+    face.append(node('small',cardKindNames[kind]||'','choice-card-type'));
+    const cost=disclosed?.cost?.amount??preview?.cost??meta?.cost;
+    if(cost!=null){const orb=node('span',String(cost),'cost-orb');orb.title=disclosed||preview?'当前可见费用':'印刷费用';face.append(orb);}
+    const attack=disclosed?.attack??preview?.attack,health=disclosed?.health??preview?.health;
+    if(kind==='minion'&&attack!=null)face.append(node('span',String(attack),'attack-orb'));
+    if(kind==='minion'&&health!=null)face.append(node('span',String(health),'health-orb'));
+    return face;
+}
+function choiceKey(c){return token+':'+message.revision+':'+c.ref;}
+function updateChoiceControls(){
+    const c=message?.observation?.pending_choice,state=choiceSelection;
+    if(!c?.options||!$('choice').classList.contains('game-choice')||state?.key!==choiceKey(c))return;
+    const count=state.refs.size,valid=count>=c.min_count&&count<=c.max_count;
+    for(const input of $('choice').querySelectorAll('input'))input.disabled=busy||labReadOnly;
+    for(const b of $('choice').querySelectorAll('button'))b.disabled=busy||labReadOnly||(b.dataset.choiceConfirm!=null&&!valid);
+    for(const input of $('choice').querySelectorAll('input')){input.checked=state.refs.has(input.value);input.closest('.choice-option').classList.toggle('picked',input.checked);}
+    const counter=$('choice').querySelector('.choice-counter');
+    if(counter)counter.textContent=c.purpose==='mulligan'?`替换 ${count} 张，其余保留`:c.max_count===1?'点击一张卡牌选择':`已选 ${count} 项 · 需要 ${c.min_count}–${c.max_count} 项`;
+    if(state.needsFocus&&!busy&&!labReadOnly){state.needsFocus=false;$('choice').querySelector(state.hidden?'.choice-hide':'button:not(:disabled),input:not(:disabled)')?.focus({preventScroll:true});}
+}
 function renderChoice(){
-    const c=message.observation.pending_choice;
-    $('choice').classList.remove('assemble-choice','assembly-hidden');$('choice').removeAttribute('role');$('choice').removeAttribute('aria-modal');$('choice').removeAttribute('aria-labelledby');
-    $('choice').hidden=!c;$('choice').replaceChildren();if(!c){assemblySelection=null;return;}
+    const c=message.observation.pending_choice,panel=$('choice');
+    panel.classList.remove('assemble-choice','assembly-hidden','game-choice','mulligan-choice','choice-hidden');
+    for(const attr of ['role','aria-modal','aria-labelledby'])panel.removeAttribute(attr);
+    panel.hidden=!c;panel.replaceChildren();
+    if(!c){assemblySelection=null;choiceSelection=null;return;}
     if(!c.options){
-        assemblySelection=null;
-        if(message.opponent?.mode==='ai'){$('choice').hidden=true;return;}
-        $('choice').append(node('h2',`等待玩家${c.player_id}选择。`),button('交接座位',()=>$('switch').click()));return;
+        assemblySelection=null;choiceSelection=null;
+        if(message.opponent?.mode==='ai'){panel.hidden=true;return;}
+        panel.append(node('h2',`等待玩家${c.player_id}选择。`),button('交接座位',()=>$('switch').click()));return;
     }
     if(c.purpose==='assemble'&&c.min_count===1&&c.max_count===1&&c.options.some(option=>assemblyRecipe(option.card_id))){
-        renderAssembleChoice(c);if(!cardCatalog)loadAssemblyPresentation();return;
+        choiceSelection=null;renderAssembleChoice(c);if(!cardCatalog)loadAssemblyPresentation();return;
     }
     assemblySelection=null;
-    $('choice').append(node('h2',c.purpose==='mulligan'?'换牌：勾选要换掉的手牌':c.prompt),node('p',`选择 ${c.min_count}–${c.max_count} 项。${c.purpose==='mulligan'?'未勾选的手牌会保留。':''}`));
-    for(const o of c.options){
-        const label=node('label',null,'choice-option');const input=node('input');input.type='checkbox';input.value=o.ref;
-        label.append(input,document.createTextNode(' '+o.label+(o.card_id?' · '+name(o):'')));
-        if(artwork[o.card_id]){const img=node('img');img.src='/assets/'+artwork[o.card_id];img.alt='';img.className='choice-art';label.prepend(img);}
-        $('choice').append(label);
+    const key=choiceKey(c),mulligan=c.purpose==='mulligan',single=!mulligan&&c.min_count===1&&c.max_count===1;
+    if(choiceSelection?.key!==key)choiceSelection={key,refs:new Set(),hidden:false,needsFocus:true};
+    const state=choiceSelection;
+    panel.classList.add('game-choice');panel.classList.toggle('mulligan-choice',mulligan);panel.classList.toggle('choice-hidden',state.hidden);
+    panel.setAttribute('role','dialog');panel.setAttribute('aria-modal',String(!state.hidden));panel.setAttribute('aria-labelledby','choice-heading');
+    const heading=node('h2',mulligan?'选择起始手牌':c.prompt);heading.id='choice-heading';panel.append(heading);
+    panel.append(node('p',mulligan?'点击要替换的卡牌；再次点击可保留。':single?'点击卡面完成选择。':'点击卡面选择，再确认。','choice-instruction'));
+    const row=node('div',null,'choice-cards');row.style.setProperty('--choice-count',c.options.length);
+    const commit=refs=>{if(!busy&&!labReadOnly&&refs.length>=c.min_count&&refs.length<=c.max_count)submit({type:'select_choice',choice:c.ref,options:refs});};
+    for(const option of c.options){
+        const tile=node(single?'button':'label',null,'choice-option'+(option.card_id?' has-face':' text-option'));
+        tile.dataset.choiceRef=option.ref;
+        if(single){tile.type='button';tile.setAttribute('aria-label',option.label);tile.onclick=()=>commit([option.ref]);}
+        else{
+            const input=node('input');input.type='checkbox';input.value=option.ref;input.setAttribute('aria-label',option.label);
+            input.onchange=()=>{
+                if(busy||labReadOnly){input.checked=state.refs.has(option.ref);return;}
+                if(input.checked&&state.refs.size>=c.max_count){input.checked=false;notice(`最多选择 ${c.max_count} 项。`);return;}
+                input.checked?state.refs.add(option.ref):state.refs.delete(option.ref);notice('');updateChoiceControls();
+            };tile.append(input);
+        }
+        if(option.card_id)tile.append(choiceFace(option));else tile.append(node('strong',option.label,'choice-effect-label'));
+        if(mulligan){const cross=node('span','×','mulligan-cross');cross.setAttribute('aria-hidden','true');tile.append(cross,node('span','替换','mulligan-replace'));}
+        else if(!single)tile.append(node('span','✓','choice-check'));
+        row.append(tile);
     }
-    $('choice').append(button('确认选择',()=>{const options=[...$('choice').querySelectorAll('input:checked')].map(n=>n.value);if(options.length<c.min_count||options.length>c.max_count)return notice(`请选择 ${c.min_count}–${c.max_count} 项。`);submit({type:'select_choice',choice:c.ref,options});}));
+    panel.append(row,node('p','','choice-counter'));
+    if(!single){const confirm=button(mulligan?'确认起手牌':'确认选择',()=>commit(c.options.filter(o=>state.refs.has(o.ref)).map(o=>o.ref)));confirm.dataset.choiceConfirm='';panel.append(confirm);}
+    const hide=button(state.hidden?'继续选择':'查看战场',()=>{
+        if(busy)return;state.hidden=!state.hidden;panel.classList.toggle('choice-hidden',state.hidden);panel.setAttribute('aria-modal',String(!state.hidden));hide.textContent=state.hidden?'继续选择':'查看战场';hide.setAttribute('aria-expanded',String(!state.hidden));hide.focus({preventScroll:true});
+    });hide.className='choice-hide';hide.setAttribute('aria-expanded',String(!state.hidden));panel.append(hide);
+    updateChoiceControls();
+    if(!cardCatalog&&choiceMetadataMessage!==message){
+        const expected=message;choiceMetadataMessage=expected;
+        void loadCardCatalog().then(()=>{if(message===expected&&!message.handoff)renderChoice();}).catch(()=>{});
+    }
 }
 function assemblyChoiceKey(choice){return token+':'+message.revision+':'+choice.ref;}
 function updateAssemblyControls(){
@@ -606,11 +699,20 @@ if(token)work(async()=>render(await api('view')));
 
 
 // Direct interaction projects exact engine actions; it never calculates legality.
-function targetOf(a){return a.type==='attack'?a.defender:a.target;}
-function simple(a){return !a.body_targets&&!a.body_route;}
+function aimFields(a){
+    const fields=Array.isArray(a.targets)&&a.targets.length?a.targets.map((ref,i)=>({key:'targets.'+i,ref,label:`目标 ${i+1}`})):
+        [{key:a.type==='attack'?'defender':'target',ref:a.type==='attack'?a.defender:a.target,label:'目标'}];
+    for(const [i,entry] of (a.body_targets||[]).entries())fields.push({key:'body.'+entry.body,ref:entry.target,label:`效果目标 ${i+1}`});
+    return fields;
+}
+function targetOf(a){return aimFields(a).find(f=>f.ref)?.ref;}
+function aimSlots(actions){const slots=new Map();for(const a of actions)for(const f of aimFields(a))if(f.ref&&!slots.has(f.key))slots.set(f.key,{key:f.key,label:f.label});return [...slots.values()];}
+function aimValue(a,slot){return slot?aimFields(a).find(f=>f.key===slot.key)?.ref||null:null;}
+function selectedTarget(a){return selected?.aim?aimValue(a,selected.aim.slots[selected.aim.index]):targetOf(a);}
+function simple(a){return (!a.targets||Array.isArray(a.targets))&&(!a.body_targets||Array.isArray(a.body_targets));}
 function modeKey(a){return JSON.stringify([a.type,a.branch||null,a.action_id||null,a.ability_id||null,a.side||'friendly']);}
 function currentActions(){return selected?selected.actions:[];}
-function chooseMode(actions){if(busy)return;closeBranchChoice();if(actions.length===1&&immediate(actions[0])){submit(actions[0]);return;}selected={actions};paintSelection();}
+function chooseMode(actions){if(busy)return;const positionChosen=!!selected?.positionChosen,targetChosen=!!selected?.targetChosen;if(selected)selected.aim=null;closeBranchChoice();if(actions.length===1&&immediate(actions[0])||positionChosen||targetChosen){advance(actions,positionChosen,targetChosen);return;}selected={actions};paintSelection();}
 function branchLabel(a){return entities()[source(a)]?.choose_one?.find(b=>b.id===a.branch)?.label||a.branch;}
 function closeBranchChoice(){const d=$('branch-choice');if(d.open)d.close();$('branch-options').replaceChildren();$('branch-title').textContent='';}
 function renderBranchChoice(){
@@ -634,7 +736,7 @@ function renderBranchChoice(){
             b.append(node('strong',title),node('span',cost?`支付 ${cost.amount} ${cost.payment==='mana'?'费':cost.payment}`:'按当前费用结算','hand-action-cost'));
             const help=a.type==='play_card'?'打出这张牌；随从需继续选择入场位置。':kind==='prepare'?'现在支付预备费用并保留在手中。本回合不能出牌，之后可按减免后的费用使用。':kind==='trade'?'支付交易费用，将此牌换回牌库并抽一张牌。':kind==='forge'?'支付锻造费用，在手中升级此牌。':'执行这张手牌的主动操作。';
             b.append(node('small',help,'hand-action-help'));
-        }else b.append(node('strong',branchLabel(a)));
+        }else {b.classList.add('branch-card');b.replaceChildren(choiceFace({card_id:c.card_id,label:branchLabel(a)},{title:name(c),text:branchLabel(a),sourceCard:c}));b.setAttribute('aria-label',branchLabel(a));}
         return b;
     }));
     if(!$('branch-choice').open)$('branch-choice').showModal();
@@ -642,9 +744,13 @@ function renderBranchChoice(){
 }
 function immediate(a){return !targetOf(a)&&a.position==null&&!a.magnetic_target&&simple(a)&&['play_card','use_hero_power','use_location','use_minion_ability','use_interactable','use_hand_action'].includes(a.type);}
 function clickEntity(r){
-    if(busy||!message||message.handoff)return;
+    if(busy||tabletopDrag?.active||!message||message.handoff)return;
+    if(selected&&!selected.groups&&!selected.positionChosen){
+        const magnetic=currentActions().filter(a=>a.magnetic_target===r);
+        if(magnetic.length){advance(magnetic,true);return;}
+    }
     if(selected&&!selected.groups&&(selected.positionChosen||!currentActions().some(a=>a.position!=null))){
-        const matches=currentActions().filter(a=>targetOf(a)===r);
+        const matches=currentActions().filter(a=>selectedTarget(a)===r);
         if(matches.length){advance(matches,selected.positionChosen,true);return;}
     }
     const own=message.observation.players.find(p=>p.id===message.seat);
@@ -661,9 +767,15 @@ function clickEntity(r){
     selected={actions:available,groups:handModes||groups.size>1?[...groups.values()]:null};paintSelection();
 }
 function advance(actions,positionChosen=selected?.positionChosen,targetChosen=false){
-    // A unique legal target still needs an explicit click after placement.
-    if(actions.length===1&&(!targetOf(actions[0])||targetChosen)&&(actions[0].position==null||positionChosen)){submit(actions[0]);return;}
-    selected={actions,positionChosen};paintSelection();
+    // Keep the original ordered slots after filtering: even the last unique
+    // legal target needs a gesture, and separate bodies may choose the same ref.
+    let aim=selected?.aim||{slots:aimSlots(actions),index:0,confirmed:[]};
+    if(targetChosen&&aim.index<aim.slots.length){
+        const slot=aim.slots[aim.index];aim={...aim,index:aim.index+1,confirmed:[...aim.confirmed,{ref:aimValue(actions[0],slot),label:slot.label}]};
+    }
+    while(aim.index<aim.slots.length&&actions.every(a=>!aimValue(a,aim.slots[aim.index])))aim={...aim,index:aim.index+1};
+    if(actions.length===1&&aim.index>=aim.slots.length&&(actions[0].position==null||positionChosen)){submit(actions[0]);return;}
+    selected={actions,positionChosen,aim};paintSelection();
 }
 function positionButton(owner,index){
     const b=button('+',()=>{
@@ -673,41 +785,202 @@ function positionButton(owner,index){
     b.setAttribute('aria-label',`在玩家${owner}战场第${index+1}个位置出牌`);b.hidden=true;return b;
 }
 function paintSelection(){
+    if(!selected&&!busy)releasedCardPose=null;
     clearTargetLine();hidePreview();
     const actions=currentActions();const choosingMode=!!selected?.groups;
+    if(selected&&!selected.aim)selected.aim={slots:aimSlots(actions),index:0,confirmed:[]};
     $('interaction-options').replaceChildren();$('cancel-selection').hidden=!selected;
     const branchDialog=renderBranchChoice();
     const positions=!choosingMode&&!selected?.positionChosen&&actions.some(a=>a.position!=null);
-    const targets=!choosingMode&&!positions?new Set(actions.map(targetOf).filter(Boolean)):new Set();
+    const targets=!choosingMode&&!positions?new Set(actions.map(selectedTarget).filter(Boolean)):new Set();
+    document.querySelectorAll('.target-order').forEach(n=>n.remove());
     for(const n of document.querySelectorAll('.card[data-ref]')){
         const r=n.dataset.ref;
         n.classList.toggle('selected-source',!!selected&&actions.some(a=>source(a)===r));
         n.classList.toggle('valid-target',targets.has(r));
         n.classList.toggle('can-act',!selected&&(message.actions||[]).some(a=>source(a)===r&&simple(a)));
+        n.classList.toggle('magnetic-host',positions&&actions.some(a=>a.magnetic_target===r));
+        const ordinals=(selected?.aim?.confirmed||[]).flatMap((c,i)=>c.ref===r?[i+1]:[]);
+        if(ordinals.length)n.append(node('span',ordinals.join(' · '),'target-order'));
         n.setAttribute('aria-pressed',String(!!selected&&actions.some(a=>source(a)===r)));
     }
     for(const b of document.querySelectorAll('.position-slot')){
-        b.hidden=!positions||!actions.some(a=>a.position===Number(b.dataset.position)&&(a.side==='enemy'?3-message.seat:message.seat)===Number(b.dataset.owner));
+        const matches=actions.filter(a=>a.position===Number(b.dataset.position)&&(a.side==='enemy'?3-message.seat:message.seat)===Number(b.dataset.owner));
+        b.hidden=!positions||!matches.length;
+        const magnetic=matches.find(a=>a.magnetic_target);b.classList.toggle('magnetic-position',!!magnetic);b.textContent=magnetic?'↯':'+';
+        b.title=magnetic?'磁力合体至 '+name(entities()[magnetic.magnetic_target]):'放置随从';
     }
     if(!selected){
         const pending=message.observation.pending_choice;
-        $('interaction-hint').textContent=message.opponent?.error||botClientError?'托管已暂停，可重试或切换双人手动。':pending?.player_id===message.seat?'请在选择面板完成当前选择。':message.opponent?.mode==='ai'&&message.opponent.can_step?(pending?'电脑正在完成选择…':'电脑正在操作…'):pending?'等待另一位玩家选择，请交接座位。':'点击亮起的手牌出牌，或点击己方随从 / 英雄发起攻击。';return;
+        $('interaction-hint').textContent=message.opponent?.error||botClientError?'托管已暂停，可重试或切换双人手动。':pending?.player_id===message.seat?'请在选择面板完成当前选择。':message.opponent?.mode==='ai'&&message.opponent.can_step?(pending?'电脑正在完成选择…':'电脑正在操作…'):pending?'等待另一位玩家选择，请交接座位。':'拖动手牌出牌，拖随从或英雄攻击；也可点击操作。';return;
     }
     const first=actions[0];const label=name(entities()[source(first)]);
     if(choosingMode){
         $('interaction-hint').textContent=branchDialog?`已选 ${label}，请在中央选择操作或效果。`:`已选 ${label}，请选择操作 / 分支。`;
         if(!branchDialog)for(const group of selected.groups){const a=group[0];$('interaction-options').append(button((types[a.type]||a.type)+(a.branch?' · '+branchLabel(a):'')+(a.action_id?' · '+a.action_id:'')+(a.ability_id?' · '+a.ability_id:'')+(a.side?' · '+(a.side==='enemy'?'对方战场':'己方战场'):''),()=>chooseMode(group)));}
     }else if(positions){$('interaction-hint').textContent=`已选 ${label}，点击战场上的「+」选择入场位置。`;}
-    else if(targets.size){drawTargetLine();$('interaction-hint').textContent=`已选 ${label}，点击绿色高亮目标${first.type==='attack'?'进行攻击':'施放'}。`;
+    else if(targets.size){drawTargetLine();const aim=selected.aim;const progress=aim.slots.length>1?` · ${aim.slots[aim.index].label}（${aim.index+1}/${aim.slots.length}）`:'';$('interaction-hint').textContent=`已选 ${label}${progress}，点击绿色高亮目标${first.type==='attack'?'进行攻击':'施放'}。`;
         // A nullable target is a distinct engine choice, not an automatic default.
-        const untargeted=actions.filter(a=>!targetOf(a));if(untargeted.length)$('interaction-options').append(button('不选择目标',()=>advance(untargeted)));
+        const untargeted=actions.filter(a=>!selectedTarget(a));if(untargeted.length)$('interaction-options').append(button('不选择目标',()=>advance(untargeted,selected.positionChosen,true)));
     }else if(actions.length===1){$('interaction-hint').textContent=`已选 ${label}，点击确认执行。`;$('interaction-options').append(button('确认'+(types[first.type]||'操作'),()=>submit(first)));}
     else{$('interaction-hint').textContent='该操作有额外参数，请选择具体方案。';for(const a of actions)$('interaction-options').append(button(actionLabel(a),()=>submit(a)));}
 }
 $('cancel-selection').onclick=()=>{selected=null;notice('');paintSelection();};
 $('cancel-branch').onclick=()=>{if(!busy){selected=null;notice('');paintSelection();}};
 $('branch-choice').addEventListener('cancel',e=>{e.preventDefault();if(!busy){selected=null;paintSelection();}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&message&&!message.handoff){selected=null;paintSelection();}});
+document.addEventListener('keydown',e=>{
+    const panel=$('choice'),modal=!panel.hidden&&panel.getAttribute('aria-modal')==='true';
+    if(e.key==='Tab'&&modal){
+        const controls=[...panel.querySelectorAll('button:not(:disabled),input:not(:disabled)')].filter(n=>n.getClientRects().length);
+        if(controls.length){const first=controls[0],last=controls.at(-1);if(!panel.contains(document.activeElement)||e.shiftKey&&document.activeElement===first||!e.shiftKey&&document.activeElement===last){e.preventDefault();(e.shiftKey?last:first).focus({preventScroll:true});}}
+    }
+    if(e.key==='Escape'&&modal&&!busy){
+        const hide=panel.querySelector('.choice-hide,.assembly-hide');if(hide){e.preventDefault();hide.click();return;}
+    }
+    if(e.key==='Escape'&&message&&!message.handoff){cancelTabletopDrag();selected=null;paintSelection();}
+});
+
+// Pointer gestures only select from this revision's player-projected actions.
+// The server still owns costs, zones, placement, targeting and all outcomes.
+function draggableActions(ref){
+    return (message?.actions||[]).filter(a=>source(a)===ref&&simple(a)&&
+        ['play_card','use_hand_action','attack','use_hero_power','use_location','use_minion_ability'].includes(a.type));
+}
+function handActionLabel(c,a){
+    const spec=c.hand_actions?.find(s=>s.id===a.action_id),kind=spec?.kind||a.action_id;
+    const title=({prepare:'预备',trade:'交易',forge:'锻造'})[kind]||'手牌操作';
+    return title+(spec?.cost?` · ${spec.cost.amount}${spec.cost.payment==='mana'?'费':''}`:'');
+}
+function insideDrop(e,r,padding=0){return e.clientX>=r.left-padding&&e.clientX<=r.right+padding&&e.clientY>=r.top-padding&&e.clientY<=r.bottom+padding;}
+function tabletopDrop(e,d){
+    const hand=d.card.zone==='hand',plays=d.actions.filter(a=>a.type==='play_card');
+    const deck=document.querySelector('.friendly .deck-pile');
+    if(hand&&deck&&insideDrop(e,deck.getBoundingClientRect(),16)){
+        const actions=d.actions.filter(a=>a.type==='use_hand_action');
+        if(actions.length)return {kind:'deck',actions,element:deck,label:[...new Set(actions.map(a=>handActionLabel(d.card,a)))].join(' / ')};
+        return null;
+    }
+    const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('#players .card[data-ref]');
+    if(target){
+        const magnetic=plays.filter(a=>a.magnetic_target===target.dataset.ref);
+        if(magnetic.length)return {kind:'magnetic',actions:magnetic,element:target,positionChosen:true,label:'松手磁力合体'};
+        const actions=d.actions.filter(a=>targetOf(a)===target.dataset.ref&&a.position==null);
+        if(actions.length)return {kind:'target',actions,element:target,targetChosen:true,label:actions[0].type==='attack'?'松手攻击':'松手选择目标'};
+    }
+    for(const board of document.querySelectorAll('#players .battle-row')){
+        const r=board.getBoundingClientRect();if(!insideDrop(e,r,8))continue;
+        const owner=Number(board.closest('.player').dataset.playerId);
+        const placements=plays.filter(a=>a.position!=null&&(a.side==='enemy'?3-message.seat:message.seat)===owner);
+        if(placements.length){
+            const cards=[...board.querySelectorAll('.card[data-ref]')].map(n=>n.getBoundingClientRect());
+            const index=cards.filter(b=>e.clientX>b.left+b.width/2).length;
+            const actions=placements.filter(a=>a.position===index);
+            if(actions.length){
+                const left=cards[index-1],right=cards[index];
+                const x=left&&right?(left.right+right.left)/2:left?left.right+12:right?right.left-12:r.left+r.width/2;
+                return {kind:'position',actions,element:board,positionChosen:true,x,y:r.top+r.height/2,label:actions.some(a=>a.magnetic_target)?'松手磁力合体':'松手放置随从'};
+            }
+        }
+        if(owner===message.seat){
+            const actions=plays.filter(a=>a.position==null);
+            if(actions.length)return {kind:'play',actions,element:board,label:actions.some(a=>targetOf(a))?'松手后选择效果或目标':'松手出牌'};
+        }
+    }
+    return null;
+}
+function clearDropHighlights(){
+    document.querySelectorAll('.drop-ready,.drop-hover,.drag-source').forEach(n=>n.classList.remove('drop-ready','drop-hover','drag-source'));
+    $('battle-table')?.classList.remove('pointer-dragging');
+}
+function paintDragPointer(e,d){
+    if(tabletopDrag!==d||!d.active)return;
+    const base=$('battle-table').getBoundingClientRect();
+    if(d.ghost){d.ghost.style.left=`${e.clientX-base.left-d.width/2}px`;d.ghost.style.top=`${e.clientY-base.top-d.height*.62}px`;}
+    document.querySelectorAll('.drop-hover').forEach(n=>n.classList.remove('drop-hover'));
+    const drop=tabletopDrop(e,d);d.drop=drop;
+    d.ghost?.classList.toggle('drop-valid',!!drop);drop?.element.classList.add('drop-hover');
+    d.hint.textContent=drop?.label||(d.card.zone==='hand'?'拖到战场或目标 · 右键取消':'拖向绿色高亮目标 · 右键取消');
+    d.hint.style.left=`${Math.max(12,Math.min(base.width-220,e.clientX-base.left+18))}px`;
+    d.hint.style.top=`${Math.max(12,e.clientY-base.top-30)}px`;
+    d.marker.hidden=drop?.kind!=='position';
+    if(drop?.kind==='position'){d.marker.style.left=`${drop.x-base.left}px`;d.marker.style.top=`${drop.y-base.top}px`;}
+    if(d.actions.some(a=>targetOf(a)&&a.position==null))drawTargetLine(e,{actions:d.actions});
+}
+function beginTabletopDrag(e,d){
+    const initial=d.element.getBoundingClientRect();d.visualScale=Math.max(1.08,Math.min(1.6,initial.height/d.element.offsetHeight));releasedCardPose=null;
+    d.active=true;selected=null;closeBranchChoice();hidePreview();clearTargetLine();stopBotTimer();
+    document.querySelectorAll('.selected-source,.valid-target').forEach(n=>n.classList.remove('selected-source','valid-target'));
+    d.element.classList.add('drag-source','selected-source');
+    d.element.setPointerCapture?.(d.pointerId);
+    $('battle-table').classList.add('pointer-dragging');
+    const targets=new Set([...d.actions.filter(a=>a.position==null).map(targetOf),...d.actions.map(a=>a.magnetic_target)].filter(Boolean));
+    for(const n of document.querySelectorAll('#players .card[data-ref]'))n.classList.toggle('valid-target',targets.has(n.dataset.ref));
+    if(d.card.zone==='hand'){
+        d.width=d.element.offsetWidth;d.height=d.element.offsetHeight;
+        d.ghost=node('div',null,'drag-ghost hand');
+        const face=d.element.cloneNode(true);face.removeAttribute('data-ref');face.removeAttribute('id');face.removeAttribute('aria-label');face.tabIndex=-1;face.disabled=true;
+        face.classList.remove('drag-source','selected-source','can-act');d.ghost.append(face);d.ghost.setAttribute('aria-hidden','true');
+        d.ghost.style.width=`${d.width}px`;d.ghost.style.height=`${d.height}px`;d.ghost.style.transform=`rotate(-2deg) scale(${d.visualScale})`;$('fx-layer').append(d.ghost);
+        if(d.actions.some(a=>a.type==='use_hand_action'))document.querySelector('.friendly .deck-pile')?.classList.add('drop-ready');
+        for(const board of document.querySelectorAll('#players .battle-row')){
+            const owner=Number(board.closest('.player').dataset.playerId);
+            if(d.actions.some(a=>a.type==='play_card'&&(a.side==='enemy'?3-message.seat:message.seat)===owner))board.classList.add('drop-ready');
+        }
+    }
+    d.marker=node('div',null,'drop-position-marker');d.marker.hidden=true;
+    d.hint=node('div',null,'drag-hint');d.hint.setAttribute('role','status');$('fx-layer').append(d.marker,d.hint);
+    $('interaction-hint').textContent=d.card.zone==='hand'?'拖向战场出牌；有预备、交易或锻造的卡牌可拖向己方牌库。':'拖向高亮目标，松手执行；右键或 Esc 取消。';
+    paintDragPointer(e,d);
+}
+function cancelTabletopDrag(repaint=true,returnCard=true){
+    const d=tabletopDrag;if(!d)return;
+    tabletopDrag=null;cancelAnimationFrame(d.raf);
+    if(d.element.hasPointerCapture?.(d.pointerId))d.element.releasePointerCapture(d.pointerId);
+    clearDropHighlights();d.marker?.remove();d.hint?.remove();clearTargetLine();
+    if(d.active){
+        dragClickUntil=performance.now()+350;dragClickRef=d.card.ref;
+        if(d.ghost&&returnCard&&d.element.isConnected){
+            const to=d.element.getBoundingClientRect(),from=d.ghost.getBoundingClientRect();
+            void animateElement(d.ghost,[{transform:`rotate(-2deg) scale(${d.visualScale})`,opacity:1},{transform:`translate(${to.left-from.left}px,${to.top-from.top}px) scale(1)`,opacity:.2}],{duration:160}).finally(()=>d.ghost.remove());
+        }else d.ghost?.remove();
+        if(repaint&&message&&!message.handoff&&!busy){selected=null;paintSelection();scheduleBot();}
+    }
+}
+function finishTabletopDrop(e){
+    const d=tabletopDrag;if(!d||d.pointerId!==e.pointerId)return;
+    if(!d.active){cancelTabletopDrag(false);return;}
+    e.preventDefault();const drop=tabletopDrop(e,d),fresh=d.revision===message?.revision;
+    if(drop&&fresh&&d.ghost){const r=d.ghost.getBoundingClientRect(),base=$('fx-layer').getBoundingClientRect();releasedCardPose={ref:d.card.ref,revision:d.revision,x:r.left+r.width/2-base.left,y:r.top+r.height/2-base.top,width:r.width,height:r.height};}
+    cancelTabletopDrag(false,!drop||!fresh);
+    if(!drop||!fresh){selected=null;paintSelection();scheduleBot();return;}
+    notice('');
+    const groups=new Map();for(const a of drop.actions){const key=modeKey(a);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(a);}
+    if(groups.size>1){
+        selected={actions:drop.actions,groups:[...groups.values()],positionChosen:!!drop.positionChosen,targetChosen:!!drop.targetChosen};paintSelection();
+    }else advance(drop.actions,!!drop.positionChosen,!!drop.targetChosen);
+}
+document.addEventListener('pointerdown',e=>{
+    if(e.button!==0||e.isPrimary===false||busy||labReadOnly||!message||message.handoff||tabletopDrag)return;
+    const element=e.target.closest('#players .card[data-ref]');if(!element)return;
+    // A click on a target in an existing selection retains its click semantics.
+    if(selected&&currentActions().some(a=>selectedTarget(a)===element.dataset.ref||a.magnetic_target===element.dataset.ref))return;
+    const actions=draggableActions(element.dataset.ref);if(!actions.length)return;
+    const card=entities()[element.dataset.ref];if(!card)return;
+    tabletopDrag={pointerId:e.pointerId,startX:e.clientX,startY:e.clientY,element,card,actions,revision:message.revision,active:false};
+});
+document.addEventListener('pointermove',e=>{
+    const d=tabletopDrag;if(!d||d.pointerId!==e.pointerId)return;
+    if(!d.active&&Math.hypot(e.clientX-d.startX,e.clientY-d.startY)<7)return;
+    e.preventDefault();if(!d.active)beginTabletopDrag(e,d);
+    cancelAnimationFrame(d.raf);d.raf=requestAnimationFrame(()=>paintDragPointer(e,d));
+},{passive:false});
+document.addEventListener('pointerup',finishTabletopDrop);
+document.addEventListener('pointercancel',()=>cancelTabletopDrag());
+document.addEventListener('lostpointercapture',e=>{if(tabletopDrag?.active&&tabletopDrag.pointerId===e.pointerId)cancelTabletopDrag();});
+document.addEventListener('click',e=>{if(e.detail&&performance.now()<dragClickUntil&&e.target.closest('#players .card[data-ref]')?.dataset.ref===dragClickRef){e.preventDefault();e.stopImmediatePropagation();}},true);
+document.addEventListener('contextmenu',e=>{if(tabletopDrag?.active){e.preventDefault();cancelTabletopDrag();}},true);
+window.addEventListener('blur',()=>cancelTabletopDrag());
+document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelTabletopDrag();});
 
 // Test automation reads the same seat-limited view as the tabletop.
 window.render_game_to_text=()=>{
@@ -716,10 +989,10 @@ window.render_game_to_text=()=>{
     const visibleCard=c=>c&&({name:name(c),ref:c.ref,kind:c.kind,cost:c.cost?.amount,attack:c.attack,health:c.health,armor:c.armor,keywords:c.keywords,durability:c.durability,location:c.location,dormancy:c.dormancy,preparation:c.preparation,imbue_level:powerImbue(c)?.level,text:cardText(c)});
     return JSON.stringify({mode:'battle',seat:message.seat,turn:o.turn,active_player:o.active_player,status:o.status,
         players:o.players.map(p=>({id:p.id,mana:p.mana,max_mana:p.max_mana,deck_count:p.deck_count,imbue:p.imbue,hero:visibleCard(p.hero),hero_power:visibleCard(p.hero_power),board:p.board.map(visibleCard),hand:p.hand.map(c=>c.card_id?visibleCard(c):{hidden:true})})),
-        pending_choice:o.pending_choice,assembly:assemblyView(),interaction:$('interaction-hint').textContent,branch_choice:{open:$('branch-choice').open,options:[...$('branch-options').children].map(n=>({id:n.dataset.branch,label:n.textContent}))},mana_enabled:message.test_controls?.mana_enabled,
+        pending_choice:o.pending_choice,choice_selection:choiceSelection&&{refs:[...choiceSelection.refs],hidden:choiceSelection.hidden},assembly:assemblyView(),interaction:$('interaction-hint').textContent,selection:selected&&{source:source(selected.actions[0]),target_step:selected.aim?.index||0,target_total:selected.aim?.slots.length||0,confirmed:selected.aim?.confirmed.map(c=>c.ref)||[]},drag:tabletopDrag?.active?{source:tabletopDrag.card.ref,drop:tabletopDrag.drop?.kind||null}:null,branch_choice:{open:$('branch-choice').open,options:[...$('branch-options').children].map(n=>({id:n.dataset.branch,label:n.textContent}))},mana_enabled:message.test_controls?.mana_enabled,
         card_lab:{open:$('card-lab').open,hand_enabled:message.test_controls?.hand_enabled,query:$('card-search').value,results:$('card-lab-count').textContent,feedback:$('card-lab-feedback').textContent},
         opponent:message.opponent&&{mode:message.opponent.mode,seat:message.opponent.seat,can_step:message.opponent.can_step,error:message.opponent.error,paused:botPaused},
-        diagnostic_open:$('diagnostics').open,error:$('error').textContent});
+        presentation:{phase:document.body.dataset.presentationPhase||'idle',effects:[...document.querySelectorAll('#fx-layer [data-fx-kind]')].map(n=>({kind:n.dataset.fxKind,ref:n.dataset.fxRef||null,amount:n.dataset.fxAmount?Number(n.dataset.fxAmount):null}))},diagnostic_open:$('diagnostics').open,error:$('error').textContent});
 };
 // Deterministic presentation hook; rules remain driven solely by server replies.
 window.advanceTime=async()=>{for(const animation of [...runningAnimations])animation.finish();await Promise.resolve();};
@@ -777,10 +1050,12 @@ function hidePreview(){
 }
 function schedulePreview(c,anchor){
     hidePreview();
-    if(busy||selected||!c.card_id)return;
+    // Hand cards enlarge in their own fan instead of creating a second card.
+    if(anchor.closest('#players .hand'))return;
+    if(busy||selected||tabletopDrag?.active||!c.card_id)return;
     previewTimer=setTimeout(()=>{
         const panel=$('card-preview');
-        if(!panel||!anchor.isConnected||!message||message.handoff||busy||selected)return;
+        if(!panel||!anchor.isConnected||!message||message.handoff||busy||selected||tabletopDrag?.active)return;
         const clone=anchor.cloneNode(true);clone.removeAttribute('data-ref');clone.removeAttribute('aria-pressed');
         clone.className='card preview-card';clone.tabIndex=-1;clone.disabled=false;
         panel.replaceChildren(clone);panel.hidden=false;
@@ -791,9 +1066,9 @@ function schedulePreview(c,anchor){
     },280);
 }
 function clearTargetLine(){if($('target-line')){$('target-line').setAttribute('hidden','');$('target-line').replaceChildren();}}
-function drawTargetLine(pointer){
+function drawTargetLine(pointer,selection=selected){
     const svg=$('target-line');
-    if(!svg||!selected||selected.groups||!document.querySelector('.valid-target'))return;
+    if(!svg||!selection||selection.groups||!document.querySelector('.valid-target'))return;
     const origin=document.querySelector('.selected-source');if(!origin)return;
     const r=origin.getBoundingClientRect();
     // A hidden SVG has no layout until shown.
@@ -813,29 +1088,144 @@ function drawTargetLine(pointer){
     svg.replaceChildren(path,head);
 }
 document.addEventListener('pointermove',e=>{
-    if(selected&&!busy)drawTargetLine(e);
+    if(selected&&!busy&&!tabletopDrag?.active)drawTargetLine(e);
 });
 document.addEventListener('contextmenu',e=>{
     if(selected&&e.target.closest('#battle-table')){e.preventDefault();selected=null;paintSelection();notice('');}
 });
-window.addEventListener('resize',()=>{hidePreview();clearTargetLine();});
+window.addEventListener('resize',()=>{releasedCardPose=null;cancelTabletopDrag();hidePreview();clearTargetLine();if(busy)clearEffects();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&busy)clearEffects();});
 function clearEffects(){
+    presentationEpoch++;
     for(const animation of runningAnimations)animation.cancel();runningAnimations.clear();
     $('fx-layer')?.replaceChildren();
 }
-function reducedMotion(){return window.matchMedia('(prefers-reduced-motion: reduce)').matches;}
+const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
+motionPreference.addEventListener('change',()=>{if(motionPreference.matches)clearEffects();});
+function reducedMotion(){return motionPreference.matches;}
 function animateElement(el,keyframes,options={}){
     if(!el||reducedMotion()||!el.animate)return Promise.resolve();
     const animation=el.animate(keyframes,{duration:280,easing:'ease-out',...options});
     runningAnimations.add(animation);
     return animation.finished.catch(()=>{}).finally(()=>runningAnimations.delete(animation));
 }
+function visualFace(el){
+    const face=el.cloneNode(true);
+    for(const n of [face,...face.querySelectorAll('[id],[data-ref],[data-fx-ref]')]){n.removeAttribute('id');n.removeAttribute('data-ref');n.removeAttribute('data-fx-ref');}
+    face.querySelectorAll('.target-order').forEach(n=>n.remove());face.classList.remove('can-act','selected-source','valid-target','drag-source','magnetic-host');
+    face.removeAttribute('aria-label');face.removeAttribute('aria-pressed');face.tabIndex=-1;face.disabled=true;
+    face.style.visibility='';face.style.transform='';face.style.translate='';face.style.opacity='1';return face;
+}
 function capturePresentation(){
-    const layer=$('fx-layer')||$('battle-table'),base=layer.getBoundingClientRect(),cards={};
-    for(const el of document.querySelectorAll('#players .card[data-ref]')){
-        const r=el.getBoundingClientRect();cards[el.dataset.ref]={el,x:r.left+r.width/2-base.left,y:r.top+r.height/2-base.top,width:r.width,height:r.height};
+    const base=$('fx-layer').getBoundingClientRect(),cards={},decks={},hands={},boards={};
+    const point=el=>{const r=el.getBoundingClientRect();return {el,x:r.left+r.width/2-base.left,y:r.top+r.height/2-base.top,width:r.width,height:r.height};};
+    for(const el of document.querySelectorAll('#players .card[data-ref],#players .card-back[data-ref]')){
+        const back=el.classList.contains('card-back'),p=point(el);p.ref=el.dataset.ref;p.owner=Number(el.closest('.player').dataset.playerId);
+        p.zone=back?'hand':el.dataset.zone;p.back=back;p.face=visualFace(el);p.naturalWidth=el.offsetWidth;p.naturalHeight=el.offsetHeight;cards[p.ref]=p;
     }
-    return {cards,entities:entities(),observation:message.observation};
+    for(const section of document.querySelectorAll('#players .player')){
+        const id=Number(section.dataset.playerId);decks[id]=point(section.querySelector('.deck-pile'));
+        hands[id]=point(section.querySelector('.hand,.opponent-hand'));boards[id]=point(section.querySelector('.battle-row'));
+    }
+    const frozen=[...document.querySelectorAll('#players .entity-wrap,#players .hand,#players .card')].map(el=>{
+        const css=getComputedStyle(el);return {el,transform:css.transform,translate:css.translate,zIndex:css.zIndex};
+    });
+    return {cards,decks,hands,boards,frozen,entities:entities(),observation:message.observation,epoch:presentationEpoch,
+        fx:{moved:new Set(),healthSeen:new Set(),deadSeen:new Set(),deathTasks:[]}};
+}
+function recentEvents(before,data){return (data.events||[]).filter(e=>e.sequence>before.observation.event_cursor);}
+function motionCurrent(before){return before.epoch===presentationEpoch&&!reducedMotion();}
+function setFx(el,kind,ref,amount){el.dataset.fxKind=kind;if(ref)el.dataset.fxRef=ref;if(amount!=null)el.dataset.fxAmount=amount;return el;}
+function cardGhost(point,kind,ref,backOnly=false){
+    const ghost=node('div',null,'fx-card '+(point.zone==='board'?'battle-row':point.zone==='hero'?'hero-slot':'hand'));
+    ghost.setAttribute('aria-hidden','true');setFx(ghost,kind,ref);
+    const w=point.naturalWidth||point.width||80,h=point.naturalHeight||point.height||112;
+    Object.assign(ghost.style,{left:`${point.x-w/2}px`,top:`${point.y-h/2}px`,width:`${w}px`,height:`${h}px`});
+    if(!backOnly&&point.face)ghost.append(visualFace(point.face));
+    const back=node('div',null,'fx-card-back');ghost.append(back);ghost.classList.toggle('back-only',backOnly||point.back);$('fx-layer').append(ghost);
+    return {ghost,w,h};
+}
+async function flyCard(before,face,from,to,kind,{flip=false,reveal=false,ref=face.ref,delay=0,fade=false}={}){
+    if(!motionCurrent(before)||!from||!to)return;
+    const {ghost,w,h}=cardGhost({...face,x:from.x,y:from.y},kind,ref,face.back);
+    const start=Math.min(from.width/w,from.height/h),end=Math.min(to.width/w,to.height/h);
+    const transform=(x,y,s,turn=0)=>`translate(${x}px,${y}px) scale(${s}) rotateY(${turn}deg)`;
+    try{await animateElement(ghost,[
+        {transform:transform(0,0,start,reveal?180:0),opacity:.85},
+        {transform:transform((to.x-from.x)*.6,(to.y-from.y)*.6-15,(start+end)/2,(flip||reveal)?90:0),opacity:1,offset:.55},
+        {transform:transform(to.x-from.x,to.y-from.y,end,flip&&!face.back?180:0),opacity:fade?0:1}
+    ],{duration:230,delay,easing:'cubic-bezier(.25,.7,.2,1)',fill:'forwards'});}finally{ghost.remove();}
+}
+function waitingCard(before,a){
+    const from=before.cards[source(a)];if(!before.release||!from||reducedMotion())return null;
+    const pose=before.release,{ghost}=cardGhost({...from,...pose},'waiting',from.ref,from.back);
+    const scale=Math.min(pose.width/(from.naturalWidth||from.width),pose.height/(from.naturalHeight||from.height));ghost.style.transform=`scale(${scale})`;
+    ghost.append(node('span','结算中','fx-wait-label'));const opacity=from.el.style.opacity;from.el.style.opacity='.18';
+    let done=false;return ()=>{if(done)return;done=true;ghost.remove();from.el.style.opacity=opacity;};
+}
+async function presentReply(before,data,a,trace){
+    const moving=motionCurrent(before),players=$('players'),previousVisibility=players.style.visibility;
+    let snapshot;
+    if(moving){
+        snapshot=node('div',null,'fx-previous-players');snapshot.setAttribute('aria-hidden','true');
+        for(const row of before.frozen){row.el.style.transform=row.transform;row.el.style.translate=row.translate;row.el.style.zIndex=row.zIndex;}
+        snapshot.append(...players.childNodes);
+        for(const n of snapshot.querySelectorAll('[data-ref]')){n.dataset.fxRef=n.dataset.ref;n.removeAttribute('data-ref');n.onclick=null;}
+        snapshot.querySelectorAll('.target-order').forEach(n=>n.remove());
+        snapshot.querySelectorAll('.selected-source,.valid-target').forEach(n=>n.classList.remove('selected-source','valid-target'));
+        players.style.visibility='hidden';$('fx-layer').append(snapshot);document.body.dataset.presentationPhase='intent';
+    }
+    try{
+        perfLog.stage(trace,'render_ms',()=>render(data));
+        if(!moving)return;
+        const after=capturePresentation();before.after=after;
+        await perfLog.stage(trace,'intent_ms',()=>animateIntent(a,before,data,after));
+        snapshot.remove();players.style.visibility=previousVisibility;document.body.dataset.presentationPhase='outcome';
+        if(motionCurrent(before))await perfLog.stage(trace,'outcome_ms',()=>animateOutcome(before,data,a,after));
+    }finally{snapshot?.remove();players.style.visibility=previousVisibility;document.body.dataset.presentationPhase=busy?'request':'idle';}
+}
+function actionPresentation(a,before,data){
+    const events=recentEvents(before,data),commit=events.find(e=>e.kind==='card_committed'),hand=events.find(e=>['card_prepared','card_forged','card_traded'].includes(e.kind));
+    if(hand&&(a?.type==='use_hand_action'||(!a&&!commit)))return {kind:'hand',operation:({card_prepared:'prepare',card_forged:'forge',card_traded:'trade'})[hand.kind],
+        ref:a?.type==='use_hand_action'?a.card:(hand.target?.ref||hand.source?.ref||events.find(e=>e.kind==='trade_started')?.source?.ref),player:hand.player_id};
+    if(a?.type==='play_card'||commit)return {kind:'play',ref:a?.card||commit?.source?.ref,player:a?before.observation.active_player:commit.player_id,
+        cardId:commit?.source?.card_id,targets:a?[...new Set(aimFields(a).map(f=>f.ref).filter(Boolean))]:[...new Set(events.filter(e=>['spell_cast_started','damage_dealt','healed'].includes(e.kind)).map(e=>e.target?.ref).filter(Boolean))],magnetic:a?.magnetic_target};
+    const power=events.find(e=>['hero_power_started','hero_power_trigger_started','minion_ability_started'].includes(e.kind));
+    return {kind:'ability',ref:source(a||{})||power?.source?.ref||(before.observation.pending_choice?.purpose!=='mulligan'?before.observation.pending_choice?.source?.ref:null),player:power?.player_id,
+        targets:a?[...new Set(aimFields(a).map(f=>f.ref).filter(Boolean))]:[...new Set(events.filter(e=>['damage_dealt','healed'].includes(e.kind)).map(e=>e.target?.ref).filter(Boolean))]};
+}
+function healthFeedback(before,events){
+    if(!motionCurrent(before))return;
+    const groups=new Map();
+    for(const e of events){
+        if(before.fx.healthSeen.has(e.sequence))continue;
+        before.fx.healthSeen.add(e.sequence);
+        const ref=e.target?.ref,at=before.cards[ref]||before.after?.cards[ref];if(!at)continue;
+        if(e.kind==='shield_lost'){
+            at.el.querySelector('.divine-bubble')?.remove();const ring=setFx(effectNode('fx-shield-break',at),'shield-break',ref);
+            void animateElement(ring,[{transform:'translate(-50%,-50%) scale(.75)',opacity:1},{transform:'translate(-50%,-50%) scale(1.5) rotate(25deg)',opacity:0}],{duration:280}).finally(()=>ring.remove());
+        }
+        const kind=({damage_dealt:'damage',health_lost:'health-loss',healed:'heal',armor_gained:'armor'})[e.kind];
+        if(!kind||!(e.amount>0))continue;
+        const key=ref+':'+kind;if(!groups.has(key))groups.set(key,{ref,at,kind,amount:0});groups.get(key).amount+=e.amount;
+    }
+    const offsets=new Map();
+    for(const {ref,at,kind,amount} of groups.values()){
+        const offset=offsets.get(ref)||0;offsets.set(ref,offset+1);
+        const number=setFx(effectNode('fx-number'+(kind==='heal'?' healing':kind==='armor'?' armor':''),{x:at.x+offset*12,y:at.y-offset*20},(kind==='damage'||kind==='health-loss'?'-':'+')+amount),kind,ref,amount);
+        void animateElement(number,[{transform:'translate(-50%,-25%) scale(.6)',opacity:0},{transform:'translate(-50%,-60%) scale(1.15)',opacity:1,offset:.2},{transform:'translate(-50%,-130%) scale(1)',opacity:0}],{duration:590}).finally(()=>number.remove());
+    }
+}
+async function deathFeedback(before,events){
+    if(!motionCurrent(before))return;
+    await Promise.all(events.filter(e=>e.kind==='minion_died'||e.kind==='location_destroyed'||e.kind==='weapon_destroyed').map(async e=>{
+        const ref=e.target?.ref||e.source?.ref,at=before.cards[ref];if(!at||before.fx.deadSeen.has(ref))return;
+        before.fx.deadSeen.add(ref);const burst=setFx(effectNode('fx-death-burst',at),'death',ref);
+        try{await Promise.all([
+            animateElement(at.el,[{filter:'brightness(1.7)',opacity:1},{filter:'grayscale(1) brightness(.3)',transform:'translateY(12px) scale(.7)',opacity:0}],{duration:190,fill:'forwards'}),
+            animateElement(burst,[{transform:'translate(-50%,-50%) scale(.3)',opacity:.9},{transform:'translate(-50%,-50%) scale(1.4)',opacity:0}],{duration:230})
+        ]);}finally{at.el.style.visibility='hidden';burst.remove();}
+    }));
 }
 function effectNode(cls,point,text){
     if(!$('fx-layer'))return null;
@@ -846,12 +1236,12 @@ function effectNode(cls,point,text){
 function completedAttacks(before,data){
     return (data.events||[]).filter(e=>e.sequence>before.observation.event_cursor&&e.kind==='attack_finished'&&e.source?.ref&&e.target?.ref).sort((a,b)=>a.sequence-b.sequence);
 }
-async function animateAttack(from,to){
-    if(!from||!to||!from.el.isConnected||!to.el.isConnected||reducedMotion())return;
+async function animateAttack(from,to,{before,onImpact=()=>{},dies=false}={}){
+    if(!from||!to||!from.el.isConnected||!to.el.isConnected||reducedMotion()){onImpact();return;}
     const distance=Math.hypot(to.x-from.x,to.y-from.y);if(distance<1)return;
     const ux=(to.x-from.x)/distance,uy=(to.y-from.y)/distance;
     const travel=Math.max(0,distance-Math.min(32,(from.height+to.height)*.18)),dx=ux*travel,dy=uy*travel;
-    const ghost=node('div',null,'fx-attacker '+(from.el.dataset.kind==='hero'?'hero-slot':'battle-row'));
+    const ghost=setFx(node('div',null,'fx-attacker '+(from.el.dataset.kind==='hero'?'hero-slot':'battle-row')),'attack',from.ref);
     const clone=from.el.cloneNode(true);clone.removeAttribute('data-ref');clone.removeAttribute('id');clone.removeAttribute('aria-label');
     clone.classList.remove('can-act','selected-source','valid-target');clone.tabIndex=-1;clone.disabled=true;
     ghost.setAttribute('aria-hidden','true');ghost.dataset.attackPhase='windup';ghost.append(clone);
@@ -864,72 +1254,147 @@ async function animateAttack(from,to){
     let impact;
     try{
         await animateElement(ghost,[{transform:home},{transform:windup}],{duration:85,easing:'ease-out',fill:'forwards'});
+        if(before&&!motionCurrent(before))return;
         ghost.dataset.attackPhase='lunge';
         await Promise.all([
             animateElement(ghost,[{transform:windup},{transform:contact}],{duration:110,easing:'cubic-bezier(.6,0,1,.45)',fill:'forwards'}),
             animateElement(trail,[{opacity:0},{opacity:.85,offset:.6},{opacity:.25}],{duration:110,fill:'forwards'})
         ]);
+        if(before&&!motionCurrent(before))return;
         ghost.dataset.attackPhase='impact';impact=effectNode('fx-impact',to);
+        if(dies)before?.fx.deadSeen.add(from.ref);onImpact();
         const hit=Promise.all([
             animateElement(impact,[{transform:'translate(-50%,-50%) scale(.25)',opacity:0},{transform:'translate(-50%,-50%) scale(1.12)',opacity:1,offset:.25},{transform:'translate(-50%,-50%) scale(1.45)',opacity:0}],{duration:185}),
             animateElement(to.el,[{transform:'translate(0,0)',filter:'brightness(1)'},{transform:`translate(${ux*8}px,${uy*8}px) rotate(3deg)`,filter:'brightness(1.7)',offset:.3},{transform:'translate(0,0)',filter:'brightness(1)'}],{duration:165}),
             animateElement(trail,[{opacity:.25},{opacity:0}],{duration:100,fill:'forwards'})
         ]);
         await animateElement(ghost,[{transform:contact,filter:'brightness(1.2)'},{transform:contact,filter:'brightness(1)'}],{duration:35,fill:'forwards'});
+        if(before&&!motionCurrent(before))return;
+        if(dies){
+            ghost.dataset.attackPhase='death';setFx(ghost,'death',from.ref);
+            await animateElement(ghost,[{transform:contact,opacity:1},{transform:`translate(${dx}px,${dy+14}px) scale(.55)`,filter:'grayscale(1)',opacity:0}],{duration:160,fill:'forwards'});return;
+        }
         ghost.dataset.attackPhase='return';
         await Promise.all([hit,animateElement(ghost,[{transform:contact},{transform:'translate(0,0) scale(.97)',offset:.85},{transform:home}],{duration:150,easing:'ease-out',fill:'forwards'})]);
     }finally{
-        from.el.style.visibility=visibility;ghost.remove();trail?.remove();impact?.remove();
+        from.el.style.visibility=dies?'hidden':visibility;ghost.remove();trail?.remove();impact?.remove();
     }
 }
-async function animateIntent(a,before,data){
-    if(reducedMotion())return false;
-    const attacks=completedAttacks(before,data);
-    if(attacks.length){
-        for(const event of attacks)await animateAttack(before.cards[event.source.ref],before.cards[event.target.ref]);
-    }else{
-        // A declared but cancelled attack has no completed collision to present.
-        if(!a||a.type==='attack')return false;
-        const from=before.cards[source(a)],to=before.cards[targetOf(a)];if(!from)return false;
-        if(to){
-        const projectile=effectNode('fx-projectile',from);
-        await Promise.all([animateElement(from.el,[{filter:'brightness(1)'},{filter:'brightness(1.8)'},{filter:'brightness(1)'}]),
-            animateElement(projectile,[{transform:'translate(-50%,-50%) scale(.45)',opacity:0},{opacity:1,offset:.15},{transform:`translate(calc(-50% + ${to.x-from.x}px),calc(-50% + ${to.y-from.y}px)) scale(1.3)`,opacity:1}],{duration:330,easing:'ease-in'})]);
-        projectile?.remove();
-        }else{
-        await animateElement(from.el,[{filter:'brightness(1)',opacity:1},{filter:'brightness(1.65)',transform:'scale(1.1)',opacity:.8},{filter:'brightness(1)',opacity:1}],{duration:220});
-        }
-    }
-    const remaining=new Set(data.observation.players.flatMap(p=>p.board.map(c=>c.ref)));
-    await Promise.all(Object.entries(before.entities).filter(([id,c])=>c.zone==='board'&&!remaining.has(id)).map(([id])=>animateElement(before.cards[id]?.el,[{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(.55) translateY(15px)'}],{duration:190})));
-    return attacks.length>0;
-}
-async function animateOutcome(before,data,action){
-    if(reducedMotion())return;
-    const after=capturePresentation(),effects=[];
-    for(const [id,c] of Object.entries(after.entities)){
-        const old=before.entities[id],at=after.cards[id];if(!at)continue;
-        if(!old||old.zone!==c.zone){
-            effects.push(animateElement(at.el,[{transform:'translateY(18px) scale(.7)',opacity:0},{transform:'translateY(0) scale(1)',opacity:1}],{duration:320}));
-        }
-        if(old&&c.health!==old.health&&['hero','minion'].includes(c.kind)){
-            const delta=c.health-old.health;
-            const number=effectNode('fx-number'+(delta>0?' healing':''),at,(delta>0?'+':'')+delta);
-            const floating=animateElement(number,[{transform:'translate(-50%,-25%) scale(.5)',opacity:0},{transform:'translate(-50%,-60%) scale(1.2)',opacity:1,offset:.25},{transform:'translate(-50%,-130%) scale(1)',opacity:0}],{duration:650}).then(()=>number?.remove());
-            // Cosmetic attack numbers can finish after the card has returned.
-            if(action?.type!=='attack'){
-                effects.push(floating);
-                effects.push(animateElement(at.el,[{filter:'brightness(2)',transform:'translateX(-3px)'},{filter:'brightness(1)',transform:'translateX(3px)',offset:.55},{transform:'translateX(0)'}],{duration:280}));
+async function animateIntent(a,before,data,after){
+    if(!motionCurrent(before))return;
+    const events=recentEvents(before,data),descriptor=actionPresentation(a,before,data);before.fx.action=descriptor;
+    let origin=before.cards[descriptor.ref];
+    if(descriptor.kind==='hand'){
+        const deck=before.decks[descriptor.player],from=origin||{...before.hands[descriptor.player],width:deck?.width||70,height:deck?.height||100,back:true,zone:'hand'};
+        if(deck){
+            if(origin)origin.el.style.visibility='hidden';
+            await flyCard(before,from,before.release||from,deck,descriptor.operation+'-out',{flip:!from.back,ref:descriptor.ref});
+            if(motionCurrent(before)){
+                const glow=setFx(effectNode('fx-deck-glow '+descriptor.operation,deck,({prepare:'预备',forge:'锻造',trade:'交易'})[descriptor.operation]),descriptor.operation,descriptor.ref);
+                void animateElement(glow,[{opacity:0,transform:'translate(-50%,-50%) scale(.75)'},{opacity:1,offset:.25},{opacity:0,transform:'translate(-50%,-50%) scale(1.3)'}],{duration:280}).finally(()=>glow.remove());
             }
         }
-        if(old&&c.armor>old.armor){
-            const number=effectNode('fx-number armor',at,'+'+(c.armor-old.armor));
-            effects.push(animateElement(number,[{transform:'translate(-50%,0)',opacity:1},{transform:'translate(-50%,-70px)',opacity:0}],{duration:600}).then(()=>number?.remove()));
+    }else if(descriptor.kind==='play'){
+        const player=descriptor.player,stage=before.boards[player];
+        const destination=after.cards[descriptor.magnetic||descriptor.ref]||{...stage,width:95,height:130};
+        if(origin){
+            let face=origin;
+            const disclosed=after.entities[descriptor.ref];
+            if(origin.back&&(disclosed?.card_id||descriptor.cardId)){
+                const proxy={...(disclosed||{}),card_id:disclosed?.card_id||descriptor.cardId,ref:'cosmetic',kind:disclosed?.kind||'spell',zone:'hand'};
+                face={...origin,face:visualFace(card(proxy).querySelector('.card')),back:false};
+            }
+            origin.el.style.visibility='hidden';
+            await flyCard(before,face,before.release||origin,destination,descriptor.magnetic?'magnetic':'play',{fade:!!after.cards[descriptor.ref],ref:descriptor.ref});
+            before.fx.moved.add(descriptor.ref);origin=destination;
+        }
+        if(!motionCurrent(before))return;
+        if(events.some(e=>e.kind==='spell_countered'||e.kind==='minion_countered')){
+            const fizzle=setFx(effectNode('fx-fizzle',destination,'已反制'),'countered',descriptor.ref);
+            await animateElement(fizzle,[{opacity:1,transform:'translate(-50%,-50%) scale(1)'},{opacity:0,transform:'translate(-50%,-50%) scale(.4)'}],{duration:180}).finally(()=>fizzle.remove());
+        }else await projectileFeedback(before,origin,descriptor.targets||[]);
+    }else if(a?.type!=='attack'){
+        if(origin)await Promise.all([animateElement(origin.el,[{filter:'brightness(1)'},{filter:'brightness(1.7)',offset:.4},{filter:'brightness(1)'}],{duration:180}),projectileFeedback(before,origin,descriptor.targets||[])]);
+    }
+    if(!motionCurrent(before))return;
+    let cursor=before.observation.event_cursor;
+    for(const event of completedAttacks(before,data)){
+        if(!motionCurrent(before))return;
+        const window=events.filter(e=>e.sequence>cursor&&e.sequence<=event.sequence);
+        const dies=window.some(e=>e.kind==='minion_died'&&(e.target?.ref||e.source?.ref)===event.source.ref);
+        await animateAttack(before.cards[event.source.ref]||after.cards[event.source.ref],before.cards[event.target.ref]||after.cards[event.target.ref],{
+            before,dies,onImpact:()=>{healthFeedback(before,window);before.fx.deathTasks.push(deathFeedback(before,window));}
+        });cursor=event.sequence;
+    }
+    healthFeedback(before,events);await Promise.all([...before.fx.deathTasks,deathFeedback(before,events)]);
+}
+async function projectileFeedback(before,from,targets){
+    if(!motionCurrent(before)||!from)return;
+    await Promise.all([...new Set(targets)].map(async ref=>{
+        const to=before.cards[ref]||before.after.cards[ref];if(!to||ref===from.ref)return;
+        const projectile=setFx(effectNode('fx-projectile',from),'projectile',ref);
+        try{await animateElement(projectile,[{transform:'translate(-50%,-50%) scale(.4)',opacity:0},{opacity:1,offset:.12},{transform:`translate(calc(-50% + ${to.x-from.x}px),calc(-50% + ${to.y-from.y}px)) scale(1.15)`,opacity:1}],{duration:210,easing:'ease-in'});}finally{projectile.remove();}
+    }));
+}
+async function animateOutcome(before,data,a,after){
+    if(!motionCurrent(before))return;
+    const effects=[],events=recentEvents(before,data),operation=before.fx.action;
+    const transfer=(at,face,from,kind,options={})=>{
+        const visibility=at.el.style.visibility;at.el.style.visibility='hidden';before.fx.moved.add(at.ref);
+        effects.push(flyCard(before,face,from,at,kind,options).finally(()=>{at.el.style.visibility=visibility;}));
+    };
+    if(operation?.kind==='hand'&&operation.operation!=='trade'){
+        const at=after.cards[operation.ref],deck=after.decks[operation.player];
+        if(at&&deck)transfer(at,at,deck,operation.operation+'-return',{reveal:!at.back});
+        else if(deck&&after.hands[operation.player]){
+            const back={...deck,zone:'hand',back:true};effects.push(flyCard(before,back,deck,after.hands[operation.player],operation.operation+'-return'));
         }
     }
+    const draws=new Set(events.filter(e=>e.kind==='card_drawn').map(e=>e.target?.ref).filter(Boolean));
+    const additions=new Map(events.filter(e=>['card_added_to_hand','card_moved_to_hand','card_returned'].includes(e.kind)).map(e=>[e.target?.ref,e]));
+    let drawIndex=0;
+    for(const event of events.filter(e=>e.kind==='card_burned')){
+        const deck=after.decks[event.player_id],hand=after.hands[event.player_id];if(!deck||!hand)continue;
+        const ref=event.target?.ref,cid=event.target?.card_id;
+        const face={...deck,zone:'hand',naturalWidth:90,naturalHeight:126,back:!cid,
+            face:cid?visualFace(card({ref:'cosmetic',card_id:cid,kind:'unknown',zone:'hand'}).querySelector('.card')):null};
+        effects.push((async()=>{
+            await flyCard(before,face,deck,{...hand,width:90,height:126},'burn',{reveal:!!cid,ref});
+            if(!motionCurrent(before))return;
+            const ash=setFx(effectNode('fx-burn',hand,'卡牌被烧毁'),'burn-ash',ref);
+            await animateElement(ash,[{transform:'translate(-50%,-50%) scale(.7)',opacity:1},{transform:'translate(-50%,-80%) scale(1.3)',opacity:0}],{duration:190}).finally(()=>ash.remove());
+        })());
+    }
+    for(const [ref,at] of Object.entries(after.cards)){
+        const previous=before.cards[ref],c=after.entities[ref],old=before.entities[ref];
+        if(at.zone==='hand'&&!before.fx.moved.has(ref)){
+            if(draws.has(ref)){
+                transfer(at,at,after.decks[at.owner],'draw',{reveal:!at.back,delay:Math.min(drawIndex++*35,105)});
+            }else if(previous?.zone==='board'){
+                transfer(at,at.back?{...previous,back:false}:at,previous,'return',{flip:at.back});
+            }else if(!previous&&additions.has(ref)){
+                const event=additions.get(ref),from=before.cards[event.source?.ref]||after.cards[event.source?.ref]||after.hands[at.owner];
+                transfer(at,at,{...from,width:at.width*.35,height:at.height*.35},'created-card');
+            }
+        }
+        if(at.zone==='board'&&(!previous||previous.zone!=='board')){
+            effects.push(animateElement(at.el,[{transform:'translateY(-10px) scale(.7)',opacity:.3},{transform:'translateY(2px) scale(1.05)',opacity:1,offset:.7},{transform:'scale(1)',opacity:1}],{duration:240}));
+            const ring=setFx(effectNode('fx-summon-ring',at),'summon',ref);
+            effects.push(animateElement(ring,[{transform:'translate(-50%,-50%) scale(.3)',opacity:.9},{transform:'translate(-50%,-50%) scale(1.35)',opacity:0}],{duration:280}).finally(()=>ring.remove()));
+        }else if(previous&&!before.fx.moved.has(ref)){
+            const dx=previous.x-at.x,dy=previous.y-at.y;
+            if(Math.hypot(dx,dy)>2){
+                const el=at.el.closest('.entity-wrap')||at.el,base=getComputedStyle(el).transform;
+                effects.push(animateElement(el,[{transform:`translate(${dx}px,${dy}px) ${base==='none'?'':base}`},{transform:base}],{duration:210}));
+            }
+        }
+        if(c&&old&&c.card_id!==old.card_id&&at.zone==='board')effects.push(animateElement(at.el,[{filter:'brightness(2)',transform:'scale(.8) rotateY(70deg)'},{filter:'brightness(1)',transform:'scale(1) rotateY(0deg)'}],{duration:240}));
+        else if(c&&old&&(c.attack!==old.attack||c.max_health!==old.max_health))effects.push(animateElement(at.el,[{filter:'brightness(1)'},{filter:'brightness(1.8)',offset:.3},{filter:'brightness(1)'}],{duration:230}));
+    }
     if(data.observation.turn!==before.observation.turn){
-        const banner=effectNode('fx-turn-banner',{x:0,y:0},data.observation.active_player===data.seat?'你的回合':'对手回合');
-        effects.push(animateElement(banner,[{opacity:0,transform:'translate(-50%,-50%) scale(.8)'},{opacity:1,transform:'translate(-50%,-50%) scale(1)',offset:.25},{opacity:1,offset:.7},{opacity:0,transform:'translate(-50%,-50%) scale(1.05)'}],{duration:680}).then(()=>banner?.remove()));
+        const banner=setFx(effectNode('fx-turn-banner',{x:0,y:0},data.observation.active_player===data.seat?'你的回合':'对手回合'),'turn');
+        // The banner and numbers are cosmetic; they do not hold the input lock.
+        void animateElement(banner,[{opacity:0,transform:'translate(-50%,-50%) scale(.85)'},{opacity:1,transform:'translate(-50%,-50%) scale(1)',offset:.2},{opacity:1,offset:.6},{opacity:0,transform:'translate(-50%,-50%) scale(1.05)'}],{duration:480}).finally(()=>banner.remove());
     }
     await Promise.all(effects);
 }
