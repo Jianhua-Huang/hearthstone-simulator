@@ -20,6 +20,16 @@ def type_name(kind):
     return f'{kind.__module__}.{kind.__qualname__}'
 
 
+def detach_runtime_wire(value):
+    """Expand private JSON aliases into independent exported tree branches."""
+    if type(value) is dict:
+        return {key: detach_runtime_wire(child) if type(child) in (dict, list) else child
+                for key, child in value.items()}
+    if type(value) is list:
+        return [detach_runtime_wire(child) if type(child) in (dict, list) else child for child in value]
+    return value
+
+
 def deck_origin(state):
     """Immutable match facts shared by live and earlier captured rule states."""
     return (state.opening is not None,
@@ -152,20 +162,15 @@ class FrameCodec:
                        else self.copy_runtime(getattr(value, field.name), depth + 1)
                        for field in fields(value)})
 
-    def encode_runtime(self, value):
+    def encode_runtime(self, value, *, readonly=False, _state_memo=None):
         """Serialize trusted engine output; external decoding stays strict.
 
-        A small per-call memo reuses state conversion without graph guards or
-        cross-action invalidation. Returned wire branches are independent.
+        Default exports have independent branches. Private read-only hashing
+        may share encoded state trees. Only native choice preparation supplies
+        a memo across its proof digest and final frame, before any queued work
+        executes. It must never survive that window or observe mutable live state.
         """
-        states = {}
-
-        def copy_wire(item):
-            if type(item) is dict:
-                return {key: copy_wire(child) for key, child in item.items()}
-            if type(item) is list:
-                return [copy_wire(child) for child in item]
-            return item
+        states = {} if _state_memo is None else _state_memo
 
         def encode(item, depth=0):
             self._depth(depth)
@@ -177,7 +182,7 @@ class FrameCodec:
                     row = (item, state_to_dict(item))
                     if len(states) < 64:
                         states[id(item)] = row
-                return {'state': copy_wire(row[1])}
+                return {'state': row[1] if readonly else detach_runtime_wire(row[1])}
             if type(item) is Event:
                 return {'event': event_to_dict(item)}
             if type(item) is tuple:

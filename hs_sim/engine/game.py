@@ -383,7 +383,7 @@ class Game:
             return None
         cached = self._frame_encoding
         if self.runtime_audits or cached is None or cached[0] is not self._frame:
-            wire = FrameCodec(self.mechanics, self.registry).encode_runtime(self._frame)
+            wire = FrameCodec(self.mechanics, self.registry).encode_runtime(self._frame, readonly=True)
             self._frame_encoding = (self._frame, wire)
         return self._frame_encoding[1]
 
@@ -414,8 +414,15 @@ class Game:
         self._require_boundary()
         events = [event_to_dict(event) for event in self._events]
         payload = self._hash_payload()
-        return deepcopy({'schema_version': SNAPSHOT_SCHEMA_VERSION, **payload, 'events': events,
-                         'events_hash': canonical_hash(events), 'state_hash': canonical_hash(payload)})
+        digest = canonical_hash(payload)
+        frame, payload['resolution_frame'] = payload['resolution_frame'], None
+        result = deepcopy({'schema_version': SNAPSHOT_SCHEMA_VERSION, **payload, 'events': events,
+                           'events_hash': canonical_hash(events), 'state_hash': digest})
+        # Cached wire is private and read-only; exported branches keep their
+        # original independent mutable storage even when the cache shares them.
+        from .continuations import detach_runtime_wire
+        result['resolution_frame'] = detach_runtime_wire(frame)
+        return result
 
     @classmethod
     def from_snapshot(cls, snapshot: dict, registry: Registry, mechanics: Mechanics | None = None,

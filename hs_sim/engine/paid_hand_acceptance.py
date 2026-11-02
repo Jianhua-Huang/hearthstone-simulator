@@ -302,10 +302,11 @@ def validate_choice_boundary_proof(proof, registry):
     validate_queue(proof.state, registry, proof.work)
 
 
-def choice_boundary_digest(proof, game):
+def choice_boundary_digest(proof, game, *, _state_memo=None):
     from .continuations import FrameCodec
     from .serialization import canonical_hash
-    return canonical_hash(FrameCodec(game.mechanics, game.registry).encode_runtime(proof))
+    return canonical_hash(FrameCodec(game.mechanics, game.registry).encode_runtime(
+        proof, readonly=True, _state_memo=_state_memo))
 
 
 def capture_choice_boundary(r, event):
@@ -315,8 +316,14 @@ def capture_choice_boundary(r, event):
     proof = PaidHandChoiceBoundaryProof(event, deepcopy(r.state), tuple(r._work_queue))
     # Debug audits this proof once at the completed waiting boundary.
     r._paid_hand_choice_boundary = proof
+    from types import FunctionType
+    from .registry_identity import _engine_kind
+    handler = getattr(r, '_current_handler', None)
+    # Native suspension does not execute queued work between this digest and
+    # the frame capture. Extension handlers may still edit their own work.
+    r._choice_frame_states = {} if type(handler) is FunctionType and _engine_kind(handler) else None
     return replace(event, data=tuple(sorted((*event.data,
-        (CHOICE_DIGEST, choice_boundary_digest(proof, r.game))))))
+        (CHOICE_DIGEST, choice_boundary_digest(proof, r.game, _state_memo=r._choice_frame_states))))))
 
 
 def validate_choice_boundary(game, *, resume=False):

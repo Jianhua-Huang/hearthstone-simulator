@@ -4,7 +4,7 @@ R-093/R-102: capture a non-stacking retention policy; pay and activate once, whi
 each payload sees the preceding outcome's resulting state. Ordinary reaction and
 death checkpoints apply, including existing enclosing death deferrals.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .effects import Effect, _integer, _source

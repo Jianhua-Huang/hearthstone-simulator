@@ -4,7 +4,7 @@ The proof markers are interpreter control.  They preserve the original full
 window until the enclosing play ends, including empty and canceled acceptances,
 and add neither a game event nor a gameplay/death checkpoint.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .effects import Effect, _integer

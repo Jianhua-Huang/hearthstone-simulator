@@ -4,7 +4,7 @@ Game snapshots and replays remain trusted, omniscient artifacts. This projection
 is a transport DTO, not a Python security sandbox or an action capability.
 """
 from .hand_capacity import hand_capacity
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, field
 import re
 

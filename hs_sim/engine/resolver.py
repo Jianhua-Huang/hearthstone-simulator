@@ -240,6 +240,8 @@ class Resolution:
         self._choice_request = None
         self._original_discovery_offer = None
         self._paid_hand_choice_boundary = None
+        self._choice_frame_states = None
+        self._current_handler = None
         self.ending_turn = False
         self.removed_weapons = []
         self.death_deferrals = 0
@@ -969,7 +971,11 @@ class Resolution:
             self._cause_source = deepcopy(self.state.entities.get(getattr(work, 'source_id', None)))
             from .native_stat_gains import begin as begin_stat_gain,finish as finish_stat_gain
             begin_stat_gain(self,work)
-            generated = self.game.mechanics.handler(work)(self, work)
+            self._current_handler = self.game.mechanics.handler(work)
+            try:
+                generated = self._current_handler(self, work)
+            finally:
+                self._current_handler = None
             stat_gain_work=finish_stat_gain(self)
             continuation = [] if generated is None else self.collect(generated)
             if any(not isinstance(item, (Effect, BehaviorCall)) for item in continuation):
@@ -1020,7 +1026,8 @@ class Resolution:
                 codec = FrameCodec(self.game.mechanics, self.registry)
                 # Both modes execute native work. Debug validates the completed
                 # frame at the stable boundary instead of serializing it twice.
-                wire = codec.encode_runtime(frame)
+                wire = codec.encode_runtime(frame, readonly=True, _state_memo=self._choice_frame_states)
+                self._choice_frame_states = None
                 self.game._frame = codec.copy_runtime(frame)
                 self.game._frame_encoding = (self.game._frame, wire)
                 return
@@ -1124,6 +1131,7 @@ class Resolution:
             raise ResolutionError('Resolution ended with an unclosed action window')
         self._captured.clear()
         self._paid_hand_choice_boundary = None
+        self._choice_frame_states = None
         self.game._frame = None
         self.state.pending_choice = None
 
