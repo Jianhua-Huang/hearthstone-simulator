@@ -1,6 +1,6 @@
 """Full ordinary spell pools qualified by the shared received-card preview."""
 from collections import OrderedDict
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass
 import hashlib
 import json
@@ -95,7 +95,8 @@ def qualify(game, request, before, information_json, rows):
     state = before.state
     information = original_information(state, game.registry, game.ruleset, json.loads(information_json))
     admitted = tuple((cid, weight) for cid, weight in rows if can_receive_and_play(state,
-        game.registry, game.ruleset, information, request.player_id, cid, request.source_id, state.turn))
+        game.registry, game.ruleset, information, request.player_id, cid, request.source_id, state.turn,
+        readonly=True))
     with _LOCK:
         _CACHE[key] = admitted
         while len(_CACHE) > 64:_CACHE.popitem(last=False)

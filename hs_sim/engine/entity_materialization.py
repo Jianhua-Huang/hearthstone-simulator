@@ -12,6 +12,9 @@ def _player(state, player_id):
 
 
 def create_entity(state, registry, player_id, card_id, zone, position=None, ready=False, *, components=(), hand_entry_reason='created', hand_entry_source_id=None, additional_hero_power=False, entry_herald_count=None, interactable_object=False, entry_dormant_turns=None):
+    # HAND previews fork entities, player hands, hand_entries and scalar ID
+    # counters; existing entities/histories are read-only. New state-side writes
+    # in this path must also be detached by generated_card_preview._preview_inputs.
     from .game_boards import resolve_card_id
     card_id = resolve_card_id(state, registry, card_id)
     player = _player(state, player_id)

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from hs_sim.engine.effects import AddToHand, Draw
-from hs_sim.engine.herald import Herald
+from hs_sim.engine.herald import request_from_context as herald_from_context
 from hs_sim.engine.imbue import Imbue
 from hs_sim.engine.model import CardDefinition, CardType, EndTurnSpec, Keyword, SpellSchool, TriggerSpec
 from hs_sim.engine.pools import PoolCard
@@ -63,9 +63,9 @@ def register_simple_herald_p08_cards(registry):
         return tuple(result)
 
     registry.register_behavior(PREFIX+'shrine', lambda c: (
-        Herald(c.player_id,c.source_id), Draw(c.player_id,source_id=c.source_id)))
+        herald_from_context(c), Draw(c.player_id,source_id=c.source_id)))
     registry.register_behavior(PREFIX+'ritual', lambda c: (
-        Herald(c.player_id,c.source_id), AddToHand(c.player_id,BREEZLING,c.source_id), AddToHand(c.player_id,BREEZLING,c.source_id)))
+        herald_from_context(c), AddToHand(c.player_id,BREEZLING,c.source_id), AddToHand(c.player_id,BREEZLING,c.source_id)))
     registry.register_behavior(PREFIX+'gatherer', lambda c: (
         AddToHand(c.player_id,WISP,c.source_id), Imbue(c.player_id,c.source_id)))
     registry.register_behavior(PREFIX+'nozdormu', nozdormu)

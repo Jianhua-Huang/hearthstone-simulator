@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>萨满与牧师 · 双方自动测试</title><link rel="stylesheet" href="/autoplay.css"></head>
+<body><header><div><span class="eyebrow">LOCAL · AUTOMATED MATCH AUDIT</span><h1>萨满与牧师 · 双方自动测试</h1><p>固定30张卡组，交换先手，自动完成换牌、出牌与选择。</p></div><div class="controls"><button id="start">开始 / 继续</button><button id="pause">当前动作后暂停</button><button id="export">导出分析摘要</button></div></header>
+<main><section id="summary" class="metrics" aria-live="polite"></section><p id="phase"></p><p id="error" role="alert"></p>
+<div class="environments"><section class="environment"><div class="env-head"><div><b>环境 A</b><h2>萨满先手 · 牧师后手</h2></div><label>观察座位<select id="seat-A"><option value="1">萨满</option><option value="2">牧师</option></select></label></div><iframe id="board-A" src="/battle" title="环境A玩家画面"></iframe></section>
+<section class="environment"><div class="env-head"><div><b>环境 B</b><h2>牧师先手 · 萨满后手</h2></div><label>观察座位<select id="seat-B"><option value="1">牧师</option><option value="2">萨满</option></select></label></div><iframe id="board-B" src="/battle" title="环境B玩家画面"></iframe></section></div>
+<div class="analysis"><section><h2>对局与结果</h2><div id="games"></div><h2>耗时异常 / 确认失败</h2><p class="hint">命令 ≥1秒或合法操作查询 ≥500毫秒会保留独立复现材料。查询、策略、结算与审计分别计时。</p><div id="findings"></div></section>
+<section><h2>描述与效果覆盖</h2><p class="hint">“片段通过”只表示明确断言已观察到。复杂组合、未触发条件、未出场卡保留待核验，不自动标为整卡正确。</p><div id="coverage"></div></section></div>
+<details><summary>固定卡组与描述</summary><div id="decks" class="deck-grid"></div></details><details><summary>范围与版本</summary><pre id="scope"></pre></details></main>
+<script src="/autoplay.js"></script></body></html>

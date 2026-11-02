@@ -3,7 +3,7 @@ from dataclasses import replace
 import json
 from pathlib import Path
 from hs_sim.engine.effects import Damage, DamageBatch, Draw, Heal, InvokeBehavior
-from hs_sim.engine.herald import Herald
+from hs_sim.engine.herald import request_from_context as herald_from_context
 from hs_sim.engine.imbue import Imbue
 from hs_sim.engine.model import (CardDefinition, CardType, DamageKind, HealingKind,
                                 Keyword, TargetMode, TargetSpec, Zone)
@@ -52,7 +52,7 @@ def register_spell_sequence_cards(registry):
         return (invoke(c, 'flood_wave'),) * (2 if c.spell_conditions.outcast else 1)
 
     def rite(c):
-        return (Herald(c.player_id, c.source_id),) + ((Damage(c.target_id, 3, c.source_id,
+        return (herald_from_context(c),) + ((Damage(c.target_id, 3, c.source_id,
             DamageKind.SPELL),) if c.spell_conditions.combo and c.target_id is not None else ())
 
     bodies = {
@@ -63,7 +63,7 @@ def register_spell_sequence_cards(registry):
         'embrace': lambda c: (Heal(c.target_id, 4, c.source_id, HealingKind.SPELL),
             Draw(c.player_id, source_id=c.source_id), Imbue(c.player_id, c.source_id)),
         'rite': rite,
-        'animation': lambda c: (Herald(c.player_id, c.source_id), invoke(c, 'animation_damage')),
+        'animation': lambda c: (herald_from_context(c), invoke(c, 'animation_damage')),
         'animation_damage': lambda c: (DamageBatch(tuple(Damage(eid, 4, c.source_id, DamageKind.SPELL)
             for eid in minions(c, registry, 3-c.player_id))),),
     }

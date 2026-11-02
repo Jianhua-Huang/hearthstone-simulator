@@ -99,16 +99,16 @@ class HeraldTests(unittest.TestCase):
         g=self.game(hand=('CATA_525',));self.play(g,'CATA_525')
         self.assertEqual(self.last(g).card_id,'CATA_580t');self.check(g)
 
-    def test_current_class_change_retains_count(self):
+    def test_current_class_change_preserves_original_binding_and_count(self):
         g=self.game(hand=('twice','dhform','herald'))
         for c in ('twice','dhform','herald'):self.play(g,c)
-        self.assertEqual(self.last(g).card_id,'CATA_525t');self.assertEqual(self.last(g).attack,4)
-        self.assertEqual(self.hero(g).attack,2);self.check(g)
+        self.assertEqual(self.last(g).card_id,'CATA_580t');self.assertEqual(self.last(g).attack,4)
+        self.assertEqual(self.hero(g).attack,0)
+        self.assertEqual(g.state.players[1].herald_class,CardClass.WARRIOR);self.check(g)
 
-    def test_unimplemented_class_fails_transactionally(self):
-        g=self.game(hand=('herald',),hero='HERO_08');before=g.snapshot()
-        with self.assertRaisesRegex(ResolutionError,'Herald Soldier'):self.play(g,'herald')
-        self.assertEqual(g.snapshot(),before)
+    def test_nonherald_class_uses_opponent_binding(self):
+        g=self.game(hand=('herald',),hero='HERO_08');self.play(g,'herald')
+        self.assertEqual(self.last(g).card_id,'CATA_580t');self.check(g)
 
     def test_soldier_does_not_require_colossal_in_deck(self):
         g=self.game(hand=('herald',));self.play(g,'herald')
@@ -283,7 +283,7 @@ class HeraldTests(unittest.TestCase):
 
     def test_rejects_tampered_history_after_digest_recomputed(self):
         g=self.game(hand=('herald',));self.play(g,'herald')
-        for field,value in (('id',2),('count_before',2),('rank',1),('hero_class','mage'),('soldier_card_id','plain'),('source_id',99999),('soldier_id',1),('turn',99)):
+        for field,value in (('id',2),('count_before',2),('rank',1),('herald_class','mage'),('hero_class','invalid-class'),('soldier_card_id','plain'),('source_id',99999),('soldier_id',1),('turn',99)):
             data=g.snapshot();data['state']['herald_history'][0][field]=value;self.rehash(data)
             with self.subTest(field=field),self.assertRaises(SnapshotError):Game.from_snapshot(data,self.r)
 

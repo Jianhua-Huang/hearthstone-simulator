@@ -88,7 +88,7 @@ class FrameCodec:
                 self.registry.card(item)
             if field.name in ('behavior_id', 'on_select', 'on_summon', 'on_result', 'on_fatigue') and item is not None:
                 self.registry.behavior(item)
-            if field.name == 'producer_profile_id':
+            if field.name == 'producer_profile_id' and item is not None:
                 self.registry.summon_producer_profile(item)
             if field.name == 'spec_id':
                 self.registry.player_effect(item)

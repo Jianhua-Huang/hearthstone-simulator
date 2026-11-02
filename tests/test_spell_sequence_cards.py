@@ -12,6 +12,8 @@ from hs_sim.engine.effects import (AddToHand, ChoiceOption, Damage, Destroy, Dra
 from hs_sim.engine.errors import IllegalAction, ResolutionError
 from hs_sim.engine.hand_capacity import SetHandCapacity
 from hs_sim.engine.model import Zone
+from hs_sim.engine.pools import PoolDefinition, PoolMember
+from hs_sim.engine.representative import HERALD_POOL_IDS
 from hs_sim.engine.replay import build_replay, replay
 from hs_sim.engine.spell_sequences import (DamageMinionsDrawDeaths, DecreasingMinionDamage,
     DrawSpellBatchDeaths, DrawWithCostReduction, MinionDamageWave)
@@ -21,6 +23,10 @@ from hs_sim.targets import canonical_digest
 
 def registry(mode=None):
     r = build_registry()
+    # This isolated effect fixture supplies the explicit experimental inventory
+    # used by the native Rogue/DK Soldier bodies; it is not the standard pool.
+    r.register_pool(PoolDefinition('constructed.cards','k17.herald-fixture-v1',
+        'local-2026-09-23','experimental',tuple(PoolMember(cid) for cid in HERALD_POOL_IDS)))
     meta = CardMetadata(False, (CardClass.NEUTRAL,), Rarity.COMMON, tribes=())
     for name, health, extra in (
         ('big', 20, {}), ('small', 1, {}), ('bonus', 1, dict(spell_damage=1)),

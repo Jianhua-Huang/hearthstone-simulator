@@ -194,6 +194,13 @@ def build_cn37_local_pool_format():
     original = build_cn37_launch_candidate_format()
     registry = original.registry
     ordinary = tuple(registry.pool(pool_id, original.context) for pool_id in ORDINARY_POOLS)
+    # The native Priest power still names its original pool. Bind that name to
+    # the entire local Standard inventory; its existing minion/spell and Priest
+    # queries remain authoritative. Retain all identities, weights and exclusions
+    # rather than reusing the ten-card representative sample in constructed play.
+    from .engine.representative import MOON_POOL_ID
+    moon_pool = replace(ordinary[0], id=MOON_POOL_ID,
+        version='cn37-local-priest-moon-v1:' + ordinary[0].version)
     from .cards.past_source_scoped_pools import local_pools,register_scopes,BATCH_PATH
     from .cards.one_cost_past_pool import local_pool,register_scope,BATCH_PATH as ONE_COST_PATH
     from .cards.standard_pack_inventory import local_pool as standard_pack_pool,BATCH_PATH as PACK_PATH
@@ -247,7 +254,7 @@ def build_cn37_local_pool_format():
     from .cards.past_rogue_nature_source import local_pool as nature_pool,register_scope as register_rogue_nature_scope
     from .cards.past_warrior_nature_source import local_pool as warrior_nature_pool,register_scope as register_warrior_nature_scope
     from .cards.past_hunter_nature_source import local_pools as hunter_nature_pools,register_scopes as register_hunter_nature_scopes
-    pools = ordinary + _reviewed_sources(registry, manifest) + past_pools + (
+    pools = ordinary + (moon_pool,) + _reviewed_sources(registry, manifest) + past_pools + (
         one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context) + champion_pools(registry,original.context)
     pools=pools+(nature_pool(registry,original.context),warrior_nature_pool(registry,original.context))
     pools=pools+hunter_nature_pools(registry,original.context)

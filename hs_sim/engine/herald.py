@@ -7,7 +7,57 @@ from dataclasses import dataclass, replace
 
 from .effects import Effect, GrantKeyword, _integer, _player, _source
 from .errors import ResolutionError
-from .model import CardClass, CardType, Enchantment, HeraldRecord, Keyword, Zone
+from .model import CardClass, CardType, Enchantment, HeraldRecord, Keyword, Zone, _name
+
+
+HERALD_CLASSES = frozenset((CardClass.WARRIOR, CardClass.DEMON_HUNTER,
+    CardClass.SHAMAN, CardClass.ROGUE, CardClass.DEATH_KNIGHT, CardClass.WARLOCK))
+
+
+def initialize_bindings(state):
+    """Bind the starting class before any opening or scenario reactions."""
+    for player in state.players.values():
+        if player.hero_class in HERALD_CLASSES:
+            player.herald_class = player.hero_class
+
+
+def resolved_class(state, registry, player_id, source_id=None, source_card_id=None):
+    """Existing binding, own class, single-class source, then opponent binding."""
+    player = state.players[player_id]
+    if player.herald_class is not None:
+        return player.herald_class
+    if player.hero_class in HERALD_CLASSES:
+        return player.hero_class
+    if source_card_id is None and source_id is not None:
+        source_card_id = state.entities[source_id].card_id
+    if source_card_id is not None:
+        definition = registry.card(source_card_id)
+        classes = definition.metadata.classes if definition.metadata is not None else ()
+        if len(classes) == 1 and classes[0] in HERALD_CLASSES:
+            return classes[0]
+    opponent = state.players[3 - player_id]
+    if opponent.herald_class is not None:
+        return opponent.herald_class
+    if opponent.hero_class in HERALD_CLASSES:
+        return opponent.hero_class
+    return None
+
+
+def request_from_context(context, grant_keywords=()):
+    """Keep the original accepted face if its physical source later changes."""
+    if context.deathrattle is not None:
+        card_id = context.deathrattle.card_id
+    elif context.death is not None:
+        card_id = context.death.card_id
+    elif context.battlecry is not None:
+        card_id = context.battlecry.payload.card_id
+    elif context.cast is not None:
+        card_id = context.cast.card_id
+    elif context.play is not None:
+        card_id = context.play.card_id
+    else:
+        card_id = context.source.card_id
+    return Herald(context.player_id, context.source_id, grant_keywords, card_id)
 
 
 def herald_count(state, player_id):
@@ -56,10 +106,15 @@ class Herald(Effect):
     player_id: int
     source_id: int | None = None
     grant_keywords: tuple[Keyword, ...] = ()
+    source_card_id: str | None = None
 
     def __post_init__(self):
         _player(self.player_id)
         _source(self.source_id)
+        if self.source_card_id is not None:
+            _name(self.source_card_id, 'original Herald source face')
+            if self.source_id is None:
+                raise ValueError('Original Herald face requires its physical source')
         if (type(self.grant_keywords) is not tuple or
                 any(not isinstance(k, Keyword) for k in self.grant_keywords) or
                 len(set(self.grant_keywords)) != len(self.grant_keywords)):
@@ -73,9 +128,18 @@ def herald(r, effect):
     player = r.player(effect.player_id)
     if effect.source_id is not None and effect.source_id not in r.state.entities:
         raise ResolutionError('Herald source does not exist')
-    card_id = soldier_card(r.registry, player.hero_class)
+    if effect.source_card_id is not None:
+        r.registry.card(effect.source_card_id)
+    herald_class = resolved_class(r.state, r.registry, player.id,
+        effect.source_id, effect.source_card_id)
+    # User-authorized local policy: no eligible binding is a complete Herald
+    # no-op, including its counter. Other effects in the same body continue.
+    if herald_class is None:
+        return []
+    card_id = soldier_card(r.registry, herald_class)
     if card_id is None:
-        raise ResolutionError(f'No implemented Herald Soldier for class {player.hero_class}')
+        raise ResolutionError(f'No implemented Herald Soldier for class {herald_class}')
+    player.herald_class = herald_class
     count = herald_count(r.state, player.id)
     soldier = None
     if len(player.board) < r.rules.max_board:
@@ -84,7 +148,7 @@ def herald(r, effect):
         r.refresh_auras()
     record = HeraldRecord(len(r.state.herald_history) + 1, player.id, effect.source_id,
         player.hero_class, card_id, soldier.id if soldier else None,
-        count, herald_rank(count), r.state.turn, r.state.action_number)
+        count, herald_rank(count), r.state.turn, r.state.action_number, herald_class)
     r.state.herald_history.append(record)
     # Count and provenance commit even when no field slot was available.
     r.emit('heralded', source_id=effect.source_id, player_id=player.id,
@@ -102,13 +166,28 @@ def validate_history(state, registry):
     counts = {1: 0, 2: 0}
     seen = set()
     previous = (0, 0)
+    initial_classes = {}
+    for player_id, player in state.players.items():
+        if player.herald_class is not None and (
+                type(player.herald_class) is not CardClass or player.herald_class not in HERALD_CLASSES):
+            raise ValueError('Invalid bound Herald class')
+        heroes = (e for e in state.entities.values() if e.owner == player_id and e.kind == CardType.HERO)
+        original = min(heroes, key=lambda e: e.id, default=None)
+        metadata = registry.card(original.card_id).metadata if original is not None else None
+        classes = metadata.classes if metadata is not None else ()
+        initial = classes[0] if len(classes) == 1 and classes[0] in HERALD_CLASSES else None
+        initial_classes[player_id] = initial
+        if initial is not None and player.herald_class != initial:
+            raise ValueError('Starting Herald class binding changed')
     for index, record in enumerate(state.herald_history, 1):
         if type(record) is not HeraldRecord:
             raise ValueError('Invalid Herald record')
         record.__post_init__()
         if (record.id != index or record.count_before != counts[record.player_id] or
                 record.rank != herald_rank(record.count_before) or
-                record.soldier_card_id != soldier_card(registry, record.hero_class) or
+                record.herald_class not in HERALD_CLASSES or
+                record.herald_class != state.players[record.player_id].herald_class or
+                record.soldier_card_id != soldier_card(registry, record.herald_class) or
                 record.source_id is not None and record.source_id not in state.entities or
                 record.turn > state.turn or record.action > state.action_number or
                 record.turn < previous[0] or record.action < previous[1]):
@@ -122,6 +201,9 @@ def validate_history(state, registry):
             seen.add(entity.id)
         counts[record.player_id] += 1
         previous = (record.turn, record.action)
+    for player_id, player in state.players.items():
+        if initial_classes[player_id] is None and not counts[player_id] and player.herald_class is not None:
+            raise ValueError('Herald binding has no starting class or accepted Herald')
     for entity in (*state.entities.values(), *state.death_history):
         rank = entity.herald_rank
         definition = registry.card(entity.card_id)

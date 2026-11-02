@@ -5,7 +5,7 @@ import hashlib
 import json
 from .model import DeathCause, ComboPayload, ComboRecord, ComboBatchRecord
 
-SNAPSHOT_SCHEMA_VERSION = 679
+SNAPSHOT_SCHEMA_VERSION = 680
 
 from .model import (HeraldRecord, ColossalRecord, MagneticRecord, HandEntryRecord, HandProgressSpec, HandProgressCandidate, LimitedTriggerSpec, TriggerCandidate, PlayRecord, ActionWindow, PlayerEffect, QuestProgress,
     AbilityInstance, ActivatedAbilitySpec, TargetSpec, TargetMode, DormancyState, DeathRecord, StarshipLaunchRecord, Enchantment, Entity, Event, GameState,
@@ -1743,7 +1743,8 @@ def state_from_dict(value: dict) -> GameState:
     heralds=[]
     for item in _list(value['herald_history'], 'Herald history'):
         row=_row(item, HeraldRecord)
-        row['hero_class']=CardClass(row['hero_class'])
+        row['hero_class']=CardClass(row['hero_class']) if row['hero_class'] is not None else None
+        row['herald_class']=CardClass(row['herald_class']) if row['herald_class'] is not None else None
         heralds.append(HeraldRecord(**row))
     value['herald_history']=heralds
     from .model import ExcavationRecord
@@ -1837,6 +1838,8 @@ def state_from_dict(value: dict) -> GameState:
         row = _row(row, PlayerState)
         if row['hero_class'] is not None:
             row['hero_class'] = CardClass(row['hero_class'])
+        if row['herald_class'] is not None:
+            row['herald_class'] = CardClass(row['herald_class'])
         if row['deck_class'] is not None:
             row['deck_class'] = CardClass(row['deck_class'])
         if row['runes'] is not None:

@@ -245,6 +245,8 @@ class Game:
                     if not definition.hand_playable or (zone == Zone.BOARD and definition.kind not in (CardType.MINION, CardType.LOCATION)):
                         raise ValueError(f'Invalid {definition.kind} in setup {zone}')
                     resolution.create_entity(player_id, card_id, zone, ready=True, hand_entry_reason='scenario')
+        from .herald import initialize_bindings as initialize_herald_bindings
+        initialize_herald_bindings(game._state)
         from .shatter import settle_hands
         settle_hands(resolution, initial=True)
         resolution.refresh_auras()

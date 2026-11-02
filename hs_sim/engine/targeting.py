@@ -1,5 +1,5 @@
 """Shared, pure target eligibility for action validation and enumeration."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 
 from .errors import ResolutionError
 from .model import CardType, Keyword, TargetMode, TargetSpec, Zone

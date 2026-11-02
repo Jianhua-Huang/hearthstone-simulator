@@ -89,3 +89,30 @@ python -m hs_sim replay outputs/herald-replay.json --card-set representative
 v73复验：herald_colossal.py 为 6 动作/45 事件。动作及其余摘要字段相对v72保持；事件增量来自独立战吼的开始/完成宿主记录，玩家过滤日志不新增这些事件。本页原批次的验收数字保留为历史；逐项比较见[示例核对](../outputs/v73-example-count-check.json)。
 
 v76复验说明：上文原批次契约和验收数字保留为历史；当前运行结果为herald_colossal.py：6动作/47事件。完整结果及摘要见[59示例日志](../outputs/v76-examples.txt)；随从承诺/入场阶段变化见[反制契约](m5-minion-counters.md)。
+
+
+## 2026-11-02 跨职业兆示：R-070修订与暂行差异
+
+本节取代上文R-070中“仅用当前英雄职业、非兆示职业报错”的历史政策；其余等级、生命周期和计数窗口保持。适用于当前core-effects-v863 / snapshot schema680，不将旧存档静默补绑。
+
+[开发者答复转录](https://hearthstone.wiki.gg/wiki/Herald)支持本人职业、单职业来源、对手的选择顺序；[玩家的伪装大师实测](https://www.reddit.com/r/hearthstone/comments/1sm0nns/fyi_if_you_start_the_game_as_another_harold_class/)支持开局绑定不随揭露职业改变。[官方公告](https://hearthstone.blizzard.com/en-gb/news/24245219/deathwing-strikes-back-in-cataclysm-hearthstone-s-next-expansion)仅证明六职业和一般机制；前两者不等同当前国服逐事件认证。[早期转载](https://www.gamersky.com/handbook/202603/2103959.shtml)包含未绑定无效果及入手绑定线索，不能据其认定当前正式计数和接受窗。调查材料见[原收据](../outputs/herald-class-resolution-20261102-01/assessment.json)。
+
+每名玩家独立保存PlayerState.herald_class。战士、恶魔猎手、萨满、潜行者、死亡骑士和术士为兆示职业。选择顺序：
+
+1. 本人已有绑定，始终保留。
+2. 本人当前英雄属于六职业之一。
+3. 原效果来源卡面的印刷元数据只有一个职业，且属于六职业之一。
+4. 对手已有绑定，否则对手当前英雄所属的兆示职业。
+5. 仍未确定则按用户授权暂不生效，不随机指定默认职业。
+
+普通场景与正式开局共用初始化：起始英雄属于六职业则立即绑定；其他玩家在第一次实际执行并接受有效Herald时绑定。满场仍接受并计数，不制造士兵。换英雄保留已有绑定及次数；源牌职业不会覆盖已有绑定。request_from_context(c, grant_keywords=())捕获原战吼、施法、出牌或亡语卡面；源实体后续变形不改原面，复制/转移亡语按原能力来源卡面及实际亡语控制者处理。其他入口可使用Herald(player_id, source_id=None, grant_keywords=(), source_card_id=None)；原卡面必须有物理来源，未知来源/适配仍明确报错。
+
+HeraldRecord分开保存当时hero_class与实际herald_class，校验起始绑定、记录绑定、次数/等级及士兵映射；非起始职业的后续绑定必须有已接受兆示。绑定随快照、clone、待选恢复、回放和普通事务一起保存或回滚，不加入玩家私有状态投影。该校验检查内部一致性，不认证外来未签名存档来源。
+
+**待验证差异保留：**
+
+- 双方均无可用绑定/职业，且原来源也不能确定职业时，本地Herald不召唤、不增加兆示次数、不提交兆示事件，也不分配实体或消耗随机数；同一主体的其他效果继续。用户已授权这一暂行行为，当前正式国服的计数细节仍待确认。
+- 开局以外的首次绑定，本地在实际Herald接受时提交；没有在生成/获得卡牌时提前绑定。早期转载的“入手即绑定”、伪装或换英雄与获取先后顺序、原亡语卡面归属的特殊场景留待当前国服核验。不能宣称本节已完成M6校准。
+- 原R-069时序及其他既有待校准规则继续保留。缺少已确定职业的士兵适配器仍为错误，不进入无效果分支。
+
+实现和实际验证见[本轮收据](../outputs/herald-cross-class-20261102-01/verification-01.json)；执行进展只在原两份台账维护。

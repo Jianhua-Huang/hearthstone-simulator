@@ -26,7 +26,7 @@ from .model import (ComboRepeatSpec, TimedKeywordSpec, HeroPowerRepeatSpec, EndT
                     EndTurnCandidateProfile, EndTurnProducerRequest, EndTurnSelector)
 from .end_turn_producers import TriggerRandomEndTurnEffects
 from .deck_conditions import CheckDeckCondition, DeckCondition
-from .herald import Herald, instance_multiplier, herald_count, herald_multiplier
+from .herald import Herald, instance_multiplier, herald_count, herald_multiplier, request_from_context as herald_from_context
 from .ordered_choices import ChooseInOrder
 from .sacrifice import MinionReference, SacrificeAdjacent, BuffCapturedMinion, GrantCapturedKeyword, GrantCapturedDeathrattle
 from .model import DeathrattleRepeatSpec, BattlecryRepeatSpec, DeckSacrificeSpec, KeywordAuraSpec, SpellRepeatSpec, HealthLossReplacementSpec, RewindSpec, RecipientMetadataFilter, RepeatMatchSpec
@@ -1138,7 +1138,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         # R-076: capture the printed-one-plus-prior-Herald count before its own
         # Herald. The exact CN formula and scope still require calibration.
         amount = 1 + herald_count(c.state, c.player_id)
-        return [Herald(c.player_id, c.source_id), AddCostModifier(c.player_id,
+        return [herald_from_context(c), AddCostModifier(c.player_id,
             CostSpec(delta=-amount, card_ids=DEATHWING_FAMILY_IDS), source_id=c.source_id)]
 
     behaviors = {
@@ -1158,8 +1158,8 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         'm5.shadowsworn_heal': lambda c: [Heal(c.state.players[c.player_id].hero_id, 3, c.source_id)],
         'm5.sinestra_soldier': sinestra_soldier,
         'm5.onyxia_soldier': onyxia_soldier,
-        'm5.herald':lambda c:[Herald(c.player_id,c.source_id)],
-        'm5.ravager':lambda c:[Herald(c.player_id,c.source_id,(Keyword.RUSH,))],
+        'm5.herald':lambda c:[herald_from_context(c)],
+        'm5.ravager':lambda c:[herald_from_context(c,(Keyword.RUSH,))],
         'm5.soul_forest':lambda c:[GrantCapturedDeathrattle(MinionReference.capture(c.state.entities[i]),'m5.treant',c.source_id)
             for i in c.state.players[c.player_id].board if c.state.entities[i].kind==CardType.MINION
             and c.state.entities[i].active and c.state.entities[i].health>0 and not c.state.entities[i].doomed
@@ -1170,7 +1170,7 @@ def build_registry(*, version: str = "representative-m5-v65", known_unrarified_i
         'm5.ragnaros_end':ragnaros_end,
         'm5.azshara_soldier':azshara_soldier,
         'm5.alakir':alakir,
-        'm5.fel_infusion':lambda c:[Herald(c.player_id,c.source_id),
+        'm5.fel_infusion':lambda c:[herald_from_context(c),
             GrantKeyword(c.state.players[c.player_id].hero_id,Keyword.LIFESTEAL,c.source_id,expires_turn=c.state.turn)],
         'm5.glugg':glugg, 'm5.ozumat':ozumat, 'm5.lure':lure,
         'm5.spider_bomb': lambda c: [RandomDestroy(tuple(i for i in c.state.players[3-c.player_id].board if c.state.entities[i].kind==CardType.MINION),c.source_id)],

@@ -9113,13 +9113,14 @@ class HeraldRecord:
     id: int
     player_id: int
     source_id: int | None
-    hero_class: CardClass
+    hero_class: CardClass | None
     soldier_card_id: str
     soldier_id: int | None
     count_before: int
     rank: int
     turn: int
     action: int
+    herald_class: CardClass | None = None
 
     def __post_init__(self):
         for name in ('id', 'player_id', 'turn'):
@@ -9129,7 +9130,9 @@ class HeraldRecord:
         _optional_id(self.source_id, 'Herald source')
         _optional_id(self.soldier_id, 'Herald Soldier')
         _name(self.soldier_card_id, 'Herald Soldier card')
-        if self.player_id not in (1, 2) or self.rank > 2 or not isinstance(self.hero_class, CardClass):
+        if (self.player_id not in (1, 2) or self.rank > 2 or
+                self.hero_class is not None and not isinstance(self.hero_class, CardClass) or
+                self.herald_class is not None and not isinstance(self.herald_class, CardClass)):
             raise ValueError('Invalid Herald record')
 
 
@@ -11023,6 +11026,7 @@ class PlayerState:
     additional_hero_power_ids: list[int] = field(default_factory=list)
     hand_cap: int | None = None
     starting_hero_power_card_id: str | None = None
+    herald_class: CardClass | None = None
 
     @property
     def hero_power_ids(self) -> tuple[int, ...]:

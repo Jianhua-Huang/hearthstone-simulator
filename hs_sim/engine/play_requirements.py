@@ -24,7 +24,7 @@ def manual_requirement_error(state, registry, source):
 
 def manual_use_error(state, registry, source, *, context_factory=None):
     """Dynamic spell admission, like target predicates, never a payment requery."""
-    from copy import deepcopy
+    from .runtime_copy import deepcopy
     from .errors import ResolutionError
     from .model import CardType
     from .registry import RuleContext

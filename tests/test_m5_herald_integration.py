@@ -62,7 +62,7 @@ class HeraldIntegrationTests(unittest.TestCase):
                 self.assertTrue(all(g.state.entities[i].attack>=4 for i in record.limbs))
                 self.check(g)
 
-    def test_class_changes_keep_player_count_and_select_current_soldier(self):
+    def test_class_changes_keep_count_and_starting_herald_binding(self):
         classes=(CardClass.WARRIOR,CardClass.DEMON_HUNTER,CardClass.SHAMAN,
                  CardClass.ROGUE,CardClass.DEATH_KNIGHT,CardClass.WARLOCK)
         for n,cls in enumerate(classes):
@@ -71,6 +71,8 @@ class HeraldIntegrationTests(unittest.TestCase):
         for n in range(6):self.play(g,'step'+str(n))
         records=g.state.herald_history
         self.assertEqual([r.hero_class for r in records],list(classes))
+        self.assertEqual([r.herald_class for r in records],[CardClass.WARRIOR]*6)
+        self.assertEqual([r.soldier_card_id for r in records],['CATA_580t']*6)
         self.assertEqual([r.rank for r in records],[0,0,1,1,2,2]);self.check(g)
 
     def test_sinestra_repeats_real_herald_spell_and_advances_each_payload(self):

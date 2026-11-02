@@ -1,5 +1,5 @@
 """Reflection reuse and wire capture preserve strict typing and the original wire."""
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 import json
 import unittest
 from unittest.mock import patch
@@ -48,6 +48,32 @@ def original_wire(state):
 
 
 class FrameMetadataPerformanceTests(unittest.TestCase):
+    def test_pool_runtime_optional_producer_matches_strict_reference_checks(self):
+        from hs_sim.engine.allocation_facts import SourceAllocationFact
+        from hs_sim.engine.model import SummonProducerProfile
+        from hs_sim.engine.pools import GenerateFromPool
+        from hs_sim.engine.registry import UnsupportedDefinitionError
+        from hs_sim.engine.summon_quantities import SummonCause
+
+        r=Registry('optional-producer-codec-test')
+        r.register_card(CardDefinition('plain','Plain',CardType.MINION,attack=2,health=3))
+        r.register_summon_producer_profile(SummonProducerProfile('known','test-unit'))
+        codec=FrameCodec(default_mechanics(),r)
+        ordinary=GenerateFromPool(1,'fixture-pool')
+        codec.check_runtime(ordinary)
+        self.assertEqual(codec.decode(codec.encode(ordinary)),ordinary)
+
+        # Use a real accepted source to also exercise the nonempty reference.
+        g=game();source=g._state.entities[g._state.players[1].board[0]]
+        cause=SummonCause(SourceAllocationFact.capture(g._state,source),1,1,0)
+        attributed=GenerateFromPool(1,'fixture-pool',destination='board',
+            source_id=source.id,cause=cause,producer_profile_id='known')
+        codec.check_runtime(attributed)
+        self.assertEqual(codec.decode(codec.encode(attributed)),attributed)
+        missing=replace(attributed,producer_profile_id='missing')
+        with self.assertRaises(UnsupportedDefinitionError):codec.check_runtime(missing)
+        with self.assertRaises(UnsupportedDefinitionError):codec.encode(missing)
+
     def test_core_type_reflection_reused_but_each_value_still_checked(self):
         codec=FrameCodec(default_mechanics(),Registry('codec-test'))
         with patch.object(continuations,'get_type_hints',wraps=continuations.get_type_hints)as hints:
