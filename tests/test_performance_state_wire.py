@@ -10,6 +10,20 @@ from test_performance_frame_metadata import game
 
 
 class StateWirePerformanceTests(unittest.TestCase):
+    def test_wire_copy_releases_its_source_without_waiting_for_cyclic_gc(self):
+        import gc,weakref
+        from hs_sim.engine.effects import GainArmor
+        from hs_sim.engine.serialization import _copy_state_wire
+        enabled=gc.isenabled();gc.disable()
+        try:
+            record=GainArmor(1,3);reference=weakref.ref(record)
+            copied=_copy_state_wire({'record':record})
+            del record
+            self.assertIsNone(reference())
+            self.assertEqual(copied,{'record':GainArmor(1,3)})
+        finally:
+            if enabled:gc.enable()
+
     def setUp(self):self.game=game()
 
     def test_native_state_matches_complete_legacy_wire_and_key_order(self):

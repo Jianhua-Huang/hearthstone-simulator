@@ -1471,7 +1471,10 @@ def _copy_state_wire(value):
         # its input graph while copying another value.
         memo.setdefault(id(memo),[]).append(item)
         return result
-    return copy(value)
+    try:
+        return copy(value)
+    finally:
+        copy = None  # Release both wire graphs without waiting for cyclic GC.
 
 
 def state_from_dict(value: dict) -> GameState:

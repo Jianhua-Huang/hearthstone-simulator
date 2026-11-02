@@ -30,6 +30,28 @@ def detach_runtime_wire(value):
     return value
 
 
+def native_work_ownership(mechanics):
+    """Only native handlers own the engine's read-only proof/log prefixes."""
+    from types import FunctionType
+    from .registry_identity import _engine_kind
+    return (all(_engine_kind(kind) and type(handler) is FunctionType and
+                handler.__module__.startswith('hs_sim.engine.')
+                for kind, handler in mechanics._handlers.items()) and
+            all(_engine_kind(kind) for kind in mechanics.payload_types))
+
+
+def encode_produced(game, value, *, readonly=False):
+    """Encode just-produced work; external input keeps the strict codec.
+
+    Release need not audit an entire captured match to write a native receipt.
+    Unknown payloads still go through the strict extension codec. Debug keeps
+    the full original checks, and immediate hashing may use a read-only tree.
+    """
+    codec = FrameCodec(game.mechanics, game.registry)
+    return (codec.encode(value) if getattr(game, 'runtime_audits', True)
+            else codec.encode_runtime(value, readonly=readonly))
+
+
 def deck_origin(state):
     """Immutable match facts shared by live and earlier captured rule states."""
     return (state.opening is not None,
@@ -60,6 +82,7 @@ class FrameCodec:
     def __init__(self, mechanics, registry, *, origin_state=None, origin_events=None):
         from .resolver import BehaviorCall, ResolutionFrame
         self.registry = registry
+        self.mechanics = mechanics
         self._type_annotations = {}
         self.origin_events = origin_events
         self.origin_state = origin_state
@@ -127,7 +150,34 @@ class FrameCodec:
                 else:
                     self.check_runtime(item, depth + 1)
 
-    def copy_runtime(self, value, depth=0):
+    def copy_owned_runtime(self, value):
+        """Transfer private read-only proof states at an engine boundary.
+
+        Proof factories already detached these states from live execution.
+        They are read only by the native diagnostic tails. Executable callback
+        contexts still get one independent state per occurrence. Extensions
+        retain the complete original copy path, as does public copy_runtime.
+        """
+        if not native_work_ownership(self.mechanics):
+            return self.copy_runtime(value)
+        from .paid_hand_acceptance import FinishPaidHandAcceptance, PaidHandChoiceBoundaryProof
+        from .combo_acceptance import FinishComboAcceptance
+        from .battlecry_repeats import FinishBattlecryAcceptance
+        from .spell_acceptance import FinishSpellAcceptance
+        from .ability_families import FinishFamilyAbility
+        profiles = {
+            FinishPaidHandAcceptance: frozenset(('proof', 'submission_base')),
+            FinishComboAcceptance: frozenset(('context',)),
+            FinishBattlecryAcceptance: frozenset(('context',)),
+            FinishSpellAcceptance: frozenset(('submission', 'cost_proof', 'resolution')),
+            FinishFamilyAbility: frozenset(('proof',)),
+            # The captured work can contain executable callback contexts.
+            # Only its own state is a read-only proof; nested tails opt in above.
+            PaidHandChoiceBoundaryProof: frozenset(('state',)),
+        }
+        return self.copy_runtime(value, _proof_fields=profiles)
+
+    def copy_runtime(self, value, depth=0, *, _proof_fields=None, _readonly=False):
         """Detach suspended native work directly, with one state per occurrence.
 
         Separate state copies preserve callback/branch isolation even where
@@ -138,6 +188,8 @@ class FrameCodec:
         if value is None or type(value) in (str, bool, int):
             return value
         if type(value) is GameState:
+            if _readonly:
+                return value
             from .runtime_copy import deepcopy
             result = deepcopy(value)
             # These mappings were ordered by the former wire round trip.
@@ -147,7 +199,8 @@ class FrameCodec:
         if type(value) is Event:
             return self._event(event_to_dict(value))
         if type(value) is tuple:
-            return tuple(self.copy_runtime(child, depth + 1) for child in value)
+            return tuple(self.copy_runtime(child, depth + 1, _proof_fields=_proof_fields,
+                                           _readonly=_readonly) for child in value)
         kind = self._runtime_kind(value)
         from .registry_identity import _engine_kind
         if not _engine_kind(kind):
@@ -157,9 +210,12 @@ class FrameCodec:
         self._runtime_references(value)
         from .attack_redirects import AttackRedirectSelection
         rng = kind in (getattr(model, 'EndTurnSelection', None), AttackRedirectSelection)
+        proof_fields = _proof_fields.get(kind) if _proof_fields is not None else None
         return kind(**{field.name: end_turn_rng_from_json(end_turn_rng_to_json(getattr(value, field.name)))
                        if rng and field.name in ('rng_before', 'rng_after')
-                       else self.copy_runtime(getattr(value, field.name), depth + 1)
+                       else self.copy_runtime(getattr(value, field.name), depth + 1,
+                           _proof_fields=_proof_fields,
+                           _readonly=field.name in proof_fields if proof_fields is not None else _readonly)
                        for field in fields(value)})
 
     def encode_runtime(self, value, *, readonly=False, _state_memo=None):
@@ -203,7 +259,12 @@ class FrameCodec:
                 if rng and field.name in ('rng_before', 'rng_after') else encode(getattr(item, field.name), depth + 1)
                 for field in fields(item)}}
 
-        return encode(value)
+        try:
+            return encode(value)
+        finally:
+            # Do not keep captured states and their wire trees alive through
+            # this recursive closure after the encoding window has ended.
+            encode = None
 
     def audit_runtime(self, value):
         """Audit native debug work without a throwaway JSON roundtrip.

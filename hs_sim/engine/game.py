@@ -357,13 +357,19 @@ class Game:
         return deepcopy(events[after:])
 
     def clone(self):
+        return self._clone()
+
+    def _clone(self, *, transfer_proofs=False):
         self._require_boundary()
+        from .continuations import native_work_ownership
+        transfer_proofs = transfer_proofs and native_work_ownership(self.mechanics)
         result = type(self)()
         result._runtime_mode = self._runtime_mode
         result.registry, result.ruleset, result.mechanics = self.registry, self.ruleset, self.mechanics
         result._registry_fingerprint = self._registry_fingerprint
         result._state = deepcopy(self._state)
-        result._frame = deepcopy(self._frame)
+        result._frame = (FrameCodec(self.mechanics, self.registry).copy_owned_runtime(self._frame)
+                         if transfer_proofs and self._frame is not None else deepcopy(self._frame))
         if self._frame_encoding is not None and self._frame_encoding[0] is self._frame:
             result._frame_encoding = (result._frame, self._frame_encoding[1])
         result._match_setup = self._match_setup
@@ -372,9 +378,11 @@ class Game:
         result._rewind = deepcopy(self._rewind)
         result._rng = random.Random()
         result._rng.setstate(self._rng.getstate())
-        result._events = deepcopy(self._events)
-        result._history = deepcopy(self._history)
-        result._origin = deepcopy(self._origin)
+        # Native execution only appends to these logs. Old entries and replay
+        # origin stay private and read-only; callbacks/public exports detach.
+        result._events = list(self._events) if transfer_proofs else deepcopy(self._events)
+        result._history = list(self._history) if transfer_proofs else deepcopy(self._history)
+        result._origin = self._origin if transfer_proofs else deepcopy(self._origin)
         return result
 
     def _encoded_frame(self):
@@ -395,7 +403,7 @@ class Game:
                 'rewind_session': self._rewind.to_dict() if self._rewind is not None else None,
                 'match_setup': self._match_setup.to_dict() if self._match_setup is not None else None,
                 'generation_context': self._generation_context.to_dict() if self._generation_context is not None else None,
-                'information': self._information.to_dict()}
+                'information': self._information.to_dict(readonly=True)}
         clock = clock_snapshot(self)
         if clock is not None: payload['turn_clock'] = clock
         from .vanished_cards import snapshot_value as vanished_snapshot
@@ -1241,7 +1249,9 @@ class Game:
         from .controlled_turns import validate_external,drive
         validate_external(self,action)
         if trace is not None: trace.stage('clone')
-        working=self.clone()
+        # Diagnostic proof states are private read-only captures. The working
+        # transaction owns every writable state; public clone stays detached.
+        working=self._clone(transfer_proofs=True) if type(self) is Game else self.clone()
         if trace is not None:
             trace.working = working
             working._debug_trace = trace

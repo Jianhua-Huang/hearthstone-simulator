@@ -242,11 +242,23 @@ class Resolution:
         self._paid_hand_choice_boundary = None
         self._choice_frame_states = None
         self._current_handler = None
+        from .continuations import native_work_ownership
+        from .runtime_copy import ImmutableRecords
+        self._immutable_records = (ImmutableRecords() if not game.runtime_audits and
+                                   native_work_ownership(game.mechanics) else None)
         self.ending_turn = False
         self.removed_weapons = []
         self.death_deferrals = 0
         from .hand_parity import hand_signature
         self._hand_parity_signature = hand_signature(self.state) if self.registry.hand_parity_profiles else None
+
+    def capture_state(self):
+        """Private rule/proof capture; mutable state is always independent.
+
+        Only deeply immutable native records are shared within this resolution.
+        Executable callbacks and public exports keep their full copy path.
+        """
+        return deepcopy(self.state, _immutable=self._immutable_records)
 
     def charge(self):
         self._steps += 1
@@ -1028,7 +1040,7 @@ class Resolution:
                 # frame at the stable boundary instead of serializing it twice.
                 wire = codec.encode_runtime(frame, readonly=True, _state_memo=self._choice_frame_states)
                 self._choice_frame_states = None
-                self.game._frame = codec.copy_runtime(frame)
+                self.game._frame = codec.copy_owned_runtime(frame)
                 self.game._frame_encoding = (self.game._frame, wire)
                 return
             queue.extendleft(reversed(routed))
@@ -1148,7 +1160,7 @@ def settle_health_batch(r, instructions, combat=None, *, split_link=None, partit
     # Freeze eligibility and source statistics once for the entire simultaneous
     # batch, including its intrinsic lifesteal. Numeric shields/armor still
     # consume in packet order without an intervening death checkpoint.
-    state = deepcopy(r.state)
+    state = r.capture_state()
     rules = rule_sources(state)
     pending_events = []
     if player_effect is not None and (combat is not None or len(instructions)!=1 or partition_request is not None):
@@ -1699,7 +1711,7 @@ def play_from_hand(r, effect):
     if not manual_play_allowed(r.state, r.registry, player.id, definition.kind):
         raise ResolutionError('Current-turn rule prohibits manually playing this card type')
     from .choose_policies import matching as choose_matching, capture as capture_choose, accept as accept_choose
-    choose_before = deepcopy(r.state) if choose_matching(r.state, definition, player.id, 'hand') else None
+    choose_before = r.capture_state() if choose_matching(r.state, definition, player.id, 'hand') else None
     choose_proof = None if choose_before is None else capture_choose(choose_before, r.registry, definition.id, player.id,
         'play', len(r.state.play_history) + 1, 'hand', action.branch_id, source_id=entity.id)
     from .costs import pay_quote
@@ -1731,7 +1743,7 @@ def play_from_hand(r, effect):
         from .paid_hand_acceptance import capture as capture_paid_hand_cost_proof
         record, paid_hand_proof = capture_paid_hand_cost_proof(r, record, quote)
     pay_quote(r,player,entity,quote,exclude_held_source=True)
-    paid_hand_submission_base = None if paid_hand_proof is None else deepcopy(r.state)
+    paid_hand_submission_base = None if paid_hand_proof is None else r.capture_state()
     from .play_history import commit_play
     lock_updates = commit_play(r.state, record)
     from .location_rune_locks import publish_progress as publish_location_progress

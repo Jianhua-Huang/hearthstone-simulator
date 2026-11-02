@@ -216,9 +216,9 @@ def finish_episode(r,work):
     put_episode(r.state,replace(saved,phase='finished'));put_root(r.state,replace(current,stack=current.stack[:-1]))
 
 def digest(r,work):
-    from .continuations import FrameCodec
+    from .continuations import encode_produced
     from .serialization import canonical_hash
-    return canonical_hash(FrameCodec(r.game.mechanics,r.registry).encode(work))
+    return canonical_hash(encode_produced(r.game,work,readonly=True))
 
 def install_marker(r,queue,parked):
     current=root(r.state);hashes=tuple(digest(r,w) for w in parked)

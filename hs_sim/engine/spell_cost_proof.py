@@ -56,7 +56,7 @@ def _capture_hand_cost_proof(r, prepared_play, quote, proof_type):
     from .rewind import capture_hand_spell_session
     if type(prepared_play) is not PlayRecord or (proof_type is HandPlayCostProof) != (prepared_play.kind == CardType.SPELL):
         raise ValueError('Prepared paid hand kind differs from its registered proof family')
-    payment_state = deepcopy(r.state)
+    payment_state = r.capture_state()
     session = capture_hand_spell_session(r, prepared_play.source_id)
     anchor = session if session is not None and session.attempt > 0 else None
     quote_state = payment_state if anchor is None else anchor.before
@@ -69,7 +69,8 @@ def _capture_hand_cost_proof(r, prepared_play, quote, proof_type):
         r.registry.card(source.card_id).cost, fact)
     play = replace(prepared_play, submitted_cost=receipt)
     proof = proof_type(payment_state, play, anchor, session)
-    _validate_hand_cost_proof(proof, r.registry, proof_type=proof_type)
+    if r.game.runtime_audits:
+        _validate_hand_cost_proof(proof, r.registry, proof_type=proof_type)
     from .cost_presence import note_paid as note_controlled_price
     note_controlled_price(r,play,fact)
     from .adjoining_spells import note_paid as note_adjoining_paid

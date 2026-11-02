@@ -583,11 +583,13 @@ class Information:
         if clock is not None: result['turn_clock'] = clock
         return result
 
-    def to_dict(self):
-        return deepcopy({'version': VIEW_VERSION, 'players': {
+    def to_dict(self, *, readonly=False):
+        result = {'version': VIEW_VERSION, 'players': {
             str(i): dict(next_ref=k.next_ref, refs=k.refs, known=k.known,
                          next_choice=k.next_choice, next_body_ref=k.next_body_ref, body_refs=k.body_refs, pending=k.pending, events=k.events)
-            for i, k in self.players.items()}})
+            for i, k in self.players.items()}}
+        # Hashing reads synchronously; snapshot detaches its complete payload.
+        return result if readonly else deepcopy(result)
 
     @classmethod
     def from_dict(cls, value, game):

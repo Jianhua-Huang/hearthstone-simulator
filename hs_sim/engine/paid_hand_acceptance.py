@@ -69,9 +69,10 @@ def capture(r, prepared_play, quote):
 
 def make_tail(r, proof, submission_base):
     tail = FinishPaidHandAcceptance(proof, submission_base)
-    if tail.submission_state != r.state:
-        raise ValueError('Paid hand submission operands differ from the actual successful append')
-    validate_tail(tail, r.registry)
+    if r.game.runtime_audits:
+        if tail.submission_state != r.state:
+            raise ValueError('Paid hand submission operands differ from the actual successful append')
+        validate_tail(tail, r.registry)
     return tail
 
 
@@ -313,7 +314,7 @@ def capture_choice_boundary(r, event):
     # Called by emit AFTER its existing normalization, before the event is
     # appended/published or any listeners are captured. Nothing references the
     # frame or the resulting digest, and no extra gameplay checkpoint occurs.
-    proof = PaidHandChoiceBoundaryProof(event, deepcopy(r.state), tuple(r._work_queue))
+    proof = PaidHandChoiceBoundaryProof(event, r.capture_state(), tuple(r._work_queue))
     # Debug audits this proof once at the completed waiting boundary.
     r._paid_hand_choice_boundary = proof
     from types import FunctionType

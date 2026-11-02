@@ -4,7 +4,6 @@ The durable play keeps compact declarations. Only its pending tail control
 holds detached states, including a resolved countered window with no payload.
 This control is diagnostic: its handler must run without a gameplay checkpoint.
 """
-from .runtime_copy import deepcopy
 from dataclasses import dataclass, fields, replace
 
 from .effects import Effect
@@ -174,7 +173,7 @@ def accept_submission(r, play, cost_proof):
         raise ResolutionError('A spell submission can be accepted only once')
     # Before the legacy receipt is appended: its live-use invariant describes
     # post-consumption states, which this original window deliberately is not.
-    context = RuleContext(deepcopy(r.state), play.source_id, play.player_id,
+    context = RuleContext(r.capture_state(), play.source_id, play.player_id,
                           play.target_id, play=play)
     receipt = capture_submission(context.state, r.registry, play)
     updated = replace(play, spell_submission=receipt)
@@ -195,7 +194,7 @@ def accept_resolution(r, play, target_id):
     if len(found) != 1 or found[0][1].resolution is not None:
         raise ResolutionError('Spell resolution requires one unbound acceptance tail')
     index, proof = found[0]
-    context = RuleContext(deepcopy(r.state), play.source_id, play.player_id,
+    context = RuleContext(r.capture_state(), play.source_id, play.player_id,
                           target_id, play=play)
     receipt = None if play.countered else capture_payload(
         context.state, r.registry, play, target_id)

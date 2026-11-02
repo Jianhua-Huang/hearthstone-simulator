@@ -1,8 +1,9 @@
 """Detached runtime copies without pickle reconstruction for native records.
 
-This changes copying only: no state, validation result or wire payload is
-cached. A memo belongs to one copy, exactly as with copy.deepcopy. Extensions,
-container subclasses, slots and custom copy/reduction hooks use deepcopy.
+The default memo belongs to one copy, exactly as with copy.deepcopy. Private
+native captures may explicitly reuse deeply immutable records within one
+resolution. Mutable state, extension objects, slots and custom copy/reduction
+hooks retain detached copies; no game result or wire payload is cached here.
 """
 from copy import deepcopy as _deepcopy
 from copyreg import dispatch_table
@@ -42,7 +43,45 @@ def _copy_kind(kind):
     return 'record' if _ordinary_record(kind) else 'extension'
 
 
-def deepcopy(value):
+class ImmutableRecords:
+    """One native resolution's bounded cache of deeply immutable records.
+
+    Mutable containers and extension objects never qualify. Frozen native
+    records qualify only when every actual attribute is immutable too; a
+    frozen wrapper around a list or a state is still copied normally.
+    """
+    def __init__(self, limit=8192):
+        self._entries = {}
+        self._kinds = {}
+        self.limit = limit
+
+    def contains(self, value):
+        kind = type(value)
+        if kind in _ATOMIC:
+            return True
+        identity = id(value)
+        cached = self._entries.get(identity)
+        if cached is not None:
+            return cached[1]
+        if len(self._entries) >= self.limit:
+            return False
+        # Retain the object against ID reuse; False also breaks cycles.
+        self._entries[identity] = (value, False)
+        if kind is tuple:
+            immutable = all(self.contains(child) for child in value)
+        else:
+            native = self._kinds.get(kind)
+            if native is None:
+                native = self._kinds[kind] = _copy_kind(kind)
+            immutable = (native == 'enum' and '__deepcopy__' not in vars(value) or
+                native == 'record' and kind.__dataclass_params__.frozen and
+                not _INSTANCE_PROTOCOLS.intersection(vars(value)) and
+                all(self.contains(child) for child in vars(value).values()))
+        self._entries[identity] = (value, immutable)
+        return immutable
+
+
+def deepcopy(value, *, _immutable=None):
     """Copy native runtime graphs; keep Python's fallback and alias semantics."""
     memo = {}
     ordinary = {}
@@ -78,6 +117,8 @@ def deepcopy(value):
             memo[identity] = result
             result.extend(child if type(child) in _ATOMIC else copy(child) for child in item)
         elif kind is tuple:
+            if _immutable is not None and _immutable.contains(item):
+                return item
             children = [child if type(child) in _ATOMIC else copy(child) for child in item]
             # A tuple may reach itself through a list. The recursive copy has
             # already supplied the canonical tuple in that case.
@@ -91,6 +132,8 @@ def deepcopy(value):
             if native == 'enum' and '__deepcopy__' not in vars(item):
                 return item
             if native == 'record' and not _INSTANCE_PROTOCOLS.intersection(vars(item)):
+                if _immutable is not None and _immutable.contains(item):
+                    return item
                 result = object.__new__(kind)
                 memo[identity] = result
                 result.__dict__.update(copy(vars(item)))
@@ -107,4 +150,9 @@ def deepcopy(value):
             memo.setdefault(id(memo), []).append(item)
         return result
 
-    return copy(value)
+    try:
+        return copy(value)
+    finally:
+        # The recursive closure otherwise keeps its whole memo and both state
+        # graphs alive until cyclic GC. Release them at this copy's boundary.
+        copy = None

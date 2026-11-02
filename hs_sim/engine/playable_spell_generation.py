@@ -84,8 +84,8 @@ class PlayableSpellDraw:
 
 def qualify(game, request, before, information_json, rows):
     """Cache only a full immutable input digest; never a claimed admitted subset."""
-    from .continuations import FrameCodec
-    encoded = canonical(FrameCodec(game.mechanics, game.registry).encode(before))
+    from .continuations import encode_produced
+    encoded = canonical(encode_produced(game, before, readonly=True))
     material = canonical((encoded, information_json, rows, asdict(game.ruleset)))
     key = (game.registry, game.mechanics.version, hashlib.sha256(material.encode('utf-8')).digest())
     with _LOCK:

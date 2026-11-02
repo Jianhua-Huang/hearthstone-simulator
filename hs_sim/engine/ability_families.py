@@ -3,7 +3,6 @@
 An invocation is neither a spell CAST nor another minion action. All health,
 randomness, summons, choices and interpreter scheduling remain shared.
 """
-from copy import deepcopy
 from dataclasses import dataclass, replace
 import json
 
@@ -235,8 +234,8 @@ def make_record(state, registry, request):
 
 
 def encode(game, value):
-    from .continuations import FrameCodec
-    return json.dumps(FrameCodec(game.mechanics, game.registry).encode(value), ensure_ascii=False,
+    from .continuations import encode_produced
+    return json.dumps(encode_produced(game, value, readonly=True), ensure_ascii=False,
                       sort_keys=True, separators=(',', ':'))
 
 
@@ -247,7 +246,7 @@ def decode(game, value):
 
 
 def trigger(r, effect):
-    original = deepcopy(r.state)
+    original = r.capture_state()
     record = make_record(original, r.registry, effect.request)
     proof = AbilityAcceptanceProof(original, record)
     r.state.ability_trigger_history.append(record)
@@ -260,7 +259,9 @@ def trigger(r, effect):
 
 
 def finish(r, effect):
-    proof = effect.proof; validate_proof(r.registry, proof)
+    proof = effect.proof
+    if r.game.runtime_audits:
+        validate_proof(r.registry, proof)
     record = proof.record
     if r.state.ability_trigger_history[record.id-1] != record:
         raise ValueError('Skill completion lost or reused its original invocation')

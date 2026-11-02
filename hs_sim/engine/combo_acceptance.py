@@ -4,7 +4,6 @@ The proof markers are interpreter control.  They preserve the original full
 window until the enclosing play ends, including empty and canceled acceptances,
 and add neither a game event nor a gameplay/death checkpoint.
 """
-from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .effects import Effect, _integer
@@ -41,9 +40,10 @@ def make_proof(r, play, phase, receipt):
             receipt_at(r.state, receipt.id) != receipt or receipt.consumption_applied or
             (receipt.play_id, receipt.phase) != (play.id, phase)):
         raise ValueError('Combo proof must capture its installed original staged receipt')
-    work = FinishComboAcceptance(RuleContext(deepcopy(r.state), play.source_id,
+    work = FinishComboAcceptance(RuleContext(r.capture_state(), play.source_id,
         play.player_id, play.target_id, play=play), phase, receipt.id)
-    validate_acceptance(work, r.registry)
+    if r.game.runtime_audits:
+        validate_acceptance(work, r.registry)
     return work
 
 
@@ -450,9 +450,10 @@ def validate_terminal_queue(r, queue):
 
 
 def finish(r, work):
-    validate_acceptance(work, r.registry)
-    validate_history(r.state, r.registry)
-    validate_surviving_sources(r.state, work)
+    if r.game.runtime_audits:
+        validate_acceptance(work, r.registry)
+        validate_history(r.state, r.registry)
+        validate_surviving_sources(r.state, work)
     play = _bind_play(r.state, work)
     if play.completed or play.interrupted:
         raise ResolutionError('Combo acceptance requires its active enclosing paid play')

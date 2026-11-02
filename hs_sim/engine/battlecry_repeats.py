@@ -201,8 +201,9 @@ def validate_surviving_sources(state, proof):
 
 
 def finish_acceptance(r, effect):
-    validate_acceptance(effect, r.registry)
-    validate_surviving_sources(r.state, effect)
+    if r.game.runtime_audits:
+        validate_acceptance(effect, r.registry)
+        validate_surviving_sources(r.state, effect)
     from .play_history import play_record
     play = play_record(r.state, effect.context.play.id)
     if play.completed or play.interrupted:
@@ -210,7 +211,8 @@ def finish_acceptance(r, effect):
     batches = [b for b in r.state.battlecry_batches if b.play_id == play.id]
     if not batches or any(not b.finished for b in batches):
         raise ResolutionError('Battlecry acceptance closed before its complete batches')
-    for record in batches: validate_accepted_batch(record, effect)
+    if r.game.runtime_audits:
+        for record in batches: validate_accepted_batch(record, effect)
     from .costs import defer_paid_minion_root
     defer_paid_minion_root(r,effect,play.id)
 

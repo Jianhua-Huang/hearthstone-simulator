@@ -12,6 +12,18 @@ from test_performance_frame_metadata import game
 
 
 class RuntimeCopyTests(unittest.TestCase):
+    def test_finished_copy_does_not_retain_source_until_cyclic_collection(self):
+        import gc,weakref
+        enabled=gc.isenabled();gc.disable()
+        try:
+            original=GainArmor(1,3);reference=weakref.ref(original)
+            copied=deepcopy(original)
+            del original
+            self.assertIsNone(reference())
+            self.assertEqual(copied,GainArmor(1,3))
+        finally:
+            if enabled:gc.enable()
+
     def test_atomic_tuple_fast_path_respects_extension_memo_and_scalar_subclasses(self):
         original=(1,2,3);substitute=['substitute'];seen=[]
         class Hook:
@@ -179,7 +191,12 @@ class RuntimeCopyTests(unittest.TestCase):
         action = PlayCard(1, original._state.players[1].hand[0])
         fast_result = fast.apply(action)
         with ExitStack() as stack:
-            for module in modules: stack.enter_context(patch.object(module, 'deepcopy', reference_copy))
+            # Private captures now enter through Resolution.capture_state;
+            # the control deliberately makes full independent copies there.
+            for module in modules:
+                if hasattr(module,'deepcopy'):
+                    stack.enter_context(patch.object(module,'deepcopy',
+                        lambda value,**kwargs:reference_copy(value)))
             stack.enter_context(patch.object(payment_projection, 'copy_native', reference_copy))
             slow_result = slow.apply(action)
         self.assertEqual(fast_result, slow_result)
@@ -190,7 +207,10 @@ class RuntimeCopyTests(unittest.TestCase):
         action = SelectChoice(choice.player_id, choice.id, ('ok',))
         fast_result = fast.apply(action)
         with ExitStack() as stack:
-            for module in modules: stack.enter_context(patch.object(module, 'deepcopy', reference_copy))
+            for module in modules:
+                if hasattr(module,'deepcopy'):
+                    stack.enter_context(patch.object(module,'deepcopy',
+                        lambda value,**kwargs:reference_copy(value)))
             stack.enter_context(patch.object(payment_projection, 'copy_native', reference_copy))
             slow_result = slow.apply(action)
         self.assertEqual(fast_result, slow_result)
