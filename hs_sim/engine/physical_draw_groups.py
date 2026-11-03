@@ -77,6 +77,11 @@ class DrawGroupReward:
     def __post_init__(self):
         if type(self.repetitions)is not int or self.repetitions not in(1,2)or self.repetitions!=1 and self.kind not in('cost_all','set_cost_all'):
             raise ValueError('Only the actual native Kindred whole-group cost reward repeats')
+        if self.kind == 'trigger_drawn_deathrattles':
+            if (type(self.amount) is not int or self.amount != 0 or self.repetitions != 1 or
+                    self.source is not None or self.behavior_id is not None or self.target_id is not None):
+                raise ValueError('Drawn Deathrattles require the plain original draw reward')
+            return
         if self.kind not in ('none', 'cost_all', 'cost_drawn_minions', 'cost_drawn_spells', 'cost_original_spells', 'combine_original_choose_one', 'set_cost_all', 'set_stats_cost_all', 'set_drawn_minion_stats', 'buff_all', 'cost_one', 'give_one', 'lock_all', 'copy_other', 'copy_self', 'discover_spell_copy', 'source_charge_if_both_minions', 'non_minion_followup', 'refresh_drawn_spells', 'discard_drawn_spells', 'discard_drawn_minions', 'destroy_drawn_after_ends', 'health_payment_all', 'give_drawn_spells', SOURCE_KEYWORDS, SOURCE_SPELL_STATS) and self.kind not in QUALIFIED_FOLLOWUPS:
             raise ValueError('Unknown physical draw-group reward')
         if self.kind == 'non_minion_followup' or self.kind in QUALIFIED_FOLLOWUPS:
@@ -178,6 +183,9 @@ class DrawPhysicalGroup(Effect):
         if self.reward.kind == 'destroy_drawn_after_ends' and (
                 self.kindred_pair or self.slots != (DrawGroupSlot(),)*3 or self.reward.amount != 3):
             raise ValueError('Burndown requires its three original ordinary draws and three owner ends')
+        if self.reward.kind == 'trigger_drawn_deathrattles' and (
+                self.kindred_pair or self.source_id is None or self.slots != (DrawGroupSlot(),)*5):
+            raise ValueError('Drawn Deathrattles require five original ordinary source-bound draws')
         if self.reward.kind in ('health_payment_all','give_drawn_spells') and (
                 self.kindred_pair or self.slots != (DrawGroupSlot(),)*(2 if self.reward.kind=='health_payment_all' else 5)):
             raise ValueError('Native payment/gift rewards require their complete two/five ordinary draw slots')
@@ -432,8 +440,51 @@ def capture(r, request):
         request.index + 1, (*request.arrivals, row),kindred_pair=request.kindred_pair))
 
 
+@dataclass(frozen=True)
+class TriggerDrawnDeathrattle(Effect):
+    player_id: int
+    source_id: int
+    draw_id: int
+    card: CardReference
+
+    def __post_init__(self):
+        _player(self.player_id); _integer(self.source_id,'original draw source',1)
+        _integer(self.draw_id,'original draw',1)
+        if type(self.card) is not CardReference or self.card.player_id != self.player_id or self.card.zone != Zone.HAND:
+            raise ValueError('Drawn Deathrattle requires its original physical hand arrival')
+        self.card.__post_init__()
+
+    def validate_in_state(self, state, registry):
+        self.__post_init__(); row=draw_record(state,self.draw_id)
+        registry.card(self.card.card_id)
+        if (self.source_id not in state.entities or not row.completed or row.parent_id is not None or
+                row.outcome != 'hand' or row.entity_id != self.card.entity_id or row.card_id != self.card.card_id or
+                (row.player_id,row.source_id)!=(self.player_id,self.source_id)):
+            raise ValueError('Drawn Deathrattle borrowed another original physical draw')
+        from .hand_history import hand_entry
+        entry=hand_entry(state,row.hand_entry_id)
+        if (entry.entity_id,entry.player_id,entry.card_id,entry.zone_epoch)!=(
+                self.card.entity_id,self.player_id,self.card.card_id,self.card.zone_epoch):
+            raise ValueError('Drawn Deathrattle changed its original hand admission')
+
+
+def trigger_drawn_deathrattle(r, effect):
+    effect.validate_in_state(r.state,r.registry)
+    entity=reference_entity(r,effect.card)
+    if entity is None:return ()
+    from .lifecycle import active_abilities
+    from .deathrattles import schedule_group
+    return tuple(schedule_group(r,entity.id,effect.player_id,tuple(active_abilities(entity,'deathrattle')),
+        trigger_source_id=effect.source_id))
+
+
 def finish(r, request):
     reward = request.reward
+    if reward.kind == 'trigger_drawn_deathrattles':
+        return tuple(TriggerDrawnDeathrattle(request.player_id,request.source_id,row.draw_id,row.hand)
+            for row in request.arrivals if row.hand is not None and row.draw_id is not None and
+            (record:=draw_record(r.state,row.draw_id)).outcome=='hand' and record.parent_id is None and
+            (record.entity_id,record.card_id)==(row.hand.entity_id,row.hand.card_id))
     if reward.kind==SOURCE_SPELL_STATS:
         from .draw_spell_stat_swaps import swap_original_spell_costs
         return swap_original_spell_costs(r,request)
@@ -587,6 +638,7 @@ def validate_qualified_context(context, registry, *, behavior_id=None):
 
 
 def register(mechanics):
+    mechanics.register(TriggerDrawnDeathrattle, trigger_drawn_deathrattle)
     for kind in (DrawGroupSlot, DrawGroupReward, DrawGroupArrival): mechanics.register_payload_type(kind)
     mechanics.register(DrawPhysicalGroup, begin)
     mechanics.register(ContinuePhysicalDrawGroup, advance)

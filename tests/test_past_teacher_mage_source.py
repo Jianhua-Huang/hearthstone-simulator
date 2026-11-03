@@ -52,7 +52,7 @@ class MageTeacherSourceTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_complete_original_rows_pins_and_ordered_44_member_prefix(self):
         d=native.load_batch();f=fixture();p=f.registry.pool(native.POOL,f.context)
-        self.assertEqual([v.card_id for v in p.members[:44]],d['merged_member_ids']);self.assertEqual(len(p.members),201)
+        self.assertEqual([v.card_id for v in p.members[:44]],d['merged_member_ids']);self.assertEqual(len(p.members),206)
         self.assertEqual([v.card_id for v in p.members[:21]],d['original_member_ids']);self.assertTrue(all(v.weight==1 for v in p.members))
         native.validate_native(f.registry,d);self.assertFalse(p.excluded_card_ids);self.assertFalse(d['formal_pool_complete']or d['cn_calibrated'])
 
@@ -66,7 +66,7 @@ class MageTeacherSourceTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_other_classes_and_unreviewed_toki_class_stay_explicitly_closed(self):
         f=fixture()
-        for hero in(CardClass.ROGUE,CardClass.WARRIOR):
+        for hero in(CardClass.WARRIOR,):
             with self.subTest(hero=hero),self.assertRaises(UnsupportedDefinitionError):
                 resolve_candidates(f.registry,f.context,native.POOL,native.QUERY,current_class=hero,source_card_id=CARD,exclude_source_by_rule=True)
         g=self.game(card='TIME_861',hero='HERO_03');before=g.snapshot()

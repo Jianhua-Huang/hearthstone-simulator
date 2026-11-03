@@ -1,0 +1,1150 @@
+{
+  "schema": 1,
+  "policy_id": "cn37-local-rogue-teacher-spells-v1",
+  "source": "outputs/card-integration-20261014/cards-37.0.0.255026.json",
+  "source_sha256": "3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2",
+  "roots": [
+    "GDB_467",
+    "ONY_031",
+    "TOY_519",
+    "VAC_700",
+    "WW_410"
+  ],
+  "existing_dependencies": [
+    "TIME_704",
+    "TIME_704t",
+    "RLK_590"
+  ],
+  "cards": {
+    "GDB_467": {
+      "record": {
+        "id": "GDB_467",
+        "dbf_id": 111602,
+        "name": "类星体",
+        "name_en": "Quasar",
+        "text": "将你的手牌洗入你的牌库。使你牌库中卡牌的法力值消耗减少（3）点。",
+        "text_en": "Shuffle your hand into your deck.\nReduce the Cost of cards in your deck by (3).",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1935,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1935,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Vika Yarova"
+          }
+        ]
+      },
+      "record_sha256": "ee463772b7dc6e17d5e175e2df5a1e8d9edc69bc2fa6d7573897a54f01bea91a",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "GDB_467",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "ONY_031": {
+      "record": {
+        "id": "ONY_031",
+        "dbf_id": 71293,
+        "name": "烟幕",
+        "name_en": "Smokescreen",
+        "text": "抽五张牌。触发抽到的牌的<b>亡语</b>。",
+        "text_en": "[x]Draw 5 cards. Trigger\nany <b>Deathrattles</b> drawn.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1626,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "COLLECTIBLE": 1,
+          "MINI_SET": 1
+        },
+        "card_set_id": 1626,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "BOSi Studio"
+          },
+          {
+            "tag": "ReferencedTag",
+            "attributes": {
+              "enumID": "217",
+              "name": "DEATHRATTLE",
+              "type": "Int",
+              "value": "1"
+            }
+          }
+        ]
+      },
+      "record_sha256": "4cdae89296f43cc2914e127827abf549e4e796940ea294f81cf2acb0672b5cfe",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "rare",
+        "deck_identity": "ONY_031",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "TOY_519": {
+      "record": {
+        "id": "TOY_519",
+        "dbf_id": 104864,
+        "name": "一件不留",
+        "name_en": "Everything Must Go!",
+        "text": "随机召唤两个法力值消耗为（4）的随从。在本回合中你每抽过一张牌，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Summon two random 4-Cost minions. Costs (1) less for each card you've drawn this turn.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1897,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1897,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Kleston Marques"
+          }
+        ]
+      },
+      "record_sha256": "1f9ce03331a9dcb3bdda55e8e0b32d53f52dbdc8258e07e7c2c6a650ce5231ad",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TOY_519",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "VAC_700": {
+      "record": {
+        "id": "VAC_700",
+        "dbf_id": 106681,
+        "name": "横夺硬抢",
+        "name_en": "Snatch and Grab",
+        "text": "随机消灭两个敌方随从。你每使用过一张另一职业的卡牌，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Destroy two random enemy minions. Costs (1) less for each card you've played from another class.",
+        "cost": 8,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 8,
+          "CARD_SET": 1905,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 4,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1905,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "9011b26aeb75cfc0ed9cde2eaa677300e4f4a3d64531e4d851a45e92bdcae033",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "epic",
+        "deck_identity": "VAC_700",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "WW_410": {
+      "record": {
+        "id": "WW_410",
+        "dbf_id": 100935,
+        "name": "三条七",
+        "name_en": "Triple Sevens",
+        "text": "对一个随从造成$7点伤害。\n抽7张牌。",
+        "text_en": "Deal $7 damage to a minion. Draw 7 cards.",
+        "cost": 7,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 7,
+          "CARD_SET": 1892,
+          "CLASS": 7,
+          "CARDTYPE": 5,
+          "RARITY": 1,
+          "COLLECTIBLE": 1
+        },
+        "card_set_id": 1892,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Matt Dixon"
+          }
+        ]
+      },
+      "record_sha256": "bfc457d9d86c1c42f4b51b82b1044e0cb458214766aa67cc5f61b6e978637b66",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "rogue"
+        ],
+        "rarity": "common",
+        "deck_identity": "WW_410",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "TIME_704": {
+      "record": {
+        "id": "TIME_704",
+        "dbf_id": 120761,
+        "name": "上层精灵教师",
+        "name_en": "Highborne Mentor",
+        "text": "<b>战吼：</b>获取一张2/2的小学生。<b>发现</b>一个来自过去的法力值消耗大于或等于（7）点的法术，教会小学生。",
+        "text_en": "[x]<b>Battlecry:</b> Get a 2/2 Pupil.\n<b>Discover</b> a spell that costs\n(7) or more from the past\nto teach it.",
+        "cost": 7,
+        "attack": 6,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "HEALTH": 6,
+          "ATK": 6,
+          "COST": 7,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "RARITY": 4,
+          "BATTLECRY": 1,
+          "COLLECTIBLE": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "ee830b280d190f5b63558aa4588e726a0f20d523b660bdc56c923c3b979dd042",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "epic",
+        "deck_identity": "TIME_704",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "TIME_704t": {
+      "record": {
+        "id": "TIME_704t",
+        "dbf_id": 122590,
+        "name": "上层精灵小学生",
+        "name_en": "Highborne Pupil",
+        "text": "<b>战吼：</b>施放{0}。",
+        "text_en": "<b>Battlecry:</b> Cast {0}.",
+        "cost": 2,
+        "attack": 2,
+        "health": 2,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "HEALTH": 2,
+          "ATK": 2,
+          "COST": 2,
+          "CARD_SET": 1957,
+          "CLASS": 2,
+          "CARDTYPE": 4,
+          "BATTLECRY": 1
+        },
+        "card_set_id": 1957,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Sergey Tsvelykh"
+          }
+        ]
+      },
+      "record_sha256": "b76ce848596c774d48234e85471174592985a622dd052ed49aaea172ff60daeb",
+      "metadata": {
+        "collectible": false,
+        "classes": [
+          "druid"
+        ],
+        "rarity": "none",
+        "deck_identity": "TIME_704t",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": null
+    },
+    "RLK_590": {
+      "record": {
+        "id": "RLK_590",
+        "dbf_id": 86228,
+        "name": "太阳之井",
+        "name_en": "The Sunwell",
+        "text": "用随机法术牌填满你的手牌。你每有一张其他手牌，本牌的法力值消耗便减少（1）点。",
+        "text_en": "Fill your hand with random spells. Costs (1) less for each other card in your hand.",
+        "cost": 9,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "COST": 9,
+          "ELITE": 1,
+          "CARD_SET": 1776,
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "RARITY": 5,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "card_set_id": 1776,
+        "source_entity_version": "2",
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "xml_card_references": [],
+        "unmapped_xml_nodes": [
+          {
+            "tag": "Tag",
+            "attributes": {
+              "enumID": "342",
+              "name": "ARTISTNAME",
+              "type": "String"
+            },
+            "text": "Michaela Nienaber"
+          }
+        ]
+      },
+      "record_sha256": "b88da191ca6526c05b4ce1852ecb0b6aa5b82b2cb93f068de44f264ffb4e6426",
+      "metadata": {
+        "collectible": true,
+        "classes": [
+          "neutral"
+        ],
+        "rarity": "legendary",
+        "deck_identity": "RLK_590",
+        "max_copies": null,
+        "runes": {
+          "blood": 0,
+          "frost": 0,
+          "unholy": 0
+        },
+        "tribes": [],
+        "factions": [],
+        "subtypes": []
+      },
+      "spell_school": "holy"
+    }
+  },
+  "official_observations": [
+    {
+      "card_id": "GDB_467",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\111602-zh_CN.json",
+      "response_sha256": "0ffc1b02c0c1e3c15da05adf6f3ce8051df77d8c7ad4b744fee46f27059a1279",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=111602&locale=zh_CN",
+      "face": {
+        "id": 111602,
+        "collectible": 1,
+        "slug": "111602-quasar",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 4,
+        "artistName": "Vika Yarova",
+        "manaCost": 8,
+        "name": "类星体",
+        "text": "将你的手牌洗入你的牌库。使你牌库中卡牌的法力值消耗减少（3）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/6307267357c2e78e5624a6f5826078ca6cf92724fb79f4cae8192272e5449f4a.png",
+        "imageGold": "",
+        "flavorText": "没人会相信类星体真实存在的，巫师杜格塔什。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17096bd9f598fa205ad35611f1965ab6229b97ef781d71a1f6445e0fdb35971f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=111602&locale=zh_CN",
+        "sha256": "0ffc1b02c0c1e3c15da05adf6f3ce8051df77d8c7ad4b744fee46f27059a1279",
+        "bytes": 762,
+        "observed_at": "2026-11-03T01:22:43.555202+00:00"
+      }
+    },
+    {
+      "card_id": "GDB_467",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\111602-en_US.json",
+      "response_sha256": "bfe482b7733a3e02c356b1981174bdad8311b0f5fac77335cf9a28450ced08e6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=111602&locale=en_US",
+      "face": {
+        "id": 111602,
+        "collectible": 1,
+        "slug": "111602-quasar",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1935,
+        "rarityId": 4,
+        "artistName": "Vika Yarova",
+        "manaCost": 8,
+        "name": "Quasar",
+        "text": "Shuffle your hand into your deck. Reduce the Cost of cards in your deck by (3).",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/53c246d43baf556b17daa365ef05502522949cb63d5b8e4e29aec0ebd3d2881e.png",
+        "imageGold": "",
+        "flavorText": "No one is going to believe that quasars are a real thing, Durg'tash the Sorcerer.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/17096bd9f598fa205ad35611f1965ab6229b97ef781d71a1f6445e0fdb35971f.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=111602&locale=en_US",
+        "sha256": "bfe482b7733a3e02c356b1981174bdad8311b0f5fac77335cf9a28450ced08e6",
+        "bytes": 762,
+        "observed_at": "2026-11-03T01:22:43.549430+00:00"
+      }
+    },
+    {
+      "card_id": "ONY_031",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71293-zh_CN.json",
+      "response_sha256": "2398593d7cf7e68024004633da62f68b9a9be6d12ac3a6bad0e97c2de3869af6",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=71293&locale=zh_CN",
+      "face": {
+        "id": 71293,
+        "collectible": 1,
+        "slug": "71293-smokescreen",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 8,
+        "name": "烟幕",
+        "text": "抽五张牌。触发抽到的牌的<b>亡语</b>。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ad144e2e1c0d248f24756a92f6c7e7b5abfa1bf3e11f93705744fc7f4cc6414a.png",
+        "imageGold": "",
+        "flavorText": "随身烟幕弹！",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efc0d4fbb25b571625453549f908d3afaf15f12fe544c32720b78de93957a174.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=71293&locale=zh_CN",
+        "sha256": "2398593d7cf7e68024004633da62f68b9a9be6d12ac3a6bad0e97c2de3869af6",
+        "bytes": 693,
+        "observed_at": "2026-11-03T01:22:43.726755+00:00"
+      }
+    },
+    {
+      "card_id": "ONY_031",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\71293-en_US.json",
+      "response_sha256": "de7ceb322748b41b7e8062606304bc75f85b61fa4bd5b1303d0c83313d930b3c",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=71293&locale=en_US",
+      "face": {
+        "id": 71293,
+        "collectible": 1,
+        "slug": "71293-smokescreen",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1626,
+        "rarityId": 3,
+        "artistName": "BOSi Studio",
+        "manaCost": 8,
+        "name": "Smokescreen",
+        "text": "Draw 5 cards. Trigger any <b>Deathrattles</b> drawn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0e32fb4a248e3f8941bd03415d2065081a65581d727af5110291aaeac185ea58.png",
+        "imageGold": "",
+        "flavorText": "Pocket smoke!",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/efc0d4fbb25b571625453549f908d3afaf15f12fe544c32720b78de93957a174.png",
+        "keywordIds": [
+          12
+        ],
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=71293&locale=en_US",
+        "sha256": "de7ceb322748b41b7e8062606304bc75f85b61fa4bd5b1303d0c83313d930b3c",
+        "bytes": 693,
+        "observed_at": "2026-11-03T01:22:43.558792+00:00"
+      }
+    },
+    {
+      "card_id": "TOY_519",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\104864-zh_CN.json",
+      "response_sha256": "b4a3fc1aa5f0dc613facda7caccf1da011c230b6588bb66508381e9aaf8112e1",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=104864&locale=zh_CN",
+      "face": {
+        "id": 104864,
+        "collectible": 1,
+        "slug": "104864-everything-must-go",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Kleston Marques",
+        "manaCost": 8,
+        "name": "一件不留",
+        "text": "随机召唤两个法力值消耗为（4）的随从。在本回合中你每抽过一张牌，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4551b12acdcf3e3f9959a96a4419acccd8d1a87e67eb50f6115c70b55988344.png",
+        "imageGold": "",
+        "flavorText": "不留？那要搬到哪儿？",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d38a11f417c703a0d11ed71b4bdeb1f2002675ee54c4e5f5ae9cc3e4c3d8a98e.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=104864&locale=zh_CN",
+        "sha256": "b4a3fc1aa5f0dc613facda7caccf1da011c230b6588bb66508381e9aaf8112e1",
+        "bytes": 794,
+        "observed_at": "2026-11-03T01:22:45.599440+00:00"
+      }
+    },
+    {
+      "card_id": "TOY_519",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\104864-en_US.json",
+      "response_sha256": "157470625ce5e1cb24fab05f45cdb814080712da139e5abff7d92e2846b361b0",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=104864&locale=en_US",
+      "face": {
+        "id": 104864,
+        "collectible": 1,
+        "slug": "104864-everything-must-go",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1897,
+        "rarityId": 4,
+        "artistName": "Kleston Marques",
+        "manaCost": 8,
+        "name": "Everything Must Go!",
+        "text": "Summon two random 4-Cost minions. Costs (1) less for each card you've drawn this turn.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/edd6acd53e6f8de1d10f30e32b07523b5acb958ab790fed15bbd478e61e3216f.png",
+        "imageGold": "",
+        "flavorText": "Go where??",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/d38a11f417c703a0d11ed71b4bdeb1f2002675ee54c4e5f5ae9cc3e4c3d8a98e.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=104864&locale=en_US",
+        "sha256": "157470625ce5e1cb24fab05f45cdb814080712da139e5abff7d92e2846b361b0",
+        "bytes": 727,
+        "observed_at": "2026-11-03T01:22:45.444964+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_700",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\106681-zh_CN.json",
+      "response_sha256": "e38f7e7082ff3808f0cfb0722806f88003cef0b8edb42c04e48ef87d4cb586ae",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=106681&locale=zh_CN",
+      "face": {
+        "id": 106681,
+        "collectible": 1,
+        "slug": "106681-snatch-and-grab",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "manaCost": 8,
+        "name": "横夺硬抢",
+        "text": "随机消灭两个敌方随从。你每使用过一张另一职业的卡牌，本牌的法力值消耗便减少（1）点。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/ebd023483076d770c4a0c97463ed7c4f83f678dc2002d26c765ea44be56239fa.png",
+        "imageGold": "",
+        "flavorText": "夺者多夺，多夺多得。强者强抢，强抢者强。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/745e7b12f182184a4b442501ebff76f2d5b0fe9ea341bb3fd6c1870b8c3dba15.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=106681&locale=zh_CN",
+        "sha256": "e38f7e7082ff3808f0cfb0722806f88003cef0b8edb42c04e48ef87d4cb586ae",
+        "bytes": 800,
+        "observed_at": "2026-11-03T01:22:45.451470+00:00"
+      }
+    },
+    {
+      "card_id": "VAC_700",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\106681-en_US.json",
+      "response_sha256": "5cff8bec413ef3a6e986b58b1d8cfb932d00f1e87f2d03d50d99c6ab159b6661",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=106681&locale=en_US",
+      "face": {
+        "id": 106681,
+        "collectible": 1,
+        "slug": "106681-snatch-and-grab",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1905,
+        "rarityId": 4,
+        "artistName": "Matt Dixon",
+        "manaCost": 8,
+        "name": "Snatch and Grab",
+        "text": "Destroy two random enemy minions. Costs (1) less for each card you've played from another class.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7d6c7ebe3474ece0a2251630a0ee829964e1fa6e69c51cc2d820643fa1b391ea.png",
+        "imageGold": "",
+        "flavorText": "Snatch grabbed the snacks and Grab snatched the grub. The perfect crime.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/745e7b12f182184a4b442501ebff76f2d5b0fe9ea341bb3fd6c1870b8c3dba15.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=106681&locale=en_US",
+        "sha256": "5cff8bec413ef3a6e986b58b1d8cfb932d00f1e87f2d03d50d99c6ab159b6661",
+        "bytes": 787,
+        "observed_at": "2026-11-03T01:22:45.642304+00:00"
+      }
+    },
+    {
+      "card_id": "WW_410",
+      "locale": "zh_CN",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\100935-zh_CN.json",
+      "response_sha256": "16efc2140244aa8cfb9017631446cd5c92a2dbc011e33de0b2bb4f7ab39fd2ae",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=100935&locale=zh_CN",
+      "face": {
+        "id": 100935,
+        "collectible": 1,
+        "slug": "100935-triple-sevens",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 7,
+        "name": "三条七",
+        "text": "对一个随从造成 7点伤害。 抽7张牌。",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/7339031855abe06d4fdd652e2d044e283d409f730e4510bc470dd9bdd86c3ef2.png",
+        "imageGold": "",
+        "flavorText": "如果算上卡牌名里的“七”字，那总共就有四个7，而不是三个。设计师的巨大失误。",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f4dca2115f131d55e811bd119108c27ef587056b1cc6ecc57ef5d483a14bbee.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=100935&locale=zh_CN",
+        "sha256": "16efc2140244aa8cfb9017631446cd5c92a2dbc011e33de0b2bb4f7ab39fd2ae",
+        "bytes": 772,
+        "observed_at": "2026-11-03T01:22:47.354272+00:00"
+      }
+    },
+    {
+      "card_id": "WW_410",
+      "locale": "en_US",
+      "response_file": "C:\\Users\\Administrator\\Documents\\ChatGPT\\炉石模拟器\\outputs\\card-source-cache-cn37\\official\\100935-en_US.json",
+      "response_sha256": "f47acd90f42104a31f1dad75a871369bd16825bd366a36c3930d20c5f988238f",
+      "url": "https://playhearthstone.com/en-us/api/cards?card=100935&locale=en_US",
+      "face": {
+        "id": 100935,
+        "collectible": 1,
+        "slug": "100935-triple-sevens",
+        "classId": 7,
+        "multiClassIds": [],
+        "cardTypeId": 5,
+        "cardSetId": 1892,
+        "rarityId": 1,
+        "artistName": "Matt Dixon",
+        "manaCost": 7,
+        "name": "Triple Sevens",
+        "text": "Deal 7 damage to a minion. Draw 7 cards.",
+        "image": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/e5b45e1ef0a14f56069f04cbb55d681fd3136c725df0e16101132b02997275c2.png",
+        "imageGold": "",
+        "flavorText": "If you count the 'seven' in the name, there's actually four total 7s, not three. Huge oversight from the designers.",
+        "cropImage": "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/9f4dca2115f131d55e811bd119108c27ef587056b1cc6ecc57ef5d483a14bbee.png",
+        "isZilliaxFunctionalModule": false,
+        "isZilliaxCosmeticModule": false
+      },
+      "observation": {
+        "url": "https://playhearthstone.com/en-us/api/cards?card=100935&locale=en_US",
+        "sha256": "f47acd90f42104a31f1dad75a871369bd16825bd366a36c3930d20c5f988238f",
+        "bytes": 770,
+        "observed_at": "2026-11-03T01:22:47.629257+00:00"
+      }
+    }
+  ],
+  "formal_pool_complete": false,
+  "cn_calibrated": false,
+  "local_policies": [
+    "Uses the unchanged pinned local Past set policy; the six-member Rogue/neutral view is not a current official CN source certification.",
+    "Other-class price queries compare complete original hand-play faces to the recipient class captured for the quote; neutral and shared-class faces do not count. Hero-replacement edge awaits CN calibration.",
+    "Smokescreen waits for all five ordinary root draws, then triggers original still-resident hand arrivals in draw order through the common Deathrattle scheduler. Burns and replacement-child draws are excluded; unusual draw transformation boundaries remain pending CN calibration.",
+    "TOY_519 draw discount reuses the existing physical-draw-this-turn price policy; exact burned-draw treatment remains the existing deferred calibration boundary.",
+    "Quasar uses semantic physical hand insertions then a full deck shuffle before applying ordinary minus-three stored cost attachments to the current deck; exact RNG sequence is local."
+  ],
+  "prior_member_ids": [
+    "DEEP_028",
+    "ETC_373",
+    "GDB_857",
+    "OG_195",
+    "ONY_021",
+    "SCH_610",
+    "TSC_656",
+    "ULD_273",
+    "BAR_539",
+    "CORE_REV_311",
+    "DAL_256",
+    "DMF_732",
+    "EX1_183",
+    "TTN_954",
+    "VAC_907",
+    "VAC_948",
+    "GVG_033",
+    "RLK_590",
+    "CORE_ICC_085",
+    "CORE_REV_365",
+    "SCH_609",
+    "AV_218",
+    "AV_283",
+    "AV_290",
+    "BOT_257",
+    "BT_072",
+    "CFM_623",
+    "CS2_032",
+    "DAL_578",
+    "DMF_103",
+    "DMF_104",
+    "EX1_279",
+    "GDB_301",
+    "ICC_086",
+    "KAR_076",
+    "ONY_029",
+    "RLK_544",
+    "TOY_372",
+    "TOY_378",
+    "TTN_480",
+    "ULD_216",
+    "VAC_509",
+    "WORK_012",
+    "WW_427",
+    "AT_001",
+    "AT_002",
+    "AT_004",
+    "AT_005",
+    "AV_116",
+    "AV_212",
+    "AV_282",
+    "BAR_305",
+    "BAR_541",
+    "BAR_542",
+    "BAR_546",
+    "BAR_812",
+    "BOT_101",
+    "BOT_254",
+    "BOT_453",
+    "BOT_600",
+    "BRM_003",
+    "BT_002",
+    "BT_003",
+    "BT_006",
+    "BT_021",
+    "BT_291",
+    "CFM_021",
+    "CFM_065",
+    "CFM_620",
+    "CS2_022",
+    "CS2_023",
+    "CS2_024",
+    "CS2_025",
+    "CS2_026",
+    "CS2_027",
+    "CS2_028",
+    "CS2_029",
+    "CS2_031",
+    "DAL_177",
+    "DAL_577",
+    "DAL_608",
+    "DED_517",
+    "DEEP_000",
+    "DEEP_002",
+    "DEEP_031",
+    "DEEP_032",
+    "DMF_105",
+    "DMF_107",
+    "DMF_108",
+    "DRG_106",
+    "DRG_321",
+    "DRG_323",
+    "DRG_324",
+    "ETC_205",
+    "ETC_206",
+    "ETC_528",
+    "ETC_532",
+    "ETC_535",
+    "EX1_179",
+    "EX1_180",
+    "EX1_275",
+    "EX1_277",
+    "EX1_287",
+    "EX1_289",
+    "EX1_294",
+    "EX1_295",
+    "EX1_594",
+    "FP1_018",
+    "GDB_133",
+    "GDB_305",
+    "GDB_456",
+    "GIFT_02",
+    "GIL_147",
+    "GIL_548",
+    "GIL_801",
+    "GVG_001",
+    "GVG_003",
+    "GVG_005",
+    "ICC_082",
+    "ICC_823",
+    "ICC_836",
+    "JAM_002",
+    "JAM_031",
+    "LOE_002",
+    "LOOT_101",
+    "LOOT_103",
+    "LOOT_104",
+    "LOOT_106",
+    "LOOT_172",
+    "MAW_006",
+    "MAW_013",
+    "MIS_107",
+    "MIS_302",
+    "NX2_001",
+    "OG_081",
+    "OG_086",
+    "OG_090",
+    "ONY_006",
+    "REV_504",
+    "REV_505",
+    "REV_516",
+    "REV_601",
+    "REV_840",
+    "RLK_546",
+    "RLK_843",
+    "SC_750",
+    "SC_753",
+    "SC_759",
+    "SC_760",
+    "SCH_235",
+    "SCH_270",
+    "SCH_348",
+    "SCH_352",
+    "SCH_353",
+    "SCH_509",
+    "SW_107",
+    "SW_108",
+    "SW_110",
+    "SW_450",
+    "SW_462",
+    "TID_708",
+    "TOY_037",
+    "TOY_371",
+    "TOY_374",
+    "TOY_377",
+    "TRL_310",
+    "TRL_313",
+    "TRL_317",
+    "TRL_400",
+    "TSC_055",
+    "TSC_056",
+    "TSC_948",
+    "tt_010",
+    "TTN_085",
+    "TTN_476",
+    "TTN_477",
+    "ULD_239",
+    "ULD_433",
+    "ULD_726",
+    "UNG_018",
+    "UNG_024",
+    "UNG_028",
+    "UNG_941",
+    "UNG_948",
+    "UNG_955",
+    "VAC_428",
+    "VAC_431",
+    "VAC_520",
+    "VAC_953",
+    "WC_041",
+    "WON_037",
+    "WON_040",
+    "WON_113",
+    "WON_341",
+    "WORK_026",
+    "WW_009",
+    "WW_377",
+    "WW_422",
+    "WW_425",
+    "YOG_507",
+    "YOP_019"
+  ],
+  "teacher_candidate_ids": [
+    "GDB_467",
+    "ONY_031",
+    "RLK_590",
+    "TOY_519",
+    "VAC_700",
+    "WW_410"
+  ],
+  "past_set_policy": {
+    "policy": "Visible official Wild set slugs minus visible Standard set slugs, including their explicit numeric aliasSetIds. Candidate only; Past meaning, reprints/duplicate weighting, CN exclusions remain unverified.",
+    "set_ids": [
+      3,
+      4,
+      12,
+      13,
+      14,
+      15,
+      20,
+      21,
+      23,
+      25,
+      27,
+      1001,
+      1004,
+      1125,
+      1127,
+      1129,
+      1130,
+      1158,
+      1347,
+      1403,
+      1414,
+      1443,
+      1463,
+      1466,
+      1525,
+      1578,
+      1626,
+      1635,
+      1658,
+      1691,
+      1776,
+      1809,
+      1858,
+      1869,
+      1892,
+      1897,
+      1898,
+      1905,
+      1935
+    ],
+    "reference_source": "outputs/card-integration-20261014/k454-past-one-cost-source/expanded-past-onecost-inventory-candidate-02.json",
+    "reference_sha256": "fa7275a7f8131e1d0ac57017f89dc2a0e4f857d482a7579c0b9b3d894289527e"
+  },
+  "native_pins": {
+    "GDB_467": {
+      "definition_sha256": "061124f184500dec8a40b383ef2ec93667561bc73500eac07a313a8f8413f2de",
+      "pool_card_sha256": "afbc99743eeacd1072bf0721b9a1ba343632bd35947cad58090461c4f64a2ef5"
+    },
+    "ONY_031": {
+      "definition_sha256": "1d89bf01b43f21f67e6b979c3c33d673636b2ad06927d28b58d8e620b97eca94",
+      "pool_card_sha256": "289e91343040d11fbe4060a4824b8759597164a5ca84c1d12bfddad187b5897f"
+    },
+    "TOY_519": {
+      "definition_sha256": "135ec61ae0bffcfc9dfffe8895dd5de5aff5027dbed6ce141e7d7e0f30b71d76",
+      "pool_card_sha256": "48cf14522c808bcee66fb5f09df9237d092b4606f7196d1514c7da3cdf1927f2"
+    },
+    "VAC_700": {
+      "definition_sha256": "96c1ebdb46da14b6ac5bc5821cdb49b4b5ae214a11ccb8b852f1dc7cb7ff5de0",
+      "pool_card_sha256": "54494c3bf27427bd1f7b1ed31a080accf7c53e711049dc316c477b33c6d7ac9e"
+    },
+    "WW_410": {
+      "definition_sha256": "4bdeb268451c76abd4a9be3c20e2386caaba9aba99e590b696d695c997075673",
+      "pool_card_sha256": "741218ce8684583176d1c618c0f50644c87411068a35f56bda5daae944dcab7b"
+    },
+    "TIME_704": {
+      "definition_sha256": "5b1c0b5389ff727959b2db835c371771956521f0aa3e0daa88e83c8bc1daf87e",
+      "pool_card_sha256": "7ebc3f7d01d7304cf20b624033b0d16e48fc5a800dcba24143ea87b6a85d105f"
+    },
+    "TIME_704t": {
+      "definition_sha256": "654958ed6336bdcd0b65d5a3b2b4c3972c33c055be5f9c7a324e202d82415cf9",
+      "pool_card_sha256": "22b5e65b791dadf4f34d1d430abc9cf2095e68654d136cb39d96f90fcf5736f9"
+    },
+    "RLK_590": {
+      "definition_sha256": "f168db1feb5ff0ab0675bf766f52b109d1b29ab5d738b20e9817593a7b28942d",
+      "pool_card_sha256": "2c5ccf4b6f53ac3f82019c59677aa3763a9bfc1efc292e91aa1cd28a9d8d96c3"
+    }
+  }
+}

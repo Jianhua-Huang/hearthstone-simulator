@@ -241,6 +241,8 @@ def build_cn37_local_pool_format():
     past_pools = merge_mage_teacher(registry,original.context,past_pools)
     from .cards.toki_mage_source import merge_pools as merge_toki_mage,register_scope as register_toki_mage,load_batch as load_toki_mage
     past_pools = merge_toki_mage(registry,original.context,past_pools)
+    from .cards.rogue_teacher_spells import merge_past_pools as merge_rogue_teacher, register_teacher_scope, shared_member_ids
+    past_pools = merge_rogue_teacher(registry,original.context,past_pools)
     from .cards.protoss_spell_domain import local_pool as protoss_pool
     from .cards.azerite_hawk_domain import local_pool as hawk_pool
     from .cards.azerite_reward_domains import local_pools as azerite_pools
@@ -273,9 +275,10 @@ def build_cn37_local_pool_format():
     register_mech_scope(registry,context)
     register_disco_scope(registry,context)
     register_past_spell_scopes(registry,context)
-    register_mage_teacher(registry,context,reviewed_member_ids=tuple(load_toki_mage()['merged_member_ids']))
+    register_mage_teacher(registry,context,reviewed_member_ids=shared_member_ids())
     register_champion_scopes(registry,context)
-    register_toki_mage(registry,context)
+    register_toki_mage(registry,context,reviewed_member_ids=shared_member_ids())
+    register_teacher_scope(registry,context)
     register_nature_scope(registry,context,reviewed_pool=nature_pool(registry,context))
     register_priest_nature_scopes(registry,context,reviewed_pool=nature_pool(registry,context))
     register_rogue_nature_scope(registry,context)

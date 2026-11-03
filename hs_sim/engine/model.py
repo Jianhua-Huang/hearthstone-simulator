@@ -6067,6 +6067,9 @@ class PlayerPlayedClassCostSpec:
         if self.profile_id == 'cost.player-played-class-v1':
             if type(self.card_class) is not CardClass or self.card_class == CardClass.NEUTRAL:
                 raise ValueError('Played-class price requires one original playable class')
+        elif self.profile_id == 'cost.player-played-other-class-v1':
+            if self.card_class is not None and (type(self.card_class) is not CardClass or self.card_class == CardClass.NEUTRAL):
+                raise ValueError('Other-class price requires its captured playable class')
         elif self.profile_id in ('cost.player-played-card-count-turn-v1',
                                 'cost.player-played-combo-turn-v1',
                                 'cost.player-played-outside-starting-deck-v1',
@@ -6119,6 +6122,8 @@ class PlayerPlayedClassCostFact:
         if type(self.spec) is not PlayerPlayedClassCostSpec:
             raise ValueError('Played-class price requires its original declaration')
         self.spec.__post_init__()
+        if self.spec.profile_id == 'cost.player-played-other-class-v1' and self.spec.card_class is None:
+            raise ValueError('Other-class price fact lost its captured hero class')
         if type(self.player_id) is not int or self.player_id not in (1, 2):
             raise ValueError('Played-class price requires its actual payer')
         for name in ('turn', 'next_entity_id'): _int(getattr(self, name), 'played-class price ' + name, 1)
@@ -6130,7 +6135,7 @@ class PlayerPlayedClassCostFact:
             raise ValueError('Played-class price lost an original physical play')
         if type(self.selected_ids) is not tuple or any(type(value) is not int for value in self.selected_ids):
             raise ValueError('Played-class price requires its complete exact selection')
-        from .play_history import (matches_played_class, matches_outside_starting_deck, matches_played_combo,
+        from .play_history import (matches_played_class, matches_other_played_class, matches_outside_starting_deck, matches_played_combo,
                                    validate_starting_deck_identity)
         combo = self.spec.profile_id == 'cost.player-played-combo-turn-v1'
         if combo:
@@ -6162,6 +6167,8 @@ class PlayerPlayedClassCostFact:
                        True if self.spec.profile_id == 'cost.player-last-played-cost-v1' else
                        matches_outside_starting_deck(row.face, self.starting_entities) if outside else
                        row.turn == self.turn if self.spec.profile_id == 'cost.player-played-card-count-turn-v1'
+                       else matches_other_played_class(row.face, self.spec.card_class)
+                       if self.spec.profile_id == 'cost.player-played-other-class-v1'
                        else matches_played_class(row.face, self.spec.card_class))
             if matched and row.face.player_id == self.player_id: selected.append(row.face.play_id)
             last_turn, last_action = row.turn, row.action

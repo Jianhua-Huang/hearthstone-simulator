@@ -1,4 +1,5 @@
 """Finite class, turn, last Cost and deck prices from one physical-play ledger."""
+from dataclasses import replace
 from .model import (CardType, PlayRecord, PlayerPlayedClassCostSpec,
                     PlayerPlayedClassCostRow, PlayerPlayedClassCostFact)
 
@@ -9,8 +10,11 @@ def validate_definition(definition):
     if type(spec) is not PlayerPlayedClassCostSpec:
         raise ValueError('Expected PlayerPlayedClassCostSpec')
     spec.__post_init__()
-    if definition.kind != CardType.MINION or not definition.hand_playable or definition.starship_for:
+    other = spec.profile_id == 'cost.player-played-other-class-v1'
+    if definition.kind != (CardType.SPELL if other else CardType.MINION) or not definition.hand_playable or definition.starship_for:
         raise ValueError('Played-class price belongs to an ordinary physical minion')
+    if other and spec.card_class is not None:
+        raise ValueError('Other-class declaration captures its recipient at query time')
     if any(value is not None for value in (definition.board_minion_cost, definition.hand_count_cost,
             definition.hero_missing_health_cost, definition.player_spell_count_cost, definition.player_hero_power_count_cost,
             definition.player_spell_mana_cost, definition.minion_death_cost, definition.player_overload_cost)):
@@ -20,7 +24,8 @@ def validate_definition(definition):
         if definition.id != GIANT: raise ValueError('Native Rafaam price belongs only to its actual Giant')
     if spec.profile_id in ('cost.player-played-outside-starting-deck-v1',
                            'cost.player-played-combo-turn-v1',
-                           'cost.player-last-played-cost-v1', 'cost.player-played-rafaam-v1') and (
+                           'cost.player-last-played-cost-v1', 'cost.player-played-rafaam-v1',
+                           'cost.player-played-other-class-v1') and (
             definition.intrinsic_costs or any(value is not None for value in (
                 definition.hero_health_change_cost, definition.player_draw_count_cost,
                 definition.player_weapon_attack_cost, definition.player_armor_cost,
@@ -79,6 +84,11 @@ def capture(state, registry, player_id, definition, base_cost):
     elif spec.profile_id == 'cost.player-played-rafaam-v1':
         from .rafaams import played_ids
         selected = played_ids(state, registry, player_id)
+    elif spec.profile_id == 'cost.player-played-other-class-v1':
+        from .play_history import matches_other_played_class
+        spec = replace(spec, card_class=state.players[player_id].hero_class)
+        selected = tuple(row.face.play_id for row in rows if row.face.player_id == player_id
+            and matches_other_played_class(row.face, spec.card_class))
     else:
         selected = tuple(record.id for record in played_cards(state, player_id, turn=turn,
             registry=registry, card_class=spec.card_class))
@@ -106,7 +116,10 @@ def validate_fact(registry, definition, fact):
     if fact.spec.profile_id == 'cost.player-played-rafaam-v1':
         from .rafaams import validate_registry
         validate_registry(registry)
-    if fact.spec != definition.player_played_class_cost:
+    expected = definition.player_played_class_cost
+    if expected.profile_id == 'cost.player-played-other-class-v1':
+        expected = replace(expected, card_class=fact.spec.card_class)
+    if fact.spec != expected:
         raise ValueError('Played-class price changed its pinned declaration')
     from .owner_turns import validate_face
     for row in fact.rows: validate_face(row.face, registry)

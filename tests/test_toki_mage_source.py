@@ -52,11 +52,12 @@ class TokiMageSourceTests(CardBatchTestMixin, unittest.TestCase):
         self.assertTrue({'RLK_590', 'WON_113'} <= set(d['mage_member_ids']))
         self.assertFalse(d['membership_uses_executable_coverage'] or d['formal_pool_complete'] or d['cn_calibrated'])
 
-    def test_full_201_union_retains_original_44_prefix_and_all_178_actual_candidates(self):
+    def test_extended_union_retains_original_201_and_44_prefixes_and_178_actual_candidates(self):
         f = fixture()
         d = native.load_batch()
         pool = f.registry.pool(native.POOL, f.context)
-        self.assertEqual([v.card_id for v in pool.members], d['merged_member_ids'])
+        self.assertEqual([v.card_id for v in pool.members[:201]], d['merged_member_ids'])
+        self.assertEqual(len(pool.members),206)
         self.assertEqual([v.card_id for v in pool.members[:44]], d['prior_member_ids'])
         self.assertTrue(all(v.weight == 1 for v in pool.members))
         self.assertFalse(pool.excluded_card_ids)

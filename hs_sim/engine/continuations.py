@@ -620,7 +620,9 @@ class FrameCodec:
         from .hand_play_locks import TrapRandomHandCards,validate_random_request
         if type(value) is TrapRandomHandCards and self.origin_state is not None:
             validate_random_request(self.origin_state,value)
-        from .physical_draw_groups import ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup, validate_material as validate_draw_group
+        from .physical_draw_groups import ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup, TriggerDrawnDeathrattle, validate_material as validate_draw_group
+        if type(value) is TriggerDrawnDeathrattle and self.origin_state is not None:
+            value.validate_in_state(self.origin_state,self.registry)
         if type(value) in (ContinuePhysicalDrawGroup, CapturePhysicalDrawGroup) and self.origin_state is not None:
             validate_draw_group(self.origin_state, self.registry, value)
         from .assemble_death_programs import ContinueAssembledDeathrattle,AssembleDeathContinuation,validate_material as validate_death_program

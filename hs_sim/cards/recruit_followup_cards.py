@@ -45,7 +45,7 @@ SCRIPTS = {
     'duel': lambda c: (SummonFromZone(c.player_id, source_id=c.source_id, cause=SummonCause.capture(c)),
         SummonByCard(3-c.player_id, (SummonEntryMaterial('TIME_870t'),), SummonCause.capture(c))),
     'whelp': lambda c: (Damage(c.target_id, 5, c.source_id, DamageKind.EFFECT),
-        GainArmor(c.state.players[c.player_id].hero_id, 5)),
+        GainArmor(c.player_id, 5)),
     'draw_two': lambda c: (Draw(c.player_id, 2, c.source_id),),
 }
 

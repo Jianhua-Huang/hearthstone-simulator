@@ -1618,5 +1618,7 @@ def build_registry():
     register_past_stored_transform_recruit(registry)
     from .past_cast_history_followups import register_past_cast_history_followups
     register_past_cast_history_followups(registry)
+    from .rogue_teacher_spells import register_rogue_teacher_spells
+    register_rogue_teacher_spells(registry)
     registry.validate()
     return registry

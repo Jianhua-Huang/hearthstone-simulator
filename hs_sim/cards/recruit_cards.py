@@ -75,14 +75,14 @@ def split_four(c):
 
 
 SCRIPTS = {
-    'oak': lambda c: (GainArmor(c.state.players[c.player_id].hero_id, 6),
+    'oak': lambda c: (GainArmor(c.player_id, 6),
                        recruit(c, query=PoolQuery(max_cost=4))),
     'willow': lambda c: tuple(recruit(c, zone, PoolQuery(tribes_any=('demon',)))
                               for zone in (Zone.HAND, Zone.DECK)),
     'acorns': lambda c: shuffle(c, 'SW_439t', 4),
     'imps': lambda c: shuffle(c, 'CAP_400t2t', 2, True),
     'dragons': lambda c: shuffle(c, 'EDR_260t', 2),
-    'equipment': lambda c: (GainArmor(c.state.players[c.player_id].hero_id, 2),
+    'equipment': lambda c: (GainArmor(c.player_id, 2),
                              *shuffle(c, 'JAIL_386t', 5)),
     'plagues': lambda c: shuffle(c, 'JAIL_443t', 4),
     'tripwire': lambda c: (*split_four(c), *shuffle(c, 'JAIL_881t', 2)),
@@ -95,7 +95,7 @@ SCRIPTS = {
                              if c.event.player_id == c.player_id else (),
     'squirrel': lambda c: (SummonByCard(c.player_id, (SummonEntryMaterial('SW_439t2'),),
                                       SummonCause.capture(c)),),
-    'armor_two': lambda c: (GainArmor(c.state.players[c.player_id].hero_id, 2),),
+    'armor_two': lambda c: (GainArmor(c.player_id, 2),),
     'plague_damage': lambda c: (Damage(c.state.players[c.player_id].hero_id, 2,
                                       c.source_id, DamageKind.SPELL),),
 }

@@ -77,6 +77,18 @@ def matches_played_class(face, card_class, *, registry=None):
         card_id=face.card_id, kind=face.kind, cost=0, meta=face.metadata, spell_school=face.spell_school, keywords=())
 
 
+def matches_other_played_class(face, current_class):
+    """Original played face against the class captured for this price query."""
+    from .model import CardClass, FrozenPlayedFaceFact
+    if type(face) is not FrozenPlayedFaceFact or type(current_class) is not CardClass or current_class == CardClass.NEUTRAL:
+        raise ValueError('Other-class history requires its original face and playable class')
+    face.__post_init__()
+    if face.metadata is None:
+        raise ValueError('Other-class history requires known original class metadata')
+    classes = set(face.metadata.classes)
+    return bool(classes - {CardClass.NEUTRAL}) and current_class not in classes
+
+
 def validate_starting_deck_identity(entities, cards, next_entity_id):
     """Complete immutable original inventory, independent of current card faces."""
     from .model import _int, _name

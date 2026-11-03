@@ -79,9 +79,13 @@ def merge_pools(registry, context, pools):
     return tuple(merged if p is original else p for p in pools)
 
 
-def register_scope(registry, context):
+def register_scope(registry, context, *, reviewed_member_ids=None):
     d = load_batch(); validate_native(registry, d); pool = registry.pool(POOL, context)
-    if not pool.complete or pool.excluded_card_ids or pool.members != tuple(PoolMember(cid) for cid in d['merged_member_ids']):
+    members=tuple(d['merged_member_ids']) if reviewed_member_ids is None else reviewed_member_ids
+    if (type(members) is not tuple or len(set(members))!=len(members) or
+            members[:len(d['merged_member_ids'])]!=tuple(d['merged_member_ids'])):
+        raise TargetValidationError('Toki requires its unchanged original reviewed inventory prefix')
+    if not pool.complete or pool.excluded_card_ids or pool.members != tuple(PoolMember(cid) for cid in members):
         raise TargetValidationError('Toki lost the complete independently reviewed shared union')
     registry.register_generation_scope(GenerationScope(POLICY + ':' + context.target_id,
         POOL, context.target_id, context.mode, SOURCE, CardClass.MAGE, QUERY, pool_digest(pool)))
