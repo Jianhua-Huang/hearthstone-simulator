@@ -130,8 +130,9 @@ class Scenario:
 
 @dataclass(frozen=True)
 class ActionResult:
+    """Accepted events; the optional per-action digest is collected in debug."""
     events: tuple[Event, ...]
-    state_hash: str
+    state_hash: str | None
 
 
 class Game:
@@ -1278,14 +1279,17 @@ class Game:
                 if trace is not None: trace.stage('controlled_turns')
                 drive(working)
                 events = tuple(working._events[start:])
-                if trace is not None: trace.stage('state_hash')
-                digest = working.state_hash()
+                digest = None
+                if working.runtime_audits:
+                    if trace is not None: trace.stage('state_hash')
+                    digest = working.state_hash()
         except Exception as exc:
             if isinstance(exc,ResolutionError):raise
             raise ResolutionError(f'Native turn failed and was rolled back: {exc}') from exc
         if trace is not None: trace.stage('history')
         working._history.append({'action': history_action_to_dict(action), 'state_hash': digest,
-                                 'events_hash': canonical_hash([event_to_dict(e) for e in events])})
+                                 'events_hash': (canonical_hash([event_to_dict(e) for e in events])
+                                                 if working.runtime_audits else None)})
         self._state, self._rng = working._state, working._rng
         self._events, self._history = working._events, working._history
         self._frame = working._frame

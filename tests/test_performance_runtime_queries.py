@@ -169,7 +169,10 @@ class RuntimeQueryTests(unittest.TestCase):
     def test_release_and_debug_actual_payment_choice_outputs_remain_identical(self):
         release=game();debug=release.clone();debug.runtime_mode='debug'
         action=PlayCard(1,release._state.players[1].hand[0])
-        self.assertEqual(release.apply(action),debug.apply(action))
+        fast,checked=release.apply(action),debug.apply(action)
+        self.assertEqual(fast.events,checked.events)
+        self.assertIsNone(fast.state_hash)
+        self.assertEqual(checked.state_hash,release.state_hash())
         self.assertEqual(release.snapshot(),debug.snapshot())
         self.assertEqual(release.for_player(1).legal_actions(),debug.for_player(1).legal_actions())
 

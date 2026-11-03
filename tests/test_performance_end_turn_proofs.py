@@ -26,13 +26,16 @@ def tail(game):
 class EndTurnProofPerformanceTests(unittest.TestCase):
     def test_release_debug_waiting_restore_replay_and_random_state_equal(self):
         release = ending(); debug = release.clone(); debug.runtime_mode = 'debug'
-        self.assertEqual(release.apply(EndTurn(1)), debug.apply(EndTurn(1)))
+        self.assertEqual(release.apply(EndTurn(1)).events, debug.apply(EndTurn(1)).events)
         saved = release.snapshot(); self.assertEqual(saved, debug.snapshot())
         restored = Game.from_snapshot(saved, end_fixtures.fixture_registry())
         choice = release._state.pending_choice
         action = SelectChoice(1, choice.id, ('three',))
         result = release.apply(action)
-        self.assertEqual(result, debug.apply(action))
+        checked = debug.apply(action)
+        self.assertEqual(result.events, checked.events)
+        self.assertIsNone(result.state_hash)
+        self.assertEqual(checked.state_hash, release.state_hash())
         self.assertEqual(result, restored.apply(action))
         self.assertEqual(release.snapshot(), debug.snapshot())
         self.assertEqual(release.snapshot(), restored.snapshot())

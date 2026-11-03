@@ -15,7 +15,7 @@ ACTIONS = ROOT / "examples" / "actions" / "basic.json"
 
 
 class EngineCliTests(unittest.TestCase):
-    def test_debug_and_release_save_identical_replays_and_debug_writes_action_logs(self):
+    def test_modes_save_identical_final_commitments_and_debug_writes_step_audits(self):
         with tempfile.TemporaryDirectory() as folder:
             release, debug = Path(folder) / 'release.json', Path(folder) / 'debug.json'
             log = Path(folder) / 'actions.jsonl'
@@ -23,8 +23,13 @@ class EngineCliTests(unittest.TestCase):
             second = self.run_cli('simulate', SCENARIO, '--actions', ACTIONS, '--replay-out', debug,
                                   '--mode', 'debug', '--debug-log', log)
             self.assertEqual(self.summary(first), self.summary(second))
-            self.assertEqual(json.loads(release.read_text(encoding='utf-8')),
-                             json.loads(debug.read_text(encoding='utf-8')))
+            fast, audited = (json.loads(path.read_text(encoding='utf-8')) for path in (release, debug))
+            for key in ('schema_version', 'origin', 'final_state_hash', 'final_events_hash'):
+                self.assertEqual(fast[key], audited[key])
+            self.assertEqual([row['action'] for row in fast['actions']],
+                             [row['action'] for row in audited['actions']])
+            self.assertTrue(all(row['state_hash'] is row['events_hash'] is None for row in fast['actions']))
+            self.assertTrue(all(len(row['state_hash']) == len(row['events_hash']) == 64 for row in audited['actions']))
             rows = [json.loads(line) for line in log.read_text(encoding='utf-8').splitlines()]
             self.assertEqual(len(rows), 3)
             self.assertTrue(all(row['status'] == 'ok' and 'audit' in row['stages_ms'] for row in rows))
@@ -100,7 +105,8 @@ class EngineCliTests(unittest.TestCase):
             self.assertTrue(path.is_file())
             payload = json.loads(path.read_text(encoding="utf-8"))
             self.assertEqual(len(payload["actions"]), summary["actions"])
-            self.assertEqual(payload["actions"][-1]["state_hash"], summary["state_hash"])
+            self.assertIsNone(payload["actions"][-1]["state_hash"])
+            self.assertEqual(payload["final_state_hash"], summary["state_hash"])
             restored = self.run_cli("replay", path)
             self.assertIn("回放逐步校验通过", restored.stdout)
             self.assertEqual(self.summary(restored), summary)
@@ -170,13 +176,21 @@ class EngineCliTests(unittest.TestCase):
     def test_corrupted_replay_returns_step_error_and_nonpositive_limit_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / "damaged.json"
-            self.run_cli("demo", "--max-actions", 1, "--replay-out", path)
+            self.run_cli("demo", "--max-actions", 1, "--mode", "debug",
+                         "--debug-log", Path(folder) / 'debug.jsonl', "--replay-out", path)
             payload = json.loads(path.read_text(encoding="utf-8"))
             payload["actions"][0]["state_hash"] = "0" * 64
             path.write_text(json.dumps(payload), encoding="utf-8")
             result = self.run_cli("replay", path, expected_code=2)
             self.assertIn("step 1", result.stderr)
             self.assertIn("state_hash mismatch", result.stderr)
+            self.run_cli("demo", "--max-actions", 1, "--replay-out", path)
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            self.assertIsNone(payload['actions'][0]['state_hash'])
+            payload['final_state_hash'] = '0' * 64
+            path.write_text(json.dumps(payload), encoding='utf-8')
+            result = self.run_cli('replay', path, expected_code=2)
+            self.assertIn('final_state_hash mismatch', result.stderr)
         invalid_limit = self.run_cli("demo", "--max-actions", 0, expected_code=2)
         self.assertIn("必须填写正整数", invalid_limit.stderr)
 

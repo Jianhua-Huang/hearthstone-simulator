@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from hs_sim.engine.actions import EndTurn, PlayCard
 from hs_sim.engine.effects import RandomDamage
@@ -51,8 +52,9 @@ class ReplayTests(unittest.TestCase):
         entity_id = game.state.players[1].hand[0]
         return game.apply(PlayCard(1, entity_id))
 
-    def completed_game(self):
+    def completed_game(self, mode='release'):
         game = self.make_game()
+        game.runtime_mode = mode
         self.cast_random(game)
         self.cast_random(game)
         game.apply(EndTurn(1))
@@ -64,6 +66,8 @@ class ReplayTests(unittest.TestCase):
             first_result = self.cast_random(first)
             second_result = self.cast_random(second)
             self.assertEqual(first_result.state_hash, second_result.state_hash)
+            self.assertIsNone(first_result.state_hash)
+            self.assertEqual(first.state_hash(), second.state_hash())
             self.assertEqual([event_to_dict(e) for e in first_result.events],
                              [event_to_dict(e) for e in second_result.events])
         payload = build_replay(first)
@@ -85,7 +89,7 @@ class ReplayTests(unittest.TestCase):
             self.assertEqual(load_replay(path, self.registry).state_hash(), game.state_hash())
 
     def test_tampered_state_and_event_hashes_report_exact_step(self):
-        original = build_replay(self.completed_game())
+        original = build_replay(self.completed_game('debug'))
         for name, index in (("state_hash", 0), ("events_hash", 1)):
             with self.subTest(name=name):
                 payload = deepcopy(original)
@@ -96,7 +100,7 @@ class ReplayTests(unittest.TestCase):
                 self.assertIn(f"{name} mismatch", str(caught.exception))
 
     def test_altered_or_malformed_actions_are_rejected_at_their_step(self):
-        original = build_replay(self.completed_game())
+        original = build_replay(self.completed_game('debug'))
         altered_actions = (
             {"type": "end_turn", "player_id": 2},
             {"type": "end_turn", "player_id": 1},
@@ -130,7 +134,8 @@ class ReplayTests(unittest.TestCase):
         original = build_replay(self.completed_game())
         malformed = [None, [], {}, {**original, "extra": True}]
         for field, value in (("schema_version", True), ("schema_version", "1"),
-                             ("schema_version", 2), ("origin", []), ("actions", {})):
+                             ("schema_version", 3), ("origin", []), ("actions", {}),
+                             ("final_state_hash", None), ("final_events_hash", 'A' * 64)):
             malformed.append({**original, field: value})
         for field in ("origin", "actions"):
             payload = deepcopy(original)
@@ -144,6 +149,82 @@ class ReplayTests(unittest.TestCase):
         for payload in malformed:
             with self.subTest(payload_type=type(payload).__name__), self.assertRaises(ReplayError):
                 replay(payload, self.registry)
+
+    def test_release_step_does_not_encode_or_hash_audit_payloads(self):
+        game = self.make_game()
+        with patch.object(Game, 'state_hash', side_effect=AssertionError('automatic state audit')), \
+                patch('hs_sim.engine.game.canonical_hash', side_effect=AssertionError('automatic event audit')):
+            result = self.cast_random(game)
+        self.assertIsNone(result.state_hash)
+        self.assertEqual(game.history[0]['state_hash'], None)
+        self.assertEqual(game.history[0]['events_hash'], None)
+        self.assertEqual(game.debug_records, ())
+        # Export computes final commitments without re-running actions.
+        with patch.object(Game, 'apply', side_effect=AssertionError('export must not simulate')):
+            payload = build_replay(game)
+        self.assertEqual(payload['schema_version'], 2)
+        self.assertEqual(payload['final_state_hash'], game.state_hash())
+        self.assertEqual(replay(payload, self.registry).snapshot(), game.snapshot())
+
+    def test_release_replay_checks_complete_final_state_and_events(self):
+        game = self.completed_game()
+        original = build_replay(game)
+        self.assertTrue(all(row['state_hash'] is row['events_hash'] is None for row in original['actions']))
+        for field in ('final_state_hash', 'final_events_hash'):
+            bad = deepcopy(original)
+            bad[field] = '0' * 64
+            with self.subTest(field=field), self.assertRaises(ReplayError) as caught:
+                replay(bad, self.registry)
+            self.assertIn(field, str(caught.exception))
+            self.assertEqual(caught.exception.step, len(original['actions']))
+        # The final check also covers truncation of an otherwise legal prefix.
+        bad = deepcopy(original)
+        bad['actions'].pop()
+        with self.assertRaisesRegex(ReplayError, 'final_state_hash mismatch'):
+            replay(bad, self.registry)
+        with self.assertRaisesRegex(ReplayError, 'final_state_hash mismatch'):
+            empty = build_replay(self.make_game())
+            empty['final_state_hash'] = '0' * 64
+            replay(empty, self.registry)
+
+    def test_debug_and_legacy_replay_keep_exact_step_checks_in_release_reader(self):
+        game = self.completed_game('debug')
+        modern = build_replay(game)
+        legacy = {key: deepcopy(modern[key]) for key in ('origin', 'actions')}
+        legacy['schema_version'] = 1
+        restored = replay(legacy, self.registry)
+        self.assertEqual(restored.snapshot(), game.snapshot())
+        self.assertEqual(build_replay(restored), modern)
+        for field in ('state_hash', 'events_hash'):
+            bad = deepcopy(legacy)
+            bad['actions'][1][field] = '0' * 64
+            with self.subTest(field=field), self.assertRaises(ReplayError) as caught:
+                replay(bad, self.registry)
+            self.assertEqual(caught.exception.step, 2)
+        legacy['actions'][0]['state_hash'] = None
+        legacy['actions'][0]['events_hash'] = None
+        with self.assertRaises(ReplayError):
+            replay(legacy, self.registry)
+
+    def test_mode_switch_records_only_requested_audits_and_replays_in_either_mode(self):
+        game = self.make_game()
+        self.cast_random(game)
+        game.runtime_mode = 'debug'
+        result = self.cast_random(game)
+        self.assertEqual(result.state_hash, game.state_hash())
+        self.assertEqual(game.debug_records[-1]['state_hash'], result.state_hash)
+        game.runtime_mode = 'release'
+        game.apply(EndTurn(1))
+        payload = build_replay(game)
+        self.assertEqual([row['state_hash'] is not None for row in payload['actions']], [False, True, False])
+        for mode in ('release', 'debug'):
+            restored = replay(payload, self.registry, mode=mode)
+            self.assertEqual(restored.snapshot(), game.snapshot())
+            self.assertEqual(build_replay(restored), payload)
+        bad = deepcopy(payload)
+        bad['actions'][0]['events_hash'] = '0' * 64
+        with self.assertRaises(ReplayError):
+            replay(bad, self.registry)
 
     def test_branch_origin_preserves_rng_and_does_not_embed_previous_actions(self):
         game = self.make_game()

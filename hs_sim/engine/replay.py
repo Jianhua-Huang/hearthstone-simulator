@@ -1,4 +1,4 @@
-"""Portable action replays with version and per-action consistency checks.
+"""Portable action replays with final and optional per-action consistency checks.
 
 A replay stores one origin snapshot and accepted player actions.  It runs the
 rules again rather than treating presentation events as executable instructions.
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     from .resolver import Mechanics
 
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 
 
@@ -48,9 +48,20 @@ def _fields(value: object, expected: set[str], name: str, step: int = 0) -> dict
 
 
 def _validate_payload(payload: object) -> dict:
-    data = _fields(payload, {"schema_version", "origin", "actions"}, "replay")
-    if type(data["schema_version"]) is not int or data["schema_version"] != SCHEMA_VERSION:
-        raise ReplayError(f"unsupported schema_version: {data['schema_version']!r}")
+    if not isinstance(payload, dict):
+        raise ReplayError("replay must be an object")
+    version = payload.get("schema_version")
+    if type(version) is not int or version not in (1, SCHEMA_VERSION):
+        raise ReplayError(f"unsupported schema_version: {version!r}")
+    fields = {"schema_version", "origin", "actions"}
+    if version == 2:
+        fields |= {"final_state_hash", "final_events_hash"}
+    data = _fields(payload, fields, "replay")
+    if version == 2:
+        for name in ("final_state_hash", "final_events_hash"):
+            value = data[name]
+            if not isinstance(value, str) or not _SHA256.fullmatch(value):
+                raise ReplayError(f"{name} must be a lowercase SHA-256 hex string")
     if not isinstance(data["origin"], dict):
         raise ReplayError("origin must be a snapshot object")
     if not isinstance(data["actions"], list):
@@ -59,6 +70,8 @@ def _validate_payload(payload: object) -> dict:
         record = _fields(item, {"action", "state_hash", "events_hash"}, "action record", step)
         if not isinstance(record["action"], dict):
             raise ReplayError("action must be an object", step=step)
+        if version == 2 and record["state_hash"] is None and record["events_hash"] is None:
+            continue
         for name in ("state_hash", "events_hash"):
             value = record[name]
             if not isinstance(value, str) or not _SHA256.fullmatch(value):
@@ -67,8 +80,17 @@ def _validate_payload(payload: object) -> dict:
 
 
 def build_replay(game: Game) -> dict:
-    """Return a detached replay starting at this game's creation or restore point."""
-    payload = {"schema_version": SCHEMA_VERSION, "origin": game.origin, "actions": game.history}
+    """Export final commitments now; only debug actions carry intermediate audits.
+
+    Release records commands without encoding every intermediate state. Their
+    replay checks the complete final state/RNG and event log, but cannot locate
+    a state divergence at an unaudited intermediate step. Version 1 remains
+    readable with its original mandatory per-action checks.
+    """
+    game._require_boundary()
+    payload = {"schema_version": SCHEMA_VERSION, "origin": game.origin, "actions": game.history,
+               "final_state_hash": game.state_hash(),
+               "final_events_hash": canonical_hash([event_to_dict(event) for event in game._events])}
     _validate_payload(payload)
     return deepcopy(payload)
 
@@ -92,17 +114,29 @@ def replay(payload: object, registry: Registry, mechanics: Mechanics | None = No
             result = game.apply(action)
         except (ValueError, TypeError, KeyError) as exc:
             raise ReplayError(f"invalid action: {exc}", step=step) from exc
-        if result.state_hash != record["state_hash"]:
-            raise ReplayError(
-                f"state_hash mismatch (expected {record['state_hash']}, got {result.state_hash})",
-                step=step,
-            )
-        events_hash = canonical_hash([event_to_dict(event) for event in result.events])
-        if events_hash != record["events_hash"]:
-            raise ReplayError(
-                f"events_hash mismatch (expected {record['events_hash']}, got {events_hash})",
-                step=step,
-            )
+        if record["state_hash"] is not None:
+            state_hash = result.state_hash if result.state_hash is not None else game.state_hash()
+            if state_hash != record["state_hash"]:
+                raise ReplayError(
+                    f"state_hash mismatch (expected {record['state_hash']}, got {state_hash})",
+                    step=step,
+                )
+            events_hash = canonical_hash([event_to_dict(event) for event in result.events])
+            if events_hash != record["events_hash"]:
+                raise ReplayError(
+                    f"events_hash mismatch (expected {record['events_hash']}, got {events_hash})",
+                    step=step,
+                )
+        # Preserve which steps were actually audited when the source ran,
+        # regardless of the host mode chosen to read it.
+        game._history[-1] = deepcopy(record)
+    if data["schema_version"] == 2:
+        for name, actual in (
+                ("final_state_hash", game.state_hash()),
+                ("final_events_hash", canonical_hash([event_to_dict(e) for e in game._events]))):
+            if actual != data[name]:
+                raise ReplayError(f"{name} mismatch (expected {data[name]}, got {actual})",
+                                  step=len(data["actions"]))
     return game
 
 

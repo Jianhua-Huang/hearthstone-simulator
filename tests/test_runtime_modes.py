@@ -64,9 +64,14 @@ class RuntimeModes(unittest.TestCase):
         release, debug = self.game(), self.game('debug')
         for _ in range(3):
             command = self.command(release)
-            self.assertEqual(release.apply(command), debug.apply(command))
+            fast, audited = release.apply(command), debug.apply(command)
+            self.assertEqual(fast.events, audited.events)
+            self.assertIsNone(fast.state_hash)
+            self.assertEqual(audited.state_hash, release.state_hash())
             self.assertEqual(release.snapshot(), debug.snapshot())
-            self.assertEqual(release.history, debug.history)
+            self.assertEqual([row['action'] for row in release.history],
+                             [row['action'] for row in debug.history])
+            self.assertTrue(all(row['state_hash'] is row['events_hash'] is None for row in release.history))
             for viewer in (1, 2):
                 self.assertEqual(release.for_player(viewer).legal_actions(), debug.for_player(viewer).legal_actions())
         record = debug.debug_records[0]

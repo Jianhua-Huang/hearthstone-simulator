@@ -30,9 +30,13 @@ class RuntimeAuditTests(unittest.TestCase):
         audited.runtime_audits = True
         for n in range(3):
             command = self.play(normal) if n == 0 else self.choose(normal)
-            self.assertEqual(normal.apply(command), audited.apply(command))
+            fast, checked = normal.apply(command), audited.apply(command)
+            self.assertEqual(fast.events, checked.events)
+            self.assertIsNone(fast.state_hash)
+            self.assertEqual(checked.state_hash, normal.state_hash())
             self.assertEqual(normal.snapshot(), audited.snapshot())
-            self.assertEqual(normal.history, audited.history)
+            self.assertEqual([row['action'] for row in normal.history],
+                             [row['action'] for row in audited.history])
             self.assertEqual([normal.for_player(p).legal_actions() for p in (1, 2)],
                              [audited.for_player(p).legal_actions() for p in (1, 2)])
             normal.audit()
