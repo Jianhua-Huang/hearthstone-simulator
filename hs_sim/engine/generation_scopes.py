@@ -27,6 +27,7 @@ class GenerationScope:
     query: PoolQuery
     inventory_sha256: str
     policy: GenerationPolicy = GenerationPolicy()
+    definition_validation: str = 'all_candidates'
 
     def __post_init__(self):
         from .construction import name
@@ -35,6 +36,12 @@ class GenerationScope:
         if type(self.query)is not PoolQuery or type(self.policy)is not GenerationPolicy:
             raise ValueError('Generation coverage requires its exact original query and policy')
         self.query.__post_init__();self.policy.__post_init__()
+        if type(self.definition_validation)is not str or self.definition_validation not in ('all_candidates','selected_summon'):
+            raise ValueError('Unknown generation definition validation policy')
+        if self.definition_validation=='selected_summon' and (
+                self.query!=PoolQuery(kinds=(CardType.MINION,),collectible=True) or
+                self.current_class is not None or self.policy!=GenerationPolicy()):
+            raise ValueError('Selected definition validation requires a plain class-independent minion view')
         if self.current_class is None:
             # A fixed specified-class query does not read the recipient's hero.
             # Current/other-class requests and unreviewed disjunctions still
@@ -58,17 +65,35 @@ def validate_scope(registry,scope):
         raise ValueError('Generation coverage borrowed or changed its complete original inventory')
     if registry.card(scope.source_card_id).kind not in (CardType.MINION,CardType.SPELL):
         raise ValueError('Generation coverage requires its actual native source identity')
+    if any(s.pool_key==scope.pool_key and s.definition_validation!=scope.definition_validation
+           for s in registry.generation_scopes.values()):
+        raise ValueError('One inventory cannot mix definition validation policies')
+
+
+def coverage_source(registry,source_card_id):
+    """Review a recipe's actual suffix donor without replacing its physical source."""
+    from .assemble_faces import PREFIX,recipe_from_id
+    if type(source_card_id)is not str or not source_card_id.startswith(PREFIX):return source_card_id
+    recipe=recipe_from_id(source_card_id)
+    registry.card(source_card_id)  # Complete registered projection and restrictions.
+    return recipe.primary_card_id if recipe.half=='top' else recipe.secondary_card_id
+
+
+def selected_summon_pool(registry,pool):
+    return any(s.pool_key==pool.key and s.definition_validation=='selected_summon'
+               for s in registry.generation_scopes.values())
 
 
 def require_scope(registry,pool,query,*,current_class,source_card_id,policy,exclude_source_by_rule):
     scopes=tuple(s for s in registry.generation_scopes.values()if s.pool_key==pool.key)
     if not scopes:return
+    coverage=coverage_source(registry,source_card_id)
     # Trusted pure inventory inspection may omit a source; actual generation
     # always sets exclude_source_by_rule=True and requires its native producer.
     for scope in scopes:
         if (scope.query==query and (scope.current_class is None or scope.current_class==current_class) and scope.policy==policy and
-                (scope.source_card_id==source_card_id or source_card_id is None and not exclude_source_by_rule)):
-            return
+                (scope.source_card_id==coverage or source_card_id is None and not exclude_source_by_rule)):
+            return scope
     from .registry import UnsupportedDefinitionError
     raise UnsupportedDefinitionError('Unreviewed generation scope: '+pool.id+'; source='+str(source_card_id)+'; class='+str(current_class))
 

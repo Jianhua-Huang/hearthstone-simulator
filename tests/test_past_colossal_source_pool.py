@@ -96,7 +96,7 @@ class PastColossalSourcePoolTests(CardBatchTestMixin, unittest.TestCase):
         self.assertFalse(data['formal_pool_complete']); self.assertFalse(data['cn_calibrated'])
         self.assertFalse(reference['runtime_bindings_added'])  # The historical reference stays untouched.
 
-    def test_extended_union_keeps_both_exact_original_orders_identity_weights_and_five_scopes(self):
+    def test_extended_union_keeps_both_exact_original_orders_identity_weights_and_source_scopes(self):
         f = host(); data = binding.load_batch(); pool = f.registry.pool(POOL, f.context)
         self.assertEqual([v.card_id for v in pool.members if v.card_id in data['merged_member_ids']], data['merged_member_ids'])
         self.assertEqual(len(pool.members), 72); self.assertTrue(all(v.weight == 1 for v in pool.members))
@@ -105,7 +105,9 @@ class PastColossalSourcePoolTests(CardBatchTestMixin, unittest.TestCase):
             current_class=CardClass.DRUID, source_card_id='GDB_857', exclude_source_by_rule=True)
         self.assertEqual([v.card_id for v in frontier], data['frontier_member_ids'])
         self.assertEqual(set(data['member_ids']) & set(data['frontier_member_ids']), {'TID_712'})
-        self.assertEqual(len(f.registry.generation_scopes), 5)
+        scopes=[s for s in f.registry.generation_scopes.values() if s.pool_key==pool.key]
+        self.assertEqual(len(scopes),3)
+        self.assertEqual({s.source_card_id for s in scopes},{'GDB_857','CATA_EVENT_000','TIME_016'})
         scope = next(s for s in f.registry.generation_scopes.values() if s.source_card_id == SOURCE)
         self.assertIsNone(scope.current_class); self.assertEqual(scope.query, binding.QUERY)
         self.assertIn(POOL, load_bindings()['partially_scoped_pool_ids'])
@@ -209,7 +211,7 @@ class PastColossalSourcePoolTests(CardBatchTestMixin, unittest.TestCase):
                     source_card_id=source,exclude_source_by_rule=True)
         with self.assertRaises(UnsupportedDefinitionError):
             resolve_candidates(f.registry,f.context,'constructed.past.spells',TOKI_QUERY,
-                current_class=CardClass.MAGE,source_card_id='TIME_861',exclude_source_by_rule=True)
+                current_class=CardClass.PRIEST,source_card_id='TIME_861',exclude_source_by_rule=True)
         with self.assertRaises(UnsupportedDefinitionError):
             resolve_candidates(f.registry,f.context,POOL,PoolQuery(kinds=(CardType.MINION,)),
                 source_card_id=SOURCE,exclude_source_by_rule=True)

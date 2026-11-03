@@ -103,7 +103,14 @@ def validate_basis(state,registry,basis,*,closed=False):
         source_card_id=None if basis.source is None else basis.source.card_id,policy=basis.policy,player_id=basis.player_id,
         exclude_source_by_rule=True)
     if rows!=basis.candidates:raise ValueError('Pool summon lost/reordered/reweighted its complete original candidates')
-    for row in rows:validate_material(registry,entry_material(basis,row.card_id),allow_colossal=True,allow_pool_entry=True)
+    from .generation_scopes import selected_summon_pool
+    deferred=selected_summon_pool(registry,registry.pool(basis.pool_id,basis.context))
+    if deferred and any((basis.entry_keywords,basis.entry_dormant_turns is not None,
+            basis.entry_grant is not None,basis.on_summon is not None,basis.attack_window is not None)):
+        raise ValueError('Selected-definition inventory requires plain original summon material')
+    for row in rows:
+        if not deferred or row.card_id in registry.cards:
+            validate_material(registry,entry_material(basis,row.card_id),allow_colossal=True,allow_pool_entry=True)
 
 
 def choose_weighted(rng,materials,weights):
@@ -114,6 +121,9 @@ def choose_weighted(rng,materials,weights):
 
 def validate_weighted_request(state,registry,request,*,closed=False):
     if type(request.pool_basis)is not PoolSummonBasis:raise ValueError('Weighted summon requires its complete original pool basis')
+    from .generation_scopes import selected_summon_pool
+    if selected_summon_pool(registry,registry.pool(request.pool_basis.pool_id,request.pool_basis.context)):
+        raise ValueError('Selected-definition inventory requires the original preselected batch producer')
     validate_basis(state,registry,request.pool_basis,closed=closed)
     if request.pool_basis.attack_window is not None:
         cause=request.cause.source;source=request.pool_basis.source
@@ -289,6 +299,9 @@ def accept_batch(r,effect,candidates,*,fill_board=False):
     spec=PoolSummonBatchSpec(effect.cause,basis,base_count,effect.replacement,effect.producer_profile_id,effect.board_position,capacity)
     before=r.game._rng.getstate()
     selected=sample_candidates(r.game._rng,candidates,count,replacement=effect.replacement)
+    from .generation_scopes import selected_summon_pool
+    if selected_summon_pool(r.registry,r.registry.pool(basis.pool_id,basis.context)):
+        for cid in selected:validate_material(r.registry,entry_material(basis,cid),allow_colossal=True,allow_pool_entry=True)
     root=PoolSummonBatchRecord(r.state.next_pool_summon_id,len(r.game._events),r.state.turn,r.state.action_number,
         spec,selected,before,r.game._rng.getstate(),producer_amount=amount)
     r.state.next_pool_summon_id+=1;r.state.pool_summon_history.append(root);emit(r,'pool_summon_accepted',root)
@@ -352,6 +365,9 @@ def validate_link(state,root,*,closed=False):
 def validate_record(state,registry,root,*,closed=False,children=None):
     validate_amount_record(registry,root)
     root.__post_init__();validate_cause(state,registry,root.spec.cause,closed=closed);validate_basis(state,registry,root.spec.basis,closed=closed)
+    from .generation_scopes import selected_summon_pool
+    if selected_summon_pool(registry,registry.pool(root.spec.basis.pool_id,root.spec.basis.context)):
+        for cid in root.selected:validate_material(registry,entry_material(root.spec.basis,cid),allow_colossal=True,allow_pool_entry=True)
     if root.spec.fill_capacity is not None:root.spec.fill_capacity.validate_in_state(state,registry,closed=closed)
     fact=root.producer_amount
     if fact is not None and (fact.next_entity_id>state.next_entity_id or fact.next_attachment_id>state.next_attachment_id or fact.next_order>state.next_order):

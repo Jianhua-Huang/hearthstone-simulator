@@ -35,8 +35,11 @@ def load_batch():
     return data
 
 
-def nondeath_body(c,profile):
+def nondeath_body(c,profile,registry=None):
     mode,pool,query,count=profile;cause=SummonCause.capture(c)
+    if registry is not None and pool=='constructed.past.cards' and query==Q89['TIME_052']:
+        from .amber_past_minions import producer_pool
+        pool=producer_pool(registry)
     if mode=='generate':
         return (GenerateFromPool(c.player_id,pool,query,count=count,source_id=c.source_id,destination='board',cause=cause),)
     return (SummonFromPool(c.player_id,pool,query,source_id=c.source_id,cause=cause),)
@@ -54,7 +57,7 @@ def register_assemble_summon_companion_equipment_fragments(registry):
             actual=dict(mode=mode,pool_id=pool,query=asdict(query),count=count)
             if canonical_digest(actual)!=canonical_digest(decl['nondeath_profile'])or decl['behavior_id']!=PREFIX+cid:
                 raise TargetValidationError('Summon assembly changed its reviewed nondeath producer parameters')
-            registry.register_behavior(decl['behavior_id'],lambda c,profile=PROFILES[cid]:nondeath_body(c,profile))
+            registry.register_behavior(decl['behavior_id'],lambda c,profile=PROFILES[cid]:nondeath_body(c,profile,registry))
         registry.register_assemble_template(AssembleTemplate(cid,
             AssemblePrefix(decl['timing'],tuple(Keyword(k)for k in decl['keywords'])),
             AssembleSuffix(decl['behavior_id'],tuple(decl['allowed_timings']),

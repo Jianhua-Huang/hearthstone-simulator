@@ -123,7 +123,9 @@ class PastPaladinMechSourcePoolTests(CardBatchTestMixin,unittest.TestCase):
             self.assertEqual(colossal.projection(f.registry,pool.members,query,cl),ids)
         self.assertEqual(data['shared_ids'],['TSC_030'])
         self.assertEqual(sum(v.card_id == 'TSC_030' for v in candidates()),1)
-        self.assertEqual(len(f.registry.generation_scopes),5)
+        scopes=[s for s in f.registry.generation_scopes.values() if s.pool_key==pool.key]
+        self.assertEqual(len(scopes),3)
+        self.assertEqual({s.source_card_id for s in scopes},{'GDB_857','CATA_EVENT_000','TIME_016'})
 
     def test_fixed_paladin_query_is_independent_of_recipient_class_but_scope_is_exact(self):
         f = host(); scope = next(s for s in f.registry.generation_scopes.values() if s.source_card_id == SOURCE)

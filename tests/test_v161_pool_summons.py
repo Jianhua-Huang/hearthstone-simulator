@@ -204,7 +204,9 @@ class PoolSummonTests(unittest.TestCase):
     def test_board_discovery_and_injected_control_reject_explicitly(self):
         for name,pattern in (('board_discovery','Unattributed summon'),('pool_injection','inject pool summon control')):
             with self.subTest(name=name):
-                g=self.game((name,),('source',));s=g.snapshot()
+                g=self.game((name,),('source',))
+                if name=='pool_injection':g.runtime_mode='debug'
+                s=g.snapshot()
                 with self.assertRaisesRegex(Exception,pattern):self.play(g,name)
                 self.assertEqual(g.snapshot(),s)
     def test_current_and_outer_receipts_reject_weight_draw_link_and_queue_edits(self):

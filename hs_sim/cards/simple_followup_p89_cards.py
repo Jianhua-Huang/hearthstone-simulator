@@ -43,6 +43,7 @@ def load_batch():
 
 def register_simple_followup_p89_cards(registry):
  d=load_batch()
+ from .amber_past_minions import producer_pool as amber_pool
  def wo(c):
   record=cast_record(c.state,dict(c.event.data)['cast_id'])
   if(record.source_id,record.player_id,record.target_id)!=(c.event.source_id,c.event.player_id,c.event.target_id):raise ResolutionError('Wo lost original completed spell linkage')
@@ -55,7 +56,7 @@ def register_simple_followup_p89_cards(registry):
   return(RemoveFromGame((*hand,*deck),c.source_id),)+tuple(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[REALITY],count=count,source_id=c.source_id,destination=destination,position='bottom'if destination=='deck'else'random',cost=CostSpec(delta=-1))for count,destination in((len(hand),'hand'),(len(deck),'deck'))if count)
  bodies={WO:wo,NEON:lambda c:(DiscoverFromPool(c.player_id,PAST_POOL,QUERIES[NEON],source_id=c.source_id,minion_grant=CreatedMinionGrant(5,5)),),
  MEMORY:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[MEMORY],source_id=c.source_id),),
- WARDEN:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[WARDEN],source_id=c.source_id,destination='board',board_position=deathrattle_position(c),cause=SummonCause.capture(c)),),
+ WARDEN:lambda c:(GenerateFromPool(c.player_id,amber_pool(registry),QUERIES[WARDEN],source_id=c.source_id,destination='board',board_position=deathrattle_position(c),cause=SummonCause.capture(c)),),
  GLAIVE:lambda c:(GenerateFromPool(c.player_id,PAST_POOL,QUERIES[GLAIVE],source_id=c.source_id),),
  ALTER:lambda c:(DiscoverFromPool(c.player_id,ARCANE_PAST_POOL,QUERIES[ALTER],source_id=c.source_id,discoveries=2,cost=CostSpec(delta=-2)),),
  WINGS:lambda c:(DiscoverDarkGift(c.player_id,PAST_POOL,QUERIES[WINGS],c.source_id),),

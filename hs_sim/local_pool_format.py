@@ -260,6 +260,8 @@ def build_cn37_local_pool_format():
         one_cost_pool,standard_pack_pool(registry,original.context),rajh_pool(registry,original.context)) + zombeast_pools(registry,original.context) + (protoss_pool(registry,original.context),hawk_pool(registry,original.context),gift_pool(registry,original.context)) + azerite_pools(registry,original.context) + excavation_pools(registry,original.context) + (disco_pool(registry,original.context),) + past_spell_pools(registry,original.context) + champion_pools(registry,original.context)
     pools=pools+(nature_pool(registry,original.context),warrior_nature_pool(registry,original.context))
     pools=pools+hunter_nature_pools(registry,original.context)
+    from .cards.amber_past_minions import local_pool as amber_pool,register_scope as register_amber_scope
+    pools=pools+(amber_pool(registry,original.context),)
     excavation = excavation_profile(original.context)
     binding = canonical_digest(dict(format=FORMAT_VERSION,
         original_binding=original.binding_digest, manifest=canonical_digest(manifest),
@@ -279,6 +281,7 @@ def build_cn37_local_pool_format():
     register_champion_scopes(registry,context)
     register_toki_mage(registry,context,reviewed_member_ids=shared_member_ids())
     register_teacher_scope(registry,context)
+    register_amber_scope(registry,context)
     register_nature_scope(registry,context,reviewed_pool=nature_pool(registry,context))
     register_priest_nature_scopes(registry,context,reviewed_pool=nature_pool(registry,context))
     register_rogue_nature_scope(registry,context)

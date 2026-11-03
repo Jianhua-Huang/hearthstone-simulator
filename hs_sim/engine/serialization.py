@@ -22,8 +22,19 @@ from .model import (EndTurnSpec, TriggerSpec, EndTurnSubject, EndTurnBatch, EndT
 
 
 def canonical_hash(value) -> str:
-    raw = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
-    return hashlib.sha256(raw.encode('utf-8')).hexdigest()
+    try:
+        raw = json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
+        return hashlib.sha256(raw.encode('utf-8')).hexdigest()
+    except MemoryError:
+        # Leave the handler before streaming, releasing the failed encoder's
+        # traceback/chunks. Also discard a full string if UTF-8 allocation failed.
+        raw = None
+    digest=hashlib.sha256()
+    encoder=json.JSONEncoder(ensure_ascii=False,sort_keys=True,separators=(',', ':'),allow_nan=False)
+    for chunk in encoder.iterencode(value):
+        for start in range(0,len(chunk),16384):
+            digest.update(chunk[start:start+16384].encode('utf-8'))
+    return digest.hexdigest()
 
 
 def event_to_dict(event: Event) -> dict:

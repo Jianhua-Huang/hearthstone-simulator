@@ -1,5 +1,7 @@
 # 机制扩展指南
 
+真实大池只缺部分原生效果时，不得按已实现卡筛选。已有GenerationScope默认all_candidates保持严格前审；只有独立完整成员和精确来源已审核、且请求为普通带归因的随从批次时，才可显式声明selected_summon，由原生产者抽取后严格校验实际结果，未知结果使整次事务回滚。此声明不授权手牌发现、额外授予或组合机制。拼装只在scope匹配中使用已审实际后缀供体，物理来源和候选家族排除保持，见[琥珀守卫契约](m3-amber-past-minions.md)。
+
 从当前敌方英雄向原随从转移生命可用StealHealthToMinion(minion_ref, hero_id, amount, source_id)；按最低剩余生命逐点分配用StealLowestEnemyHealthToMinion，仍固定原随从驻留并沿普通反应后续查询，见[戈霍恩契约](m3-ghuun-health-theft.md)。
 
 真实手牌符文换形可复用每个目的面自己的HandProgressSpec及UpgradeHandCard；RequestChoice的显式场上随从目标域支持固定1、2、3目标，手牌仍只支持1，详见[腐臭吞噬者契约](m3-fetid-devourer.md)。

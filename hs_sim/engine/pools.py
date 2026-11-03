@@ -419,8 +419,9 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
         _player(player_id)
     pool = registry.pool(pool_id, context)
     from .generation_scopes import require_scope
-    require_scope(registry,pool,query,current_class=current_class,source_card_id=source_card_id,
+    scope=require_scope(registry,pool,query,current_class=current_class,source_card_id=source_card_id,
                   policy=policy,exclude_source_by_rule=exclude_source_by_rule)
+    selected_validation=scope is not None and scope.definition_validation=='selected_summon'
     if any(q.class_mode in ('current', 'other') for q in (query, *query.any_of)) and (type(current_class) is not CardClass or current_class == CardClass.NEUTRAL):
         raise ValueError('Generation requires a known current playable hero class')
     excluded = set(pool.excluded_card_ids) | set(query.exclude_card_ids)
@@ -466,7 +467,7 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
             continue
         if CardClass.DEATH_KNIGHT in meta.classes and meta.runes is None:
             raise UnknownCardFactError('Ordinary Death Knight generation requires known printed Runes: '+row.card_id)
-        registry.card(row.card_id)  # Never filter by executable coverage.
+        if not selected_validation:registry.card(row.card_id)
         eligible.append(member)
     unique = {}
     for member in eligible:
@@ -937,6 +938,18 @@ def generation_candidates(r, effect):
                                         current_class=current_class, source_card_id=source_card_id,
                                         policy=getattr(effect, 'policy', GenerationPolicy()), player_id=effect.player_id,
                                         exclude_source_by_rule=True)
+    from .generation_scopes import selected_summon_pool
+    if (r.registry.generation_scopes and not (type(effect)is DiscoverFromPool and effect.fixed_candidates) and
+            selected_summon_pool(r.registry,r.registry.pool(effect.pool_id,r.game._generation_context))):
+        # No missing definition is turned into a blank card. All metadata remains
+        # eligible; the original preselected batch validates each actual result.
+        plain=GenerateFromPool(effect.player_id,effect.pool_id,effect.query,
+            count=getattr(effect,'count',1),source_id=effect.source_id,
+            replacement=getattr(effect,'replacement',True),destination='board',
+            board_position=getattr(effect,'board_position',None),cause=getattr(effect,'cause',None))
+        if type(effect)is not GenerateFromPool or effect!=plain or effect.cause is None:
+            raise ResolutionError('Selected-definition inventory requires a plain attributed summon batch')
+        return candidates
     board = getattr(effect, 'destination', 'hand') == 'board'
     if any((r.registry.card(m.card_id).kind != CardType.MINION if board
             else not r.registry.card(m.card_id).hand_playable) or r.registry.card(m.card_id).choice_only
