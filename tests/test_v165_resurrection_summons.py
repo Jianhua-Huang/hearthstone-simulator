@@ -1,6 +1,6 @@
 """Native immutable deaths, two original draw policies and per-body followups."""
 from copy import deepcopy
-from dataclasses import dataclass
+from dataclasses import dataclass,replace
 import json,unittest
 from random import Random
 from hs_sim.engine import CardDefinition,CardType,Game,Keyword,PlayerSetup,PoolQuery,RewindSpec,Scenario,SnapshotError,SummonCause,SummonStats,TriggerSpec,Zone,Herald
@@ -11,6 +11,7 @@ from hs_sim.engine.sacrifice import BuffCapturedMinion,MinionReference
 from hs_sim.engine.spell_casts import CastSpell
 from hs_sim.engine.replay import build_replay,replay
 from hs_sim.engine.serialization import canonical_hash
+from hs_sim.engine.model import CardClass,CardMetadata
 import test_v164_recruit_summons as base
 
 
@@ -30,6 +31,12 @@ def mechanics():
 
 def registry():
     r=base.registry()
+    # Herald now requires one of its actual supported classes. Keep the old
+    # Mage copy fixture independent and give this resurrection test a Warrior.
+    r.register_card(CardDefinition('dx_warrior','Herald Warrior',CardType.HERO,health=30,
+        metadata=CardMetadata(False,(CardClass.WARRIOR,),None)))
+    r.register_card(replace(r.card('rr_soldier'),id='dx_soldier',name='Herald Warrior Soldier',
+        herald_soldier_for=CardClass.WARRIOR))
     r.register_card(CardDefinition('dx_printed','Base resurrection face',CardType.MINION,cost=3,attack=1,health=5,
         keywords=(Keyword.REBORN,Keyword.TAUNT),deathrattle='gift'))
     def res(c,count=2,selection='first',distinct='death',query=DeathQuery(),player=1,follow=None,position=None):
@@ -92,11 +99,11 @@ def registry():
 
 class ResurrectionQuantityTests(unittest.TestCase):
     blob=base.RecruitSummonTests.blob;play=base.RecruitSummonTests.play;choose=base.RecruitSummonTests.choose
-    def game(self,hand=(),board=(),enemy=(),hero='hero'):
+    def game(self,hand=(),board=(),enemy=(),hero='hero',mode='release'):
         g=Game.from_scenario(Scenario((PlayerSetup(hero,hand=hand,board=board,deck=('body',)*5,mana=10,max_mana=10),
-            PlayerSetup('hero',board=enemy,deck=('body',)*5)),seed=165),registry(),mechanics=mechanics());self.blob(g,'initial');return g
-    def ready(self,name,deaths=('body','other'),watchers=(),extra=()):
-        g=self.game(('dx_kill','source',name)+extra,deaths+watchers);self.play(g,'dx_kill');self.play(g,'source');return g
+            PlayerSetup('hero',board=enemy,deck=('body',)*5)),seed=165),registry(),mechanics=mechanics(),mode=mode);self.blob(g,'initial');return g
+    def ready(self,name,deaths=('body','other'),watchers=(),extra=(),mode='release'):
+        g=self.game(('dx_kill','source',name)+extra,deaths+watchers,mode=mode);self.play(g,'dx_kill');self.play(g,'source');return g
     def portable(self,g):
         s=json.loads(json.dumps(g.snapshot()));self.blob(s,'portable')
         self.assertEqual(Game.from_snapshot(deepcopy(s),registry(),mechanics=mechanics()).snapshot(),s)
@@ -235,7 +242,7 @@ class ResurrectionQuantityTests(unittest.TestCase):
 
     def test_legacy_quantity_and_choice_control_injections_roll_back(self):
         for name,pattern in(('dx_legacy','Unattributed summon'),('dx_inject','inject death resurrection control'),('dx_inject_follow','inject death resurrection control')):
-            g=self.ready(name);before=g.snapshot()
+            g=self.ready(name,mode='debug');before=g.snapshot()
             with self.assertRaisesRegex(Exception,pattern):self.play(g,name)
             self.assertEqual(g.snapshot(),before)
         g=self.game(('dx_kill','dx_legacy'),('body',));self.play(g,'dx_kill');self.play(g,'dx_legacy');self.assertFalse(g.state.resurrection_summon_history);self.portable(g)
@@ -293,7 +300,7 @@ class ResurrectionQuantityTests(unittest.TestCase):
             self.assertTrue(change(bad['resolution_frame']));self.reject(bad,'unbound-'+name)
 
     def test_current_recipient_herald_strength_is_frozen_for_all_accepted_bodies(self):
-        g=self.game(('dx_kill','rr_herald_twice','source','dx_direct'),('rr_soldier','dx_herald_watch'),hero='rr_mage')
+        g=self.game(('dx_kill','rr_herald_twice','source','dx_direct'),('dx_soldier','dx_herald_watch'),hero='dx_warrior')
         self.play(g,'dx_kill');original_rank=g.state.death_history[0].herald_rank
         self.play(g,'rr_herald_twice');self.play(g,'source');self.play(g,'dx_direct');self.portable(g)
         self.assertEqual(original_rank,0);self.assertEqual(len(g.state.herald_history),4)

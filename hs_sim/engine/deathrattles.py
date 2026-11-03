@@ -297,6 +297,11 @@ def finish_batch(r,work):
             tuple(row.capture for row in rows)!=tuple(row.capture for row in original) or
             any(not row.completed or row.interrupted for row in rows)):
         raise ValueError('Deathrattle batch must complete its full accepted span')
+    # Finite Colossals defer refills until every accepted Deathrattle finishes.
+    # This control marker is not an effect checkpoint; an attack can end here
+    # without any later ordinary work to resume the deferred reaction.
+    from .colossal_reserves import schedule
+    return schedule(r,r._work_queue,(),())
 
 
 def interrupt(state):

@@ -78,15 +78,21 @@ class ResurrectionEntryMaterial:
                 raise ValueError('One-health death material requires its original source and ordinary printed entry')
 
 
-def validate_face(registry,material):
-    material.__post_init__();card=registry.card(material.card_id)
+def validate_death_face(registry,death):
+    """Use the same printed resurrection face for candidate and entry checks."""
+    card=registry.card(death.card_id)
     from .crafted_faces import composition_shape
-    if card.kind!=CardType.MINION or card.choice_only or not composition_shape(card,material.death.components):
+    if card.kind!=CardType.MINION or card.choice_only or not composition_shape(card,death.components):
         raise ValueError('Resurrection requires a complete printed minion and its original composition')
-    for card_id in material.death.components:
+    for card_id in death.components:
         component=registry.card(card_id)
         if component.kind!=CardType.MINION or component.starship_for:
             raise ValueError('Resurrection composition requires its original non-composite minion pieces')
+    return card
+
+
+def validate_face(registry,material):
+    material.__post_init__();card=validate_death_face(registry,material.death)
     if material.on_summon is not None:registry.behavior(material.on_summon)
     if registry.card(material.card_id).herald_scaling!=(material.entry_herald_count is not None):raise ValueError('Resurrection lost original deferred entry-strength basis')
 
@@ -278,12 +284,11 @@ def validate_basis(state,registry,basis,*,closed=False,death_ids=None):
         ids=tuple(x.id for x in result)
         if set(death_ids)-set(ids):raise ValueError('Exact resurrection death is outside the complete original query')
         return tuple(i for i in ids if i in death_ids)
-    from .summon_quantities import SummonEntryMaterial,validate_material as validate_plain
     for death in result:
         from .crafted_faces import PREFIX as crafted_prefix
         if death.components and not death.card_id.startswith(crafted_prefix):
             raise ValueError('Composite death quantity material is unsupported by ordinary profile')
-        validate_plain(registry,SummonEntryMaterial(death.card_id))
+        validate_death_face(registry,death)
     return tuple(x.id for x in result)
 
 
