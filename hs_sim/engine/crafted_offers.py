@@ -3,7 +3,6 @@
 The source pool, printed budget, small-pool and discount windows are explicit.
 An undeclared/incomplete pool is unsupported, never a reduced executable subset.
 """
-from copy import deepcopy
 from dataclasses import asdict,dataclass,fields,replace
 from random import Random
 import json
@@ -213,7 +212,7 @@ def validate_current(offer,state):
 
 
 def make_offer(r,spec,parent=None,first=None,result=None):
-    before=deepcopy(r.state);rows=candidates(r.registry,r.game._generation_context,spec,first)
+    before=r.capture_state();rows=candidates(r.registry,r.game._generation_context,spec,first)
     discount=parent.discount if parent else discount_for(r.registry,before,spec)
     rng_before=r.game._rng.getstate();offered=sample_candidates(r.game._rng,rows,3,replacement=False)
     offer=CraftOffer(spec,before,2 if parent else 1,first,tuple(m.card_id for m in rows),offered,

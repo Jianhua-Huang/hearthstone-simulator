@@ -3,7 +3,7 @@
 Historical payload names stay stable. Multiple arrows share one acceptance
 window and retain their original distinct-target constraint and batch body.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass,replace
 import json
 

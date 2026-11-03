@@ -23,6 +23,7 @@ from hs_sim.engine.health_outcomes import health_result
 from hs_sim.engine.model import (DamageKind, HealingKind, HealthFlow, HealthLayer,
     HealthOp, HealthRule, LimitedTriggerSpec, PlayerEffectSpec, RewindSpec, SpellSchool)
 from hs_sim.engine.player_effects import AddPlayerEffect
+from hs_sim.engine.pools import PoolCard
 from hs_sim.engine.random_split_damage import (
     FinishRandomSplitRoot, RandomSplitDamage, RandomSplitHealing, SplitDamageScope,
     SplitHealingRoot, closed_root, quote_budget)
@@ -107,6 +108,22 @@ def registry(mode=None):
 
 
 class NativeSplitHealingTests(unittest.TestCase):
+    def test_all_unit_results_and_random_state_match_debug(self):
+        release=self.game(mode='wait')
+        debug=release.clone();debug.runtime_mode='debug'
+        for match in (release,debug):
+            self.wound(match)
+            self.play(match)
+        self.assertEqual(release.snapshot(),debug.snapshot())
+        saved=release.snapshot()
+        restored=Game.from_snapshot(saved,release.registry)
+        for match in (release,debug,restored):
+            self.choose(match)
+            self.assertEqual(len(self.values(match)),12)
+        self.assertEqual(release.snapshot(),debug.snapshot())
+        self.assertEqual(release.snapshot(),restored.snapshot())
+        self.portable(release)
+
     def game(self, hand=(P+'wound20', HEALING_RAIN), board=(), enemy=(), mode=None):
         self.mode = mode
         if mode:
@@ -340,12 +357,23 @@ class NativeSplitHealingTests(unittest.TestCase):
                 self.assertNotIn('"'+key+'"', public)
 
     def test_current_assembly_adds_only_original_card_and_rejects_old_schema(self):
-        with patch('hs_sim.cards.native_split_healing_cards.register_native_split_healing_cards', lambda r: None):
-            before = build_registry()
-        after = build_registry()
-        self.assertEqual(set(after.cards)-set(before.cards), {HEALING_RAIN})
-        for cid, card in before.cards.items(): self.assertEqual(asdict(card), asdict(after.card(cid)))
-        self.assertEqual(dict(before.pool_cards), dict(after.pool_cards))
+        seen=[]
+        def register_checked(target):
+            # Later real batches require Rain. Observe its actual registration
+            # window instead of constructing an invalid registry without it.
+            before={cid:asdict(card) for cid,card in target.cards.items()}
+            pools=dict(target.pool_cards)
+            register_native_split_healing_cards(target)
+            self.assertEqual(set(target.cards)-set(before),{HEALING_RAIN})
+            for cid,card in before.items():self.assertEqual(card,asdict(target.card(cid)))
+            self.assertEqual(set(target.pool_cards)-set(pools),{HEALING_RAIN})
+            for cid,card in pools.items():self.assertEqual(card,target.pool_card(cid))
+            self.assertEqual(target.pool_card(HEALING_RAIN),PoolCard.from_definition(target.card(HEALING_RAIN)))
+            seen.append(target.card(HEALING_RAIN))
+        with patch('hs_sim.cards.native_split_healing_cards.register_native_split_healing_cards',register_checked):
+            after=build_registry()
+        self.assertEqual(len(seen),1)
+        self.assertEqual(asdict(seen[0]),asdict(after.card(HEALING_RAIN)))
         g = self.game(); s = g.snapshot(); s['schema_version'] = SNAPSHOT_SCHEMA_VERSION-1
         with self.assertRaises(SnapshotError): Game.from_snapshot(s, registry())
 

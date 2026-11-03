@@ -5,7 +5,7 @@ checkpoint. Forge changes the printed face in place and preserves attachments.
 Neither operation calls PlayFromHand or consumes ordinary play-cost modifiers.
 Fine event windows and private-face policies remain explicit M6 contracts.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass
 
 from .actions import UseHandAction

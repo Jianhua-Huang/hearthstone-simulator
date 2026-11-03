@@ -1,5 +1,4 @@
 """Instance-guarded finite triggers, shared by Spellburst, Frenzy and extensions."""
-from copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .effects import Effect
@@ -138,8 +137,9 @@ def capture(r, entity, ability, event, spell_candidates):
                 play.player_id!=entity.controller or play.countered):return None
     elif spec.keyword==Keyword.FRENZY:
         if event.target_id!=entity.id or event.amount<=0:return None
-    context=RuleContext(deepcopy(r.state),entity.id,entity.controller,event.target_id,event,play=play,trigger=ability)
-    eligible=r.registry.trigger_condition(spec.condition_id)(context)
+    condition=r.registry.trigger_condition(spec.condition_id)
+    context=RuleContext(r.capture_planner_state(condition),entity.id,entity.controller,event.target_id,event,play=play,trigger=ability)
+    eligible=condition(context)
     if type(eligible) is not bool:raise ResolutionError('Trigger condition must return bool')
     return CheckLimitedTrigger(identity,event,budget_turn=r.state.turn if spec.reset in ('turn','cycle_turn') else None) if eligible else None
 

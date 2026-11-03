@@ -4,7 +4,7 @@ Full original windows live only in the unique diagnostic Finish while pending.
 Closed private receipts retain complete selection material and the original
 proposal; they provide internal consistency, not unsigned origin authentication.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 import json
 from types import SimpleNamespace

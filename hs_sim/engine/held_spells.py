@@ -4,7 +4,6 @@ Reuse hand progress and its copying rules. Entry to a new physical hand resets
 this condition; an explicit current copy inherits earned card state. Plays keep
 a frozen condition so later movement cannot rewrite a played/history Battlecry.
 """
-from copy import deepcopy
 from dataclasses import replace
 
 from .errors import ResolutionError
@@ -93,8 +92,9 @@ def note_cast(r,cast):
         if a is None or a.consumed:continue
         key=f'cast:{cast.id}'
         if key in a.progress_keys:continue
-        context=RuleContext(deepcopy(r.state),entity.id,entity.controller,cast.target_id,trigger=a,cast=cast)
-        eligible=r.registry.trigger_condition(a.hand_progress.condition_id)(context)
+        condition=r.registry.trigger_condition(a.hand_progress.condition_id)
+        context=RuleContext(r.capture_planner_state(condition),entity.id,entity.controller,cast.target_id,trigger=a,cast=cast)
+        eligible=condition(context)
         if type(eligible) is not bool:raise ResolutionError('Held-spell condition must return bool')
         if eligible:updates.append((entity,a,advance_value(a,key)))
     for entity,a,updated in updates:

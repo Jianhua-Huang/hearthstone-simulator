@@ -1,5 +1,5 @@
 """Hero-power activation predicates, usage and replacement primitives."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .actions import UseHeroPower

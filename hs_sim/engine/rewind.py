@@ -8,7 +8,8 @@ are handled separately by rewind_outcomes (R-093). R-102 extends checkpoints to
 manual Hero Powers; each activation gets a fresh budget, without hand face chains.
 CN timing and indirect-source policies still need calibration.
 """
-from copy import copy, deepcopy
+from copy import copy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, fields, replace
 
 from .actions import PlayCard, UseHeroPower, action_from_dict, action_to_dict

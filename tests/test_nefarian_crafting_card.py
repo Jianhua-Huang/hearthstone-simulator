@@ -4,9 +4,10 @@ from dataclasses import replace
 from functools import lru_cache
 import json
 import unittest
+from unittest.mock import patch
 
 from hs_sim.cards import build_registry
-from hs_sim.cards.nefarian_crafting_card import CARD,TEMPLATE,DRAGONS,UNDEAD
+from hs_sim.cards.nefarian_crafting_card import CARD,TEMPLATE,DRAGONS,UNDEAD,register_nefarian_crafting_card
 from hs_sim.cards.nefarian_crafted_faces import load_batch
 from hs_sim.engine import (CardDefinition,CardType,Game,IllegalAction,PlayCard,PlayerSetup,
     ResolutionError,Scenario,SelectChoice,SnapshotError,TriggerSpec,Zone)
@@ -115,9 +116,20 @@ class NefarianCraftingTests(unittest.TestCase):
         return s
 
     def test_complete_pinned_source_and_root_definition_do_not_invent_formal_pools(self):
-        raw=load_batch()['cards'][0]['record'];r=build_registry();c=r.card(CARD)
+        seen=[]
+        def register_checked(target):
+            # Host policy may now supply complete pools later in assembly;
+            # the card adapter itself must still never invent those pools.
+            before=dict(target.pools)
+            register_nefarian_crafting_card(target)
+            self.assertEqual(dict(target.pools),before)
+            seen.append(target.card(CARD))
+        with patch('hs_sim.cards.nefarian_crafting_card.register_nefarian_crafting_card',register_checked):
+            r=build_registry()
+        self.assertEqual(len(seen),1)
+        raw=load_batch()['cards'][0]['record'];c=r.card(CARD)
         self.assertEqual((c.cost,c.attack,c.health),(raw['cost'],raw['attack'],raw['health']));self.assertEqual(c.metadata.runes.unholy,1)
-        self.assertFalse(any(key[0]in(DRAGONS,UNDEAD)for key in r.pools))
+        self.assertEqual(seen[0],c)
         for bad in({'source_id':None},{'max_total_cost':0},{'discount_amount':True}):
             with self.subTest(bad=bad),self.assertRaises(ValueError):replace(CraftMinion(1,TEMPLATE,DRAGONS,UNDEAD,1),**bad)
 

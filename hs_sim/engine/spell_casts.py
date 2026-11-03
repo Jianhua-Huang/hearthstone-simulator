@@ -3,7 +3,7 @@
 R-088 records provisional targeting, condition and automatic-choice windows.
 """
 from .hand_capacity import hand_capacity
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass, fields, replace
 import json
 

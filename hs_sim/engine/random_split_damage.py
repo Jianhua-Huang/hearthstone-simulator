@@ -3,7 +3,6 @@
 The numeric profile is explicit local policy. CN multiplier/conversion timing
 still needs calibration. Native card recipes reuse these same interpreter tails.
 """
-from copy import deepcopy
 from dataclasses import asdict, dataclass, fields, replace
 import json, random
 from .effects import Damage, Heal, Effect, RequestChoice, _integer, _player
@@ -467,7 +466,7 @@ def update(state,old,**values):
     return new
 
 def begin(r,request):
-    original=deepcopy(r.state)
+    original=r.capture_state()
     quote=quote_budget(original,r.registry,request,r.root_action_number,len(r.game._events))
     parent=next((x.id for x in reversed(history(r.state)) if not x.completed and not x.interrupted),None)
     cls = SplitHealingRoot if healing_request(request) else SplitDamageRoot
@@ -508,7 +507,7 @@ def deliver(r,effect):
     if (root.completed or root.interrupted or effect.index!=len(root.packets)+1 or
             effect.index>root.quote.budget or any(not p.completed for p in root.packets)):
         raise ResolutionError('Split delivery duplicated or overtook original packet')
-    window=deepcopy(r.state);pool=split_candidates(window,r.registry,root.request.player_id,root.request.scope,
+    window=r.capture_state();pool=split_candidates(window,r.registry,root.request.player_id,root.request.scope,
         injured_only=healing_request(root.request))
     before=r.game._rng.getstate();chosen=r.game._rng.choice(pool) if pool else None
     selection=SplitSelection(pool,chosen,before,r.game._rng.getstate());selection.__post_init__()

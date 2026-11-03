@@ -4,7 +4,7 @@ The producer freezes physical bodies once. Each actual invocation separately
 accepts conditions, the complete target partition and one RNG decision. Only
 pending interpreter proofs keep a full before-state; settled history is compact.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass, replace
 import json
 

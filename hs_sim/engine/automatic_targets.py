@@ -4,7 +4,7 @@ Uses the existing automatic eligibility contract. Its inherited protection and
 choice policies remain local prototype rules pending CN calibration. The
 candidate partition is diagnostic evidence, not a signed original-state proof.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass, fields
 import json
 from random import Random
@@ -208,7 +208,7 @@ def select_target_with_proof(r, source, definition, preference, *, excluded_ids=
     if r.registry.target_visibility(definition.target_rule) == 'player':
         r.game._information.sync(r.game)
         information = json.dumps(r.game._information.to_dict(), ensure_ascii=False, sort_keys=True, separators=(',', ':'))
-    before = deepcopy(r.state)
+    before = r.capture_state()
     rng_before = r.game._rng.getstate()
     target, failure, partition = select_automatic_target(r, source, definition,
         preference=preference, excluded_ids=excluded_ids)

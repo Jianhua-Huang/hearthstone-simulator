@@ -5,7 +5,7 @@ the default route remains spell-only. Per-source repeats, retained outcomes,
 and safe natural end-turn requests remain required integration work. Original
 proofs validate consistency, not authenticity of an unsigned imported save.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, fields, is_dataclass, replace
 
 from .effects import Effect

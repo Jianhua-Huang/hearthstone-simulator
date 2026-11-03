@@ -9,6 +9,7 @@ from hs_sim.engine.armor_consumption import EVENT, PUBLIC_EVENT, SpendArmor, con
 from hs_sim.engine.armor_gains import gained_this_turn
 from hs_sim.engine.effects import AddCostModifier, ChangeControl, ChoiceOption, Destroy, GainArmor, InvokeBehavior, ReturnToHand, RequestChoice, Transform
 from hs_sim.engine.errors import ResolutionError
+from hs_sim.engine.information import VIEW_VERSION
 from hs_sim.engine.locations import ModifyLocation, RefreshLocation
 from hs_sim.engine.model import CardClass, CardMetadata, CostSpec, SummonQuantitySpec, TriggerSpec
 from hs_sim.engine.replay import build_replay, replay
@@ -104,7 +105,7 @@ class ArmorSummonRewardTests(unittest.TestCase):
         self.assertEqual(replay(build_replay(g), reader).snapshot(), saved)
         for player in (1, 2):
             view = g.for_player(player).observe()
-            self.assertEqual(view['observation']['version'], 'player-view-v115')
+            self.assertEqual(view['observation']['version'], VIEW_VERSION)
             public = json.dumps(view)+json.dumps(g.player_events(player))
             for field in (EVENT, 'armor_summon_reward_accepted', '"resolution_frame"', '"rng_state"'):
                 self.assertNotIn(field, public)

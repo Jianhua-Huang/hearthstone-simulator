@@ -4,7 +4,7 @@ They do not grant player budgets or board auras. Explicit current copies inherit
 independent attachments; physical storage moves retain them unless reset=True.
 Automatic casts and history recasts do not use this hand-play-only property.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass
 from types import SimpleNamespace
 
@@ -264,7 +264,7 @@ def _card_plan(state, registry, entity, player_id, native):
 
 def capture_automatic(r, entity, player_id, native):
     plan = _card_plan(r.state, r.registry, entity, player_id, native)
-    return None if plan is None else CardCastRepeatProof(deepcopy(r.state), r.rules, plan)
+    return None if plan is None else CardCastRepeatProof(r.capture_state(), r.rules, plan)
 
 
 def _live_materials(state):

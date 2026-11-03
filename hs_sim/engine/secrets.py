@@ -1,5 +1,4 @@
 """Hidden secret instances and live, ordered eligibility checks."""
-from copy import deepcopy
 from dataclasses import dataclass
 
 from .effects import Effect
@@ -117,9 +116,10 @@ def check(r, effect):
     window = find_window(r.state, window_id) if window_id is not None else None
     if window_id is not None and window is None:
         return
-    context = RuleContext(deepcopy(r.state), entity.id, entity.controller,
+    condition = r.registry.secret_condition(spec.condition_id)
+    context = RuleContext(r.capture_planner_state(condition), entity.id, entity.controller,
         target_id=window.target_id if window else effect.event.target_id, event=effect.event, window=window)
-    eligible = r.registry.secret_condition(spec.condition_id)(context)
+    eligible = condition(context)
     if type(eligible) is SecretHandSpace:
         eligible.__post_init__()
         eligible = eligible.matched and len(r.player(entity.controller).hand) < hand_capacity(r.player(entity.controller),r.rules)

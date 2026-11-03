@@ -1,5 +1,5 @@
 """Board locations: free activation, durability, cooldown and explicit effects."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .actions import UseLocation

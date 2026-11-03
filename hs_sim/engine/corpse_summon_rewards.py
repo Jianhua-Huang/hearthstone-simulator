@@ -1,5 +1,5 @@
 """Finite corpse summon/keyword profiles using original debit and entry facts."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass,fields,is_dataclass,replace
 from .effects import Effect,SpendResource,_integer
 from .model import CardType,GameState,Keyword,Resource,_name

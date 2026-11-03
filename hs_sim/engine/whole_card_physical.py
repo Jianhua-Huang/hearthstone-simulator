@@ -8,7 +8,7 @@ All supported physical profiles bind actual Battlecry/Combo identities; only
 their explicitly selected families accept repetition policies. Exact CN timing
 and other producers remain separate requirements.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, fields, replace
 import json
 from types import SimpleNamespace

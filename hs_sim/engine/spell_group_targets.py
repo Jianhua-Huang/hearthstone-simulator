@@ -1,5 +1,5 @@
 """Actual paid spell arrows, sharing one native draw window and one cast root."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass, replace
 import json
 from types import SimpleNamespace

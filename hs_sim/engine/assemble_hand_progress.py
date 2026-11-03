@@ -1,6 +1,6 @@
 """Original held-card progress travels with its reviewed assembly prefix."""
 from dataclasses import dataclass
-from copy import deepcopy
+from .runtime_copy import deepcopy
 
 from .model import CardType,HandProgressSpec,Zone,_name
 

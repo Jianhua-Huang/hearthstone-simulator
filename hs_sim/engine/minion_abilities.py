@@ -1,5 +1,5 @@
 """Finite minion actions. Titan is the first explicit activation policy."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .actions import UseMinionAbility

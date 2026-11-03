@@ -1,5 +1,5 @@
 """Original fixed summon receipts followed by the actual Outcast group reward."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 from .effects import Effect, GrantKeyword, _integer
 from .model import CardType, Keyword, _name

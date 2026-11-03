@@ -4,7 +4,7 @@ Actual selection, physical movement, quantity, entry, reactions and buffs stay
 with their original executors. Original entry Attack/remaining Health and one
 final reward are explicit internal policy; exact CN timing remains unverified.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass, fields, is_dataclass, replace
 import json
 

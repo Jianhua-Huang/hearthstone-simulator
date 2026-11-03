@@ -5,7 +5,7 @@ new full target receipt at its actual normalized payment boundary; an initial
 compact receipt is retained once, never recursively stacking earlier attempts.
 This does not authorize fresh target selection or a generated whole origin.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import replace
 import json
 

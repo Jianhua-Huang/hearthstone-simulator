@@ -3,7 +3,7 @@
 One accepted window keeps its original declaration, actual target and RNG proof.
 Secrets may redirect the result; they never restart the native policy.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass
 import json
 from types import SimpleNamespace

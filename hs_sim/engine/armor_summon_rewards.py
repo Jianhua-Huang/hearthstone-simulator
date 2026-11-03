@@ -1,5 +1,5 @@
 """One exact armor debit rewards the original successful fixed summon group."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, fields, is_dataclass, replace
 from .armor_consumption import SpendArmor, result_at
 from .board_presence import resolve_board_presence

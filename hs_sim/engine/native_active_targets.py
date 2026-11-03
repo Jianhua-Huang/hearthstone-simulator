@@ -1,5 +1,5 @@
 """Native target replacement for actual location and nonspell on_play entries."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass
 import json
 from types import SimpleNamespace

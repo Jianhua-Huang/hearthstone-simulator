@@ -3,7 +3,7 @@
 History payload provenance never becomes a present physical attachment or paid
 play. Full state is activity proof only; closed receipts certify consistency.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass, replace
 import json
 

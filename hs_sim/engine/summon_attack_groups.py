@@ -1,5 +1,5 @@
 """A fixed original summon group followed by ordinary bound forced attacks."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass,replace
 
 from .effects import Effect,ForceAttack,_integer

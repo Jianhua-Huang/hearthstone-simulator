@@ -5,7 +5,7 @@ reaction window is invented. Random arrows share one state and exclude earlier
 selected identities. History can instead retain the full original residences;
 native repetition reuses the accepted group without another selection.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import asdict, dataclass
 import json
 from random import Random
