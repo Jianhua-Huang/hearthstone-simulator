@@ -40,7 +40,7 @@ def native_work_ownership(mechanics):
             all(_engine_kind(kind) for kind in mechanics.payload_types))
 
 
-def encode_produced(game, value, *, readonly=False):
+def encode_produced(game, value, *, readonly=False, _state_memo=None):
     """Encode just-produced work; external input keeps the strict codec.
 
     Release need not audit an entire captured match to write a native receipt.
@@ -49,7 +49,7 @@ def encode_produced(game, value, *, readonly=False):
     """
     codec = FrameCodec(game.mechanics, game.registry)
     return (codec.encode(value) if getattr(game, 'runtime_audits', True)
-            else codec.encode_runtime(value, readonly=readonly))
+            else codec.encode_runtime(value, readonly=readonly, _state_memo=_state_memo))
 
 
 def deck_origin(state):
@@ -165,12 +165,16 @@ class FrameCodec:
         from .battlecry_repeats import FinishBattlecryAcceptance
         from .spell_acceptance import FinishSpellAcceptance
         from .ability_families import FinishFamilyAbility
+        from .end_turns import FinishEndTurnBatch
+        from .assemble_offers import AssembleOffer
         profiles = {
             FinishPaidHandAcceptance: frozenset(('proof', 'submission_base')),
             FinishComboAcceptance: frozenset(('context',)),
             FinishBattlecryAcceptance: frozenset(('context',)),
             FinishSpellAcceptance: frozenset(('submission', 'cost_proof', 'resolution')),
             FinishFamilyAbility: frozenset(('proof',)),
+            FinishEndTurnBatch: frozenset(('context',)),
+            AssembleOffer: frozenset(('before',)),
             # The captured work can contain executable callback contexts.
             # Only its own state is a read-only proof; nested tails opt in above.
             PaidHandChoiceBoundaryProof: frozenset(('state',)),
@@ -227,6 +231,10 @@ class FrameCodec:
         executes. It must never survive that window or observe mutable live state.
         """
         states = {} if _state_memo is None else _state_memo
+        from .serialization import _ReadonlyWireMemo
+        # A lone state/context has no sibling captures to share. In particular,
+        # candidate qualification must not pay a full immutability scan here.
+        records = _ReadonlyWireMemo() if readonly and type(value) not in (GameState, RuleContext) else None
 
         def encode(item, depth=0):
             self._depth(depth)
@@ -235,7 +243,7 @@ class FrameCodec:
             if type(item) is GameState:
                 row = states.get(id(item))
                 if row is None:
-                    row = (item, state_to_dict(item))
+                    row = (item, state_to_dict(item, _readonly_memo=records))
                     if len(states) < 64:
                         states[id(item)] = row
                 return {'state': row[1] if readonly else detach_runtime_wire(row[1])}
@@ -247,8 +255,12 @@ class FrameCodec:
             from .registry_identity import _engine_kind
             if not _engine_kind(kind):
                 states.clear()
+                if records is not None:
+                    records.clear()
                 result = self.encode(item, depth)
                 states.clear()
+                if records is not None:
+                    records.clear()
                 return result
             if isinstance(item, Enum):
                 return {'enum': type_name(kind), 'value': item.value}

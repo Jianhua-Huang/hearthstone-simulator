@@ -19,6 +19,17 @@ _INSTANCE_PROTOCOLS = frozenset(('__deepcopy__', '__reduce__', '__reduce_ex__',
                                '__getstate__', '__setstate__', '__getnewargs__', '__getnewargs_ex__'))
 
 
+def native_callback(handler):
+    """A planner defined in a loaded engine/card module, not a claimed label."""
+    from types import FunctionType
+    if type(handler) is not FunctionType or type(handler.__module__) is not str:
+        return False
+    module = handler.__module__
+    owner = sys.modules.get(module)
+    return (module.startswith(('hs_sim.engine.', 'hs_sim.cards.')) and
+            type(owner) is ModuleType and handler.__globals__ is vars(owner))
+
+
 def _ordinary_record(kind):
     if type(kind) is not type or type(kind.__module__) is not str:
         return False
@@ -59,6 +70,11 @@ class ImmutableRecords:
         kind = type(value)
         if kind in _ATOMIC:
             return True
+        # Wire field pairs and scalar vectors need no retained entry. Otherwise
+        # thousands of tiny tuples exhaust the bound before expensive history
+        # records can be considered, making every later capture copy them again.
+        if kind is tuple and all(type(child) in _ATOMIC for child in value):
+            return True
         identity = id(value)
         cached = self._entries.get(identity)
         if cached is not None:
@@ -85,6 +101,7 @@ def deepcopy(value, *, _immutable=None):
     """Copy native runtime graphs; keep Python's fallback and alias semantics."""
     memo = {}
     ordinary = {}
+    atomic_tuples = {}
 
     def copy(item):
         kind = type(item)
@@ -96,8 +113,14 @@ def deepcopy(value, *, _immutable=None):
             return previous
         # Python deepcopy already keeps wholly atomic tuples by identity.
         # RNG states and immutable history fields need no temporary child list.
-        if kind is tuple and (not item or all(type(child) in _ATOMIC for child in item)):
-            return item
+        if kind is tuple:
+            if identity in atomic_tuples:
+                return item
+            if not item or all(type(child) in _ATOMIC for child in item):
+                # Separate from the public deepcopy memo: extension hooks must
+                # retain their original memo visibility/override semantics.
+                atomic_tuples[identity] = item
+                return item
         if kind is dict:
             result = {}
             memo[identity] = result

@@ -256,9 +256,16 @@ class Resolution:
         """Private rule/proof capture; mutable state is always independent.
 
         Only deeply immutable native records are shared within this resolution.
-        Executable callbacks and public exports keep their full copy path.
+        Native planners may reuse these records too; their mutable state stays
+        detached. External callbacks and public exports keep their full copies.
         """
         return deepcopy(self.state, _immutable=self._immutable_records)
+
+    def capture_callback_state(self, behavior_id):
+        from .runtime_copy import native_callback
+        if self._immutable_records is not None and native_callback(self.registry.behavior(behavior_id)):
+            return self.capture_state()
+        return deepcopy(self.state)
 
     def charge(self):
         self._steps += 1
@@ -511,7 +518,7 @@ class Resolution:
             if target_id is not None or any(value is not None for value in
                     (death,choice,player_effect,window,play,cast,draw,power,battlecry,combo,deathrattle,power_payload,end_turn,physical,draw_group,deathrattle_followup,paid_battlecry_followup)):
                 raise ResolutionError('Own-discard acceptance is independent of other body roots')
-            call = BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id, player_id,
+            call = BehaviorCall(behavior_id, RuleContext(self.capture_callback_state(behavior_id), source_id, player_id,
                 event=deepcopy(event), trigger=deepcopy(trigger), discard=discard))
             from .discard_history import validate_call as validate_discard_call
             validate_discard_call(call, self.registry)
@@ -562,7 +569,7 @@ class Resolution:
                 and battlecry.physical_child_id == physical.child_id and battlecry.outcome_id == retained.id
                 and physical.active_battlecry_id == battlecry.id and source_id == battlecry.source_id)
             if not own_physical_result: attempt = 0
-        call = BehaviorCall(behavior_id, RuleContext(deepcopy(self.state), source_id,
+        call = BehaviorCall(behavior_id, RuleContext(self.capture_callback_state(behavior_id), source_id,
                                                      player_id, target_id, deepcopy(event), death, choice, player_effect, window, play, trigger, cast, draw, attempt, power, battlecry, combo, deathrattle, power_payload,end_turn,physical,kindred=kindred,draw_group=draw_group,deathrattle_followup=deathrattle_followup,paid_battlecry_followup=paid_battlecry_followup))
         if draw_group is not None:
             from .physical_draw_groups import validate_qualified_call
@@ -923,8 +930,9 @@ class Resolution:
             validate_control_work(self,work)
             from .hero_power_acceptance import validate_control_work as validate_power_control_work
             validate_power_control_work(self,work)
-            from .end_turn_acceptance import validate_control_work as validate_end_turn_control_work
-            validate_end_turn_control_work(self,work)
+            if audits or self._immutable_records is None:
+                from .end_turn_acceptance import validate_control_work as validate_end_turn_control_work
+                validate_end_turn_control_work(self,work)
             if audits:
                 from .spell_acceptance import validate_control_work as validate_spell_control_work
                 validate_spell_control_work(self,work)

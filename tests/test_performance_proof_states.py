@@ -11,6 +11,42 @@ from test_performance_frame_metadata import game
 
 
 class ProofStateOwnershipTests(unittest.TestCase):
+    def test_native_callback_detaches_state_but_reuses_frozen_records_only(self):
+        from hs_sim.engine.resolver import Resolution
+        from hs_sim.engine.choose_one import DISPATCH
+        match=self.waiting();resolver=Resolution(match)
+        call=resolver.call(DISPATCH,match._state.players[1].hero_id,1)
+        self.assertIsNot(call.context.state,match._state)
+        self.assertIs(call.context.state.play_history[0],match._state.play_history[0])
+        call.context.state.players[1].hand.append(999999)
+        self.assertNotIn(999999,match._state.players[1].hand)
+        match.runtime_mode='debug'
+        call=Resolution(match).call(DISPATCH,match._state.players[1].hero_id,1)
+        self.assertIsNot(call.context.state.play_history[0],match._state.play_history[0])
+
+    def test_external_callback_cannot_claim_native_ownership_with_module_label(self):
+        from hs_sim.engine.resolver import Resolution
+        from hs_sim.engine.runtime_copy import native_callback
+        spoof=lambda context: ()
+        spoof.__module__='hs_sim.engine.registry'
+        self.assertFalse(native_callback(spoof))
+        match=self.waiting()
+        with patch.dict(match.registry._behaviors,{'ask':spoof}):
+            call=Resolution(match).call('ask',match._state.players[1].hero_id,1)
+        self.assertIsNot(call.context.state.play_history[0],match._state.play_history[0])
+
+    def test_scalar_wire_pairs_do_not_exhaust_immutable_record_budget(self):
+        from hs_sim.engine.effects import GainArmor
+        from hs_sim.engine.runtime_copy import ImmutableRecords, deepcopy
+        fields = tuple(('field' + str(i), i) for i in range(1000))
+        record = GainArmor(1, 2)
+        object.__setattr__(record, 'wire', fields)
+        cache = ImmutableRecords(limit=3)
+        self.assertTrue(cache.contains(record))
+        self.assertLessEqual(len(cache._entries), 3)
+        self.assertIs(deepcopy(record, _immutable=cache), record)
+        self.assertIsNot(deepcopy(record), record)
+
     def test_finished_encoding_does_not_retain_captured_state_until_gc(self):
         import gc,weakref
         from hs_sim.engine.runtime_copy import deepcopy

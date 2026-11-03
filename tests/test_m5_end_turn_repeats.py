@@ -191,7 +191,9 @@ class EndTurnRepeatTests(unittest.TestCase):
         self.assertEqual(self.counts(game), [1])
         self.assertEqual(self.batch(game).total, 1)
         self.assertEqual([e.kind for e in game.events],
-            ['turn_ended', 'armor_gained', 'armor_gained', 'turn_started', 'card_drawn'])
+            ['turn_ended', 'armor_gain_recorded', 'armor_gained',
+             'armor_gain_recorded', 'armor_gained', 'turn_started',
+             'card_drawn', 'hand_card_entered'])
         self.assertEqual(self.armor(game), 11)
         self.check(game, fresh=True)
 

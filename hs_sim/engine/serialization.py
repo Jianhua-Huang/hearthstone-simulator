@@ -68,7 +68,18 @@ _ENTITY_KEYWORDS = frozenset(('keywords', 'weapon_keywords', 'aura_keywords',
                               'hand_aura_keywords', 'conditional_keywords'))
 
 
-def _native_wire_encoder():
+class _ReadonlyWireMemo:
+    """Frozen native records shared only inside one private encoding pass."""
+    def __init__(self):
+        from .runtime_copy import ImmutableRecords
+        self.immutable = ImmutableRecords()
+        self.entries = {}
+
+    def clear(self):
+        self.__init__()
+
+
+def _native_wire_encoder(readonly_memo=None):
     """Build a detached JSON tree in one pass, without executing extensions.
 
     Metadata lives for this conversion only. Unknown objects abort the fast
@@ -116,8 +127,17 @@ def _native_wire_encoder():
             if isinstance(value, str): return str.__str__(value)
             if isinstance(value, int): return int.__int__(value)
         if type(classification) is tuple:
-            return {name: child if type(child := getattr(value, name)) in _WIRE_ATOMIC else encode(child)
-                    for name in classification}
+            identity = id(value)
+            if readonly_memo is not None:
+                cached = readonly_memo.entries.get(identity)
+                if cached is not None:
+                    return cached[1]
+            result = {name: child if type(child := getattr(value, name)) in _WIRE_ATOMIC else encode(child)
+                      for name in classification}
+            if (readonly_memo is not None and len(readonly_memo.entries) < 8192 and
+                    kind.__dataclass_params__.frozen and readonly_memo.immutable.contains(value)):
+                readonly_memo.entries[identity] = (value, result)
+            return result
         raise _NativeWireFallback
 
     def entity(value):
@@ -133,27 +153,47 @@ def _native_wire_encoder():
                 raise _NativeWireFallback
         if Keyword.__deepcopy__ is not Enum.__deepcopy__:
             raise _NativeWireFallback
-        row = {name: None if name in _ENTITY_KEYWORDS else encode(getattr(value, name)) for name in names}
+        row = {name: None if name in _ENTITY_KEYWORDS else
+               child if type(child := getattr(value, name)) in _WIRE_ATOMIC else encode(child)
+               for name in names}
         row['zone'] = value.zone.value
         for name in _ENTITY_KEYWORDS:
             row[name] = sorted(k.value for k in getattr(value, name))
         return row
 
-    return encode, entity
+    def release():
+        nonlocal encode
+        # A recursive closure would otherwise retain its memo until cyclic GC.
+        encode = None
+
+    return encode, entity, release
 
 
-def state_to_dict(state: GameState) -> dict:
+def state_to_dict(state: GameState, *, _readonly_memo=None) -> dict:
     try:
-        return _native_state_to_dict(state)
+        return _native_state_to_dict(state, _readonly_memo)
     except _NativeWireFallback:
-        return _state_to_dict_legacy(state)
+        if _readonly_memo is not None:
+            _readonly_memo.clear()
+        try:
+            return _state_to_dict_legacy(state)
+        finally:
+            if _readonly_memo is not None:
+                _readonly_memo.clear()
 
 
-def _native_state_to_dict(state):
+def _native_state_to_dict(state, readonly_memo=None):
     if type(state) is not GameState or any(type(getattr(state, name)) is not dict
             for name in ('players', 'entities', 'temporary_power_returns')):
         raise _NativeWireFallback
-    encode, entity = _native_wire_encoder()
+    encode, entity, release = _native_wire_encoder(readonly_memo)
+    try:
+        return _encode_state_fields(state, encode, entity)
+    finally:
+        release()
+
+
+def _encode_state_fields(state, encode, entity):
     specialized = {'players', 'entities', 'temporary_power_returns', 'whole_card_replay_ledger'}
     result = {field.name: None if field.name in specialized else encode(getattr(state, field.name))
               for field in fields(state)}
@@ -165,17 +205,18 @@ def _native_state_to_dict(state):
     # and event codecs, including their original validation and data semantics.
     from .whole_card_replay_state import encode as encode_whole_card_replay
     result['whole_card_replay_ledger'] = encode_whole_card_replay(state.whole_card_replay_ledger)
-    for row, batch in zip(result['end_turn_batches'], state.end_turn_batches):
+    for index, (row, batch) in enumerate(zip(result['end_turn_batches'], state.end_turn_batches)):
         if batch.event is not None:
-            row['event'] = event_to_dict(batch.event)
-    for row, record in zip(result['end_turn_history'], state.end_turn_history):
+            result['end_turn_batches'][index] = {**row, 'event': event_to_dict(batch.event)}
+    for index, (row, record) in enumerate(zip(result['end_turn_history'], state.end_turn_history)):
         if record.guard_event is not None:
-            row['guard_event'] = event_to_dict(record.guard_event)
-    for row, record in zip(result['ability_trigger_history'], state.ability_trigger_history):
+            result['end_turn_history'][index] = {**row, 'guard_event': event_to_dict(record.guard_event)}
+    for index, (row, record) in enumerate(zip(result['ability_trigger_history'], state.ability_trigger_history)):
         if record.request.native_event is not None:
-            row['request']['native_event'] = event_to_dict(record.request.native_event)
-    for row, receipt in zip(result['resource_operations'], state.resource_operations):
-        row['event'] = event_to_dict(receipt.event)
+            result['ability_trigger_history'][index] = {**row, 'request': {
+                **row['request'], 'native_event': event_to_dict(record.request.native_event)}}
+    for index, (row, receipt) in enumerate(zip(result['resource_operations'], state.resource_operations)):
+        result['resource_operations'][index] = {**row, 'event': event_to_dict(receipt.event)}
     return result
 
 
@@ -2125,7 +2166,10 @@ def _entity_wire_fields(entity):
 
 
 def entity_to_dict(entity):
+    _, encode, release = _native_wire_encoder()
     try:
-        return _native_wire_encoder()[1](entity)
+        return encode(entity)
     except _NativeWireFallback:
         return json.loads(json.dumps(_entity_wire_fields(entity), ensure_ascii=False, allow_nan=False))
+    finally:
+        release()

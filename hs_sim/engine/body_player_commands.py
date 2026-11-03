@@ -74,7 +74,26 @@ def current_empty_roots(game,viewer):
 
 def current_capabilities(game,viewer):
     # Same monotonic private ledger; an empty root is not a fabricated body.
-    bodies=current_bodies(game,viewer);roots=current_empty_roots(game,viewer)
+    from .runtime_queries import audit_query_inputs
+    if audit_query_inputs(game.registry):
+        bodies=current_bodies(game,viewer);roots=current_empty_roots(game,viewer)
+        if set(bodies)&set(roots):raise ValueError('Private body/root identity collision')
+        return {**bodies,**roots}
+    bodies,roots={},{}
+    for entity_id in game._state.players[viewer].hand:
+        source=game._state.entities[entity_id]
+        if source.controller!=viewer or source.zone!=Zone.HAND:
+            raise ValueError('Private body capability requires actual owned hand')
+        for profile,authorities in complete_profiles(game,source):
+            if authorities:
+                for authority in authorities:
+                    declaration=authority.declaration
+                    key=identity(profile,declaration.reference)
+                    if key in bodies:raise ValueError('Duplicate current private body identity')
+                    bodies[key]=(profile,declaration)
+            else:
+                reference=BodyReference.capture(source)
+                roots[empty_root_identity(profile,reference)]=(profile,reference)
     if set(bodies)&set(roots):raise ValueError('Private body/root identity collision')
     return {**bodies,**roots}
 

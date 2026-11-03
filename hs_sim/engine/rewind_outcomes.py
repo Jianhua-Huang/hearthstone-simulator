@@ -136,7 +136,7 @@ def payload(r, source_id, player_id, target_id, behavior_ids, *, play=None, cast
     if battlecry_plan is not None:
         from .registry import RuleContext
         battlecry_acceptance = [FinishBattlecryAcceptance(
-            RuleContext(deepcopy(r.state), source_id, player_id, target_id, play=play),
+            RuleContext(r.capture_state(), source_id, player_id, target_id, play=play),
             battlecries, battlecry_plan)]
     else:
         battlecry_acceptance = []

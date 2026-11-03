@@ -192,8 +192,8 @@ class FrameMaterialsTests(unittest.TestCase):
         before = self.game.snapshot()
         original_encode = codec_module.state_to_dict
 
-        def mutate(state):
-            result = original_encode(state)
+        def mutate(state, **kwargs):
+            result = original_encode(state, **kwargs)
             self.registry._version = 'changed-during-action'
             return result
 

@@ -11,6 +11,30 @@ import test_native_playable_spell_cards as fixtures
 
 
 class GeneratedPreviewPerformanceTests(unittest.TestCase):
+    def test_native_generation_reuses_private_encoding_but_external_ownership_and_debug_do_not(self):
+        from hs_sim.engine.continuations import FrameCodec
+        helper = fixtures.NativePlayableSpellTests()
+        original = helper.game(); native = original.clone(); debug = original.clone()
+        foreign = original.clone(); debug.runtime_mode = 'debug'
+        calls = []; encode = FrameCodec.encode_runtime
+        def tracked(codec, value, **kwargs):
+            memo = kwargs.get('_state_memo')
+            if memo is not None: calls.append((memo, len(memo)))
+            return encode(codec, value, **kwargs)
+        with patch.object(FrameCodec, 'encode_runtime', tracked):
+            helper.play(native, fixtures.FORGER)
+            self.assertEqual(len(calls), 2)
+            self.assertIs(calls[0][0], calls[1][0])
+            self.assertEqual(calls[0][1], 0); self.assertEqual(calls[1][1], 1)
+            calls.clear()
+            helper.play(debug, fixtures.FORGER)
+            self.assertFalse(calls)
+            with patch('hs_sim.engine.continuations.native_work_ownership', return_value=False):
+                helper.play(foreign, fixtures.FORGER)
+            self.assertFalse(calls)
+        self.assertEqual(native.snapshot(), debug.snapshot())
+        self.assertEqual(native.snapshot(), foreign.snapshot())
+
     def test_projection_matches_full_copy_for_real_admission_variants(self):
         for mode, enemy in ((None, ()), ('weapon', (fixtures.FILL,))):
             game = fixtures.NativePlayableSpellTests().game(mode=mode, enemy=enemy)

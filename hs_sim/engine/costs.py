@@ -4,14 +4,16 @@ The prototype orders local enchantments first, then live auras/player modifiers
 by attachment ID. Each operation clamps to its own minimum. Special card rules
 and official ordering calibration must extend this explicit versioned contract.
 """
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, replace, fields
 
 from .effects import AddCostModifier, GrantCostAura, Effect
 from .errors import ResolutionError
-from .model import (CurrentDeckCountMatch, PermanentManaMatch, AbilityInstance, CardType, CostContribution, CostModifier,
+from .model import (CurrentDeckCountMatch, PermanentManaMatch, AbilityInstance, CardDefinition, CardType, CostContribution, CostModifier,
                     CostQuoteFact, CostQuoteInput, CostScope, Enchantment,
                     HandPlayCostReceipt, PaymentType, PlayRecord, Resource,
                     SpellCostFacts, SpellRepeatSpec, Zone)
+
+_INTRINSIC_PRICE_FIELDS = tuple(f.name for f in fields(CardDefinition) if f.name.endswith('_cost'))
 
 
 @dataclass(frozen=True)
@@ -184,7 +186,35 @@ def local_cost(entity):
 
 
 def quote_cost(state, registry, entity):
-    return cost_quote_from_fact(quote_input(state, registry, capture_cost_input(entity)))
+    from .runtime_queries import audit_query_inputs
+    value = capture_cost_input(entity)
+    if not audit_query_inputs(registry):
+        definition = registry.card(value.card_id)
+        if _plain_intrinsic_price(definition, registry):
+            if definition.kind != value.kind:
+                raise ValueError('Cost quote input face and kind disagree')
+            from .card_conditions import has_battlecry
+            local_amount, local_payment = local_cost_values(value.base_cost, value.enchantments,
+                payment=definition.cost_payment)
+            amount, payment, external = _external_quote(state, registry, value.player_id,
+                definition, local_amount, local_payment, has_battlecry(value.abilities), value.enchantments,
+                abilities=value.abilities, hand_lifetime=value.hand_lifetime,
+                minimum_cost=value.minimum_cost, physical_id=value.source_id)
+            # A price query needs the live price and consumable identities.
+            # Actual payment/acceptance still captures its complete quote fact.
+            return CostQuote(value.source_id, value.player_id, max(amount, value.minimum_cost), payment,
+                tuple(c.id for c in external), tuple(c.id for c in external
+                    if c.kind == 'player_modifier' and c.modifier.uses_remaining is not None))
+    return cost_quote_from_fact(quote_input(state, registry, value))
+
+
+def _plain_intrinsic_price(definition, registry):
+    if type(definition) is not CardDefinition or definition.intrinsic_costs or definition.pay_health_if_hero_healed:
+        return False
+    if any(getattr(definition, name) is not None for name in _INTRINSIC_PRICE_FIELDS):
+        return False
+    profile = registry.kindred_profiles.get(definition.id)
+    return profile is None or profile.mode != 'cost'
 
 
 def quote_unselected_cost(state, registry, entity):

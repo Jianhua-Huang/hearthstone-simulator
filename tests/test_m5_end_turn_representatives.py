@@ -259,7 +259,9 @@ class EndTurnRepresentativeTests(unittest.TestCase):
         self.check(game)
 
     def test_failed_internal_install_preserves_existing_sandfury_instance(self):
-        self.script('add', lambda c: [AddPlayerEffect(1, SOURCE, c.source_id)])
+        # Native Aura installation must name its actual controlled spell.
+        self.script('add', lambda c: [AddPlayerEffect(1, SOURCE, next(e.id
+            for e in c.state.entities.values() if e.card_id == 'CATA_480' and e.controller == 1))])
         game = self.game(hand=('CATA_480', 'add'), rules=Ruleset(max_ongoing_effects=1))
         self.play(game, 'CATA_480')
         original = self.effects(game)[0]
@@ -533,7 +535,7 @@ class EndTurnRepresentativeTests(unittest.TestCase):
             effects = player['player_effects']
             self.assertEqual(len(effects), 2)
             self.assertTrue(all(e == {'effect_key': SOURCE, 'card_id': 'CATA_480',
-                'effect_kind': 'objective', 'remaining_turns': 3} for e in effects))
+                'effect_kind': 'aura', 'remaining_turns': 3} for e in effects))
             text = json.dumps((view, game.player_events(viewer), game.for_player(viewer).legal_actions()))
             for hidden in ('end_turn_batches', 'end_turn_history', 'contributors', 'source_id',
                     'instance_id', 'source_card_id', 'guard_id', 'guard_event', 'repeat_index'):

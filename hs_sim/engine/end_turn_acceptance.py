@@ -4,7 +4,6 @@ FinishEndTurnBatch.context is intentionally pre-install. The comparison-only
 catalogue below adds its typed marker without querying subjects or witnesses.
 No validator advances clocks, consumes a source, emits events or adds checkpoints.
 """
-from copy import deepcopy
 from dataclasses import replace
 
 from .model import CardType, GameState, EndTurnCapture, EndTurnRecord
@@ -37,10 +36,12 @@ def _reference_window(work):
     group = work.batch
     if group.id != len(original.end_turn_batches) + 1 or group.first_id != len(original.end_turn_history) + 1:
         raise ValueError('End-turn proof requires its actual pre-install batch window')
-    compared = deepcopy(original)
-    compared.end_turn_batches.append(group)
-    compared.end_turn_history.extend(EndTurnRecord(capture) for capture in _captures(group))
-    return compared
+    # Only the two catalogue lists are extended. All other fields are read by
+    # accepted_repeat_source_references; no callback or gameplay runs here.
+    return replace(original,
+        end_turn_batches=[*original.end_turn_batches, group],
+        end_turn_history=[*original.end_turn_history,
+                          *(EndTurnRecord(capture) for capture in _captures(group))])
 
 
 def _bind_prefix(state, work):

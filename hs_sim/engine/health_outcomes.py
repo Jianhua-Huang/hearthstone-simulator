@@ -193,6 +193,11 @@ class HealthResult:
 
 def result_from_payload(raw):
     """Shared strict decoder for event and persistent fatal-result payloads."""
+    from .runtime_queries import decode_immutable_payload
+    return decode_immutable_payload(raw, _decode_result_payload)
+
+
+def _decode_result_payload(raw):
     if type(raw) is not tuple:
         raise ValueError('Health result must be frozen')
     if any(type(row) is not tuple or len(row) != 2 or type(row[0]) is not str for row in raw):

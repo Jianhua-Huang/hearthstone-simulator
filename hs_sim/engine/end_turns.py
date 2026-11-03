@@ -3,7 +3,7 @@
 Diagnostic invocation/completion controls replace existing callback positions;
 they never add a gameplay checkpoint or a second turn event.
 """
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 from types import SimpleNamespace
 
@@ -251,7 +251,7 @@ def prepare_group(r,event,activation,subjects):
         raise ResolutionLimitExceeded('End-turn subject expansion exceeds resolution budget')
     group=EndTurnBatch(len(r.state.end_turn_batches)+1,len(r.state.end_turn_history)+1,event,r.state.turn,subjects,
                        plans=plans,activation=activation)
-    proof=RuleContext(deepcopy(r.state),activation.issuer_id,activation.issuer_player_id,event=event)
+    proof=RuleContext(r.capture_state(),activation.issuer_id,activation.issuer_player_id,event=event)
     r.state.end_turn_batches.append(group)
     captures=[]
     for flat in range(group.total):
@@ -563,14 +563,22 @@ def finish(r,work):
 
 
 def finish_batch(r,work):
-    validate_acceptance(work,r.registry)
+    from .continuations import native_work_ownership
+    audits = r.game.runtime_audits or not native_work_ownership(r.game.mechanics)
+    if audits:
+        validate_acceptance(work,r.registry)
     if batch(r.state,work.batch.id)!=work.batch: raise ValueError('End-turn live batch lost its frozen identity')
     rows=r.state.end_turn_history[work.batch.first_id-1:work.batch.first_id-1+work.batch.total]
     if len(rows)!=work.batch.total or any(not(x.completed or x.skipped) for x in rows):
         raise ValueError('End-turn batch has unfinished subjects')
-    from .end_turn_acceptance import validate_queue
-    validate_queue(r.state, r.registry, r._work_queue, r.rules.max_resolution_steps,
-                   events=r.game._events, ending_turn=r.ending_turn, closing=work)
+    from .end_turn_acceptance import validate_queue, _validate_completion_stack
+    if audits:
+        validate_queue(r.state, r.registry, r._work_queue, r.rules.max_resolution_steps,
+                       events=r.game._events, ending_turn=r.ending_turn, closing=work)
+    else:
+        # The native producer already captured the complete acceptance. Keep
+        # live completion/nesting checks without reconstructing that old window.
+        _validate_completion_stack(r.state, (work, *r._work_queue))
     r.state.end_turn_batches[work.batch.id-1]=replace(work.batch,completed=True)
 
 

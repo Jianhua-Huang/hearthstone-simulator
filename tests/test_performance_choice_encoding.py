@@ -34,6 +34,44 @@ def states(value):
 
 
 class ChoiceEncodingPerformanceTests(unittest.TestCase):
+    def test_readonly_encoding_reuses_frozen_history_but_public_branches_detach(self):
+        from hs_sim.engine import EndTurn
+        from hs_sim.engine.resolver import Resolution
+        from hs_sim.engine.serialization import _state_to_dict_legacy
+        from test_performance_end_turn_proofs import ending
+        g = ending(); g.apply(EndTurn(1))
+        resolver = Resolution(g)
+        first, second = resolver.capture_state(), resolver.capture_state()
+        self.assertTrue(first.end_turn_batches)
+        self.assertIs(first.end_turn_batches[0], second.end_turn_batches[0])
+        codec = FrameCodec(g.mechanics, g.registry)
+        wire = codec.encode_runtime((first, second), readonly=True)
+        rows = [row['state'] for row in wire['tuple']]
+        self.assertEqual(rows, [_state_to_dict_legacy(first), _state_to_dict_legacy(second)])
+        # Special event fields have their own row; generic cached records must
+        # remain the ordinary dataclass wire when reached through another field.
+        first.armor_gain_history.append(first.end_turn_batches[0])
+        self.assertEqual(codec.encode_runtime(first, readonly=True)['state'], _state_to_dict_legacy(first))
+        public = codec.encode_runtime((first, second))
+        left, right = [row['state'] for row in public['tuple']]
+        left['end_turn_batches'][0]['subjects'].clear()
+        self.assertEqual(right, _state_to_dict_legacy(second))
+
+    def test_readonly_encoding_does_not_retain_frozen_records_until_gc(self):
+        import gc, weakref
+        from hs_sim.engine.effects import GainArmor
+        g = simple_game(); codec = FrameCodec(g.mechanics, g.registry)
+        enabled = gc.isenabled(); gc.disable()
+        try:
+            record = GainArmor(1, 3); reference = weakref.ref(record)
+            g._state.armor_gain_history.append(record)
+            wire = codec.encode_runtime((g._state,), readonly=True)
+            g._state.armor_gain_history.clear(); del record
+            self.assertIsNone(reference())
+            self.assertEqual(wire['tuple'][0]['state']['armor_gain_history'], [{'player_id': 1, 'amount': 3}])
+        finally:
+            if enabled: gc.enable()
+
     def game(self):
         return assembly.AssembleOfferTests().game(hand=('repeat',))
 

@@ -236,7 +236,7 @@ def assemble(r,spec):
 
 
 def _assemble(r,spec):
-    spec.__post_init__();before=deepcopy(r.state);rng_before=r.game._rng.getstate()
+    spec.__post_init__();before=r.capture_state();rng_before=r.game._rng.getstate()
     data=draw(r.registry,r.game._generation_context,before,spec,r.game._rng)
     if data is None:return ()
     offer=AssembleOffer(spec,before,*data,rng_before,r.game._rng.getstate())

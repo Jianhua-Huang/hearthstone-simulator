@@ -859,6 +859,8 @@ class EndTurnMatchingTests(unittest.TestCase):
 
     def guard_negative(self, *, natural, kind, skip=False):
         g, identity = self.first_then_guard(natural=natural, kind=kind, skip=skip)
+        # Inject through the diagnostic audit, which native release omits.
+        g.runtime_mode = 'debug'
         name = 'CheckLimitedTrigger' if natural and kind == 'limited' else (
             'CheckHeroPowerTrigger' if natural and kind == 'hero_power' else 'CheckActiveEndTurn')
         self.assertTrue(self.nodes(g.snapshot()['resolution_frame'], name))
@@ -1504,6 +1506,7 @@ class EndTurnMatchingTests(unittest.TestCase):
     @matrix('ET-V13', 'ETM-38')
     def test_closing_rejects_whole_current_batch_removal_after_last_invoke(self):
         g, _, _ = self.dynamic_false()
+        g.runtime_mode = 'debug'
         before = g.snapshot()
         from hs_sim.engine.end_turn_acceptance import validate_queue
         called = []

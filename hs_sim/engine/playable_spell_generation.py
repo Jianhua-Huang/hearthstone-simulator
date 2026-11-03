@@ -81,10 +81,10 @@ class PlayableSpellDraw:
             raise ValueError('Playable draw changed its original integer draw or RNG')
 
 
-def qualify(game, request, before, information_json, rows):
+def qualify(game, request, before, information_json, rows, *, _state_memo=None):
     """Cache only a full immutable input digest; never a claimed admitted subset."""
     from .continuations import encode_produced
-    encoded = canonical(encode_produced(game, before, readonly=True))
+    encoded = encode_produced(game, before, readonly=True, _state_memo=_state_memo)
     material = canonical((encoded, information_json, rows, asdict(game.ruleset)))
     key = (game.registry, game.mechanics.version, hashlib.sha256(material.encode('utf-8')).digest())
     with _LOCK:
@@ -113,14 +113,17 @@ def generate(r, request):
     before = RuleContext(r.capture_state(), request.source_id, request.player_id)
     information = canonical(r.game._information.to_dict(readonly=True))
     complete = tuple((m.card_id, m.weight) for m in rows)
-    playable = qualify(r.game, request, before, information, complete)
+    # Qualification only reads this detached capture. Reuse its wire in the
+    # immediately following draw receipt; the public event still detaches it.
+    states = {} if not r.game.runtime_audits and r._immutable_records is not None else None
+    playable = qualify(r.game, request, before, information, complete, _state_memo=states)
     rng_before = r.game._rng.getstate()
     selected = sample_candidates(r.game._rng, tuple(PoolMember(*row) for row in playable), 1, replacement=True)
     draw = PlayableSpellDraw(request, r.game._generation_context,
         r.registry.pool(request.pool_id, r.game._generation_context).version, before, information,
         complete, playable, selected, rng_before, r.game._rng.getstate())
     r.emit(DRAW, source_id=request.source_id, player_id=request.player_id,
-        draw=encode_produced(r.game, draw), _capture=False)
+        draw=encode_produced(r.game, draw, _state_memo=states), _capture=False)
     from .temporary_cards import CreateTemporaryCard
     return tuple(CreateTemporaryCard(request.player_id, cid, r.state.turn,
         source_id=request.source_id) for cid in selected)
