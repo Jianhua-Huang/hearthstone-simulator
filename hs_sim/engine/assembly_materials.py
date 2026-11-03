@@ -24,9 +24,13 @@ _current = ContextVar('assembly_static_materials', default=None)
 
 
 @contextmanager
-def candidate_materials(registry, *, audit=True):
+def candidate_materials(registry, *, audit=None):
     from .registry import Registry
     active = _current.get()
+    # Nested pure helpers inherit their caller's mode. A standalone query is
+    # still audited, and an explicit validator can always request audit=True.
+    if audit is None:
+        audit = active[2] if active is not None and active[0] is registry else True
     if active is not None and active[0] is registry and (not audit or active[2]):
         yield
         return

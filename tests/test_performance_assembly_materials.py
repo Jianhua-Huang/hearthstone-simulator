@@ -15,6 +15,19 @@ from test_assemble_offers import registry
 
 
 class AssemblyMaterialTests(unittest.TestCase):
+    def test_nested_native_queries_inherit_release_but_explicit_audits_do_not(self):
+        expected=draw(self.registry,self.game._generation_context,self.game._state,self.spec,Random(31))
+        with cache.candidate_materials(self.registry,audit=False):
+            with patch.object(cache.RegistryInventoryGuard,'matches',side_effect=AssertionError('audit')):
+                actual=draw(self.registry,self.game._generation_context,self.game._state,self.spec,Random(31))
+                self.assertEqual(actual,expected)
+                with self.assertRaisesRegex(AssertionError,'audit'):
+                    with cache.candidate_materials(self.registry,audit=True):pass
+            self.assertFalse(cache._current.get()[2])
+        with patch.object(cache.RegistryInventoryGuard,'matches',side_effect=AssertionError('audit')):
+            with self.assertRaisesRegex(AssertionError,'audit'):
+                with cache.candidate_materials(self.registry):pass
+
     def test_release_static_scope_reuses_frozen_materials_without_rescanning_graphs(self):
         cid = assemble_faces.AssembleRecipe('a', 'b', 'top').card_id
         with cache.candidate_materials(self.registry):

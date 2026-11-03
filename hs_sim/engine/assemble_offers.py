@@ -210,7 +210,9 @@ def _draw(registry,context,state,spec,rng):
 def validate_offer(registry,context,offer):
     offer.__post_init__();validate_invariants(offer.before,registry)
     rng=Random();rng.setstate(offer.rng_before)
-    expected=draw(registry,context,offer.before,offer.spec,rng)
+    from .assembly_materials import candidate_materials
+    with candidate_materials(registry, audit=True):
+        expected=draw(registry,context,offer.before,offer.spec,rng)
     if expected!=(offer.primary_candidates,offer.primary_card_id,offer.secondary_candidates,offer.secondary_card_ids)or rng.getstate()!=offer.rng_after:
         raise ValueError('Assembly offer changed original candidates, selection or RNG')
 
@@ -286,7 +288,7 @@ def validate_boundary(game):
                     for option in game._frame.options for effect in option.effects)):
         return
     from .assembly_materials import candidate_materials
-    with candidate_materials(game.registry):
+    with candidate_materials(game.registry, audit=True):
         return _validate_boundary(game)
 
 

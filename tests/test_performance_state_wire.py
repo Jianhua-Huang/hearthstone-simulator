@@ -10,6 +10,38 @@ from test_performance_frame_metadata import game
 
 
 class StateWirePerformanceTests(unittest.TestCase):
+    def test_hash_encoding_reuses_subtrees_only_within_one_read_only_pass(self):
+        shared=self.game._state.players[1]
+        original_hand=list(shared.hand)
+        self.game._state.armor_gain_history=[shared,shared]
+        private=self.game._hash_payload(readonly=True)
+        public=self.game._hash_payload()
+        self.assertEqual(private,public)
+        self.assertEqual(self.game.state_hash(),serialization.canonical_hash(public))
+        left,right=private['state']['armor_gain_history']
+        self.assertIs(left,right)
+        left,right=public['state']['armor_gain_history']
+        self.assertIsNot(left,right)
+        left['hand'].clear()
+        self.assertEqual(right['hand'],original_hand)
+        old=self.game.state_hash();shared.hand.append(999)
+        self.assertNotEqual(self.game.state_hash(),old)
+        self.assertEqual(self.game.state_hash(),serialization.canonical_hash(self.game._hash_payload()))
+
+    def test_read_only_fallback_discards_memo_before_extension_hooks_run(self):
+        shared={'nested':[1]};seen=[]
+        class Mutate:
+            def __deepcopy__(self,memo):
+                seen.append('hook');shared['nested'].append(2);return 3
+        self.game._state.armor_gain_history=[shared,Mutate(),shared]
+        expected=serialization._state_to_dict_legacy(self.game._state)
+        shared['nested'][:]=[1];seen.clear()
+        memo=serialization._ReadonlyWireMemo()
+        actual=serialization.state_to_dict(self.game._state,_readonly_memo=memo)
+        self.assertEqual(actual,expected)
+        self.assertEqual(seen,['hook'])
+        self.assertEqual(memo.entries,{})
+
     def test_wire_copy_releases_its_source_without_waiting_for_cyclic_gc(self):
         import gc,weakref
         from hs_sim.engine.effects import GainArmor

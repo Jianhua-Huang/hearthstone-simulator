@@ -99,7 +99,7 @@ def capture_hand_spell_session(r, source_id):
     # another card or Hero Power is being retried by the outer session.
     if type(value.action) is not PlayCard or value.action.entity_id != source_id:
         return None
-    return HandSpellRewindAnchor(value.action, deepcopy(value.before), value.attempt, value.event_start)
+    return HandSpellRewindAnchor(value.action, r.capture_state(value.before), value.attempt, value.event_start)
 
 
 def normalized_hand_spell_retry(anchor, registry, payment_state):
@@ -267,7 +267,7 @@ def unsuccessful(record):
             getattr(record,'minion_result',None) == 'board_full')
 
 
-def start(game, action):
+def start(game, action, *, _resolution=None):
     """Called once at the root action, before payment or activation reactions."""
     source = game._state.entities[action.entity_id]
     spec = game.registry.card(source.card_id).rewind
@@ -275,7 +275,8 @@ def start(game, action):
         return [activation(action)]
     if game._rewind is not None:
         raise ResolutionError('Nested root Rewind sessions are unsupported')
-    game._rewind = RewindSession(action, deepcopy(game._state), deepcopy(game._information), len(game._events))
+    before = deepcopy(game._state) if _resolution is None else _resolution.capture_state()
+    game._rewind = RewindSession(action, before, deepcopy(game._information), len(game._events))
     return [activation(action), OfferRewind(game._state.action_number)]
 
 
@@ -320,7 +321,7 @@ def retry(r, effect):
     if value.attempt >= spec.retries:
         raise ResolutionError('No Rewind retries remain')
     previous = r.state
-    restored = deepcopy(value.before)
+    restored = r.capture_state(value.before)
     restored.action_number = previous.action_number
     for name in COUNTERS:
         setattr(restored, name, max(getattr(restored, name), getattr(previous, name)))

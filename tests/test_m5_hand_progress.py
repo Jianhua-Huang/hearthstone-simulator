@@ -18,6 +18,23 @@ from hs_sim.engine.zones import CardReference, CopyCard, MoveCard
 
 
 class HandProgressTests(unittest.TestCase):
+    def test_external_progress_condition_cannot_mutate_the_live_state(self):
+        def condition(context):
+            context.state.players[1].hand.clear()
+            object.__setattr__(context.state.death_history[-1], 'attack', 999)
+            return True
+        condition.__module__='hs_sim.engine.hand_progress'
+        self.r.register_trigger_condition('detached_condition',condition)
+        self.minion('filtered',HandProgressSpec('infuse',1,'alt',condition_id='detached_condition'))
+        self.minion('alt')
+        for mode in ('release','debug'):
+            with self.subTest(mode=mode):
+                g=self.game(hand=('filtered','kill'),board=('plain',));g.runtime_mode=mode
+                self.play(g,'kill')
+                self.card(g,'alt')
+                self.assertEqual(g.state.death_history[-1].attack,2)
+                self.check(g)
+
     def setUp(self):
         self.r=build_registry()
         self.r.register_card(CardDefinition('plain','Plain',CardType.MINION,attack=2,health=8))

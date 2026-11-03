@@ -252,18 +252,21 @@ class Resolution:
         from .hand_parity import hand_signature
         self._hand_parity_signature = hand_signature(self.state) if self.registry.hand_parity_profiles else None
 
-    def capture_state(self):
+    def capture_state(self, state=None):
         """Private rule/proof capture; mutable state is always independent.
 
         Only deeply immutable native records are shared within this resolution.
         Native planners may reuse these records too; their mutable state stays
         detached. External callbacks and public exports keep their full copies.
         """
-        return deepcopy(self.state, _immutable=self._immutable_records)
+        return deepcopy(self.state if state is None else state, _immutable=self._immutable_records)
 
     def capture_callback_state(self, behavior_id):
+        return self.capture_planner_state(self.registry.behavior(behavior_id))
+
+    def capture_planner_state(self, callback):
         from .runtime_copy import native_callback
-        if self._immutable_records is not None and native_callback(self.registry.behavior(behavior_id)):
+        if self._immutable_records is not None and native_callback(callback):
             return self.capture_state()
         return deepcopy(self.state)
 

@@ -42,16 +42,21 @@ def initialize_dormancy(state, entity, definition, *, turns_override=None):
 
 def local_keywords(entity):
     """Attachment/weapon flags without any cached external or conditional aura."""
-    keywords = {a.keyword for a in active_abilities(entity,'keyword')} | entity.weapon_keywords
-    keywords |= {a.limited_trigger.keyword for a in active_abilities(entity,'limited_trigger')
-                 if a.limited_trigger.keyword is not None}
-    keywords |= {a.hand_progress.keyword for a in active_abilities(entity,'hand_progress')
-                 if a.hand_progress.keyword is not None}
-    keywords |= {a.keyword_aura.keyword for a in active_abilities(entity, 'keyword_aura')
-                 if a.keyword_aura.keyword == Keyword.STEALTH}
-    if entity.damage > 0:
-        keywords |= {a.keyword_aura.keyword for a in active_abilities(entity,'keyword_aura')
-                     if a.keyword_aura.condition == 'self_damaged'}
+    keywords = set(entity.weapon_keywords)
+    if not entity.active:
+        return keywords
+    for ability in entity.abilities:
+        if ability.consumed:
+            continue
+        if ability.kind == 'keyword':
+            keywords.add(ability.keyword)
+        elif ability.kind == 'limited_trigger' and ability.limited_trigger.keyword is not None:
+            keywords.add(ability.limited_trigger.keyword)
+        elif ability.kind == 'hand_progress' and ability.hand_progress.keyword is not None:
+            keywords.add(ability.hand_progress.keyword)
+        elif ability.kind == 'keyword_aura' and (ability.keyword_aura.keyword == Keyword.STEALTH or
+                entity.damage > 0 and ability.keyword_aura.condition == 'self_damaged'):
+            keywords.add(ability.keyword_aura.keyword)
     return keywords
 
 

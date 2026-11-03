@@ -11,6 +11,31 @@ from test_performance_frame_metadata import game
 
 
 class ProofStateOwnershipTests(unittest.TestCase):
+    def test_rewind_checkpoint_captures_detach_mutable_state_in_both_modes(self):
+        from hs_sim.engine.resolver import Resolution
+        from hs_sim.engine.rewind import RewindSession, capture_hand_spell_session
+        for mode in ('release', 'debug'):
+            with self.subTest(mode=mode):
+                match=self.waiting();match.runtime_mode=mode
+                checkpoint=match.clone()._state
+                source=checkpoint.players[1].hero_id
+                match._rewind=RewindSession(PlayCard(1,source),checkpoint,match._information,0)
+                resolver=Resolution(match)
+                anchor=capture_hand_spell_session(resolver,source)
+                restored=resolver.capture_state(anchor.before)
+                self.assertIsNot(anchor.before,checkpoint)
+                self.assertIsNot(restored,anchor.before)
+                anchor.before.players[1].mana=-91
+                restored.entities[source].damage=17
+                self.assertNotEqual(checkpoint.players[1].mana,-91)
+                self.assertNotEqual(restored.players[1].mana,-91)
+                self.assertNotEqual(anchor.before.entities[source].damage,17)
+                self.assertNotEqual(checkpoint.entities[source].damage,17)
+                if mode=='release':
+                    self.assertIs(anchor.before.play_history[0],checkpoint.play_history[0])
+                else:
+                    self.assertIsNot(anchor.before.play_history[0],checkpoint.play_history[0])
+
     def test_native_callback_detaches_state_but_reuses_frozen_records_only(self):
         from hs_sim.engine.resolver import Resolution
         from hs_sim.engine.choose_one import DISPATCH

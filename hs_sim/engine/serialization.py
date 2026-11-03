@@ -80,10 +80,13 @@ _ENTITY_KEYWORDS = frozenset(('keywords', 'weapon_keywords', 'aura_keywords',
 
 
 class _ReadonlyWireMemo:
-    """Frozen native records shared only inside one private encoding pass."""
+    """Native record JSON shared only inside one read-only encoding pass.
+
+    No game work runs in this window. Native traversal cannot invoke hooks;
+    encountering an extension clears the memo before and after its fallback.
+    This memo must never be retained across actions or exposed as public wire.
+    """
     def __init__(self):
-        from .runtime_copy import ImmutableRecords
-        self.immutable = ImmutableRecords()
         self.entries = {}
 
     def clear(self):
@@ -145,8 +148,7 @@ def _native_wire_encoder(readonly_memo=None):
                     return cached[1]
             result = {name: child if type(child := getattr(value, name)) in _WIRE_ATOMIC else encode(child)
                       for name in classification}
-            if (readonly_memo is not None and len(readonly_memo.entries) < 8192 and
-                    kind.__dataclass_params__.frozen and readonly_memo.immutable.contains(value)):
+            if readonly_memo is not None and len(readonly_memo.entries) < 8192:
                 readonly_memo.entries[identity] = (value, result)
             return result
         raise _NativeWireFallback

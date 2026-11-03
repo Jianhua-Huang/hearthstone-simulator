@@ -84,20 +84,23 @@ def validate_carrier(registry, card_id, kind, abilities, components=()):
 
 def conditional_keywords(state, entity):
     """Pure state-dependent self contributions; local damaged Windfury stays local."""
+    abilities = active_abilities(entity, 'keyword_aura')
+    if not abilities:
+        return set()
     from .equipment import equipped_weapon
-    specs = tuple(a.keyword_aura for a in active_abilities(entity, 'keyword_aura')
+    specs = tuple(a.keyword_aura for a in abilities
                   if a.keyword_aura.condition == 'controller_has_weapon')
     result={spec.keyword for spec in specs}if specs and equipped_weapon(state,state.players[entity.controller])is not None else set()
-    alone=tuple(a.keyword_aura for a in active_abilities(entity,'keyword_aura')if a.keyword_aura.condition=='controller_no_other_minions')
+    alone=tuple(a.keyword_aura for a in abilities if a.keyword_aura.condition=='controller_no_other_minions')
     if alone and entity.kind==CardType.MINION and entity.zone==Zone.BOARD and entity.active:
         others=any(i!=entity.id and(e:=state.entities[i]).kind==CardType.MINION and not e.starship_building and not e.interactable_object
             for i in state.players[entity.controller].board)
         if not others:result.update(spec.keyword for spec in alone)
     if (entity.kind == CardType.MINION and entity.zone == Zone.BOARD and entity.active and
             entity.controller != state.active_player):
-        result.update(a.keyword_aura.keyword for a in active_abilities(entity, 'keyword_aura')
+        result.update(a.keyword_aura.keyword for a in abilities
                       if a.keyword_aura.condition == 'controller_opponent_turn')
-    named = tuple(a.keyword_aura for a in active_abilities(entity, 'keyword_aura')
+    named = tuple(a.keyword_aura for a in abilities
                   if a.keyword_aura.condition == 'controller_controls_named_minion')
     if named and entity.kind == CardType.MINION and entity.zone == Zone.BOARD and entity.active:
         # Control counts a dormant physical minion too. The selector is its

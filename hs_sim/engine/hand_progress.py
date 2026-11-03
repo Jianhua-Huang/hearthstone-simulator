@@ -1,5 +1,5 @@
 """Hand-zone progress with immutable witnesses and continuous upgrade stages."""
-from copy import deepcopy
+from .runtime_copy import deepcopy
 from dataclasses import dataclass, replace
 
 from .costs import quote_unselected_cost
@@ -167,9 +167,10 @@ def advance(r, effect):
         key = f'event:{event.sequence}'
     if key in ability.progress_keys:
         return
-    context = RuleContext(deepcopy(r.state), entity.id, entity.controller, event.target_id,
+    condition = r.registry.trigger_condition(spec.condition_id)
+    context = RuleContext(r.capture_planner_state(condition), entity.id, entity.controller, event.target_id,
                           deepcopy(event), death=death, play=play, trigger=ability, cast=cast)
-    eligible = r.registry.trigger_condition(spec.condition_id)(context)
+    eligible = condition(context)
     if type(eligible) is not bool:
         raise ResolutionError('Hand progress condition must return bool')
     if not eligible:

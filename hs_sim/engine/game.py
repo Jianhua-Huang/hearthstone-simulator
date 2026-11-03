@@ -397,9 +397,11 @@ class Game:
             self._frame_encoding = (self._frame, wire)
         return self._frame_encoding[1]
 
-    def _hash_payload(self):
+    def _hash_payload(self, *, readonly=False):
+        from .serialization import _ReadonlyWireMemo
+        memo = _ReadonlyWireMemo() if readonly else None
         payload = {'ruleset': asdict(self.ruleset), 'registry_fingerprint': self._registry_fingerprint,
-                'mechanics_version': self.mechanics.signature, 'state': state_to_dict(self._state),
+                'mechanics_version': self.mechanics.signature, 'state': state_to_dict(self._state, _readonly_memo=memo),
                 'rng_state': rng_to_json(self._rng.getstate()),
                 'resolution_frame': self._encoded_frame(),
                 'rewind_session': self._rewind.to_dict() if self._rewind is not None else None,
@@ -414,7 +416,7 @@ class Game:
         return payload
 
     def state_hash(self):
-        return canonical_hash(self._hash_payload())
+        return canonical_hash(self._hash_payload(readonly=True))
 
     def audit(self):
         """Run the complete diagnostic audit without modifying this match."""
@@ -1209,7 +1211,7 @@ class Game:
                 resume_choice(resolution, action)
             elif isinstance(action, (PlayCard, UseHeroPower)):
                 from .rewind import start as start_rewind
-                resolution.run(start_rewind(working, action))
+                resolution.run(start_rewind(working, action, _resolution=resolution))
             else:
                 resolution.run([effect])
             from .turn_clocks import settle_expired

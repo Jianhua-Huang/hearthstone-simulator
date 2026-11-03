@@ -127,6 +127,8 @@ def conditional_attack(state, entity, registry=None):
     from .equipment import equipped_weapon
     specs = tuple(a.stat_relation for a in active_abilities(entity, 'stat_relation')
                   if a.stat_relation.target == StatReference.ATTACK)
+    if not specs:
+        return 0
     native = tuple(s for s in specs if s.operand in NATIVE_COUNT_ATTACK)
     if native:
         if len(specs) != 1 or entity.kind != CardType.MINION or entity.components:
