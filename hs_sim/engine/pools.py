@@ -283,6 +283,17 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
     if type(query) is not PoolQuery:
         raise ValueError('Expected PoolQuery')
     query.__post_init__()
+    return _matches_metadata(query, card_id=card_id, kind=kind, cost=cost, meta=meta,
+        spell_school=spell_school, keywords=keywords, current_class=current_class,
+        printed_battlecry=printed_battlecry, current_battlecry=current_battlecry,
+        printed_deathrattle=printed_deathrattle, printed_choose_one=printed_choose_one,
+        printed_attack=printed_attack)
+
+
+def _matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords, current_class=None,
+                      printed_battlecry=None, current_battlecry=None,
+                      printed_deathrattle=None, printed_choose_one=None, printed_attack=None):
+    """Match current facts against an already validated immutable query tree."""
     if query.card_ids and card_id not in query.card_ids:
         return False
     missing = []
@@ -388,7 +399,7 @@ def matches_metadata(query, *, card_id, kind, cost, meta, spell_school, keywords
         unknown_alternatives = []
         for clause in query.any_of:
             try:
-                if matches_metadata(clause, card_id=card_id, kind=kind, cost=cost, meta=meta,
+                if _matches_metadata(clause, card_id=card_id, kind=kind, cost=cost, meta=meta,
                         spell_school=spell_school, keywords=keywords, current_class=current_class,
                         printed_battlecry=printed_battlecry, current_battlecry=current_battlecry,
                         printed_deathrattle=printed_deathrattle, printed_choose_one=printed_choose_one,
@@ -456,7 +467,9 @@ def resolve_candidates(registry, context, pool_id, query, *, current_class=None,
             continue
         if row.card_id in excluded or row.generation_identity in excluded_identities:
             continue
-        if not matches_metadata(query, card_id=row.card_id, kind=row.kind, cost=row.cost,
+        # The query (including every OR clause) was checked once above. Its
+        # validation does not depend on the thousands of candidate card rows.
+        if not _matches_metadata(query, card_id=row.card_id, kind=row.kind, cost=row.cost,
                 meta=meta, spell_school=row.spell_school, keywords=row.keywords, current_class=current_class,
                 printed_battlecry=row.battlecry, current_battlecry=row.battlecry,
                 printed_deathrattle=row.deathrattle, printed_choose_one=row.choose_one,

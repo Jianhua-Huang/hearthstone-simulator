@@ -219,7 +219,10 @@ class FinishSpellCast(Effect):
 
 def finish(r, effect):
     record = cast_record(r.state, effect.cast_id)
-    validate_target_finish(effect, record, r.registry, state=r.state)
+    # Native acceptance already fixed the targets. Reconstructing that old
+    # window is diagnostic work; completion still follows the live CAST below.
+    if r.game.runtime_audits:
+        validate_target_finish(effect, record, r.registry, state=r.state)
     if record.completed or record.interrupted or not record.payload_started:
         raise ResolutionError('Spell cast is already settled')
     from .next_spell_bodies import ContinueNextSpellBodies, body_slots

@@ -73,6 +73,30 @@ class GenerationPoolTests(unittest.TestCase):
     def assert_replay(self, game):
         self.assertEqual(replay(build_replay(game), self.registry).snapshot(), game.snapshot())
 
+    def test_pool_scan_validates_the_complete_query_tree_once_and_preserves_candidates(self):
+        names = tuple('row' + str(i) for i in range(64))
+        for name in names:
+            self.card(name)
+        self.pool(cards=(*names, 'b', 'token'))
+        clauses = (PoolQuery(kinds=(CardType.MINION,)), PoolQuery(kinds=(CardType.SPELL,)))
+        query = PoolQuery(collectible=True, any_of=clauses)
+        validate = PoolQuery.__post_init__
+        seen = []
+
+        def counted(value):
+            seen.append(id(value))
+            validate(value)
+
+        with patch.object(PoolQuery, '__post_init__', counted):
+            self.assertEqual(self.candidates(query), tuple(sorted((*names, 'b'))))
+        self.assertEqual(seen, [id(query), *(id(clause) for clause in clauses)])
+        # Even a later alternative that would not run for a known minion must
+        # be validated before the scan starts.
+        object.__setattr__(clauses[1], 'min_cost', True)
+        with self.assertRaises(ValueError):
+            self.candidates(query)
+
+
     def test_definition_validation_rejects_ambiguous_or_mutable_inputs(self):
         invalid = [lambda: GenerationContext('', 'wild'), lambda: GenerationContext('t', 'arena'),
             lambda: PoolMember('a', True), lambda: PoolMember('a', 0),

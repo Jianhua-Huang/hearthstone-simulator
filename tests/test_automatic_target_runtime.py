@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 from random import Random
 import unittest
+from unittest.mock import patch
 
 from hs_sim.engine import (CardDefinition, CardType, Game, PlayCard, PlayerSetup, Registry,
     Scenario, SelectChoice)
@@ -254,6 +255,27 @@ class AutomaticTargetRuntimeTests(unittest.TestCase):
         for branch in branches: self.assertEqual(branch.snapshot(), game.snapshot())
         self.assertEqual(game.state.players[1].mana, 7)
         self.portable(game, 'resumed')
+
+    def test_release_finishes_original_target_without_audit_and_debug_audit_can_roll_back(self):
+        release = self.launched()
+        debug = release.clone()
+        debug.runtime_mode = 'debug'
+        before = debug.snapshot()
+        choice = release.state.pending_choice
+        command = SelectChoice(choice.player_id, choice.id, ('ok',))
+        with patch('hs_sim.engine.spell_casts.validate_target_finish',
+                   side_effect=ValueError('target audit probe')) as audit:
+            release.apply(command)
+            self.assertEqual(audit.call_count, 0)
+            with self.assertRaisesRegex(ResolutionError, 'target audit probe'):
+                debug.apply(command)
+            self.assertGreater(audit.call_count, 0)
+        self.assertEqual(debug.snapshot(), before)
+        self.assertEqual(debug.debug_records[-1]['status'], 'error')
+        debug.apply(command)
+        self.assertEqual(release.snapshot(), debug.snapshot())
+        self.assertEqual(release.snapshot()['rng_state'], before['rng_state'])
+        self.portable(release, 'release-finish-without-target-audit')
 
     def test_target_leaving_during_cast_started_reactions_does_not_rewrite_original_pool(self):
         game = self.launched(friendly=('watcher',), enemy=('plain',), target_zone='minions')
