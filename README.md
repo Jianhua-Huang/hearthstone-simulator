@@ -117,3 +117,13 @@ print(player.legal_actions())
 反馈时尽量提供卡牌名称或 ID、预期效果、实际结果、复现操作，以及对应的回放或日志。完整快照可能包含双方隐藏信息，分享前请确认内容。
 
 开发文档可以按需要阅读：[架构说明](docs/architecture.md)、[扩展指南](docs/extensions.md)、[长期计划](docs/roadmap.md)。详细进展保存在[项目状态](docs/project-status.md)和[机制清单](docs/mechanism-backlog.md)中，历史条目按当时版本记录。
+
+## 许可证与第三方内容
+
+Copyright (C) 2026 Jianhua-Huang and contributors.
+
+除另有说明的第三方内容外，本项目原创代码及配套文档采用 **GNU Affero General Public License v3.0（AGPL-3.0-only）**，完整条款见 [LICENSE](LICENSE)。软件按现状提供，不附带担保。
+
+第三方代码保留各自的版权和许可声明。炉石卡图、卡牌原文及其他第三方素材和来源数据不因本项目采用 AGPL 而获得重新授权；具体范围与来源见[第三方声明](THIRD_PARTY_NOTICES.md)。
+
+本项目是非官方社区项目，与暴雪娱乐无隶属关系，未获得其认可或背书。
