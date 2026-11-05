@@ -4,6 +4,7 @@ from dataclasses import asdict
 from functools import lru_cache
 import json, unittest
 from pathlib import Path
+from fixture_inputs import fixture_manifest
 
 from card_batch_testkit import CardBatchTestMixin
 from opening_fixtures import metadata, registry as opening_registry
@@ -34,7 +35,7 @@ A,B,C,TWO,MAGE_TWO,HIGH,TEN,OVER,DORM,BOTH,DEAD,RATTLE = (P+x for x in
 S1,S2,SH,PORTAL,NOOP,TAUNT,BOOST,REENTER,KILL,AUTO,FAIL = (P+x for x in
     ('mage3','mage_nature4','shaman_nature3','draw_cast','noop','taunt','boost','reenter','kill','automatic_plague','failure'))
 CTX = GenerationContext('k661-explicit-test-domain','experimental')
-OUT = Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k661-past-nature-copy-discovery'
+OUT = Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k661-past-nature-copy-discovery'
 
 
 def prompt(c, player, target=None):
@@ -174,7 +175,7 @@ class NatureCopyDiscoveryTests(CardBatchTestMixin,unittest.TestCase):
         self.assertEqual(len(d['complete_druid_Nature_inventory']),85);self.assertFalse(d['source_scope_bound'])
 
     def test_both_original_jade_blossom_and_old_swarmer_complete_alternate_faces_validate(self):
-        m=batch.read(OUT/'manifest-01.json');rows=batch.pinned_rows(m,Path.cwd());index=batch.catalog_index(m['official_catalogs'],Path.cwd())
+        m=fixture_manifest(batch.read(OUT/'manifest-01.json'));rows=batch.pinned_rows(m,Path.cwd());index=batch.catalog_index(m['official_catalogs'],Path.cwd())
         for cid in ('CFM_713','CFM_691'):
             for locale in ('zh_CN','en_US'):
                 batch.catalog_official(rows[cid],locale,index,display_normalizations={'{0}':''} if locale=='zh_CN' else {})

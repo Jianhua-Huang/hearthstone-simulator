@@ -124,7 +124,7 @@ class StoredDestructionTests(unittest.TestCase):
 
     def test_complete_raw_pin_and_only_necessary_adapter(self):
         raw=next(x for x in evidence()['records'] if x['id']==NATIVE)
-        original=next(x for x in json.loads((ROOT/'data/extracted/cards.json').read_bytes()) if x['id']==NATIVE)
+        original=next(x for x in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes()) if x['id']==NATIVE)
         self.assertEqual(raw,original);card=registry().card(NATIVE)
         self.assertEqual((card.cost,card.on_play,card.on_discard,card.on_destroyed),(3,'draw2','draw2','draw2'))
         self.assertEqual(card.metadata,metadata_from_record(raw))

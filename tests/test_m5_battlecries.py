@@ -325,7 +325,7 @@ class RepresentativeBattlecryTests(unittest.TestCase):
     def test_all_44_reviewed_declarations_are_explicit_without_generic_payload(self):
         from hs_sim.engine.representative import build_registry
         registry=build_registry();root=Path(__file__).resolve().parents[1]
-        rows=json.loads((root/'outputs/m5-13d-battlecry-candidates.json').read_text(encoding='utf-8'))['current_representatives_with_battlecry_tag']
+        rows=json.loads((root/'tests/fixtures/history/m5-13d-battlecry-candidates.json').read_text(encoding='utf-8'))['current_representatives_with_battlecry_tag']
         self.assertEqual(len(rows),44)
         for row in rows:
             c=registry.card(row['id']);self.assertIsNotNone(c.battlecry,row['id']);self.assertIsNone(c.on_play,row['id'])

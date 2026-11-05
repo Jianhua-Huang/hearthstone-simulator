@@ -114,7 +114,7 @@ class CorpseTriggerChoiceTests(unittest.TestCase):
         self.assertEqual(set(t.lower()for t in self.r.card(VOLCOROSS).metadata.tribes),{'elemental','beast'})
         self.assertEqual(self.r.card(FLOWER).attack,0);self.assertEqual(self.r.card(FOOTMAN).corpse_value,0)
     def test_old1016_definitions_and_default_fingerprint_stay_exact(self):
-        before=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k72-before/definition-digests.json').read_text(encoding='utf-8'))
+        before=json.loads((Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k72-before/definition-digests.json').read_text(encoding='utf-8'))
         self.assertEqual(len(before),1016);self.assertEqual(before,historical_definition_digests(self.r,before))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_necromancer_native_owner_end_raises_one_exact_footman(self):
@@ -246,7 +246,7 @@ class CorpseTriggerChoiceTests(unittest.TestCase):
     def test_actual_old_schema291_rejected_and_current_default_restores(self):
         root=Path(__file__).resolve().parents[1];self.assertGreater(SNAPSHOT_SCHEMA_VERSION,291)
         for label,factory in(('constructed-v80',build_registry),('default-v65',representative)):
-            old=json.loads((root/f'outputs/card-integration-20261014/k72-before/{label}-core366-schema291.json').read_text(encoding='utf-8'))
+            old=json.loads((root/f'tests/fixtures/history/card-integration-20261014/k72-before/{label}-core366-schema291.json').read_text(encoding='utf-8'))
             with self.subTest(label=label),self.assertRaises(SnapshotError):Game.from_snapshot(old,factory())
         g=Game.from_scenario(Scenario((PlayerSetup('HERO_08'),PlayerSetup('HERO_08'))),representative())
         self.assertEqual(Game.from_snapshot(g.snapshot(),representative()).snapshot(),g.snapshot())

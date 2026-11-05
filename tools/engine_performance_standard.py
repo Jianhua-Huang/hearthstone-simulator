@@ -63,7 +63,7 @@ try:
     save()
     print('registry loaded',report['identity'],report['registry_build'],flush=True)
 
-    original = json.loads((root/'outputs/card-integration-20261014/cards-37.0.0.255026.json').read_text(encoding='utf-8-sig'))
+    original = json.loads((root/'data/reference/card-integration-20261014/cards-37.0.0.255026.json').read_text(encoding='utf-8-sig'))
     original = original if isinstance(original,list) else original['cards']
     rows = {r['id']:r for r in original}
     policy = json.loads((root/'data/cards/standard-candidate-policy-cn37-20261015.json').read_text(encoding='utf-8'))

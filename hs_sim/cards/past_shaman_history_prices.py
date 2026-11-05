@@ -22,7 +22,7 @@ DEPENDENCIES=()
 PREFIX='cards.past_shaman_history_prices.'
 CURRENT_OVERLOAD=PlayerOverloadCostSpec('cost.player-current-overload-discount-v1')
 TURN_NATURE=PlayerSpellCountCostSpec('cost.player-turn-nature-cast-count-v1')
-SOURCE=ROOT/'outputs/card-integration-20261014/cards-37.0.0.255026.json'
+SOURCE=ROOT/'data/reference/card-integration-20261014/cards-37.0.0.255026.json'
 SOURCE_HASH='3c7991d63b9905226320861844c2def8b839321294bd8b301a1c1632150083c2'
 
 

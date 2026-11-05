@@ -8,6 +8,7 @@ from dataclasses import asdict, replace
 from functools import lru_cache
 import json
 from pathlib import Path
+from fixture_inputs import fixture_input_map
 import unittest
 from unittest.mock import patch
 
@@ -369,7 +370,7 @@ class AssembleHeroAttackWeaponTests(CardBatchTestMixin, unittest.TestCase):
     def test_old_default_save_is_rejected_by_new_core_with_same_snapshot_schema(self):
         from hs_sim.engine.representative import build_registry as defaults
         root = Path(__file__).resolve().parents[1]
-        before = batch.read_registry_observation(root/'outputs/card-integration-20261014/k521-native-weapon-fragments/after-runtime-reference-02.json', root=root)
+        before = batch.read_registry_observation(root/'tests/fixtures/history/card-integration-20261014/k521-native-weapon-fragments/after-runtime-reference-02.json', root=root, input_paths=fixture_input_map())
         r = defaults()
         self.assertEqual(r.fingerprint(), before['default_fingerprint'])
         self.assertEqual(before['default_snapshot']['schema_version'], 587)

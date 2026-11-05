@@ -114,7 +114,7 @@ class RecruitArmorRecipientTests(unittest.TestCase):
 
     def test_original_oak_failure_game_reaches_and_accepts_step71(self):
         from web_ui.autoplay_checks import facts
-        base=ROOT/'outputs/mixed-deck-audit-20261103';doc=json.loads((base/'decks/discard_choose.json').read_text('utf-8'))
+        base=ROOT/'tests/fixtures/history/mixed-deck-audit-20261103';doc=json.loads((base/'decks/discard_choose.json').read_text('utf-8'))
         f=build_cn37_local_pool_format();pool=f.registry.pool('constructed.minions',f.context)
         for name in ('representative.attack-cost-minions','representative.legendary-dragons'):
             f.registry.register_pool(replace(pool,id=name,version='ui-standard-match-full-minions-v1:'+pool.version))

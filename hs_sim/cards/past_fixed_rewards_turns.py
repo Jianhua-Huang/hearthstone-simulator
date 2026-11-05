@@ -2,6 +2,7 @@
 from dataclasses import asdict
 import hashlib,json
 from pathlib import Path
+from hs_sim.reference_inputs import reference_path
 from hs_sim.engine.colossal import SummonStoredCard
 from hs_sim.engine.deck_exchange import SwapPlayerDecks,TakeRandomDeckMinion
 from hs_sim.engine.deck_shuffles import shuffled
@@ -76,10 +77,10 @@ def load_batch():
     for row in d['cards']+d['dependencies']+d['evidence_only']:
         if canonical_digest(row['record'])!=row['record_sha256']:raise TargetValidationError('Changed complete original fixed reward row')
     for entry in d['retained_documents'].values():
-        p=(ROOT/entry['path']).resolve()
+        p=(reference_path(entry['path'], root=ROOT)).resolve()
         if not p.is_relative_to(ROOT)or hashlib.sha256(p.read_bytes()).hexdigest()!=entry['sha256']:
             raise TargetValidationError('Changed original full fixed reward reference')
-    ref=json.loads((ROOT/d['retained_documents']['past']['path']).read_text(encoding='utf8'))
+    ref=json.loads((reference_path(d['retained_documents']['past']['path'], root=ROOT)).read_text(encoding='utf8'))
     rows={x['record']['id']:x['record']for x in ref['candidate_records']}
     if ref['candidate_ids']!=d['original_candidate_ids']or len(ref['candidate_ids'])!=732 or any(
             x['record']!=rows[x['record']['id']]for x in d['cards']):raise TargetValidationError('Cropped original complete past source')

@@ -135,7 +135,7 @@ class KindredBasicTests(unittest.TestCase):
         return variants
 
     def test_complete_native_raw_pin_three_full_bodies_and_metadata(self):
-        packet=evidence();raw={c['id']:c for c in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        packet=evidence();raw={c['id']:c for c in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         self.assertEqual((len(packet['records']),packet['executable_representatives']),(31,[MINION,FROST,HOLY]))
         for row in packet['records']:self.assertEqual(row,raw[row['id']])
         r=registry();m,f,h=(r.card(i) for i in (MINION,FROST,HOLY))

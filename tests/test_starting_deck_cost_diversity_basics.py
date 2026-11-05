@@ -188,7 +188,7 @@ class StartingDeckCostDiversityTests(unittest.TestCase):
 
     def test_complete_raw_requires_starting_different_costs_without_partial_native_adapter(self):
         packet, raw, r = json.loads(SUPPORT.read_bytes()), evidence(), registry()
-        self.assertEqual(hashlib.sha256((ROOT/'data/extracted/cards.json').read_bytes()).hexdigest(), packet['source_sha256'])
+        self.assertEqual(hashlib.sha256((ROOT/'tests/fixtures/extracted/cards.json').read_bytes()).hexdigest(), packet['source_sha256'])
         self.assertEqual((raw['id'], raw['cost'], raw['attack'], raw['health']), ('TLC_100', 4, 3, 5))
         self.assertIn('started with 10 cards of different Costs', raw['text_en'])
         self.assertEqual(raw['tags']['SHOULD_TRACK_DECK_COST_COUNT'], 1)

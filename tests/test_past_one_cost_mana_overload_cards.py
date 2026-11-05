@@ -191,7 +191,7 @@ class PastOneCostManaOverloadTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_unmodified_historical_default_snapshot_is_rejected_with_its_matching_registry(self):
         from hs_sim.engine.representative import build_registry as defaults
-        old=batch.read(Path('outputs/card-integration-20261014/k466-past-one-cost-mana-overload/before-01.json'))
+        old=batch.read(Path('tests/fixtures/history/card-integration-20261014/k466-past-one-cost-mana-overload/before-01.json'))
         saved=old['default_snapshot'];r=defaults()
         self.assertEqual(saved['registry_fingerprint'],r.fingerprint());self.assertEqual(saved['schema_version'],548)
         with self.assertRaisesRegex(SnapshotError,'schema'):Game.from_snapshot(saved,r)

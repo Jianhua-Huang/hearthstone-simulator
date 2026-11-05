@@ -100,7 +100,7 @@ class KindredHandBonusTests(unittest.TestCase):
         self.assertEqual(self.r.card(TORGA).metadata.tribes,('beast','undead'));self.assertNotIn(TORGA,self.r.kindred_profiles)
         self.assertEqual(self.r.card(TWISTED).keywords,(Keyword.TAUNT,Keyword.ELUSIVE))
     def test_old1057_complete_definitions_and_default_fingerprint_preserved(self):
-        prior=json.loads((ROOT/'outputs/card-integration-20261014/k79-before/definition-digests.json').read_bytes())
+        prior=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k79-before/definition-digests.json').read_bytes())
         self.assertEqual(len(prior),1057);self.assertEqual(prior,historical_definition_digests(self.r,prior))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_torga_minion_tutors_native_kindred_then_matching_minion(self):
@@ -208,7 +208,7 @@ class KindredHandBonusTests(unittest.TestCase):
         for private in('kindred_pair','RotatePrintedHandBonuses','hand_bonus_rotated','DYNAMIC_KEYWORD1'):self.assertNotIn(private,text)
     def test_previous_schema297_default_and_constructed_saves_are_rejected(self):
         for name in('constructed-v87','default-v65'):
-            with self.subTest(name=name),self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((ROOT/f'outputs/card-integration-20261014/k79-before/{name}-core372-schema297.json').read_bytes()),self.r if name.startswith('constructed')else representative())
+            with self.subTest(name=name),self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((ROOT/f'tests/fixtures/history/card-integration-20261014/k79-before/{name}-core372-schema297.json').read_bytes()),self.r if name.startswith('constructed')else representative())
 
 
 if __name__=='__main__':unittest.main()

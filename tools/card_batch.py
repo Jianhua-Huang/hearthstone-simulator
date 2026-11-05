@@ -862,11 +862,17 @@ def _runtime_shape(value):
     return value
 
 
-def read_registry_observation(path, *, root=ROOT):
+def read_registry_observation(path, *, root=ROOT, input_paths=None):
     """Expand pinned local observations; byte integrity is not source authentication."""
     root = Path(root).resolve()
+    def input_path(value):
+        logical = Path(value)
+        if input_paths is not None:
+            key = logical.relative_to(root).as_posix() if logical.is_absolute() else logical.as_posix()
+            logical = Path(input_paths.get(key, value))
+        return _runtime_path(root, logical)
     def expand(path, chain):
-        path = _runtime_path(root, path)
+        path = input_path(path)
         require(path not in chain and len(chain) < 16, 'Cyclic or excessive runtime reference chain')
         data = read(path)
         if type(data) is dict and 'kind' not in data:
@@ -880,7 +886,7 @@ def read_registry_observation(path, *, root=ROOT):
                 ('verified-identical-runtime-body-reference', 'verified-runtime-body-reference') and
                 data['actual_full_observation_compared'] is True,
                 'Malformed or unverified runtime reference')
-        baseline = _runtime_path(root, root/relative_file(data['baseline']))
+        baseline = input_path(relative_file(data['baseline']))
         require(baseline not in (*chain, path), 'Cyclic runtime reference chain')
         require(sha(baseline) == data['baseline_sha256'], 'Runtime baseline byte identity changed')
         base = expand(baseline, (*chain, path))

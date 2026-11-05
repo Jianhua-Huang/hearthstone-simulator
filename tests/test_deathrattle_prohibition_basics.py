@@ -116,7 +116,7 @@ class DeathrattleProhibitionTests(unittest.TestCase):
     def rehash(self,s):s['state_hash']=canonical_hash({k:v for k,v in s.items() if k not in ('schema_version','events','events_hash','state_hash')})
 
     def test_native_full_raw_pin_metadata_and_only_necessary_bodies(self):
-        p=evidence();raw={c['id']:c for c in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        p=evidence();raw={c['id']:c for c in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         self.assertEqual((p['candidate_ids'],p['executable_representatives']),([NATIVE,'YOP_012e'],[NATIVE,ACTIVE,RATTLE]))
         for row in p['records']:self.assertEqual(row,raw[row['id']])
         r=registry();n,a,d=r.card(NATIVE),r.card(ACTIVE),r.card(RATTLE)

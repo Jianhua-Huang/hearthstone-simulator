@@ -271,7 +271,7 @@ class DrawRetentionTests(unittest.TestCase):
     def test_previous_actual_schema275_snapshot_is_rejected(self):
         from pathlib import Path
         from hs_sim.engine.representative import build_registry as representative
-        path=Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k45-before/default-snapshot-core345-schema275.json'
+        path=Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k45-before/default-snapshot-core345-schema275.json'
         with self.assertRaises(SnapshotError):Game.from_snapshot(json.loads(path.read_text(encoding='utf-8')),representative())
 
 

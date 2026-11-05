@@ -156,7 +156,7 @@ class EndTurnRepresentativeTests(unittest.TestCase):
             ((CardClass.PALADIN,), Rarity.RARE, True, SpellSchool.HOLY))
 
     def test_two_complete_support_pins_equal_immutable_audit_raw(self):
-        audit = json.loads((ROOT / 'outputs/v104-end-turn-representatives-pre-audit.json').read_text(encoding='utf-8'))
+        audit = json.loads((ROOT / 'tests/fixtures/history/v104-end-turn-representatives-pre-audit.json').read_text(encoding='utf-8'))
         candidates = {e['raw']['id']: e for e in audit['catalog']}
         rows = self.raw_records()
         for card, digest in PINS.items():
@@ -167,7 +167,7 @@ class EndTurnRepresentativeTests(unittest.TestCase):
                 self.assertEqual(EXPECTED_CARD_HASHES[card], digest)
 
     def test_previous_three_hundred_support_rows_remain_exactly_unchanged(self):
-        audit = json.loads((ROOT / 'outputs/v104-end-turn-representatives-pre-audit.json').read_text(encoding='utf-8'))
+        audit = json.loads((ROOT / 'tests/fixtures/history/v104-end-turn-representatives-pre-audit.json').read_text(encoding='utf-8'))
         old_rows = [e for e in load_baseline().support['cards'] if e['id'] not in PINS and e['id'] not in ('CATA_472', 'TIME_064', 'RLK_541')]
         self.assertEqual(len(old_rows), 300)
         self.assertEqual(canonical_digest(old_rows), audit['baseline']['support_cards_canonical_sha256'])

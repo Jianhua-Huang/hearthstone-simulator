@@ -1,0 +1,2190 @@
+{
+  "artifact_kind": "end_turn_repetition_representatives_pre_implementation_audit",
+  "audit_version": 1,
+  "audit_date": "2026-10-03",
+  "audit_only": true,
+  "implementation_complete": false,
+  "next_increment": "M5-13d-02l-05b",
+  "scope": "Only this new audit artifact is written. No runtime, test, documentation, support-data, prior-audit or vendor-evaluation file is changed by this audit. No card is implemented, no stage/close/check or test command is run, and no rule is registered.",
+  "tests_run_by_this_audit": false,
+  "registered_rule": null,
+  "rule_registry_changed": false,
+  "baseline": {
+    "prototype": "prototype-v100",
+    "core_effects": "core-effects-v100",
+    "snapshot_schema": 97,
+    "representative_registry": "representative-m5-v60",
+    "raw_representative_records": 300,
+    "definitions": 301,
+    "choice_only": 14,
+    "observation_schema": 51,
+    "command_schema": 7,
+    "replay_schema": 1,
+    "plan_version": "1.89",
+    "preceding_increment": "M5-13d-02l-05a",
+    "observed_stage_file": "outputs/v103-stage.json",
+    "observed_stage_status": "validation_in_progress",
+    "validation_limit": "The root owns actual dedicated, regression, full and example validation and subsequent close. Staging and this audit are not acceptance. No current final counts, durations or example digest are asserted here. Per-file dependency hashes describe their observation times, not a global runtime/test freeze.",
+    "support_cards_canonical_sha256": "2c6ca0946a68e873aa61e1c9a26f5104b4550db4f1b82b9afc7890df07da44e2",
+    "prior_support_cards_canonical_sha256": "2c6ca0946a68e873aa61e1c9a26f5104b4550db4f1b82b9afc7890df07da44e2"
+  },
+  "evidence_contract": {
+    "source": "data/extracted/cards.json",
+    "source_raw_records": 36022,
+    "raw_catalog_contract": "Each catalog.raw is the entire original extracted record, preserving all keys, source_events, arrays and nulls. It is not a projection, normalized adapter object or display record. record_sha256 is canonical_digest of this exact raw object.",
+    "canonical_digest": "SHA-256 of UTF-8 json.dumps(record, ensure_ascii=False, sort_keys=True, separators=(',', ':'))",
+    "summary_fields_are_raw_records": false,
+    "catalog_is_pool_denominator": false,
+    "formal_mode_legality_verified": false,
+    "source_graph_complete": false,
+    "cn_rule_calibration_verified": false,
+    "raw_counts_are_implementation_counts": false,
+    "historical_audits_must_remain_unchanged": [
+      "outputs/v102-end-turn-pre-audit.json",
+      "outputs/v103-end-turn-repeat-pre-audit.json"
+    ],
+    "universal_source_events_limit": "Shared source_events, including event names containing BG, are extraction observations and do not classify a card as constructed or Battlegrounds-legal. Card IDs, mode-specific tags and independent rules evidence must be kept separate.",
+    "source_file_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+    "catalog_raw_records": 20,
+    "main_four_canonical_hashes": {
+      "ICC_901": "070a2203d4bc37018eb158552c443b69698282fe69f0c7970d1d8c57efa45a6d",
+      "CORE_ICC_901": "69e8a2fa30c6a17e81088cd355e8a773e310bd18d494b2b12ec124b373c6144d",
+      "ICC_901e": "d38fe5cdd9dd634c9425f3cebdce60bcb2ee59bdb9e65089d30b48afe8c8d9dc",
+      "CATA_480": "97a07ad8a9f0cb55fc0cef49192ef58b74e527bd0043c013996b402900cb5d15"
+    },
+    "historical_audit_file_sha256": {
+      "outputs/v102-end-turn-pre-audit.json": "69040e3c7049b05d289eb9ae38b8a4e36d7c5bde262b7214af83bbd3344706b1",
+      "outputs/v103-end-turn-repeat-pre-audit.json": "2caf189b14b22ee9ff795a66e64a86f76697351f8ecdce4597715d2c09f93ea6"
+    }
+  },
+  "candidate_classes": [
+    {
+      "class": "necessary_constructed_board_source_candidate",
+      "ids": [
+        "ICC_901"
+      ],
+      "proposed_role": "One independent 3-mana 1/5 printed passive source, repetitions=2 and scope=all. Do not add an end-turn trigger or on-play behavior merely to install its printed ability. Broader classified subject coverage remains an internal profile."
+    },
+    {
+      "class": "necessary_constructed_timed_player_source_candidate",
+      "ids": [
+        "CATA_480"
+      ],
+      "proposed_role": "One independent 3-mana Paladin Holy spell installing a source-independent player effect with repetitions=2 and scope=minion. The raw text keeps @; duration=3 and counting the casting owner-end are proposed local profiles, not calibrated facts."
+    },
+    {
+      "class": "independent_core_identity_not_added",
+      "ids": [
+        "CORE_ICC_901"
+      ],
+      "proposed_role": "Keep its own dbf ID, collectible=false flag and complete record. Tag 858 references ICC_901's dbf ID; it neither merges identities nor establishes current legality or permits a second adapter automatically."
+    },
+    {
+      "class": "independent_enchantment_identity_not_added",
+      "ids": [
+        "ICC_901e"
+      ],
+      "proposed_role": "Its same end-turn text and suffix identify a lexical candidate relation only. There is no direct relationship in the scanned extracted reference fields proving installation, copying or duration behavior. No enchantment adapter or dynamic grant policy is inferred."
+    },
+    {
+      "class": "battlegrounds_only_comparison_not_added",
+      "ids": [
+        "BG26_ICC_901",
+        "BG26_ICC_901_G"
+      ],
+      "proposed_role": "Two separate mode-tagged records, with their own normal/golden dbf links and twice/three-times text. Do not import the golden three-times value into constructed ICC_901 or use either as a constructed representative."
+    },
+    {
+      "class": "four_family_mixed_source_deferred",
+      "ids": [
+        "TIME_064",
+        "TIME_064e"
+      ],
+      "proposed_role": "Battlecry, Deathrattle, Hero Power and end-turn mixed declarations remain later work. Implementing two end-turn representatives does not certify this mixed card, its independent enchantment, common lifecycle or the whole L05 family."
+    },
+    {
+      "class": "existing_player_clock_comparison",
+      "ids": [
+        "AV_344",
+        "AV_400"
+      ],
+      "proposed_role": "Existing independent timed objective profiles demonstrate reuse of owner-end clocks and player instances. Their internal duration/casting-end and capacity policies are comparison dependencies, not official evidence for CATA_480."
+    },
+    {
+      "class": "existing_natural_subject_and_component_comparison",
+      "ids": [
+        "BOT_107",
+        "CATA_725t",
+        "CATA_150",
+        "TSC_216t",
+        "CATA_150t",
+        "CATA_150t1"
+      ],
+      "proposed_role": "Existing classified natural bodies and separate existing components support deterministic lifecycle and nested-mechanism candidates. Each raw component keeps its own identity; their current adapters remain partial/internal."
+    },
+    {
+      "class": "existing_reproducible_scenario_fixture",
+      "ids": [
+        "HERO_04",
+        "HERO_08",
+        "CS2_182",
+        "EX1_332"
+      ],
+      "proposed_role": "Already-registered scenario heroes, non-played deck filler and a silence comparison. Using Scenario is a mechanism fixture, not a legal constructed deck claim. EX1_332's absent raw COST keeps its reviewed existing adapter default; no blanket null normalization is proposed."
+    }
+  ],
+  "identity_and_component_review": {
+    "primary_ids": [
+      "ICC_901",
+      "CATA_480"
+    ],
+    "main_four_ids": [
+      "ICC_901",
+      "CORE_ICC_901",
+      "ICC_901e",
+      "CATA_480"
+    ],
+    "all_main_four_reference_tags_empty": true,
+    "all_main_four_related_dbf_ids_empty": true,
+    "source_graph_scan_scope": "All 36,022 extracted records were scanned for numeric target dbf IDs in tags, reference_tags.value and related_dbf_ids. This finite field scan cannot establish a complete semantic, script, event, copy, generation or official component graph.",
+    "main_four_direct_numeric_edge": {
+      "from": "CORE_ICC_901",
+      "field": "tags.858",
+      "value": 45309,
+      "to": "ICC_901",
+      "meaning_limit": "An observed numeric reference, not identity equivalence or verified current mode legality."
+    },
+    "icc_enchantment_relation": "ICC_901e is a same-text/suffix candidate. The scanned fields do not directly reference ICC_901 from this enchantment or reference the enchantment from ICC_901. Do not invent an installation edge.",
+    "cata_prefix_records": [
+      "CATA_480"
+    ],
+    "absent_cata_components": [
+      "CATA_480e",
+      "CATA_480t"
+    ],
+    "absent_component_limit": "Absent in this frozen extracted source, not proof that no component or semantic script exists in the official game. No placeholder raw record, dbf ID or definition is synthesized.",
+    "bg_internal_edges": [
+      {
+        "from": "BG26_ICC_901",
+        "field": "tags.BACON_TRIPLE_UPGRADE_MINION_ID",
+        "value": 101315,
+        "to": "BG26_ICC_901_G"
+      },
+      {
+        "from": "BG26_ICC_901_G",
+        "field": "tags.BACON_TRIPLED_BASE_MINION_ID",
+        "value": 101314,
+        "to": "BG26_ICC_901"
+      }
+    ],
+    "existing_colossal_component_edges": [
+      {
+        "from": "CATA_150",
+        "field": "related_dbf_ids",
+        "values": [
+          124113,
+          125412
+        ],
+        "to": [
+          "CATA_150t",
+          "CATA_150t1"
+        ]
+      }
+    ],
+    "independent_identity_policy": "Same names, text, behavior IDs, schema convenience defaults or card-family suffixes do not merge card IDs, attachment IDs or player-instance IDs. Physical carrier card_id is distinct from attachment source provenance and player-effect source_card_id.",
+    "numeric_reference_scan_results": [
+      {
+        "from": "CORE_ICC_901",
+        "field": "tags.858",
+        "value": 45309,
+        "to": "ICC_901"
+      }
+    ],
+    "numeric_reference_scan_record_count": 36022,
+    "cata_prefix_scan_result": [
+      "CATA_480"
+    ]
+  },
+  "recommended_adapters": [
+    {
+      "id": "ICC_901",
+      "status": "proposal_only",
+      "source_profile": "printed_active_board_minion",
+      "proposed_card_definition": "definition('ICC_901', CardType.MINION, end_turn_repeats=(EndTurnRepeatSpec(2, 'all'),))",
+      "metadata_route": "Use the existing complete frozen snapshot/pin/definition helper and metadata_from_record. Preserve cost=3, attack=1, health=5, neutral class, epic rarity and source AURA evidence. No new generic metadata default is needed.",
+      "lifecycle_route": "The existing printed AbilityInstance and active_abilities path supplies one independently identified contributor while the controlled minion is active, alive and not doomed. Silence removes its printed passive; death, bounce, transform or transfer affects only future acceptances, not an already frozen batch. Copy uses existing new-entity/new-attachment identity policies.",
+      "scope_limit": "all is the current public internal profile for every classified subject owned by that captured controller. A real minion-only fixture does not establish every possible weapon, HP, dormant, attachment or player-effect case in official rules. Do not reinterpret ordinary turn_ended listeners or clocks as subjects."
+    },
+    {
+      "id": "CATA_480",
+      "status": "proposal_only",
+      "source_profile": "source_independent_timed_player_instance",
+      "proposed_effect_spec_id": "m5.sandfury_aura",
+      "proposed_card_definition": "definition('CATA_480', CardType.SPELL, ongoing_effect_id='m5.sandfury_aura')",
+      "proposed_player_effect_definition": "PlayerEffectSpec('m5.sandfury_aura', 'CATA_480', kind='objective', duration=3, tick_event='turn_ended', end_turn_repeats=(EndTurnRepeatSpec(2, 'minion'),))",
+      "spec_id_limit": "This proposed public effect key is a registry identifier, not a new raw card or enchantment identity; no registration has occurred in this audit.",
+      "metadata_route": "Use the existing complete frozen snapshot/pin/definition helper. Preserve cost=3, Paladin class and rare rarity; existing SPELL_SCHOOL=5 mapping yields Holy. Raw attack and health remain null in evidence, even though the existing SPELL adapter's runtime character stats are zero.",
+      "activation_route": "The successful ongoing_effect_id branch in spell_casts supplies AddPlayerEffect after normal cost/counter handling. No redundant on_play handler, synthetic end-turn body or custom event is needed. The card root pays and completes once; each separately resolved legal spell activation may install its own ordinary instance under the existing contract.",
+      "duration_evidence": "Raw CN/EN text contains @, while QUEST_PROGRESS_TOTAL and TAG_SCRIPT_DATA_NUM_1 are both 3. These observations support a local duration=3 candidate only; neither tag renders the official text or proves exact casting-end timing.",
+      "owner_and_clock_route": "The instance belongs to the casting player and retains source entity/card independently. Existing owner turn_ended ticks capture old instance IDs and expected remaining values before the natural event. The batch and all old reactions complete before each guarded old tick runs once; remaining=1 contributes to all accepted positions, then expires. With the proposed profile, a normal cast before that player's EndTurn counts the casting owner-end as the first of three. Opponent boundaries do not decrement it.",
+      "clock_boundary_limit": "An instance created or replaced during the boundary is absent from that boundary's frozen countdown list. Expiry first removes it, then emits the existing expiry event and optional expiry work. Timers/expiry are not natural subjects and do not multiply. Start-tick definitions keep their own start clock.",
+      "source_lifecycle_route": "The physical spell entering the graveyard, later source mutation or source control changes do not remove or transfer the installed player effect. Each duplicate instance has an independent ID, entered order, owner and countdown; all applicable sources contribute to a max plan without multiplying two twice sources.",
+      "unconfirmed_paladin_aura_policies": "The raw PALADIN_AURA/OBJECTIVE tags do not by themselves prove exclusivity, replacement, stacking, aura capacity or shared secret-zone occupancy. Reusing existing generic timed-objective instance/capacity policies must be documented as an internal partial profile rather than completion of all Paladin Aura semantics."
+    }
+  ],
+  "proposed_support_delta": {
+    "status": "conditional_plan_not_current_state",
+    "necessary_new_raw_rows": [
+      "ICC_901",
+      "CATA_480"
+    ],
+    "necessary_new_definitions": [
+      "ICC_901",
+      "CATA_480"
+    ],
+    "raw_rows_before": 300,
+    "raw_rows_after_if_only_these_two_are_added": 302,
+    "definitions_before": 301,
+    "definitions_after_if_only_these_two_are_added": 303,
+    "choice_only_before_and_after": 14,
+    "existing_support_cards_must_remain_identical": true,
+    "excluded_new_rows": [
+      "CORE_ICC_901",
+      "ICC_901e",
+      "BG26_ICC_901",
+      "BG26_ICC_901_G",
+      "TIME_064",
+      "TIME_064e",
+      "CATA_480e",
+      "CATA_480t"
+    ],
+    "support_status": "partial / internally_tested only after actual root-owned validation",
+    "formal_pool_membership_or_generation_pool_inclusion_inferred": false,
+    "version_limit": "Actual representative, runtime or schema version changes and final acceptance are root-owned decisions. This proposal does not assert a future version or register R-145. Existing R-144 remains an uncalibrated implementation dependency."
+  },
+  "implementation_dependencies": {
+    "natural_acceptance": "Use the existing explicit EndTurnSpec subjects and their captured controller or player-effect owner. Freeze all subjects and all matching plans in the same natural acceptance state; preserve lower/equal contributors and multiple declarations on one carrier/instance. The physical carrier kind governs minion filtering, not the origin card of an attachment or player effect.",
+    "plan_merge": "Current internal max(1, all matching repetitions) retains complete unique sorted board-ability and player-instance/spec-index contributors. ICC_901 plus CATA_480 remains two executions, not four or three. Future conditions, additive cases, race filters and special source combinations are not inferred.",
+    "mixed_listener_slots": "Expand each accepted subject locally in its original mixed listener slot. Preserve ordinary, player-effect, finite and HP ordering. Ordinary listeners and all boundary clocks remain once. No additional natural event, public action, gameplay checkpoint or source scan is added by a representative adapter.",
+    "execution_windows": "First ordinary/PE/dormant payload keeps the original capture; finite first keeps the old post-consumption context; HP first keeps the installed-slot guard and original context. Additional positions keep original queued context until begin, then mark execution and use the current fresh state, retaining original event/subject/ability/plan/position. Accepted source loss never recalculates the current span.",
+    "shared_first_guard": "Existing guard_id/guard_passed receipt is shared once per subject. First failure skips the entire span and removes its queued extras; first success does not spend finite uses again or recheck the live HP slot. A representative adapter must not introduce its own live checks to the accepted payload.",
+    "finite_guard_evidence": "The existing classified limited_trigger_used Event carries private end_turn_guard_id and end_turn_ability_id; EndTurnRecord.guard_event preserves the complete real Event and exact group association. Event append/pass_guard occurs before used-event capture, preserving the old window. Existing event allowlists hide the private IDs and diagnostic receipt. This is an implementation/recovery dependency, not official rule calibration or a new gameplay event.",
+    "hp_phase_dependency": "Existing recovery forbids first HP Invoke at a stable waiting boundary because its preceding guard cannot legitimately pause; queued extras cannot impersonate started fresh contexts. This is a recovery-phase proof dependency, not an expanded or certified official HP/end-turn rule.",
+    "full_acceptance_proof": "FinishEndTurnBatch must keep and recompute the full original subjects and plans until all old reactions finish and owner clocks begin, including last-extra and tail-ordinary choices. Stable boundaries need the complete batch/history/queue. Generic captured state can legitimately precede diagnostic batch establishment. Closed history remains structural consistency, not signed authentication of fully rewritten past physical evidence.",
+    "strict_wire": "State parser and FrameCodec require explicit plans of exact subject length, nonnull Contributor.spec, nonnull guard_id and correctly typed guard_event before constructors can fill convenience defaults. New representatives must retain all registry-fingerprinted declaration data and full immutable provenance.",
+    "budgets_and_terminal": "Keep pre-expansion engineering budget checks, continued step usage across choices, exact actual-position ordering and atomic rollback. Terminal handling preserves completed/skipped facts and interrupts only unfinished accepted positions; it does not force countdowns or forge playing groups as interrupted.",
+    "information_boundary": "Full source plans, attachments, original acceptance states, internal guard IDs and diagnostic history are trusted-host data. Public effect DTO remains effect_key/card_id/effect_kind/remaining_turns without global attachment IDs. No new player command or omniscient snapshot API is proposed."
+  },
+  "reproducible_candidates_not_executed": [
+    {
+      "id": "combined_real_source_owner_end_and_source_death",
+      "fixture": "After the two proposed adapters exist, use representative build_registry and Scenario: player1 HERO_04, board BOT_107, hand ICC_901/CATA_480, mana/max_mana=10, deck CS2_182 repeated at least eight times; player2 HERO_08, empty board, same long deck. No other cards are played or powers used. This is a public mechanism fixture, not a legal constructed deck.",
+      "public_actions": "Through legal player operations, play ICC_901 then CATA_480 (three mana each), save after both casts, and end seven alternating turns. Restore the saved snapshot with a fresh representative registry, run the same continuation, and build/replay the complete action log with another fresh registry.",
+      "expected_internal_profile": {
+        "owner_end_bot_activation_counts": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "seven_natural_batch_totals": [
+          2,
+          0,
+          2,
+          0,
+          2,
+          0,
+          1
+        ],
+        "total_bot_actual_activations": 7,
+        "final_hero_healths": [
+          23,
+          23
+        ],
+        "final_bot_health": 4,
+        "icc_health_after_first_two_owner_ends": [
+          3,
+          1
+        ],
+        "icc_death": "Third owner-end's first damage wave kills the 1-health Drakkari. The already accepted second wave still runs, proving source loss does not shrink the batch. No other minion is damaged except Drakkari because BOT excludes itself and the enemy board is empty.",
+        "cata_remaining_after_first_three_owner_ends": [
+          2,
+          1,
+          "removed_after_third_complete_batch"
+        ],
+        "source_merge": "Both complete contributors are present in each first-three owner-end plan, including the final remaining=1 instance. The fourth owner-end has neither source and falls back to one.",
+        "card_roots": "One normal play/payment root per card; no extra card-play event is created by the repeated natural body."
+      },
+      "damage_fact_limit": "The existing BOT_107 body deals one non-spell damage to all OTHER active characters, including both heroes and friendly Drakkari. It is deterministic here; it is not a random-enemy missile or two damage to only the opponent.",
+      "verification_limit": "These are derived expectations for a future implementation fixture, not executed assertions, a recorded digest, an event-count claim or official timing evidence. Exact action/event counts and CLI success must be produced by the root after implementation."
+    },
+    {
+      "id": "separate_expiry_and_board_lifecycle_controls",
+      "fixture": "Use the same BOT/long-deck scenario with only CATA_480, then separately with only ICC_901. Each has four owner-ends separated by opponent ends.",
+      "expected_internal_profile": "CATA-only yields 2/2/2/1 as its three owner-end ticks finish after accepted payloads. ICC-only yields 2/2/2/1 because Drakkari dies on the third owner's first wave yet the accepted extra executes. The paired controls prevent one source masking an incorrect other-source lifecycle.",
+      "verification_limit": "Candidate only. Test actual countdown events, history source records and card roots independently; do not use equal final damage as sufficient evidence."
+    },
+    {
+      "id": "next_acceptance_silence_and_transfer",
+      "fixture": "Use existing EX1_332 or a clearly marked public synthetic behavior/effect fixture to silence, remove or transfer ICC_901 between natural acceptances; retain CATA_480 or remove its specific instance independently.",
+      "expected_internal_profile": "A batch accepted before source mutation remains intact, while a later natural acceptance uses the new owner/active attachments. Silencing the physical source of an installed player instance does not erase that instance. Distinguish old frozen ability/card provenance from a new transformed/copy identity.",
+      "verification_limit": "Synthetic overlays test public interaction boundaries and do not add or certify hidden behavior of either real card."
+    },
+    {
+      "id": "minion_scope_and_broad_scope_contract",
+      "fixture": "Add explicit public synthetic natural subjects on a minion, weapon, HP and player effect. Give a minion a classified attachment originating from a spell; give a player-effect subject an original minion source. Separately place an ordinary turn_ended listener among them.",
+      "expected_internal_profile": "CATA's minion scope includes the physical-minion attachment regardless of spell origin, excludes weapon/HP/player-effect subjects regardless of minion origin, and never repeats the ordinary listener or clock. ICC's all scope covers owned classified subjects under the existing internal model. Preserve each old mixed listener slot and owner distinction.",
+      "verification_limit": "Necessary public scope checks do not prove all these carrier categories are official Drakkari behavior. Do not claim broad official coverage solely because a minion-only real example passes."
+    },
+    {
+      "id": "last_tick_choice_and_independent_instances",
+      "fixture": "Using public synthetic classified finite/HP/PE or choice behavior fixtures with the real two source declarations, pause in a last extra and in a tail ordinary listener when CATA remaining=1. Also install two same-key CATA instances at staggered owner times and create/replace one during a boundary reaction.",
+      "expected_internal_profile": "Full FinishBatch acceptance evidence remains while waiting. Both accepted executions finish before one old owner tick; opponent turns do not tick it. Duplicate instances retain separate IDs/clocks and all matching contributors, with max2; a boundary-new instance does not receive the old frozen tick. Finite guard consumes once with exact real guard_event, and a failed first guard leaves the entire group skipped.",
+      "verification_limit": "The public generic duplicate and timing contract is provisional for this Paladin aura. No official exclusivity/replacement rule or real-card-inherent choice is inferred."
+    },
+    {
+      "id": "nested_end_turn_and_deathrattle_axes",
+      "fixture": "Use existing CATA_150 and its independently identified existing CATA_150t/CATA_150t1 parts with ICC_901/CATA_480, optionally comparing existing AV_400 player Deathrattle source. Do not add TIME_064.",
+      "expected_internal_profile": "Each repeated natural end-turn body invokes its own old Deathrattle plan; source plans and actual IDs remain on separate axes. TriggerDeathrattles alone does not record real deaths or consume/recreate appendages. Deterministic seed, target pool, HP totals and physical deaths must be asserted separately if this candidate is chosen.",
+      "verification_limit": "Existing partial adapters and R-138/R-144 internal profiles supply mechanism evidence only; this candidate does not certify every Herald, mixed-family or official Ragnaros interaction."
+    }
+  ],
+  "minimum_next_increment_acceptance_candidates": [
+    "Exactly the two complete raw pins and independent CardDefinitions; precise dbf/card identity, three-mana costs, 1/5 Drakkari stats, Paladin/Holy metadata and preserved raw @/null/tags. All prior support rows unchanged; excluded CORE/enchantment/BG/TIME rows remain excluded.",
+    "Normal legal player play roots, one payment/completion each, source attachment and instance installation using existing APIs; countered CATA pays but installs nothing, and capacity rejection/failed effect install leaves no ghost source under the existing provisional generic area contract.",
+    "Board-source death, silence, bounce, transform, transfer and copy/new-attachment identity across current and next acceptances; duplicate declarations/instances remain complete contributors and max merging does not multiply two twice sources.",
+    "Owner-end duration3 including normal casting end, opponent exclusion, remaining=1 final full span, boundary-created/replaced/removed instance, final expiry ordering and source-independent owner; retain the already-public start-clock contract unchanged.",
+    "all/minion physical-carrier distinctions, explicit original mixed slots and ordinary listeners once; first original windows and extra fresh-begin contexts; finite and HP once-only guard, failure spanning all positions and exact finite event/private-ID recovery proof.",
+    "Fresh-registry snapshot/clone/restore/continuation and complete replay; successful representative hs_sim CLI only after the registry actually contains the two raw adapters, separately from the current synthetic example's self-owned CLI.",
+    "Corrupt snapshot relations: changed card/spec/owner/remaining/index, missing plans/guard_event, dropped last extra/history, forged first HP Invoke, borrowed finite used Event and private-ID leakage; current batch proof/strict parser must still reject structurally inconsistent saves.",
+    "Budget before expansion, accumulated resumed steps, terminal unfinished interruption, atomic error rollback and player observation isolation. Root-owned tests and full/examples validation must reach actual terminal results before acceptance is reported."
+  ],
+  "unfinished_source_and_rule_policies": [
+    "Duration3 substitution for raw @, casting-owner-end counting, final tick order and generic Paladin Aura duplicate/capacity/replacement behavior remain internal profiles pending target CN rules evidence.",
+    "Drakkari all-scope physical carrier universe, opponent/either-turn subjects, unusual attachments/dormant/HP/player sources and exact fresh/guard windows are internal policies; successful necessary real examples do not certify broad official scope.",
+    "Max merging, lower/equal contributors, special set-count overrides, race/condition filters, temporary and source-specific permissions require explicit evidence or later public mechanisms. Raw text 'twice' alone does not settle every mixed-source combination.",
+    "Active or different-phase end-turn activation, TIME_064 four-family mixed declarations and their shared lifecycle remain later independent increments. The two representatives do not complete L05 or the entire end-turn family.",
+    "CORE_ICC_901 availability/legality, ICC_901e installation semantics, hidden CATA components and complete source graph have not been established by the finite raw scan. Keep independent identities and explicit absence limits.",
+    "M0 standard/wild legal pools, target CN hotfix applicability and complete pool denominator remain unknown. The audit catalog is not a proposed formal pool, and necessary internal representatives do not imply generation-pool inclusion or full card support.",
+    "M6 calibration and M7 batch adaptation remain unfinished. This audit records no new rules-row registration, signed historical authenticity or current final validation evidence."
+  ],
+  "historical_primary_motivation": {
+    "url": "https://hearthstone.blizzard.com/en-us/news/24266874/35-4-patch-notes",
+    "recorded_publication_date": "2026-05-04",
+    "existing_local_evidence": [
+      "docs/m5-end-turns.md",
+      "outputs/v103-end-turn-repeat-pre-audit.json"
+    ],
+    "use": "Previously recorded official historical fixes involving Drakkari/Smoldering Grove upgrades and Inspiring Maul on opponent turns motivate keeping natural body classification and opposing-owner cases explicit.",
+    "limit": "The already recorded primary reference was not newly fetched by this audit. It does not confirm the current CN build, max merging, CATA duration rendering/casting-end, complete Drakkari scope or exact proposed execution windows. No new official fact is derived."
+  },
+  "dependencies": [
+    {
+      "path": "AGENTS.md",
+      "file_sha256": "7537438c1c851dfa7993d8879d4ee03b913f83910312badf7d26307d9c2fd91d",
+      "observed_at_utc": "2026-10-03T10:03:05.240193+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/extracted/cards.json",
+      "file_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+      "observed_at_utc": "2026-10-03T10:03:05.271188+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/schema/enums.json",
+      "file_sha256": "1a9c0e97538ab972b16c46916bcadf3b7b501ac52636f401e197c59e6dcc246a",
+      "observed_at_utc": "2026-10-03T10:03:05.271188+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/schema/enums.source.json",
+      "file_sha256": "8b4acfde5bf0e3aa1586251e74bd55233287962ed69ec5958bbd2e06ce32023b",
+      "observed_at_utc": "2026-10-03T10:03:05.271188+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/support/card-spell-source-inventory.json",
+      "file_sha256": "85356472f6ba47fea772e15d8a6577caf451e5dce8a91231ccc9381fa44722a4",
+      "observed_at_utc": "2026-10-03T10:03:05.272190+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/support/combo-source-inventory.json",
+      "file_sha256": "32710178faea251761d997d460dd9ddfeffdfa0d683fdc66bc936adb304ce857",
+      "observed_at_utc": "2026-10-03T10:03:05.272876+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/support/excavation-inventory.json",
+      "file_sha256": "7440380a122685fc241200492d7f5d590f560c5d66f9c2dccbbd93b9f0350171",
+      "observed_at_utc": "2026-10-03T10:03:05.272876+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/support/imbue-inventory.json",
+      "file_sha256": "f9b6e724069ce1880cd3a47a74d63b36398fc8ed8fa1bc69c9561fe8bf72721a",
+      "observed_at_utc": "2026-10-03T10:03:05.272876+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/support/m1-representatives.json",
+      "file_sha256": "855cfa539677b82bcdbff61ab873669d1ab0eba491d749fc563c3f54484c1379",
+      "observed_at_utc": "2026-10-03T10:03:05.273629+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/support/m5-mechanism-plan.json",
+      "file_sha256": "c42eb9ff23853ae2133fc541fbc1649c0cbbf85f3d4addc8cdabbd3b6965883a",
+      "observed_at_utc": "2026-10-03T10:03:05.273629+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "data/targets/local-2026-09-23.json",
+      "file_sha256": "f9ec6baa385df21bbebfd894647a9271eee933ccca4d6923cc036ef6a84751a5",
+      "observed_at_utc": "2026-10-03T10:03:05.273629+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/architecture.md",
+      "file_sha256": "3d01552dd56596ce23c2dbfd96473358f2d361728766cb7006db50cbb729dcda",
+      "observed_at_utc": "2026-10-03T10:03:05.273629+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/extensions.md",
+      "file_sha256": "7e23b66e795e3cb0ac0f7f71260006d39991bc1f525104e0aa364175933ca20e",
+      "observed_at_utc": "2026-10-03T10:03:05.273629+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/m4-player-effects.md",
+      "file_sha256": "195d94deb326621eb99289afba4ff86a3cd3a3dccd32b675d2059b8b8de4b229",
+      "observed_at_utc": "2026-10-03T10:03:05.273629+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/m5-deathrattle-player-effects.md",
+      "file_sha256": "09bb7adf1c02de4911cfc716833147824689f6233e6c94edcf102238df16f158",
+      "observed_at_utc": "2026-10-03T10:03:05.274635+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/m5-end-turn-repeats.md",
+      "file_sha256": "ac3a5332bb37756cd0633c95f4c78e3fbc4b7c7e30dd3a7f4273b6661cd3cf1a",
+      "observed_at_utc": "2026-10-03T10:03:05.274635+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/m5-end-turns.md",
+      "file_sha256": "b7dade2c5050785fee57992710da190da276f1d15ca34b28ef6522dc32ca79bf",
+      "observed_at_utc": "2026-10-03T10:03:05.274635+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/mechanism-backlog.md",
+      "file_sha256": "3e3001808d17e285aa28f8fa0b9e3164334c516a4303aba19aee5bbfe34d557f",
+      "observed_at_utc": "2026-10-03T10:03:05.274635+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/project-status.md",
+      "file_sha256": "4020f6b1fc20275da8efab81b80042ca2495a0c8410620330c8602939530372d",
+      "observed_at_utc": "2026-10-03T10:03:05.274635+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "file_sha256": "5f23f12aeeb42873c3c997ff7be2c49217947ff1d26b6f6c849c563edca96ebe",
+      "observed_at_utc": "2026-10-03T10:03:05.274635+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "examples/colossal_appendages.py",
+      "file_sha256": "b2e66cb8609386e38fda6d173972084cfb25f3609893a0893dc4341f64ff6149",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "examples/deathrattle_player_effects.py",
+      "file_sha256": "aaafaddf3ceb9a24f19560bc7f877ec3ef054774799d9c1b4de93d37abf0628f",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "examples/end_turn_repeats.py",
+      "file_sha256": "4fdfc48a490c742fbd237e18b25f83e2e8dcf761c5b5fbfc36e6f36e3e9a3f63",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "examples/end_turn_subjects.py",
+      "file_sha256": "c693018802a79a048b86e1d67311e76eb26274262e7df47ce8716ebbd9b5b39b",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "hs_sim/__init__.py",
+      "file_sha256": "04103fb748ba71a41a9026bfa8b6c3d9d20c0a6effa0d2f439ef9c094f24b44a",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/__main__.py",
+      "file_sha256": "ce5ef603c6d20a5a1d66e6ce4316c042832e0c6053676a9e351aa895bcdc03a9",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/catalog.py",
+      "file_sha256": "fbc1303d76e47c12ba2c93eab456fff9c4a89bd4a91d6fcb211838bf48e9aecd",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/__init__.py",
+      "file_sha256": "21b4123c9af978d5ec8e73c7be4dfa86583ebc7b0a299fe5a50221515518b024",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/actions.py",
+      "file_sha256": "1a0315a8803c083bf37a018ee6c89eff8a6bb3e30a1a939fc8571136e3aa7fb9",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/battlecries.py",
+      "file_sha256": "0efcb125bcaada477da4315addc25db12997da78b0398140c1ce58a4a765728e",
+      "observed_at_utc": "2026-10-03T10:03:05.275639+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/battlecry_modifiers.py",
+      "file_sha256": "7c20375349112189b5517d5f37eef747ed65deca6c602faa5488002bd3dcda02",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/battlecry_repeats.py",
+      "file_sha256": "c0c07795a58b0547b17be656a6fe6112754397982c862de415d9a06cdf2908c2",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/battlecry_sequences.py",
+      "file_sha256": "a6f6d98fe712513cd6543c2c33d9015e8237ffa32bbf97125ccc045a3be6c5ab",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/battlecry_sources.py",
+      "file_sha256": "26d4d1ee3a1b769e7139125f2f943491a4c36f46ac2f841fb2ea406e4fab4025",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/bonus_effects.py",
+      "file_sha256": "18ef3026a3d0fee2c034abdc9e60d5074aaf1f357a7a92a02c437bb450936f6a",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/card_conditions.py",
+      "file_sha256": "6aaa7d72cd28c26cbfa7c93c6aa5f5b8b656d4dbd382b81cf787ad9cab828211",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/card_creation.py",
+      "file_sha256": "76679a2f8b448819d00a0b24451d108a94a59fdb46f89b2da21e84c841d025a1",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/card_spell_repeats.py",
+      "file_sha256": "e59aee01811d408476429eb8490c5d98d839d96a434b81acc9a69c96073b18f2",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/card_spell_sources.py",
+      "file_sha256": "3c286178830402102d4a75c013d8f15c7eab6503cb86419c6a2996f31f506dec",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/choices.py",
+      "file_sha256": "1589af1b7f128d18559cda5b95413722b701e97904dabb38b4134ff5d0420f57",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/choose_one.py",
+      "file_sha256": "7bbd24f9d5a7544be4331a89731bdc1051d66fb2fe8c6e4403ecc231ccaa9977",
+      "observed_at_utc": "2026-10-03T10:03:05.276644+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/class_tags.py",
+      "file_sha256": "8373fb179f38bf43aff6ebc94dfcdd0f249f19b9d27a479bf015eb1418ea3547",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/cli.py",
+      "file_sha256": "4c7d407801b9b231af3eaba52a83a0adfe87671bd300db9324f25347fd10b109",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/colossal.py",
+      "file_sha256": "29a3b5551a5112cc88101eed8b9e5c2a32e893a41ffd93e19359ca8e16dfe412",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/combat.py",
+      "file_sha256": "828dab3a79546746b03106f83c7437caa10fa45234abf7e4986403f1456cbc9a",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/combo_modifiers.py",
+      "file_sha256": "2735b578dd2d579a654c223a2ec99ea1e8132a0b58b49a4de26fe99dfba32f2d",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/combo_repeats.py",
+      "file_sha256": "7b7690772ef20c446f43d72914ee5a2293963c485d591e5f5725dcc7715cb65c",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/combos.py",
+      "file_sha256": "c7e32adfcf95dcdff0bd83e0679d8d38c14a7d250354d72388a84b60a30b632f",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/construction.py",
+      "file_sha256": "b0fcfb7d3c29c432f56821aec9045037db316a3b28a1af6cea8b5bc3ffbacdcf",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/continuations.py",
+      "file_sha256": "61a517398068abd17f89fed2fb478501fd288f53fe119c58df4858a32df36a25",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/costs.py",
+      "file_sha256": "ab1ae556771aa8ea8f52cb88a5cc8e830ced4322b85a48fc8a16c15af9f6cd0e",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/counter_policies.py",
+      "file_sha256": "77f33345c4202045ab41b0bf8eba9e3b58e8692674fd2d9cb87583441cd3e86f",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/cross_zone.py",
+      "file_sha256": "9e7f960f45bcb143e40b7acc316eb2788abf9560795d8d57610b17d670468e43",
+      "observed_at_utc": "2026-10-03T10:03:05.277646+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/death_causes.py",
+      "file_sha256": "37e43f36508d103b6ce64c871718da9bf090b16e98099540217966a979dc2deb",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/deathrattle_repeats.py",
+      "file_sha256": "da8b8e8731cf13f0ea05a171407c0a244361f00e4eaebed9e85e246d9d6bbeca",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/deathrattles.py",
+      "file_sha256": "b8c740c0cb458cd994f6dc3023f8394f6d66f4d69666cfd520fd7a01a4dbe6db",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/deck_conditions.py",
+      "file_sha256": "273432d64e7e6e94184722c41a8a912204a6fe71c6c21760fe603fd0fc8f5a48",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/discovery.py",
+      "file_sha256": "c14244c1ea5809f475675212d0a105b10ee36281eebe0daf5d4a7c3251cc9861",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/dormancy.py",
+      "file_sha256": "a683154f220461b1100ed8e9e9f9db2928c649a63a5755d327ffec5139c7f89d",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/draw_casts.py",
+      "file_sha256": "1025119fd9c075932f75c857952a6585f22905bc7b5da3d0d64eb97e73d2d9ca",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/dredge.py",
+      "file_sha256": "554b0ce200d602ff887e1b98a7c0c25207bb006e0da38740f8a825f8ca58fe59",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/effects.py",
+      "file_sha256": "b2e9f5c87f657c81211b70a27397b4671a4433fd5ad640606e74ce7defccb881",
+      "observed_at_utc": "2026-10-03T10:03:05.278648+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/end_turn_repeats.py",
+      "file_sha256": "42ff3a44cd4444bf0c71dd75aea9c5b6c7079517a1df4e1a2a87df3d6f04cf26",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/end_turns.py",
+      "file_sha256": "9cfc4b0702e824ce1f58189a3c36b5898a4b2a9275abe2d75518b0cc0c17c7eb",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/equipment.py",
+      "file_sha256": "d09a200b36c58d97d55e3d5791b73ee6ca9634013512d4628ca92675e2838b9e",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/errors.py",
+      "file_sha256": "53df40bb3603de8101b7031c26c0e784569d1cdb1681009df18b1a42ca141a47",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/excavate.py",
+      "file_sha256": "28f2d42e5e7004e20afdc52a2a99d77eed9c81f76577dad7adc64c0350d7c735",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/game.py",
+      "file_sha256": "170202cbe89e234a97dcca99c67efa7124daaf50554b1c0874afb426d21ddc9e",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hand_actions.py",
+      "file_sha256": "abab4f5beddc7b79b0b7dda1832e1634a97449a8ae87c4e388d95dc0890a43f3",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hand_derivatives.py",
+      "file_sha256": "43322b78fdfc589944abc7cd31c41611a38c3d5eb687451ac576bec8675820cf",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hand_history.py",
+      "file_sha256": "76f6f151c9edeec037a319807fb267498de3c2d8e869cfee8475247a1651ae15",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hand_keywords.py",
+      "file_sha256": "b664a70bf4cc732962fa0eec5919e067d499807078a430a559d975bd06c04d8c",
+      "observed_at_utc": "2026-10-03T10:03:05.279649+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hand_progress.py",
+      "file_sha256": "6ab6bbf5356a6f752e0b837e6edbc60393c4567452cfe0b8902a47b11c29a1a6",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hand_upgrades.py",
+      "file_sha256": "a71389850dd1b816fd46bcf9bfde446f9ad227de4da2044cd9fb46c3b511ed47",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/health_loss.py",
+      "file_sha256": "51935c19cf3f4218328ea50279b959cca8da1c0530a06cc39eaeea7d7720e189",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/health_outcomes.py",
+      "file_sha256": "9b4bcba4a455a780402a6bac51460c2c1b65e2d5936cd324ff7b88eb308412b6",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/health_rules.py",
+      "file_sha256": "9f58dc1cda325b1fe4886e938ef74376d93b917f6bc3c2b104025463241cf088",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/held_spells.py",
+      "file_sha256": "6c09fff458c1ee65868bc76fdb8ba3a1e637212135b8f2a5089eee02b13ecaa2",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/herald.py",
+      "file_sha256": "f4d27e99b14862aded3b53b6c212167aaba1733e771e6b988d1e6c6afafa605a",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hero_power_repeats.py",
+      "file_sha256": "453ace209220759d67fbed9d221c664e055878bceb67635f8361c111db3ce0b9",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/hero_powers.py",
+      "file_sha256": "8927373f8bc695f9519bceed495f75ac2ed3fd8f353c1e272d2acae3d718249b",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/imbue.py",
+      "file_sha256": "a4cc3c1d3892d8e5b3198312280ae69a686663fde8909ca36f921e30c5559f77",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/information.py",
+      "file_sha256": "a884e98292f5aa814798b6886119753ed46a4542eb5af0cb9e696b61cd0fad18",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/inspire.py",
+      "file_sha256": "ad03d7590d82df92fb73d1973735725fd1ad0365b0e20982e34ae6606bc571e5",
+      "observed_at_utc": "2026-10-03T10:03:05.280651+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/interrupts.py",
+      "file_sha256": "eddd38caae5f57f330a6a59e5552e8c33ab0c967c012d48405779b9ea8b93998",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/keyword_auras.py",
+      "file_sha256": "d108e02c7bbd32cf043f334b28036a06bff5a406928fef5476d06a638d6da6a2",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/lifecycle.py",
+      "file_sha256": "e29cdb86d2ebcd7e22b267f9e7156a21a858bc04f609cfeb9e2d6363b0e8bf8b",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/limited_triggers.py",
+      "file_sha256": "ce045087168f791a3a2aef3b68eb60260452adefc4f1b24eb9afa94759e78393",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/locations.py",
+      "file_sha256": "67f23c7c8bdf773305afabbcd825b3f5e94381ab271c28a5d3acd3fb50d9d667",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/magnetic.py",
+      "file_sha256": "75052df7081cc71fc56a07fd497839f3667e7f334ba04261c2c8afb1e4ea4168",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/minion_abilities.py",
+      "file_sha256": "fc2d48754e9e09c3aff33af6270bb9fa2054c111179c931d4a432fba0d2675a7",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/minion_plays.py",
+      "file_sha256": "3d8d5d86b6c3d5a3d0872644317b3f53892d1fffaaac8b3353b7d75e3211a957",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/model.py",
+      "file_sha256": "1216946b1e7cf88b5699bcb43974a8c484c584c6c8fb787a74d22e4bf80c68d8",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/opening.py",
+      "file_sha256": "06f705655dce2da8f9367ebf27099e2b84f94e29e06741c28e6632c7320f009f",
+      "observed_at_utc": "2026-10-03T10:03:05.281667+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/ordered_choices.py",
+      "file_sha256": "4f5e8538946f7a03baaaa4a681ba5f07312dd944d92ae9718f58ecaf0e89d2be",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/play_history.py",
+      "file_sha256": "a2fed8bbb15c479155301dfe7a6294e9ce0b4de7bcd346fd0c881a2b752680d5",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/played_battlecries.py",
+      "file_sha256": "82696e8e327543237e9e51544b1e61fa643c1661b5a463d238c84e77db7543f6",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/player_api.py",
+      "file_sha256": "61abda7fafb636a5ae7e0ef899e26a254f123d0c64f73019dd2bc57fa4f9eacb",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/player_effects.py",
+      "file_sha256": "fba90c8b2e76d9319d9de97fc305f3d52693fa28a2947420c768a3707f594b1d",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/pool_offers.py",
+      "file_sha256": "080a8d9972d5bc57c26326557e6f1464635f76c2c3e43074db338a74135e3fab",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/pools.py",
+      "file_sha256": "715efdfbe32c9f25b93ded187f5e72d1c0d64ab03371ef4d9e92e0332da3e2e0",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/power_payloads.py",
+      "file_sha256": "89b9da1e7b11ea31f667d2893b8a04c3e77ca9d45144043aaac6bd55ba01c7c7",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/quests.py",
+      "file_sha256": "de81e6068644006a788638beb9fa37310f4f505e6f39abb743f193ae1228345d",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/registry.py",
+      "file_sha256": "e9f66b5a9ba8c45b249164731fa70ea04b2f096deb4a8b0c683cf5d23d25d6ef",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/replay.py",
+      "file_sha256": "7d71f814821b97135583e4e86961225b6ccb688c74fc0184f2be545c1d63671b",
+      "observed_at_utc": "2026-10-03T10:03:05.282669+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/representative.py",
+      "file_sha256": "0b25eff9c6c862d3d4522ba38123d4343cd9b34c6d23549d405becba2b207af5",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/resolver.py",
+      "file_sha256": "6e35699cffd7d88e4315f614f826d9690f04bda1e1a8ac12dd9d392e61c5a127",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/resources.py",
+      "file_sha256": "fbf5bb74a06f354ac10821583ca26a77086469d513d2ec9d03bda3f1aaf363ed",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/rewind.py",
+      "file_sha256": "0b2a85808f1043ceeeb4ef56a711e6344e9bb317c47d41d63586ebab8d12be57",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/rewind_outcomes.py",
+      "file_sha256": "350bef3547cd73dc20dd088dcbc7ab12c538f49755b0b1041207e9b4799bd741",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/rules.py",
+      "file_sha256": "bb78cd7196538c6157590211e9ca889bea5d0fe8dad56958dd3dc568d3b3bf61",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/sacrifice.py",
+      "file_sha256": "610f1660fb1d10b48ead2e47964958b740288630f2770bffd395fb0cbddeb813",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/secrets.py",
+      "file_sha256": "41af82487df2f3f22a377610df37eab98128d15d2bcd816d21e1438f1c0c07ea",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/serialization.py",
+      "file_sha256": "b64962a83bd1642689191743b7f41bac40099db4c9e20e94ca4624a68f3b818b",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/shatter.py",
+      "file_sha256": "f30e36de67279e3e53e92c4d68d9d79f8bd6e09f2e1b94a542a8fa52e3406a16",
+      "observed_at_utc": "2026-10-03T10:03:05.283670+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/spell_casts.py",
+      "file_sha256": "df862f522be4270e6a1078e9d6eec616ad9194798030787d070aee01f8425abf",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/spell_history.py",
+      "file_sha256": "5be752a970da68a36156e0f8902cadd1b7baa359e03b716363ae129526af2789",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/spell_modifiers.py",
+      "file_sha256": "5b9c5b4656589c0d5f7422c8029e39c741bc2df9c230ec5fb4ad41d094738519",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/spell_repeats.py",
+      "file_sha256": "260a53e6f3ae7c0c6dff408a72b68accca4a610adf3f3f70273a0eb33e343664",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/starships.py",
+      "file_sha256": "674f9d77b872d39439430d6dadcca35ef82494f97951b44389c6bfaee02b3ebe",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/stats.py",
+      "file_sha256": "ec94a549319fb06a6569d13b9ed522e067a87614b18c1e5a8ac62627e8c32a67",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/summon_sources.py",
+      "file_sha256": "7d41b01bf11f1abfe7f870d1381ad5779f101db8ab4a198079f57baf3a2336c7",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/synthetic.py",
+      "file_sha256": "9ac7039c6910f21f260d32ec9f7e43cb8574ba11daa7a1e35df2910624470849",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/targeting.py",
+      "file_sha256": "5f7806402b2dae2779ee9938ea117ea726888a6d2c75fc52c98abbd4f59a1335",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/temporary_cards.py",
+      "file_sha256": "4af0e74399f13c9bb7c3bbcc8e62adf1a33fbc1249a8388ac1d5e9216ae7ebbc",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/timed_keywords.py",
+      "file_sha256": "0050fe9bb8a1735fa2c8d023ec2762a437116a0ad7dea39c31db4e0e35dad70d",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/engine/zones.py",
+      "file_sha256": "50b6a20267da7fc8145b51e974d460ba7e04596d83dcc08961522137124c0c9c",
+      "observed_at_utc": "2026-10-03T10:03:05.284672+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "hs_sim/targets.py",
+      "file_sha256": "179b139dc638358cb28cc46f9331e979e51179ea683d5d3d20e9a5f5b7445a36",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "complete_local_python_runtime_manifest"
+    },
+    {
+      "path": "outputs/v102-end-turn-pre-audit.json",
+      "file_sha256": "69040e3c7049b05d289eb9ae38b8a4e36d7c5bde262b7214af83bbd3344706b1",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "outputs/v102-verification.json",
+      "file_sha256": "d0bb5e2140b71dc7da550018864858395af89c3411ea2dd3d0832ba6cecbca49",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "outputs/v103-doc-check.json",
+      "file_sha256": "fbbbaf7819f8c83f52621e8a227465615c7cabf6c98147480925298d86300f5a",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "outputs/v103-end-turn-repeat-pre-audit.json",
+      "file_sha256": "2caf189b14b22ee9ff795a66e64a86f76697351f8ecdce4597715d2c09f93ea6",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "outputs/v103-inventory-check.json",
+      "file_sha256": "8e71367e7ecff1d70258a22eae347aff938456f2dc84a722c1092a4ea61f4963",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    },
+    {
+      "path": "outputs/v103-stage.json",
+      "file_sha256": "fab25665046ea5d27206e556a4dad2a67f986f2ed76415e59bbf5fa9992ce4be",
+      "observed_at_utc": "2026-10-03T10:03:05.285674+00:00",
+      "role": "direct_local_evidence_or_data_dependency"
+    }
+  ],
+  "catalog": [
+    {
+      "classification": "necessary_constructed_board_source_candidate",
+      "record_sha256": "070a2203d4bc37018eb158552c443b69698282fe69f0c7970d1d8c57efa45a6d",
+      "raw": {
+        "id": "ICC_901",
+        "dbf_id": 45309,
+        "name": "达卡莱附魔师",
+        "name_en": "Drakkari Enchanter",
+        "text": "你的回合结束效果会触发两次。",
+        "text_en": "Your end of turn effects trigger twice.",
+        "cost": 3,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 1,
+          "HEALTH": 5,
+          "COLLECTIBLE": 1,
+          "AURA": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000334,
+          "craftingEvent": 10000335,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "necessary_constructed_timed_player_source_candidate",
+      "record_sha256": "97a07ad8a9f0cb55fc0cef49192ef58b74e527bd0043c013996b402900cb5d15",
+      "raw": {
+        "id": "CATA_480",
+        "dbf_id": 123691,
+        "name": "沙怒光环",
+        "name_en": "Sandfury Aura",
+        "text": "你的随从的回合结束效果会触发两次。持续@回合。",
+        "text_en": "Your minions' end of turn effects trigger twice. Lasts @ turns.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 5,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "COLLECTIBLE": 1,
+          "1724": 1,
+          "PALADIN_AURA": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "TAG_SCRIPT_DATA_NUM_1": 3,
+          "OBJECTIVE": 1,
+          "SPELL_SCHOOL": 5
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "1724",
+            "value": 1
+          },
+          {
+            "tag": "OBJECTIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "independent_core_identity_not_added",
+      "record_sha256": "69e8a2fa30c6a17e81088cd355e8a773e310bd18d494b2b12ec124b373c6144d",
+      "raw": {
+        "id": "CORE_ICC_901",
+        "dbf_id": 95696,
+        "name": "达卡莱附魔师",
+        "name_en": "Drakkari Enchanter",
+        "text": "你的回合结束效果会触发两次。",
+        "text_en": "Your end of turn effects trigger twice.",
+        "cost": 3,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 4,
+          "CARDTYPE": 4,
+          "COST": 3,
+          "ATK": 1,
+          "HEALTH": 5,
+          "858": 45309,
+          "AURA": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000337,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "independent_enchantment_identity_not_added",
+      "record_sha256": "d38fe5cdd9dd634c9425f3cebdce60bcb2ee59bdb9e65089d30b48afe8c8d9dc",
+      "raw": {
+        "id": "ICC_901e",
+        "dbf_id": 52777,
+        "name": "冰霜魔法",
+        "name_en": "Frost Magics",
+        "text": "你的回合结束效果会触发两次。",
+        "text_en": "Your end of turn effects trigger twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "battlegrounds_only_comparison_not_added",
+      "record_sha256": "8b5be9fceb5fef3890590a4e5d5b066ad524d9070a65836d5d5766ac2d5c9178",
+      "raw": {
+        "id": "BG26_ICC_901",
+        "dbf_id": 101314,
+        "name": "达卡莱附魔师",
+        "name_en": "Drakkari Enchanter",
+        "text": "你的回合结束效果会触发两次。",
+        "text_en": "Your end of turn effects trigger twice.",
+        "cost": 5,
+        "attack": 1,
+        "health": 5,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 1,
+          "HEALTH": 5,
+          "AURA": 1,
+          "TECH_LEVEL": 5,
+          "IS_BACON_POOL_MINION": 1,
+          "BACON_TRIPLE_UPGRADE_MINION_ID": 101315
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "battlegrounds_only_comparison_not_added",
+      "record_sha256": "54ef553076291e36c7fa5310d0941c42ec84fb7da97315f9134b4f0f00351e85",
+      "raw": {
+        "id": "BG26_ICC_901_G",
+        "dbf_id": 101315,
+        "name": "达卡莱附魔师",
+        "name_en": "Drakkari Enchanter",
+        "text": "你的回合结束效果会触发三次。",
+        "text_en": "Your end of turn effects trigger three times.",
+        "cost": 5,
+        "attack": 2,
+        "health": 10,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 2,
+          "HEALTH": 10,
+          "TECH_LEVEL": 5,
+          "AURA": 1,
+          "PREMIUM": 1,
+          "BACON_TRIPLED_BASE_MINION_ID": 101314
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "four_family_mixed_source_deferred",
+      "record_sha256": "3a188816fe1329124fa54e420b4a5161a0ca3fedb8194b107d18d7f7fbe5e00d",
+      "raw": {
+        "id": "TIME_064",
+        "dbf_id": 120985,
+        "name": "时空领主戴欧斯",
+        "name_en": "Chrono-Lord Deios",
+        "text": "你的<b>战吼</b>，<b>亡语</b>，英雄技能和回合结束效果会触发两次。",
+        "text_en": "[x]Your <b>Battlecries</b>,\n<b>Deathrattles</b>, Hero Power,\nand end of turn effects\ntrigger twice.",
+        "cost": 7,
+        "attack": 4,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "COST": 7,
+          "ATK": 4,
+          "HEALTH": 8,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "AURA": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "four_family_mixed_source_deferred",
+      "record_sha256": "41e133293cd64d26818aa28d0ee284448d64740544c6bce47fd4993c48344f13",
+      "raw": {
+        "id": "TIME_064e",
+        "dbf_id": 120986,
+        "name": "戴欧斯的影响",
+        "name_en": "Deios' Influence",
+        "text": "你的<b>战吼</b>，<b>亡语</b>，英雄技能和回合结束效果会触发两次。",
+        "text_en": "Your <b>Battlecries</b>, <b>Deathrattles</b>, Hero Power, and end of turn effects trigger twice.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "ENCHANTMENT",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 6
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_player_clock_comparison",
+      "record_sha256": "fd9c43728cd95f2cef7fadcab33d07ca0e3ad0c028e7fd8e71c47c7785b65b88",
+      "raw": {
+        "id": "AV_344",
+        "dbf_id": 72807,
+        "name": "丹巴达尔桥",
+        "name_en": "Dun Baldar Bridge",
+        "text": "在你召唤一个随从后，使其获得+2/+2。\n持续3回合。",
+        "text_en": "[x]After you summon a\nminion, give it +2/+2.\nLasts 3 turns.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 5,
+          "COST": 4,
+          "CARDTYPE": 5,
+          "RARITY": 3,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "COLLECTIBLE": 1,
+          "OBJECTIVE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "OBJECTIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_player_clock_comparison",
+      "record_sha256": "56d9f6d79e814a077bf3fd799519030266b7a04d0d0cc7cd55afc71550793dbf",
+      "raw": {
+        "id": "AV_400",
+        "dbf_id": 70396,
+        "name": "雪落墓地",
+        "name_en": "Snowfall Graveyard",
+        "text": "你的<b>亡语</b>会触发两次。持续3回合。",
+        "text_en": "[x]Your <b>Deathrattles</b>\ntrigger twice.\nLasts 3 turns.",
+        "cost": 5,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 7,
+          "COST": 5,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COLLECTIBLE": 1,
+          "QUEST_PROGRESS_TOTAL": 3,
+          "OBJECTIVE": 1,
+          "OBJECTIVE_AURA": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "OBJECTIVE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_natural_subject_and_component_comparison",
+      "record_sha256": "65cc268029126405988b6157e3901446967bb20b1b10b81d4f99472aa7d1a19b",
+      "raw": {
+        "id": "BOT_107",
+        "dbf_id": 48552,
+        "name": "飞弹机器人",
+        "name_en": "Missile Launcher",
+        "text": "<b>磁力</b>\n在你的回合结束时，对所有其他角色造成1点伤害。",
+        "text_en": "[x]<b>Magnetic</b>\nAt the end of your turn,\ndeal 1 damage to all\nother characters.",
+        "cost": 6,
+        "attack": 4,
+        "health": 4,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "RARITY": 3,
+          "CARDTYPE": 4,
+          "COST": 6,
+          "ATK": 4,
+          "HEALTH": 4,
+          "CARDRACE": 17,
+          "COLLECTIBLE": 1,
+          "MODULAR": 1,
+          "TRIGGER_VISUAL": 1,
+          "2787": 48549
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "MODULAR",
+            "value": 1
+          },
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 10000364,
+          "craftingEvent": 10000365,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_natural_subject_and_component_comparison",
+      "record_sha256": "7bcc61fd133da6de9d157ba3d8cfebe140d9b78c33f220c4be91ed2dbb88dc1a",
+      "raw": {
+        "id": "CATA_725t",
+        "dbf_id": 127045,
+        "name": "古加尔的士兵",
+        "name_en": "Soldier of Cho'gall",
+        "text": "在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>两次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。<i><b>兆示</b>一次后升级。</i>@在你的回合结束时，消灭本随从右边的随从以获得+{0}/+{0}。",
+        "text_en": "[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> twice to upgrade.</i>@[x]At the end of your turn,\n____destroy the minion to the____\nright to gain +{0}/+{0}.\n__<i><b>Herald</b> once to upgrade.</i>@[x]At the end of your turn,\ndestroy the minion to the\nright to gain +{0}/+{0}.",
+        "cost": 1,
+        "attack": 1,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 9,
+          "COST": 1,
+          "ATK": 1,
+          "HEALTH": 1,
+          "CARDTYPE": 4,
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "TRIGGER_VISUAL": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_natural_subject_and_component_comparison",
+      "record_sha256": "2cc6aebea46f45e719ab4aa6035d475c702721fe66e6606ccf3575dc4af02b52",
+      "raw": {
+        "id": "CATA_150",
+        "dbf_id": 124110,
+        "name": "拉格纳罗斯，绝世烈火",
+        "name_en": "Ragnaros, the Great Fire",
+        "text": "<b>巨型+2</b>\n在你的回合结束时，触发你的随从的\n<b>亡语</b>。",
+        "text_en": "[x]<b>Colossal +2</b>\nAt the end of your turn, trigger\n___your minions' <b>Deathrattles</b>.",
+        "cost": 8,
+        "attack": 8,
+        "health": 8,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 10,
+          "DISPLAY_CARD_ON_MOUSEOVER": 124113,
+          "COST": 8,
+          "ATK": 8,
+          "HEALTH": 8,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "ELITE": 1,
+          "RARITY": 5,
+          "COLOSSAL": 1,
+          "COLLECTIBLE": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 124113,
+          "TRIGGER_VISUAL": 1,
+          "1544": 1,
+          "1724": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1,
+          "4538": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "HERALD",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          124113,
+          125412
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_natural_subject_and_component_comparison",
+      "record_sha256": "a8a7b7612322e49873dbc8a6fbf0c887f8b837f4f2a2c4ef9714126b02451039",
+      "raw": {
+        "id": "TSC_216t",
+        "dbf_id": 72489,
+        "name": "巨鳗的诱饵",
+        "name_en": "Behemoth's Lure",
+        "text": "在你的回合结束时，随机迫使一个敌方随从攻击黑水巨鳗。",
+        "text_en": "[x]At the end of your turn,\nforce a random enemy\nminion to attack the\n__Blackwater Behemoth.",
+        "cost": 2,
+        "attack": 1,
+        "health": 4,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 6,
+          "COST": 2,
+          "CARDTYPE": 4,
+          "HEALTH": 4,
+          "CARDRACE": 20,
+          "ATK": 1,
+          "TRIGGER_VISUAL": 1,
+          "COLOSSAL_LIMB": 1,
+          "ELITE": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_natural_subject_and_component_comparison",
+      "record_sha256": "20ef05f30daa3fe30bc55b9d33dda0174a0a4200b4673e3404e83c09f18a0a93",
+      "raw": {
+        "id": "CATA_150t",
+        "dbf_id": 124113,
+        "name": "拉格纳罗斯之手",
+        "name_en": "Hand of Ragnaros",
+        "text": "<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>两次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>一次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。",
+        "text_en": "[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> twice to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> once to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 1,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "ELITE": 1,
+          "DEATHRATTLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "1724": 1,
+          "COLOSSAL_LIMB_ON_LEFT": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_natural_subject_and_component_comparison",
+      "record_sha256": "9e95582a204e8869a5ae7a655e5b9fa392b8cf14ad8bbdb5f61b9c9e04a838a9",
+      "raw": {
+        "id": "CATA_150t1",
+        "dbf_id": 125412,
+        "name": "拉格纳罗斯之手",
+        "name_en": "Hand of Ragnaros",
+        "text": "<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>两次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。<i><b>兆示</b>一次后升级。</i>@<b>亡语：</b>随机对一个敌人造成{0}点伤害。",
+        "text_en": "[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> twice to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.\n<i><b>Herald</b> once to upgrade.</i>@[x]<b>Deathrattle:</b> Deal {0} damage\nto a random enemy.",
+        "cost": 1,
+        "attack": 2,
+        "health": 1,
+        "type": "MINION",
+        "collectible": false,
+        "tags": {
+          "CLASS": 10,
+          "COST": 1,
+          "ATK": 2,
+          "HEALTH": 1,
+          "CARDRACE": 18,
+          "CARDTYPE": 4,
+          "COLOSSAL_LIMB": 1,
+          "ELITE": 1,
+          "DEATHRATTLE": 1,
+          "TAG_SCRIPT_DATA_NUM_1": 2,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "DEATHRATTLE",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_reproducible_scenario_fixture",
+      "record_sha256": "686ec283eee8757631af6eed4a0b0f2414a031722dfc2efea62b0176333e60cd",
+      "raw": {
+        "id": "HERO_04",
+        "dbf_id": 671,
+        "name": "乌瑟尔·光明使者",
+        "name_en": "Uther Lightbringer",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 5,
+          "COLLECTIBLE": 1,
+          "HEALTH": 30,
+          "CARDTYPE": 3,
+          "HERO_POWER": 472,
+          "FACTION": 3,
+          "251": 1,
+          "EMOTECHARACTER": 13,
+          "EMOTECLASS": 4
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_reproducible_scenario_fixture",
+      "record_sha256": "75699b36f24b0eda2a0d96eaa34922914dcb5b8ff26db9f681745bf82bc70b1d",
+      "raw": {
+        "id": "HERO_08",
+        "dbf_id": 637,
+        "name": "吉安娜·普罗德摩尔",
+        "name_en": "Jaina Proudmoore",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "HEALTH": 30,
+          "CARDTYPE": 3,
+          "HERO_POWER": 807,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "EMOTECHARACTER": 26,
+          "EMOTECLASS": 8
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_reproducible_scenario_fixture",
+      "record_sha256": "f8b3732e6482a7ead67a379195156f2545bf609549fcb6ca556ef7ece5c5069f",
+      "raw": {
+        "id": "CS2_182",
+        "dbf_id": 90,
+        "name": "冰风雪人",
+        "name_en": "Chillwind Yeti",
+        "text": "",
+        "text_en": "",
+        "cost": 4,
+        "attack": 4,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 12,
+          "COLLECTIBLE": 1,
+          "COST": 4,
+          "HEALTH": 5,
+          "ATK": 4,
+          "CARDTYPE": 4,
+          "FACTION": 3,
+          "251": 6,
+          "268": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    },
+    {
+      "classification": "existing_reproducible_scenario_fixture",
+      "record_sha256": "4973febb67be520f4d42b26430c2ce870be1659cc224c1cf216487f353078e88",
+      "raw": {
+        "id": "EX1_332",
+        "dbf_id": 1189,
+        "name": "沉默",
+        "name_en": "Silence",
+        "text": "<b>沉默</b>一个随从。",
+        "text_en": "<b>Silence</b> a minion.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 1,
+          "CLASS": 6,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "SILENCE": 1,
+          "SPELL_SCHOOL": 6,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "SILENCE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      }
+    }
+  ],
+  "verification": {
+    "method": "Local data/hash consistency checks only; no runtime import, scenario execution or tests.",
+    "all_catalog_raw_equal_frozen_by_id": true,
+    "all_catalog_hash_equal_canonical_raw": true,
+    "all_catalog_ids_unique": true,
+    "new_card_ids_currently_registered": [],
+    "prior_audits_hash_unchanged": true,
+    "current_final_acceptance_asserted": false,
+    "catalog_raw_records_verified": 20,
+    "frozen_source_raw_records_verified": 36022,
+    "all_stage_frozen_hashes_match_existing_hash_semantics": true,
+    "support_cards_canonical_hash_matches_current_stage": true,
+    "new_card_absence_check": "Both IDs are absent from the 300 support rows and quoted IDs in the current representative.py definitions/pins; no Registry was imported or executed.",
+    "finite_numeric_reference_scan_verified": true,
+    "dependency_manifest_paths_exist": true,
+    "recorded_at_utc": "2026-10-03T10:03:05.302366+00:00",
+    "audit_utility_python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "scenario_candidates_executed": false
+  },
+  "dependency_manifest_contract": {
+    "scope": "Every current hs_sim/**/*.py file plus the enumerated direct local documentation, data/target/schema, frozen inventories, stage/historical evidence and relevant existing example files.",
+    "runtime_python_files": 104,
+    "total_files": 134,
+    "hash_kind": "SHA-256 of exact file bytes, distinct from canonical JSON record/card-list digests.",
+    "stage_frozen_hash_semantics": "The existing stage frozen_hashes uses exact file bytes for data/extracted/cards.json and canonical JSON digests for the other frozen inventories; those checks use the existing semantics. Every dependencies.file_sha256 here is always the exact file-byte digest.",
+    "observation_policy": "Each entry has its own observed_at_utc. These hashes permit comparison with this audit observation; they are not a claim that all files are globally frozen or that root-owned validation has closed. Files may subsequently change through separately authorized root work.",
+    "outside_workspace_limit": "The recorded dependency scope is the complete local Python runtime file set and stated evidence set, not a certification of installed Python/OS dependencies or the official game source graph."
+  }
+}

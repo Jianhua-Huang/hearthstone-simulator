@@ -150,7 +150,7 @@ class ConditionalConsumerTests(unittest.TestCase):
         self.assertEqual(set(self.r.card(CLAWS).metadata.classes),{CardClass.HUNTER,CardClass.WARLOCK})
         self.assertNotIn('TLC_101t',self.r.cards)
     def test_old1068_complete_definitions_and_default_fingerprint_preserved(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k81-before/definition-digests.json').read_bytes());self.assertEqual(len(old),1068)
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k81-before/definition-digests.json').read_bytes());self.assertEqual(len(old),1068)
         self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_cultist_damage_healing_and_silence_use_existing_relation(self):
@@ -296,8 +296,8 @@ class ConditionalConsumerTests(unittest.TestCase):
             for key in('original_entities','original_deck','resolution_frame','face_replaced','zone_epoch'):self.assertNotIn(key,public)
     def test_actual_schema299_default_and_constructed_snapshots_are_rejected(self):
         for name,r in(('constructed-v89-core374-schema299.json',build_registry()),('default-v65-core374-schema299.json',representative())):
-            saved=json.loads((ROOT/'outputs/card-integration-20261014/k81-before'/name).read_bytes())
-            with self.subTest(name=name),self.assertRaisesRegex(SnapshotError,'1 through 299'):Game.from_snapshot(saved,r)
+            saved=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k81-before'/name).read_bytes())
+            with self.subTest(name=name),self.assertRaisesRegex(SnapshotError,'Unsupported snapshot schema version'):Game.from_snapshot(saved,r)
 
 
 if __name__=='__main__':unittest.main()

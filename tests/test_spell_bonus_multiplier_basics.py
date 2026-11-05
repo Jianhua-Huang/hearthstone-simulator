@@ -144,7 +144,7 @@ class SpellBonusMultiplierBasicsTests(unittest.TestCase):
         packet = evidence()
         self.assertEqual(packet['executable_representatives'], [NATIVE])
         self.assertEqual(len(packet['records']), 4)
-        raw = {c['id']: c for c in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        raw = {c['id']: c for c in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         for row in packet['records']: self.assertEqual(row, raw[row['id']])
         card = registry().card(NATIVE)
         self.assertEqual((card.cost, card.spell_school, card.metadata.rarity), (1, SpellSchool.ARCANE, Rarity.EPIC))

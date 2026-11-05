@@ -95,7 +95,7 @@ class UndeadNativeTests(unittest.TestCase):
         ghoul=self.r.card(GHOUL);self.assertEqual((ghoul.attack,ghoul.health),(1,1));self.assertIn(Keyword.CHARGE,ghoul.keywords)
         self.assertEqual(canonical_digest(asdict(ghoul)),data['existing_dependencies'][0]['definition_sha256'])
     def test_old1037_definitions_and_unused_default_fingerprint_unchanged(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k76-before/definition-digests.json').read_bytes())
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k76-before/definition-digests.json').read_bytes())
         self.assertEqual(len(old),1037);self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_native_profile_validation_read_only_and_fingerprint(self):
@@ -234,7 +234,7 @@ class UndeadNativeTests(unittest.TestCase):
         with self.assertRaises(ResolutionError):self.play(g,'k76.roll_back')
         self.assertEqual(g.snapshot(),before)
     def test_old_schema_is_rejected_and_private_health_history_is_not_projected(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k76-before/constructed-v84-core369-schema294.json').read_bytes())
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k76-before/constructed-v84-core369-schema294.json').read_bytes())
         with self.assertRaises(SnapshotError):Game.from_snapshot(old,build_registry())
         g=self.game(('k76.hurt',LIFERENDER));self.play(g,'k76.hurt')
         for p in(1,2):

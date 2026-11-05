@@ -1,5 +1,5 @@
 """Five real native providers; current source typing and continuous targeting."""
-from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT
+from registry_identity_fixtures import DEFAULT_REPRESENTATIVE_FINGERPRINT, historical_definition_digests
 from copy import deepcopy
 from dataclasses import asdict,replace
 import json,unittest
@@ -104,16 +104,16 @@ class NativeHealthAttackProviderTests(unittest.TestCase):
                 (CardType.MINION,raw['cost'],raw['attack'],raw['health']))
         self.assertNotIn('BT_187',self.r.cards)
     def test_old1076_keep_complete_accepted_successors_and_default_fingerprint(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k82-before/definition-digests.json').read_bytes())
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k82-before/definition-digests.json').read_bytes())
         self.assertEqual(len(old),1076)
         self.assertEqual(canonical_digest(old),'cc1e50f065dbaf80eb479f969e3fc3a2b5dca54f0ea6579c7b5855134eb9f2d5')
         # Later accepted corrections predate this increment. Pin the complete
         # K347 predecessor, without changing old history or accepting today's
         # arbitrary definitions as a new baseline.
-        accepted=json.loads((ROOT/'outputs/card-integration-20261014/k347-hatching-sigil/after-01.json').read_bytes())
+        accepted=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k347-hatching-sigil/after-01.json').read_bytes())
         expected={cid:canonical_digest(accepted['definitions'][cid]) for cid in old}
         self.assertEqual(canonical_digest(expected),'7607a1ea58650befe2c0ca3907623b158b99ae7516a48209e26c94ec3bf1ce84')
-        self.assertEqual(expected,{cid:canonical_digest(asdict(self.r.card(cid))) for cid in old})
+        self.assertEqual(expected,historical_definition_digests(self.r,expected))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_quantum_doubles_effect_spell_and_combat_without_changing_stats(self):
         for mode,amount in(('hurt',4),('bolt',6),('attack',6)):
@@ -214,7 +214,7 @@ class NativeHealthAttackProviderTests(unittest.TestCase):
         for key in('health_rule','attack_policy','keyword_aura','next_attachment_id','original_entities','resolution_frame'):self.assertNotIn(key,public)
     def test_actual_schema300_default_and_constructed_are_rejected(self):
         for name,r in(('constructed-v90-core375-schema300.json',build_registry()),('default-v65-core375-schema300.json',representative())):
-            saved=json.loads((ROOT/'outputs/card-integration-20261014/k82-before'/name).read_bytes())
+            saved=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k82-before'/name).read_bytes())
             from hs_sim.engine.serialization import SNAPSHOT_SCHEMA_VERSION
             with self.subTest(name=name),self.assertRaisesRegex(SnapshotError,f'1 through {SNAPSHOT_SCHEMA_VERSION-1}'):Game.from_snapshot(saved,r)
 

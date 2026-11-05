@@ -2,6 +2,7 @@
 from dataclasses import asdict
 import hashlib,json
 from pathlib import Path
+from hs_sim.reference_inputs import reference_path
 from hs_sim.engine.allocation_facts import SourceAllocationFact
 from hs_sim.engine.character_attacks import completed_attack,completed_minion_cost,completed_minion_types
 from hs_sim.engine.death_hand_returns import ReturnDeadMinion
@@ -82,10 +83,10 @@ def load_batch():
     for row in d['cards']+d['dependencies']+d['existing_dependencies']+d['evidence_only']:
         if canonical_digest(row['record'])!=row['record_sha256']:raise TargetValidationError('Changed complete original linked source row')
     for entry in d['retained_documents'].values():
-        p=(ROOT/entry['path']).resolve()
+        p=(reference_path(entry['path'], root=ROOT)).resolve()
         if not p.is_relative_to(ROOT)or hashlib.sha256(p.read_bytes()).hexdigest()!=entry['sha256']:
             raise TargetValidationError('Changed complete original linked reference')
-    ref=json.loads((ROOT/d['retained_documents']['past']['path']).read_text(encoding='utf8'))
+    ref=json.loads((reference_path(d['retained_documents']['past']['path'], root=ROOT)).read_text(encoding='utf8'))
     rows={x['record']['id']:x['record']for x in ref['candidate_records']}
     if len(ref['candidate_ids'])!=732 or ref['candidate_ids']!=d['original_candidate_ids']or any(
             x['record']!=rows[x['record']['id']]for x in d['cards']):raise TargetValidationError('Cropped full original past source')

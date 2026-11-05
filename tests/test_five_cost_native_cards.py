@@ -121,7 +121,7 @@ class FiveCostNativeTests(unittest.TestCase):
         self.assertIsNone(self.r.card(STORM).battlecry);self.assertFalse(self.r.card(JAILBIRD).hand_actions)
         self.assertEqual((self.r.card(BROODLING).attack,self.r.card(BROODLING).health,self.r.card(BROODLING).keywords),(4,4,(Keyword.TAUNT,)))
     def test_old1048_definitions_and_default_fingerprint_unchanged(self):
-        prior=json.loads((ROOT/'outputs/card-integration-20261014/k78-before/definition-digests.json').read_bytes())
+        prior=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k78-before/definition-digests.json').read_bytes())
         self.assertEqual(len(prior),1048);self.assertEqual(prior,historical_definition_digests(self.r,prior))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_rager_current_first_genuine_owner_turn_counts_once(self):
@@ -286,7 +286,7 @@ class FiveCostNativeTests(unittest.TestCase):
         saved=g.snapshot();g.observe(1);g.observe(2);g.for_player(1).legal_actions();self.assertEqual(g.snapshot(),saved)
     def test_previous_schema296_snapshot_is_rejected(self):
         for name in('constructed-v86','default-v65'):
-            with self.subTest(name=name),self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((ROOT/f'outputs/card-integration-20261014/k78-before/{name}-core371-schema296.json').read_bytes()),self.r if name.startswith('constructed')else representative())
+            with self.subTest(name=name),self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((ROOT/f'tests/fixtures/history/card-integration-20261014/k78-before/{name}-core371-schema296.json').read_bytes()),self.r if name.startswith('constructed')else representative())
 
 
 if __name__=='__main__':unittest.main()

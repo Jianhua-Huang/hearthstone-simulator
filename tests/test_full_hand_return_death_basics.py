@@ -79,7 +79,7 @@ class FullHandReturnDeathTests(unittest.TestCase):
 
     def test_pinned_necessary_source_and_default_registry_stays_unchanged(self):
         raw=next(x for x in evidence()['records'] if x['id']==NATIVE)
-        original=next(x for x in json.loads((ROOT/'data/extracted/cards.json').read_bytes()) if x['id']==NATIVE)
+        original=next(x for x in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes()) if x['id']==NATIVE)
         self.assertEqual(raw,original);card=registry().card(NATIVE)
         self.assertEqual((card.cost,card.on_play),(2,'sap'));self.assertEqual(card.metadata,metadata_from_record(raw))
         self.assertNotIn('NEW1_004',registry().cards)

@@ -102,7 +102,7 @@ class NativeOverflowTests(unittest.TestCase):
     def test_complete_pin_preserves_only_necessary_native_source(self):
         v=evidence();self.assertEqual(len(v['records']),4)
         row=next(x for x in v['records'] if x['id']==NATIVE)
-        actual=next(x for x in json.loads((ROOT/'data/extracted/cards.json').read_bytes()) if x['id']==NATIVE)
+        actual=next(x for x in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes()) if x['id']==NATIVE)
         self.assertEqual(row,actual);self.assertEqual(registry().card(NATIVE).on_destroyed,'draw2')
         self.assertNotIn('WW_044t',registry().cards)
 

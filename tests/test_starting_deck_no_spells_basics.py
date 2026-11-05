@@ -181,7 +181,7 @@ class StartingDeckNoSpellsTests(unittest.TestCase):
 
     def test_complete_raw_requires_starting_no_spells_without_partial_native_adapter(self):
         packet, raw, r = json.loads(SUPPORT.read_bytes()), evidence(), registry()
-        self.assertEqual(hashlib.sha256((ROOT/'data/extracted/cards.json').read_bytes()).hexdigest(), packet['source_sha256'])
+        self.assertEqual(hashlib.sha256((ROOT/'tests/fixtures/extracted/cards.json').read_bytes()).hexdigest(), packet['source_sha256'])
         self.assertEqual((raw['id'], raw['cost'], raw['attack'], raw['health']), ('JAIL_806', 6, 6, 6))
         self.assertIn('deck started with no', raw['text_en'])
         self.assertIn('spells', raw['text_en'])

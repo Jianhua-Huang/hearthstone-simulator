@@ -184,7 +184,7 @@ class StartingDeckMinionCostSumTests(unittest.TestCase):
 
     def test_complete_raw_pin_demands_starting_minions_and_no_partial_native_adapter(self):
         packet, raw, r = json.loads(SUPPORT.read_bytes()), evidence(), registry()
-        self.assertEqual(hashlib.sha256((ROOT / 'data/extracted/cards.json').read_bytes()).hexdigest(), packet['source_sha256'])
+        self.assertEqual(hashlib.sha256((ROOT / 'tests/fixtures/extracted/cards.json').read_bytes()).hexdigest(), packet['source_sha256'])
         self.assertEqual((raw['id'], raw['cost'], raw['attack'], raw['health']), ('CATA_213', 6, 6, 6))
         self.assertIn('starting minions', raw['text_en'])
         self.assertIn('100, split 100 stats', raw['text_en'])

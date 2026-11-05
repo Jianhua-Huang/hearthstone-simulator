@@ -204,5 +204,5 @@ class ShuffleNativeTests(unittest.TestCase):
 
     def test_actual_previous_snapshot_is_rejected(self):
         from pathlib import Path
-        old=json.loads(Path('outputs/card-integration-20261014/k49-before/constructed-v57-core349-schema276.json').read_text(encoding='utf-8'))
+        old=json.loads(Path('tests/fixtures/history/card-integration-20261014/k49-before/constructed-v57-core349-schema276.json').read_text(encoding='utf-8'))
         with self.assertRaises(SnapshotError):Game.from_snapshot(old,self.r)

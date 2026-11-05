@@ -1,6 +1,7 @@
 """Original physical discoveries, atomic slots and shared hand movement."""
 from functools import lru_cache
 from pathlib import Path
+from fixture_inputs import fixture_manifest
 import json,unittest
 from card_batch_testkit import CardBatchTestMixin
 from opening_fixtures import metadata
@@ -15,7 +16,7 @@ from hs_sim.engine.representative import build_registry as defaults
 from hs_sim.engine.zones import CardReference,ModifyStoredCost,MoveCard
 
 ROOT=Path(__file__).resolve().parents[1]
-B=ROOT/'outputs/card-integration-20261014/k729-past-physical-inventory-weapons'
+B=ROOT/'tests/fixtures/history/card-integration-20261014/k729-past-physical-inventory-weapons'
 P='exchange.';THEOTAR='REV_238'
 A,BODY,C,D,FULL,MOVE,DISCOUNT,FAIL,CHECK,WAIT,REMOVE,STALE=(P+x for x in
     ('own','other','third','fourth','fill','move','discount','fail','check','wait','remove','stale'))
@@ -24,7 +25,7 @@ CTX=GenerationContext(P+'fixture','experimental')
 
 @lru_cache(None)
 def registry(role='writer'):
-    r=defaults();m=json.loads((B/'manifest-02.json').read_text(encoding='utf8'))
+    r=defaults();m=fixture_manifest(json.loads((B/'manifest-02.json').read_text(encoding='utf8')))
     raw=next(x for x in json.loads((ROOT/m['source']).read_text(encoding='utf8'))if x['id']==THEOTAR)
     r.register_behavior(P+'start',lambda c:(DiscoverHandExchange(c.player_id,c.source_id),))
     card=CardDefinition(THEOTAR,raw['name'],CardType.MINION,cost=raw['cost'],attack=raw['attack'],health=raw['health'],

@@ -91,7 +91,7 @@ class PublicEffectConsumerTests(unittest.TestCase):
         self.assertEqual((self.r.card(STAFF).kind,self.r.card(STAFF).attack,self.r.card(STAFF).health,self.r.card(STAFF).durability),(CardType.WEAPON,1,0,6))
         self.assertIsNone(self.r.card(DOUBLE).battlecry);self.assertIn(Keyword.COMBO,self.r.card(DOUBLE).keywords)
     def test_old1059_complete_definitions_and_unused_default_fingerprint_preserved(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k80-before/definition-digests.json').read_bytes())
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k80-before/definition-digests.json').read_bytes())
         self.assertEqual(len(old),1059);self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_enemy_aura_domain_is_the_actual_native_taunt_scope(self):
@@ -220,7 +220,7 @@ class PublicEffectConsumerTests(unittest.TestCase):
         self.assertNotIn(BOLT,text);self.assertNotIn(FIREBALL,text)
     def test_old_schema298_default_and_constructed_snapshots_are_rejected(self):
         for name in('constructed-v88','default-v65'):
-            with self.subTest(name=name),self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((ROOT/f'outputs/card-integration-20261014/k80-before/{name}-core373-schema298.json').read_bytes()),self.r if name.startswith('constructed')else representative())
+            with self.subTest(name=name),self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((ROOT/f'tests/fixtures/history/card-integration-20261014/k80-before/{name}-core373-schema298.json').read_bytes()),self.r if name.startswith('constructed')else representative())
 
 
 if __name__=='__main__':unittest.main()

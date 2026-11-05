@@ -109,7 +109,7 @@ class BloodRuneNativeTests(unittest.TestCase):
         nurse=self.r.card(NURSE);self.assertEqual((nurse.cost,nurse.attack,nurse.health),(2,3,1));self.assertEqual(nurse.keywords,(Keyword.LIFESTEAL,))
         self.assertEqual(tuple(t.lower()for t in nurse.metadata.tribes),('undead',));self.assertEqual(self.r.summon_attack_profiles[SURGERY].count,4)
     def test_old1034_complete_definitions_and_default_fingerprint_equal(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k75-before/definition-digests.json').read_text(encoding='utf-8'))
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k75-before/definition-digests.json').read_text(encoding='utf-8'))
         self.assertEqual(len(old),1034);self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_blade_first_card_does_not_read_its_own_dual_runes(self):

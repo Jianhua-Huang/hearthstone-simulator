@@ -265,10 +265,10 @@ class RogueTeacherSpellTests(CardBatchTestMixin,unittest.TestCase):
 
     def test_original_discovery_game_prefix_reaches_the_previously_rejected_action(self):
         from web_ui.autoplay_checks import facts
-        f=fixture();path=ROOT/'outputs/environment-r13-20261103/decks/discovery_v2.json'
+        f=fixture();path=ROOT/'tests/fixtures/history/environment-r13-20261103/decks/discovery_v2.json'
         doc=cb.read(path);specs=[DeckSpec(v['hero_card_id'],v['hero_power_card_id'],CardClass(v['card_class']),tuple(v['cards']))for v in doc['decks'].values()]
         g=Game.from_decks(f.match_setup(tuple(specs),seed=2026110301,first_player=1),f.registry)
-        rows=[json.loads(s)for s in(ROOT/'outputs/environment-r13-20261103/discovery_v2/run/private/A-1-steps.jsonl').read_text('utf-8').splitlines()]
+        rows=[json.loads(s)for s in(ROOT/'tests/fixtures/history/environment-r13-20261103/discovery_v2/run/private/A-1-steps.jsonl').read_text('utf-8').splitlines()]
         def normalize(value):
             value=json.loads(json.dumps(value))
             for e in value['entities'].values():e['keywords']=sorted(e['keywords'])

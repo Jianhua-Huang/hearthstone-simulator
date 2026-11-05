@@ -1,0 +1,335 @@
+{
+  "schema": 1,
+  "performance_workload": "discard_choose",
+  "target": "cn37-local-special-pools-v20-9df44596af660ddd",
+  "fixed_seed_pairs": [
+    2026110302,
+    2026110303
+  ],
+  "decks": {
+    "warlock": {
+      "label": "弃牌恶魔术士",
+      "card_class": "warlock",
+      "hero_card_id": "HERO_07",
+      "hero_power_card_id": "HERO_07bp",
+      "cards": [
+        "CATA_490",
+        "CATA_490",
+        "CATA_493",
+        "CATA_493",
+        "CATA_499",
+        "CATA_499",
+        "CORE_EX1_310",
+        "CORE_EX1_310",
+        "END_016",
+        "END_016",
+        "TIME_008",
+        "TIME_008",
+        "JAIL_303",
+        "JAIL_303",
+        "CATA_EVENT_001",
+        "CATA_EVENT_001",
+        "CORE_EX1_302",
+        "CORE_EX1_302",
+        "CORE_EX1_309",
+        "CORE_EX1_309",
+        "CORE_SW_088",
+        "CORE_SW_088",
+        "BE_005",
+        "BE_005",
+        "JAIL_399",
+        "JAIL_399",
+        "CORE_LOOT_368",
+        "CORE_LOOT_368",
+        "JAIL_514",
+        "JAIL_514"
+      ],
+      "runes": null,
+      "rows": [
+        {
+          "id": "CATA_490",
+          "name": "魔眼秘术师",
+          "text": "<b>嘲讽</b>。<b>战吼：</b>选择你手牌中的一张牌\n并弃掉。",
+          "cost": 3,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CATA_493",
+          "name": "地狱公爵",
+          "text": "<b>突袭</b>。在本局对战中，你每弃掉一张牌，便拥有+2/+2。",
+          "cost": 4,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CATA_499",
+          "name": "助祭耗材",
+          "text": "当你使用或弃掉本牌时，随机召唤两个法力值消耗为（1）的随从。",
+          "cost": 2,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_EX1_310",
+          "name": "末日守卫",
+          "text": "<b>冲锋</b>。<b>战吼：</b>&随机弃两张牌。",
+          "cost": 5,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "END_016",
+          "name": "时空之爪",
+          "text": "在你的英雄\n攻击后，弃掉你法力值消耗最高的牌。",
+          "cost": 4,
+          "type": "WEAPON",
+          "count": 2
+        },
+        {
+          "id": "TIME_008",
+          "name": "过去的末日宣言者",
+          "text": "<b>回溯</b>。<b>战吼：</b>双方玩家各随机弃一张牌。",
+          "cost": 3,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "JAIL_303",
+          "name": "上古预言师",
+          "text": "<b>战吼：</b>检视你对手的\n3张手牌并秘密选择一张。<b>亡语：</b>弃掉所选的牌。",
+          "cost": 4,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CATA_EVENT_001",
+          "name": "毁焚火凤",
+          "text": "<b>战吼：</b>选择你手牌中的一张牌并点燃。在3回合后，弃掉选中的牌并召唤一个本随从的复制。",
+          "cost": 4,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CORE_EX1_302",
+          "name": "死亡缠绕",
+          "text": "对一个随从造成$1点伤害。如果该随从死亡，抽一张牌。",
+          "cost": 1,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_EX1_309",
+          "name": "灵魂虹吸",
+          "text": "消灭一个随从，为你的英雄恢复#3点生命值。",
+          "cost": 4,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_SW_088",
+          "name": "恶魔来袭",
+          "text": "造成$3点伤害。召唤两个1/3并具有<b>嘲讽</b>的虚空行者。",
+          "cost": 4,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "BE_005",
+          "name": "充盈仪式",
+          "text": "@回合后，抽两张牌并使其法力值消耗减少（2）点。",
+          "cost": 3,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "JAIL_399",
+          "name": "小鬼马仔",
+          "text": "<b>嘲讽</b>。<b>亡语：</b>\n将两张8/8并具有<b>嘲讽</b>和<b>吸血</b>的恶魔置于你的牌库底。",
+          "cost": 3,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CORE_LOOT_368",
+          "name": "虚空领主",
+          "text": "<b>嘲讽</b>。<b>亡语：</b>&召唤三个1/3并具有<b>嘲讽</b>的恶魔。",
+          "cost": 9,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "JAIL_514",
+          "name": "秘密监控",
+          "text": "抽三张牌。你每有一张手牌，本牌的法力值消耗便减少（1）点。",
+          "cost": 10,
+          "type": "SPELL",
+          "count": 2
+        }
+      ],
+      "source": "Locally designed mechanism/performance workload using current implemented root cards; not a meta-deck recommendation."
+    },
+    "druid": {
+      "label": "抉择铺场德鲁伊",
+      "card_class": "druid",
+      "hero_card_id": "HERO_06",
+      "hero_power_card_id": "HERO_06bp",
+      "cards": [
+        "CORE_AT_037",
+        "CORE_AT_037",
+        "CORE_EX1_154",
+        "CORE_EX1_154",
+        "CORE_EX1_160",
+        "CORE_EX1_160",
+        "CORE_EX1_169",
+        "CORE_EX1_169",
+        "CORE_LOOT_309",
+        "CORE_LOOT_309",
+        "CORE_OG_047",
+        "CORE_OG_047",
+        "CORE_ONY_018",
+        "CORE_ONY_018",
+        "CORE_RLK_657",
+        "CORE_RLK_657",
+        "CORE_TSC_650",
+        "CORE_TSC_650",
+        "CORE_SW_439",
+        "CORE_SW_439",
+        "CORE_ULD_133",
+        "CORE_ULD_133",
+        "CATA_131",
+        "CATA_131",
+        "CATA_132",
+        "CATA_132",
+        "CATA_134",
+        "CATA_134",
+        "CATA_135",
+        "CATA_135"
+      ],
+      "runes": null,
+      "rows": [
+        {
+          "id": "CORE_AT_037",
+          "name": "活体根须",
+          "text": "<b>抉择：</b>造成$2点伤害；或者召唤两个1/1的树苗。",
+          "cost": 1,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_EX1_154",
+          "name": "愤怒",
+          "text": "<b>抉择：</b>\n对一个随从造成$3点伤害；或者造成$1点伤害并抽一张牌。",
+          "cost": 2,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_EX1_160",
+          "name": "野性之力",
+          "text": "<b>抉择：</b>使你的所有随从获得+1/+1；或者召唤一只3/2的\n猎豹。",
+          "cost": 2,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_EX1_169",
+          "name": "激活",
+          "text": "在本回合中，获得一个\n法力水晶。",
+          "cost": 0,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_LOOT_309",
+          "name": "橡树的召唤",
+          "text": "获得6点护甲值。从你的牌库中召唤一个法力值消耗小于或等于（4）点的随从。",
+          "cost": 4,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_OG_047",
+          "name": "野性之怒",
+          "text": "<b>抉择：</b>使你的英雄在本回合中获得+4攻击力；或者获得8点护甲值。",
+          "cost": 3,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_ONY_018",
+          "name": "暴烈枭兽",
+          "text": "<b>抉择：</b>为你的英雄恢复#8点生命值；或者造成4点伤害。",
+          "cost": 5,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CORE_RLK_657",
+          "name": "地底虫王",
+          "text": "<b>突袭</b>。<b>战吼，亡语：</b>&获得6点护甲值。",
+          "cost": 7,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CORE_TSC_650",
+          "name": "划水好友",
+          "text": "<b>抉择：</b>召唤一只6/6并具有<b>嘲讽</b>的虎鲸；或者六只1/1并具有<b>突袭</b>的海獭。",
+          "cost": 5,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CORE_SW_439",
+          "name": "活泼的松鼠",
+          "text": "<b>亡语：</b>将四张橡果洗入你的牌库。当抽到橡果时，召唤一只2/1的松鼠。",
+          "cost": 1,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CORE_ULD_133",
+          "name": "水晶商人",
+          "text": "在你的回合结束时，如果你有未使用的法力水晶，&抽一张牌。",
+          "cost": 2,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CATA_131",
+          "name": "费伍德树人",
+          "text": "<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。<i>（还剩{0}点！）</i>@<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。<i>（已经就绪！）</i>@<b>战吼：</b>获得一个临时的法力水晶。如果你在本牌在你手中时消耗过4点法力值，该法力水晶变为永久获得。",
+          "cost": 2,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CATA_132",
+          "name": "护巢龙",
+          "text": "<b>战吼：</b>获取两张3/3并具有<b>嘲讽</b>的雏龙。如果你在本牌在你手中时消耗过8点法力值，召唤这两条雏龙。<i>（还剩{0}点！）</i>@<b>战吼：</b>获取两张3/3并具有<b>嘲讽</b>的雏龙。如果你在本牌在你手中时消耗过8点法力值，召唤这两条雏龙。<i>（已经就绪！）</i>@<b>战吼：</b>获取两张3/3并具有<b>嘲讽</b>的雏龙。如果你在本牌在你手中时消耗过8点法力值，召唤这两条雏龙。",
+          "cost": 4,
+          "type": "MINION",
+          "count": 2
+        },
+        {
+          "id": "CATA_134",
+          "name": "荒林怪圈",
+          "text": "<b>裂变</b>\n召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”@召唤两个2/2的树人。使你的随从获得“<b>亡语：</b>召唤一个2/2的树人。”",
+          "cost": 4,
+          "type": "SPELL",
+          "count": 2
+        },
+        {
+          "id": "CATA_135",
+          "name": "苔缚术",
+          "text": "召唤两个1/2的魔像。消耗你的所有法力值，每消耗一点法力值，使其获得+1/+1。",
+          "cost": 2,
+          "type": "SPELL",
+          "count": 2
+        }
+      ],
+      "source": "Locally designed mechanism/performance workload using current implemented root cards; not a meta-deck recommendation."
+    }
+  }
+}

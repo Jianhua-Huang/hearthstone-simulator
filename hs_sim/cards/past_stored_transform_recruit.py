@@ -2,6 +2,7 @@
 from dataclasses import asdict
 import hashlib,json
 from pathlib import Path
+from hs_sim.reference_inputs import reference_path
 from hs_sim.engine.automatic_targets import PreferredMinionTarget
 from hs_sim.engine.board_presence import capture_board_presence
 from hs_sim.engine.costs import local_cost
@@ -58,10 +59,10 @@ def load_batch():
     for row in d['cards']+d['dependencies']+d['evidence_only']:
         if canonical_digest(row['record'])!=row['record_sha256']:raise TargetValidationError('Changed full original stored-consumer row')
     for entry in d['retained_documents'].values():
-        p=(ROOT/entry['path']).resolve()
+        p=(reference_path(entry['path'], root=ROOT)).resolve()
         if not p.is_relative_to(ROOT)or hashlib.sha256(p.read_bytes()).hexdigest()!=entry['sha256']:
             raise TargetValidationError('Stored consumer lost its original complete reference')
-    past=json.loads((ROOT/d['retained_documents']['past']['path']).read_text(encoding='utf8'))
+    past=json.loads((reference_path(d['retained_documents']['past']['path'], root=ROOT)).read_text(encoding='utf8'))
     rows={x['record']['id']:x['record']for x in past['candidate_records']}
     if past['candidate_ids']!=d['original_candidate_ids']or len(d['original_candidate_ids'])!=732 or any(
             x['record']!=rows[x['record']['id']]for x in d['cards']):

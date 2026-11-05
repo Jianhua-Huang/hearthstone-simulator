@@ -334,14 +334,14 @@ class StandardSurfaceAuditTests(unittest.TestCase):
 
     def test_actual_bilingual_catalog_confirms_28_missing_fields_and_keeps_two_weapon_omissions(self):
         from hs_sim.cards import build_registry
-        base = ROOT / 'outputs/card-integration-20261014'
+        base = ROOT / 'tests/fixtures/history/card-integration-20261014'
         manifest = json.loads((ROOT / 'data/cards/launch-candidate-cn37-v1.json').read_text(encoding='utf-8'))
         sources = [dict(locale=locale,
-                        response_file=f'outputs/card-integration-20261014/k325-black-empire-first/catalog-{locale}-{page}.json',
-                        receipt_file=f'outputs/card-integration-20261014/k325-black-empire-first/catalog-{locale}-{page}.receipt.json')
+                        response_file=f'tests/fixtures/history/card-integration-20261014/k325-black-empire-first/catalog-{locale}-{page}.json',
+                        receipt_file=f'tests/fixtures/history/card-integration-20261014/k325-black-empire-first/catalog-{locale}-{page}.receipt.json')
                    for locale in ('zh_CN', 'en_US') for page in (1, 2, 3)]
         index = audit.batch.catalog_index(sources, ROOT)
-        result = audit.audit_surface(json.loads((base / 'cards-37.0.0.255026.json').read_text(encoding='utf-8')),
+        result = audit.audit_surface(json.loads((ROOT / 'data/reference/card-integration-20261014/cards-37.0.0.255026.json').read_text(encoding='utf-8')),
                                      manifest['candidate_root_ids'], build_registry(), primary_index=index)
         self.assertEqual(len(result['source_absences']), 29)
         self.assertEqual(result['primary_confirmed_absent_field_count'], 28)
@@ -354,7 +354,7 @@ class StandardSurfaceAuditTests(unittest.TestCase):
     def test_fixed_cn37_inventory_checks_every_root_and_keeps_external_proofs(self):
         from hs_sim.cards import build_registry
         manifest = json.loads((ROOT / 'data/cards/launch-candidate-cn37-v1.json').read_text(encoding='utf-8'))
-        source = (ROOT / 'outputs/card-integration-20261014/cards-37.0.0.255026.json').read_bytes()
+        source = (ROOT / 'data/reference/card-integration-20261014/cards-37.0.0.255026.json').read_bytes()
         self.assertEqual(hashlib.sha256(source).hexdigest(), manifest['source_sha256'])
         result = audit.audit_surface(json.loads(source), manifest['candidate_root_ids'], build_registry())
         self.assertEqual(result['candidate_root_count'], 1322)

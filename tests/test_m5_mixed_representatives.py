@@ -60,9 +60,9 @@ class MixedRepresentativeTests(unittest.TestCase):
         return count
 
     def test_complete_primary_raw_and_pin_match_independent_extracted_and_frozen_audit(self):
-        raw = next(x for x in json.loads((ROOT / 'data/extracted/cards.json').read_text(encoding='utf-8'))
+        raw = next(x for x in json.loads((ROOT / 'tests/fixtures/reference/representative-source-records.json').read_text(encoding='utf-8'))
             if x['id'] == CARD)
-        audit = json.loads((ROOT / 'outputs/v107-mixed-repeat-pre-audit.json').read_text(encoding='utf-8'))
+        audit = json.loads((ROOT / 'tests/fixtures/history/v107-mixed-repeat-pre-audit.json').read_text(encoding='utf-8'))
         saved = next(x['raw'] for x in audit['catalog'] if x['raw']['id'] == CARD)
         row = next(x for x in load_baseline().support['cards'] if x['id'] == CARD)
         self.assertEqual(row['data'], raw); self.assertEqual(raw, saved)
@@ -73,7 +73,7 @@ class MixedRepresentativeTests(unittest.TestCase):
         self.assertEqual(len(rows), 303); self.assertEqual(canonical_digest(rows), OLD_ROWS_PIN)
 
     def test_enchantment_remains_independently_pinned_evidence_without_executable_adapter(self):
-        raw = next(x for x in json.loads((ROOT / 'data/extracted/cards.json').read_text(encoding='utf-8'))
+        raw = next(x for x in json.loads((ROOT / 'tests/fixtures/reference/representative-source-records.json').read_text(encoding='utf-8'))
             if x['id'] == 'TIME_064e')
         self.assertEqual(canonical_digest(raw), ENCHANTMENT_PIN)
         self.assertEqual((raw['type'], raw['collectible'], raw['reference_tags'], raw['related_dbf_ids']),

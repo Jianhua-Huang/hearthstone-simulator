@@ -138,7 +138,7 @@ class UndeadResourceNativeTests(unittest.TestCase):
         self.assertEqual(set(self.r.card(RAPTOR).metadata.tribes),{'beast','undead'})
         self.assertEqual((self.r.card(BREATH).cost,self.r.card(BREATH).metadata.collectible),(2,False))
     def test_old1042_complete_definitions_and_unused_default_fingerprint_equal(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k77-before/definition-digests.json').read_bytes())
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k77-before/definition-digests.json').read_bytes())
         self.assertEqual(len(old),1042);self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_native_profiles_are_validated_read_only_and_frozen(self):
@@ -300,7 +300,7 @@ class UndeadResourceNativeTests(unittest.TestCase):
             with self.assertRaises(ResolutionError):self.choose(g,'fail')
             self.assertEqual(g.snapshot(),saved);self.choose(g,key);self.assertEqual(len(g.state.players[1].hand),draws);self.portable(g)
     def test_old_schema_and_native_typed_record_fields_are_strict(self):
-        old=json.loads((ROOT/'outputs/card-integration-20261014/k77-before/constructed-v85-core370-schema295.json').read_bytes())
+        old=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k77-before/constructed-v85-core370-schema295.json').read_bytes())
         with self.assertRaises(SnapshotError):Game.from_snapshot(old,build_registry())
         g=self.game(('k77.trigger',),board=(EXPERIMENT,));self.play(g,'k77.trigger',self.first(g,EXPERIMENT).id)
         bad=g.snapshot();bad['state']['deathrattle_history'][0]['source_attack']=True

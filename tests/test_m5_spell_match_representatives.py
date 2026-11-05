@@ -154,9 +154,9 @@ class SpellMatchRepresentativeTests(unittest.TestCase):
         return game, carrier
 
     def test_complete_raw_pin_and_printed_adapter_match_the_independent_pre_audit(self):
-        raw = next(r for r in json.loads((ROOT / 'data/extracted/cards.json').read_text(
+        raw = next(r for r in json.loads((ROOT / 'tests/fixtures/reference/representative-source-records.json').read_text(
             encoding='utf-8')) if r['id'] == SOURCE)
-        audit = json.loads((ROOT / 'outputs/v109-rlk541-pre-audit.json').read_text(encoding='utf-8'))
+        audit = json.loads((ROOT / 'tests/fixtures/history/v109-rlk541-pre-audit.json').read_text(encoding='utf-8'))
         saved = next(r['raw'] for r in audit['catalog'] if r['card_id'] == SOURCE)
         row = next(r for r in load_baseline().support['cards'] if r['id'] == SOURCE)
         self.assertEqual(raw, saved)

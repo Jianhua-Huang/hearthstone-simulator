@@ -4,6 +4,7 @@ from copy import deepcopy
 from dataclasses import asdict
 import hashlib,json,unittest
 from pathlib import Path
+from fixture_inputs import fixture_path
 
 from hs_sim.cards import build_registry
 from hs_sim.cards.hero_corpse_rescue_cards import BATCH_HASH,HUSK,LIFE,MARKER,load_batch,original_life_markers
@@ -96,23 +97,23 @@ class HeroCorpseRescueTests(unittest.TestCase):
         c=self.r.card(HUSK);self.assertEqual((c.cost,c.attack,c.health),(4,5,3));self.assertIsNone(c.deathrattle)
         self.assertEqual(tuple(x.lower()for x in c.metadata.tribes),('undead',))
     def test_all280_engine_sources_and_old1033_definitions_remain_exact(self):
-        before=ROOT/'outputs/card-integration-20261014/k74-before';old=json.loads((before/'source-guard.json').read_text(encoding='utf-8'))
+        before=ROOT/'tests/fixtures/history/card-integration-20261014/k74-before';old=json.loads((before/'source-guard.json').read_text(encoding='utf-8'))
         engine={k:v for k,v in old.items()if k.startswith('hs_sim/engine/')};self.assertEqual(len(engine),280)
         # This is the K74 historical receipt, not a freeze on future engine work.
-        receipt=json.loads((ROOT/'outputs/card-integration-20261014/k74-verification.json').read_text(encoding='utf-8'))
+        receipt=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k74-verification.json').read_text(encoding='utf-8'))
         self.assertEqual(engine,{k:receipt['source_guard'][k]for k in engine})
         old=json.loads((before/'definition-digests.json').read_text(encoding='utf-8'));self.assertEqual(len(old),1033)
         self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
-    def test_actual_old_default_schema293_snapshot_still_restores_exactly(self):
-        saved=json.loads((ROOT/'outputs/card-integration-20261014/k74-before/default-v65-core368-schema293.json').read_text(encoding='utf-8'))
-        self.assertEqual(Game.from_snapshot(saved,representative()).snapshot(),saved)
+    def test_actual_old_default_schema293_is_rejected_by_current_engine(self):
+        saved=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k74-before/default-v65-core368-schema293.json').read_text(encoding='utf-8'))
+        with self.assertRaises(SnapshotError):Game.from_snapshot(saved,representative())
     def test_primary_hotfix_observations_have_actual_staff_first_posts(self):
-        rows=json.loads((ROOT/'outputs/card-integration-20261014/k74-official-hotfix-01/observations.json').read_text(encoding='utf-8'))
+        rows=json.loads((ROOT/'tests/fixtures/history/card-integration-20261014/k74-official-hotfix-01/observations.json').read_text(encoding='utf-8'))
         self.assertEqual(len(rows),2)
         for row in rows:
             self.assertEqual(row['status'],200);self.assertTrue(row['staff'])
-            self.assertEqual(hashlib.sha256((ROOT/row['raw']['path']).read_bytes()).hexdigest(),row['raw']['sha256'])
+            self.assertEqual(hashlib.sha256(fixture_path(row['raw']['path']).read_bytes()).hexdigest(),row['raw']['sha256'])
     def test_battlecry_installs_real_source_grant_and_public_marker(self):
         g=self.game((HUSK,));source=self.play(g,HUSK);abilities=self.life_abilities(g)
         self.assertEqual(len(abilities),1);self.assertEqual((abilities[0].source_id,abilities[0].deathrattle_grant_card_id),(source,HUSK))

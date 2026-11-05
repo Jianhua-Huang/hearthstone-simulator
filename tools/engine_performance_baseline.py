@@ -26,20 +26,10 @@ def digest(value):
 def inventory(root):
     paths = [p for name in ('hs_sim', 'tests', 'tools') for p in (root / name).rglob('*.py')]
     paths += [p for p in (root / 'data').rglob('*') if p.is_file()]
-    paths += [root / 'tools/run_tests.py', root / 'outputs/card-integration-20261014/cards-37.0.0.255026.json']
-    linked = set()
-    def visit(value):
-        if isinstance(value, dict):
-            for item in value.values(): visit(item)
-        elif isinstance(value, list):
-            for item in value: visit(item)
-        elif isinstance(value, str) and value.startswith('outputs/'):
-            candidate = (root / value).resolve()
-            if candidate.is_relative_to(root) and candidate.is_file(): linked.add(candidate)
-    for document in (root / 'data').rglob('*.json'):
-        try: visit(json.loads(document.read_text(encoding='utf-8-sig')))
-        except (UnicodeError, json.JSONDecodeError): pass
-    paths += list(linked)
+    paths += [root / 'tools/run_tests.py', root / 'data/reference/card-integration-20261014/cards-37.0.0.255026.json']
+    # Retained runtime evidence lives in data/reference; regression evidence is
+    # explicit fixture data. Historical provenance strings are not dependencies.
+    paths += [p for p in (root / 'tests/fixtures').rglob('*') if p.is_file()]
     return {p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted(set(paths))}
 

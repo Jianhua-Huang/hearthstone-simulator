@@ -122,7 +122,7 @@ class CorpseSummonCardTests(unittest.TestCase):
         self.assertEqual((self.r.card(GHOUL).attack,self.r.card(GHOUL).health),(2,2))
         self.assertEqual(self.r.card(TOMB).metadata.deck_identity,'RLK_118');self.assertEqual(self.r.card(COMMANDER).metadata.deck_identity,'RLK_506')
     def test_old1008_definitions_and_default_fingerprint_are_unchanged(self):
-        before=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k71-before/definition-digests.json').read_text(encoding='utf-8'))
+        before=json.loads((Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k71-before/definition-digests.json').read_text(encoding='utf-8'))
         self.assertEqual(len(before),1008);self.assertEqual(before,historical_definition_digests(self.r,before))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_chow_summons_five_then_spends_fixed_eight_for_rush(self):
@@ -280,7 +280,7 @@ class CorpseSummonCardTests(unittest.TestCase):
     def test_current_default_restore_and_previous_schema_rejection(self):
         root=Path(__file__).resolve().parents[1];self.assertGreater(SNAPSHOT_SCHEMA_VERSION,290)
         for label,factory in(('constructed-v79',build_registry),('default-v65',representative)):
-            old=json.loads((root/f'outputs/card-integration-20261014/k71-before/{label}-core365-schema290.json').read_text(encoding='utf-8'))
+            old=json.loads((root/f'tests/fixtures/history/card-integration-20261014/k71-before/{label}-core365-schema290.json').read_text(encoding='utf-8'))
             with self.subTest(label=label),self.assertRaises(SnapshotError):Game.from_snapshot(old,factory())
         g=Game.from_scenario(Scenario((PlayerSetup('HERO_08'),PlayerSetup('HERO_08'))),representative())
         self.assertEqual(Game.from_snapshot(g.snapshot(),representative()).snapshot(),g.snapshot())

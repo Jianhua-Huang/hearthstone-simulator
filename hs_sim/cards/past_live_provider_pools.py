@@ -2,6 +2,7 @@
 from dataclasses import asdict
 import hashlib,json
 from pathlib import Path
+from hs_sim.reference_inputs import reference_path
 
 from hs_sim.engine.deck_conditions import CheckDeckCondition,DeckCondition
 from hs_sim.engine.effects import GrantKeyword,Overload,ReplaceHeroPower
@@ -71,10 +72,10 @@ def load_batch():
         if canonical_digest(row['record'])!=row['record_sha256']:
             raise TargetValidationError('Changed complete original live-provider source row')
     for key in('full_reference','primary_child_relations','poison_public_reference'):
-        item=d[key];path=(ROOT/item['path']).resolve()
+        item=d[key];path=(reference_path(item['path'], root=ROOT)).resolve()
         if not path.is_relative_to(ROOT)or hashlib.sha256(path.read_bytes()).hexdigest()!=item['sha256']:
             raise TargetValidationError('Changed complete retained provider evidence')
-    ref=json.loads((ROOT/d['full_reference']['path']).read_text(encoding='utf8'))
+    ref=json.loads((reference_path(d['full_reference']['path'], root=ROOT)).read_text(encoding='utf8'))
     original={x['record']['id']:x['record']for x in ref['candidate_records']}
     if (len(ref['candidate_ids'])!=732 or ref['candidate_ids']!=d['original_candidate_ids']or
             any(x['record']!=original[x['record']['id']]for x in d['cards'])):

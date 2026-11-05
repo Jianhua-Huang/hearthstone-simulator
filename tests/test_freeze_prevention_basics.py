@@ -103,7 +103,7 @@ class FreezePreventionTests(unittest.TestCase):
         self.assertIn(FLAG,g.state.entities[target].keywords)
 
     def test_complete_native_raw_pin_source_metadata_and_small_executable_scope(self):
-        packet=evidence();raw={x['id']:x for x in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        packet=evidence();raw={x['id']:x for x in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         self.assertEqual((len(packet['records']),packet['executable_representatives']),(21,[NATIVE,BOLT]))
         for row in packet['records']:self.assertEqual(row,raw[row['id']])
         r=registry();m,b=r.card(NATIVE),r.card(BOLT)
@@ -117,7 +117,7 @@ class FreezePreventionTests(unittest.TestCase):
         self.assertEqual(canonical_digest(packet),SILENCE_PIN)
         self.assertEqual((len(packet['candidate_ids']),packet['counts'],packet['collectible_candidates']),
             (100,{'ENCHANTMENT':92,'WEAPON':4,'MINION':4},0))
-        raw={x['id']:x for x in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        raw={x['id']:x for x in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         for row in packet['records']:self.assertEqual(row,raw[row['id']])
         self.assertEqual(set(x['id'] for x in packet['records'] if x['type']=='MINION' and x['id'] in packet['candidate_ids']),
             {'TB_GP_03','TB_LEAGUE_REVIVAL_BrannBoss','CRED_15','CRED_50'})

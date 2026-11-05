@@ -158,7 +158,7 @@ class PerPlayerHandCapacityTests(unittest.TestCase):
         self.assertEqual((definition.cost,definition.attack,definition.health),(7,4,4))
         self.assertEqual(definition.metadata.classes,(CardClass.WARLOCK,))
         self.assertEqual(definition.metadata.rarity,Rarity.LEGENDARY)
-        baseline=json.loads((ROOT/'outputs/foundation-gap-audit-20261011/necessary-gap-raw.json').read_bytes())
+        baseline=json.loads((ROOT/'tests/fixtures/history/foundation-gap-audit-20261011/necessary-gap-raw.json').read_bytes())
         self.assertEqual(raw,next(r for r in baseline['hand_capacity_records'] if r['id']=='DRG_208'))
 
     def test_native_raise_then_four_draws_use_twelve_capacity_at_full_initial_hand(self):

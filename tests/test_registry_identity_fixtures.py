@@ -18,7 +18,7 @@ from registry_identity_fixtures import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-HISTORY_ROOT = ROOT / 'outputs/card-integration-20261014'
+HISTORY_ROOT = ROOT / 'tests/fixtures/history/card-integration-20261014'
 
 
 @lru_cache(None)

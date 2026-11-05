@@ -225,7 +225,7 @@ class HeldDrawCardTests(unittest.TestCase):
         from pathlib import Path
         from hs_sim.cards import build_registry
         from hs_sim.engine.representative import build_registry as representative
-        path=Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k46-before'
+        path=Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k46-before'
         with self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((path/'constructed-v54-core346-schema276.json').read_text(encoding='utf-8')),build_registry())
         with self.assertRaises(SnapshotError):Game.from_snapshot(json.loads((path/'default-v65-core346-schema276.json').read_text(encoding='utf-8')),representative())
 

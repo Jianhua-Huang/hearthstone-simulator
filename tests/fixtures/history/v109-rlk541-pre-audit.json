@@ -1,0 +1,1352 @@
+{
+  "artifact_kind": "necessary_RLK_541_representative_pre_audit",
+  "audit_only": true,
+  "implementation_complete": false,
+  "adapter_implemented": false,
+  "tests_run_by_this_audit": false,
+  "official_web_lookup_performed": false,
+  "observed_at_utc": "2026-10-03T15:13:48.086291+00:00",
+  "planned_increment": "M5-13d-02m-01-A2",
+  "baseline": {
+    "runtime": {
+      "engine": 104,
+      "schema": 101,
+      "representative": 63,
+      "view": 52,
+      "action": 7,
+      "replay": 1
+    },
+    "records": 304,
+    "definitions": 305,
+    "choice_only": 14,
+    "A1_stage_file": "outputs/v108-stage.json",
+    "A1_stage_file_sha256": "d50001cbced928e394b53c6840b26e90ce8427af53a4d06a55d2e90656bbacf1",
+    "A1_status_as_observed": "validation_in_progress",
+    "A1_source_files": 323,
+    "full_collection_observed_not_pass_count": 5663,
+    "related_preflight_not_pass_count": 892,
+    "A1_is_not_closed": true,
+    "cards_canonical_hash": "e265456d67990d964e01181b70a8bb184121a8cec272bebb8988895812977324",
+    "support_file_sha256": "68d6fa58f09fcd4111e6392bc0ec6dd3077b4c673411986d28fb1bfccc9f1cbe"
+  },
+  "historical_evidence": {
+    "file": "outputs/v108-conditional-repeat-pre-audit.json",
+    "file_sha256": "1db7149c03e661d08b062626db982b8c25060836a8b5f3e3be6cd406d41cf92d",
+    "catalog_count": 800,
+    "RLK_541_full_raw_and_hash_equal_historical": true,
+    "historical_observed_stage_sha256": "904e45ba22abd8c21204f7439ed2797c7f5c15d329ff02cbc8baefa672038b7c",
+    "policy": "Copy evidence as historical; no v<109 artifact bytes or old dependency fingerprints refreshed."
+  },
+  "raw_evidence_contract": {
+    "source": "data/extracted/cards.json",
+    "source_file_sha256": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+    "source_raw_records": 36022,
+    "canonical_digest": "SHA256 UTF8 json.dumps(raw,ensure_ascii=False,sort_keys=True,separators=(comma,colon))",
+    "complete_original_raws_preserved": true,
+    "raw_nulls_tags_references_source_events_unchanged": true,
+    "catalog_count": 11,
+    "catalog_is_not_formal_pool": true,
+    "identity_scope_scan": {
+      "ids_found": [
+        "RLK_541"
+      ],
+      "identity_scan_rule": "Exact Vexallus English name OR explicit RLK_541/CORE_RLK_541/VAN_RLK_541/LEG_RLK_541 ID prefix in all 36,022 local rows",
+      "forward_related_dbf_ids": [],
+      "reverse_related_ids": [],
+      "no_alias_merge": true,
+      "limit": "No aliases/enchantments/components found by this exact local identity/reverse-dbF scan; does not prove a complete official source graph or absence in future/other data."
+    }
+  },
+  "catalog": [
+    {
+      "card_id": "RLK_541",
+      "dbf_id": 84390,
+      "role": "necessary_new_source_candidate",
+      "raw": {
+        "id": "RLK_541",
+        "dbf_id": 84390,
+        "name": "维萨鲁斯",
+        "name_en": "Vexallus",
+        "text": "你的奥术法术会施放两次。",
+        "text_en": "Your Arcane spells\ncast twice.",
+        "cost": 5,
+        "attack": 3,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "ELITE": 1,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COST": 5,
+          "ATK": 3,
+          "HEALTH": 5,
+          "CARDRACE": 18,
+          "AURA": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "1dffa975913600e7435fd0172399c7686a044f403284dcf6013e07511cf5add1",
+      "already_in_current_partial_sample": false,
+      "classification_is_formal_legality": false
+    },
+    {
+      "card_id": "RLK_843",
+      "dbf_id": 86274,
+      "role": "existing_real_Arcane_recipient",
+      "raw": {
+        "id": "RLK_843",
+        "dbf_id": 86274,
+        "name": "奥术箭",
+        "name_en": "Arcane Bolt",
+        "text": "造成$2点伤害。<b>法力渴求（8）：</b>改为造成$3点伤害。",
+        "text_en": "Deal $2 damage. <b>Manathirst (8):</b> Deal $3 damage instead.",
+        "cost": 1,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 1,
+          "CARDTYPE": 5,
+          "COST": 1,
+          "COLLECTIBLE": 1,
+          "SPELL_SCHOOL": 1,
+          "MANATHIRST": 8
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "551e31bbbf70b048c9637c979bf1a850539e406916f33fdd4bf6eced4abe6f30",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "945f146776ebf0824fdae561d09d5e483e331e7dc8305f76606e990012153c2c"
+    },
+    {
+      "card_id": "CS2_029",
+      "dbf_id": 315,
+      "role": "existing_real_Fire_negative",
+      "raw": {
+        "id": "CS2_029",
+        "dbf_id": 315,
+        "name": "火球术",
+        "name_en": "Fireball",
+        "text": "造成$6点伤害。",
+        "text_en": "Deal $6 damage.",
+        "cost": 4,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "COST": 4,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 3,
+          "268": 2,
+          "SPELL_SCHOOL": 2
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "2ec39f75e5e3c741955c80b49c9b75d516ca302a5a414b48a5e538c0f0ea5f6b",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "76cd6073cd099ff7746a2a595034a810c0aea4fb1f9d608bd6a64b966f3d97c8"
+    },
+    {
+      "card_id": "CS2_024",
+      "dbf_id": 662,
+      "role": "existing_real_Frost_negative",
+      "raw": {
+        "id": "CS2_024",
+        "dbf_id": 662,
+        "name": "寒冰箭",
+        "name_en": "Frostbolt",
+        "text": "对一个角色造成$3点伤害，并使其<b>冻结</b>。",
+        "text_en": "Deal $3 damage to a_character and <b>Freeze</b> it.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 4,
+          "COST": 2,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "FREEZE": 1,
+          "SPELL_SCHOOL": 3,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "FREEZE",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "7214630fc5ae85be9f8318285abde3554069acb8684a41d77d9b115679b103f3",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "841a066da6cdf6cf6e6b7eae26479d86cda1eb7383192a13628614f667ba778a"
+    },
+    {
+      "card_id": "GAME_005",
+      "dbf_id": 1746,
+      "role": "existing_known_schoolless_negative",
+      "raw": {
+        "id": "GAME_005",
+        "dbf_id": 1746,
+        "name": "幸运币",
+        "name_en": "The Coin",
+        "text": "在本回合中，获得一个\n法力水晶。",
+        "text_en": "Gain 1 Mana Crystal this turn only.",
+        "cost": null,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": false,
+        "tags": {
+          "CLASS": 12,
+          "CARDTYPE": 5,
+          "HIDE_WATERMARK": 1,
+          "COIN_CARD": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "dc9ee9f9bbdfd7d49a72717eb0c43901480b86cf0b3d3573989b3b6dd033598c",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "00f1dabb164bc97aba098333362984ba4ff77401060365f251052cca00323fa9"
+    },
+    {
+      "card_id": "CATA_154",
+      "dbf_id": 125450,
+      "role": "existing_cross_class_repeat_overlap",
+      "raw": {
+        "id": "CATA_154",
+        "dbf_id": 125450,
+        "name": "希奈丝特拉",
+        "name_en": "Sinestra",
+        "text": "<b>巨型+2</b>\n你的其他职业的法术会施放两次。",
+        "text_en": "<b>Colossal +2</b>\nYour spells from other classes cast twice.",
+        "cost": 6,
+        "attack": 5,
+        "health": 5,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "RARITY": 5,
+          "CLASS": 7,
+          "COST": 6,
+          "HEALTH": 5,
+          "ATK": 5,
+          "CARDTYPE": 4,
+          "CARDRACE": 24,
+          "TAG_SCRIPT_DATA_NUM_1": 1,
+          "DISPLAY_CARD_ON_MOUSEOVER": 125503,
+          "ELITE": 1,
+          "COLLECTIBLE": 1,
+          "COLOSSAL": 1,
+          "1544": 1,
+          "COLLECTION_RELATED_CARD_DATABASE_ID": 125503,
+          "AURA": 1,
+          "4538": 1,
+          "1724": 1,
+          "HAS_SIGNATURE_QUALITY": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "HERALD",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "AURA",
+            "value": 1
+          },
+          {
+            "tag": "1724",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [
+          125451,
+          125503
+        ],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "d8c4696973fd2b7b8a9e8284bd0078c46810d9989f07bf23c2cff26ac58c47f0",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "fe670a848cce6f06809b8a157435881d12c79ccd69b375cbbe17e0cbd85609c4"
+    },
+    {
+      "card_id": "TIME_000",
+      "dbf_id": 118636,
+      "role": "existing_Arcane_Rewind_optional_smoke",
+      "raw": {
+        "id": "TIME_000",
+        "dbf_id": 118636,
+        "name": "半稳定的传送门",
+        "name_en": "Semi-Stable Portal",
+        "text": "<b>回溯</b>。随机将一张随从牌置入你的手牌。该牌的法力值消耗减少（3）点。",
+        "text_en": "<b>Rewind</b>\nAdd a random minion\nto your hand. It costs\n(3) less.",
+        "cost": 2,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "CLASS": 4,
+          "RARITY": 3,
+          "CARDTYPE": 5,
+          "COST": 2,
+          "SPELL_SCHOOL": 1,
+          "REWIND": 1,
+          "COLLECTIBLE": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [
+          {
+            "tag": "REWIND",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 164,
+          "goldenCraftingEvent": 164,
+          "signatureCraftingEvent": 164,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "5419d4bb6798d83235b0ba0d570026dffcec19a7f043f4c0c6289fce27f01a01",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "5cd89b2da5f6eb3a4f4b042ccc4ee4d48796400cd37dbce44c751c5b6eaacc26"
+    },
+    {
+      "card_id": "EX1_287",
+      "dbf_id": 113,
+      "role": "existing_counter_window_source",
+      "raw": {
+        "id": "EX1_287",
+        "dbf_id": 113,
+        "name": "法术反制",
+        "name_en": "Counterspell",
+        "text": "<b>奥秘：</b>当你的对手施放一个法术时，<b>反制</b>该法术。",
+        "text_en": "<b>Secret:</b> When your opponent casts a spell, <b>Counter</b> it.",
+        "cost": 3,
+        "attack": null,
+        "health": null,
+        "type": "SPELL",
+        "collectible": true,
+        "tags": {
+          "RARITY": 3,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "COST": 3,
+          "CARDTYPE": 5,
+          "FACTION": 3,
+          "251": 1,
+          "SECRET": 1,
+          "SPELL_SCHOOL": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "COUNTER",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "SECRET",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "9a8e2534e99589ab400acca8a3f7742e2fd9a74d7a97de33e59cd2841d5d4ffe",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "36ba31b5551892c15e3ecd76631f89b36d0758110086a3afa418d41d0c7c1f13"
+    },
+    {
+      "card_id": "END_036",
+      "dbf_id": 121202,
+      "role": "existing_retained_results_optional_smoke",
+      "raw": {
+        "id": "END_036",
+        "dbf_id": 121202,
+        "name": "米罗克",
+        "name_en": "Morchie",
+        "text": "你的<b>回溯</b>的两种结果\n均会保留。<b>战吼：</b><b>发现</b>一张任意职业的<b>回溯</b>牌。 ",
+        "text_en": "[x]Your <b>Rewinds</b> keep\nBOTH potential outcomes.\n<b>Battlecry:</b> <b>Discover</b> a <b>Rewind</b>\ncard from any class. ",
+        "cost": 4,
+        "attack": 3,
+        "health": 6,
+        "type": "MINION",
+        "collectible": true,
+        "tags": {
+          "CLASS": 12,
+          "MINI_SET": 1,
+          "COST": 4,
+          "ATK": 3,
+          "HEALTH": 6,
+          "ELITE": 1,
+          "RARITY": 5,
+          "CARDTYPE": 4,
+          "COLLECTIBLE": 1,
+          "HAS_SIGNATURE_QUALITY": 1,
+          "BATTLECRY": 1,
+          "DISCOVER": 1,
+          "USE_DISCOVER_VISUALS": 1,
+          "AURA": 1,
+          "TRIGGER_VISUAL": 1
+        },
+        "reference_tags": [
+          {
+            "tag": "REWIND",
+            "value": 1
+          }
+        ],
+        "power_keyword_tags": [
+          {
+            "tag": "BATTLECRY",
+            "value": 1
+          },
+          {
+            "tag": "AURA",
+            "value": 1
+          },
+          {
+            "tag": "TRIGGER_VISUAL",
+            "value": 1
+          }
+        ],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": -1,
+          "craftingEvent": -1,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": 10000376,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 164,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "7be58404521504dbb93766663a39bc04f3a0e68815739196d7cc41631b5e0854",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "c02531fb930ebbf3c16e53c2ea712491e34522133169013c66ac7bf386543aed"
+    },
+    {
+      "card_id": "HERO_08",
+      "dbf_id": 637,
+      "role": "existing_Mage_actor_same_class_guard",
+      "raw": {
+        "id": "HERO_08",
+        "dbf_id": 637,
+        "name": "吉安娜·普罗德摩尔",
+        "name_en": "Jaina Proudmoore",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 4,
+          "COLLECTIBLE": 1,
+          "HEALTH": 30,
+          "CARDTYPE": 3,
+          "HERO_POWER": 807,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "EMOTECHARACTER": 26,
+          "EMOTECLASS": 8
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "75699b36f24b0eda2a0d96eaa34922914dcb5b8ff26db9f681745bf82bc70b1d",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "f1dd270aaca936d9fac3afc8e483c2ba96c4ecf901dcc3b071eeef0eb9615c1a"
+    },
+    {
+      "card_id": "HERO_01",
+      "dbf_id": 7,
+      "role": "existing_Warrior_actor_cross_class_overlap",
+      "raw": {
+        "id": "HERO_01",
+        "dbf_id": 7,
+        "name": "加尔鲁什·地狱咆哮",
+        "name_en": "Garrosh Hellscream",
+        "text": "",
+        "text_en": "",
+        "cost": null,
+        "attack": null,
+        "health": 30,
+        "type": "HERO",
+        "collectible": true,
+        "tags": {
+          "RARITY": 2,
+          "CLASS": 10,
+          "COLLECTIBLE": 1,
+          "HEALTH": 30,
+          "CARDTYPE": 3,
+          "HERO_POWER": 725,
+          "FACTION": 3,
+          "251": 1,
+          "268": 2,
+          "EMOTECHARACTER": 1,
+          "EMOTECLASS": 1
+        },
+        "reference_tags": [],
+        "power_keyword_tags": [],
+        "related_dbf_ids": [],
+        "source_events": {
+          "gameplayEvent": 203,
+          "craftingEvent": 203,
+          "goldenCraftingEvent": -1,
+          "signatureCraftingEvent": -1,
+          "diamondCraftingEvent": -1,
+          "featuredCardsEvent": -1,
+          "battlegroundsActiveEvent": 203,
+          "battlegroundsEarlyAccessEvent": 203,
+          "battlegroundsEveryGameEvent": 164
+        }
+      },
+      "raw_sha256": "21be00517d244dd5e9a8f13c5d1b04daa2e66b229a7e7ba0275c11f48d09498d",
+      "already_in_current_partial_sample": true,
+      "classification_is_formal_legality": false,
+      "current_sample_full_row_sha256": "6fbebb9dfde08ff2185de1787abaee0422651cd035256156909448df21cac87f"
+    }
+  ],
+  "current_API_expressibility": {
+    "directly_expressible_by_A1_code": true,
+    "A1_final_acceptance_is_prerequisite": true,
+    "proposed_public_declaration": "spell_repeats=(SpellRepeatSpec(casts=2, class_mode='any', match=RepeatMatchSpec(RecipientMetadataFilter(spell_schools=(SpellSchool.ARCANE,)))),)",
+    "new_kernel_card_id_branch_needed": false,
+    "new_public_mechanism_field_needed_for_this_narrow_manual_profile": false,
+    "source_lifecycle": "Existing friendly live active board minion with unconsumed printed spell_repeat attachment; late-window complete scan.",
+    "source_Elemental_tribe_is_not_recipient_condition": true,
+    "source_AURA_tag_is_not_a_stat_AuraSpec": true,
+    "recipient_basis": "Accepted PlayRecord.card_id printed SpellSchool, not current source face or damage packet school.",
+    "classes": "class_mode any is required by this narrow textual school profile; do not inherit default other.",
+    "scope_limit": "Only existing manual paid hand spell repetition. Current auto/effect/draw/history casts remain outside this accepted profile; text alone does not settle their official scope."
+  },
+  "proposed_adapter_work_after_A1_closure": {
+    "new_true_card_rows": [
+      "RLK_541"
+    ],
+    "raw_pin": "1dffa975913600e7435fd0172399c7686a044f403284dcf6013e07511cf5add1",
+    "existing_304_complete_rows_must_remain_unchanged": true,
+    "independent_CORE_or_enchantment_added": false,
+    "formal_legality": {
+      "standard": null,
+      "wild": null
+    },
+    "metadata_route": "Existing metadata_from_record decodes CLASS4=Mage, RARITY5=Legendary, CARDRACE18=Elemental; definition helper uses raw cost5/attack3/health5 without null defaults.",
+    "registration_route": "Existing CardDefinition.spell_repeats -> lifecycle.install_printed -> AbilityInstance(kind spell_repeat, source_id carrier, origin printed) -> SpellPayloadReceipt full contributors.",
+    "version_policy": "Future adapter-only increment can keep core104/schema101/view52/action7/replay1 if no new semantics are discovered; content/sample version and evidence must advance explicitly. No future version is registered here.",
+    "ledger_dependencies": [
+      "spell_repetition",
+      "dynamic_abilities",
+      "entity_lifecycle",
+      "play_and_target"
+    ],
+    "rule_policy": "No new rule assumption ID registered by this audit. A2 profile depends on R-149/A1 and existing manual repetition policies; source-specific M6 calibration remains pending."
+  },
+  "necessary_test_matrix": [
+    {
+      "id": "A2-R1",
+      "fixture": "RLK_541 source definition",
+      "kind": "real_adapter_metadata",
+      "proposed_assertions": [
+        "Full raw/pin exact; 5 mana, 3/5 Mage legendary Elemental collectible minion.",
+        "Exactly printed spell_repeat declaration with casts2/class_mode any/Arcane-only match; no artificial on_play/trigger/AuraSpec stat body."
+      ],
+      "meaning": "Verifies adapter identity and source declaration, not formal construction legality."
+    },
+    {
+      "id": "A2-R2",
+      "fixture": "HERO_08 + friendly RLK_541 + RLK_843",
+      "kind": "required_real_closure",
+      "proposed_assertions": [
+        "Same-class Mage Arcane Bolt casts twice from one manual paid PlayRecord.",
+        "For the Arcane Bolt root itself: one payment, one card_committed and one card_played; two SpellCastRecords and accepted casts2 with the real RLK_541 contributor. Source-minion play events are counted separately if it is entered through a real player action.",
+        "At 10 maximum crystals frozen Manathirst8 is true, so two 3-damage packets target the same enemy hero; use lower crystals only if fixture explicitly chooses that branch."
+      ],
+      "meaning": "Catches accidental default other-class scope, and validates real printed Arcane school rather than damage-packet school."
+    },
+    {
+      "id": "A2-R3",
+      "fixture": "Friendly RLK_541 + existing CS2_029, CS2_024, GAME_005",
+      "kind": "required_real_negative_school",
+      "proposed_assertions": [
+        "Fireball, Frostbolt and known no-school Coin each accept casts1 and do not capture Vexallus as a matching contributor.",
+        "Ordinary cost/target/freeze/temporary mana behaviors remain unchanged."
+      ],
+      "meaning": "No all-spell, class-only or Elemental-recipient fallback."
+    },
+    {
+      "id": "A2-R4",
+      "fixture": "Two real RLK_541; optional CATA_154 with Warrior actor",
+      "kind": "required_real_max_and_complete_sources",
+      "proposed_assertions": [
+        "Two Vexallus instances produce casts2, not4; both attachment identities remain in complete ordered receipt.",
+        "CATA_154 and Vexallus both capture for Warrior using Mage Arcane Bolt; equal total2 does not multiply.",
+        "Mage actor Sinestra other-class source may fail while Vexallus any-class source still matches.",
+        "One optional synthetic higher player or physical-card policy at3 should yield total3 while retaining lower real Vexallus2 in the complete late contributor set; consume matched player uses once, not once per repeated cast."
+      ],
+      "meaning": "Static school filtering participates in existing max/full-set semantics and does not merge independent source identities."
+    },
+    {
+      "id": "A2-R5",
+      "fixture": "Real RLK_541 with synthetic commit listener adding/removing/transferring source",
+      "kind": "necessary_synthetic_window_composition",
+      "proposed_assertions": [
+        "Source added before late closed window can count; source removed before late window does not count.",
+        "Once accepted, later silence/death/bounce/transform/control change does not reduce current frozen plan; next real hand root re-queries current friendly board.",
+        "Opponent Vexallus is never used for this caster; stolen same physical carrier counts only for its new controller on a future acceptance."
+      ],
+      "meaning": "Real adapter reuses A1 late board acceptance/lifecycle; no card-ID timing special case."
+    },
+    {
+      "id": "A2-R6",
+      "fixture": "Real RLK_541 + registered synthetic Arcane body that waits on last extra",
+      "kind": "necessary_synthetic_wait_and_proof",
+      "proposed_assertions": [
+        "Pending last-extra state has complete real-source receipt and original late acceptance proof.",
+        "Fresh representative factory restore, clone and replay agree after source removal; partial source/count/queued-span shrink is rejected with remaining original proof.",
+        "Closed flag plus proof deletion with retained frame ledger is rejected; proof/ledger order holds if a choice submits a nested paid hand Spell."
+      ],
+      "meaning": "Synthetic body exposes unavoidable wait boundaries that Arcane Bolt alone cannot, without adding another true-card row or replacing A1 generic proof tests."
+    },
+    {
+      "id": "A2-R7",
+      "fixture": "Enemy EX1_287 counters Arcane Bolt with friendly RLK_541",
+      "kind": "required_real_counter_boundary",
+      "proposed_assertions": [
+        "One denied cast and one paid hand root; resolution context exists, SpellPayloadReceipt remains None and no board acceptance/contributor or repeated payload is allocated.",
+        "Any synthetic matching submission modifier consumes once at original submission even when denied."
+      ],
+      "meaning": "Countered spells must not run late board school matching or claim Vexallus effect execution."
+    },
+    {
+      "id": "A2-R8",
+      "fixture": "Real RLK_541 plus real Arcane Bolt targeting a low-health minion; optional target redirect secret fixture",
+      "kind": "target_and_stale_composition",
+      "proposed_assertions": [
+        "Both actual casts retain the originally accepted target or real close-window redirect; second stale target does not retarget.",
+        "Submission original target remains distinct from legal resolution redirect."
+      ],
+      "meaning": "School filter cannot change existing targeting/staleness semantics; detailed redirect machinery was A1 tested and need not be duplicated broadly."
+    },
+    {
+      "id": "A2-R9",
+      "fixture": "Real RLK_541 + optional existing TIME_000 / END_036",
+      "kind": "optional_small_real_rewind_smoke",
+      "proposed_assertions": [
+        "Arcane Portal gets two accepted casts per manual root with original fixed target/behavior set.",
+        "Ordinary retry reaccepts its two original windows without additional hidden payment; genuine OfferRewind may wait after acceptance is closed.",
+        "Retained outcomes reuse same accepted plan; result iterations are not additional submission uses."
+      ],
+      "meaning": "A compact representative integration smoke; not authority for automatic cast/recast/draw behavior or complete all-Rewind card coverage."
+    },
+    {
+      "id": "A2-R10",
+      "fixture": "Real-source actor observations before/during wait/after restore",
+      "kind": "required_public_boundary",
+      "proposed_assertions": [
+        "Public player API sees only permitted visible minion/static declaration data and normal choice/ref handling; no contributor/attachment IDs, original GameState, compact acceptance ledger or frame obligation fields leak.",
+        "Independent representative registry preserves replay fingerprint/version; unknown card/strict spec fields fail explicitly."
+      ],
+      "meaning": "No omniscient proof exposure or silent compatibility default in the real-card closure."
+    }
+  ],
+  "test_scope_policy": {
+    "proposals_not_executed": true,
+    "no_guessed_terminal_counts": true,
+    "focus": "Small necessary real closure and minimal synthetic choice/overlap boundaries; do not rewrite all A1 33 public methods as card-ID tests.",
+    "not_proven": [
+      "All Arcane cards",
+      "auto/effect/draw/history recasts",
+      "official source/count/max/precise window semantics",
+      "CN deployment",
+      "formal Standard/Wild pool",
+      "complete source graph"
+    ]
+  },
+  "uncalibrated_differences": [
+    "Local Chinese/English text and AURA metadata motivate a persistent friendly spell-school aura, but do not certify the internal max merging rather than additive/multiplicative combination policy.",
+    "Late manual acceptance window, active/live/dormant gates, extra execution choices/death deferral, stale targeting and retained-result axes are inherited provisional internal rules, not official CN timing proof.",
+    "Your Arcane spells wording may cover other cast origins under official rules; current manual-only engine scope is explicitly partial and must not be silently enlarged or described as full card support.",
+    "Shared source_events values (including BG fields) and collectible flag do not prove CN release status, Standard/Wild legality or exact server hotfix state.",
+    "No fresh official primary lookup performed in this audit; no official new factual claim inferred."
+  ],
+  "dependencies": [
+    {
+      "path": "docs/roadmap.md",
+      "file_sha256": "2b10b8a31b6952b7b8a974ae82b122df120b2ac96adf2d181a898082ba93ff46",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "docs/project-status.md",
+      "file_sha256": "295642c6ca9b3079c3837c830f0c8e452c5f7457805c2219550a474d8da4717b",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "docs/mechanism-backlog.md",
+      "file_sha256": "810c014ea96cfa693eac1f3a5523ac8ef2e483e7b6d99ec7f27090baf1f115b5",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "docs/architecture.md",
+      "file_sha256": "a5a154d2b64d38669063c8cb916ebd871c572b56e8b82d99ba2fd7767a819328",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "docs/extensions.md",
+      "file_sha256": "7d6be1ca45166c231cb948e0ef96941067ac335d830c44b367d7910eddb2f490",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "docs/m5-spell-match.md",
+      "file_sha256": "76aeaef5bc6561ed2c778112d40e6f736e58819fc1761d4130826e3360d1d522",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "hs_sim/engine/model.py",
+      "file_sha256": "10710a4b4754f3d73cbefe283259da86586612c367d7de61ec17870fa2d8ee0c",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/registry.py",
+      "file_sha256": "fee1e5681800a9081d5763fbf8b976ed1e9766f5afae5f0495591fee166f5229",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/representative.py",
+      "file_sha256": "384e74e7dea8b02d256e290f2df4bd6f7a9f366f2b02a0488409aad48fe57b32",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/lifecycle.py",
+      "file_sha256": "e29cdb86d2ebcd7e22b267f9e7156a21a858bc04f609cfeb9e2d6363b0e8bf8b",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/repeat_matching.py",
+      "file_sha256": "fca5bd07691cfbf468fa7f13e06dd5fedfe421c9bf5348ee9585680b7d382058",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/spell_acceptance.py",
+      "file_sha256": "b318b1ad06900d314f5dde1b934e34adf2221d66c6aad80bee2b43f38f6e75a3",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/spell_modifiers.py",
+      "file_sha256": "c49a2d8e0fab05155a989bb8642971a2f00829ae056b5035f9e8faf3da1700a7",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/spell_repeats.py",
+      "file_sha256": "260a53e6f3ae7c0c6dff408a72b68accca4a610adf3f3f70273a0eb33e343664",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/spell_casts.py",
+      "file_sha256": "df862f522be4270e6a1078e9d6eec616ad9194798030787d070aee01f8425abf",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/interrupts.py",
+      "file_sha256": "b9628f6850a9b513de49cd88c03a04ece7bc62c32ce92aa58f431792caa572dd",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/rewind.py",
+      "file_sha256": "0b2a85808f1043ceeeb4ef56a711e6344e9bb317c47d41d63586ebab8d12be57",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/rewind_outcomes.py",
+      "file_sha256": "06ae30221c1ecfd299fd034920684206dce1a746c0c6fe3704161b0ce49d14e2",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/continuations.py",
+      "file_sha256": "af2e434b10a14ae47f5e77eda13f69beae8ec9c250402204a255b0a137a718c3",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "hs_sim/engine/information.py",
+      "file_sha256": "70a81d9c25b9f3b3a516ca30188d970afb8b5e16e14826ea6c8b7cbd6953f741",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "tests/test_m5_spell_match.py",
+      "file_sha256": "bba49179fceb521eaf6081841d309069aafd7e738155b8cb305c96196b0d8ee9",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "tests/test_m5_spell_repeats.py",
+      "file_sha256": "2b80d9d1252f4fbf1652a87436359166d63c223e420d4aa6f45144f6f58e954c",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "tests/test_m5_spell_modifiers.py",
+      "file_sha256": "a0f49f7554bd328417e1903a51569f7caf100149b324b9861d457fae610135c5",
+      "observation_kind": "current_frozen_A1_source",
+      "matches_A1_stage_frozen_source": true
+    },
+    {
+      "path": "data/support/m1-representatives.json",
+      "file_sha256": "68d6fa58f09fcd4111e6392bc0ec6dd3077b4c673411986d28fb1bfccc9f1cbe",
+      "observation_kind": "current_readonly_document_or_data"
+    },
+    {
+      "path": "data/targets/local-2026-09-23.json",
+      "file_sha256": "a6d4fb8e83d66bc6ba8ad916b4a5cf60712dabdfd9d69dd8efeb4b587eb1f20e",
+      "observation_kind": "current_readonly_document_or_data"
+    }
+  ],
+  "code_anchors": {
+    "hs_sim/engine/model.py": {
+      "RecipientMetadataFilter": 874,
+      "RepeatMatchSpec": 889,
+      "SpellRepeatSpec": 900
+    },
+    "hs_sim/engine/registry.py": {
+      "register_card": 279
+    },
+    "hs_sim/engine/representative.py": {
+      "metadata_from_record": 599,
+      "definition": 1286
+    },
+    "hs_sim/engine/lifecycle.py": {
+      "active_abilities": 15,
+      "install_printed": 55
+    },
+    "hs_sim/engine/repeat_matching.py": {
+      "spell_repeat_matches": 11
+    },
+    "hs_sim/engine/spell_acceptance.py": {
+      "capture_submission": 70,
+      "capture_payload": 82,
+      "accept_submission": 109,
+      "accept_resolution": 126,
+      "validate_acceptance": 151,
+      "validate_boundary": 397
+    },
+    "hs_sim/engine/spell_repeats.py": {
+      "GrantSpellRepeatAura": 18,
+      "payload": 82,
+      "validate_boundary": 190
+    },
+    "hs_sim/engine/spell_casts.py": {
+      "validate_boundary": 314
+    },
+    "hs_sim/engine/rewind.py": {
+      "validate_boundary": 237
+    },
+    "hs_sim/engine/rewind_outcomes.py": {
+      "payload": 83,
+      "validate_boundary": 265
+    }
+  },
+  "frozen_A1_source_hashes_as_observed": {
+    "hs_sim/__init__.py": "04103fb748ba71a41a9026bfa8b6c3d9d20c0a6effa0d2f439ef9c094f24b44a",
+    "hs_sim/__main__.py": "ce5ef603c6d20a5a1d66e6ce4316c042832e0c6053676a9e351aa895bcdc03a9",
+    "hs_sim/catalog.py": "fbc1303d76e47c12ba2c93eab456fff9c4a89bd4a91d6fcb211838bf48e9aecd",
+    "hs_sim/engine/__init__.py": "4b8dfb488fbadcb6199ac5038eb962730b2ea8e5778119deac3a6a17c47c8e0e",
+    "hs_sim/engine/actions.py": "1a0315a8803c083bf37a018ee6c89eff8a6bb3e30a1a939fc8571136e3aa7fb9",
+    "hs_sim/engine/battlecries.py": "0efcb125bcaada477da4315addc25db12997da78b0398140c1ce58a4a765728e",
+    "hs_sim/engine/battlecry_modifiers.py": "7c20375349112189b5517d5f37eef747ed65deca6c602faa5488002bd3dcda02",
+    "hs_sim/engine/battlecry_repeats.py": "879bee43560730158bfbe3e91b51101caf4a86da6e10967a2d5f28f25a407472",
+    "hs_sim/engine/battlecry_sequences.py": "a6f6d98fe712513cd6543c2c33d9015e8237ffa32bbf97125ccc045a3be6c5ab",
+    "hs_sim/engine/battlecry_sources.py": "26d4d1ee3a1b769e7139125f2f943491a4c36f46ac2f841fb2ea406e4fab4025",
+    "hs_sim/engine/bonus_effects.py": "18ef3026a3d0fee2c034abdc9e60d5074aaf1f357a7a92a02c437bb450936f6a",
+    "hs_sim/engine/card_conditions.py": "6aaa7d72cd28c26cbfa7c93c6aa5f5b8b656d4dbd382b81cf787ad9cab828211",
+    "hs_sim/engine/card_creation.py": "76679a2f8b448819d00a0b24451d108a94a59fdb46f89b2da21e84c841d025a1",
+    "hs_sim/engine/card_spell_repeats.py": "e59aee01811d408476429eb8490c5d98d839d96a434b81acc9a69c96073b18f2",
+    "hs_sim/engine/card_spell_sources.py": "3c286178830402102d4a75c013d8f15c7eab6503cb86419c6a2996f31f506dec",
+    "hs_sim/engine/choices.py": "1589af1b7f128d18559cda5b95413722b701e97904dabb38b4134ff5d0420f57",
+    "hs_sim/engine/choose_one.py": "7bbd24f9d5a7544be4331a89731bdc1051d66fb2fe8c6e4403ecc231ccaa9977",
+    "hs_sim/engine/class_tags.py": "8373fb179f38bf43aff6ebc94dfcdd0f249f19b9d27a479bf015eb1418ea3547",
+    "hs_sim/engine/cli.py": "4c7d407801b9b231af3eaba52a83a0adfe87671bd300db9324f25347fd10b109",
+    "hs_sim/engine/colossal.py": "7485a434ddc57c9734e6e557faa6aeeaedaabda1be5fa8d43baa6c4eb4e06ba4",
+    "hs_sim/engine/combat.py": "828dab3a79546746b03106f83c7437caa10fa45234abf7e4986403f1456cbc9a",
+    "hs_sim/engine/combo_modifiers.py": "2735b578dd2d579a654c223a2ec99ea1e8132a0b58b49a4de26fe99dfba32f2d",
+    "hs_sim/engine/combo_repeats.py": "7b7690772ef20c446f43d72914ee5a2293963c485d591e5f5725dcc7715cb65c",
+    "hs_sim/engine/combos.py": "c7e32adfcf95dcdff0bd83e0679d8d38c14a7d250354d72388a84b60a30b632f",
+    "hs_sim/engine/construction.py": "b0fcfb7d3c29c432f56821aec9045037db316a3b28a1af6cea8b5bc3ffbacdcf",
+    "hs_sim/engine/continuations.py": "af2e434b10a14ae47f5e77eda13f69beae8ec9c250402204a255b0a137a718c3",
+    "hs_sim/engine/costs.py": "ab1ae556771aa8ea8f52cb88a5cc8e830ced4322b85a48fc8a16c15af9f6cd0e",
+    "hs_sim/engine/counter_policies.py": "77f33345c4202045ab41b0bf8eba9e3b58e8692674fd2d9cb87583441cd3e86f",
+    "hs_sim/engine/cross_zone.py": "9e7f960f45bcb143e40b7acc316eb2788abf9560795d8d57610b17d670468e43",
+    "hs_sim/engine/death_causes.py": "37e43f36508d103b6ce64c871718da9bf090b16e98099540217966a979dc2deb",
+    "hs_sim/engine/deathrattle_repeats.py": "d07b3deb3fd0f5b47430234337d701bf8bcfc3a0e80cd3356d95196a8243e678",
+    "hs_sim/engine/deathrattles.py": "698e1a7ca7316bdeb800ca5e41125d7aab81f93b2fd4ce88957ca343c09eac7a",
+    "hs_sim/engine/deck_conditions.py": "273432d64e7e6e94184722c41a8a912204a6fe71c6c21760fe603fd0fc8f5a48",
+    "hs_sim/engine/discovery.py": "c14244c1ea5809f475675212d0a105b10ee36281eebe0daf5d4a7c3251cc9861",
+    "hs_sim/engine/dormancy.py": "a683154f220461b1100ed8e9e9f9db2928c649a63a5755d327ffec5139c7f89d",
+    "hs_sim/engine/draw_casts.py": "1025119fd9c075932f75c857952a6585f22905bc7b5da3d0d64eb97e73d2d9ca",
+    "hs_sim/engine/dredge.py": "554b0ce200d602ff887e1b98a7c0c25207bb006e0da38740f8a825f8ca58fe59",
+    "hs_sim/engine/effects.py": "b2e9f5c87f657c81211b70a27397b4671a4433fd5ad640606e74ce7defccb881",
+    "hs_sim/engine/end_turn_producers.py": "7f49dde574659b0cbf99dd83dd8d4462d7c7c108af286d5049c032a0117adf84",
+    "hs_sim/engine/end_turn_repeats.py": "42ff3a44cd4444bf0c71dd75aea9c5b6c7079517a1df4e1a2a87df3d6f04cf26",
+    "hs_sim/engine/end_turns.py": "0a9ae8dc4c67bdd70a101e21eb15dd49b822c1ab14364f0489903511774ced37",
+    "hs_sim/engine/equipment.py": "d09a200b36c58d97d55e3d5791b73ee6ca9634013512d4628ca92675e2838b9e",
+    "hs_sim/engine/errors.py": "53df40bb3603de8101b7031c26c0e784569d1cdb1681009df18b1a42ca141a47",
+    "hs_sim/engine/excavate.py": "28f2d42e5e7004e20afdc52a2a99d77eed9c81f76577dad7adc64c0350d7c735",
+    "hs_sim/engine/game.py": "cc710a05d34ab60272353c4e2e5bad62fa254ec875b6731f65c639099410cf4e",
+    "hs_sim/engine/hand_actions.py": "abab4f5beddc7b79b0b7dda1832e1634a97449a8ae87c4e388d95dc0890a43f3",
+    "hs_sim/engine/hand_derivatives.py": "43322b78fdfc589944abc7cd31c41611a38c3d5eb687451ac576bec8675820cf",
+    "hs_sim/engine/hand_history.py": "76f6f151c9edeec037a319807fb267498de3c2d8e869cfee8475247a1651ae15",
+    "hs_sim/engine/hand_keywords.py": "b664a70bf4cc732962fa0eec5919e067d499807078a430a559d975bd06c04d8c",
+    "hs_sim/engine/hand_progress.py": "6ab6bbf5356a6f752e0b837e6edbc60393c4567452cfe0b8902a47b11c29a1a6",
+    "hs_sim/engine/hand_upgrades.py": "a71389850dd1b816fd46bcf9bfde446f9ad227de4da2044cd9fb46c3b511ed47",
+    "hs_sim/engine/health_loss.py": "51935c19cf3f4218328ea50279b959cca8da1c0530a06cc39eaeea7d7720e189",
+    "hs_sim/engine/health_outcomes.py": "9b4bcba4a455a780402a6bac51460c2c1b65e2d5936cd324ff7b88eb308412b6",
+    "hs_sim/engine/health_rules.py": "9f58dc1cda325b1fe4886e938ef74376d93b917f6bc3c2b104025463241cf088",
+    "hs_sim/engine/held_spells.py": "6c09fff458c1ee65868bc76fdb8ba3a1e637212135b8f2a5089eee02b13ecaa2",
+    "hs_sim/engine/herald.py": "f4d27e99b14862aded3b53b6c212167aaba1733e771e6b988d1e6c6afafa605a",
+    "hs_sim/engine/hero_power_repeats.py": "453ace209220759d67fbed9d221c664e055878bceb67635f8361c111db3ce0b9",
+    "hs_sim/engine/hero_powers.py": "8927373f8bc695f9519bceed495f75ac2ed3fd8f353c1e272d2acae3d718249b",
+    "hs_sim/engine/imbue.py": "a4cc3c1d3892d8e5b3198312280ae69a686663fde8909ca36f921e30c5559f77",
+    "hs_sim/engine/information.py": "70a81d9c25b9f3b3a516ca30188d970afb8b5e16e14826ea6c8b7cbd6953f741",
+    "hs_sim/engine/inspire.py": "ad03d7590d82df92fb73d1973735725fd1ad0365b0e20982e34ae6606bc571e5",
+    "hs_sim/engine/interrupts.py": "b9628f6850a9b513de49cd88c03a04ece7bc62c32ce92aa58f431792caa572dd",
+    "hs_sim/engine/keyword_auras.py": "d108e02c7bbd32cf043f334b28036a06bff5a406928fef5476d06a638d6da6a2",
+    "hs_sim/engine/lifecycle.py": "e29cdb86d2ebcd7e22b267f9e7156a21a858bc04f609cfeb9e2d6363b0e8bf8b",
+    "hs_sim/engine/limited_triggers.py": "d207299bd4ae80aa53be1da7104d7146bafa0354d08e7bfd0e4b76811b74ebb7",
+    "hs_sim/engine/locations.py": "67f23c7c8bdf773305afabbcd825b3f5e94381ab271c28a5d3acd3fb50d9d667",
+    "hs_sim/engine/magnetic.py": "75052df7081cc71fc56a07fd497839f3667e7f334ba04261c2c8afb1e4ea4168",
+    "hs_sim/engine/minion_abilities.py": "fc2d48754e9e09c3aff33af6270bb9fa2054c111179c931d4a432fba0d2675a7",
+    "hs_sim/engine/minion_plays.py": "3d8d5d86b6c3d5a3d0872644317b3f53892d1fffaaac8b3353b7d75e3211a957",
+    "hs_sim/engine/model.py": "10710a4b4754f3d73cbefe283259da86586612c367d7de61ec17870fa2d8ee0c",
+    "hs_sim/engine/opening.py": "06f705655dce2da8f9367ebf27099e2b84f94e29e06741c28e6632c7320f009f",
+    "hs_sim/engine/ordered_choices.py": "4f5e8538946f7a03baaaa4a681ba5f07312dd944d92ae9718f58ecaf0e89d2be",
+    "hs_sim/engine/play_history.py": "9ef93fede8689f2337146183f5dc84a58f690cf3d26449ced3b37c7d7857229f",
+    "hs_sim/engine/played_battlecries.py": "82696e8e327543237e9e51544b1e61fa643c1661b5a463d238c84e77db7543f6",
+    "hs_sim/engine/player_api.py": "61abda7fafb636a5ae7e0ef899e26a254f123d0c64f73019dd2bc57fa4f9eacb",
+    "hs_sim/engine/player_effects.py": "fba90c8b2e76d9319d9de97fc305f3d52693fa28a2947420c768a3707f594b1d",
+    "hs_sim/engine/pool_offers.py": "080a8d9972d5bc57c26326557e6f1464635f76c2c3e43074db338a74135e3fab",
+    "hs_sim/engine/pools.py": "715efdfbe32c9f25b93ded187f5e72d1c0d64ab03371ef4d9e92e0332da3e2e0",
+    "hs_sim/engine/power_payloads.py": "89b9da1e7b11ea31f667d2893b8a04c3e77ca9d45144043aaac6bd55ba01c7c7",
+    "hs_sim/engine/quests.py": "de81e6068644006a788638beb9fa37310f4f505e6f39abb743f193ae1228345d",
+    "hs_sim/engine/registry.py": "fee1e5681800a9081d5763fbf8b976ed1e9766f5afae5f0495591fee166f5229",
+    "hs_sim/engine/repeat_matching.py": "fca5bd07691cfbf468fa7f13e06dd5fedfe421c9bf5348ee9585680b7d382058",
+    "hs_sim/engine/replay.py": "7d71f814821b97135583e4e86961225b6ccb688c74fc0184f2be545c1d63671b",
+    "hs_sim/engine/representative.py": "384e74e7dea8b02d256e290f2df4bd6f7a9f366f2b02a0488409aad48fe57b32",
+    "hs_sim/engine/resolver.py": "1aec58584138f5e0b9078d537f7dc402dc2405e72ea4b300b1d68b8bf66ae62f",
+    "hs_sim/engine/resources.py": "fbf5bb74a06f354ac10821583ca26a77086469d513d2ec9d03bda3f1aaf363ed",
+    "hs_sim/engine/rewind.py": "0b2a85808f1043ceeeb4ef56a711e6344e9bb317c47d41d63586ebab8d12be57",
+    "hs_sim/engine/rewind_outcomes.py": "06ae30221c1ecfd299fd034920684206dce1a746c0c6fe3704161b0ce49d14e2",
+    "hs_sim/engine/rules.py": "d64f2eec2581b8e6dac3ad7ef18ba5724c2fd8b5534cbdb05b94c27905fd09b7",
+    "hs_sim/engine/sacrifice.py": "610f1660fb1d10b48ead2e47964958b740288630f2770bffd395fb0cbddeb813",
+    "hs_sim/engine/secrets.py": "41af82487df2f3f22a377610df37eab98128d15d2bcd816d21e1438f1c0c07ea",
+    "hs_sim/engine/serialization.py": "5ef1bcbf9a54c90227bfedd065c118152b5f016836a7f9c869d6e422604999d1",
+    "hs_sim/engine/shatter.py": "f30e36de67279e3e53e92c4d68d9d79f8bd6e09f2e1b94a542a8fa52e3406a16",
+    "hs_sim/engine/spell_acceptance.py": "b318b1ad06900d314f5dde1b934e34adf2221d66c6aad80bee2b43f38f6e75a3",
+    "hs_sim/engine/spell_casts.py": "df862f522be4270e6a1078e9d6eec616ad9194798030787d070aee01f8425abf",
+    "hs_sim/engine/spell_history.py": "5be752a970da68a36156e0f8902cadd1b7baa359e03b716363ae129526af2789",
+    "hs_sim/engine/spell_modifiers.py": "c49a2d8e0fab05155a989bb8642971a2f00829ae056b5035f9e8faf3da1700a7",
+    "hs_sim/engine/spell_repeats.py": "260a53e6f3ae7c0c6dff408a72b68accca4a610adf3f3f70273a0eb33e343664",
+    "hs_sim/engine/starships.py": "674f9d77b872d39439430d6dadcca35ef82494f97951b44389c6bfaee02b3ebe",
+    "hs_sim/engine/stats.py": "ec94a549319fb06a6569d13b9ed522e067a87614b18c1e5a8ac62627e8c32a67",
+    "hs_sim/engine/summon_sources.py": "7d41b01bf11f1abfe7f870d1381ad5779f101db8ab4a198079f57baf3a2336c7",
+    "hs_sim/engine/synthetic.py": "9ac7039c6910f21f260d32ec9f7e43cb8574ba11daa7a1e35df2910624470849",
+    "hs_sim/engine/targeting.py": "5f7806402b2dae2779ee9938ea117ea726888a6d2c75fc52c98abbd4f59a1335",
+    "hs_sim/engine/temporary_cards.py": "4af0e74399f13c9bb7c3bbcc8e62adf1a33fbc1249a8388ac1d5e9216ae7ebbc",
+    "hs_sim/engine/timed_keywords.py": "0050fe9bb8a1735fa2c8d023ec2762a437116a0ad7dea39c31db4e0e35dad70d",
+    "hs_sim/engine/zones.py": "50b6a20267da7fc8145b51e974d460ba7e04596d83dcc08961522137124c0c9c",
+    "hs_sim/targets.py": "179b139dc638358cb28cc46f9331e979e51179ea683d5d3d20e9a5f5b7445a36",
+    "tests/opening_fixtures.py": "3c87c85d6cefe39555e091874623b6f49024d92b07064abd203afd3dc7d1495c",
+    "tests/test_attachment_schema.py": "1e607bce16d3813e380a250709849e9dd2dacfea4e07361aca50c29378664848",
+    "tests/test_catalog.py": "9c6ccf22a8c8cbbe61cafa4bcfd33da9a25d889d23a0ccae3ce8d1799fe0cf42",
+    "tests/test_engine_cli.py": "0746ec8464eefab9d534c2dbe06098f83284fca5e1a74b817a75055f2b7853ac",
+    "tests/test_engine_mechanics.py": "f51c37d9ed80fa4db01b7b95d2efbcdfcc7fa356c43d0dd1760c148376a8b69c",
+    "tests/test_engine_replay.py": "c2a951b99bc68dc401a693e2df4fab4d3ef107f99e18fa2d1fcd0afc98b062fa",
+    "tests/test_engine_safety.py": "0159f3c1ea322f2915aa62a7c730828f12c1b0ad03083ed99595fd88c761ec89",
+    "tests/test_extraction.py": "5d1c25142e4261e572047b892b40104488c418c6ba34408ccbb32c3741b4b6b7",
+    "tests/test_lifecycle_mechanics.py": "70a8ec2234a0205812f18bbc8b30b74a23b8704f706d65d15dfa2ab53bfce6d7",
+    "tests/test_m2_combat_status.py": "0f9f8e800d9316793ac05a4167082af848d8ad2260b89262de0f738dcd10486a",
+    "tests/test_m2_damage.py": "3190f7344ca2473cec0cc80de8f90e0a0ceb02955e45643a72c6a0402b8eb931",
+    "tests/test_m2_equipment_powers.py": "edc8d9a437c123101ce434402c7eebc8de320777c023920afaecb326ca1183f4",
+    "tests/test_m2_health_rules.py": "a0bea3f96fb09c41ca8f1c8e33ba0d7e843722c221393ffed0c7dd8b4273100e",
+    "tests/test_m2_resources.py": "53c43f8b03e72e24a7d0fa6a5513d9da0667baa7e8aa0448dad1888b563e1a5b",
+    "tests/test_m2_stats.py": "b9f214ca6ba9f2d65134e89816734c15b8c225efb1a577570dd12deddb9a3abf",
+    "tests/test_m3_choices.py": "368eb5b72d4136aaaf3c3b071b3c04b4697960f3d4cb18452808943a014c7299",
+    "tests/test_m3_construction.py": "e4611b21acc7b77d88dfd3b46b1c2d69469a90ae3ceffe403e438f30300e8070",
+    "tests/test_m3_hand_actions.py": "ee385e65e9c4dea2ea7cca78b490a2bd2f1fe925a2e4526ed5c3044a2499bfd4",
+    "tests/test_m3_information.py": "494963cb9a52ed985faeac12b3d5778cf7983792eb9dda9375752aa5e918838e",
+    "tests/test_m3_opening.py": "00472340a7bf056f2e73bef4e11023ac4bfda0ad88aaf5cebdaaee3c0f27f48b",
+    "tests/test_m3_player_api.py": "20fed2787ae2c721b75dc63c31ac9a2e677692c0f0fe8b38f76b816e73ead6b0",
+    "tests/test_m3_pools.py": "07fd4b7f73922184b6f6815a9b61101becb6b2b86b5caa2f58b4945102b16bf3",
+    "tests/test_m3_zones.py": "3f0b41dceb773cc8b739caf88bedbd9c571e339525e3c14035a75be02800fad7",
+    "tests/test_m4_bonus_effects.py": "d1df8345f2a8244796a5ab1d4b2f1c7109fb4475b967afaf15cb14912c42ba52",
+    "tests/test_m4_dormancy.py": "b8b234df8a9b39a6b7bd0c52afb239c81503a1969379c081776257420642229d",
+    "tests/test_m4_heroes_history.py": "838f73d2a85b4e3a9e48fb61f291dbb373eda5361103807cde978babece4defa",
+    "tests/test_m4_launch_effects.py": "cfc198a69962e9f0d1268354dfbef3ce051ebccac79eec9f07432cdf7a094508",
+    "tests/test_m4_locations.py": "c718caad632d53e17e40f21150532be960ea5aa5176e87ad2c7cf99d457a81f1",
+    "tests/test_m4_minion_abilities.py": "0da31a576a658b775efc78dc0d694ec769d4d8046c51b40655d70d373c89b5e5",
+    "tests/test_m4_player_effects.py": "a51350e8fd6b6c2cc28cc0799dfe379982fd95d2f349d07507d327205012de1a",
+    "tests/test_m4_protocols.py": "342b0ce671161e10f489549a6bb837e6898886660d6bc1a966e1c9ab20b8d954",
+    "tests/test_m4_quests.py": "2a3d91853343f7ed8193a022acb6120f856b6052d92e2810bf0a050f51fa3df3",
+    "tests/test_m4_secrets.py": "989aadd047311032585cd25e5268ec60bb0349253ea3a7912341899d0aae8c77",
+    "tests/test_m4_starships.py": "b2a79e00e0401ef286d40161418e8353d74db78b8eb55ad77a0279966d4af62a",
+    "tests/test_m5_ability_filters.py": "c38ee914874a3ec5ea99b116965e10c440c2523dff00705390d449cb4193aeab",
+    "tests/test_m5_alakir.py": "1f0bd8ca9bff8f70f52ecfa0960ce467df44e8c437709945e3ee1788fcf6c647",
+    "tests/test_m5_battlecries.py": "3548dd05f8aeed514a0342fc48117e539d7e40deb55f120516bbbdacf302e2a3",
+    "tests/test_m5_battlecry_costs.py": "49005986528b05eb5fcc1659a93e7f3e50c050433445aa7633f9ea70a82cbc9e",
+    "tests/test_m5_battlecry_modifiers.py": "c88676faf0c331b0723c9426a7075987b77cdd299965d74319cbb702bffcd8f6",
+    "tests/test_m5_battlecry_repeats.py": "2673f4d169981021b214caad122d6a8b266c3c8c5d261e77ccce45b0f7f5ef02",
+    "tests/test_m5_battlecry_sequences.py": "19125cc0eb8843611a808762128c5091b8b10e2bed39a847620674cd0a5eb9be",
+    "tests/test_m5_battlecry_sources.py": "5d32d59737e9db0a17ac123fe37f499ab80c82fd482ad8aa83ccb6d436757253",
+    "tests/test_m5_card_spell_repeats.py": "6fbaee9359b1c446a253066a7bd8a2ea22f0b6dc9cb6a7d8d3b6eba0c436c204",
+    "tests/test_m5_card_spell_sources.py": "dd01ed87898e959dc32d2ab01efc0d0b7987e0c9d7ff19ef5276d7c4202ff0b6",
+    "tests/test_m5_choose_one.py": "c9a78839c6edf81c65e5e78b050db7bf0284fe4197313a1d977df3a67e86f4e1",
+    "tests/test_m5_colossal.py": "709040e46861f9e337239a48ccaea0efed8deb39ccf2b77179eb4ba5fbdb81c7",
+    "tests/test_m5_combo_activations.py": "a0dfb15f629703b3c8554b97a4f0dd5dc730156c18cd6da820e59e5540f623fd",
+    "tests/test_m5_combo_repeats.py": "6841d973ce3116554b2ef64a37ead07bfb6a02513199fc65b7c3b37e1d46a7b7",
+    "tests/test_m5_combo_sources.py": "49a63e8bf0aadd63b647c7021cb72bc7e3671623a1de1391c835b58200fb472a",
+    "tests/test_m5_counter_policies.py": "6e409ce56eb0921118c00af9c47cdfe8474efd0234435269d6ba9da4f7d3b60f",
+    "tests/test_m5_creation_repeats.py": "f4b1431616e48341273791d3ce49018eba34fa4724f4f04e897569f30a431371",
+    "tests/test_m5_cross_zone.py": "6e34704092779d40f5db287bc6cf5a55af00fc33d05bcb55c010ab6db1dc03e3",
+    "tests/test_m5_death_causes.py": "23fcc2cbe4af649541de1e0b84d0731119ca4c9cc6ecb25ec7f6ca98ea0f7340",
+    "tests/test_m5_deathrattle_activations.py": "ec6ee6dcee431f295d52aca6fb19f11ffbaedb130b9ed74bbe9b3e32e898d964",
+    "tests/test_m5_deathrattle_player_effects.py": "22f704b2bc82bbf9519a21f5216487681cecf1ff07f1eb28b09f07a817c91a4b",
+    "tests/test_m5_deathrattle_repeats.py": "a1cc2dfd1a258bce102d39aee145e1415f9cb9ac3dbfa80d6610b5db8d87f862",
+    "tests/test_m5_deathwing.py": "019c8b23b7e80aef11559e529db32ade5ed0a667da5b04c055c6039602217831",
+    "tests/test_m5_deck_conditions.py": "e1312c4b17f1c84639ac49980b0a05fe5a7a8e61c680398e7346f331e2b58cca",
+    "tests/test_m5_deck_destruction.py": "df00472aa79acbe80c4a9b10b018d1f089a21f16be2678754d772e740db31b80",
+    "tests/test_m5_directed_modification.py": "8dc4435683f9a20b3c5bdcd41ef54da9a25fad00451f299e1a6b1ef1c7c148c4",
+    "tests/test_m5_discovery_delivery.py": "c2d39d8c30fff6dfd9824ef8583645cfb117bc5781812ee7d1cb5978abac8d9e",
+    "tests/test_m5_draw_casts.py": "cd5d1cdb50f991972ac55fce80e5f401d25729cce51a9715a897f0b99fdfbd04",
+    "tests/test_m5_dredge.py": "6996767b79ff7385f0edd5ce576f15a478a666b3921b3b62ee4d13b99d1dc2b6",
+    "tests/test_m5_echo.py": "ce016cdcb3b9478725e8f6f5674bb918d050cccc39a7d9f016d04580b5df60b3",
+    "tests/test_m5_end_turn_activations.py": "1bc4d0815ed39474983f8e37b9a1193ed1d99a54b465eedd5e0156242f763d60",
+    "tests/test_m5_end_turn_producers.py": "338b9dcb48842d6aa445c40cb151ea517cefd2bc6465b3e1f18e488456a0cdd8",
+    "tests/test_m5_end_turn_repeats.py": "3c41294913439749a4d6509ebf5c26ee91fb981da81ae7229b630bd8fcb85a96",
+    "tests/test_m5_end_turn_representatives.py": "d6907bdb5d5bc18a850a4b4d8cf2b3d33b9f12925cfb70c9a86e79cefbd64da0",
+    "tests/test_m5_end_turns.py": "041f78ab2a461e3cb685f67eb52718b9473a3d02f92ba1aeb5b232795d279031",
+    "tests/test_m5_excavate.py": "dd762112dbd65150ba85b7c0364386e4ed4a6404f94251200dc612a48b06149a",
+    "tests/test_m5_fixed_deathrattles.py": "22b0869a8952d7868341ed6e8719ef75ad076e7d0d90e94be988e9d53ca6680d",
+    "tests/test_m5_hand_derivatives.py": "6655928089de920419ddb02a19c87883ce332824ff698aef03e4666d0f9689b5",
+    "tests/test_m5_hand_keywords.py": "d0bb4bbcce9a5691e6d3774a71685ca4728600edc173ab4b9451a7b90dc7012e",
+    "tests/test_m5_hand_progress.py": "c5666deb6ae1a8d94026e5a6ed57aeb3695b0b1b395ab7f85fef8b08c8f2f2a4",
+    "tests/test_m5_hand_upgrades.py": "f23f8252ca3fde75d8ea5021085872b6ac78bb20d7d534f11714884b2ced70bb",
+    "tests/test_m5_health_loss.py": "df48053347df1809ebcd95ce6c5e4ff1d2af021a040666462447d900896c6677",
+    "tests/test_m5_health_outcomes.py": "dc08bbc4a2bfe0a8637fa6c997586207bc1c2e79b671f0ce17c696946e959f26",
+    "tests/test_m5_health_transfer.py": "e85ae0860948855990a98f7f4bd293672a4dd3f9e4a043f02ad4c41750e735e0",
+    "tests/test_m5_held_spells.py": "8c92ff0b1633e3793fab9f2663d70a75f062dbd003f3720199b1b8147e5ba215",
+    "tests/test_m5_herald.py": "b449b2f3d0abf74bd0518970dee42b257db78226147f6edd5e28fa64ad39ef4a",
+    "tests/test_m5_herald_extensions.py": "e7f6c388e74d1cfb6a553ba546268a28f868adf1e724d44de7c9259c6a3add17",
+    "tests/test_m5_herald_integration.py": "d52e0649199f3c0b837d9d2830e101e7edf0266466ae53835c48cd5881517da7",
+    "tests/test_m5_imbue.py": "8ec521ea4dc0bd741ff96ecd980a6723e15b52ba8ebfe920650dfcb0cc00db59",
+    "tests/test_m5_imbue_portals.py": "470988932e6a1a50c2fde7443650d52ed746cca95ef1763789978a9f304d46e2",
+    "tests/test_m5_inspire.py": "1e8b64155063d900c2dec63169fe4f9581b95a24c2a8be869119537aa899bc10",
+    "tests/test_m5_keyword_auras.py": "6c28dcde8d9deed58b4836d273e9c2056dbf3628e5bdea40c33b4a808c103fcf",
+    "tests/test_m5_limited_triggers.py": "52d0e5121871816d3e5ffea006b37df8ce89742d028f4d6fdf2ce345ec943c1a",
+    "tests/test_m5_magnetic.py": "303f7b6b76a6f465d067c2d33e7f322edc3fcd21916ae2766a7259c778d51297",
+    "tests/test_m5_minion_counters.py": "bfb9a7c684a91da3773ac6c8a04363cf144928f1617e1d9c5c2dc0aa87d2133e",
+    "tests/test_m5_mixed_repeats.py": "e2154c2027f77153ea657ad330532c01f504ffacdb85306f228d0bb34def63f2",
+    "tests/test_m5_mixed_representatives.py": "480ea8534996b3212eb706ac787804545df41f9fb5da2f97da3e2132d6a872f5",
+    "tests/test_m5_multiple_powers.py": "a103934f63d8f62a3b092cea34799474f17fa2b347e604cafa5bf0905209ee1b",
+    "tests/test_m5_passive_powers.py": "24c2d665f268ca91603d94ef6e607b514fd9514358cb6102ca56d1992cdd36fb",
+    "tests/test_m5_play_conditions.py": "027e96aa0610c1e0f7c730c4ad8b4fb3ba0a1d0fd02f2b7c3c892780bfb76057",
+    "tests/test_m5_play_history.py": "ed373f97eaecf77a9c368cb57cfca4396d206f7ba984982f56c6e8259dfdeaf8",
+    "tests/test_m5_played_battlecries.py": "bea5d349b2c5329bb3aa95c038853085000151bb9f03b961c5d32c807828adb7",
+    "tests/test_m5_pool_offers.py": "91702e9d870f8b7fa3cda79808421aa11e56f01101400d3fa3029245534e68c2",
+    "tests/test_m5_power_activations.py": "e1823a8e0df3bd2983c669fededbcc37938381a5dfa2a6453452dd41deb0a610",
+    "tests/test_m5_power_combinations.py": "2731eec2d033496e57a3725279abcfe29f10598eb4169935baf30bcea2cafd16",
+    "tests/test_m5_power_lifecycle.py": "9003695691ca82d8d337be9c021c9b535c87eddf2e479c3e4fa1e70ce283e602",
+    "tests/test_m5_power_payloads.py": "0d0417b7b8303142b5c4dd37b950f7549312be17441d1858c83b498a656df271",
+    "tests/test_m5_power_repeats.py": "f70908b22aad9153e1d217977b2add60d955778be72e465c3fa41a005744bc71",
+    "tests/test_m5_power_rewind.py": "9761b7d738791b1b252153cd92bc483918ff3179547004bd2a1e554760c6c0e6",
+    "tests/test_m5_resurrection_followups.py": "483ccd8e9ad86a7ff0f2eda094a7d590022caed637f1b9a0ae572d308117b293",
+    "tests/test_m5_rewind.py": "287075b327a28946e6b84f3fd9b941473d65662d5c6af31c82f7e4c3cfadb29a",
+    "tests/test_m5_rewind_forms.py": "ff5cd3c56531a76f5849d9c09a093fab8dcc86f67a72e4a8beca489a50562752",
+    "tests/test_m5_rewind_outcomes.py": "16dbde05a5b983a0f20420652107ef2b5e0dcc525e17a04bf8aa13e538f659e7",
+    "tests/test_m5_sacrifice.py": "d8c697880a5d83a090b90119d298a1554c79e2881284dcd7d2c9ff90ed3f2449",
+    "tests/test_m5_scoped_deathrattles.py": "200959ef9cf9f42b809a60876ff845df0ca86b7c56341498cc96025ea02a6a9d",
+    "tests/test_m5_sequence_lifecycle.py": "c0a4a539fc300c35cddd0b3fb2184416d19b562c44cf22ba909bad1c1ecd821e",
+    "tests/test_m5_shatter.py": "f80880dfd64829b944644c5cd2231c53cc4f7d3b1901c0b290acd68b92dedf16",
+    "tests/test_m5_shudderwock.py": "61bc5c55dc56547abf7af9542d57a2575df4a921b830e19712b147911f44c86f",
+    "tests/test_m5_spell_casts.py": "df5fc689a101cc0e4fb0270566595cb66417b97dc157a3976548ed179b956dba",
+    "tests/test_m5_spell_history.py": "5ad4351d84c0a94bc4be9f9729f443645cfe3bac3fc793b808ad950c1ab3ffe8",
+    "tests/test_m5_spell_match.py": "bba49179fceb521eaf6081841d309069aafd7e738155b8cb305c96196b0d8ee9",
+    "tests/test_m5_spell_modifiers.py": "a0f49f7554bd328417e1903a51569f7caf100149b324b9861d457fae610135c5",
+    "tests/test_m5_spell_repeats.py": "2b80d9d1252f4fbf1652a87436359166d63c223e420d4aa6f45144f6f58e954c",
+    "tests/test_m5_summon_sources.py": "7feab0d1b25585c16335b174f25e6bf983e84c16531f45decb1c8a94e0629747",
+    "tests/test_m5_timed_keywords.py": "2070824ee15a75325b2f2e291e03b1e361a0c37f242e15bf3ee8e1c52cf3fea9",
+    "tests/test_m5_triggered_battlecries.py": "414155e7f9757f603a98e10a22fc27c3c3965fa57712341ef29bedeb3008ca38",
+    "tests/test_mechanism_inventory.py": "93ff1bb5c229bc903acdb7fb872b781a7e223c6b54873913f1d9ac58ca33efc0",
+    "tests/test_representative_cards.py": "c8ef001e962286f8e4d6ff7d6386977eaf1602b6844e3c35162d4ff7459f30b3",
+    "tests/test_targeting.py": "1222429ad21d23fba2e22d6f4c1b3cd8c36eeddf9f00e2b4e102d117750218d8",
+    "tests/test_targets.py": "3412d56578991a56613a8b433a7e23cda7f4c705f1aaab3c24fba2f8d0caf903",
+    "examples/ability_filtered_batches.py": "98107756f545601ea762d59b9fc10725a1a80aa9fd9af69a9c6f37ef9c016631",
+    "examples/alakir_attack_generation.py": "b98adc98d5cc342af0cd407f6db5c0eb5927a987af6d16104fc35828ea9cf7e9",
+    "examples/awaken_minions.py": "d44d774a5d36aa6ea5fae69af04d5bc6fb0c70a42e7ce9099a805fdb868cffa3",
+    "examples/azshara_keyword_aura.py": "432c602e1b8af02fb81987a47825b188971bca1677a174b218fb347763d7b86a",
+    "examples/battlecry_activations.py": "fff4d2ec53d4164aab6c333950bf2efdb5100060aef58395b9ed20810c4a09d2",
+    "examples/battlecry_cost_auras.py": "e4c533fb959e8f7b75865da9fe41be2de8fb2835caac5516ca88ff3aac9627dc",
+    "examples/battlecry_player_modifiers.py": "6ce68521560c1c82aaa94764fb0d69f2dcf709377ae70a148039f1bd28960968",
+    "examples/battlecry_repetition.py": "8eecdff553862f064c17bd68057bf6e1a1e3d1c6489abdc106b384269c74b5e6",
+    "examples/battlecry_source_lifecycle.py": "324bd5ca657a8ad63f42da320ec5c8faa83f3d0f725367c636c087f4ecba6069",
+    "examples/bolner_history.py": "89011388df344507b103c10d8e3805d5ceea0549ef5139302dd825a81961e0c3",
+    "examples/bounded_battlecries.py": "ab03efbbf69975f1d734823ca8c3dc3ab36fb6e541229b1d7c51e1907c683ed6",
+    "examples/build_starship.py": "b80808f3ba2b1948c69475587ba1cad3aa6d9d150e0f56132e27c65f77a03e1b",
+    "examples/card_spell_repeats.py": "e28ae6e4b0fbce7e344611c2f00d06fa37ddbefeb46a2aa610f6e56872c538c4",
+    "examples/card_spell_sources.py": "9905e5248084f15433feccdd4134939e5e1cd9e99c143ec183aa02f92ec1cc5d",
+    "examples/chogall_deck_sacrifice.py": "429e07d0c3ef2ec9423daf9b3be967e85bc3888847b3d020548ba23c63b4e0b9",
+    "examples/choose_one.py": "a0491df038675412a6b8ffa521ab7100f0a24e85fa6d43c2acca9b07273fed80",
+    "examples/colossal_appendages.py": "b2e66cb8609386e38fda6d173972084cfb25f3609893a0893dc4341f64ff6149",
+    "examples/combo_activations.py": "6b618b67b2b026be24b84085ad9275af08444c24db239469246d3980c6ddc9d2",
+    "examples/combo_repetition.py": "3921b43c4f5dedf2f983882badfb79177641168ab8be624c7bb76ff25635a9e9",
+    "examples/combo_sources.py": "36c92a6ae2f1ec0a241bf969392e081ee39a8841fac2ce569133fba564a971d8",
+    "examples/complete_questline.py": "9d2cfc0f82fa03b4f5c680ca4a6c68a848ae12a22b40b78981765e25c4d7b352",
+    "examples/creation_repeats.py": "486f75e6b3c6bc600e0fcac78bfd3c27c7e4c45e448584d134d1803a3707c018",
+    "examples/death_attribution.py": "4ceaf5d77297947b91349f67c98b894df60bb69f0578697249d0b2d38ddaec45",
+    "examples/deathrattle_activations.py": "962581503ddce12124b2062da9b306d391080d37f2a0227d508abed772210138",
+    "examples/deathrattle_player_effects.py": "aaafaddf3ceb9a24f19560bc7f877ec3ef054774799d9c1b4de93d37abf0628f",
+    "examples/deathrattle_repeats.py": "64b4fa1aa744f07cfa6a87008cba79a69e72740e0053e874035cbb84f14a2246",
+    "examples/deathwing_cataclysms.py": "bb37152d30bfd2c099d2e19f35d8d66922d20117b789f1ad05d16bc4856e58bf",
+    "examples/discover_from_pool.py": "8b1830b692180513f9db88d5a7421617f5186acb7187e8afce7dc87fba8e059f",
+    "examples/dredge_cards.py": "32e67f1643edd365a1d6e3e30153c96e4d1d75900eefcf2f8fa53b929edb6835",
+    "examples/end_turn_activations.py": "c06114603d2fab0ce0fa3b64758494618525690c54b788bfe1d2a152891eec66",
+    "examples/end_turn_producers.py": "8c8255f392fc8ffac458ca0c1fbceaa6650a3e6d1642ea14ea9a0bc2ffd2ef2f",
+    "examples/end_turn_repeats.py": "4fdfc48a490c742fbd237e18b25f83e2e8dcf761c5b5fbfc36e6f36e3e9a3f63",
+    "examples/end_turn_representatives.py": "ea5134045a9b9ccf3648c57b506a86fd7a22379408fd84734703195cf2eaa4fc",
+    "examples/end_turn_subjects.py": "c693018802a79a048b86e1d67311e76eb26274262e7df47ce8716ebbd9b5b39b",
+    "examples/excavate_cross_zone.py": "3b174f5f4c7ab4e2886130bb6628224b7e161f938ab680dbcde1be64d05ead71",
+    "examples/excavate_generation.py": "baf6be51056c1aebfe9219afde8821e16a4ed235d5ff3d8f750193c9a4847e49",
+    "examples/excavate_health_transfer.py": "b04146c5056c19529628a1767f2b6d5b613d79b12384e47e612db11b64f9be91",
+    "examples/excavate_treasures.py": "12283fa393d1b79898b3a4d1b90bd4d6cdee6e30113ac37438b9e24607fb5f56",
+    "examples/exodar_protocols.py": "7efd9c0704167a2477c9749a55e3ba56804336ba78bb8eb04aba6b5294c4703c",
+    "examples/extend_mechanics.py": "3362af4d54dd43aefd69caee86dda46d2765cafdbddc9e2dd306ada30a2b5ed6",
+    "examples/extra_play_conditions.py": "0bb44cc42f1eeca6ab3f24b430a2878e019df2308462969b7b9c31b70b1234ff",
+    "examples/fixed_deathrattles.py": "5c5e2744b223334ec93d17740d0911f8465e0d7ff1f482ca7a10ce7c4ca2ad70",
+    "examples/hand_progress.py": "9b47f9b05833c4f5566b48d39f7314c3471aae0ae7b8a522cba4b95a12258ff9",
+    "examples/health_outcomes.py": "8139765a388c5a39aacc0ebc3fd0a8faa801bd99d07d4e93226883b95d07891e",
+    "examples/held_spells.py": "fc765e01f3e7c2f6ba3238bb0b7ed58dc8f7e4ce8ef8430a1a424a13f76c3e9f",
+    "examples/herald_colossal.py": "5cb9504ed430b4ab9504a78c0289e57bd03d6f766b3c39dee293b2cc581b91c4",
+    "examples/herald_generation.py": "acf4781e3d6f93202c1363eb50f7e73911385031f09afded3ab47840518feeca",
+    "examples/herald_sacrifice.py": "260e99677b0a1c57f4370d286c64360389706cecb2e2da6b21041f5c1ff147e6",
+    "examples/hero_power_rewind.py": "84692d808f91ff311240137eb544d0e97b0578b3e22a5b25032fa5c675eccbcb",
+    "examples/hero_power_sources.py": "00e8d0cf3d62ea0eefda2b382255702cf87f07120b137100eae34783d2aaeeb9",
+    "examples/imbue_directed_modification.py": "d49e486f5d563e7e171897a4939853e323705cf48434db28ab101f5dbb8cea5c",
+    "examples/imbue_growth.py": "92eed869c5efce6784768df859174c6e466b53486208c1168d04a4b8ec29ec6f",
+    "examples/imbue_moon.py": "fe87b45b70b40f3f59691ca40bd1eb80ae6c845800a514af3dcdb0b7930a2874",
+    "examples/imbue_portals.py": "4b1b3c605c32dd3faf685747e7fa237aaedc1081cd280267756037c1ffa6a443",
+    "examples/indirect_battlecries.py": "9489fea018d42c961823eb645c1ff1fcad1e401a86a1da630508c6f94660ea15",
+    "examples/inspire.py": "401731b5e1c3939a9d3e9d7772f1dd844c90801246091af96e7fab16d948dac3",
+    "examples/launch_starship.py": "4b2d5d24340729867cfdecdd9832779b134332363022db9edbbfc7bcbe78ea36",
+    "examples/limited_triggers.py": "6901eb0ad37b85d88fb002830d070448658e2b307903a4eed27276abc05f4694",
+    "examples/macaw_history.py": "772e7e658f3091f7acac6a595d82597a71123c6e1822a56ec8088871bd5372dd",
+    "examples/magnetic_fusion.py": "00c579ca50e6c50a81cc7cd298711cf650b002ee7ea4ae0c616aa16af5811603",
+    "examples/minion_counter_windows.py": "1503757d66db43d249a5023c0cbccac2d03c144e7d8dd321cae23b720fd6d1eb",
+    "examples/mixed_repeats.py": "6b2b98ed685b6014331bf70db4256cf6baa71b7db846d1d52a3677f7ff306683",
+    "examples/multiple_hero_powers.py": "c2573f8e4a225eedd9afe4bc5d15864e37564a8c57dee62804628053c99c39d1",
+    "examples/observe_match.py": "d2683fa9953cfbb059d9e60fecfa746d749f109fd68959a7750c1498d4a48067",
+    "examples/onyxia_health_loss.py": "669237204eac43552e97b31658c45c9ad4e4706c5e08482d5ebd14944e95f292",
+    "examples/passive_hero_power.py": "2e3ccc64254dd35421d5e0b065c7c24bfcf6cbefd5f3d0f08bf9c6ddb491b6cd",
+    "examples/persistent_effects.py": "d3804eef1d5c2a2ce34885d3b3251c430d1df6e647a5d4c470c518222d9da222",
+    "examples/play_as_players.py": "35b14052565f60dc3da650123b19f1e3c7305d0d983dc1f90365e9f4b3787e31",
+    "examples/play_conditions.py": "38ddaece58226fa67b5a2bf50fa512f5e2dd6ced0b1e974df7f6cac4d8d62871",
+    "examples/play_constructed.py": "5aa51e490d5338c5c4d9d42059f290a55d4dee01cb912e0c9a6b7364580c1f9b",
+    "examples/play_hand_actions.py": "9cfcb7f806437b27d1b6ee3eea65217226b45181836045d8f2c9bd6b27d5a46d",
+    "examples/power_combinations.py": "7ae2dd5641ceabd66bc6786ef4f50c697749b9dbbc8e8f95cb9ed953847df972",
+    "examples/power_lifecycle.py": "17c390613e5c7f835c050faf30416a4e9481ceb5fe7b9ee55c32b8682faffb3c",
+    "examples/power_payloads.py": "33cf723e22883e4a8870b7d44f7f2e7dc31069947418163c046884d3c16e20a1",
+    "examples/power_repeats.py": "8d9933a312fd7dea316b52cc55021d048caac2a0c1f323d3f7df7a0b733b817f",
+    "examples/private_counter_choices.py": "2e2340723572aab3c6f2dedc3c0c41dde3cd1ca042feb31f6f80ea1b1b0ba528",
+    "examples/raven_and_lift_off.py": "158e7cf9cb04aa6761582d5c6eb39d6e4550a25e90aa1865d0ee621886167916",
+    "examples/relaunch_with_raynor.py": "c5723223541c800db62187a4c0dbf3c58e8f5caab3d6151f6a8e6ce7964dbe28",
+    "examples/resume_choice.py": "36ad4922dab69132037b7bc82580a172f873610555833fcaffd433c69ebc0d47",
+    "examples/resurrect_highest.py": "fcda7869721afd6cfdd5503d97ee1552e94537fe012366993cb2c484ded5bedb",
+    "examples/retain_rewind_outcomes.py": "1048fa9e983773bb0e4a57fa3c333299ed2b625d6c1d40d064360f76b07dd40b",
+    "examples/scoped_deathrattles.py": "98b2280e4c6d85e05858b77651ec7982ff338cc40d9215e35e19bd8d97b8228c",
+    "examples/shudderwock_history.py": "f9f3587985dffe86c94497e124bb70dac7cd1c18c06eadc3a4f98734f1488298",
+    "examples/sinestra_spell_repeat.py": "f3981353ad6b2d5ab735fa26f1a60f77423aa3061954964c438352582a99f065",
+    "examples/spell_match.py": "2648a4e0f146c27ea173a5a1ed51f175f2c4acd4b76cf5a4c18c3baf061d0a3c",
+    "examples/spell_modifiers.py": "defb39bccad043b925773d6dfe006cbb71661d20ea7d66577d9fafabe8e60527",
+    "examples/starting_deck_conditions.py": "8fbe0057f586f66aea84a89c46d7e74d2b8f986a8c5eeee3e1bf3394ec50e644",
+    "examples/timed_keywords.py": "44a941e186665a64f0afc9404287bfa88cb171b2ccf20787f823f701922e45c9",
+    "examples/trigger_secrets.py": "d96b7e136234774209af13f87f8a705fb1e00ae93ca283190e7811f83a3742c2",
+    "examples/use_starport.py": "09ab3a22390b98e192f14f9700e699759712909fa3c94e877d283e6ffad80d31",
+    "examples/use_titan.py": "8f0068d56f7721d23be2de19251b85b3039400f9cb16056e35e6bacfe706dc17",
+    "examples/zone_operations.py": "d662782f8c4033b39eca20b33e1d3171bc1b226fce7b00740a4dde9622e970fb"
+  },
+  "frozen_inventories_as_observed": {
+    "data/extracted/cards.json": "fd0a3412afa031504f0553210670d6c14ce02ca952819f7524514a8003b86c08",
+    "data/support/imbue-inventory.json": "ed7366423c2c3d929c891afbc060e4840c8d0c00ff4005456bde3d5cb24dc2fd",
+    "data/support/excavation-inventory.json": "6173641a6ca49a7254c5837d3aa4ea3e51a51c8f8ac5213ce77ba5322e2d7f40",
+    "data/support/combo-source-inventory.json": "e7bac0ae2341d94bd7abf4c2e9ef0f2457878aa395fd12162e1a9321be5b80d4",
+    "data/support/card-spell-source-inventory.json": "31351ae51518fd617bfd382c8c2041a54ceef13bd66e586fc2b7786f2a9ba58e"
+  },
+  "M0_historical_runtime_as_observed": {
+    "baseline_ruleset": "prototype-v1",
+    "baseline_content": "synthetic-mechanics-v1",
+    "snapshot_schema": 1,
+    "replay_schema": 1,
+    "rng": "Python random.Random (MT19937), exact Python version must be pinned for replay",
+    "python": "3.12.10"
+  },
+  "verification": {
+    "all_catalog_full_raws_equal_current_frozen_local_source": true,
+    "all_catalog_canonical_hashes_verified": true,
+    "existing_catalog_rows_full_data_and_pin_equal_current_sample": true,
+    "RLK_541_not_in_current_304_sample": true,
+    "RLK_541_equal_800_historical_raw": true,
+    "all_323_A1_source_hashes_equal_stage": true,
+    "cards_sample_canonical_equal_A1_stage": true,
+    "only_new_output_modified_by_this_audit": true,
+    "runtime_tests_examples_docs_data_changed_by_this_audit": false
+  }
+}

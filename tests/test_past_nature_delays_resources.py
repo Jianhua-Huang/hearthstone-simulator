@@ -31,7 +31,6 @@ KILL,SILENCE,GIVE,REFRESH,COPY,AUTO,FAULT=(P+x for x in ('kill','silence','give'
 BAD=P+'convert_unknown'
 MCHOICE,SCHOICE,PORTAL=(P+x for x in ('choose_minion','choose_spell','choose_portal'))
 CTX=GenerationContext('k663-explicit-bounded-test-domain','experimental')
-OUT=Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k663-past-nature-delays-resources'
 
 
 @lru_cache(1)

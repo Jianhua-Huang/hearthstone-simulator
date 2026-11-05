@@ -122,7 +122,7 @@ class ExplicitFatigueTests(unittest.TestCase):
     def test_raw_packet_keeps_full_records_and_only_one_executable_representative(self):
         packet = evidence()
         self.assertEqual(packet['executable_representatives'], ['ETC_068'])
-        all_raw = {c['id']: c for c in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        all_raw = {c['id']: c for c in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         for raw in packet['records']: self.assertEqual(raw, all_raw[raw['id']])
         self.assertEqual(packet['records'][0]['name'], '次中音号小鬼')
         self.assertFalse(packet['CN_calibrated'])

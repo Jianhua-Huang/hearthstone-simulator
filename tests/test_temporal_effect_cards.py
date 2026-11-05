@@ -115,7 +115,7 @@ class TemporalEffectCardTests(unittest.TestCase):
         self.assertIn('naga',tuple(t.lower()for t in n.metadata.tribes));self.assertFalse(n.metadata.collectible)
         self.assertNotIn('DINO_405e',self.r.cards)
     def test_old_definitions_and_default_fingerprint_unchanged(self):
-        before=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k70-before/definition-digests.json').read_text(encoding='utf-8'))
+        before=json.loads((Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k70-before/definition-digests.json').read_text(encoding='utf-8'))
         from dataclasses import asdict
         self.assertEqual(len(before),1003)
         self.assertEqual(before,historical_definition_digests(self.r,before))
@@ -337,7 +337,7 @@ class TemporalEffectCardTests(unittest.TestCase):
     def test_previous_schema_is_rejected_and_current_default_restores(self):
         root=Path(__file__).resolve().parents[1]
         for label in('constructed-v78','default-v65'):
-            old=json.loads((root/f'outputs/card-integration-20261014/k70-before/{label}-core364-schema289.json').read_text(encoding='utf-8'))
+            old=json.loads((root/f'tests/fixtures/history/card-integration-20261014/k70-before/{label}-core364-schema289.json').read_text(encoding='utf-8'))
             with self.subTest(label=label),self.assertRaises(SnapshotError):Game.from_snapshot(old,build_registry()if label.startswith('constructed')else representative())
         g=Game.from_scenario(Scenario((PlayerSetup('HERO_08'),PlayerSetup('HERO_08'))),representative())
         self.assertGreater(SNAPSHOT_SCHEMA_VERSION,289);self.assertEqual(Game.from_snapshot(g.snapshot(),representative()).snapshot(),g.snapshot())

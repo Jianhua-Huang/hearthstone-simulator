@@ -22,7 +22,6 @@ from hs_sim.targets import TargetValidationError,canonical_digest
 P='k664.'
 PLAIN,HURT,DRAW,KILL,KILLALL,GIVE,SILENCE,FAULT=(P+x for x in('plain','hurt','draw','kill','killall','give','silence','fault'))
 OLD=('CS2_009','EX1_154','EX1_158','EX1_158t','EX1_169','WW_823','CS2_007','EX1_164')
-OUT=Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k664-druid-nature-source'
 
 
 @lru_cache(1)

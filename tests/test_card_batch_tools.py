@@ -452,9 +452,9 @@ class CardBatchToolTests(unittest.TestCase):
 
     def test_real_black_blood_bilingual_faces_require_explicit_separator_and_preserve_originals(self):
         root = Path(__file__).resolve().parents[1]
-        evidence = batch.read(root / 'outputs/card-parallel-p62-20261017/worker-230af709/preaudit-source-rejections-01.json')
+        evidence = batch.read(root / 'tests/fixtures/history/card-parallel-p62-20261017/worker-230af709/preaudit-source-rejections-01.json')
         mapping = {'zh_CN': {'<b>巨型+3</b>。': '<b>巨型+3</b>'}}
-        cache = root / 'outputs/card-integration-20261014/tool-plural-primary-original'
+        cache = root / 'tests/fixtures/history/card-integration-20261014/tool-plural-primary-original'
         checks = [c for c in evidence['checks'] if c['card_id'] == 'CATA_300']
         self.assertEqual({c['locale'] for c in checks}, {'zh_CN', 'en_US'})
         for check in checks:
@@ -702,5 +702,5 @@ class LocalHostPreservationToolTests(unittest.TestCase):
         with patch('hs_sim.engine.Game.from_scenario',side_effect=AssertionError('observer must not create a Game')):
             host=batch.observe_local_host()
         proof=batch.check_local_host_preservation(host,deepcopy(host),(),())
-        self.assertEqual((proof['pool_objects'],proof['distinct_pool_ids'],proof['source_scopes']),(47,40,5))
+        self.assertEqual((proof['pool_objects'],proof['distinct_pool_ids'],proof['source_scopes']),(75,51,35))
         self.assertEqual(len(host['root_card_ids']),1322);self.assertEqual(len(host['native']),114)

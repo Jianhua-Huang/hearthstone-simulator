@@ -128,7 +128,7 @@ class CorpseConsumerNativeTests(unittest.TestCase):
         for row in data['cards']+data['dependencies']+data['evidence_only']+data['corpse_spender_records']:
             self.assertEqual(canonical_digest(row['record']),row['record_sha256'])
     def test_old1023_complete_definitions_and_default_fingerprint_unchanged(self):
-        old=json.loads((Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k73-before/definition-digests.json').read_text(encoding='utf-8'))
+        old=json.loads((Path(__file__).resolve().parents[1]/'tests/fixtures/history/card-integration-20261014/k73-before/definition-digests.json').read_text(encoding='utf-8'))
         self.assertEqual(len(old),1023);self.assertEqual(old,historical_definition_digests(self.r,old))
         self.assertEqual(representative().fingerprint(),DEFAULT_REPRESENTATIVE_FINGERPRINT)
     def test_official_stats_dual_tribes_location_and_native_corpse_cost(self):

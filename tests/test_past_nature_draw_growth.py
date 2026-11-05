@@ -34,7 +34,6 @@ ARMOR,FOREIGN,NOOP,PORTAL,HURT,ARMOR2,ARMOR6,ARMOR3,MODIFY,KILL,SILENCE,GIVE,DOR
     P+x for x in('armor','foreign','noop','portal','hurt','armor2','armor6','armor3',
         'modify','kill','silence','give','dormant','fault'))
 CTX=GenerationContext('k662-explicit-bounded-test-domain','experimental')
-OUT=Path(__file__).resolve().parents[1]/'outputs/card-integration-20261014/k662-past-nature-draw-growth'
 
 
 @lru_cache(1)

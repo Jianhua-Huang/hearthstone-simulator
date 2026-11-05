@@ -100,7 +100,7 @@ class HeroPowerDamageBasicTests(unittest.TestCase):
         return variants
 
     def test_complete_raw_pin_native_metadata_and_only_two_executable_adapters(self):
-        packet=evidence();raw={x['id']:x for x in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        packet=evidence();raw={x['id']:x for x in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         self.assertEqual((len(packet['records']),packet['executable_representatives']),(5,[NATIVE,POWER]))
         self.assertEqual(packet['candidate_ids'],['AT_003','CORE_AT_003','PVPDR_SCH_Maget3','YOD_008'])
         for row in packet['records']:self.assertEqual(row,raw[row['id']])

@@ -142,7 +142,7 @@ class AttackScopedImmunityBasicsTests(unittest.TestCase):
     def test_complete_raw_pin_native_carriers_and_evidence_only_sources(self):
         packet = evidence()
         self.assertEqual(packet['executable_representatives'], [BOW, BIRD])
-        all_raw = {c['id']:c for c in json.loads((ROOT/'data/extracted/cards.json').read_bytes())}
+        all_raw = {c['id']:c for c in json.loads((ROOT/'tests/fixtures/extracted/cards.json').read_bytes())}
         for row in packet['records']: self.assertEqual(row, all_raw[row['id']])
         r = registry()
         self.assertEqual((r.card(BOW).attack, r.card(BOW).durability, r.card(BOW).cost), (5, 2, 7))

@@ -204,7 +204,7 @@ class ShamanNatureSummonsTests(CardBatchTestMixin,unittest.TestCase):
 class JadeLightningSourceDisplayTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        b=Path('outputs/card-integration-20261014/k671-shaman-nature-summons')
+        b=Path('tests/fixtures/history/card-integration-20261014/k671-shaman-nature-summons')
         cls.task=cb.read(b/'manifest-02.json');cls.rows=cb.pinned_rows(cls.task)
         cls.index=cb.catalog_index(cls.task['official_catalogs'],Path.cwd())
 
