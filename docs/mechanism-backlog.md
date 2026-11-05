@@ -35,4 +35,4 @@
 
 ## 后续顺序
 
-仓库整理及GitHub历史清理已完成，再依据实际使用反馈处理明确的功能或性能问题；正式池与国服校准仍独立开放。历史细节保留在本地 `outputs/documentation-archive-20261105-01/` 和 `E:/HearthstoneSimulator-Archive/history-cleanup-20261105-01/` 的Git备份中。历史改写没有改变当前运行代码/数据，不计机制进度；本机旧开发分支的祖先不要整体合并回新master。
+仓库整理及GitHub历史清理已完成，仓库按用户授权公开且未登录访问已核验；协作权限与许可证保持原状。再依据实际使用反馈处理明确的功能或性能问题；正式池与国服校准仍独立开放。历史细节保留在本地 `outputs/documentation-archive-20261105-01/` 和 `E:/HearthstoneSimulator-Archive/history-cleanup-20261105-01/` 的Git备份中。历史改写及可见性调整没有改变当前运行代码/数据，不计机制进度；本机旧开发分支的祖先不要整体合并回新master。
